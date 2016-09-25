@@ -406,7 +406,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "nakamura-candle-qr"
       }
     },
     {
@@ -426,7 +426,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "toriiti-qr"
       }
     },
     {
@@ -446,7 +446,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "ibaraki-qr"
       }
     },
     {
@@ -456,7 +456,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "aritugu-qr"
       }
     },
     {
@@ -466,7 +466,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "ryusido-qr"
       }
     },
     {
@@ -476,7 +476,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "koyamaen-qr"
       }
     },
     {
@@ -486,7 +486,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "ito-kumihimo-qr"
       }
     },
     {
@@ -496,7 +496,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "nakanoisuke-qr"
       }
     },
     {
@@ -526,7 +526,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "turuya-yosinobu-qr"
       }
     },
     {
@@ -546,7 +546,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "kagizen-qr"
       }
     },
     {
@@ -556,7 +556,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "suzuki-syohudo-qr"
       }
     },
     {
@@ -586,7 +586,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "kansyundo-qr"
       }
     },
     {
@@ -596,7 +596,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "kaneido-qr"
       }
     },
     {
@@ -606,7 +606,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "jusanya-qr"
       }
     },
     {
@@ -646,7 +646,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "eirakuya-qr"
       }
     },
     {
@@ -656,7 +656,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "tuziri-qr"
       }
     },
     {
@@ -666,7 +666,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "kikuitimonzi-qr"
       }
     },
     {
@@ -686,7 +686,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "kyoto-city-hall-qr"
       }
     },
     {
@@ -696,7 +696,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "onishi-kyosendo-qr"
       }
     },
     {
@@ -706,7 +706,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "yasaka-shrine-qr"
       }
     },
     {
@@ -716,7 +716,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "zohiko-qr"
       }
     },
     {
@@ -726,7 +726,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "aiba-qr"
       }
     },
     {
@@ -736,7 +736,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "heian-shrine-qr"
       }
     },
     {
@@ -746,7 +746,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "kenzin-temple-qr"
       }
     },
     {
@@ -756,7 +756,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "hiiragiya-qr"
       }
     },
     {
@@ -766,7 +766,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "nijowakasaya-qr"
       }
     },
     {
@@ -776,7 +776,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "kyotogosyo-qr"
       }
     },
     {
@@ -786,7 +786,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "ryuouen-qr"
       }
     },
     {
@@ -796,7 +796,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "kyokado-qr"
       }
     },
     {
@@ -806,7 +806,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "miyako-qr"
       }
     },
     {
@@ -816,7 +816,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
-        "answerQr": "decodedqr"
+        "answerQr": "murakami-qr"
       }
     },
     {
