@@ -23,7 +23,6 @@ $(function() {
 		});
 		$('#btn-next').prop('disabled', !enableBtnNext);
 	});
-
 	$('#btn-next').click(function() {
 		// 回答を取得
 		var indexes = $('.selection:checked').map(function() {
