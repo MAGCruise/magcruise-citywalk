@@ -1,12 +1,10 @@
-var id  = getParamDic()["id"];
-var lat = getParamDic()["lat"];
-var lon = getParamDic()["lon"];
-var checkpoint = getCheckpoint(id);
+setTaskTitle();
+var task = getTask();
 
 $(function() {
-	var task = checkpoint.task;
+	showCheckeinMessageIfNeeded();
 	$('#label').text(task.label);
-
+	
 	var selectionType = (task.answerIndexes.length == 1) ? "radio" : "checkbox"
 	task.selections.forEach(function(selection, i) {
 		var selectionElem =
@@ -31,43 +29,11 @@ $(function() {
 		var indexes = $('.selection:checked').map(function() {
 			return parseInt($(this).val());
 		}).get();
-		addActivity(task, indexes);
-	});
-
-	$(document).on('confirmation', '.remodal', function () {
-		moveToNextPage();
+		var isCorrect = isSameAnswers(task.answerIndexes, indexes);
+		addActivity(task, indexes.sort().toString(), isCorrect);
 	});
 });
 
-function addActivity(task, indexes) {
-	var isCorrect = isSameElements(task.answerIndexes, indexes);
-	var arg = {
-		checkpointId:checkpoint.id,
-		lat		: lat,
-		lon		: lon,
-		userId	: getUserId(),
-		checkpointGroupId: getCheckpointGroupId(),
-		taskId	: task.id,
-		taskType: task.taskType,
-		score	: (isCorrect) ? task.point : 0,
-		inputs	: {
-			value			: indexes.sort().toString()
-		}
-	};
-	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [ arg ], function(data) {
-		if (data.result && data.result.badges.length > 0) {
-			$('#modalDesc').html(data.result.badges.toString().replace(",", "</br>"));
-			$('#modal')[0].click();
-		} else {
-			moveToNextPage();
-		}
-	})).rpc();
-}
-
-function moveToNextPage() {
-	location.href = "./checkpoints.html";
-}
-
-function isSameElements(array1, array2) {
+function isSameAnswers(array1, array2) {
 	return array1.sort().toString() === array2.sort().toString();
 }

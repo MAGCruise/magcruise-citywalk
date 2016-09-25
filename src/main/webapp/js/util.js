@@ -56,62 +56,6 @@ function getActivityPublisherWssUrl() {
 	return urlPrefix + "websocket/activity";
 }
 
-function getCheckinURL(checkpoint) {
-	var suffix = "";
-	switch (checkpoint.checkin.taskType) {
-	case TaskType.Photo:
-		suffix = "photo";
-		break;
-	case TaskType.QR:
-		suffix = "qr";
-		break;
-	case TaskType.Selection:
-		suffix = "selection";
-		break;
-	case TaskType.Sort:
-		suffix = "sort";
-		break;
-	case TaskType.Description:
-		suffix = "description";
-		break;
-	default:
-		break;
-	}
-	return "checkin-" + suffix + ".html?id=" + checkpoint.id;
-}
-
-var TaskType = {
-	Photo : "PhotoTask",
-	QR : "QrCodeTask",
-	Selection : "SelectionTask",
-	Sort : "SortTask",
-	Description : "DescriptionTask",
-};
-
-function getTaskURL(checkpoint) {
-	var suffix = "";
-	switch (checkpoint.task.taskType) {
-	case TaskType.Photo:
-		suffix = "photo";
-		break;
-	case TaskType.QR:
-		suffix = "qr";
-		break;
-	case TaskType.Selection:
-		suffix = "selection";
-		break;
-	case TaskType.Sort:
-		suffix = "sort";
-		break;
-	case TaskType.Description:
-		suffix = "description";
-		break;
-	default:
-		break;
-	}
-	return "task-" + suffix + ".html?id=" + checkpoint.id;
-}
-
 /* City Walk Data */
 function saveCityWalkData(data) {
 	setItem(KEY_CITY_WALK_DATA, JSON.stringify(data));
@@ -125,7 +69,7 @@ function getCheckpoints() {
 	return loadCityWalkData()["checkpoints"];
 }
 
-function getCheckpoint(id) {
+function getCheckpoint(id=getParamDic()["checkpoint_id"]) {
 	var array = getCheckpoints().filter(function(c) {
 		return c.id == id;
 	});

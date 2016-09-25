@@ -1,17 +1,17 @@
-var id  = getParamDic()["id"];
-var lat = getParamDic()["lat"];
-var lon = getParamDic()["lon"];
-var checkpoint = getCheckpoint(id);
+setTaskTitle();
+var task = getTask();
 
 $(function() {
+	showCheckeinMessageIfNeeded();
+	
 	$("#loading").hide();
-	$("#task-img").attr('src', checkpoint.checkin.imgSrc);
+	$("#task-img").attr('src', task.imgSrc);
 	$("#btn-next").click(function() {
 		$("#loading").fadeIn();
 		var imgData = $("#img-preview").attr('src');
 		new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "uploadImage", [ getUserId(), imgData ], function(data) {
 			$("#loading").fadeOut();
-			location.href = getTaskURL(checkpoint) + "&lat=" + lat + "&lon=" + lon + "&image_id=" + data.result;
+			moveToNextPage();
 		})).rpc();
 	});
 });

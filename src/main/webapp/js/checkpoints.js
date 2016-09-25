@@ -19,7 +19,7 @@ $(function() {
 			alert("チェックポイントが選択されていません。");
 			return;
 		}
-		location.href = "./navi.html?id=" + selectedCheckpoint.id;
+		location.href = "./navi.html?checkpoint_id=" + selectedCheckpoint.id;
 	});
 });
 

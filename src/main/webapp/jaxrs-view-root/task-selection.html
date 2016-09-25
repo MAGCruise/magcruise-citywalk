@@ -5,9 +5,10 @@
 <object th:include="/templates/header.html :: meta-fragment"
 	th:remove="tag"></object>
 <script src="../js/citywalk.js"></script>
+<script type="text/javascript" src="../js/task-common.js"></script>	
 <script type="text/javascript" src="../js/task-selection.js"></script>
 <link rel="stylesheet" href="../css/task-selection.css" />
-<title>タスク</title>
+<title></title>
 </head>
 <head th:remove="all">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -20,13 +21,6 @@
 		<div th:replace="/templates/header.html :: top-menu"></div>
 		<div class="row">
 			<div class="col-sm-12">
-				<p class="alert alert-info">チェックインに成功しました！</p>
-				<h1 id="label"></h1>
-				<div class="form-group"></div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
 				<div class="margin-container">
 					<button id="btn-next" class="btn btn-primary btn-next-fill"
 						disabled>回答する</button>
@@ -34,19 +28,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Modal -->
-	<a href="#modal" id="modal"></a>
-	<div class="remodal" data-remodal-id="modal" role="dialog"
-		aria-labelledby="modalTitle" aria-describedby="modalDesc"
-		data-remodal-options="closeOnOutsideClick: false">
-		<div>
-			<p id="modalTitle">バッジを獲得しました！</p>
-			<h2 id="modalDesc"></h2>
-		</div>
-		<br>
-		<button data-remodal-action="confirm" class="remodal-confirm">OK</button>
-	</div>
-
+	<div th:replace="/templates/modal.html :: modal"></div>
 </body>
 </html>

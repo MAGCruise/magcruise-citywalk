@@ -1,7 +1,7 @@
-var id 	= getParamDic()["id"];
+var checkpointId = getParamDic()["checkpoint_id"];
 var lat = getParamDic()["lat"];
 var lon = getParamDic()["lon"];
-var checkpoint = getCheckpoint(id);
+var checkpoint = getCheckpoint(checkpointId);
 
 $(function() {
 	var task = checkpoint.task;

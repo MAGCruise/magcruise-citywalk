@@ -1,5 +1,4 @@
-var checkpointId = getParamDic()["id"];
-var checkpoint = getCheckpoint(checkpointId);
+var checkpoint = getCheckpoint();
 document.title = checkpoint.name; // タイトルの変更
 var cPos; // 現在地
 var ePos; // チェックポイント
@@ -13,26 +12,9 @@ var POST_MOVEMENT_INTERVAL = 1000 * 10; // msec
 var KEY_MOVEMENT_LIST = "movement_list";
 
 $(function() {
-	var nextBtnText = "",
-		nextBtnHref = "";
-
 	$("#activity-title").text(checkpoint.name+"でのアクティビティ");
-
-	// チェックインorタスク
-	switch (checkpoint.checkin.taskType) {
-	case TaskType.Photo:
-	case TaskType.QR:
-		nextBtnText = "チェックイン";
-		nextBtnHref = getCheckinURL(checkpoint);
-		break;
-	default:
-		nextBtnText = "タスク";
-		nextBtnHref = getTaskURL(checkpoint);
-		break;
-	}
-	$("#btn-next").text(nextBtnText);
 	$("#btn-next").click(function() {
-		location.href = nextBtnHref + "&lat=" + cPos.lat() + "&lon=" + cPos.lng();
+		location.href = getTaskURLWithCurrentPosition(checkpoint, 0, cPos);
 	});
 
 	// コンパス画像の要素
@@ -224,7 +206,7 @@ function enqueueMovement(pos) {
 			lng    	 			: pos.coords.longitude,
 			heading 			: cHeading,
 			checkpointGroupId	: getCheckpointGroupId(),
-			checkpointId		: checkpointId,
+			checkpointId		: checkpoint.id,
 	};
 	var movements = getMovementQueue();
 	movements.push(movement);
