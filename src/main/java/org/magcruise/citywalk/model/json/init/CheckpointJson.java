@@ -1,7 +1,10 @@
 package org.magcruise.citywalk.model.json.init;
 
+import java.util.List;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.magcruise.citywalk.model.row.Task;
 
 public class CheckpointJson {
 
@@ -11,21 +14,19 @@ public class CheckpointJson {
 	private double lat;
 	private double lon;
 
-	private CheckinJson checkin;
-	private TaskJson task;
+	private List<TaskJson> tasks;
 
 	public CheckpointJson() {
 	}
 
 	public CheckpointJson(String id, String name, String label, double lat, double lon,
-			CheckinJson checkin, TaskJson task) {
+			List<TaskJson> tasks) {
 		this.id = id;
 		this.name = name;
 		this.label = label;
 		this.lat = lat;
 		this.lon = lon;
-		this.checkin = checkin;
-		this.task = task;
+		this.tasks = tasks;
 	}
 
 	public String getId() {
@@ -60,25 +61,17 @@ public class CheckpointJson {
 		this.lon = lon;
 	}
 
-	public TaskJson getTask() {
-		return task;
+	public List<TaskJson> getTasks() {
+		return tasks;
 	}
 
-	public void setTask(TaskJson task) {
-		this.task = task;
+	public void setTask(List<TaskJson> tasks) {
+		this.tasks = tasks;
 	}
 
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
-	}
-
-	public CheckinJson getCheckin() {
-		return checkin;
-	}
-
-	public void setCheckin(CheckinJson checkin) {
-		this.checkin = checkin;
 	}
 
 	public String getLabel() {
