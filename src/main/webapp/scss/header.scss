@@ -1,0 +1,12 @@
+@import "settings";
+@import "mixins";
+
+#orange-dropdown {
+	padding: $baseMargin;
+	background: $orangeColor;
+	@include round($baseMargin/2);
+}
+
+.dropdown-menu>li>a {
+	padding: 10px 20px;
+}

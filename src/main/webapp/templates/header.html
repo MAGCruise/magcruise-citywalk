@@ -5,6 +5,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <script src="../js/citywalk.js"></script>
+<link rel="stylesheet" href="../css/header.css" />
 </head>
 <div class="container">
 	<div class="row" th:fragment="top-menu">
@@ -12,15 +13,16 @@
 			<div id="mag-nav">
 				<span id="nav-title">MAGCruiseCityWalk</span>
 				<div id="nav-menu" class="dropdown pull-right">
-					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="glyphicon glyphicon-cog icon-white"></i>
-						<b class="caret"></b>
+					 <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="orange-dropdown">
+				 		<b class="caret"></b>
+				 		これまでの行動
 					</a>
 					<ul class="dropdown-menu">
-					    <li><a href="login.html">ログアウト</a></li>
-						<li><a href="visited-checkpoints.html">訪問済みチェックポイント</a></li>
-						<li><a href="badge.html">バッジ</a></li>
-						<li><a href="ranking.html">ランキング</a></li>
+						<li><a href="ranking.html" class="item">ランキング</a></li>
+						<li><a href="visited-checkpoints.html" class="item">訪問済みチェックポイント</a></li>
+						<li><a href="badge.html" class="item">バッジ</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="login.html" class="item">ログアウト</a></li>
 					</ul>
 				</div>
 			</div>
