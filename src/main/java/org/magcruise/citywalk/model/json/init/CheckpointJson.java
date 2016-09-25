@@ -14,20 +14,18 @@ public class CheckpointJson {
 	private double lat;
 	private double lon;
 
-	private CheckinJson checkin;
 	private List<TaskJson> tasks;
 
 	public CheckpointJson() {
 	}
 
 	public CheckpointJson(String id, String name, String label, double lat, double lon,
-			CheckinJson checkin, List<TaskJson> tasks) {
+			List<TaskJson> tasks) {
 		this.id = id;
 		this.name = name;
 		this.label = label;
 		this.lat = lat;
 		this.lon = lon;
-		this.checkin = checkin;
 		this.tasks = tasks;
 	}
 
@@ -74,14 +72,6 @@ public class CheckpointJson {
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
-	}
-
-	public CheckinJson getCheckin() {
-		return checkin;
-	}
-
-	public void setCheckin(CheckinJson checkin) {
-		this.checkin = checkin;
 	}
 
 	public String getLabel() {

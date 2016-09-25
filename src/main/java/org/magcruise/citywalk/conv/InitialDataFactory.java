@@ -38,16 +38,22 @@ public class InitialDataFactory {
 				.map(c -> {
 					List<Task> tasks = new TasksTable().getTasks(c.getId());
 					List<TaskJson> taskJsons = new ArrayList<>();
-					CheckinJson checkin = new CheckinJson();
-					for (Task t : tasks) {
+					int checkinIndex = 0;
+					for (int i = 0; i < tasks.size(); i++) {
+						Task t = tasks.get(i);
+						//  チェックインタスクはチェックポイントに必ず一つだけ存在
 						if (t.getContentObject().isCheckin()) {
-							checkin = new CheckinJson(t);
-						} else {
-							taskJsons.add(new TaskJson(t));
+							checkinIndex = i;
 						}
+						taskJsons.add(new TaskJson(t));
 					}
+					// チェックインタスクを先頭に持ってくる
+					TaskJson checkinTaskJson = taskJsons.get(checkinIndex);
+					taskJsons.remove(checkinIndex);
+					taskJsons.add(0, checkinTaskJson);
+					
 					return new CheckpointJson(c.getId(), c.getName(), c.getLabel(), c.getLat(),
-							c.getLon(), checkin, taskJsons);
+							c.getLon(), taskJsons);
 				}).collect(Collectors.toList());
 		return new InitialDataJson(result);
 
