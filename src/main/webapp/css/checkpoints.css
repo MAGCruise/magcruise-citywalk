@@ -54,13 +54,17 @@
     margin-left: 8px;
     width: 70px;
     height: 70px; }
-  .checkpoint .name {
+  .checkpoint .text {
     padding-left: 10px;
-    font-size: 16px;
-    color: #0074BF;
     display: table-cell;
     vertical-align: middle;
     height: 70px; }
+    .checkpoint .text .name {
+      font-size: 16px;
+      color: #0074BF; }
+    .checkpoint .text .detail {
+      font-size: 12px;
+      color: #AAA; }
 
 .selected {
   background: #FCF8E3; }

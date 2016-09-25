@@ -66,13 +66,19 @@ $margin: 8px;
 		width: $checkpointHeight;
 		height: $checkpointHeight;
 	}
-	.name {
+	.text {
 		padding-left: $baseMargin;
-		font-size: 16px;
-		color: $primaryColor;
 		display: table-cell;
 		vertical-align: middle;
 		height: $checkpointHeight;
+		.name {
+			font-size: 16px;
+			color: $primaryColor;
+		}
+		.detail {
+			font-size: 12px;
+			color: $lightGrayColor;
+		}
 	}
 }
 
