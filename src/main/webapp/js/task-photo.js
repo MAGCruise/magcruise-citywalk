@@ -11,7 +11,7 @@ $(function() {
 		var imgData = $("#img-preview").attr('src');
 		new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "uploadImage", [ getUserId(), imgData ], function(data) {
 			$("#loading").fadeOut();
-			moveToNextPage();
+			addActivity(task, "", true);
 		})).rpc();
 	});
 });

@@ -32,12 +32,14 @@ function getTaskURL(checkpoint, taskIndex) {
 	default:
 		break;
 	}
-	return 	"task-" + suffix + ".html" +
-			"?checkpoint_id=" + checkpoint.id +
-			"&task_index=" + taskIndex +
-			"&is_last_task=" + (taskIndex == checkpoint.tasks.length-1) +
-			"&lat=" + getParamDic()["lat"] +
-			"&lon=" + getParamDic()["lon"];
+	var url = "task-" + suffix + ".html" +
+			  "?checkpoint_id=" + checkpoint.id +
+			  "&task_index=" + taskIndex +
+			  "&is_last_task=" + (taskIndex == checkpoint.tasks.length-1);
+	if (getParamDic()["lat"] && getParamDic()["lon"]) {
+		url += "&lat=" + getParamDic()["lat"] + "&lon=" + getParamDic()["lon"];
+	}
+	return url;
 }
 
 function getTaskURLWithLatLon(task, taskIndex, lat, lon) {
@@ -57,7 +59,7 @@ function moveToNextPage() {
 	if (isLastTask()) {
 		location.href = "./checkpoints.html";
 	} else {
-		location.href = getTaskURL(getCheckpoint(), parseInt(getParamDic()["task_index"]) + 1);
+		location.href = getTaskURL(getCheckpoint(), parseInt(getParamDic()["task_index"]) + 1).split('#')[0];
 	}
 }
 
