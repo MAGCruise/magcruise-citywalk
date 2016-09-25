@@ -1,6 +1,7 @@
 package org.magcruise.citywalk.conv;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import org.magcruise.citywalk.model.json.init.CheckinJson;
@@ -36,17 +37,17 @@ public class InitialDataFactory {
 		List<CheckpointJson> result = checkpoints.stream()
 				.map(c -> {
 					List<Task> tasks = new TasksTable().getTasks(c.getId());
-					TaskJson task = new TaskJson();
+					List<TaskJson> taskJsons = new ArrayList<>();
 					CheckinJson checkin = new CheckinJson();
 					for (Task t : tasks) {
 						if (t.getContentObject().isCheckin()) {
 							checkin = new CheckinJson(t);
 						} else {
-							task = new TaskJson(t);
+							taskJsons.add(new TaskJson(t));
 						}
 					}
 					return new CheckpointJson(c.getId(), c.getName(), c.getLabel(), c.getLat(),
-							c.getLon(), checkin, task);
+							c.getLon(), checkin, taskJsons);
 				}).collect(Collectors.toList());
 		return new InitialDataJson(result);
 

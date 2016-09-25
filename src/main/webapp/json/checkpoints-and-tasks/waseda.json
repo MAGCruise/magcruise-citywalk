@@ -29,7 +29,7 @@
       "lat": 35.705975,
       "lon": 139.706664,
       "name": "aed2",
-      "label": "場所を知っておこう",
+      "label": "マルチタスク",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -37,7 +37,7 @@
       "lat": 35.7063,
       "lon": 139.70827,
       "name": "aed3",
-      "label": "場所を知っておこう",
+      "label": "タスクなし",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -167,13 +167,24 @@
     },
     {
       "id": "aed-selection",
-      "checkpoint_ids": ["aed-1","aed-2","aed-3","aed-4","aed-5","aed-6"],
+      "checkpoint_ids": ["aed-1","aed-2","aed-4","aed-5","aed-6"],
       "content":{
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、AEDの使い方として、間違っているのはどれ？",
         "selections": ["パッドは右胸と左わき腹に貼る","心電図解析中は体に触らない","放電ボタンを押す時は、体から離れる","呼吸が戻ったらパッドを速やかにはずす"],
         "answerIndexes": [4]
+      }
+    },
+    {
+      "id": "aed-selection-2",
+      "checkpoint_ids": ["aed-2"],
+      "content":{
+        "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+        "point": 2.0,
+        "label": "次のうち、AEDの使い方として、正しいのを全て選択して下さい。",
+        "selections": ["正しい","正しい","間違い","間違い"],
+        "answerIndexes": [0,1]
       }
     },
       {
