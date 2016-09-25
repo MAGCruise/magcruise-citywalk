@@ -35,12 +35,26 @@ function getBaseUrl() {
 }
 
 function getActivityPublisherUrl() {
+	if (parseUri(location).protocol === "https") {
+		return getActivityPublisherWssUrl();
+	}else{
+		return getActivityPublisherWsUrl();
+	}
+}
+
+function getActivityPublisherWsUrl() {
 	var u = parseUri(document.URL);
-	var urlPrefix = "ws://" + u.authority + "/"
-			+ u.directory.split("/")[1] + "/";
+	var urlPrefix = "ws://" + u.authority + "/" + u.directory.split("/")[1]
+			+ "/";
 	return urlPrefix + "websocket/activity";
 }
 
+function getActivityPublisherWssUrl() {
+	var u = parseUri(document.URL);
+	var urlPrefix = "wss://" + u.authority + "/" + u.directory.split("/")[1]
+			+ "/";
+	return urlPrefix + "websocket/activity";
+}
 
 function getCheckinURL(checkpoint) {
 	var suffix = "";
@@ -154,7 +168,6 @@ function getCheckpointGroupId() {
 	return window.sessionStorage.getItem(KEY_CHECKPOINT_GROUP_ID);
 }
 
-
 /* Geo */
 function floatFormat(number, n) {
 	var _pow = Math.pow(10, n);
@@ -165,17 +178,23 @@ function padding(str) {
 	return ('0' + str).slice(-2);
 }
 
-function toFormattedDate(milliseconds){
+function toFormattedDate(milliseconds) {
 	var date = new Date(milliseconds);
-	var str = [date.getFullYear(), padding(date.getMonth() + 1), padding(date.getDate())].join('-');
+	var str = [ date.getFullYear(), padding(date.getMonth() + 1),
+			padding(date.getDate()) ].join('-');
 	str += ' ';
-	str += [padding(date.getHours()), padding(date.getMinutes()), padding(date.getSeconds())].join(':');
+	str += [ padding(date.getHours()), padding(date.getMinutes()),
+			padding(date.getSeconds()) ].join(':');
 	return "[" + str + "] ";
 }
 
-function toFormattedShortDate(milliseconds){
+function toFormattedShortDate(milliseconds) {
 	var date = new Date(milliseconds);
-	return  padding(date.getMonth() + 1) + '月' +
-			padding(date.getDate()) + '日' + ' ' +
-			[padding(date.getHours()), padding(date.getMinutes())].join(':');
+	return padding(date.getMonth() + 1)
+			+ '月'
+			+ padding(date.getDate())
+			+ '日'
+			+ ' '
+			+ [ padding(date.getHours()), padding(date.getMinutes()) ]
+					.join(':');
 }
