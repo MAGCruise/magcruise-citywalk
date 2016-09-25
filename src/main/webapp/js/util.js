@@ -2,6 +2,7 @@
 var KEY_CITY_WALK_DATA = "city_walk_data";
 var KEY_USER_ID = "user_id";
 var KEY_CHECKPOINT_GROUP_ID = "checkpoint_group_id";
+var KEY_VISITED_CHECKPOINTS = "visited_checkpoints";
 /** *********** */
 
 $(function() {
@@ -77,6 +78,17 @@ function getCheckpoint(id=getParamDic()["checkpoint_id"]) {
 		return array[0];
 	}
 	return null;
+}
+
+function getVisitedCheckPoints() {
+	return JSON.parse(getItem(KEY_VISITED_CHECKPOINTS)) || [];
+}
+
+function addVisitedCheckPoints(checkpointId) {
+	var visitedCheckPoints = getVisitedCheckPoints();
+	console.log(visitedCheckPoints);
+	visitedCheckPoints.push(checkpointId);
+	setItem(KEY_VISITED_CHECKPOINTS, JSON.stringify(visitedCheckPoints));
 }
 
 /* Local Storage */

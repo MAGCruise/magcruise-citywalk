@@ -83,8 +83,9 @@ function showCheckeinMessageIfNeeded() {
 }
 
 function addActivity(task, input, isCorrect) {
+	var checkpointId = getParamDic()["checkpoint_id"];
 	var arg = {
-		checkpointId      : getParamDic()["checkpoint_id"],
+		checkpointId      : checkpointId,
         lat               : getParamDic()["lat"],
         lon               : getParamDic()["lon"],
         userId            : getUserId(),
@@ -99,6 +100,8 @@ function addActivity(task, input, isCorrect) {
 	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [ arg ], function(data) {
 		var isCheckin = parseInt(getParamDic()["task_index"]) == 0;
 		if (isCheckin) {
+			// 訪問済みチェックポイントに追加
+			addVisitedCheckPoints(checkpointId);
 			moveToNextPage();
 			return;
 		}
