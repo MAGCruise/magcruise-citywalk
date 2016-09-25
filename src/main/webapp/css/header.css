@@ -1,0 +1,11 @@
+#orange-dropdown {
+  padding: 10px;
+  background: #FA833C;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -m-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px; }
+
+.dropdown-menu > li > a {
+  padding: 10px 20px; }
