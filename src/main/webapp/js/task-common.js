@@ -97,12 +97,18 @@ function addActivity(task, input, isCorrect) {
         }
 	};
 	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [ arg ], function(data) {
-		if (data.result && data.result.badges.length > 0) {
-			$('#modalDesc').html(data.result.badges.toString().replace(",", "</br>"));
-			$('#modal')[0].click();
-		} else {
+		var isCheckin = parseInt(getParamDic()["task_index"]) == 0;
+		if (isCheckin) {
 			moveToNextPage();
+			return;
 		}
+		var title = "タスクを完了しました！";
+		if (data.result && data.result.badges.length > 0) {
+			title = "バッジを獲得しました！";
+			$('#modalDesc').html(data.result.badges.toString().replace(",", "</br>"));
+		}
+		$('#modalTitle').text(title);
+		$('#modal')[0].click();
 	})).rpc();
 }
 
