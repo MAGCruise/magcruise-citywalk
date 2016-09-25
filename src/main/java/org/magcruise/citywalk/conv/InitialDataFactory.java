@@ -38,12 +38,14 @@ public class InitialDataFactory {
 				.map(c -> {
 					List<Task> tasks = new TasksTable().getTasks(c.getId());
 					List<TaskJson> taskJsons = new ArrayList<>();
+					CheckinJson checkin = new CheckinJson();
 					int checkinIndex = 0;
 					for (int i = 0; i < tasks.size(); i++) {
 						Task t = tasks.get(i);
 						//  チェックインタスクはチェックポイントに必ず一つだけ存在
 						if (t.getContentObject().isCheckin()) {
 							checkinIndex = i;
+							checkin = new CheckinJson(t);
 						}
 						taskJsons.add(new TaskJson(t));
 					}
@@ -53,7 +55,7 @@ public class InitialDataFactory {
 					taskJsons.add(0, checkinTaskJson);
 					
 					return new CheckpointJson(c.getId(), c.getName(), c.getLabel(), c.getLat(),
-							c.getLon(), taskJsons);
+							c.getLon(), checkin, taskJsons);
 				}).collect(Collectors.toList());
 		return new InitialDataJson(result);
 
