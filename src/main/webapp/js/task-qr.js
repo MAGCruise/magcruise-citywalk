@@ -2,6 +2,8 @@ setTaskTitle();
 var task = getTask();
 
 $(function() {
+	showCheckeinMessageIfNeeded();
+	
 	$("#btn-next").click(function() {
 		addActivity(task, task.answerQr, true);
 	});
