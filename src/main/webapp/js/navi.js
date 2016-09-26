@@ -207,6 +207,7 @@ function enqueueMovement(pos) {
 			heading 			: cHeading,
 			checkpointGroupId	: getCheckpointGroupId(),
 			checkpointId		: checkpoint.id,
+			date		        : new Date(),
 	};
 	var movements = getMovementQueue();
 	movements.push(movement);
