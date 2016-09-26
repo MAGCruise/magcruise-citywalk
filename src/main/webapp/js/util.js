@@ -85,15 +85,31 @@ function getCheckpoint() {
 	return null;
 }
 
-function getVisitedCheckPoints() {
+function getVisitedCheckPointIds() {
 	return JSON.parse(getItem(KEY_VISITED_CHECKPOINTS)) || [];
 }
 
-function addVisitedCheckPoints(checkpointId) {
-	var visitedCheckPoints = getVisitedCheckPoints();
-	console.log(visitedCheckPoints);
-	visitedCheckPoints.push(checkpointId);
-	setItem(KEY_VISITED_CHECKPOINTS, JSON.stringify(visitedCheckPoints));
+function addVisitedCheckPointIds(checkpointId) {
+	var visitedCheckPointIds = getVisitedCheckPointIds();
+	console.log(visitedCheckPointIds);
+	visitedCheckPointIds.push(checkpointId);
+	setItem(KEY_VISITED_CHECKPOINTS, JSON.stringify(visitedCheckPointIds));
+}
+
+function getVisitedCheckPoints() {
+	var visitedCheckPointIds = getVisitedCheckPointIds();
+	var visitedCheckPoints = getCheckpoints().filter(function(checkpoint) {
+		return visitedCheckPointIds.indexOf(checkpoint.id) >= 0;
+	});
+	return visitedCheckPoints;
+}
+
+function getNonVisitedCheckPoints() {
+	var visitedCheckPointIds = getVisitedCheckPointIds();
+	var visitedCheckPoints = getCheckpoints().filter(function(checkpoint) {
+		return visitedCheckPointIds.indexOf(checkpoint.id) < 0;
+	});
+	return visitedCheckPoints;
 }
 
 /* Local Storage */

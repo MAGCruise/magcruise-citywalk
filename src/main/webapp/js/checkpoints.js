@@ -1,7 +1,7 @@
 var map;
 var markers = []; // マーカーs
 var infoWindows = []; // バルーンs
-var checkpoints = getCheckpoints(); // チェックポイントデータをLocalStorageより取得
+var checkpoints = getNonVisitedCheckPoints(); // 未訪問チェックポイントデータをLocalStorageより取得
 var cPos; // 現在地
 var selectedCheckpoint;
 
