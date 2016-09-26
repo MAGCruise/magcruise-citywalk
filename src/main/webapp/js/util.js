@@ -28,6 +28,10 @@ function getParamDic() {
 	return paramDic;
 }
 
+function getParam(key) {
+	return getParamDic()[key];
+}
+
 function getBaseUrl() {
 	var u = parseUri(document.URL);
 	var urlPrefix = u.protocol + "://" + u.authority + "/"
@@ -70,7 +74,8 @@ function getCheckpoints() {
 	return loadCityWalkData()["checkpoints"];
 }
 
-function getCheckpoint(id=getParamDic()["checkpoint_id"]) {
+function getCheckpoint() {
+	var id = getParam("checkpoint_id");
 	var array = getCheckpoints().filter(function(c) {
 		return c.id == id;
 	});
