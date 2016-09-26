@@ -7,9 +7,6 @@
   .checkpoint .name {
     font-size: 20px;
     color: #38A997; }
-    .checkpoint .name .visited {
-      font-size: 16px;
-      color: #FA833C; }
   .checkpoint .answer {
     font-size: 14px;
     color: #38A997; }

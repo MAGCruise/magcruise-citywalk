@@ -103,7 +103,7 @@ function addActivity(task, input, isCorrect) {
 		var isCheckin = parseInt(getParam("task_index")) == 0;
 		if (isCheckin) {
 			// 訪問済みチェックポイントに追加
-			addVisitedCheckPoints(checkpointId);
+			addVisitedCheckPointIds(checkpointId);
 			moveToNextPage();
 			return;
 		}
