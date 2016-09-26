@@ -77,8 +77,6 @@ function showCheckeinMessageIfNeeded() {
 	var html = '<div class="row">' +
 					'<div class="col-sm-12">' +
 						'<p class="alert alert-info">チェックインに成功しました！</p>' +
-						'<h1 id="label"></h1>' +
-						'<div class="form-group"></div>' +
 					'</div>' +
 				'</div>';
 	$("#menu").after(html);
