@@ -1,4 +1,6 @@
-function getTask(checkpoint=getCheckpoint(), taskIndex=parseInt(getParamDic()["task_index"])) {
+function getTask() {
+	var checkpoint = getCheckpoint();
+	var taskIndex = parseInt(getParam("task_index"));
 	return checkpoint.tasks[taskIndex];
 }
 
@@ -11,7 +13,7 @@ var TaskType = {
 };
 
 function getTaskURL(checkpoint, taskIndex) {
-	var task = getTask(checkpoint, taskIndex);
+	var task = checkpoint.tasks[taskIndex];
 	var suffix = "";
 	switch (task.taskType) {
 	case TaskType.Photo:
@@ -36,8 +38,8 @@ function getTaskURL(checkpoint, taskIndex) {
 			  "?checkpoint_id=" + checkpoint.id +
 			  "&task_index=" + taskIndex +
 			  "&is_last_task=" + (taskIndex == checkpoint.tasks.length-1);
-	if (getParamDic()["lat"] && getParamDic()["lon"]) {
-		url += "&lat=" + getParamDic()["lat"] + "&lon=" + getParamDic()["lon"];
+	if (getParam("lat") && getParam("lon")) {
+		url += "&lat=" + getParam("lat") + "&lon=" + getParam("lon");
 	}
 	return url;
 }
@@ -52,24 +54,24 @@ function getTaskURLWithCurrentPosition(task, taskIndex, cPos) {
 }
 
 function isLastTask() {
-	return getParamDic()["is_last_task"] === 'true';
+	return getParam("is_last_task") === 'true';
 }
 
 function moveToNextPage() {
 	if (isLastTask()) {
 		location.href = "./checkpoints.html";
 	} else {
-		location.href = getTaskURL(getCheckpoint(), parseInt(getParamDic()["task_index"]) + 1).split('#')[0];
+		location.href = getTaskURL(getCheckpoint(), parseInt(getParam("task_index")) + 1).split('#')[0];
 	}
 }
 
 function setTaskTitle() {
-	document.title = (parseInt(getParamDic()["task_index"]) == 0) ? "チェックイン" : "タスク";
+	document.title = (parseInt(getParam("task_index")) == 0) ? "チェックイン" : "タスク";
 }
 
 function showCheckeinMessageIfNeeded() {
 	// チェックイン直後のみ表示する
-	if (parseInt(getParamDic()["task_index"]) != 1) {
+	if (parseInt(getParam("task_index")) != 1) {
 		return;
 	}
 	var html = '<div class="row">' +
@@ -83,11 +85,11 @@ function showCheckeinMessageIfNeeded() {
 }
 
 function addActivity(task, input, isCorrect) {
-	var checkpointId = getParamDic()["checkpoint_id"];
+	var checkpointId = getParam("checkpoint_id");
 	var arg = {
 		checkpointId      : checkpointId,
-        lat               : getParamDic()["lat"],
-        lon               : getParamDic()["lon"],
+        lat               : getParam("lat"),
+        lon               : getParam("lon"),
         userId            : getUserId(),
         checkpointGroupId : getCheckpointGroupId(),
         taskId            : task.id,
@@ -98,7 +100,7 @@ function addActivity(task, input, isCorrect) {
         }
 	};
 	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [ arg ], function(data) {
-		var isCheckin = parseInt(getParamDic()["task_index"]) == 0;
+		var isCheckin = parseInt(getParam("task_index")) == 0;
 		if (isCheckin) {
 			// 訪問済みチェックポイントに追加
 			addVisitedCheckPoints(checkpointId);
