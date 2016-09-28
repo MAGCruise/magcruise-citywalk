@@ -55,7 +55,7 @@ public class InitialDataFactory {
 					taskJsons.add(0, checkinTaskJson);
 					
 					return new CheckpointJson(c.getId(), c.getName(), c.getLabel(), c.getLat(),
-							c.getLon(), checkin, taskJsons, c.getMarkerColor());
+							c.getLon(), checkin, taskJsons, c.getMarkerColor(), c.getCategory(), c.getSubcategory());
 				}).collect(Collectors.toList());
 		return new InitialDataJson(result);
 

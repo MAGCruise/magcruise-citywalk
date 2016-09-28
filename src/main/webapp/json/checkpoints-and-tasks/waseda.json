@@ -7,6 +7,8 @@
       "name": "大食堂",
       "label": "お昼は激こみ",
       "marker_color": "red",
+      "category": "category-1",
+      "subcategory": "subcategory-1-1",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -16,6 +18,8 @@
       "name": "PCルーム",
       "label": "みんなで課題",
       "marker_color": "green",
+      "category": "category-1",
+      "subcategory": "subcategory-1-2",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -25,6 +29,8 @@
       "name": "aed1",
       "label": "場所を知っておこう",
       "marker_color": "blue",
+      "category": "category-2",
+      "subcategory": "subcategory-2-1",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -34,6 +40,8 @@
       "name": "aed2",
       "label": "マルチタスク",
       "marker_color": "blue",
+      "category": "category-2",
+      "subcategory": "subcategory-2-1",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -43,6 +51,8 @@
       "name": "aed3",
       "label": "タスクなし",
       "marker_color": "blue",
+      "category": "category-2",
+      "subcategory": "subcategory-2-1",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -52,6 +62,8 @@
       "name": "aed4",
       "label": "場所を知っておこう",
       "marker_color": "blue",
+      "category": "category-2",
+      "subcategory": "subcategory-2-2",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -61,6 +73,8 @@
       "name": "aed5",
       "label": "場所を知っておこう",
       "marker_color": "blue",
+      "category": "category-2",
+      "subcategory": "subcategory-2-2",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -70,6 +84,8 @@
       "name": "aed6",
       "label": "場所を知っておこう",
       "marker_color": "blue",
+      "category": "category-2",
+      "subcategory": "subcategory-2-2",
       "checkpoint_group_ids": ["waseda"]
     }
   ],
