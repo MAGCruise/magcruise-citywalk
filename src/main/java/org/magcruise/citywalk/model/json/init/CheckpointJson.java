@@ -16,12 +16,13 @@ public class CheckpointJson {
 
 	private CheckinJson checkin;
 	private List<TaskJson> tasks;
+	private String markerColor;
 
 	public CheckpointJson() {
 	}
 
 	public CheckpointJson(String id, String name, String label, double lat, double lon,
-			CheckinJson checkin, List<TaskJson> tasks) {
+			CheckinJson checkin, List<TaskJson> tasks, String markerColor) {
 		this.id = id;
 		this.name = name;
 		this.label = label;
@@ -29,6 +30,7 @@ public class CheckpointJson {
 		this.lon = lon;
 		this.checkin = checkin;
 		this.tasks = tasks;
+		this.markerColor = markerColor;
 	}
 
 	public String getId() {
@@ -91,5 +93,12 @@ public class CheckpointJson {
 	public void setLabel(String label) {
 		this.label = label;
 	}
+	
+	public String getMarkerColor() {
+		return markerColor;
+	}
 
+	public void setMarkerColor(String markerColor) {
+		this.markerColor = markerColor;
+	}
 }

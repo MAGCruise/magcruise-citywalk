@@ -23,18 +23,20 @@ public class Checkpoint {
 	private double lat;
 	private double lon;
 	private List<String> checkpointGroupIds = new ArrayList<>();
+	private String markerColor;
 
 	public Checkpoint() {
 	}
 
 	public Checkpoint(String id, String name, String label, double lat, double lon,
-			List<String> checkPointGroupIds) {
+			List<String> checkPointGroupIds, String markerColor) {
 		this.id = id;
 		this.name = name;
 		this.label = label;
 		this.lat = lat;
 		this.lon = lon;
 		this.checkpointGroupIds.addAll(checkPointGroupIds);
+		this.markerColor = markerColor;
 	}
 
 	public String getId() {
@@ -108,5 +110,12 @@ public class Checkpoint {
 	public void setCreated(Date created) {
 		this.created = created;
 	}
+	
+	public String getMarkerColor() {
+		return markerColor;
+	}
 
+	public void setMarkerColor(String markerColor) {
+		this.markerColor = markerColor;
+	}
 }
