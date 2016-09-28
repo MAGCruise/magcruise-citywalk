@@ -165,24 +165,6 @@ a {
 	clear: both;
 }
 
-#mag-nav {
-	width: 100%;
-	text-align: center;
-	background: $primaryColor;
-	padding: $baseMargin 0px;
-	#nav-title {
-		font-family: HiraginoSans-W6;
-		font-size: $fs2;
-		color: white;
-	}
-	.dropdown {
-		padding: $baseMargin;
-	}
-	.dropdown-toggle {
-		color: white;
-	}
-}
-
 .title {
 	font-size: $fs3;
 	color: #777;

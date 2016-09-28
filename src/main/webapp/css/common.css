@@ -140,20 +140,6 @@ a:hover img {
 .clr {
   clear: both; }
 
-#mag-nav {
-  width: 100%;
-  text-align: center;
-  background: #0074BF;
-  padding: 10px 0px; }
-  #mag-nav #nav-title {
-    font-family: HiraginoSans-W6;
-    font-size: 24px;
-    color: white; }
-  #mag-nav .dropdown {
-    padding: 10px; }
-  #mag-nav .dropdown-toggle {
-    color: white; }
-
 .title {
   font-size: 21px;
   color: #777; }
