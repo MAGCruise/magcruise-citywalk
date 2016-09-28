@@ -78,6 +78,7 @@ function watchCurrentPosition() {
 			console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
 			showDistance();
 			enqueueMovement(pos);
+			updateMapZoomLevel();
 		},
 		function(error){
 			alert('位置情報の取得に失敗しました');
@@ -243,4 +244,28 @@ var postMovementsFunc = function() {
         var newMovements = lastMovements.concat(getMovementQueue());
         setMovementQueue(newMovements);
 	})).rpc();
+}
+
+/* マップのズームレベルを調整 */
+function updateMapZoomLevel() {
+	var minLat, maxLat, minLng, maxLng;
+	if (cPos.lat() > ePos.lat()) {
+		minLat = ePos.lat();
+		maxLat = cPos.lat();
+	} else {
+		minLat = cPos.lat();
+		maxLat = ePos.lat();
+	}
+	if (cPos.lng() > ePos.lng()) {
+		minLng = ePos.lng();
+		maxLng = cPos.lng();
+	} else {
+		minLng = cPos.lng();
+		maxLng = ePos.langt();
+	}
+	// 全てのマーカーが入るように縮尺を調整
+	var sw = {lat: minLat, lng: minLng};
+	var ne = {lat: maxLat, lng: maxLng};
+	var latlngBounds = new google.maps.LatLngBounds(sw, ne);
+	map.fitBounds(latlngBounds);
 }
