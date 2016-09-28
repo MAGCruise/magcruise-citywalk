@@ -1,4 +1,5 @@
 $(function() {
+	$("#nav-menu").hide();
 	$('#login-btn').on(
 			'click',
 			function() {
