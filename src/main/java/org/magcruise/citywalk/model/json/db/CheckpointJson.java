@@ -13,18 +13,20 @@ public class CheckpointJson {
 	private double lat;
 	private double lon;
 	private List<String> checkpointGroupIds = new ArrayList<>();
+	private String markerColor;
 
 	public CheckpointJson() {
 	}
 
 	public CheckpointJson(String id, String name, String label, double lat, double lon,
-			List<String> checkPointGroupIds) {
+			List<String> checkPointGroupIds, String markerColor) {
 		this.id = id;
 		this.name = name;
 		this.label = label;
 		this.lat = lat;
 		this.lon = lon;
 		this.checkpointGroupIds.addAll(checkPointGroupIds);
+		this.markerColor = markerColor;
 	}
 
 	public String getId() {
@@ -74,10 +76,17 @@ public class CheckpointJson {
 	public void setCheckpointGroupIds(List<String> checkpointGroupIds) {
 		this.checkpointGroupIds = checkpointGroupIds;
 	}
+	
+	public String getMarkerColor() {
+		return markerColor;
+	}
 
+	public void setMarkerColor(String markerColor) {
+		this.markerColor = markerColor;
+	}
+	
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
-
 }

@@ -6,6 +6,7 @@
       "lon": 139.708019,
       "name": "大食堂",
       "label": "お昼は激こみ",
+      "marker_color": "red",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -14,6 +15,7 @@
       "lon": 139.705188,
       "name": "PCルーム",
       "label": "みんなで課題",
+      "marker_color": "green",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -22,6 +24,7 @@
       "lon": 139.706716,
       "name": "aed1",
       "label": "場所を知っておこう",
+      "marker_color": "blue",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -30,6 +33,7 @@
       "lon": 139.706664,
       "name": "aed2",
       "label": "マルチタスク",
+      "marker_color": "blue",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -38,6 +42,7 @@
       "lon": 139.70827,
       "name": "aed3",
       "label": "タスクなし",
+      "marker_color": "blue",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -46,6 +51,7 @@
       "lon": 139.707068,
       "name": "aed4",
       "label": "場所を知っておこう",
+      "marker_color": "blue",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -54,6 +60,7 @@
       "lon": 139.705007,
       "name": "aed5",
       "label": "場所を知っておこう",
+      "marker_color": "blue",
       "checkpoint_group_ids": ["waseda"]
     },
     {
@@ -62,6 +69,7 @@
       "lon": 139.707198,
       "name": "aed6",
       "label": "場所を知っておこう",
+      "marker_color": "blue",
       "checkpoint_group_ids": ["waseda"]
     }
   ],

@@ -70,7 +70,7 @@ public class CheckpointsAndTasksFactory {
 		List<Checkpoint> checkpoints = checkpointsData.stream()
 				.map(checkpoint -> new Checkpoint(checkpoint.getId(), checkpoint.getName(),
 						checkpoint.getLabel(), checkpoint.getLat(), checkpoint.getLon(),
-						checkpoint.getCheckpointGroupIds()))
+						checkpoint.getCheckpointGroupIds(), checkpoint.getMarkerColor()))
 				.collect(Collectors.toList());
 		return checkpoints;
 	}

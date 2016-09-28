@@ -121,6 +121,7 @@ function initMap() {
 		var marker = new google.maps.Marker({
 		    position: {lat: checkpoint.lat, lng: checkpoint.lon},
 		    map: map,
+		    icon: "http://maps.google.com/mapfiles/ms/icons/" + checkpoint.markerColor + "-dot.png"
 		});
 		marker.addListener('click', function() {
 		    selectCheckpoint(i);
