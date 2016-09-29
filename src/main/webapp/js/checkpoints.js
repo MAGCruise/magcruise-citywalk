@@ -4,6 +4,18 @@ var infoWindows = []; // バルーンs
 var checkpoints = getNonVisitedCheckPoints(); // 未訪問チェックポイントデータをLocalStorageより取得
 var cPos; // 現在地
 var selectedCheckpoint;
+var category = getParam("category");
+var subcategory = getParam("subcategory");
+if (category) {
+	checkpoints = checkpoints.filter(function(checkpoint) {
+		return checkpoint.category == category;
+	});
+}
+if (subcategory) {
+	checkpoints = checkpoints.filter(function(checkpoint) {
+		return checkpoint.subcategory == subcategory;
+	});
+}
 
 $(function() {
 	unselectCheckpoint();
@@ -21,6 +33,23 @@ $(function() {
 		}
 		location.href = "./navi.html?checkpoint_id=" + selectedCheckpoint.id;
 	});
+	
+	if (category || subcategory) {
+		var url = location.origin + location.pathname;
+		// トップ（カテゴリ一覧）へ
+		var html = '<a href="' + url + '">TOP</a>';
+		// サブカテゴリ一覧へ
+		if (category && subcategory) {
+			html += ' > <a href="' + url + '?category=' + category + '">' + category + '</a>';
+			html += ' > ' + subcategory;
+		} else if (category) {
+			html += ' > ' + category;
+		}
+		$("#breadcrumb").html(html);
+		$("#breadcrumb").show();
+	} else {
+		$("#breadcrumb").hide();
+	}
 });
 
 function getCurrentPosition() {
@@ -31,7 +60,7 @@ function getCurrentPosition() {
 		function(pos) { // success
 			cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
 			console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
-	        showCheckpoints(cPos);
+	        showList();
 		},
 		function(error) {
 			alert('位置情報の取得に失敗しました');
@@ -44,14 +73,24 @@ function getCurrentPosition() {
 	);
 }
 
+function showList() {
+	if (category && subcategory) {
+		showCheckpoints();
+	} else if (category) {
+		showSubcategory();
+	} else {
+		showCategory();
+	}
+}
+
 /* チェックポイントリストの表示 */
-function showCheckpoints(cPos) {
+function showCheckpoints() {
 	checkpoints.forEach(function(checkpoint, i) {
 		var ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
 		var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
 		var distanceStyle = (distance > 1000) ? "far" : "near";
 		var imgSrc = "../img/placeholder.svg";
-		var checkpointElem =
+		var elem =
 			$('<div class="checkpoint" id="checkpoint-' + i + '">' + 
 				'<span class="pull-left distance ' + distanceStyle + '">' + 
 					getFormattedDistance(distance) + 
@@ -62,10 +101,56 @@ function showCheckpoints(cPos) {
 					'<div class="detail">' + checkpoint.label + '</div>' +
 				'</div>' +
 			'</div>');
-		checkpointElem.click(function() {
+		elem.click(function() {
 			selectCheckpoint(i);
 		});
-		$("#checkpoints").append(checkpointElem);
+		$("#checkpoints").append(elem);
+	});
+}
+
+function makeListElemWithoutDistanceAndImage(name) {
+	return $(
+			'<div class="checkpoint">' + 
+				'<div class="text">' +
+					'<div class="name">' + name + '</div>' +
+				'</div>' +
+			'</div>'
+			);
+}
+
+/* サブカテゴリの表示 */
+function showSubcategory() {
+	// カテゴリでフィルタ、サブカテゴリ名を抽出、ユニークに
+	var names = checkpoints.filter(function (checkpoint) {
+        return checkpoint.category = category;
+    }).map(function(checkpoint) {
+		return checkpoint.subcategory;
+	}).filter(function (subcategory, index, self) {
+        return self.indexOf(subcategory) === index;
+    });
+	names.forEach(function(name, i) {
+		var elem = makeListElemWithoutDistanceAndImage(name);
+		elem.click(function() {
+			location.href = location.href + "&subcategory=" + name;
+		});
+		$("#checkpoints").append(elem);
+	});
+}
+
+/* カテゴリの表示 */
+function showCategory() {
+	// カテゴリ名を抽出、ユニークに
+	var names = checkpoints.map(function(checkpoint) {
+		return checkpoint.category;
+	}).filter(function (category, index, self) {
+        return self.indexOf(category) === index;
+    });
+	names.forEach(function(name, i) {
+		var elem = makeListElemWithoutDistanceAndImage(name);
+		elem.click(function() {
+			location.href = location.href + "?category=" + name;
+		});
+		$("#checkpoints").append(elem);
 	});
 }
 

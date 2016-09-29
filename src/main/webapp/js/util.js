@@ -17,12 +17,12 @@ function getParamDic() {
 	var paramDic = {};
 	var url = location.href;
 	params = url.split("?");
-	if (params.length < 1) {
+	if (params.length <= 1) {
 		return paramDic;
 	}
-	paramms = params[1].split("&");
-	for (var i = 0; i < paramms.length; i++) {
-		var tmp = paramms[i].split("=");
+	params = params[1].split("&");
+	for (var i = 0; i < params.length; i++) {
+		var tmp = params[i].split("=");
 		paramDic[tmp[0]] = tmp[1];
 	}
 	return paramDic;

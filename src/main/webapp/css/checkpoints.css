@@ -25,6 +25,11 @@
 .far {
   background: #38A997; }
 
+#breadcrumb {
+  color: #AAA;
+  font-size: 15px;
+  margin: 10px; }
+
 .checkpoint {
   cursor: pointer;
   background: white;
@@ -68,3 +73,5 @@
 
 .selected {
   background: #FCF8E3; }
+
+/*# sourceMappingURL=checkpoints.css.map */

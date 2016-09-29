@@ -21,6 +21,8 @@ public class CheckpointsTable extends RelationalModel<Checkpoint> {
 	private static final String LABEL = "label";
 	private static final String CREATED = "created";
 	private static final String MARKER_COLOR = "marker_color";
+	private static final String CATEGORY = "category";
+	private static final String SUBCATEGORY = "subcategory";
 
 	public CheckpointsTable() {
 		super(TABLE_NAME, ApplicationContext.getDbClient());
@@ -32,6 +34,8 @@ public class CheckpointsTable extends RelationalModel<Checkpoint> {
 		setAttribute(LON, Keyword.DOUBLE);
 		setAttribute(CHECKPOINT_GROUP_IDS, Keyword.VARCHAR);
 		setAttribute(MARKER_COLOR, Keyword.VARCHAR);
+		setAttribute(CATEGORY, Keyword.VARCHAR);
+		setAttribute(SUBCATEGORY, Keyword.VARCHAR);
 	}
 
 	public List<Checkpoint> findByCheckpointGroupId(String checkpointGroupId) {
