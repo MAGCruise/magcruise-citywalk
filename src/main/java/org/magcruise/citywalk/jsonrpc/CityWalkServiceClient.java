@@ -83,4 +83,10 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 		return citywalkService.getRanking(userId);
 	}
 
+	@Override
+	public VisitedCheckpointJson[] getVisitedCheckpoints(String userId, String checkpointGroupId) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
 }

@@ -55,7 +55,7 @@ public class TasksTable extends RelationalModel<Task> {
 		return c.isCheckin();
 	}
 
-	private Task getTask(String taskId) {
+	public Task getTask(String taskId) {
 		return getClient().readByPrimaryKey(Task.class, taskId);
 	}
 

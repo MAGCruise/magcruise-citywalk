@@ -2,6 +2,7 @@ package org.magcruise.citywalk.jsonrpc;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +23,7 @@ import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
 import org.magcruise.citywalk.model.row.Activity;
 import org.magcruise.citywalk.model.row.Badge;
 import org.magcruise.citywalk.model.row.SubmittedActivity;
+import org.magcruise.citywalk.model.row.Task;
 import org.magcruise.citywalk.model.row.UserAccount;
 import org.magcruise.citywalk.model.row.VerifiedActivity;
 import org.nkjmlab.util.base64.Base64ImageUtils;
@@ -196,6 +198,22 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		ranking.add(new RankJson("Group5", 5));
 		rankingJson.setGroupRanking(groupRanking);
 		return rankingJson;
+	}
+
+	@Override
+	public VisitedCheckpointJson[] getVisitedCheckpoints(String userId, String checkpointGroupId) {
+		Map<String, VisitedCheckpointJson> result = new HashMap<>();
+
+		verifiedActivities.getActivities(userId).stream()
+				.filter(a -> a.getCheckpointGroupId().equals(checkpointGroupId)).forEach(a -> {
+					result.putIfAbsent(a.getCheckpointId(),
+							new VisitedCheckpointJson(a.getCheckpointId()));
+					VisitedCheckpointJson j = result.get(a.getCheckpointId());
+					j.addScore(a.getScore());
+					Task t = tasks.getTask(a.getTaskId());
+					j.addPoint(t.getContentObject().getPoint());
+				});
+		return result.values().toArray(new VisitedCheckpointJson[0]);
 	}
 
 }

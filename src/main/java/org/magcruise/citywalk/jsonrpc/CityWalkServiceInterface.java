@@ -34,6 +34,10 @@ public interface CityWalkServiceInterface {
 
 	RankingJson getRanking(@Parameter(sample = "ayaki") String userId);
 
+	VisitedCheckpointJson[] getVisitedCheckpoints(
+			@Parameter(sample = "sample-at-magcruise.org") String userId,
+			@Parameter(sample = "waseda") String checkpointGroupId);
+
 	String uploadImage(
 			@Parameter(sample = "ayaki") String userId,
 			@Parameter(sample = "data:image/jpeg;base64,"
