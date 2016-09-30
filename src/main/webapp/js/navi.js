@@ -1,6 +1,7 @@
 var checkpoint = getCheckpoint();
 document.title = checkpoint.name; // タイトルの変更
 var cPos; // 現在地
+var cCircle; // 現在地を示す円
 var ePos; // チェックポイント
 var cHeading; // 絶対角
 var map;
@@ -79,6 +80,7 @@ function watchCurrentPosition() {
 			showDistance();
 			enqueueMovement(pos);
 			updateMapZoomLevel();
+			updateCurrentCircle(pos.coords.accuracy);
 		},
 		function(error){
 			alert('位置情報の取得に失敗しました');
@@ -268,4 +270,21 @@ function updateMapZoomLevel() {
 	var ne = {lat: maxLat, lng: maxLng};
 	var latlngBounds = new google.maps.LatLngBounds(sw, ne);
 	map.fitBounds(latlngBounds);
+}
+
+function updateCurrentCircle(accuracy) {
+	if (cCircle != null) {
+		cCircle.setMap(null);
+	}
+    // 誤差を円で描く
+    cCircle = new google.maps.Circle({
+        map: map,
+        center: cPos,
+        radius: accuracy, // 単位はメートル
+        strokeColor: '#0088ff',
+        strokeOpacity: 0.8,
+        strokeWeight: 1,
+        fillColor: '#0088ff',
+        fillOpacity: 0.2
+    });
 }
