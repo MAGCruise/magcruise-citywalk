@@ -7,9 +7,14 @@
   .checkpoint .name {
     font-size: 20px;
     color: #38A997; }
+    .checkpoint .name .result {
+      font-size: 16px;
+      color: #FA833C; }
   .checkpoint .answer {
     font-size: 14px;
     color: #38A997; }
   .checkpoint .description {
     margin: 0px;
     padding-left: 10px; }
+
+/*# sourceMappingURL=visited-checkpoints.css.map */
