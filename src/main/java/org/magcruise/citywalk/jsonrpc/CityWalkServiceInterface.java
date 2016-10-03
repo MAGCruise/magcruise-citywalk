@@ -6,6 +6,7 @@ import java.util.Map;
 import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
 import org.magcruise.citywalk.model.json.RankingJson;
+import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
 
@@ -21,6 +22,9 @@ public interface CityWalkServiceInterface {
 
 	boolean login(String checkpointGroupId,
 			@Parameter(sample = "ayaki") String userId,
+			@Parameter(sample = "houchimin") String groupId);
+
+	RegisterResultJson register(@Parameter(sample = "ayaki") String userId,
 			@Parameter(sample = "houchimin") String groupId);
 
 	RewardJson addActivity(

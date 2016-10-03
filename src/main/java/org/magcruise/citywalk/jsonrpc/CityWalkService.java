@@ -13,6 +13,7 @@ import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
 import org.magcruise.citywalk.model.json.RankJson;
 import org.magcruise.citywalk.model.json.RankingJson;
+import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
 import org.magcruise.citywalk.model.relation.BadgesTable;
@@ -46,7 +47,6 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	@Override
 	public boolean login(String chekipointGroupId, String userId, String groupId) {
-		users.insertIfAbsent(new UserAccount(userId, groupId));
 		UserSession session = getSession();
 		if (session.isLogined()) {
 			log.debug("already logined as {}", session.getUserId());
@@ -66,6 +66,22 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 			session.setUserId(userId);
 			session.setGroupId(groupId);
 			return true;
+		}
+	}
+
+	@Override
+	public RegisterResultJson register(String userId, String groupId) {
+		if (!users.exists(userId)) {
+			users.insert(new UserAccount(userId, groupId));
+			return new RegisterResultJson(true, "");
+		}
+		int i = 0;
+		while (true) {
+			String recommended = userId + i;
+			if (!users.exists(recommended)) {
+				return new RegisterResultJson(false, recommended);
+			}
+			i++;
 		}
 	}
 
