@@ -16,7 +16,12 @@
 							getBaseUrl(), "getInitialData", [ group_id ],
 							function(data) {
 								saveCityWalkData(data.result);
-								location.href = "login.html" + "#" + group_id;
+								// 既にログイン済みの場合はログインページに
+								if (getCheckpointGroupId() && getUserId() && getGroupId() && getCheckpointGroupId() == group_id) {
+									location.href = "login.html" + "#" + group_id;
+								} else {
+									location.href = "register.html" + "#" + group_id;
+								}
 							})).rpc();
 				});
 	});
