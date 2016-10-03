@@ -175,3 +175,18 @@ function toFormattedShortDate(milliseconds) {
 			+ [ padding(date.getHours()), padding(date.getMinutes()) ]
 					.join(':');
 }
+
+function drawCurrentLocationCircle(map, cPos, radius) {
+    // 誤差を円で描く
+    var circle = new google.maps.Circle({
+        map: map,
+        center: cPos,
+        radius: radius, // 単位はメートル
+        strokeColor: '#0088ff',
+        strokeOpacity: 0.8,
+        strokeWeight: 1,
+        fillColor: '#0088ff',
+        fillOpacity: 0.2
+    });
+    return circle;
+}

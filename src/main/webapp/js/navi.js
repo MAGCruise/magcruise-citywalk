@@ -276,15 +276,5 @@ function updateCurrentCircle(accuracy) {
 	if (cCircle != null) {
 		cCircle.setMap(null);
 	}
-    // 誤差を円で描く
-    cCircle = new google.maps.Circle({
-        map: map,
-        center: cPos,
-        radius: accuracy, // 単位はメートル
-        strokeColor: '#0088ff',
-        strokeOpacity: 0.8,
-        strokeWeight: 1,
-        fillColor: '#0088ff',
-        fillOpacity: 0.2
-    });
+	cCircle = drawCurrentLocationCircle(map, cPos, accuracy);
 }
