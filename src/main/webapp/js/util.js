@@ -130,19 +130,18 @@ function clear() {
 	window.localStorage.clear();
 }
 
-/* Session Storage */
 function setUserId(val) {
-	window.sessionStorage.setItem(KEY_USER_ID, val);
+	setItem(KEY_USER_ID, val);
 }
 function getUserId() {
-	return window.sessionStorage.getItem(KEY_USER_ID);
+	getItem(KEY_USER_ID);
 }
 
 function setCheckpointGroupId(val) {
-	window.sessionStorage.setItem(KEY_CHECKPOINT_GROUP_ID, val);
+	setItem(KEY_CHECKPOINT_GROUP_ID, val);
 }
 function getCheckpointGroupId() {
-	return window.sessionStorage.getItem(KEY_CHECKPOINT_GROUP_ID);
+	getItem(KEY_CHECKPOINT_GROUP_ID);
 }
 
 /* Geo */
