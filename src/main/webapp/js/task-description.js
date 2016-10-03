@@ -1,4 +1,5 @@
 setTaskTitle();
+var checkpoint = getCheckpoint();
 var task = getTask();
 
 $(function() {
@@ -22,6 +23,8 @@ $(function() {
 
 	$(buttonSel).click(function() {
 		var text = $(answerSel).val();
+		addAnswerDic(checkpoint, task, text);
+		
 		var isCorrect = false;
 		task.answerTexts.forEach(function(answerText) {
 			isCorrect = isCorrect || (answerText == text);

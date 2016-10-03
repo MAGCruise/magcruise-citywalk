@@ -4,6 +4,7 @@ var KEY_USER_ID = "user_id";
 var KEY_GROUP_ID = "group_id";
 var KEY_CHECKPOINT_GROUP_ID = "checkpoint_group_id";
 var KEY_VISITED_CHECKPOINTS = "visited_checkpoints";
+var KEY_ANSWER_DIC = "answer_dic";
 /** *********** */
 
 $(function() {
@@ -92,7 +93,6 @@ function getVisitedCheckPointIds() {
 
 function addVisitedCheckPointIds(checkpointId) {
 	var visitedCheckPointIds = getVisitedCheckPointIds();
-	console.log(visitedCheckPointIds);
 	visitedCheckPointIds.push(checkpointId);
 	setItem(KEY_VISITED_CHECKPOINTS, JSON.stringify(visitedCheckPointIds));
 }
@@ -150,6 +150,19 @@ function setCheckpointGroupId(val) {
 }
 function getCheckpointGroupId() {
 	return getItem(KEY_CHECKPOINT_GROUP_ID);
+}
+
+function getAnswerDic() {
+	return JSON.parse(getItem(KEY_ANSWER_DIC)) || {};
+}
+
+function addAnswerDic(checkpoint, task, answer) {
+	var answerDic = getAnswerDic();
+	if (answerDic[checkpoint.id] == null) {
+		answerDic[checkpoint.id] = {};
+	}
+	answerDic[checkpoint.id][task.id] = answer;
+	setItem(KEY_ANSWER_DIC, JSON.stringify(answerDic));
 }
 
 /* Geo */
