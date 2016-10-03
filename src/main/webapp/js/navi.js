@@ -263,7 +263,7 @@ function updateMapZoomLevel() {
 		maxLng = cPos.lng();
 	} else {
 		minLng = cPos.lng();
-		maxLng = ePos.langt();
+		maxLng = ePos.lng();
 	}
 	// 全てのマーカーが入るように縮尺を調整
 	var sw = {lat: minLat, lng: minLng};
