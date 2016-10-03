@@ -1,3 +1,5 @@
+var MAX_ZOOM_LEVEL = 17;
+
 var map;
 var markers = []; // マーカーs
 var infoWindows = []; // バルーンs
@@ -178,7 +180,7 @@ function selectCheckpoint(index) {
 	closeAllInfoWindows();
 	var marker = markers[index];
 	infoWindows[index].open(marker.getMap(), marker);
-	map.setZoom(17);
+	map.setZoom(MAX_ZOOM_LEVEL);
     map.setCenter(marker.getPosition());
 	$(".checkpoint").removeClass("selected");
 	$("#checkpoint-" + String(index)).addClass("selected");
@@ -227,6 +229,11 @@ function initMap() {
 	var ne = {lat: maxLat, lng: maxLon};
 	var latlngBounds = new google.maps.LatLngBounds(sw, ne);
 	map.fitBounds(latlngBounds);
+	// 最小ズームレベルの調整
+	var listener = google.maps.event.addListener(map, "idle", function() {
+		if (map.getZoom() > MAX_ZOOM_LEVEL) map.setZoom(MAX_ZOOM_LEVEL);
+		google.maps.event.removeListener(listener); 
+	});
 	// マップをドラッグした場合は、チェックポイントを非選択に
 	google.maps.event.addListener(map, "dragend", function() {
 		unselectCheckpoint();
