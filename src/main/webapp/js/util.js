@@ -134,14 +134,14 @@ function setUserId(val) {
 	setItem(KEY_USER_ID, val);
 }
 function getUserId() {
-	getItem(KEY_USER_ID);
+	return getItem(KEY_USER_ID);
 }
 
 function setCheckpointGroupId(val) {
 	setItem(KEY_CHECKPOINT_GROUP_ID, val);
 }
 function getCheckpointGroupId() {
-	getItem(KEY_CHECKPOINT_GROUP_ID);
+	return getItem(KEY_CHECKPOINT_GROUP_ID);
 }
 
 /* Geo */
