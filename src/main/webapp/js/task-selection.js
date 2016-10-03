@@ -1,4 +1,5 @@
 setTaskTitle();
+var checkpoint = getCheckpoint();
 var task = getTask();
 
 $(function() {
@@ -28,6 +29,7 @@ $(function() {
 		var indexes = $('.selection:checked').map(function() {
 			return parseInt($(this).val());
 		}).get();
+		addAnswerDic(checkpoint, task, indexes);
 		var isCorrect = isSameAnswers(task.answerIndexes, indexes);
 		addActivity(task, indexes.sort().toString(), isCorrect);
 	});
