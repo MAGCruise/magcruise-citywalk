@@ -1,6 +1,7 @@
 /* Consntants */
 var KEY_CITY_WALK_DATA = "city_walk_data";
 var KEY_USER_ID = "user_id";
+var KEY_GROUP_ID = "group_id";
 var KEY_CHECKPOINT_GROUP_ID = "checkpoint_group_id";
 var KEY_VISITED_CHECKPOINTS = "visited_checkpoints";
 /** *********** */
@@ -135,6 +136,13 @@ function setUserId(val) {
 }
 function getUserId() {
 	return getItem(KEY_USER_ID);
+}
+
+function setGroupId(val) {
+	setItem(KEY_GROUP_ID, val);
+}
+function getGroupId() {
+	return getItem(KEY_GROUP_ID);
 }
 
 function setCheckpointGroupId(val) {
