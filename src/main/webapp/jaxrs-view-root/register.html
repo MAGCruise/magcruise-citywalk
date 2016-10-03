@@ -6,7 +6,7 @@
 	th:remove="tag"></object>
 <script src="../js/register.js"></script>
 <link rel="stylesheet" href="../css/register.css" />
-<title>ログイン</title>
+<title>ユーザー登録</title>
 </head>
 <head th:remove="all">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -22,14 +22,14 @@
 				<div class="col-sm-12" style="margin-top: 10px;">
 					<form>
 						<div class="form-group">
-							<label class="description">e-mailアドレス(ユーザ名として使われます)</label> <input
-								class="form-control" type="email" id="user-id" name="user-id"
-								value="sample@magcruise.org" required />
+							<label class="description">ユーザー名</label> <input
+								class="form-control" type="text" id="user-id" name="user-id"
+								placeholder="abcd123" required />
 						</div>
 						<div class="form-group">
 							<label class="description">グループ名</label> <input
 								class="form-control" type="text" id="group-id" name="group-id"
-								value="hisiyamalab" />
+								placeholder="hisiyamalab" />
 						</div>
 						<div class="btn-group btn-group-justified submit" role="group">
 							<a class="btn btn-primary" role="button" id="register-btn">登録</a>
