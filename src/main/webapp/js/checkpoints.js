@@ -65,6 +65,8 @@ function getCurrentPosition() {
 	        showList();
 	        // 現在地の表示
 	        drawCurrentLocationCircle(map, cPos, pos.coords.accuracy);
+	        // マップの表示位置とズームレベルの調整
+	        fitMapPositionAndZoomLevel();
 		},
 		function(error) {
 			alert('位置情報の取得に失敗しました');
@@ -197,11 +199,8 @@ function unselectCheckpoint() {
 }
 
 function initMap() {
-	var maxLat = -90.0, minLat = 90.0;
-	var maxLon = -180.0, minLon = 180.0;
-	
 	map = new google.maps.Map(document.getElementById('map'), {
-//		center: {lat: 38.4400, lng: 139.11090},
+		center: {lat: 0.0, lng: 0.0},
 //		zoom: 8
 	});
 	
@@ -219,6 +218,21 @@ function initMap() {
 		// マーカータップ時のバルーンの初期化
 		var infoWindow = new google.maps.InfoWindow({content: checkpoint.id});
 		infoWindows.push(infoWindow);
+	});
+	
+	// マップをドラッグした場合は、チェックポイントを非選択に
+	google.maps.event.addListener(map, "dragend", function() {
+		unselectCheckpoint();
+	});
+	// 現在地取得し、チェックポイントリストを表示
+	getCurrentPosition();
+}
+
+function fitMapPositionAndZoomLevel() {
+	var maxLat = minLat = cPos.lat();
+	var maxLon = minLon = cPos.lng();
+	
+	checkpoints.forEach(function(checkpoint, i) {
 		// 最大最小緯度経度の計算
 		if (maxLat < checkpoint.lat) maxLat = checkpoint.lat;
 		if (minLat > checkpoint.lat) minLat = checkpoint.lat;
@@ -236,10 +250,4 @@ function initMap() {
 		if (map.getZoom() > MAX_ZOOM_LEVEL) map.setZoom(MAX_ZOOM_LEVEL);
 		google.maps.event.removeListener(listener); 
 	});
-	// マップをドラッグした場合は、チェックポイントを非選択に
-	google.maps.event.addListener(map, "dragend", function() {
-		unselectCheckpoint();
-	});
-	// 現在地取得し、チェックポイントリストを表示
-	getCurrentPosition();
 }
