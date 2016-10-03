@@ -63,6 +63,8 @@ function getCurrentPosition() {
 			cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
 			console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
 	        showList();
+	        // 現在地の表示
+	        drawCurrentLocationCircle(map, cPos, pos.coords.accuracy);
 		},
 		function(error) {
 			alert('位置情報の取得に失敗しました');
