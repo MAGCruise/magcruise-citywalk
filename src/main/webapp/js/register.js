@@ -1,4 +1,4 @@
-var loginFunc = function() {
+var registerFunc = function() {
 	for (var i = 0; i < $('input').size(); i++) {
 		if (!$('input')[i].checkValidity()) {
 			$('#submit-for-validation').trigger("click");
@@ -8,7 +8,8 @@ var loginFunc = function() {
 	var checkpointGroupId = parseUri(location).anchor;
 	var userId = $('#user-id').val().replace("@", "-at-");
 	var groupId = $('#group-id').val();
-	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "register", [userId, groupId], function(data) {
+	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "register", [ userId,
+			groupId ], function(data) {
 		if (data.result.register) {
 			// データの保存
 			setCheckpointGroupId(checkpointGroupId);
@@ -22,13 +23,24 @@ var loginFunc = function() {
 		}
 	}, function(data, textStatus, errorThrown) {
 		console.error("fail to register.");
-        console.error(textStatus+ ', ' + errorThrown + '. response: ' + JSON.stringify(data));
-        console.error('request: ' + JSON.stringify(JSON.stringify(this)));
-        alert('ユーザーを登録できませんでした。')
+		console.error(textStatus + ', ' + errorThrown + '. response: '
+				+ JSON.stringify(data));
+		console.error('request: ' + JSON.stringify(JSON.stringify(this)));
+		alert('ユーザーを登録できませんでした。')
 	})).rpc();
 };
 
 $(function() {
 	$("#nav-menu").hide();
-	$('#register-btn').on('click', loginFunc);
+	$('#register-btn').on('click', registerFunc);
+	$("form").keypress(
+			function(ev) {
+				if ((ev.which && ev.which === 13)
+						|| (ev.keyCode && ev.keyCode === 13)) {
+					registerFunc();
+					return false;
+				} else {
+					return true;
+				}
+			});
 });

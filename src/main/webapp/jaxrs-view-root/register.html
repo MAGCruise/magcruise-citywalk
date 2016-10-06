@@ -22,20 +22,19 @@
 				<div class="col-sm-12" style="margin-top: 10px;">
 					<form>
 						<div class="form-group">
-							<label class="description">ユーザー名</label> <input
+							<label class="description">ニックネーム (アプリ内で表示されます)</label> <input
 								class="form-control" type="text" id="user-id" name="user-id"
-								placeholder="abcd123" required />
+								placeholder="nickname" required />
 						</div>
-						<div class="form-group">
+						<div class="form-group" style="display: none;">
 							<label class="description">グループ名</label> <input
 								class="form-control" type="text" id="group-id" name="group-id"
-								placeholder="hisiyamalab" />
+								placeholder="groupname" value="wasedasai" />
 						</div>
 						<div class="btn-group btn-group-justified submit" role="group">
 							<a class="btn btn-primary" role="button" id="register-btn">登録</a>
 						</div>
-						<input id="submit-for-validation" type="submit" formmethod="POST"
-							style="display: none;">
+						<input id="submit-for-validation" type="submit" style="display: none;">
 					</form>
 				</div>
 			</div>

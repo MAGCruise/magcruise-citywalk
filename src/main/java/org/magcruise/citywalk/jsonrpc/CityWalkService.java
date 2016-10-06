@@ -47,6 +47,11 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	@Override
 	public boolean login(String chekipointGroupId, String userId, String groupId) {
+		if (!users.exists(userId)) {
+			log.error("{} is not registered yet.", userId);
+			return false;
+		}
+
 		UserSession session = getSession();
 		if (session.isLogined()) {
 			log.debug("already logined as {}", session.getUserId());
