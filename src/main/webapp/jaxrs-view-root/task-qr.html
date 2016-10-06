@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
-<object th:include="/templates/header.html :: meta-fragment"
+<object th:include="/fragment/header.html :: meta-fragment"
 	th:remove="tag"></object>
 <script type="text/javascript" src="../js/qr/megapix-image.js"></script>
 <script type="text/javascript" src="../js/qr/grid.js"></script>
@@ -37,7 +37,7 @@
 	<input id="file-input" name="file-input" type="file" accept="image/*"
 		onchange="handleFiles(this.files)" />
 	<div class="container">
-		<div th:replace="/templates/header.html :: top-menu"></div>
+		<div th:replace="/fragment/header.html :: top-menu"></div>
 		<div class="row">
 			<div class="description">QRコードを撮影して下さい。</div>
 		</div>
@@ -66,6 +66,6 @@
 			</div>
 		</div>
 	</div>
-	<div th:replace="/templates/modal.html :: modal"></div>
+	<div th:replace="/fragment/modal.html :: modal"></div>
 </body>
 </html>

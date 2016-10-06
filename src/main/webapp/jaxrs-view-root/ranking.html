@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
-<object th:include="/templates/header.html :: meta-fragment"
+<object th:include="/fragment/header.html :: meta-fragment"
 	th:remove="tag"></object>
 <title>ランキング</title>
 <script type="text/javascript" src="../js/ranking.js"></script>
@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div class="container">
-		<div th:replace="/templates/header.html :: top-menu"></div>
+		<div th:replace="/fragment/header.html :: top-menu"></div>
 		<div class="row">
 			<p class="pull-right my-ranking">個人順位<span id="my-rank" class="rank"></span>位</p>
 		</div>
