@@ -96,4 +96,10 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 		return null;
 	}
 
+	@Override
+	public boolean logout(String userId) {
+		// TODO 自動生成されたメソッド・スタブ
+		return false;
+	}
+
 }

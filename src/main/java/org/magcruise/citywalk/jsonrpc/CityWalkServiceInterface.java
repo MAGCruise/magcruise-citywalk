@@ -24,6 +24,8 @@ public interface CityWalkServiceInterface {
 			@Parameter(sample = "ayaki") String userId,
 			@Parameter(sample = "houchimin") String groupId);
 
+	boolean logout(@Parameter(sample = "ayaki") String userId);
+
 	RegisterResultJson register(@Parameter(sample = "ayaki") String userId,
 			@Parameter(sample = "houchimin") String groupId);
 

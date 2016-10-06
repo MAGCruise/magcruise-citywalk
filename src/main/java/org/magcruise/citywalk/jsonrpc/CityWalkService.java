@@ -70,6 +70,11 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
+	public boolean logout(String userId) {
+		return getSession().logout();
+	}
+
+	@Override
 	public RegisterResultJson register(String userId, String groupId) {
 		if (!users.exists(userId)) {
 			users.insert(new UserAccount(userId, groupId));
