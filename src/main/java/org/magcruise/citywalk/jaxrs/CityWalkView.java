@@ -1,6 +1,6 @@
 package org.magcruise.citywalk.jaxrs;
 
-import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 import javax.ws.rs.Path;
@@ -17,16 +17,15 @@ public class CityWalkView extends JaxrsView {
 	public Viewable getView(String filePathFromViewRoot, Map<String, String[]> params) {
 		try {
 
-			File f = new File(filePathFromViewRoot);
-			switch (f.getName()) {
-			case "":
+			if (filePathFromViewRoot == null || filePathFromViewRoot.equals("")
+					|| filePathFromViewRoot.equals("/")) {
 				response.sendRedirect(getServletUrl() + "/index.html");
 				return createView("/index.html", new ThymeleafModel());
-			case "/index.html":
-			case "/login.html":
-			case "/register.html":
+			} else if (filePathFromViewRoot.contains("index.html")
+					|| filePathFromViewRoot.contains("login.html")
+					|| filePathFromViewRoot.contains("register.html")) {
 				return createView(filePathFromViewRoot, new ThymeleafModel());
-			default:
+			} else {
 				if (UserSession.of(request).isLogined()) {
 					return createView(filePathFromViewRoot, new ThymeleafModel());
 				}
@@ -36,7 +35,12 @@ public class CityWalkView extends JaxrsView {
 
 		} catch (Exception e) {
 			log.error(e, e);
-			throw new RuntimeException(e);
+			try {
+				response.sendRedirect(getServletUrl() + "/index.html");
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			return createView("/index.html", new ThymeleafModel());
 		}
 
 	}
