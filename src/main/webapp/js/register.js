@@ -6,7 +6,7 @@ var registerFunc = function() {
 		}
 	}
 	var checkpointGroupId = parseUri(location).anchor;
-	var userId = $('#user-id').val().replace("@", "-at-");
+	var userId = $('#user-id').val();
 	var groupId = $('#group-id').val();
 	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "register", [ userId,
 			groupId ], function(data) {
