@@ -16,17 +16,22 @@ public class CityWalkView extends JaxrsView {
 	@Override
 	public Viewable getView(String filePathFromViewRoot, Map<String, String[]> params) {
 		try {
+
 			File f = new File(filePathFromViewRoot);
 			switch (f.getName()) {
-			case "login":
-			case "index":
+			case "":
+				response.sendRedirect(getServletUrl() + "/index.html");
+				return createView("/index.html", new ThymeleafModel());
+			case "/index.html":
+			case "/login.html":
+			case "/register.html":
 				return createView(filePathFromViewRoot, new ThymeleafModel());
 			default:
-				UserSession s = UserSession.of(request);
-				if (s.isLogined()) {
+				if (UserSession.of(request).isLogined()) {
 					return createView(filePathFromViewRoot, new ThymeleafModel());
 				}
-				return createView(filePathFromViewRoot, new ThymeleafModel());
+				response.sendRedirect(getServletUrl() + "/index.html");
+				return createView("/index.html", new ThymeleafModel());
 			}
 
 		} catch (Exception e) {
