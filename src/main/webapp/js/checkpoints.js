@@ -35,7 +35,7 @@ $(function() {
 		}
 		location.href = "./navi.html?checkpoint_id=" + selectedCheckpoint.id;
 	});
-	
+
 	if (category || subcategory) {
 		var url = location.origin + location.pathname;
 		// トップ（カテゴリ一覧）へ
@@ -97,9 +97,9 @@ function showCheckpoints() {
 		var distanceStyle = (distance > 1000) ? "far" : "near";
 		var imgSrc = "../img/placeholder.svg";
 		var elem =
-			$('<div class="checkpoint" id="checkpoint-' + i + '">' + 
-				'<span class="pull-left distance ' + distanceStyle + '">' + 
-					getFormattedDistance(distance) + 
+			$('<div class="checkpoint" id="checkpoint-' + i + '">' +
+				'<span class="pull-left distance ' + distanceStyle + '">' +
+					getFormattedDistance(distance) +
 				'</span>' +
 				'<img src="' + imgSrc + '" class="pull-left checkpoint-img">' +
 				'<div class="text">' +
@@ -116,7 +116,7 @@ function showCheckpoints() {
 
 function makeListElemWithoutDistanceAndImage(name) {
 	return $(
-			'<div class="checkpoint">' + 
+			'<div class="checkpoint">' +
 				'<div class="text">' +
 					'<div class="name">' + name + '</div>' +
 				'</div>' +
@@ -203,13 +203,13 @@ function initMap() {
 		center: {lat: 0.0, lng: 0.0},
 //		zoom: 8
 	});
-	
+
 	checkpoints.forEach(function(checkpoint, i) {
 		// マーカーの追加
 		var marker = new google.maps.Marker({
 		    position: {lat: checkpoint.lat, lng: checkpoint.lon},
 		    map: map,
-		    icon: "http://maps.google.com/mapfiles/ms/icons/" + checkpoint.markerColor + "-dot.png"
+		    icon: "//maps.google.com/mapfiles/ms/icons/" + checkpoint.markerColor + "-dot.png"
 		});
 		marker.addListener('click', function() {
 		    selectCheckpoint(i);
@@ -219,7 +219,7 @@ function initMap() {
 		var infoWindow = new google.maps.InfoWindow({content: checkpoint.id});
 		infoWindows.push(infoWindow);
 	});
-	
+
 	// マップをドラッグした場合は、チェックポイントを非選択に
 	google.maps.event.addListener(map, "dragend", function() {
 		unselectCheckpoint();
@@ -231,7 +231,7 @@ function initMap() {
 function fitMapPositionAndZoomLevel() {
 	var maxLat = minLat = cPos.lat();
 	var maxLon = minLon = cPos.lng();
-	
+
 	checkpoints.forEach(function(checkpoint, i) {
 		// 最大最小緯度経度の計算
 		if (maxLat < checkpoint.lat) maxLat = checkpoint.lat;
@@ -239,7 +239,7 @@ function fitMapPositionAndZoomLevel() {
 		if (maxLon < checkpoint.lon) maxLon = checkpoint.lon;
 		if (minLon > checkpoint.lon) minLon = checkpoint.lon;
 	});
-	
+
 	// 全てのマーカーが入るように縮尺を調整
 	var sw = {lat: minLat, lng: minLon};
 	var ne = {lat: maxLat, lng: maxLon};
@@ -248,6 +248,6 @@ function fitMapPositionAndZoomLevel() {
 	// 最小ズームレベルの調整
 	var listener = google.maps.event.addListener(map, "idle", function() {
 		if (map.getZoom() > MAX_ZOOM_LEVEL) map.setZoom(MAX_ZOOM_LEVEL);
-		google.maps.event.removeListener(listener); 
+		google.maps.event.removeListener(listener);
 	});
 }
