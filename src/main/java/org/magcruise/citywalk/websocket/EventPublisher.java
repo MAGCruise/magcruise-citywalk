@@ -8,12 +8,14 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 import javax.websocket.RemoteEndpoint.Basic;
 import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 
 import org.apache.logging.log4j.Logger;
+import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
 import org.magcruise.citywalk.model.row.Activity;
 import org.nkjmlab.util.log4j.LogManager;
@@ -31,6 +33,7 @@ public class EventPublisher {
 	private static Map<String, Long> latestReadActivityIds = new ConcurrentHashMap<>();
 
 	private static VerifiedActivitiesTable verifiedActivitiesTable = new VerifiedActivitiesTable();
+	private static TasksTable tasksTable = new TasksTable();
 
 	public synchronized void onOpen(String userId, String checkpointGroupId, String checkpointId,
 			Session session) {
@@ -64,7 +67,10 @@ public class EventPublisher {
 			String checkpointId) {
 		long readId = getLatestReadId(sessionId);
 		List<Activity> result = verifiedActivitiesTable.getNewActivitiesOrderById(
-				checkpointGroupId, checkpointId, readId);
+				checkpointGroupId, checkpointId, readId).stream().filter(
+						a -> tasksTable.getTask(a.getTaskId()).getContentObject().isCheckin())
+				.collect(Collectors.toList());
+
 		if (result.size() == 0) {
 			return result;
 		}
