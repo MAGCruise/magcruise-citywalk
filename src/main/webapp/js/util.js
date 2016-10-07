@@ -31,7 +31,10 @@ function getParamDic() {
 }
 
 function getParam(key) {
-	return getParamDic()[key];
+	if (getParamDic()[key]) {
+		return decodeURIComponent(getParamDic()[key]);
+	}
+	return null;
 }
 
 function getBaseUrl() {
