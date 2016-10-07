@@ -64,20 +64,17 @@ public class ApplicationContext implements ServletContextListener {
 	 * @param event
 	 */
 	private void initializeDatabase(ServletContextEvent event) {
-
-		new CheckpointsTable().dropTableIfExists();
-		new TasksTable().dropTableIfExists();
+		{
+			new CheckpointsTable().dropTableIfExists();
+			new TasksTable().dropTableIfExists();
+		}
 		new CheckpointsTable().createTableIfNotExists();
 		new TasksTable().createTableIfNotExists();
-
 		new UserAccountsTable().createTableIfNotExists();
 		new BadgesTable().createTableIfNotExists();
-
-		new VerifiedActivitiesTable().dropTableIfExists();
-		new SubmittedActivitiesTable().dropTableIfExists();
-
 		new VerifiedActivitiesTable().createTableIfNotExists();
 		new SubmittedActivitiesTable().createTableIfNotExists();
+
 		Arrays.stream(new File(event.getServletContext().getRealPath("json/checkpoints-and-tasks/"))
 				.listFiles((FilenameFilter) (dir, name) -> {
 					return name.endsWith(".json");
@@ -120,7 +117,8 @@ public class ApplicationContext implements ServletContextListener {
 			}
 
 			json.addCheckpoint(new CheckpointJson(d.getCheckpointid(), d.getName(), d.getLabel(),
-					d.getLat(), d.getLon(), Arrays.asList(checkpointGroupId), d.getMarkerColor(), d.getCategory(), d.getSubcategory()));
+					d.getLat(), d.getLon(), Arrays.asList(checkpointGroupId), d.getMarkerColor(),
+					d.getCategory(), d.getSubcategory()));
 			json.addTask(
 					new TaskJson(d.getCheckpointid() + "-qr", Arrays.asList(d.getCheckpointid()),
 							new ContentJson(QrCodeTask.class.getName(), true, d.getPoint(),

@@ -30,6 +30,8 @@ public class EventPublisher {
 	/** Map<Session.id, activityId> **/
 	private static Map<String, Long> latestReadActivityIds = new ConcurrentHashMap<>();
 
+	private static VerifiedActivitiesTable verifiedActivitiesTable = new VerifiedActivitiesTable();
+
 	public synchronized void onOpen(String userId, String checkpointGroupId, String checkpointId,
 			Session session) {
 
@@ -61,7 +63,7 @@ public class EventPublisher {
 	private List<Activity> readEvents(String sessionId, String checkpointGroupId,
 			String checkpointId) {
 		long readId = getLatestReadId(sessionId);
-		List<Activity> result = new VerifiedActivitiesTable().getNewActivitiesOrderById(
+		List<Activity> result = verifiedActivitiesTable.getNewActivitiesOrderById(
 				checkpointGroupId, checkpointId, readId);
 		if (result.size() == 0) {
 			return result;
