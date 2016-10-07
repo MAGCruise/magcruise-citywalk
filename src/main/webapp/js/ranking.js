@@ -13,11 +13,19 @@ $(function() {
 });
 
 function initMyRankingView(myRanking) {
+	if (myRanking.rank == -1) {
+		$('#my-ranking').hide();
+	}
 	$('#my-rank').text(myRanking.rank);
+	$('#my-score').text(myRanking.score);
 }
 
 function initMyGroupRankingView(myGroupRanking) {
+	if (myGroupRanking.rank == -1) {
+		$('#my-group-ranking').hide();
+	}
 	$('#my-group-rank').text(myGroupRanking.rank);
+	$('#my-group-score').text(myGroupRanking.score);
 }
 
 function initRankingsView(rankings, isGroup) {
