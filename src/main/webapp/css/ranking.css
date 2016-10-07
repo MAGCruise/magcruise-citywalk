@@ -19,12 +19,12 @@
   vertical-align: middle;
   float: none; }
 
-.my-ranking {
+.ranking, #my-ranking, #group-ranking {
   margin-right: 10px;
   font-size: 20px;
   color: #8D8D8D; }
-  .my-ranking .rank {
-    margin: 0 10px;
+  .ranking .num, #my-ranking .num, #group-ranking .num {
+    margin: 0 6px;
     color: #38A997;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold; }
