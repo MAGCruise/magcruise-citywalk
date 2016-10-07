@@ -8,14 +8,12 @@ var loginFunc = function() {
 	var checkpointGroupId = parseUri(location).anchor;
 	var userId = $('#user-id').val();
 	var groupId = $('#group-id').val();
-	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "login", [
-			checkpointGroupId, userId, groupId ], function(data) {
+	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "login", [ userId,
+			groupId ], function(data) {
 		if (data.result) {
-			// データの保存
-			setCheckpointGroupId(checkpointGroupId);
 			setUserId(userId);
 			setGroupId(groupId);
-			location.href = "checkpoints.html";
+			location.href = "courses.html";
 		} else {
 			if (!confirm('ログインに失敗しました。ユーザー登録をしてください。')) {
 				return false;
@@ -49,7 +47,4 @@ $(function() {
 					return true;
 				}
 			});
-
-	// この画面に来たら自動ログインがトライされる．
-	loginFunc();
 });

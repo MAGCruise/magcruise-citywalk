@@ -12,11 +12,9 @@ var registerFunc = function() {
 			groupId ], function(data) {
 		if (data.result) {
 			if (data.result.register) {
-				// データの保存
-				setCheckpointGroupId(checkpointGroupId);
 				setUserId(userId);
 				setGroupId(groupId);
-				location.href = "checkpoints.html";
+				location.href = "courses.html";
 			} else {
 				var recommendedUserId = data.result.recommendedUserId;
 				$('#user-id').val(recommendedUserId);

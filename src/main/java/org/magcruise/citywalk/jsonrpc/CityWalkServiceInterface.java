@@ -20,8 +20,7 @@ public interface CityWalkServiceInterface {
 	InitialDataJson getInitialDataFromFile(
 			@Parameter(sample = "waseda") String checkpointGroupId);
 
-	boolean login(String checkpointGroupId,
-			@Parameter(sample = "ayaki") String userId,
+	boolean login(@Parameter(sample = "ayaki") String userId,
 			@Parameter(sample = "houchimin") String groupId);
 
 	boolean logout(@Parameter(sample = "ayaki") String userId);

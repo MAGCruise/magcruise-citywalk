@@ -20,7 +20,7 @@ public class CityWalkServiceTest {
 						new VerifiedActivity("waseda", "ayaki", "cafeteria", 35.0, 138.2,
 								"cafeteria-selection", 2.5,
 								new SelectionInput("10"))));
-		log.debug(client.login("waseda", "ayaki", "waseda_user"));
+		log.debug(client.login("ayaki", "waseda_user"));
 	}
 
 }

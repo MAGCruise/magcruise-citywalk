@@ -46,7 +46,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	private TasksTable tasks = new TasksTable();
 
 	@Override
-	public boolean login(String chekipointGroupId, String userId, String groupId) {
+	public boolean login(String userId, String groupId) {
 		if (!users.exists(userId)) {
 			log.error("{} is not registered yet.", userId);
 			return false;
@@ -83,6 +83,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	public RegisterResultJson register(String userId, String groupId) {
 		if (!users.exists(userId)) {
 			users.insert(new UserAccount(userId, groupId));
+			login(userId, groupId);
 			return new RegisterResultJson(true, "");
 		}
 		int i = 0;

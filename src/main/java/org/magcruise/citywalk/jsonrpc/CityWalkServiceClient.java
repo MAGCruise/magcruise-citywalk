@@ -30,8 +30,8 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	}
 
 	@Override
-	public boolean login(String checkpointGroupId, String userId, String groupId) {
-		return citywalkService.login(checkpointGroupId, userId, groupId);
+	public boolean login(String userId, String groupId) {
+		return citywalkService.login(userId, groupId);
 	}
 
 	@Override
