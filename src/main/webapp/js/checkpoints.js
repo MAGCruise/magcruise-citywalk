@@ -42,7 +42,7 @@ $(function() {
 		var html = '<a href="' + url + '">TOP</a>';
 		// サブカテゴリ一覧へ
 		if (category && subcategory) {
-			html += ' > <a href="' + url + '?category=' + category + '">' + category + '</a>';
+			html += ' > <a href="' + url + '?category=' + encodeURIComponent(category) + '">' + category + '</a>';
 			html += ' > ' + subcategory;
 		} else if (category) {
 			html += ' > ' + category;
