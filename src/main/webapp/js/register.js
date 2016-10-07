@@ -18,7 +18,8 @@ var registerFunc = function() {
 			} else {
 				var recommendedUserId = data.result.recommendedUserId;
 				$('#user-id').val(recommendedUserId);
-				alert("そのユーザー名は既に使われています。「" + recommendedUserId + "」ですとご利用頂けます。");
+				alert("そのユーザー名は既に使われています。「" + recommendedUserId
+						+ "」ですとご利用頂けます。");
 			}
 		} else {
 			alert('ユーザーを登録できませんでした。');
@@ -33,6 +34,9 @@ var registerFunc = function() {
 };
 
 $(function() {
+	if (getUserId()) {
+		location.href = 'login.html';
+	}
 	$("#nav-menu").hide();
 	$('#register-btn').on('click', registerFunc);
 	$("form").keypress(
