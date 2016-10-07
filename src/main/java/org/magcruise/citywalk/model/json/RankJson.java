@@ -4,10 +4,16 @@ public class RankJson {
 
 	private String name;
 	private int rank;
+	private double score;
 
-	public RankJson(String name, int rank) {
+	public RankJson() {
+
+	}
+
+	public RankJson(String name, int rank, double score) {
 		this.name = name;
 		this.rank = rank;
+		this.score = score;
 	}
 
 	public String getName() {
@@ -24,6 +30,14 @@ public class RankJson {
 
 	public void setRank(int rank) {
 		this.rank = rank;
+	}
+
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
 	}
 
 }

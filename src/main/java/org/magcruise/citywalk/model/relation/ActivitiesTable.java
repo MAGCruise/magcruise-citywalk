@@ -22,6 +22,8 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 	private static final String LAT = "lat";
 	private static final String LON = "lon";
 
+	public static final String SUM_OF_SCORE = "sum_of_score";
+
 	public ActivitiesTable(String name) {
 		super(name, ApplicationContext.getDbClient());
 		setAttribute(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
@@ -84,7 +86,7 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 
 	public List<Map<String, Object>> sumsOfScoreGroupByUserIdOrderByScore() {
 		return getClient().readMapList(
-				"SELECT " + USER_ID + ", SUM(score) AS sum_of_score FROM " + getName()
+				"SELECT " + USER_ID + ", SUM(score) AS " + SUM_OF_SCORE + " FROM " + getName()
 						+ " GROUP BY " + USER_ID + " ORDER BY sum_of_score");
 
 	}

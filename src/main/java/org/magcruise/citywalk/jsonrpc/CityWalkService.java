@@ -117,7 +117,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	private RewardJson createRewardJson(String userId) {
-		int rank = verifiedActivities.getRank(userId);
+		int rank = verifiedActivities.getRankJson(userId).getRank();
 		List<String> badges = calculateBadges(userId);
 		return new RewardJson(rank, badges);
 	}
@@ -207,23 +207,11 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	@Override
 	public RankingJson getRanking(String userId) {
 		RankingJson rankingJson = new RankingJson();
-		rankingJson.setGroupRank(new RankJson("StubGroup", 8));
-		rankingJson.setRank(new RankJson(userId, 5));
+		rankingJson.setRank(verifiedActivities.getRankJson(userId));
+		rankingJson.setGroupRank(new RankJson("", -1, 0));
 
-		List<RankJson> ranking = new ArrayList<>();
-		ranking.add(new RankJson("Player1", 1));
-		ranking.add(new RankJson("Player2", 2));
-		ranking.add(new RankJson("Player3", 2));
-		ranking.add(new RankJson("Player5", 4));
-		ranking.add(new RankJson("Player4", 5));
-		rankingJson.setRanking(ranking);
-		List<RankJson> groupRanking = new ArrayList<>();
-		ranking.add(new RankJson("Group1", 1));
-		ranking.add(new RankJson("Group2", 2));
-		ranking.add(new RankJson("Group3", 3));
-		ranking.add(new RankJson("Group4", 4));
-		ranking.add(new RankJson("Group5", 5));
-		rankingJson.setGroupRanking(groupRanking);
+		rankingJson.setRanking(verifiedActivities.getRanksJson());
+		rankingJson.setGroupRanking(new ArrayList<>());
 		return rankingJson;
 	}
 

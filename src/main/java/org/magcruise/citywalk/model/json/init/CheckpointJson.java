@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.magcruise.citywalk.model.row.Task;
 
 public class CheckpointJson {
 
@@ -81,7 +80,7 @@ public class CheckpointJson {
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
-	
+
 	public CheckinJson getCheckin() {
 		return checkin;
 	}
@@ -89,7 +88,7 @@ public class CheckpointJson {
 	public void setCheckin(CheckinJson checkin) {
 		this.checkin = checkin;
 	}
-	
+
 	public String getLabel() {
 		return label;
 	}
@@ -97,7 +96,7 @@ public class CheckpointJson {
 	public void setLabel(String label) {
 		this.label = label;
 	}
-	
+
 	public String getMarkerColor() {
 		return markerColor;
 	}
@@ -105,7 +104,7 @@ public class CheckpointJson {
 	public void setMarkerColor(String markerColor) {
 		this.markerColor = markerColor;
 	}
-	
+
 	public String getCategory() {
 		return category;
 	}
@@ -113,7 +112,7 @@ public class CheckpointJson {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	
+
 	public String getSubcategory() {
 		return subcategory;
 	}
