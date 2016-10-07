@@ -9,7 +9,14 @@ var KEY_ANSWER_DIC = "answer_dic";
 
 $(function() {
 	setNavTitle();
+	setUserNameInMenu();
 });
+
+function setUserNameInMenu() {
+	if (getUserId()) {
+		$("#user-name").text(getUserId());
+	}
+}
 
 function setNavTitle() {
 	$("#nav-title").text(document.title);
