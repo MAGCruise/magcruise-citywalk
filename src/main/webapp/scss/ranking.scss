@@ -28,6 +28,13 @@
     float: none;
 }
 
+.name {
+	margin: 0 $smallMargin;
+	color: $greenColor;
+	font-size: 28px;
+	font-weight: bold;
+}
+
 .ranking {
 	margin-right: $baseMargin;
 	font-size: 20px;

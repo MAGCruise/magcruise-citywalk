@@ -19,6 +19,12 @@
   vertical-align: middle;
   float: none; }
 
+.name {
+  margin: 0 6px;
+  color: #38A997;
+  font-size: 28px;
+  font-weight: bold; }
+
 .ranking, #my-ranking, #group-ranking {
   margin-right: 10px;
   font-size: 20px;

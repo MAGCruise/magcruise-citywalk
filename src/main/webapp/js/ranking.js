@@ -5,12 +5,18 @@ $(function() {
 		var myRanking		= data.result.rank;
 		var rankings 		= data.result.ranking;
 		
+		initNames();
 		initMyRankingView(myRanking);
 		initMyGroupRankingView(myGroupRanking);
 		initRankingsView(rankings, false); 		// isGroup:false->個人
 		initRankingsView(groupRankings, true);
 	})).rpc();
 });
+
+function initNames() {
+	$('#my-user-name').text(getUserId());
+	$('#my-group-name').text(getGroupId());
+}
 
 function initMyRankingView(myRanking) {
 	if (myRanking.rank == -1) {
