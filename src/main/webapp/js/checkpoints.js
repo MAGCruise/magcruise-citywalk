@@ -137,7 +137,7 @@ function showSubcategory() {
 	names.forEach(function(name, i) {
 		var elem = makeListElemWithoutDistanceAndImage(name);
 		elem.click(function() {
-			location.href = location.href + "&subcategory=" + name;
+			location.href = location.href + "&subcategory=" + encodeURIComponent(name);
 		});
 		$("#checkpoints").append(elem);
 	});
@@ -154,7 +154,7 @@ function showCategory() {
 	names.forEach(function(name, i) {
 		var elem = makeListElemWithoutDistanceAndImage(name);
 		elem.click(function() {
-			location.href = location.href + "?category=" + name;
+			location.href = location.href + "?category=" + encodeURIComponent(name);
 		});
 		$("#checkpoints").append(elem);
 	});
