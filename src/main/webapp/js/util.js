@@ -5,6 +5,7 @@ var KEY_GROUP_ID = "group_id";
 var KEY_CHECKPOINT_GROUP_ID = "checkpoint_group_id";
 var KEY_VISITED_CHECKPOINTS = "visited_checkpoints";
 var KEY_ANSWER_DIC = "answer_dic";
+var KEY_CHECKPOINT_PROGRESS_DIC = "checkpoint_progress_dic";
 /** *********** */
 
 $(function() {
@@ -121,6 +122,16 @@ function getNonVisitedCheckPoints() {
 		return visitedCheckPointIds.indexOf(checkpoint.id) < 0;
 	});
 	return visitedCheckPoints;
+}
+
+function getCheckpointProgressDic() {
+	return JSON.parse(getItem(KEY_CHECKPOINT_PROGRESS_DIC)) || {};
+}
+
+function setCheckpointProgress(checkpointId, taskIndex) {
+	var checkpointProgressDic = getCheckpointProgressDic();
+	checkpointProgressDic[checkpointId] = taskIndex;
+	setItem(KEY_CHECKPOINT_PROGRESS_DIC, JSON.stringify(checkpointProgressDic));
 }
 
 /* Local Storage */
