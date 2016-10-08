@@ -28,6 +28,19 @@
     float: none;
 }
 
+.name {
+	margin: 0 $smallMargin;
+	color: $greenColor;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+#my-names {
+	margin-right: $baseMargin;
+	font-size: 20px;
+	color: #8D8D8D;
+}
+
 .ranking {
 	margin-right: $baseMargin;
 	font-size: 20px;
