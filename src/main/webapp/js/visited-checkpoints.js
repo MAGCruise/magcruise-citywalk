@@ -11,6 +11,11 @@ function showVisitedCheckPoints(results) {
 		var resultHtml = makeResultHtml(result);
 		var answerHtml = "";
 		checkpoint.tasks.forEach(function(task) {
+			// チェックイン済みだが、タスクをまだ解いてない場合には表示しない。
+			if (answerDic[checkpoint.id] == null || answerDic[checkpoint.id][task.id] == null) {
+				return;
+			}
+			
 			if (task.taskType === "DescriptionTask") {
 				answerHtml += '問題：' + task.label + '<br/>正解：' + task.answerTexts.join('、') + '<br/>回答：' + answerDic[checkpoint.id][task.id];
 			} else if (task.taskType === "SelectionTask") {
