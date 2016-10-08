@@ -18,9 +18,9 @@
 	<div class="container">
 		<div th:replace="/fragment/header.html :: top-menu"></div>
 		<div class="row">
-			<!-- <p class="pull-right"><span id="my-user-name" class="name"></span>さん／<span id="my-group-name" class="name"></span>グループ</p> -->
+			<!-- <p class="my-names pull-right"><span id="my-user-name" class="name"></span>さん／<span id="my-group-name" class="name"></span>グループ</p> -->
 			<!-- 早稲田祭の時はグループ概念がない -->
-			<p class="pull-right"><span id="my-user-name" class="name"></span>さん</p>
+			<p id="my-names" class="pull-right"><span id="my-user-name" class="name"></span>さん</p>
 		</div>
 		<div class="row">
 			<p id="my-ranking" class="pull-right">個人順位<span id="my-rank" class="num"></span>位／スコア<span id="my-score" class="num"></span>点</p>

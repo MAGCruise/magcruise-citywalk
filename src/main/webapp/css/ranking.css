@@ -25,6 +25,11 @@
   font-size: 28px;
   font-weight: bold; }
 
+#my-names {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #8D8D8D; }
+
 .ranking, #my-ranking, #group-ranking {
   margin-right: 10px;
   font-size: 20px;

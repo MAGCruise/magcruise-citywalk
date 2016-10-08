@@ -35,27 +35,40 @@ function initMyGroupRankingView(myGroupRanking) {
 }
 
 function initRankingsView(rankings, isGroup) {
-	for (var i = 0; i < rankings.length; i++) {
-		var ranking = rankings[i];
-		
+	rankings.sort(function(a, b) {
+        return (a.score < b.score);
+	});
+	// 順位の更新（同率あり）
+	var rank = 0;
+	var lastScore = -1;
+	rankings.forEach(function(ranking) {
+		if (lastScore != ranking.score) {
+			rank++;
+			lastScore = ranking.score;
+		}
+		ranking.rank = rank;
+	});
+	
+	rankings.forEach(function(ranking) {
 		var listItem = $('<li></li>').addClass('list-group-item');
 		var html = "";
-		if (i < 3) {
+		if (ranking.rank <= 3) {
 			listItem.addClass('rank-text');
-			// 0->first, 1->second, 2->third
-			var val = (i == 0) ? 'first' : (i == 1) ? 'second' : 'third';
+			var val = (ranking.rank == 1) ? 'first' : (ranking.rank == 2) ? 'second' : 'third';
 			html = '<img src="../img/rank_' + val + '.png" class="rank-' + val + '-img"/>';
 		} else {
 			html = ranking.rank + '. ';
 		}
+		
+		var ptMarginTop = (ranking.rank == 1) ? 11 : (ranking.rank == 2) ? 5 : 0;
 		if (isGroup) {
-			listItem.html(html + ranking.name + " グループ");
+			listItem.html(html + ranking.name + ' グループ' + '<div class="pull-right" style="margin-top: ' + ptMarginTop + 'px">' + ranking.score + 'pt</div>');
 			$('#group-rankings').append(listItem);
 		} else {
-			listItem.html(html + ranking.name + " さん");
+			listItem.html(html + ranking.name + ' さん' + '<div class="pull-right" style="margin-top: ' + ptMarginTop + 'px">' + ranking.score + 'pt</div>');
 			$('#rankings').append(listItem);			
 		}
-	}
+	});
 	/*
 	<div class="row">
 		<h1>グループランキング</h1>
