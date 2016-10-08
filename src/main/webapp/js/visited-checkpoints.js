@@ -35,7 +35,7 @@ function showVisitedCheckPoints(results) {
 						'<p class="answer">' + answerHtml + '</p>' +
 						'<img src="../img/placeholder.svg" class="img-responsive img col-xs-3 col-sm-3 col-md-2 col-lg-2">' +
 						'<div class="col-xs-9 col-sm-9 col-md-10 col-lg-10 description">' +
-							checkpoint.label +
+							checkpoint.label + '<br/><p style="word-break: break-word;">' + (checkpoint.description || "") +'</p>'+ 
 						'</div>' +
 					'</div>';
 		$('#checkpoints').append(html);
