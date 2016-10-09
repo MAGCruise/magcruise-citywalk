@@ -36,7 +36,7 @@ function initMyGroupRankingView(myGroupRanking) {
 
 function initRankingsView(rankings, isGroup) {
 	rankings.sort(function(a, b) {
-        return (a.score < b.score);
+        return (a.score < b.score) ? 1 : (a.score > b.score) ? -1 : 0;
 	});
 	// 順位の更新（同率あり）
 	var rank = 0;
