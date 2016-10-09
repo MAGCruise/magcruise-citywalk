@@ -36,6 +36,7 @@ $(function() {
 	if (!getUserId()) {
 		location.href = 'register.html';
 	}
+	$("#back").hide();
 	$("#nav-menu").hide();
 	$('#user-id').val(getUserId());
 	loginFunc()
