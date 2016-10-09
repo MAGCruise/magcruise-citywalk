@@ -15,7 +15,9 @@ var KEY_MOVEMENT_LIST = "movement_list";
 $(function() {
 	$("#activity-title").text(checkpoint.name+"でのアクティビティ");
 	$("#btn-next").click(function() {
-		location.href = getTaskURLWithCurrentPosition(checkpoint, 0, cPos);
+		// 既に途中までタスクが進んでいる場合には、完了済みの次のタスクからはじめる
+		var taskIndex = (checkpoint.id in getCheckpointProgressDic()) ? getCheckpointProgressDic()[checkpoint.id] + 1 : 0;
+		location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
 	});
 
 	// コンパス画像の要素

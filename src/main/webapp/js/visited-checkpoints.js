@@ -10,7 +10,10 @@ function showVisitedCheckPoints(results) {
 		var result = getResultByCheckpoint(results, checkpoint);
 		var resultHtml = makeResultHtml(result);
 		var answerHtml = "";
-		checkpoint.tasks.forEach(function(task) {
+		checkpoint.tasks.forEach(function(task, index) {
+			if (!(checkpoint.id in answerDic) || !(task.id in answerDic[checkpoint.id])) {
+				return;
+			}
 			if (task.taskType === "DescriptionTask") {
 				answerHtml += '問題：' + task.label + '<br/>正解：' + task.answerTexts.join('、') + '<br/>回答：' + answerDic[checkpoint.id][task.id];
 			} else if (task.taskType === "SelectionTask") {
@@ -25,6 +28,10 @@ function showVisitedCheckPoints(results) {
 					}
 				}
 				answerHtml += '問題：' + task.label + '<br/>正解：' + answerTexts.join('、') + '<br/>回答：' + userAnswerTexts.join('、');
+			}
+			// 改行
+			if (index != checkpoint.tasks.length - 1) {
+				answerHtml += '<br/><br/>';
 			}
 		});
 		var html =  '<div class="row checkpoint">' +

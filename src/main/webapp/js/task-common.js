@@ -1,7 +1,6 @@
 function getTask() {
 	var checkpoint = getCheckpoint();
-	var taskIndex = parseInt(getParam("task_index"));
-	return checkpoint.tasks[taskIndex];
+	return checkpoint.tasks[getTaskIndex()];
 }
 
 var TaskType = {
@@ -11,6 +10,10 @@ var TaskType = {
 	Sort : "SortTask",
 	Description : "DescriptionTask",
 };
+
+function getTaskIndex() {
+	return parseInt(getParam("task_index"));
+}
 
 function getTaskURL(checkpoint, taskIndex) {
 	var task = checkpoint.tasks[taskIndex];
@@ -44,29 +47,33 @@ function getTaskURL(checkpoint, taskIndex) {
 	return url;
 }
 
-function getTaskURLWithLatLon(task, taskIndex, lat, lon) {
-	var url = getTaskURL(task, taskIndex);
+function getTaskURLWithLatLon(checkpoint, taskIndex, lat, lon) {
+	var url = getTaskURL(checkpoint, taskIndex);
 	return url + "&lat=" + lat + "&lon=" + lon;
 }
 
-function getTaskURLWithCurrentPosition(task, taskIndex, cPos) {
-	return getTaskURLWithLatLon(task, taskIndex, cPos.lat(), cPos.lng())
+function getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos) {
+	return getTaskURLWithLatLon(checkpoint, taskIndex, cPos.lat(), cPos.lng())
 }
 
 function isLastTask() {
 	return getParam("is_last_task") === 'true';
 }
 
+function isCheckin() {
+	return getTaskIndex() == 0;
+}
+
 function moveToNextPage() {
 	if (isLastTask()) {
 		location.href = "./checkpoints.html";
 	} else {
-		location.href = getTaskURL(getCheckpoint(), parseInt(getParam("task_index")) + 1).split('#')[0];
+		location.href = getTaskURL(getCheckpoint(), getTaskIndex() + 1).split('#')[0];
 	}
 }
 
 function setTaskTitle() {
-	document.title = (parseInt(getParam("task_index")) == 0) ? "チェックイン" : "タスク";
+	document.title = isCheckin() ? "チェックイン" : "タスク";
 }
 
 function showCheckeinMessageIfNeeded() {
@@ -98,10 +105,11 @@ function addActivity(task, input, isCorrect) {
         }
 	};
 	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [ arg ], function(data) {
-		var isCheckin = parseInt(getParam("task_index")) == 0;
-		if (isCheckin) {
-			// 訪問済みチェックポイントに追加
-			addVisitedCheckPointIds(checkpointId);
+		setCheckpointProgress(checkpointId, getTaskIndex()); // 完了済みtask indexを保存
+		if (isLastTask()) {
+			addVisitedCheckPointIds(checkpointId); // 訪問済みチェックポイントに追加
+		}
+		if (isCheckin()) {
 			moveToNextPage();
 			return;
 		}
