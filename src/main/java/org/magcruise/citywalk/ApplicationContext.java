@@ -79,7 +79,7 @@ public class ApplicationContext implements ServletContextListener {
 				.listFiles((FilenameFilter) (dir, name) -> {
 					return name.endsWith(".json");
 				})).forEach(f -> CheckpointsAndTasksFactory.insertToDb(f.getPath()));
-		importFromGoogleSpreadsheets();
+		//importFromGoogleSpreadsheets();
 	}
 
 	private void importFromGoogleSpreadsheets() {

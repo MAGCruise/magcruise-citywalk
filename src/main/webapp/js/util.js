@@ -55,7 +55,7 @@ function getBaseUrl() {
 function getActivityPublisherUrl() {
 	if (parseUri(location).protocol === "https") {
 		return getActivityPublisherWssUrl();
-	}else{
+	} else {
 		return getActivityPublisherWsUrl();
 	}
 }
@@ -119,7 +119,10 @@ function getVisitedCheckPoints() {
 function getNonVisitedCheckPoints() {
 	var visitedCheckPointIds = getVisitedCheckPointIds();
 	var visitedCheckPoints = getCheckpoints().filter(function(checkpoint) {
-		return visitedCheckPointIds.indexOf(checkpoint.id) < 0;
+		var now = (new Date()).getTime();
+		var from = (new Date(checkpoint.visibleTimeFrom)).getTime();
+		var to = (new Date(checkpoint.visibleTimeTo)).getTime();
+		return (now >= from) && (now <= to);
 	});
 	return visitedCheckPoints;
 }
@@ -218,16 +221,16 @@ function toFormattedShortDate(milliseconds) {
 }
 
 function drawCurrentLocationCircle(map, cPos, radius) {
-    // 誤差を円で描く
-    var circle = new google.maps.Circle({
-        map: map,
-        center: cPos,
-        radius: radius, // 単位はメートル
-        strokeColor: '#0088ff',
-        strokeOpacity: 0.8,
-        strokeWeight: 1,
-        fillColor: '#0088ff',
-        fillOpacity: 0.2
-    });
-    return circle;
+	// 誤差を円で描く
+	var circle = new google.maps.Circle({
+		map : map,
+		center : cPos,
+		radius : radius, // 単位はメートル
+		strokeColor : '#0088ff',
+		strokeOpacity : 0.8,
+		strokeWeight : 1,
+		fillColor : '#0088ff',
+		fillOpacity : 0.2
+	});
+	return circle;
 }

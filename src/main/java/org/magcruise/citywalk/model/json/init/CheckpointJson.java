@@ -1,9 +1,11 @@
 package org.magcruise.citywalk.model.json.init;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.nkjmlab.util.time.DateTimeUtils;
 
 public class CheckpointJson {
 
@@ -18,12 +20,15 @@ public class CheckpointJson {
 	private String markerColor;
 	private String category;
 	private String subcategory;
+	private Date visibleTimeFrom = new Date(0);
+	private Date visibleTimeTo = DateTimeUtils.fromTimestamp("2099-01-01 00:00:00");
 
 	public CheckpointJson() {
 	}
 
-	public CheckpointJson(String id, String name, String label, double lat, double lon,
-			CheckinJson checkin, List<TaskJson> tasks, String markerColor, String category, String subcategory) {
+	public CheckpointJson(String id, String name, String label, double lat, double lon, CheckinJson checkin,
+			List<TaskJson> tasks, String markerColor, String category, String subcategory, Date visibleTimeFrom,
+			Date visibleTimeTo) {
 		this.id = id;
 		this.name = name;
 		this.label = label;
@@ -34,6 +39,8 @@ public class CheckpointJson {
 		this.markerColor = markerColor;
 		this.category = category;
 		this.subcategory = subcategory;
+		this.visibleTimeFrom = visibleTimeFrom;
+		this.visibleTimeTo = visibleTimeTo;
 	}
 
 	public String getId() {
@@ -119,5 +126,21 @@ public class CheckpointJson {
 
 	public void setSubcategory(String subcategory) {
 		this.subcategory = subcategory;
+	}
+
+	public Date getVisibleTimeFrom() {
+		return visibleTimeFrom;
+	}
+
+	public void setVisibleTimeFrom(Date visibleTimeFrom) {
+		this.visibleTimeFrom = visibleTimeFrom;
+	}
+
+	public Date getVisibleTimeTo() {
+		return visibleTimeTo;
+	}
+
+	public void setVisibleTimeTo(Date visibleTimeTo) {
+		this.visibleTimeTo = visibleTimeTo;
 	}
 }

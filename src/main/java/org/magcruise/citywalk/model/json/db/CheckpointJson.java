@@ -1,10 +1,12 @@
 package org.magcruise.citywalk.model.json.db;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.nkjmlab.util.time.DateTimeUtils;
 
 public class CheckpointJson {
 	private String id;
@@ -16,12 +18,14 @@ public class CheckpointJson {
 	private String markerColor;
 	private String category;
 	private String subcategory;
+	private Date visibleTimeFrom = new Date(0);
+	private Date visibleTimeTo = DateTimeUtils.fromTimestamp("2099-01-01 00:00:00");
 
 	public CheckpointJson() {
 	}
 
-	public CheckpointJson(String id, String name, String label, double lat, double lon,
-			List<String> checkPointGroupIds, String markerColor, String category, String subcategory) {
+	public CheckpointJson(String id, String name, String label, double lat, double lon, List<String> checkPointGroupIds,
+			String markerColor, String category, String subcategory) {
 		this.id = id;
 		this.name = name;
 		this.label = label;
@@ -80,7 +84,7 @@ public class CheckpointJson {
 	public void setCheckpointGroupIds(List<String> checkpointGroupIds) {
 		this.checkpointGroupIds = checkpointGroupIds;
 	}
-	
+
 	public String getMarkerColor() {
 		return markerColor;
 	}
@@ -88,7 +92,7 @@ public class CheckpointJson {
 	public void setMarkerColor(String markerColor) {
 		this.markerColor = markerColor;
 	}
-	
+
 	public String getCategory() {
 		return category;
 	}
@@ -96,7 +100,7 @@ public class CheckpointJson {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	
+
 	public String getSubcategory() {
 		return subcategory;
 	}
@@ -104,9 +108,25 @@ public class CheckpointJson {
 	public void setSubcategory(String subcategory) {
 		this.subcategory = subcategory;
 	}
-	
+
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+	}
+
+	public Date getVisibleTimeFrom() {
+		return visibleTimeFrom;
+	}
+
+	public void setVisibleTimeFrom(Date visibleTimeFrom) {
+		this.visibleTimeFrom = visibleTimeFrom;
+	}
+
+	public Date getVisibleTimeTo() {
+		return visibleTimeTo;
+	}
+
+	public void setVisibleTimeTo(Date visibleTimeTo) {
+		this.visibleTimeTo = visibleTimeTo;
 	}
 }

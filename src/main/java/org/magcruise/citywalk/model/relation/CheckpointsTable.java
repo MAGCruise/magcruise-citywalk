@@ -23,26 +23,28 @@ public class CheckpointsTable extends RelationalModel<Checkpoint> {
 	private static final String MARKER_COLOR = "marker_color";
 	private static final String CATEGORY = "category";
 	private static final String SUBCATEGORY = "subcategory";
+	private static final String VISIBLE_TIME_FROM = "visible_time_from";
+	private static final String VISIBLE_TIME_TO = "visible_time_to";
 
 	public CheckpointsTable() {
 		super(TABLE_NAME, ApplicationContext.getDbClient());
-		setAttribute(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
-		setAttribute(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
-		setAttribute(NAME, Keyword.VARCHAR);
-		setAttribute(LABEL, Keyword.VARCHAR);
-		setAttribute(LAT, Keyword.DOUBLE);
-		setAttribute(LON, Keyword.DOUBLE);
-		setAttribute(CHECKPOINT_GROUP_IDS, Keyword.VARCHAR);
-		setAttribute(MARKER_COLOR, Keyword.VARCHAR);
-		setAttribute(CATEGORY, Keyword.VARCHAR);
-		setAttribute(SUBCATEGORY, Keyword.VARCHAR);
+		addColumnDefinition(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
+		addColumnDefinition(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
+		addColumnDefinition(NAME, Keyword.VARCHAR);
+		addColumnDefinition(LABEL, Keyword.VARCHAR);
+		addColumnDefinition(LAT, Keyword.DOUBLE);
+		addColumnDefinition(LON, Keyword.DOUBLE);
+		addColumnDefinition(CHECKPOINT_GROUP_IDS, Keyword.VARCHAR);
+		addColumnDefinition(MARKER_COLOR, Keyword.VARCHAR);
+		addColumnDefinition(CATEGORY, Keyword.VARCHAR);
+		addColumnDefinition(SUBCATEGORY, Keyword.VARCHAR);
+		addColumnDefinition(VISIBLE_TIME_FROM, Keyword.TIMESTAMP);
+		addColumnDefinition(VISIBLE_TIME_TO, Keyword.TIMESTAMP);
 	}
 
 	public List<Checkpoint> findByCheckpointGroupId(String checkpointGroupId) {
-		return getClient().readList(Checkpoint.class,
-				"SELECT * FROM " + TABLE_NAME)
-				.stream().filter(c -> c.getCheckpointGroupIds().contains(checkpointGroupId))
-				.collect(Collectors.toList());
+		return getClient().readList(Checkpoint.class, "SELECT * FROM " + TABLE_NAME).stream()
+				.filter(c -> c.getCheckpointGroupIds().contains(checkpointGroupId)).collect(Collectors.toList());
 	}
 
 }

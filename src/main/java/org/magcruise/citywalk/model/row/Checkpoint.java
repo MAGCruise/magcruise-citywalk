@@ -26,12 +26,14 @@ public class Checkpoint {
 	private String markerColor;
 	private String category;
 	private String subcategory;
+	private Date visibleTimeFrom;
+	private Date visibleTimeTo;
 
 	public Checkpoint() {
 	}
 
-	public Checkpoint(String id, String name, String label, double lat, double lon,
-			List<String> checkPointGroupIds, String markerColor, String category, String subcategory) {
+	public Checkpoint(String id, String name, String label, double lat, double lon, List<String> checkPointGroupIds,
+			String markerColor, String category, String subcategory, Date visibleTimeFrom, Date visibleTimeTo) {
 		this.id = id;
 		this.name = name;
 		this.label = label;
@@ -41,6 +43,8 @@ public class Checkpoint {
 		this.markerColor = markerColor;
 		this.category = category;
 		this.subcategory = subcategory;
+		this.visibleTimeFrom = visibleTimeFrom;
+		this.visibleTimeTo = visibleTimeTo;
 	}
 
 	public String getId() {
@@ -114,7 +118,7 @@ public class Checkpoint {
 	public void setCreated(Date created) {
 		this.created = created;
 	}
-	
+
 	public String getMarkerColor() {
 		return markerColor;
 	}
@@ -122,7 +126,7 @@ public class Checkpoint {
 	public void setMarkerColor(String markerColor) {
 		this.markerColor = markerColor;
 	}
-	
+
 	public String getCategory() {
 		return category;
 	}
@@ -130,7 +134,7 @@ public class Checkpoint {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	
+
 	public String getSubcategory() {
 		return subcategory;
 	}
@@ -138,4 +142,21 @@ public class Checkpoint {
 	public void setSubcategory(String subcategory) {
 		this.subcategory = subcategory;
 	}
+
+	public Date getVisibleTimeFrom() {
+		return visibleTimeFrom;
+	}
+
+	public void setVisibleTimeFrom(Date visibleTimeFrom) {
+		this.visibleTimeFrom = visibleTimeFrom;
+	}
+
+	public Date getVisibleTimeTo() {
+		return visibleTimeTo;
+	}
+
+	public void setVisibleTimeTo(Date visibleTimeTo) {
+		this.visibleTimeTo = visibleTimeTo;
+	}
+
 }

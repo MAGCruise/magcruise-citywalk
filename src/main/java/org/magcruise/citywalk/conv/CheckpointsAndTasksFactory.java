@@ -20,23 +20,20 @@ import net.arnx.jsonic.JSON;
 import net.arnx.jsonic.JSONException;
 
 public class CheckpointsAndTasksFactory {
-	protected static org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager
-			.getLogger();
+	protected static org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager.getLogger();
 
 	public static void main(String[] args) {
-		CheckpointsAndTasksJson json = JsonUtils.decode(
-				"src/main/webapp/json/checkpoints-and-tasks/waseda.json",
+		CheckpointsAndTasksJson json = JsonUtils.decode("src/main/webapp/json/checkpoints-and-tasks/wasedasai2016.json",
 				CheckpointsAndTasksJson.class);
 		refreshCheckpointAtdTaskTable();
 		log.info(createCheckpoints(json.getCheckpoints()));
 		log.info(createTasks(json.getTasks()));
-		log.info(insertToDb("src/main/webapp/json/checkpoints-and-tasks/waseda.json"));
+		log.info(insertToDb("src/main/webapp/json/checkpoints-and-tasks/wasedasai2016.json"));
 	}
 
 	public static CheckpointsAndTasksJson insertToDb(String file) {
 		try {
-			CheckpointsAndTasksJson json = JSON.decode(FileUtils.getFileReader(file),
-					CheckpointsAndTasksJson.class);
+			CheckpointsAndTasksJson json = JSON.decode(FileUtils.getFileReader(file), CheckpointsAndTasksJson.class);
 			log.info("insertToDb:{}", json);
 			insertToDb(json);
 			return json;
@@ -47,8 +44,7 @@ public class CheckpointsAndTasksFactory {
 	}
 
 	public static void insertToDb(CheckpointsAndTasksJson json) {
-		new CheckpointsTable()
-				.insertBatch(createCheckpoints(json.getCheckpoints()).toArray(new Checkpoint[0]));
+		new CheckpointsTable().insertBatch(createCheckpoints(json.getCheckpoints()).toArray(new Checkpoint[0]));
 		new TasksTable().insertBatch(createTasks(json.getTasks()).toArray(new Task[0]));
 
 	}
@@ -68,9 +64,10 @@ public class CheckpointsAndTasksFactory {
 
 	public static List<Checkpoint> createCheckpoints(List<CheckpointJson> checkpointsData) {
 		List<Checkpoint> checkpoints = checkpointsData.stream()
-				.map(checkpoint -> new Checkpoint(checkpoint.getId(), checkpoint.getName(),
-						checkpoint.getLabel(), checkpoint.getLat(), checkpoint.getLon(),
-						checkpoint.getCheckpointGroupIds(), checkpoint.getMarkerColor(), checkpoint.getCategory(), checkpoint.getSubcategory()))
+				.map(checkpoint -> new Checkpoint(checkpoint.getId(), checkpoint.getName(), checkpoint.getLabel(),
+						checkpoint.getLat(), checkpoint.getLon(), checkpoint.getCheckpointGroupIds(),
+						checkpoint.getMarkerColor(), checkpoint.getCategory(), checkpoint.getSubcategory(),
+						checkpoint.getVisibleTimeFrom(), checkpoint.getVisibleTimeTo()))
 				.collect(Collectors.toList());
 		return checkpoints;
 	}
@@ -80,8 +77,7 @@ public class CheckpointsAndTasksFactory {
 			try {
 				@SuppressWarnings("unchecked")
 				TaskContent content = JsonObject.decodeFromJson(
-						(Class<? extends TaskContent>) Class
-								.forName(task.getContent().getInstanceClass()),
+						(Class<? extends TaskContent>) Class.forName(task.getContent().getInstanceClass()),
 						JSON.encode(task.getContent()));
 				return new Task(task.getId(), task.getCheckpointIds(), content);
 			} catch (ClassNotFoundException e) {
