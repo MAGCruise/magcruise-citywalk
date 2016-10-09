@@ -3,6 +3,7 @@ var checkpoint = getCheckpoint();
 var task = getTask();
 
 $(function() {
+	$("#back").hide();
 	showCheckeinMessageIfNeeded();
 	$('#label').text(task.label);
 	

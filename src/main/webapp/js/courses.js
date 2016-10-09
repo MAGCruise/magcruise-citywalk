@@ -1,4 +1,5 @@
 $(function() {
+	$("#back").hide();
 	$("#nav-menu").hide();
 	$(".city a").click(
 			function() {

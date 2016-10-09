@@ -20,6 +20,7 @@ if (subcategory) {
 }
 
 $(function() {
+	$("#back").hide();
 	unselectCheckpoint();
 	$("#current-position").click(function() {
 		if (!cPos) {

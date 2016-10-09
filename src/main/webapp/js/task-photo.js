@@ -2,6 +2,7 @@ setTaskTitle();
 var task = getTask();
 
 $(function() {
+	$("#back").hide();
 	showCheckeinMessageIfNeeded();
 	
 	$("#loading").hide();
