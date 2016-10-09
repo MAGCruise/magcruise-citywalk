@@ -37,6 +37,7 @@ $(function() {
 	if (getUserId()) {
 		location.href = 'login.html';
 	}
+	$("#back").hide();
 	$("#nav-menu").hide();
 	$('#register-btn').on('click', registerFunc);
 	$("form").keypress(

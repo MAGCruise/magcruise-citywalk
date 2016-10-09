@@ -5,5 +5,6 @@ if (getUserId()) {
 }
 
 $(function() {
+	$("#back").hide();
 	$("#nav-menu").hide();
 });
