@@ -19,6 +19,10 @@ if (subcategory) {
 	});
 }
 
+window.onload = function() {
+	initMap();
+}
+
 $(function() {
 	$("#back").hide();
 	unselectCheckpoint();
