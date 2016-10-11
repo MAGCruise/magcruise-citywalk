@@ -16,17 +16,18 @@ hr {
 		<div th:replace="/fragment/header.html :: top-menu"></div>
 		<div class="row">
 			<div class="col-sm-12">
-				<h2>使い方</h2>
-				<h3>概要</h3>
+				<h3>はじめに</h3>
 				<p>このアプリケーションは，スマートフォンを持って早稲田祭をめぐり歩きながら，早稲田大学のランドマークや企画イベントにチェックインして，
 					クイズを解いて早稲田文化を体感するウェブアプリケーションです．</p>
 				<p>チェックポイントにチェックインしクイズに正解すると，ポイントが貯まっていきます．ポイントを一定数貯めると，嬉しいことがあるかもしれません．</p>
-				<hr>
 				<h3>注意事項</h3>
 				<p>動作環境は，Safari または Google Crhome(iOS)，Google
 					Chrome(Android)です．GPSとインターネット接続を必要とします．</p>
 				<p>このアプリケーションでは，ナビ画面を開いている間，GPSログが記録されサーバに送信されます．
 					GPSログはニックネームとともに保存されますが，このアプリケーションと論文発表などの学術目的以外には利用しません．</p>
+				<div class="btn-group btn-group-justified">
+					<a class="btn btn-default" href="register">ユーザ登録してはじめる</a>
+				</div>
 				<hr>
 				<h3>操作手順</h3>
 				<h4>ユーザ登録（ニックネームの登録）</h4>
@@ -103,7 +104,9 @@ hr {
 						src="https://i.gyazo.com/16157882fcb3c257955c9880db4c45b6.png"
 						style="max-width: 240px;">
 				</div>
-				<hr>
+				<div class="btn-group btn-group-justified">
+					<a class="btn btn-primary" href="register">ユーザ登録してはじめる</a>
+				</div>
 
 			</div>
 		</div>
