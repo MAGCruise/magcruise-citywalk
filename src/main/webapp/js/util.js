@@ -118,13 +118,15 @@ function getVisitedCheckPoints() {
 
 function getNonVisitedCheckPoints() {
 	var visitedCheckPointIds = getVisitedCheckPointIds();
-	var visitedCheckPoints = getCheckpoints().filter(function(checkpoint) {
+	var nonVisitedCheckPoints = getCheckpoints().filter(function(checkpoint) {
+		return visitedCheckPointIds.indexOf(checkpoint.id) < 0;
+	}).filter(function(checkpoint) {
 		var now = (new Date()).getTime();
 		var from = (new Date(checkpoint.visibleTimeFrom)).getTime();
 		var to = (new Date(checkpoint.visibleTimeTo)).getTime();
 		return (now >= from) && (now <= to);
 	});
-	return visitedCheckPoints;
+	return nonVisitedCheckPoints;
 }
 
 function getCheckpointProgressDic() {
