@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+<object th:include="/fragment/header.html :: meta-fragment"
+	th:remove="tag"></object>
+<title>使い方</title>
+<style>
+hr {
+	border-top: 1px solid #ddd;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div th:replace="/fragment/header.html :: top-menu"></div>
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>使い方</h2>
+				<h3>概要</h3>
+				<p>このアプリケーションは，スマートフォンを持って早稲田祭をめぐり歩きながら，早稲田大学のランドマークや企画イベントにチェックインして，
+					クイズを解いて早稲田文化を体感するウェブアプリケーションです．</p>
+				<p>チェックポイントにチェックインしクイズに正解すると，ポイントが貯まっていきます．ポイントを一定数貯めると，嬉しいことがあるかもしれません．</p>
+				<hr>
+				<h3>注意事項</h3>
+				<p>動作環境は，Safari または Google Crhome(iOS)，Google
+					Chrome(Android)です．GPSとインターネット接続を必要とします．</p>
+				<p>このアプリケーションでは，ナビ画面を開いている間，GPSログが記録されサーバに送信されます．
+					GPSログはニックネームとともに保存されますが，このアプリケーションと論文発表などの学術目的以外には利用しません．</p>
+				<hr>
+				<h3>操作手順</h3>
+				<h4>ユーザ登録（ニックネームの登録）</h4>
+				<p>
+					初めて使用する時は<a href="register.html">ユーザ登録画面</a>が表示されるので，ニックネームを登録してください．
+					ニックネームは，自由に決めて登録できます．実名である必要はありません．
+				</p>
+				<p>他の人が既に利用しているニックネームは利用することができません．また，一度，ユーザ登録をするとニックネームを変更することはできません．</p>
+				<div class="media">
+					<img class="media-object img-thumbnail center-block"
+						src="../img/wasedasai/register.png" style="max-width: 240px;">
+				</div>
+				<hr>
+				<!--
+				<h4>コース選択</h4>
+				<p>
+					<a href="courses.html">コース選択画面が表示</a>されますので，自分がスタートしたいコースを選択します．
+				</p>
+ 				-->
+				<h4 class="media-heading">未訪問チェックポイント</h4>
+				<p>チェックポイントは，早稲田祭で開催中のおすすめ企画やイベント，早稲田大学のランドマーク，早稲田文化を象徴するモノ，
+					早大生だけが知っているとっておきの場所，秘密スポットなどです．</p>
+				<p>
+					チェックポイントはカテゴリーとして，分類されて表示されています．関心がある分類をたどって，チェックポイントを探すことができます．
+					チェックポイントは，上から，今いる場所から近い順に表示されています．</p>
+				<p>訪問したいチェックポイントを選択したら，地図上で所在地確認したうえで，画面に表示された「ここに行く」ボタンをクリックしましょう．</p>
+				<div class="media">
+					<img class="media-object img-thumbnail center-block"
+						src="../img/wasedasai/mihoumon_addComments.png"
+						style="max-width: 240px;">
+				</div>
+				<p class="text-center">↓</p>
+				<div class="media">
+					<img class="media-object img-thumbnail center-block"
+						src="../img/wasedasai/navi.png" style="max-width: 240px;">
+				</div>
+				<hr>
+
+				<h4>ナビ画面（チェックポイントまでの距離・方向・地図）</h4>
+				<p>選択したチェックポイントまでの距離や方向が表示され，チェックポイントへと導いてもらえます．
+					周囲の状況に関心を払いながら，歩きスマホに注意してチェックポイントまで行きましょう．
+					チェックインポイントに近づき，「チェックイン」ボタンを押すと，チェックインすることができます．</p>
+				<div class="media">
+					<img class="media-object img-thumbnail center-block"
+						src="../img/wasedasai/navi.png" style="max-width: 240px;">
+				</div>
+				<hr>
+
+				<h4>チェックイン</h4>
+				<p>チェックポイントにたどり着いたら，，画面で指定されている方法に従って，チェックインしましょう．
+				<p>
+				<p>表示されているのと同じ写真を撮ったり，QRコードを読み取ったり，いろいろな方法でチェックインします．
+					チェックインに成功すると，表示されている画面が変わり「チェックインに成功しました！」と表示されます．この時，チェックインポイントを獲得できます．
+				</p>
+				<div class="media">
+					<img class="media-object img-thumbnail center-block"
+						src="../img/wasedasai/checkin.png" style="max-width: 240px;">
+				</div>
+				<hr>
+				<h4>クイズ(タスク)</h4>
+				<p>チェックインするとクイズが出題されます．正解を選んで，「回答する」ボタンを押してください．正解すると，正解ポイントを獲得できます．</p>
+				<p>回答が受け付けられると，「タスクを完了しました！」と表示され，未訪問チェックポイント画面に戻ります．
+					次の新たなチェックポイントを，目指しましょう．</p>
+
+				<h4>訪問済みチェックポイント</h4>
+				<p>これまでに訪問したチェックポイントが，チェックインした順に一覧で表示されます．</p>
+				<p>
+					そのチェックポイントで獲得できたポイントも表示されます． 獲得できたポイントは，<strong>「自分が獲得したポイント数/そのチェックポイントで獲得できる最大ポイント数」</strong>で表示されます．
+				</p>
+				<h4>ランキング</h4>
+				<p>これまでに，同じコースに参加した人を獲得ポイントの多い順に表示しています． 自分の順位を知ることができます．</p>
+				<div class="media">
+					<img class="media-object img-thumbnail center-block"
+						src="https://i.gyazo.com/16157882fcb3c257955c9880db4c45b6.png"
+						style="max-width: 240px;">
+				</div>
+				<hr>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

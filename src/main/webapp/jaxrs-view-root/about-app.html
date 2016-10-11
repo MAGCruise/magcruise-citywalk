@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+<object th:include="/fragment/header.html :: meta-fragment"
+	th:remove="tag"></object>
+<title>アプリケーションについて</title>
+</head>
+<body>
+	<div class="container">
+		<div th:replace="/fragment/header.html :: top-menu"></div>
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>アプリケーションについて</h2>
+				<h4>研究開発チーム（五十音順）</h4>
+				<ul>
+					<li>合同会社方痴民 綾木良太</li>
+					<li>東邦大大学理学部情報科学科 中島 悠</li>
+					<li>早稲田大学創造理工学部経営システム工学科 家入祐也，菱山玲子</li>
+				</ul>
+				<h4>早稲田祭運営チーム（五十音順）</h4>
+				<ul>
+					<li>早稲田祭2016運営スタッフ 実践推進担当 上野雅敏， 髙橋和夏</li>
+				</ul>
+				<br>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

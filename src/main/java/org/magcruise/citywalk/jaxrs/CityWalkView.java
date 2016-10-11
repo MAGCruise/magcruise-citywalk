@@ -23,7 +23,8 @@ public class CityWalkView extends JaxrsView {
 				return createView("/index.html", new ThymeleafModel());
 			} else if (filePathFromViewRoot.contains("index.html")
 					|| filePathFromViewRoot.contains("login.html")
-					|| filePathFromViewRoot.contains("register.html")) {
+					|| filePathFromViewRoot.contains("register.html")
+					|| filePathFromViewRoot.contains("how-to-use.html")) {
 				return createView(filePathFromViewRoot, new ThymeleafModel());
 			} else {
 				if (UserSession.of(request).isLogined()) {
