@@ -42,12 +42,12 @@ public class Activity {
 			String taskId, double score, Input input) {
 		this.checkpointGroupId = checkpointGroupId;
 		this.userId = userId;
-		this.setCheckpointId(checkpointId);
+		this.checkpointId = checkpointId;
 		this.lat = lat;
 		this.lon = lon;
 		this.taskId = taskId;
 		this.score = score;
-		setInputObject(input);
+		this.input = input;
 	}
 
 	public Activity(ActivityJson json) {
