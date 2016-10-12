@@ -42,7 +42,7 @@ function getEventsByWebsocket() {
 		var messages = JSON.parse(e.data);
 		for (var i = 0; i < messages.length; i++) {
 			var a = messages[i];
-			var elem = $('<div class="item">' + 
+			var elem = $('<div class="item">' +
 							'<span class="time">' + toFormattedShortDate(a.created) + '</span>' +
 							'<span class="name">' + a.userId + '</span>' +
 							'さんがチェックインしました。' +
@@ -212,7 +212,7 @@ function enqueueMovement(pos) {
 	var movement = {
 			userId				: getUserId(),
 			lat     			: pos.coords.latitude,
-			lng    	 			: pos.coords.longitude,
+			lon    	 			: pos.coords.longitude,
 			heading 			: cHeading,
 			checkpointGroupId	: getCheckpointGroupId(),
 			checkpointId		: checkpoint.id,

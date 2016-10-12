@@ -11,6 +11,7 @@ import org.magcruise.citywalk.conv.CheckpointsAndTasksFactory;
 import org.magcruise.citywalk.conv.InitialDataFactory;
 import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
+import org.magcruise.citywalk.model.json.MovementJson;
 import org.magcruise.citywalk.model.json.RankJson;
 import org.magcruise.citywalk.model.json.RankingJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
@@ -191,15 +192,15 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public void addMovements(List<Map<String, Object>> movements) {
+	public void addMovements(MovementJson[] movements) {
 		log.info(movements);
 	}
 
 	@Override
 	public BadgeJson[] getBadges(String userId) {
 		List<BadgeJson> badges = new ArrayList<>();
-		badges.add(new BadgeJson("AEDマスター", "img/badge-aed-master.jog"));
-		badges.add(new BadgeJson("早稲田マスター", "img/badge-waseda-master.jog"));
+		//		badges.add(new BadgeJson("AEDマスター", "img/badge-aed-master.jog"));
+		//		badges.add(new BadgeJson("早稲田マスター", "img/badge-waseda-master.jog"));
 
 		return badges.toArray(new BadgeJson[0]);
 	}
