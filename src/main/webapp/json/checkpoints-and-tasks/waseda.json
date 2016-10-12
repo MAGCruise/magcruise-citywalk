@@ -6,6 +6,7 @@
 			"lon": 139.708019,
 			"name": "大食堂",
 			"label": "お昼は激こみ",
+			"description": "このカフェテリアは，学生の胃袋を満たしてくれます",
 			"marker_color": "red",
 			"category": "category-1",
 			"subcategory": "subcategory-1-1",
