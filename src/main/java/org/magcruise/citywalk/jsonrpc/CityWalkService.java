@@ -2,9 +2,11 @@ package org.magcruise.citywalk.jsonrpc;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.Logger;
 import org.magcruise.citywalk.conv.CheckpointsAndTasksFactory;
@@ -18,12 +20,14 @@ import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
 import org.magcruise.citywalk.model.relation.BadgesTable;
+import org.magcruise.citywalk.model.relation.MovementsTable;
 import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
 import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.relation.UserAccountsTable;
 import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
 import org.magcruise.citywalk.model.row.Activity;
 import org.magcruise.citywalk.model.row.Badge;
+import org.magcruise.citywalk.model.row.Movement;
 import org.magcruise.citywalk.model.row.SubmittedActivity;
 import org.magcruise.citywalk.model.row.Task;
 import org.magcruise.citywalk.model.row.UserAccount;
@@ -45,6 +49,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	private UserAccountsTable users = new UserAccountsTable();
 	private BadgesTable badges = new BadgesTable();
 	private TasksTable tasks = new TasksTable();
+	private MovementsTable movements = new MovementsTable();
 
 	@Override
 	public boolean login(String userId, String groupId) {
@@ -193,7 +198,9 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	@Override
 	public void addMovements(MovementJson[] movements) {
-		log.info(movements);
+		this.movements.insertBatch(
+				Arrays.stream(movements).map(m -> new Movement(m)).collect(Collectors.toList())
+						.toArray(new Movement[0]));
 	}
 
 	@Override
