@@ -1,2 +1,3 @@
 このディレクトリに含まれる".json"で終わるファイルがデータベースに読み込まれる．CheckpointsテーブルとTasksテーブルは起動の度に作り直される．
 データベースに格納されたデータは，CityWalkService#getInitialData(String checkpointGroupId)で，初期化データとして取り出すことができる．
+Checkpointのidは全てのファイル内でユニークでなくてはならない．
