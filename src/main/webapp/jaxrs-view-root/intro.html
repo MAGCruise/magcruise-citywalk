@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+<object th:include="/fragment/header.html :: meta-fragment"
+	th:remove="tag"></object>
+<title>はじめに</title>
+<style>
+hr {
+	border-top: 1px solid #ddd;
+}
+</style>
+<script>
+	$(function() {
+		$("#back").hide();
+		$("#nav-menu").hide();
+	});
+</script>
+</head>
+<body>
+	<div class="container">
+		<div th:replace="/fragment/header.html :: top-menu"></div>
+		<div class="row">
+			<div class="col-sm-12">
+				<h4>概要</h4>
+				<p>このアプリケーションは，スマートフォンを持って早稲田祭をめぐり歩きながら，早稲田大学のランドマークや企画イベントにチェックインして，
+					クイズを解いて早稲田文化を体感するウェブアプリケーションです．</p>
+				<p>チェックポイントにチェックインしクイズに正解すると，ポイントが貯まっていきます．ポイントを一定数貯めると，嬉しいことがあるかもしれません．</p>
+				<h4>注意事項</h4>
+				<p>動作環境は，Safari または Google Crhome(iOS)，Google
+					Chrome(Android)です．GPSとインターネット接続を必要とします．</p>
+				<p>このアプリケーションでは，ナビ画面を開いている間，GPSログが記録されサーバに送信されます．
+					GPSログはニックネームとともに保存されますが，このアプリケーションと論文発表などの学術目的以外には利用しません．</p>
+				<div class="btn-group btn-group-justified">
+					<a class="btn btn-primary" href="how-to-use.html">使い方へ</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
