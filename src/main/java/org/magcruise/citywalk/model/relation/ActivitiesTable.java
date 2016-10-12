@@ -26,17 +26,17 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 
 	public ActivitiesTable(String name) {
 		super(name, ApplicationContext.getDbClient());
-		setAttribute(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
-		setAttribute(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
-		setAttribute(SAVED, Keyword.TIMESTAMP);
-		setAttribute(USER_ID, Keyword.VARCHAR);
-		setAttribute(CHECKPOINT_GROUP_ID, Keyword.VARCHAR);
-		setAttribute(CHECKPOINT_ID, Keyword.VARCHAR);
-		setAttribute(TASK_ID, Keyword.VARCHAR);
-		setAttribute(SCORE, Keyword.DOUBLE);
-		setAttribute(LAT, Keyword.DOUBLE);
-		setAttribute(LON, Keyword.DOUBLE);
-		setAttribute(INPUT, Keyword.VARCHAR);
+		addColumnDefinition(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
+		addColumnDefinition(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
+		addColumnDefinition(SAVED, Keyword.TIMESTAMP);
+		addColumnDefinition(USER_ID, Keyword.VARCHAR);
+		addColumnDefinition(CHECKPOINT_GROUP_ID, Keyword.VARCHAR);
+		addColumnDefinition(CHECKPOINT_ID, Keyword.VARCHAR);
+		addColumnDefinition(TASK_ID, Keyword.VARCHAR);
+		addColumnDefinition(SCORE, Keyword.DOUBLE);
+		addColumnDefinition(LAT, Keyword.DOUBLE);
+		addColumnDefinition(LON, Keyword.DOUBLE);
+		addColumnDefinition(INPUT, Keyword.VARCHAR);
 	}
 
 	public List<Activity> getActivities(String userId) {

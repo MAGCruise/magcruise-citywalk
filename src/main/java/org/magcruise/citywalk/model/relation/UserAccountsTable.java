@@ -15,9 +15,9 @@ public class UserAccountsTable extends RelationalModel<UserAccount> {
 
 	public UserAccountsTable() {
 		super(TABLE_NAME, ApplicationContext.getDbClient());
-		setAttribute(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
-		setAttribute(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
-		setAttribute(GROUP_ID, Keyword.VARCHAR);
+		addColumnDefinition(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
+		addColumnDefinition(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
+		addColumnDefinition(GROUP_ID, Keyword.VARCHAR);
 	}
 
 	public boolean exists(String userId) {
