@@ -9,6 +9,7 @@
 			"marker_color": "red",
 			"category": "category-1",
 			"subcategory": "subcategory-1-1",
+			"imgSrc": "waseda/icon/cafeteria.jpg",
 			"checkpoint_group_ids": [
 				"waseda"
 			]
@@ -22,6 +23,7 @@
 			"marker_color": "green",
 			"category": "category-1",
 			"subcategory": "subcategory-1-2",
+			"imgSrc": "waseda/icon/pc-room.jpg",
 			"checkpoint_group_ids": [
 				"waseda"
 			]

@@ -15,16 +15,19 @@ import org.magcruise.citywalk.model.row.Task;
 import org.nkjmlab.util.json.JsonUtils;
 
 public class InitialDataFactory {
-	protected static org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager.getLogger();
+	protected static org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager
+			.getLogger();
 
 	public static void main(String[] args) {
 		CheckpointsAndTasksFactory.refreshCheckpointAtdTaskTable();
-		CheckpointsAndTasksFactory.insertToDb("src/main/webapp/json/checkpoints-and-tasks/waseda.json");
+		CheckpointsAndTasksFactory
+				.insertToDb("src/main/webapp/json/checkpoints-and-tasks/waseda.json");
 		JsonUtils.encode(create("waseda"), "src/main/webapp/json/initial-data/waseda.json", true);
 	}
 
 	public static InitialDataJson create(String checkpointGroupId) {
-		List<Checkpoint> checkpoints = new CheckpointsTable().findByCheckpointGroupId(checkpointGroupId);
+		List<Checkpoint> checkpoints = new CheckpointsTable()
+				.findByCheckpointGroupId(checkpointGroupId);
 		return create(checkpoints);
 
 	}
@@ -49,9 +52,9 @@ public class InitialDataFactory {
 			taskJsons.remove(checkinIndex);
 			taskJsons.add(0, checkinTaskJson);
 
-			return new CheckpointJson(c.getId(), c.getName(), c.getLabel(), c.getLat(), c.getLon(), checkin, taskJsons,
-					c.getMarkerColor(), c.getCategory(), c.getSubcategory(), c.getVisibleTimeFrom(),
-					c.getVisibleTimeTo());
+			return new CheckpointJson(c.getId(), c.getName(), c.getLabel(), c.getLat(), c.getLon(),
+					checkin, taskJsons, c.getMarkerColor(), c.getCategory(), c.getSubcategory(),
+					c.getVisibleTimeFrom(), c.getVisibleTimeTo(), c.getImgSrc());
 		}).collect(Collectors.toList());
 		return new InitialDataJson(result);
 

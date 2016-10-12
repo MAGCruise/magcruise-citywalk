@@ -28,12 +28,15 @@ public class Checkpoint {
 	private String subcategory;
 	private Date visibleTimeFrom;
 	private Date visibleTimeTo;
+	private String imgSrc;
 
 	public Checkpoint() {
 	}
 
-	public Checkpoint(String id, String name, String label, double lat, double lon, List<String> checkPointGroupIds,
-			String markerColor, String category, String subcategory, Date visibleTimeFrom, Date visibleTimeTo) {
+	public Checkpoint(String id, String name, String label, double lat, double lon,
+			List<String> checkPointGroupIds,
+			String markerColor, String category, String subcategory, Date visibleTimeFrom,
+			Date visibleTimeTo, String imgSrc) {
 		this.id = id;
 		this.name = name;
 		this.label = label;
@@ -45,6 +48,7 @@ public class Checkpoint {
 		this.subcategory = subcategory;
 		this.visibleTimeFrom = visibleTimeFrom;
 		this.visibleTimeTo = visibleTimeTo;
+		this.imgSrc = imgSrc;
 	}
 
 	public String getId() {
@@ -157,6 +161,14 @@ public class Checkpoint {
 
 	public void setVisibleTimeTo(Date visibleTimeTo) {
 		this.visibleTimeTo = visibleTimeTo;
+	}
+
+	public String getImgSrc() {
+		return imgSrc;
+	}
+
+	public void setImgSrc(String imgSrc) {
+		this.imgSrc = imgSrc;
 	}
 
 }
