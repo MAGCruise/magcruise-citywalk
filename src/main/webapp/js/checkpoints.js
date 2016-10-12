@@ -100,7 +100,8 @@ function showCheckpoints() {
 		var ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
 		var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
 		var distanceStyle = (distance > 1000) ? "far" : "near";
-		var imgSrc = "../img/placeholder.svg";
+		var imgSrc = checkpoint.imgSrc==null? "../img/placeholder.svg" : "../img/"+checkpoint.imgSrc;
+
 		var elem =
 			$('<div class="checkpoint" id="checkpoint-' + i + '">' +
 				'<span class="pull-left distance ' + distanceStyle + '">' +
