@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+<object th:include="/fragment/header.html :: meta-fragment"
+	th:remove="tag"></object>
+<title>LocalStorageクリア</title>
+<script>
+	window.onload = function() {
+		// localStorageに保存されているすべての値を削除する
+		clear();
+	}
+</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<a href="./index.html">Topへ</a>
+		</div>
+	</div>
+</body>
+</html>
