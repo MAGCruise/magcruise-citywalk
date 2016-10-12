@@ -2,11 +2,10 @@ package org.magcruise.citywalk.jsonrpc;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
-import java.util.Map;
 
 import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
+import org.magcruise.citywalk.model.json.MovementJson;
 import org.magcruise.citywalk.model.json.RankingJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
@@ -70,7 +69,7 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	}
 
 	@Override
-	public void addMovements(List<Map<String, Object>> movements) {
+	public void addMovements(MovementJson[] movements) {
 		citywalkService.addMovements(movements);
 	}
 

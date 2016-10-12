@@ -18,6 +18,7 @@ import org.magcruise.citywalk.model.json.db.ContentJson;
 import org.magcruise.citywalk.model.json.db.TaskJson;
 import org.magcruise.citywalk.model.relation.BadgesTable;
 import org.magcruise.citywalk.model.relation.CheckpointsTable;
+import org.magcruise.citywalk.model.relation.MovementsTable;
 import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
 import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.relation.UserAccountsTable;
@@ -74,7 +75,7 @@ public class ApplicationContext implements ServletContextListener {
 		new BadgesTable().createTableIfNotExists();
 		new VerifiedActivitiesTable().createTableIfNotExists();
 		new SubmittedActivitiesTable().createTableIfNotExists();
-
+		new MovementsTable().createTableIfNotExists();
 		Arrays.stream(new File(event.getServletContext().getRealPath("json/checkpoints-and-tasks/"))
 				.listFiles((FilenameFilter) (dir, name) -> {
 					return name.endsWith(".json");

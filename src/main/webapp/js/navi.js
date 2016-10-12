@@ -212,7 +212,7 @@ function enqueueMovement(pos) {
 	var movement = {
 			userId				: getUserId(),
 			lat     			: pos.coords.latitude,
-			lng    	 			: pos.coords.longitude,
+			lon    	 			: pos.coords.longitude,
 			heading 			: cHeading,
 			checkpointGroupId	: getCheckpointGroupId(),
 			checkpointId		: checkpoint.id,

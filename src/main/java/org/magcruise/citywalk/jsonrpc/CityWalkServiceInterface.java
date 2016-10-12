@@ -1,10 +1,8 @@
 package org.magcruise.citywalk.jsonrpc;
 
-import java.util.List;
-import java.util.Map;
-
 import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
+import org.magcruise.citywalk.model.json.MovementJson;
 import org.magcruise.citywalk.model.json.RankingJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
@@ -33,7 +31,7 @@ public interface CityWalkServiceInterface {
 					+ "\"taskId\": \"1\", " + "\"score\": 9.0, " + "\"inputs\": "
 					+ "{\"value\":\"1\"}}") ActivityJson json);
 
-	void addMovements(List<Map<String, Object>> movements);
+	void addMovements(MovementJson[] movements);
 
 	BadgeJson[] getBadges(@Parameter(sample = "ayaki") String userId);
 
