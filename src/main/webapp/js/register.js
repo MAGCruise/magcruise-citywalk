@@ -36,8 +36,8 @@ var registerFunc = function() {
 $(function() {
 	if (getUserId()) {
 		location.href = 'login.html';
+		return;
 	}
-	$("#back").hide();
 	$("#nav-menu").hide();
 	$('#register-btn').on('click', registerFunc);
 	$("form").keypress(
