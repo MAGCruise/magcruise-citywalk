@@ -34,15 +34,16 @@ function showVisitedCheckPoints(results) {
 				answerHtml += '<br/><br/>';
 			}
 		});
+		var imgSrc = checkpoint.imgSrc==null? "../img/placeholder.svg" : "../img/"+checkpoint.imgSrc;
 		var html =  '<div class="row checkpoint">' +
 						'<i class="fa fa-check-square" aria-hidden="true"></i>' +
 						'<p class="name">' + checkpoint.name +
 						resultHtml +
 						'</p>' +
 						'<p class="answer">' + answerHtml + '</p>' +
-						'<img src="../img/placeholder.svg" class="img-responsive img col-xs-3 col-sm-3 col-md-2 col-lg-2">' +
+						'<img src="' + imgSrc + '" class="img-responsive img col-xs-3 col-sm-3 col-md-2 col-lg-2">' +
 						'<div class="col-xs-9 col-sm-9 col-md-10 col-lg-10 description">' +
-							checkpoint.label + '<br/><p style="word-break: break-word;">' + (checkpoint.description || "") +'</p>'+ 
+							checkpoint.label + '<br/><p style="word-break: break-word;">' + (checkpoint.description || "") +'</p>'+
 						'</div>' +
 					'</div>';
 		$('#checkpoints').append(html);
