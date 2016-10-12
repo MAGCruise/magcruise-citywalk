@@ -28,6 +28,7 @@ import org.nkjmlab.gdata.spreadsheet.client.GoogleSpreadsheetService;
 import org.nkjmlab.gdata.spreadsheet.client.GoogleSpreadsheetServiceFactory;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.DbClientFactory;
+import org.nkjmlab.util.db.DbConfig;
 import org.nkjmlab.util.db.H2ClientWithConnectionPool;
 import org.nkjmlab.util.db.H2ConfigFactory;
 import org.nkjmlab.util.db.H2Server;
@@ -37,16 +38,17 @@ import org.nkjmlab.util.log4j.LogManager;
 @WebListener
 public class ApplicationContext implements ServletContextListener {
 
-	protected Logger log = LogManager.getLogger();
+	protected static Logger log = LogManager.getLogger();
 
 	protected static H2ClientWithConnectionPool client;
 
 	static {
 		H2Server.start();
+		DbConfig conf = H2ConfigFactory
+				.create(FileUtils.getFileInUserDirectory("magcruise-h2/citywalk"));
+		log.info(conf);
 		if (client == null) {
-			client = DbClientFactory
-					.createH2ClientWithConnectionPool(
-							H2ConfigFactory.create(FileUtils.getTempFile("citywalk")));
+			client = DbClientFactory.createH2ClientWithConnectionPool(conf);
 		}
 	}
 
