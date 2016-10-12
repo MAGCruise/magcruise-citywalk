@@ -3,16 +3,18 @@ var checkpoint = getCheckpoint();
 var task = getTask();
 
 $(function() {
-	$("#back").hide();
+	if (getTaskIndex() != 0) {
+		$("#back").hide();
+	}
 	showCheckeinMessageIfNeeded();
 	$('#label').text(task.label);
-	
+
 	var selectionType = (task.answerIndexes.length == 1) ? "radio" : "checkbox"
 	task.selections.forEach(function(selection, i) {
-		var selectionElem =
-			'<div class="selection">' +
-				'<label><input type="' + selectionType + '" name="selection" class="selection" value=' + i + '>' + selection + '</label>'
-			'</div>';
+		var selectionElem = '<div class="selection">' + '<label><input type="'
+				+ selectionType + '" name="selection" class="selection" value='
+				+ i + '>' + selection + '</label>'
+		'</div>';
 		$('.form-group').append(selectionElem);
 	});
 

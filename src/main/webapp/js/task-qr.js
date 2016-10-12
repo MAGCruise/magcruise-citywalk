@@ -2,9 +2,11 @@ setTaskTitle();
 var task = getTask();
 
 $(function() {
-	$("#back").hide();
+	if (getTaskIndex() != 0) {
+		$("#back").hide();
+	}
 	showCheckeinMessageIfNeeded();
-	
+
 	$("#btn-next").click(function() {
 		addActivity(task, task.answerQr, true);
 	});
@@ -28,7 +30,7 @@ function handleFiles(files) {
 qrcode.callback = function(res) {
 	$("#btn-next").prop("disabled", true);
 	if (res == 'error decoding QR Code') {
-    	alert('QRコードの解析に失敗');
+		alert('QRコードの解析に失敗');
 	} else {
 		console.log('Success to decode qr-code : ' + res);
 		if (res == task.answerQr) {
@@ -40,10 +42,10 @@ qrcode.callback = function(res) {
 };
 
 function decodeQR(data) {
-    var img = new Image();
-    img.src = data;
-    img.onload = function() {
-    	var canvas = document.createElement("canvas");
-    	qrcode.decode(canvas.toDataURL("image/png"));
-    };
+	var img = new Image();
+	img.src = data;
+	img.onload = function() {
+		var canvas = document.createElement("canvas");
+		qrcode.decode(canvas.toDataURL("image/png"));
+	};
 }
