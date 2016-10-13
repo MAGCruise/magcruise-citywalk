@@ -7,8 +7,8 @@
 			"name": "大食堂",
 			"label": "お昼は激こみ",
 			"marker_color": "red",
-			"category": "category-1",
-			"subcategory": "subcategory-1-1",
+			"category": "施設",
+			"subcategory": "食堂",
 			"imgSrc": "waseda/icon/cafeteria.jpg",
 			"checkpoint_group_ids": [
 				"waseda"
@@ -21,8 +21,8 @@
 			"name": "PCルーム",
 			"label": "みんなで課題",
 			"marker_color": "green",
-			"category": "category-1",
-			"subcategory": "subcategory-1-2",
+			"category": "施設",
+			"subcategory": "学習",
 			"imgSrc": "waseda/icon/pc-room.jpg",
 			"checkpoint_group_ids": [
 				"waseda"
@@ -35,8 +35,8 @@
 			"name": "aed1",
 			"label": "場所を知っておこう",
 			"marker_color": "blue",
-			"category": "category-2",
-			"subcategory": "subcategory-2-1",
+			"category": "AED",
+			"subcategory": "AED-GROUP-1",
 			"checkpoint_group_ids": [
 				"waseda"
 			]
@@ -48,8 +48,8 @@
 			"name": "aed2",
 			"label": "マルチタスク",
 			"marker_color": "blue",
-			"category": "category-2",
-			"subcategory": "subcategory-2-1",
+			"category": "AED",
+			"subcategory": "AED-GROUP-1",
 			"checkpoint_group_ids": [
 				"waseda"
 			]
@@ -61,8 +61,8 @@
 			"name": "aed3",
 			"label": "タスクなし",
 			"marker_color": "blue",
-			"category": "category-2",
-			"subcategory": "subcategory-2-1",
+			"category": "AED",
+			"subcategory": "AED-GROUP-1",
 			"checkpoint_group_ids": [
 				"waseda"
 			]
@@ -74,8 +74,8 @@
 			"name": "aed4",
 			"label": "場所を知っておこう",
 			"marker_color": "blue",
-			"category": "category-2",
-			"subcategory": "subcategory-2-2",
+			"category": "AED",
+			"subcategory": "AED-GROUP-2",
 			"checkpoint_group_ids": [
 				"waseda"
 			]
@@ -87,8 +87,8 @@
 			"name": "aed5",
 			"label": "場所を知っておこう",
 			"marker_color": "blue",
-			"category": "category-2",
-			"subcategory": "subcategory-2-2",
+			"category": "AED",
+			"subcategory": "AED-GROUP-2",
 			"checkpoint_group_ids": [
 				"waseda"
 			]
@@ -100,8 +100,8 @@
 			"name": "aed6",
 			"label": "場所を知っておこう",
 			"marker_color": "blue",
-			"category": "category-2",
-			"subcategory": "subcategory-2-2",
+			"category": "AED",
+			"subcategory": "AED-GROUP-3",
 			"checkpoint_group_ids": [
 				"waseda"
 			]
@@ -109,16 +109,18 @@
 	],
 	"tasks": [
 		{
-			"id": "cafeteria-phpto",
+			"id": "cafeteria-photo",
 			"checkpoint_ids": [
 				"cafeteria"
 			],
 			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
+				"instanceClass": "org.magcruise.citywalk.model.task.DescriptionTask",
 				"checkin": true,
 				"point": 2.0,
-				"label": "表示されている写真と同じ写真を撮って下さい．",
-				"imgSrc": "waseda/task/checkin-cafeteria.jpg"
+				"label": "合い言葉を半角数字で入力して下さい．",
+				"answerTexts": [
+					"1111"
+				]
 			}
 		},
 		{
@@ -127,11 +129,13 @@
 				"pc-room"
 			],
 			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
+				"instanceClass": "org.magcruise.citywalk.model.task.DescriptionTask",
 				"checkin": true,
 				"point": 2.0,
-				"label": "QRコードを撮って下さい．",
-				"answerQr": "decodedqr"
+				"label": "合い言葉を半角数字で入力して下さい．",
+				"answerTexts": [
+					"1111"
+				]
 			}
 		},
 		{
