@@ -49,22 +49,22 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 			long latestActivityId) {
 		return getClient().readList(Activity.class,
 				"SELECT * FROM " + getName() + " WHERE " + CHECKPOINT_GROUP_ID + "=? AND "
-						+ CHECKPOINT_ID + "=? AND " + ID
-						+ ">? ORDER BY " + ID + " DESC LIMIT ?",
+						+ CHECKPOINT_ID
+						+ "=? AND " + ID + ">? ORDER BY " + ID + " DESC LIMIT ?",
 				checkpointGroupId, checkpointId, latestActivityId, 16);
 	}
 
 	public List<Activity> getActivities(String userId, String checkpointId) {
 		return getClient().readList(Activity.class,
-				"SELECT * FROM " + getName() + " WHERE " + USER_ID
-						+ "=? AND " + CHECKPOINT_ID + "=?",
+				"SELECT * FROM " + getName() + " WHERE " + USER_ID + "=? AND " + CHECKPOINT_ID
+						+ "=?",
 				userId, checkpointId);
 	}
 
 	public List<Activity> getActivitiesLike(String userId, String partOfcheckpointId) {
 		return getClient().readList(Activity.class,
-				"SELECT * FROM " + getName() + " WHERE " + USER_ID
-						+ "=? AND " + CHECKPOINT_ID + " LIKE ?",
+				"SELECT * FROM " + getName() + " WHERE " + USER_ID + "=? AND " + CHECKPOINT_ID
+						+ " LIKE ?",
 				userId, partOfcheckpointId);
 	}
 
@@ -76,17 +76,17 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 	}
 
 	public List<Activity> getActivities(String checkpointGroupId, String userId,
-			String checkpointId, String taskId) {
+			String checkpointId,
+			String taskId) {
 		return getClient().readList(Activity.class,
-				"SELECT * FROM " + getName() + " WHERE " + CHECKPOINT_GROUP_ID + "=? AND "
-						+ USER_ID + "=? AND " + CHECKPOINT_ID + "=? AND " + TASK_ID + "=?",
+				"SELECT * FROM " + getName() + " WHERE " + CHECKPOINT_GROUP_ID + "=? AND " + USER_ID
+						+ "=? AND " + CHECKPOINT_ID + "=? AND " + TASK_ID + "=?",
 				checkpointGroupId, userId, checkpointId, taskId);
 	}
 
 	public List<Map<String, Object>> sumsOfScoreGroupByUserIdOrderByScore() {
-		return getClient().readMapList(
-				"SELECT " + USER_ID + ", SUM(score) AS " + SUM_OF_SCORE + " FROM " + getName()
-						+ " GROUP BY " + USER_ID + " ORDER BY sum_of_score");
+		return getClient().readMapList("SELECT " + USER_ID + ", SUM(score) AS " + SUM_OF_SCORE
+				+ " FROM " + getName() + " GROUP BY " + USER_ID + " ORDER BY sum_of_score DESC");
 
 	}
 
