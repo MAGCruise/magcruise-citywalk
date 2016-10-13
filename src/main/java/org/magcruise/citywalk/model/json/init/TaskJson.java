@@ -5,14 +5,19 @@ import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.apache.logging.log4j.Logger;
 import org.magcruise.citywalk.model.row.Task;
 import org.magcruise.citywalk.model.task.DescriptionTask;
 import org.magcruise.citywalk.model.task.PhotoTask;
+import org.magcruise.citywalk.model.task.PinTask;
 import org.magcruise.citywalk.model.task.QrCodeTask;
 import org.magcruise.citywalk.model.task.SelectionTask;
 import org.magcruise.citywalk.model.task.TaskContent;
+import org.nkjmlab.util.log4j.LogManager;
 
 public class TaskJson {
+
+	protected static Logger log = LogManager.getLogger();
 
 	private String id;
 	private String taskType;
@@ -41,12 +46,17 @@ public class TaskJson {
 		} else if (content.getInstanceClass().equals(DescriptionTask.class.getName())) {
 			DescriptionTask t = (DescriptionTask) content;
 			answerTexts.addAll(t.getAnswerTexts());
+		} else if (content.getInstanceClass().equals(PinTask.class.getName())) {
+			PinTask t = (PinTask) content;
+			answerTexts.addAll(t.getAnswerTexts());
 		} else if (content.getInstanceClass().equals(PhotoTask.class.getName())) {
 			PhotoTask t = (PhotoTask) content;
 			imgSrc = "../img/" + t.getImgSrc();
 		} else if (content.getInstanceClass().equals(QrCodeTask.class.getName())) {
 			QrCodeTask t = (QrCodeTask) content;
 			answerQr = t.getAnswerQr();
+		} else {
+			log.warn("{}  passed through", content.getInstanceClass());
 		}
 	}
 

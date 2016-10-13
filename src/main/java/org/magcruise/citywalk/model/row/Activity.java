@@ -66,6 +66,8 @@ public class Activity {
 			return new SelectionInput(inputs.get("value"));
 		case "DescriptionTask":
 			return new DescriptionInput(inputs.get("value"));
+		case "PinTask":
+			return new DescriptionInput(inputs.get("value"));
 		}
 		throw new IllegalArgumentException(taskType);
 	}

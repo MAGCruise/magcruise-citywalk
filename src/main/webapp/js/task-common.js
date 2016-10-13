@@ -9,6 +9,7 @@ var TaskType = {
 	Selection : "SelectionTask",
 	Sort : "SortTask",
 	Description : "DescriptionTask",
+	Pin : "PinTask",
 };
 
 function getTaskIndex() {
@@ -34,13 +35,15 @@ function getTaskURL(checkpoint, taskIndex) {
 	case TaskType.Description:
 		suffix = "description";
 		break;
+	case TaskType.Pin:
+		suffix = "pin";
+		break;
 	default:
 		break;
 	}
-	var url = "task-" + suffix + ".html" +
-			  "?checkpoint_id=" + checkpoint.id +
-			  "&task_index=" + taskIndex +
-			  "&is_last_task=" + (taskIndex == checkpoint.tasks.length-1);
+	var url = "task-" + suffix + ".html" + "?checkpoint_id=" + checkpoint.id
+			+ "&task_index=" + taskIndex + "&is_last_task="
+			+ (taskIndex == checkpoint.tasks.length - 1);
 	if (getParam("lat") && getParam("lon")) {
 		url += "&lat=" + getParam("lat") + "&lon=" + getParam("lon");
 	}
@@ -68,7 +71,8 @@ function moveToNextPage() {
 	if (isLastTask()) {
 		location.href = "./checkpoints.html";
 	} else {
-		location.href = getTaskURL(getCheckpoint(), getTaskIndex() + 1).split('#')[0];
+		location.href = getTaskURL(getCheckpoint(), getTaskIndex() + 1).split(
+				'#')[0];
 	}
 }
 
@@ -81,48 +85,51 @@ function showCheckeinMessageIfNeeded() {
 	if (parseInt(getParam("task_index")) != 1) {
 		return;
 	}
-	var html = '<div class="row">' +
-					'<div class="col-sm-12">' +
-						'<p class="alert alert-info">チェックインに成功しました！</p>' +
-					'</div>' +
-				'</div>';
+	var html = '<div class="row">' + '<div class="col-sm-12">'
+			+ '<p class="alert alert-info">チェックインに成功しました！</p>' + '</div>'
+			+ '</div>';
 	$("#menu").after(html);
 }
 
 function addActivity(task, input, isCorrect) {
 	var checkpointId = getParam("checkpoint_id");
 	var arg = {
-		checkpointId      : checkpointId,
-        lat               : getParam("lat"),
-        lon               : getParam("lon"),
-        userId            : getUserId(),
-        checkpointGroupId : getCheckpointGroupId(),
-        taskId            : task.id,
-        taskType          : task.taskType,
-        score             : (isCorrect) ? task.point : 0,
-        inputs : {
-            value : input
-        }
+		checkpointId : checkpointId,
+		lat : getParam("lat"),
+		lon : getParam("lon"),
+		userId : getUserId(),
+		checkpointGroupId : getCheckpointGroupId(),
+		taskId : task.id,
+		taskType : task.taskType,
+		score : (isCorrect) ? task.point : 0,
+		inputs : {
+			value : input
+		}
 	};
-	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [ arg ], function(data) {
-		setCheckpointProgress(checkpointId, getTaskIndex()); // 完了済みtask indexを保存
-		if (isLastTask()) {
-			addVisitedCheckPointIds(checkpointId); // 訪問済みチェックポイントに追加
-		}
-		if (isCheckin()) {
-			moveToNextPage();
-			return;
-		}
-		var title = "タスクを完了しました！";
-		if (data.result && data.result.badges.length > 0) {
-			title = "バッジを獲得しました！";
-			$('#modalDesc').html(data.result.badges.toString().replace(",", "</br>"));
-		}
-		$('#modalTitle').text(title);
-		$('#modal')[0].click();
-	})).rpc();
+	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [ arg ],
+			function(data) {
+				setCheckpointProgress(checkpointId, getTaskIndex()); // 完了済みtask
+				// indexを保存
+				if (isLastTask()) {
+					addVisitedCheckPointIds(checkpointId); // 訪問済みチェックポイントに追加
+				}
+				if (isCheckin()) {
+					moveToNextPage();
+					return;
+				}
+				var title = "タスクを完了しました！";
+				if (data.result && data.result.badges.length > 0) {
+					title = "バッジを獲得しました！";
+					$('#modalDesc')
+							.html(
+									data.result.badges.toString().replace(",",
+											"</br>"));
+				}
+				$('#modalTitle').text(title);
+				$('#modal')[0].click();
+			})).rpc();
 }
 
-$(document).on('confirmation', '.remodal', function () {
+$(document).on('confirmation', '.remodal', function() {
 	moveToNextPage();
 });
