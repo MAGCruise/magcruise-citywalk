@@ -12,9 +12,11 @@ hr {
 </style>
 <script>
 	$(function() {
+		$("#nav-menu").hide();
 		if (!getUserId()) {
-			$("#nav-menu").hide();
 			$("#login").hide();
+		} else {
+			$("#initial").hide();
 		}
 	});
 </script>
@@ -25,10 +27,9 @@ hr {
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="well well-sm">
-					<h1 class="text-center">Navi+Checkin+Quiz</h1>
+					<h1 class="text-center">Navi + Checkin + Quiz</h1>
 					<p class="text-center">早稲田祭をめぐり，早稲田大学のランドマークや企画イベントにチェックイン．クイズを解いて早稲田文化を体感するウェブアプリです．</p>
 				</div>
-				<hr>
 				<h4>ウォークラリーの流れ</h4>
 				<ol>
 					<li>ユーザ登録をします．</li>
@@ -38,13 +39,13 @@ hr {
 					<li>ランキング画面で表示される総ポイント数が50pt以上になったらインフォメーションにお越し下さい．</li>
 				</ol>
 				<h4>注意事項</h4>
-				<p>対応Webブラウザは，Safari または Google Chrome(iOS)，Google Chrome
+				<p>対応Webブラウザは，Safari または Google Chrome (iOS)，Google Chrome
 					(Android)です． また，GPSとインターネット接続を必要とします．</p>
 				<p>このアプリでは，ナビ画面を開いている間，GPSログが記録されサーバに送信されます．
 					GPSログは，ニックネームとともに保存されますが，論文発表などの学術目的以外には利用しません．</p>
 				<div class="btn-group btn-group-justified">
 					<a id="login" class="btn btn-default" href="login.html">ログイン</a> <a
-						class="btn btn-primary" href="how-to-use.html">はじめての方</a>
+						id="initial" class="btn btn-primary" href="how-to-use.html">はじめての方</a>
 				</div>
 			</div>
 		</div>

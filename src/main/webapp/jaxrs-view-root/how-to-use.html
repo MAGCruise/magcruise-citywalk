@@ -12,9 +12,11 @@ hr {
 </style>
 <script>
 	$(function() {
-		if (!getUserId()) {
-			$("#nav-menu").hide();
+		$("#nav-menu").hide();
+		if (getUserId()) {
+			$(".initial").hide();
 		}
+
 	});
 </script>
 </head>
@@ -23,7 +25,7 @@ hr {
 		<div th:replace="/fragment/header.html :: top-menu"></div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="btn-group btn-group-justified">
+				<div class="initial btn-group btn-group-justified">
 					<a class="btn btn-success" href="register.html">はじめる</a>
 				</div>
 				<br>
@@ -118,7 +120,7 @@ hr {
 				<h4>使い方</h4>
 				<p>ユーザ登録後，画面上部右端の「メニュー」ボタンをクリックするとメニューが表示されます．「使い方」を選ぶとこのページが見られます．</p>
 				<br>
-				<div class="btn-group btn-group-justified">
+				<div class="initial btn-group btn-group-justified">
 					<a class="btn btn-primary" href="register.html">はじめる</a>
 				</div>
 			</div>
