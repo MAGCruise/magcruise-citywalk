@@ -11,6 +11,8 @@ var loginFunc = function() {
 	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "login", [ userId,
 			groupId ], function(data) {
 		if (data.result) {
+			setUserId(userId);
+			setGroupId(groupId);
 			location.href = "courses.html";
 		} else {
 			if (!confirm('ログインに失敗しました。ユーザー登録をしてください。')) {
@@ -39,8 +41,7 @@ $(function() {
 	}
 	$("#nav-menu").hide();
 	$('#user-id').val(getUserId());
-	loginFunc()
-	/*
+	// loginFunc()
 	$('#login-btn').on('click', loginFunc);
 	$("form").keypress(
 			function(ev) {
@@ -52,5 +53,4 @@ $(function() {
 					return true;
 				}
 			});
-*/
 });

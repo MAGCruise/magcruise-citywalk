@@ -8,7 +8,6 @@ function selectCheckpointGroup(checkpointGroupId) {
 }
 
 $(function() {
-	$("#back").hide();
 	$("#nav-menu").hide();
 	$(".course a").click(function() {
 		var checkpointGroupId = $(this).attr("id");

@@ -4,7 +4,7 @@
 <head>
 <object th:include="/fragment/header.html :: meta-fragment"
 	th:remove="tag"></object>
-<title>はじめに</title>
+<title>早稲田祭ウォークラリー</title>
 <style>
 hr {
 	border-top: 1px solid #ddd;
@@ -12,8 +12,10 @@ hr {
 </style>
 <script>
 	$(function() {
-		$("#back").hide();
-		$("#nav-menu").hide();
+		if (!getUserId()) {
+			$("#nav-menu").hide();
+			$("#login").hide();
+		}
 	});
 </script>
 </head>
@@ -22,17 +24,27 @@ hr {
 		<div th:replace="/fragment/header.html :: top-menu"></div>
 		<div class="row">
 			<div class="col-sm-12">
-				<h4>概要</h4>
-				<p>このアプリケーションは，スマートフォンを持って早稲田祭をめぐり歩きながら，早稲田大学のランドマークや企画イベントにチェックインして，
-					クイズを解いて早稲田文化を体感するウェブアプリケーションです．</p>
-				<p>チェックポイントにチェックインしクイズに正解すると，ポイントが貯まっていきます．ポイントを一定数貯めると，嬉しいことがあるかもしれません．</p>
+				<div class="well well-sm">
+					<h1 class="text-center">Navi+Checkin+Quiz</h1>
+					<p class="text-center">早稲田祭をめぐり，早稲田大学のランドマークや企画イベントにチェックイン．クイズを解いて早稲田文化を体感するウェブアプリです．</p>
+				</div>
+				<hr>
+				<h4>ウォークラリーの流れ</h4>
+				<ol>
+					<li>ユーザ登録をします．</li>
+					<li>チェックポイントを選び，ナビに従って，チェックポイントへ行きます．</li>
+					<li>チェックポイントで「合い言葉」を入力してチェックインし，クイズに答えます．</li>
+					<li>新たなチェックポイントを目指します．</li>
+					<li>ランキング画面で表示される総ポイント数が50pt以上になったらインフォメーションにお越し下さい．</li>
+				</ol>
 				<h4>注意事項</h4>
-				<p>動作環境は，Safari または Google Crhome(iOS)，Google
-					Chrome(Android)です．GPSとインターネット接続を必要とします．</p>
-				<p>このアプリケーションでは，ナビ画面を開いている間，GPSログが記録されサーバに送信されます．
-					GPSログはニックネームとともに保存されますが，このアプリケーションと論文発表などの学術目的以外には利用しません．</p>
+				<p>対応Webブラウザは，Safari または Google Chrome(iOS)，Google Chrome
+					(Android)です． また，GPSとインターネット接続を必要とします．</p>
+				<p>このアプリでは，ナビ画面を開いている間，GPSログが記録されサーバに送信されます．
+					GPSログは，ニックネームとともに保存されますが，論文発表などの学術目的以外には利用しません．</p>
 				<div class="btn-group btn-group-justified">
-					<a class="btn btn-primary" href="how-to-use.html">使い方へ</a>
+					<a id="login" class="btn btn-default" href="login.html">ログイン</a> <a
+						class="btn btn-primary" href="how-to-use.html">はじめての方</a>
 				</div>
 			</div>
 		</div>
