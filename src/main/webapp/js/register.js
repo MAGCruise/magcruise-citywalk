@@ -18,18 +18,18 @@ var registerFunc = function() {
 			} else {
 				var recommendedUserId = data.result.recommendedUserId;
 				$('#user-id').val(recommendedUserId);
-				alert("そのユーザー名は既に使われています。「" + recommendedUserId
-						+ "」ですとご利用頂けます。");
+				alert("そのユーザ名は既に使われています。「" + recommendedUserId
+						+ "」が利用できます。");
 			}
 		} else {
-			alert('ユーザーを登録できませんでした。');
+			alert('ユーザを登録できませんでした。');
 		}
 	}, function(data, textStatus, errorThrown) {
 		console.error("fail to register.");
 		console.error(textStatus + ', ' + errorThrown + '. response: '
 				+ JSON.stringify(data));
 		console.error('request: ' + JSON.stringify(JSON.stringify(this)));
-		alert('ユーザーを登録できませんでした。');
+		alert('ユーザを登録できませんでした。');
 	})).rpc();
 };
 

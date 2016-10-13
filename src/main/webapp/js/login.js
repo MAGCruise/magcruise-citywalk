@@ -15,7 +15,7 @@ var loginFunc = function() {
 			setGroupId(groupId);
 			location.href = "courses.html";
 		} else {
-			if (!confirm('ログインに失敗しました。ユーザー登録をしてください。')) {
+			if (!confirm('ログインに失敗しました。ユーザ登録をしてください。')) {
 				return false;
 			} else {
 				setUserId("");
@@ -28,7 +28,7 @@ var loginFunc = function() {
 		console.error(textStatus + ', ' + errorThrown + '. response: '
 				+ JSON.stringify(data));
 		console.error('request: ' + JSON.stringify(JSON.stringify(this)));
-		if (!confirm('ログインに失敗しました。ユーザー登録をしてください。')) {
+		if (!confirm('ログインに失敗しました。ユーザ登録をしてください。')) {
 			return false;
 		} else {
 			location.href = 'signup.html';
