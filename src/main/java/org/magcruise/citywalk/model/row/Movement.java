@@ -19,6 +19,10 @@ public class Movement {
 	private String checkpointId;
 	private double lat;
 	private double lon;
+	private double accuracy;
+	private double altitude;
+	private double altitudeAccuracy;
+	private double speed;
 	private Date created;
 	private double heading;
 
@@ -31,6 +35,10 @@ public class Movement {
 		this.checkpointId = json.getCheckpointId();
 		this.lat = json.getLat();
 		this.lon = json.getLon();
+		this.accuracy = json.getAccuracy();
+		this.altitude = json.getAltitude();
+		this.altitudeAccuracy = json.getAltitudeAccuracy();
+		this.speed = json.getSpeed();
 		this.created = json.getDate();
 		this.heading = json.getHeading();
 	}
@@ -62,6 +70,38 @@ public class Movement {
 
 	public void setLon(double lon) {
 		this.lon = lon;
+	}
+	
+	public double getAccuracy() {
+		return accuracy;
+	}
+
+	public void setAccuracy(double accuracy) {
+		this.accuracy = accuracy;
+	}
+	
+	public double getAltitude() {
+		return altitude;
+	}
+
+	public void setAltitude(double altitude) {
+		this.altitude = altitude;
+	}
+	
+	public double getAltitudeAccuracy() {
+		return altitudeAccuracy;
+	}
+
+	public void setAltitudeAccuracy(double altitudeAccuracy) {
+		this.altitudeAccuracy = altitudeAccuracy;
+	}
+	
+	public double getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(double speed) {
+		this.speed = speed;
 	}
 
 	public void setCheckpointId(String checkpointId) {
