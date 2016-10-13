@@ -1,6 +1,7 @@
 package org.magcruise.citywalk.jaxrs;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Map;
 
 import javax.ws.rs.Path;
@@ -16,25 +17,20 @@ public class CityWalkView extends JaxrsView {
 	@Override
 	public Viewable getView(String filePathFromViewRoot, Map<String, String[]> params) {
 		try {
-
-			if (filePathFromViewRoot == null || filePathFromViewRoot.equals("")
-					|| filePathFromViewRoot.equals("/")) {
-				response.sendRedirect(getServletUrl() + "/index.html");
-				return createView("/index.html", new ThymeleafModel());
-			} else if (filePathFromViewRoot.contains("index.html")
-					|| filePathFromViewRoot.contains("login.html")
-					|| filePathFromViewRoot.contains("register.html")
-					|| filePathFromViewRoot.contains("how-to-use.html")
-					|| filePathFromViewRoot.contains("intro.html")) {
-				return createView(filePathFromViewRoot, new ThymeleafModel());
-			} else {
-				if (UserSession.of(request).isLogined()) {
-					return createView(filePathFromViewRoot, new ThymeleafModel());
-				}
+			if (isRoot(filePathFromViewRoot)) {
 				response.sendRedirect(getServletUrl() + "/index.html");
 				return createView("/index.html", new ThymeleafModel());
 			}
+			if (isUnneededLogin(filePathFromViewRoot)) {
+				return createView(filePathFromViewRoot, new ThymeleafModel());
+			}
 
+			if (UserSession.of(request).isLogined()) {
+				return createView(filePathFromViewRoot, new ThymeleafModel());
+			} else {
+				response.sendRedirect(getServletUrl() + "/index.html");
+				return createView("/index.html", new ThymeleafModel());
+			}
 		} catch (Exception e) {
 			log.error(e, e);
 			try {
@@ -45,6 +41,24 @@ public class CityWalkView extends JaxrsView {
 			return createView("/index.html", new ThymeleafModel());
 		}
 
+	}
+
+	private boolean isUnneededLogin(String filePathFromViewRoot) {
+		for (String unneededLoginPage : Arrays.asList("index.html", "clear.html", "dev.html",
+				"login.html", "signup.html", "how-to-use.html", "intro.html")) {
+			if (filePathFromViewRoot.contains(unneededLoginPage)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private boolean isRoot(String filePathFromViewRoot) {
+		if (filePathFromViewRoot == null || filePathFromViewRoot.equals("")
+				|| filePathFromViewRoot.equals("/")) {
+			return true;
+		}
+		return false;
 	}
 
 }

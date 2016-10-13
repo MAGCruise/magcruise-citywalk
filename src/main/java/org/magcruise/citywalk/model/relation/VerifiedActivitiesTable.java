@@ -18,9 +18,13 @@ public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 	public RankJson getRankJson(String userId) {
 		List<Map<String, Object>> scores = sumsOfScoreGroupByUserIdOrderByScore();
 		for (int i = 0; i < scores.size(); i++) {
-			if (scores.get(i).get(USER_ID).equals(userId)) {
-				return new RankJson(scores.get(i).get(USER_ID).toString(), i,
-						(double) scores.get(i).get(SUM_OF_SCORE));
+			try {
+				if (userId.equals(scores.get(i).get(USER_ID))) {
+					return new RankJson(scores.get(i).get(USER_ID).toString(), i,
+							(double) scores.get(i).get(SUM_OF_SCORE));
+				}
+			} catch (Throwable t) {
+				log.error(t);
 			}
 		}
 		return new RankJson(userId, -1, 0);
@@ -30,8 +34,12 @@ public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 		List<RankJson> result = new ArrayList<>();
 		List<Map<String, Object>> scores = sumsOfScoreGroupByUserIdOrderByScore();
 		for (int i = 0; i < scores.size(); i++) {
-			result.add(new RankJson(scores.get(i).get(USER_ID).toString(), i,
-					(double) scores.get(i).get(SUM_OF_SCORE)));
+			try {
+				result.add(new RankJson(scores.get(i).get(USER_ID).toString(), i,
+						(double) scores.get(i).get(SUM_OF_SCORE)));
+			} catch (Throwable t) {
+				log.error(t);
+			}
 		}
 		return result;
 	}

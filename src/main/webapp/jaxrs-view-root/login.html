@@ -18,11 +18,11 @@
 	<div class="container">
 		<div th:replace="/fragment/header.html :: top-menu"></div>
 		<div class="row">
-			<div class="margin-container" style="display:none">
+			<div class="margin-container">
 				<div class="col-sm-12" style="margin-top: 10px;">
 					<form>
 						<div class="form-group">
-							<label class="description">ニックネーム</label> <input
+							<label class="description">ニックネーム (変更できません)</label> <input
 								class="form-control" type="text" id="user-id" name="user-id"
 								placeholder="username" disabled required />
 						</div>
@@ -34,7 +34,8 @@
 						<div class="btn-group btn-group-justified submit" role="group">
 							<a class="btn btn-primary" role="button" id="login-btn">ログイン</a>
 						</div>
-						<input id="submit-for-validation" type="submit"	style="display: none;">
+						<input id="submit-for-validation" type="submit"
+							style="display: none;">
 					</form>
 				</div>
 			</div>

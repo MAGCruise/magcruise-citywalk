@@ -50,9 +50,8 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 		return getClient().readList(Activity.class,
 				"SELECT * FROM " + getName() + " WHERE " + CHECKPOINT_GROUP_ID + "=? AND "
 						+ CHECKPOINT_ID + "=? AND " + ID
-						+ ">? ORDER BY "
-						+ ID,
-				checkpointGroupId, checkpointId, latestActivityId);
+						+ ">? ORDER BY " + ID + " DESC LIMIT ?",
+				checkpointGroupId, checkpointId, latestActivityId, 16);
 	}
 
 	public List<Activity> getActivities(String userId, String checkpointId) {

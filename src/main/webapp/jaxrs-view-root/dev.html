@@ -5,18 +5,11 @@
 <object th:include="/fragment/header.html :: meta-fragment"
 	th:remove="tag"></object>
 <link rel="stylesheet" href="../css/top.css" />
-<title></title>
+<title>開発者ツール</title>
 <script>
 	$(function() {
 		$("#back").hide();
 		$("#nav-menu").hide();
-
-		if (!getUserId()) {
-			$("#login").hide();
-		} else {
-			$("#initial").hide();
-		}
-
 	});
 </script>
 </head>
@@ -32,11 +25,20 @@
 		<div class="row">
 			<div class="col-sm-12 description">
 				<div class="col-sm-12">
-					<div id="initial" class="course">
+					<div class="course">
 						<a href="intro.html">はじめての方</a>
 					</div>
-					<div id="login" class="course">
+					<div class="course">
 						<a href="login.html">ログイン</a>
+					</div>
+					<div class="course">
+						<a href="clear.html">LocalStorageの初期化</a>
+					</div>
+					<div class="course">
+						<a href="/manager">Tomcat</a>
+					</div>
+					<div class="course">
+						<a href="/h2">h2 database</a>
 					</div>
 				</div>
 			</div>

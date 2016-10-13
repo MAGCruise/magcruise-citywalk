@@ -11,6 +11,8 @@ var loginFunc = function() {
 	new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "login", [ userId,
 			groupId ], function(data) {
 		if (data.result) {
+			setUserId(userId);
+			setGroupId(groupId);
 			location.href = "courses.html";
 		} else {
 			if (!confirm('ログインに失敗しました。ユーザー登録をしてください。')) {
@@ -18,7 +20,7 @@ var loginFunc = function() {
 			} else {
 				setUserId("");
 				setGroupId("");
-				location.href = 'register.html';
+				location.href = 'signup.html';
 			}
 		}
 	}, function(data, textStatus, errorThrown) {
@@ -29,20 +31,19 @@ var loginFunc = function() {
 		if (!confirm('ログインに失敗しました。ユーザー登録をしてください。')) {
 			return false;
 		} else {
-			location.href = 'register.html';
+			location.href = 'signup.html';
 		}
 	})).rpc();
 };
 
 $(function() {
 	if (!getUserId()) {
-		location.href = 'register.html';
+		location.href = 'signup.html';
 		return;
 	}
 	$("#nav-menu").hide();
 	$('#user-id').val(getUserId());
-	loginFunc()
-	/*
+	// loginFunc()
 	$('#login-btn').on('click', loginFunc);
 	$("form").keypress(
 			function(ev) {
@@ -54,5 +55,4 @@ $(function() {
 					return true;
 				}
 			});
-*/
 });

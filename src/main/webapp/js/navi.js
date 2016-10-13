@@ -47,7 +47,7 @@ function getEventsByWebsocket() {
 							'<span class="name">' + a.userId + '</span>' +
 							'さんがチェックインしました。' +
 						'</div>');
-			$('#notification').append(elem);
+			$('#notification').prepend(elem);
 		}
 	};
 	return {
