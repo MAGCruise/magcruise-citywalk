@@ -234,6 +234,10 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 					VisitedCheckpointJson j = result.get(a.getCheckpointId());
 					j.addScore(a.getScore());
 					Task t = tasks.getTask(a.getTaskId());
+					if (t == null) {
+						log.error("{} is not valid.", a.getTaskId());
+						return;
+					}
 					j.addPoint(t.getContentObject().getPoint());
 				});
 		return result.values().toArray(new VisitedCheckpointJson[0]);

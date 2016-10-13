@@ -47,10 +47,12 @@ public class TasksTable extends RelationalModel<Task> {
 		Task t = getTask(taskId);
 		if (t == null) {
 			log.error(taskId);
+			return false;
 		}
 		TaskContent c = getTask(taskId).getContentObject();
 		if (c == null) {
 			log.error(getTask(taskId));
+			return false;
 		}
 		return c.isCheckin();
 	}

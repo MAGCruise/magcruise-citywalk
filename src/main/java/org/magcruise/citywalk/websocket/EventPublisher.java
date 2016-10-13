@@ -18,6 +18,7 @@ import org.apache.logging.log4j.Logger;
 import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
 import org.magcruise.citywalk.model.row.Activity;
+import org.magcruise.citywalk.model.row.Task;
 import org.nkjmlab.util.log4j.LogManager;
 
 import jp.go.nict.langrid.repackaged.net.arnx.jsonic.JSON;
@@ -68,7 +69,13 @@ public class EventPublisher {
 		long readId = getLatestReadId(sessionId);
 		List<Activity> result = verifiedActivitiesTable.getNewActivitiesOrderById(
 				checkpointGroupId, checkpointId, readId).stream().filter(
-						a -> tasksTable.getTask(a.getTaskId()).getContentObject().isCheckin())
+						a -> {
+							Task t = tasksTable.getTask(a.getTaskId());
+							if (t == null) {
+								return false;
+							}
+							return t.getContentObject().isCheckin();
+						})
 				.sorted((a1, a2) -> Long.compare(a1.getId(), a2.getId()))
 				.collect(Collectors.toList());
 
