@@ -18,7 +18,7 @@ var loginFunc = function() {
 			if (!confirm('ログインに失敗しました。ユーザー登録をしてください。')) {
 				return false;
 			} else {
-				location.href = 'register.html';
+				location.href = 'signup.html';
 			}
 		}
 	}, function(data, textStatus, errorThrown) {
@@ -29,14 +29,14 @@ var loginFunc = function() {
 		if (!confirm('ログインに失敗しました。ユーザー登録をしてください。')) {
 			return false;
 		} else {
-			location.href = 'register.html';
+			location.href = 'signup.html';
 		}
 	})).rpc();
 };
 
 $(function() {
 	if (!getUserId()) {
-		location.href = 'register.html';
+		location.href = 'signup.html';
 		return;
 	}
 	$("#nav-menu").hide();
