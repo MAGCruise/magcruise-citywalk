@@ -69,8 +69,9 @@ public class CheckpointsAndTasksFactory {
 	public static List<Checkpoint> createCheckpoints(List<CheckpointJson> checkpointsData) {
 		List<Checkpoint> checkpoints = checkpointsData.stream()
 				.map(checkpoint -> new Checkpoint(checkpoint.getId(), checkpoint.getName(),
-						checkpoint.getLabel(), checkpoint.getLat(), checkpoint.getLon(),
-						checkpoint.getCheckpointGroupIds(), checkpoint.getMarkerColor(),
+						checkpoint.getLabel(), checkpoint.getDescription(), checkpoint.getLat(),
+						checkpoint.getLon(), checkpoint.getCheckpointGroupIds(),
+						checkpoint.getMarkerColor(),
 						checkpoint.getCategory(), checkpoint.getSubcategory(),
 						checkpoint.getVisibleTimeFrom(), checkpoint.getVisibleTimeTo(),
 						checkpoint.getImgSrc()))

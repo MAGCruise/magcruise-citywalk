@@ -52,9 +52,10 @@ public class InitialDataFactory {
 			taskJsons.remove(checkinIndex);
 			taskJsons.add(0, checkinTaskJson);
 
-			return new CheckpointJson(c.getId(), c.getName(), c.getLabel(), c.getLat(), c.getLon(),
-					checkin, taskJsons, c.getMarkerColor(), c.getCategory(), c.getSubcategory(),
-					c.getVisibleTimeFrom(), c.getVisibleTimeTo(), c.getImgSrc());
+			return new CheckpointJson(c.getId(), c.getName(), c.getLabel(), c.getDescription(),
+					c.getLat(), c.getLon(), checkin, taskJsons, c.getMarkerColor(), c.getCategory(),
+					c.getSubcategory(), c.getVisibleTimeFrom(), c.getVisibleTimeTo(),
+					c.getImgSrc());
 		}).collect(Collectors.toList());
 		return new InitialDataJson(result);
 

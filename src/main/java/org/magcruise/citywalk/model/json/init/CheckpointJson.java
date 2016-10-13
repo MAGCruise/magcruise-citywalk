@@ -12,6 +12,7 @@ public class CheckpointJson {
 	private String id;
 	private String name;
 	private String label;
+	private String description;
 	private double lat;
 	private double lon;
 
@@ -28,12 +29,14 @@ public class CheckpointJson {
 	public CheckpointJson() {
 	}
 
-	public CheckpointJson(String id, String name, String label, double lat, double lon,
-			CheckinJson checkin, List<TaskJson> tasks, String markerColor, String category,
-			String subcategory, Date visibleTimeFrom, Date visibleTimeTo, String imgSrc) {
+	public CheckpointJson(String id, String name, String label, String description, double lat,
+			double lon, CheckinJson checkin, List<TaskJson> tasks, String markerColor,
+			String category, String subcategory, Date visibleTimeFrom, Date visibleTimeTo,
+			String imgSrc) {
 		this.id = id;
 		this.name = name;
 		this.label = label;
+		this.description = description;
 		this.lat = lat;
 		this.lon = lon;
 		this.checkin = checkin;
@@ -153,5 +156,17 @@ public class CheckpointJson {
 
 	public void setImgSrc(String imgSrc) {
 		this.imgSrc = imgSrc;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setTasks(List<TaskJson> tasks) {
+		this.tasks = tasks;
 	}
 }
