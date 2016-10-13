@@ -23,9 +23,9 @@
 					<form>
 						<div class="form-group">
 							<label class="description">ニックネーム
-								(アプリ内で表示されます．一度決めると変更できません．)</label> <input class="form-control"
-								type="text" id="user-id" name="user-id" placeholder="nickname"
-								required />
+								(アプリ内で表示されます．一度決めると変更できません．1文字以上8文字以下で入力して下さい)</label> <input
+								class="form-control" type="text" id="user-id" name="user-id"
+								placeholder="nickname" pattern=".{1,8}" required />
 						</div>
 						<div class="form-group" style="display: none;">
 							<label class="description">グループ名</label> <input
