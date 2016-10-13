@@ -15,10 +15,10 @@ public class BadgesTable extends RelationalModel<Badge> {
 
 	public BadgesTable() {
 		super(TABLE_NAME, ApplicationContext.getDbClient());
-		setAttribute(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
-		setAttribute(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
-		setAttribute(USER_ID, Keyword.VARCHAR);
-		setAttribute(BADGE, Keyword.VARCHAR);
+		addColumnDefinition(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
+		addColumnDefinition(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
+		addColumnDefinition(USER_ID, Keyword.VARCHAR);
+		addColumnDefinition(BADGE, Keyword.VARCHAR);
 	}
 
 	public boolean contains(String userId, String badge) {

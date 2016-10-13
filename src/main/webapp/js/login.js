@@ -18,6 +18,8 @@ var loginFunc = function() {
 			if (!confirm('ログインに失敗しました。ユーザー登録をしてください。')) {
 				return false;
 			} else {
+				setUserId("");
+				setGroupId("");
 				location.href = 'signup.html';
 			}
 		}

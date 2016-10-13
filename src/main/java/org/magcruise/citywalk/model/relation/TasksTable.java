@@ -19,10 +19,10 @@ public class TasksTable extends RelationalModel<Task> {
 
 	public TasksTable() {
 		super(TABLE_NAME, ApplicationContext.getDbClient());
-		setAttribute(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
-		setAttribute(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
-		setAttribute(CHECKPOINT_IDS, Keyword.VARCHAR);
-		setAttribute(CONTENT, Keyword.VARCHAR);
+		addColumnDefinition(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
+		addColumnDefinition(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
+		addColumnDefinition(CHECKPOINT_IDS, Keyword.VARCHAR);
+		addColumnDefinition(CONTENT, Keyword.VARCHAR);
 	}
 
 	public List<Task> getTasks(String checkpointId) {
