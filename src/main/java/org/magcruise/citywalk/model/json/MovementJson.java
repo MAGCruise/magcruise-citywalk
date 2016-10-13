@@ -10,10 +10,15 @@ public class MovementJson {
 	private String userId;
 	private double lat;
 	private double lon;
+	private double accuracy;
+	private double altitude;
+	private double altitudeAccuracy;
+	private double speed;
 	private double heading;
 	private String checkpointGroupId;
 	private String checkpointId;
 	private Date date;
+	
 
 	public MovementJson() {
 	}
@@ -33,13 +38,45 @@ public class MovementJson {
 	public void setLat(double lat) {
 		this.lat = lat;
 	}
-
+	
 	public double getLon() {
 		return lon;
 	}
 
 	public void setLon(double lon) {
 		this.lon = lon;
+	}
+	
+	public double getAccuracy() {
+		return accuracy;
+	}
+
+	public void setAccuracy(double accuracy) {
+		this.accuracy = accuracy;
+	}
+	
+	public double getAltitude() {
+		return altitude;
+	}
+
+	public void setAltitude(double altitude) {
+		this.altitude = altitude;
+	}
+	
+	public double getAltitudeAccuracy() {
+		return altitudeAccuracy;
+	}
+
+	public void setAltitudeAccuracy(double altitudeAccuracy) {
+		this.altitudeAccuracy = altitudeAccuracy;
+	}
+	
+	public double getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(double speed) {
+		this.speed = speed;
 	}
 
 	public double getHeading() {
