@@ -95,7 +95,7 @@ function watchCurrentPosition() {
 		{
 			enableHighAccuracy: true,
 			timeout: 1000 * 60 * 60 * 2,
-			maximumAge: 1000 * 60,
+			maximumAge: 0,
 		}
 	);
 }
