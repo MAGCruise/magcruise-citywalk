@@ -215,10 +215,19 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	@Override
 	public RankingJson getRanking(String userId) {
 		RankingJson rankingJson = new RankingJson();
-		rankingJson.setRank(verifiedActivities.getRankJson(userId));
-		rankingJson.setGroupRank(new RankJson("", -1, 0));
+		try {
+			rankingJson.setRank(verifiedActivities.getRankJson(userId));
+		} catch (Exception e) {
+			rankingJson.setRank(new RankJson(userId, -1, 0));
+		}
+		rankingJson.setGroupRank(new RankJson("g1", -1, 0));
 
-		rankingJson.setRanking(verifiedActivities.getRanksJson());
+		try {
+			rankingJson.setRanking(verifiedActivities.getRanksJson());
+		} catch (Exception e) {
+			rankingJson.setRanking(new ArrayList<>());
+		}
+
 		rankingJson.setGroupRanking(new ArrayList<>());
 		return rankingJson;
 	}
