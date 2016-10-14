@@ -1,41 +1,51 @@
 .rank-text {
   font-size: 20px;
-  color: #38A997; }
+  color: #38A997;
+}
 
 .rank-first-img {
   height: 50px;
-  margin-right: 10px; }
+  margin-right: 10px;
+}
 
 .rank-second-img {
   height: 40px;
-  margin-right: 20px; }
+  margin-right: 20px;
+}
 
 .rank-third-img {
   height: 30px;
-  margin-right: 30px; }
+  margin-right: 30px;
+}
 
 .point {
   display: inline-block;
   vertical-align: middle;
-  float: none; }
+  float: none;
+}
 
 .name {
   margin: 0 6px;
   color: #38A997;
   font-size: 28px;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 #my-names {
   margin-right: 10px;
   font-size: 20px;
-  color: #8D8D8D; }
+  color: #8D8D8D;
+}
 
 .ranking, #my-ranking, #group-ranking {
   margin-right: 10px;
   font-size: 20px;
-  color: #8D8D8D; }
-  .ranking .num, #my-ranking .num, #group-ranking .num {
-    margin: 0 6px;
-    color: #38A997;
-    font-size: 28px;
-    font-weight: bold; }
+  color: #8D8D8D;
+}
+
+.ranking .num, #my-ranking .num, #group-ranking .num {
+  margin: 0 6px;
+  color: #38A997;
+  font-size: 28px;
+  font-weight: bold;
+}

@@ -2,34 +2,41 @@
   margin: 10px;
   color: #38A997;
   letter-spacing: 0.3px;
-  font-size: 36px; }
+  font-size: 36px;
+}
 
 #distance-prefix {
   margin: 10px 5px 10px 10px;
   color: #97a6a3;
   letter-spacing: 0.3px;
-  font-size: 36px; }
+  font-size: 36px;
+}
 
 .notice {
-  color: #97a6a3;}
+  color: #97a6a3;
+}
 
 #btn-next {
   margin: 10px;
   padding-left: 10px;
-  padding-right: 10px; }
+  padding-right: 10px;
+}
 
 #compass {
   margin-bottom: 10px;
   width: 200px;
-  height: 200px; }
+  height: 200px;
+}
 
 #map {
-  height: 200px; }
+  height: 200px;
+}
 
 #activity-title {
   margin-left: 10px;
   font-size: 16px;
-  color: #38A997; }
+  color: #38A997;
+}
 
 #notification .item {
   margin-bottom: 1px;
@@ -38,10 +45,13 @@
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.17);
   font-size: 13px;
   font-family: HiraginoSans-W4;
-  color: #8D8D8D; }
-  #notification .item .name {
-    font-size: 16px;
-    font-family: HiraginoSans-W6;
-    color: #38A997;
-    margin-left: 10px;
-    margin-right: 5px; }
+  color: #8D8D8D;
+}
+
+#notification .item .name {
+  font-size: 16px;
+  font-family: HiraginoSans-W6;
+  color: #38A997;
+  margin-left: 10px;
+  margin-right: 5px;
+}
