@@ -16,6 +16,20 @@ window.onload = function() {
   initMap();
 }
 
+// ブラウザがバックグラウンドに一度遷移すると、watchPositionキャンセルされる。
+// そこで、フォアグラウンドに戻ってきた際に、リロードする。initMap()だけでも良いが念のため。
+// ex.)ホームボタンを押す。
+// ex.)電源ボタンを押す。
+// ex.)通知より、別のアプリを起動する。
+var lastChecked = new Date().getTime();
+setInterval(function() {
+  var now = new Date().getTime();
+  if (now - lastChecked > 1000 * 10) {
+    location.reload();
+  }
+  lastChecked = now;
+}, 1000 * 5);
+
 $(function() {
   $("#activity-title").text(checkpoint.name + "でのアクティビティ");
   $("#btn-next").click(
@@ -23,13 +37,15 @@ $(function() {
             // 既に途中までタスクが進んでいる場合には、完了済みの次のタスクからはじめる
             var taskIndex = (checkpoint.id in getCheckpointProgressDic())
                     ? getCheckpointProgressDic()[checkpoint.id] + 1 : 0;
-            location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
+            location.href = getTaskURLWithCurrentPosition(checkpoint,
+                    taskIndex, cPos);
           });
 
   // コンパス画像の要素
   compassElem = $("#compass");
   // 端末の向きを取得
-  defaultOrientation = (screen.width > screen.height) ? "landscape" : "portrait";
+  defaultOrientation = (screen.width > screen.height) ? "landscape"
+          : "portrait";
   // 電子コンパスイベントの取得
   window.addEventListener("deviceorientation", onHeadingChange);
   getEventsByWebsocket();
@@ -38,15 +54,16 @@ $(function() {
 });
 
 function getEventsByWebsocket() {
-  var wsUrl = getActivityPublisherUrl() + "/" + getCheckpointGroupId() + "/" + checkpoint.id + "/"
-          + getUserId();
+  var wsUrl = getActivityPublisherUrl() + "/" + getCheckpointGroupId() + "/"
+          + checkpoint.id + "/" + getUserId();
   var connection = new WebSocket(wsUrl);
   connection.onmessage = function(e) {
     var messages = JSON.parse(e.data);
     for (var i = 0; i < messages.length; i++) {
       var a = messages[i];
-      var elem = $('<div class="item">' + '<span class="time">' + toFormattedShortDate(a.created)
-              + '</span>' + '<span class="name">' + a.userId + '</span>' + 'さんがチェックインしました。'
+      var elem = $('<div class="item">' + '<span class="time">'
+              + toFormattedShortDate(a.created) + '</span>'
+              + '<span class="name">' + a.userId + '</span>' + 'さんがチェックインしました。'
               + '</div>');
       $('#notification').prepend(elem);
     }
@@ -85,7 +102,8 @@ function watchCurrentPosition() {
   }
   watchID = window.navigator.geolocation.watchPosition(function(pos) {
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-    console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
+    console.log("currentPosition: " + pos.coords.latitude + ", "
+            + pos.coords.longitude);
     showDistance();
     enqueueMovement(pos);
     updateMapZoomLevel();
@@ -103,7 +121,8 @@ function watchCurrentPosition() {
 /* 残り距離を表示 */
 function showDistance() {
   if (cPos == null || ePos == null) { return; }
-  var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
+  var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos,
+          ePos);
   $("#distance").text(getFormattedDistance(distance));
 }
 
@@ -113,7 +132,8 @@ function getFormattedDistance(distance) {
   } else {
     var distanceStr = String(Math.round(distance));
     if (distanceStr.length >= 4) {
-      distanceStr = distanceStr.slice(0, 1) + "," + distanceStr.slice(1, distanceStr.length);
+      distanceStr = distanceStr.slice(0, 1) + ","
+              + distanceStr.slice(1, distanceStr.length);
     }
     return distanceStr + "m";
   }
@@ -124,7 +144,8 @@ function getBrowserOrientation() {
   if (screen.orientation && screen.orientation.type) {
     orientation = screen.orientation.type;
   } else {
-    orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
+    orientation = screen.orientation || screen.mozOrientation
+            || screen.msOrientation;
   }
   /*
    * 'portait-primary': for (screen width < screen height, e.g. phone, phablet,
@@ -199,9 +220,11 @@ function showCompass(heading) {
   var absoluteAngle = google.maps.geometry.spherical.computeHeading(cPos, ePos);
   // apply rotation to compass
   if (compassElem.css("transform")) {
-    compassElem.css("transform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
+    compassElem
+            .css("transform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
   } else if (compassElem.css("webkitTransform")) {
-    compassElem.css("webkitTransform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
+    compassElem.css("webkitTransform", 'rotate(' + (absoluteAngle - heading)
+            + 'deg)');
   }
 }
 
@@ -211,6 +234,10 @@ function enqueueMovement(pos) {
     userId: getUserId(),
     lat: pos.coords.latitude,
     lon: pos.coords.longitude,
+    accuracy: pos.coords.accuracy,
+    altitude: pos.coords.altitude || -1,
+    altitudeAccuracy: pos.coords.altitudeAccuracy || -1,
+    speed: pos.coords.speed || -1,
     heading: cHeading,
     checkpointGroupId: getCheckpointGroupId(),
     checkpointId: checkpoint.id,
@@ -238,16 +265,18 @@ var postMovementsFunc = function() {
   var lastMovements = getMovementQueue();
   if (movements.length == 0) { return; }
   removeItem(KEY_MOVEMENT_LIST); // クリア
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addMovements", [movements], function(data) {
-    // console.log(data);
-  }, function(data, textStatus, errorThrown) {
-    console.error("fail to add movement.");
-    console.error(textStatus + ', ' + errorThrown + '. response: ' + JSON.stringify(data));
-    console.error('request: ' + JSON.stringify(JSON.stringify(this)));
-    // リストア
-    var newMovements = lastMovements.concat(getMovementQueue());
-    setMovementQueue(newMovements);
-  })).rpc();
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addMovements",
+          [movements], function(data) {
+            // console.log(data);
+          }, function(data, textStatus, errorThrown) {
+            console.error("fail to add movement.");
+            console.error(textStatus + ', ' + errorThrown + '. response: '
+                    + JSON.stringify(data));
+            console.error('request: ' + JSON.stringify(JSON.stringify(this)));
+            // リストア
+            var newMovements = lastMovements.concat(getMovementQueue());
+            setMovementQueue(newMovements);
+          })).rpc();
 }
 
 /* マップのズームレベルを調整 */

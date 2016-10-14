@@ -15,7 +15,13 @@ public class MovementsTable extends RelationalModel<Movement> {
 	private static final String CHECKPOINT_ID = "checkpoint_id";
 	private static final String LAT = "lat";
 	private static final String LON = "lon";
-	private static final String HEADING = "heading";
+	private static final String ACCURACY = "accuracy";
+	private static final String ALTITUDE = "altitude"; // null->-1
+	private static final String ALTITUDE_ACCURACY = "altitude_accuracy"; // null->-1
+	private static final String SPEED = "speed"; // null->-1
+	private static final String HEADING = "heading"; // 0<=HEADING<360,
+														// North->0, East->90,
+														// South->180, West->270
 
 	public MovementsTable() {
 		super(TABLE_NAME, ApplicationContext.getDbClient());
@@ -26,6 +32,10 @@ public class MovementsTable extends RelationalModel<Movement> {
 		addColumnDefinition(CHECKPOINT_ID, Keyword.VARCHAR);
 		addColumnDefinition(LAT, Keyword.DOUBLE);
 		addColumnDefinition(LON, Keyword.DOUBLE);
+		addColumnDefinition(ACCURACY, Keyword.DOUBLE);
+		addColumnDefinition(ALTITUDE, Keyword.DOUBLE);
+		addColumnDefinition(ALTITUDE_ACCURACY, Keyword.DOUBLE);
+		addColumnDefinition(SPEED, Keyword.DOUBLE);
 		addColumnDefinition(HEADING, Keyword.DOUBLE);
 	}
 

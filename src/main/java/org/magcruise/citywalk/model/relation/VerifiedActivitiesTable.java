@@ -17,10 +17,16 @@ public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 
 	public RankJson getRankJson(String userId) {
 		List<Map<String, Object>> scores = sumsOfScoreGroupByUserIdOrderByScore();
+		int rank = 0;
+		double lastScore = Integer.MAX_VALUE;
 		for (int i = 0; i < scores.size(); i++) {
 			try {
+				if (lastScore != (double) scores.get(i).get(SUM_OF_SCORE)) {
+					lastScore = (double) scores.get(i).get(SUM_OF_SCORE);
+					rank++;
+				}
 				if (userId.equals(scores.get(i).get(USER_ID))) {
-					return new RankJson(scores.get(i).get(USER_ID).toString(), i,
+					return new RankJson(scores.get(i).get(USER_ID).toString(), rank,
 							(double) scores.get(i).get(SUM_OF_SCORE));
 				}
 			} catch (Throwable t) {
