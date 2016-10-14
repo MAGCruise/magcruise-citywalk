@@ -163,7 +163,7 @@ public class GoogleSpreadsheetData {
 	public void setAnswerqr(String answerqr) {
 		this.answerqr = answerqr;
 	}
-	
+
 	public String getMarkerColor() {
 		return markercolor;
 	}
