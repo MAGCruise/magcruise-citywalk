@@ -44,12 +44,6 @@ public class ApplicationContext implements ServletContextListener {
 
 	static {
 		H2Server.start();
-		DbConfig conf = H2ConfigFactory
-				.create(FileUtils.getFileInUserDirectory("magcruise-h2/citywalk"));
-		log.info(conf);
-		if (client == null) {
-			client = DbClientFactory.createH2ClientWithConnectionPool(conf);
-		}
 	}
 
 	public static DbClient getDbClient() {
@@ -58,6 +52,13 @@ public class ApplicationContext implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
+		DbConfig conf = H2ConfigFactory
+				.create(FileUtils.getFileInUserDirectory("magcruise-h2/"
+						+ event.getServletContext().getContextPath() + "/citywalk"));
+		log.info(conf);
+		if (client == null) {
+			client = DbClientFactory.createH2ClientWithConnectionPool(conf);
+		}
 		initializeDatabase(event);
 		log.info("initialized");
 	}
