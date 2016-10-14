@@ -6,17 +6,17 @@
 
 <title>LocalStorageクリア</title>
 <script>
-	window.onload = function() {
-		if (window.confirm('LocalStorageを初期化します')) {
-			clear();
-			alert('LocalStorageを初期化しました．');
-		} else {
-			alert('LocalStorageの初期化がキャンセルされました');
-		}
-	}
-	$(function() {
-		$("#nav-menu").hide();
-	});
+  window.onload = function() {
+    if (window.confirm('LocalStorageを初期化します')) {
+      clear();
+      alert('LocalStorageを初期化しました．');
+    } else {
+      alert('LocalStorageの初期化がキャンセルされました');
+    }
+  }
+  $(function() {
+    $("#nav-menu").hide();
+  });
 </script>
 </head>
 <body>
@@ -26,7 +26,10 @@
       <div class="col-sm-12 description">
         <div class="col-sm-12">
           <div class="course">
-            <a href="intro.html">ウォークラリーに参加</a>
+            <a href="signup.html">サインアップへ</a>
+          </div>
+          <div class="course">
+            <a href="intro.html">はじめにへ</a>
           </div>
         </div>
       </div>

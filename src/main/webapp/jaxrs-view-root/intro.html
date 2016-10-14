@@ -5,18 +5,18 @@
 <title>はじめに</title>
 <style>
 hr {
-	border-top: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
 </style>
 <script>
-	$(function() {
-		$("#nav-menu").hide();
-		if (!getUserId()) {
-			$("#login").hide();
-		} else {
-			$("#initial").hide();
-		}
-	});
+  $(function() {
+    $("#nav-menu").hide();
+    if (!getUserId()) {
+      $("#login").hide();
+    } else {
+      $("#initial").hide();
+    }
+  });
 </script>
 </head>
 <body>
@@ -25,11 +25,11 @@ hr {
     <div class="row">
       <div class="col-sm-12">
         <div class="well well-sm">
-          <h1 class="text-center">早稲田祭ウォークラリー (仮)</h1>
+          <h1 class="text-center">ワセナビ</h1>
           <h1 class="text-center">Navi + Checkin + Quiz</h1>
           <p class="text-center">早稲田祭をめぐり，早稲田大学のランドマークや企画イベントにチェックイン．クイズを解いて早稲田文化を体感するウェブアプリ</p>
         </div>
-        <h4>ウォークラリーの流れ</h4>
+        <h4>ワセナビの流れ</h4>
         <ol>
           <li>ユーザ登録をします．</li>
           <li>チェックポイントを選び，ナビに従って，チェックポイントへ行きます．</li>
@@ -44,7 +44,7 @@ hr {
           GPSログは，ニックネームとともに保存されますが，論文発表などの学術目的以外には利用しません．</p>
         <div class="btn-group btn-group-justified">
           <a id="login" class="btn btn-default" href="login.html">ログイン</a> <a id="initial"
-            class="btn btn-primary" href="how-to-use.html">ウォークラリーに参加</a>
+            class="btn btn-primary" href="how-to-use.html">ワセナビに参加</a>
         </div>
         <div class="btn-group btn-group-justified">
           <a id="login" class="btn btn-default" href="dev.html">開発者ツール(本番では消します)</a>
