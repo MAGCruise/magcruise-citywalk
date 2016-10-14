@@ -16,6 +16,20 @@ window.onload = function() {
 	initMap();
 }
 
+// ブラウザがバックグラウンドに一度遷移すると、watchPositionキャンセルされる。
+// そこで、フォアグラウンドに戻ってきた際に、リロードする。initMap()だけでも良いが念のため。
+// ex.)ホームボタンを押す。
+// ex.)電源ボタンを押す。
+// ex.)通知より、別のアプリを起動する。
+var lastChecked = new Date().getTime();
+setInterval(function() {
+    var now = new Date().getTime();
+    if(now - lastChecked > 1000 * 10) {
+        location.reload();
+    }
+    lastChecked = now;
+}, 1000 * 5);
+
 $(function() {
 	$("#activity-title").text(checkpoint.name+"でのアクティビティ");
 	$("#btn-next").click(function() {
