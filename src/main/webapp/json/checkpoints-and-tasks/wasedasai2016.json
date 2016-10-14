@@ -1,13 +1,13 @@
 {
   "checkpoints": [
     {
-      "id": "ShandyGaff",
+      "id": "wasedasai2016-ShandyGaff",
       "lat": 35.7100638888889,
       "lon": 139.718322222222,
-      "name": "早稲田大学ダーツサークルShandyGaff",
+      "name": "早稲田大学ダーツサークル ShandyGaff",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "ホビー",
       "subcategory": "レク",
       "imgSrc": "wasedasai2016/icon/ShandyGaff.jpg",
@@ -16,13 +16,13 @@
       ]
     },
     {
-      "id": "quizken",
+      "id": "wasedasai2016-quizken",
       "lat": 35.7087083333333,
       "lon": 139.719575,
       "name": "クイズ研究会",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "ホビー",
       "subcategory": "レク",
       "imgSrc": "wasedasai2016/icon/quizken.jpg",
@@ -31,13 +31,13 @@
       ]
     },
     {
-      "id": "tenpoint",
+      "id": "wasedasai2016-tenpoint",
       "lat": 35.707275,
       "lon": 139.721833333333,
       "name": "競馬ファンサークル_テンポイント",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "ホビー",
       "subcategory": "レク",
       "imgSrc": "wasedasai2016/icon/tenpoint.jpg",
@@ -46,13 +46,13 @@
       ]
     },
     {
-      "id": "manken",
+      "id": "wasedasai2016-manken",
       "lat": 35.7100416666667,
       "lon": 139.717391666667,
       "name": "早稲田大学漫画研究会",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "ホビー",
       "subcategory": "アニメ・漫画",
       "imgSrc": "wasedasai2016/icon/manken.jpg",
@@ -61,13 +61,13 @@
       ]
     },
     {
-      "id": "momusu",
+      "id": "wasedasai2016-momusu",
       "lat": 35.7071583333333,
       "lon": 139.721405555556,
       "name": "早稲田大学モーニング娘。研究会",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "ホビー",
       "subcategory": "音楽",
       "imgSrc": "wasedasai2016/icon/momusu.jpg",
@@ -76,13 +76,13 @@
       ]
     },
     {
-      "id": "Walkin",
+      "id": "wasedasai2016-Walkin",
       "lat": 35.70805,
       "lon": 139.7155,
       "name": "Walkin'大喜利部",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "ホビー",
       "subcategory": "お笑い",
       "imgSrc": "wasedasai2016/icon/Walkin.jpg",
@@ -91,13 +91,13 @@
       ]
     },
     {
-      "id": "Sky-Link",
+      "id": "wasedasai2016-Sky-Link",
       "lat": 35.7070583333333,
       "lon": 139.715302777778,
       "name": "映画制作サークル Sky-Link Studio",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "芸術・文化",
       "subcategory": "映像",
       "imgSrc": "wasedasai2016/icon/Sky-Link.jpg",
@@ -106,13 +106,13 @@
       ]
     },
     {
-      "id": "photogra",
+      "id": "wasedasai2016-photogra",
       "lat": 35.7050944444444,
       "lon": 139.718536111111,
       "name": "早稲田演劇フォトグラファーの会",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "芸術・文化",
       "subcategory": "映像",
       "imgSrc": "wasedasai2016/icon/photogra.jpg",
@@ -121,13 +121,13 @@
       ]
     },
     {
-      "id": "artken",
+      "id": "wasedasai2016-artken",
       "lat": 35.7051416666667,
       "lon": 139.718261111111,
       "name": "美術研究創作会",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "芸術・文化",
       "subcategory": "美術",
       "imgSrc": "wasedasai2016/icon/artken.jpg",
@@ -136,13 +136,13 @@
       ]
     },
     {
-      "id": "wasebun",
+      "id": "wasedasai2016-wasebun",
       "lat": 35.7055861111111,
       "lon": 139.717377777778,
       "name": "わせだ文庫",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "メディア・出版",
       "subcategory": "出版",
       "imgSrc": "wasedasai2016/icon/wasebun.jpg",
@@ -151,13 +151,13 @@
       ]
     },
     {
-      "id": "wasedagardian",
+      "id": "wasedasai2016-wasedagardian",
       "lat": 35.7055861111111,
       "lon": 139.717377777778,
       "name": "ザワセダガーディアン",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "メディア・出版",
       "subcategory": "出版",
       "imgSrc": "wasedasai2016/icon/wasedagardian.jpg",
@@ -166,13 +166,13 @@
       ]
     },
     {
-      "id": "fmwaseda",
+      "id": "wasedasai2016-fmwaseda",
       "lat": 35.7072638888889,
       "lon": 139.716308333333,
       "name": "FMwaseda",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "メディア・出版",
       "subcategory": "マスメディア",
       "imgSrc": "wasedasai2016/icon/fmwaseda.jpg",
@@ -181,13 +181,13 @@
       ]
     },
     {
-      "id": "T-team",
+      "id": "wasedasai2016-T-team",
       "lat": 35.7075083333333,
       "lon": 139.715333333333,
       "name": "教育・教職サークルT-team",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "学問",
       "subcategory": "教育",
       "imgSrc": "wasedasai2016/icon/T-team.jpg",
@@ -196,13 +196,13 @@
       ]
     },
     {
-      "id": "iwaizemi",
+      "id": "wasedasai2016-iwaizemi",
       "lat": 35.7072638888889,
       "lon": 139.716308333333,
       "name": "岩井ゼミ",
       "label": "ラベルがここに入る！",
-      "description": "ラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベルラベル",
-      "marker_color": "red",
+      "description": "説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文",
+      "markerColor": "red",
       "category": "学問",
       "subcategory": "ゼミ",
       "imgSrc": "wasedasai2016/icon/iwaizemi.jpg",
@@ -213,9 +213,9 @@
   ],
   "tasks": [
     {
-      "id": "ShandyGaff-pin",
+      "id": "wasedasai2016-ShandyGaff-pin",
       "checkpoint_ids": [
-        "ShandyGaff"
+        "wasedasai2016-ShandyGaff"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -228,9 +228,9 @@
       }
     },
     {
-      "id": "quizken-pin",
+      "id": "wasedasai2016-quizken-pin",
       "checkpoint_ids": [
-        "quizken"
+        "wasedasai2016-quizken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -243,9 +243,9 @@
       }
     },
     {
-      "id": "tenpoint-pin",
+      "id": "wasedasai2016-tenpoint-pin",
       "checkpoint_ids": [
-        "tenpoint"
+        "wasedasai2016-tenpoint"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -258,9 +258,9 @@
       }
     },
     {
-      "id": "manken-pin",
+      "id": "wasedasai2016-manken-pin",
       "checkpoint_ids": [
-        "manken"
+        "wasedasai2016-manken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -273,9 +273,9 @@
       }
     },
     {
-      "id": "momusu-pin",
+      "id": "wasedasai2016-momusu-pin",
       "checkpoint_ids": [
-        "momusu"
+        "wasedasai2016-momusu"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -288,9 +288,9 @@
       }
     },
     {
-      "id": "Walkin-pin",
+      "id": "wasedasai2016-Walkin-pin",
       "checkpoint_ids": [
-        "Walkin"
+        "wasedasai2016-Walkin"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -303,9 +303,9 @@
       }
     },
     {
-      "id": "Sky-Link-pin",
+      "id": "wasedasai2016-Sky-Link-pin",
       "checkpoint_ids": [
-        "Sky-Link"
+        "wasedasai2016-Sky-Link"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -318,9 +318,9 @@
       }
     },
     {
-      "id": "photogra-pin",
+      "id": "wasedasai2016-photogra-pin",
       "checkpoint_ids": [
-        "photogra"
+        "wasedasai2016-photogra"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -333,9 +333,9 @@
       }
     },
     {
-      "id": "artken-pin",
+      "id": "wasedasai2016-artken-pin",
       "checkpoint_ids": [
-        "artken"
+        "wasedasai2016-artken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -348,9 +348,9 @@
       }
     },
     {
-      "id": "wasebun-pin",
+      "id": "wasedasai2016-wasebun-pin",
       "checkpoint_ids": [
-        "wasebun"
+        "wasedasai2016-wasebun"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -363,9 +363,9 @@
       }
     },
     {
-      "id": "wasedagardian-pin",
+      "id": "wasedasai2016-wasedagardian-pin",
       "checkpoint_ids": [
-        "wasedagardian"
+        "wasedasai2016-wasedagardian"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -378,9 +378,9 @@
       }
     },
     {
-      "id": "fmwaseda-pin",
+      "id": "wasedasai2016-fmwaseda-pin",
       "checkpoint_ids": [
-        "fmwaseda"
+        "wasedasai2016-fmwaseda"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -393,9 +393,9 @@
       }
     },
     {
-      "id": "T-team-pin",
+      "id": "wasedasai2016-T-team-pin",
       "checkpoint_ids": [
-        "T-team"
+        "wasedasai2016-T-team"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -408,9 +408,9 @@
       }
     },
     {
-      "id": "iwaizemi-pin",
+      "id": "wasedasai2016-iwaizemi-pin",
       "checkpoint_ids": [
-        "iwaizemi"
+        "wasedasai2016-iwaizemi"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -423,9 +423,9 @@
       }
     },
     {
-      "id": "ShandyGaff-selection",
+      "id": "wasedasai2016-ShandyGaff-selection",
       "checkpoint_ids": [
-        "ShandyGaff"
+        "wasedasai2016-ShandyGaff"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -443,9 +443,9 @@
       }
     },
     {
-      "id": "quizken-selection",
+      "id": "wasedasai2016-quizken-selection",
       "checkpoint_ids": [
-        "quizken"
+        "wasedasai2016-quizken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -463,9 +463,9 @@
       }
     },
     {
-      "id": "tenpoint-selection",
+      "id": "wasedasai2016-tenpoint-selection",
       "checkpoint_ids": [
-        "tenpoint"
+        "wasedasai2016-tenpoint"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -483,9 +483,9 @@
       }
     },
     {
-      "id": "manken-selection",
+      "id": "wasedasai2016-manken-selection",
       "checkpoint_ids": [
-        "manken"
+        "wasedasai2016-manken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -503,9 +503,9 @@
       }
     },
     {
-      "id": "momusu-selection",
+      "id": "wasedasai2016-momusu-selection",
       "checkpoint_ids": [
-        "momusu"
+        "wasedasai2016-momusu"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -523,9 +523,9 @@
       }
     },
     {
-      "id": "Walkin-selection",
+      "id": "wasedasai2016-Walkin-selection",
       "checkpoint_ids": [
-        "Walkin"
+        "wasedasai2016-Walkin"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -543,9 +543,9 @@
       }
     },
     {
-      "id": "Sky-Link-selection",
+      "id": "wasedasai2016-Sky-Link-selection",
       "checkpoint_ids": [
-        "Sky-Link"
+        "wasedasai2016-Sky-Link"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -563,9 +563,9 @@
       }
     },
     {
-      "id": "photogra-selection",
+      "id": "wasedasai2016-photogra-selection",
       "checkpoint_ids": [
-        "photogra"
+        "wasedasai2016-photogra"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -583,9 +583,9 @@
       }
     },
     {
-      "id": "artken-selection",
+      "id": "wasedasai2016-artken-selection",
       "checkpoint_ids": [
-        "artken"
+        "wasedasai2016-artken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -603,9 +603,9 @@
       }
     },
     {
-      "id": "wasebun-selection",
+      "id": "wasedasai2016-wasebun-selection",
       "checkpoint_ids": [
-        "wasebun"
+        "wasedasai2016-wasebun"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -623,9 +623,9 @@
       }
     },
     {
-      "id": "wasedagardian-selection",
+      "id": "wasedasai2016-wasedagardian-selection",
       "checkpoint_ids": [
-        "wasedagardian"
+        "wasedasai2016-wasedagardian"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -643,9 +643,9 @@
       }
     },
     {
-      "id": "fmwaseda-selection",
+      "id": "wasedasai2016-fmwaseda-selection",
       "checkpoint_ids": [
-        "fmwaseda"
+        "wasedasai2016-fmwaseda"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -663,9 +663,9 @@
       }
     },
     {
-      "id": "T-team-selection",
+      "id": "wasedasai2016-T-team-selection",
       "checkpoint_ids": [
-        "T-team"
+        "wasedasai2016-T-team"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -683,9 +683,9 @@
       }
     },
     {
-      "id": "iwaizemi-selection",
+      "id": "wasedasai2016-iwaizemi-selection",
       "checkpoint_ids": [
-        "iwaizemi"
+        "wasedasai2016-iwaizemi"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
