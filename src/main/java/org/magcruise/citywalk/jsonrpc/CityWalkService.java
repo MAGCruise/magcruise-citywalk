@@ -19,14 +19,12 @@ import org.magcruise.citywalk.model.json.RankingJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
-import org.magcruise.citywalk.model.relation.BadgesTable;
 import org.magcruise.citywalk.model.relation.MovementsTable;
 import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
 import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.relation.UserAccountsTable;
 import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
 import org.magcruise.citywalk.model.row.Activity;
-import org.magcruise.citywalk.model.row.Badge;
 import org.magcruise.citywalk.model.row.Movement;
 import org.magcruise.citywalk.model.row.SubmittedActivity;
 import org.magcruise.citywalk.model.row.Task;
@@ -47,7 +45,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	private VerifiedActivitiesTable verifiedActivities = new VerifiedActivitiesTable();
 	private SubmittedActivitiesTable submittedActivities = new SubmittedActivitiesTable();
 	private UserAccountsTable users = new UserAccountsTable();
-	private BadgesTable badges = new BadgesTable();
+	//private BadgesTable badges = new BadgesTable();
 	private TasksTable tasks = new TasksTable();
 	private MovementsTable movements = new MovementsTable();
 
@@ -130,30 +128,29 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	private List<String> calculateBadges(String userId) {
 		List<String> result = new ArrayList<>();
-		if (verifiedActivities.getActivities(userId, "cafeteria").size() > 0) {
-			String badge = "食堂マスター";
-			if (!badges.contains(userId, badge)) {
-				result.add(badge);
-				badges.insert(new Badge(userId, badge));
-			}
-		}
-
-		if (verifiedActivities.getActivitiesLike(userId, "%aed%").size() > 1) {
-			String badge = "AEDマスター";
-			if (!badges.contains(userId, badge)) {
-				result.add(badge);
-				badges.insert(new Badge(userId, badge));
-			}
-		}
-
-		if (verifiedActivities.getActivities(userId).size() > 2) {
-			String badge = "早稲田マスター";
-			if (!badges.contains(userId, badge)) {
-				result.add(badge);
-				badges.insert(new Badge(userId, badge));
-			}
-		}
-
+		//		if (verifiedActivities.getActivities(userId, "cafeteria").size() > 0) {
+		//			String badge = "食堂マスター";
+		//			if (!badges.contains(userId, badge)) {
+		//				result.add(badge);
+		//				badges.insert(new Badge(userId, badge));
+		//			}
+		//		}
+		//
+		//		if (verifiedActivities.getActivitiesLike(userId, "%aed%").size() > 1) {
+		//			String badge = "AEDマスター";
+		//			if (!badges.contains(userId, badge)) {
+		//				result.add(badge);
+		//				badges.insert(new Badge(userId, badge));
+		//			}
+		//		}
+		//
+		//		if (verifiedActivities.getActivities(userId).size() > 2) {
+		//			String badge = "早稲田マスター";
+		//			if (!badges.contains(userId, badge)) {
+		//				result.add(badge);
+		//				badges.insert(new Badge(userId, badge));
+		//			}
+		//		}
 		return result;
 	}
 

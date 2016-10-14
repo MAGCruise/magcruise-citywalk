@@ -41,8 +41,7 @@ public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 		List<Map<String, Object>> scores = sumsOfScoreGroupByUserIdOrderByScore();
 		for (int i = 0; i < scores.size(); i++) {
 			try {
-				result.add(new RankJson(scores.get(i).get(USER_ID).toString(), i,
-						(double) scores.get(i).get(SUM_OF_SCORE)));
+				result.add(getRankJson(scores.get(i).get(USER_ID).toString()));
 			} catch (Throwable t) {
 				log.error(t);
 			}
