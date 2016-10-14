@@ -1,66 +1,61 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org" lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head th:fragment="meta-fragment">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <link rel="stylesheet"
-	href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+  href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
 <link rel="stylesheet"
-	href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+  href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css" />
 <link rel="stylesheet" href="../css/common.css" />
 <link rel="stylesheet" href="../css/remodal-default-theme.css" />
 <link rel="stylesheet" href="../css/remodal.css" />
 <link rel="stylesheet" href="../css/header.css" />
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../js/jsonrpc.js"></script>
 <script src="../js/parseUri.js"></script>
 <script src="../js/util.js"></script>
 <script src="../js/remodal.min.js"></script>
 </head>
 <div class="container">
-	<div class="row" th:fragment="top-menu" id="menu">
-		<div id="mag-nav">
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div class="pull-left">
-					<a href="#"
-						onclick="javascript:window.history.back(-1);return false;"> <img
-						src="../img/back.png" id="back">
-					</a>
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-				<div id="nav-title"></div>
-			</div>
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<div id="nav-menu" class="dropdown pull-right">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"
-						id="orange-dropdown"> <b class="caret"></b> メニュー
-					</a>
-					<ul class="dropdown-menu">
-						<li id="user-name" class="item"></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="checkpoints.html" class="item">未訪問チェックポイント</a></li>
-						<li><a href="visited-checkpoints.html" class="item">訪問済みチェックポイント</a></li>
-						<li><a href="ranking.html" class="item">ランキング/獲得ポイント</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="how-to-use.html" class="item">使い方</a></li>
-						<li><a href="intro.html" class="item">はじめに</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="about-wasedasai.html" class="item">早稲田祭について</a></li>
-						<li><a href="credits.html" class="item">クレジット</a></li>
-						<!-- <li><a href="badge.html" class="item">バッジ</a></li>
+  <div class="row" th:fragment="top-menu" id="menu">
+    <div id="mag-nav">
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div class="pull-left">
+          <a href="#" onclick="javascript:window.history.back(-1);return false;"> <img
+            src="../img/back.png" id="back">
+          </a>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div id="nav-title"></div>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div id="nav-menu" class="dropdown pull-right">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="orange-dropdown"> <b
+            class="caret"></b> メニュー
+          </a>
+          <ul class="dropdown-menu">
+            <li id="user-name" class="item"></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="checkpoints.html" class="item">未訪問チェックポイント</a></li>
+            <li><a href="visited-checkpoints.html" class="item">訪問済みチェックポイント</a></li>
+            <li><a href="ranking.html" class="item">ランキング/獲得ポイント</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="how-to-use.html" class="item">使い方</a></li>
+            <li><a href="intro.html" class="item">はじめに</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="about-wasedasai.html" class="item">早稲田祭について</a></li>
+            <li><a href="credits.html" class="item">クレジット</a></li>
+            <!-- <li><a href="badge.html" class="item">バッジ</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="index.html" class="item">ログアウト</a></li>
 						-->
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 </html>

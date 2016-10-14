@@ -1,9 +1,7 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org" lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
-<object th:include="/fragment/header.html :: meta-fragment"
-	th:remove="tag"></object>
+<object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <title>使い方</title>
 <style>
 hr {
@@ -21,110 +19,108 @@ hr {
 </script>
 </head>
 <body>
-	<div class="container">
-		<div th:replace="/fragment/header.html :: top-menu"></div>
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="initial btn-group btn-group-justified">
-					<a class="btn btn-success" href="signup.html">はじめる</a>
-				</div>
-				<br>
-				<h4>ユーザ登録 （ニックネーム登録）</h4>
-				<p>まずニックネームを登録してください．ニックネームは，自由に決められます．実名である必要はありません．</p>
-				<p>ニックネームはアプリケーション内で，他のユーザに表示されることがあります．</p>
-				<!--
+  <div class="container">
+    <div th:replace="/fragment/header.html :: top-menu"></div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="initial btn-group btn-group-justified">
+          <a class="btn btn-success" href="signup.html">はじめる</a>
+        </div>
+        <br>
+        <h4>ユーザ登録 （ニックネーム登録）</h4>
+        <p>まずニックネームを登録してください．ニックネームは，自由に決められます．実名である必要はありません．</p>
+        <p>ニックネームはアプリケーション内で，他のユーザに表示されることがあります．</p>
+        <!--
 				<p>他の人が既に利用しているニックネームは利用することができません．また，一度，ユーザ登録をするとニックネームを変更することはできません．</p>
 				 -->
-				<div class="media">
-					<img class="media-object img-thumbnail center-block"
-						src="../img/web/register.png" style="max-width: 240px;">
-				</div>
-				<hr>
-				<!--
+        <div class="media">
+          <img class="media-object img-thumbnail center-block" src="../img/web/register.png"
+            style="max-width: 240px;">
+        </div>
+        <hr>
+        <!--
 				<h4>コース選択</h4>
 				<p>
 					<a href="courses.html">コース選択画面が表示</a>されますので，自分がスタートしたいコースを選択します．
 				</p>
  				-->
-				<h4 class="media-heading">未訪問チェックポイント (チェックポイントの選択)</h4>
-				<p>チェックポイントは，早稲田祭で開催中のおすすめ企画やイベント，ランドマーク，秘密スポットなどです．</p>
-				<!--
+        <h4 class="media-heading">未訪問チェックポイント (チェックポイントの選択)</h4>
+        <p>チェックポイントは，早稲田祭で開催中のおすすめ企画やイベント，ランドマーク，秘密スポットなどです．</p>
+        <!--
 				<p>
 					チェックポイントはカテゴリーとして，分類されて表示されています．関心がある分類をたどって，チェックポイントを探すことができます．
 					チェックポイントは今いる場所から近い順に表示されています．</p>
 					 -->
-				<p>訪問したいチェックポイントを選択したら，地図上で所在地を確認し，画面に表示された「ここに行く」ボタンをクリックしましょう．</p>
-				<div class="media">
-					<img class="media-object img-thumbnail center-block"
-						src="../img/web/mihoumon_addComments.png"
-						style="max-width: 240px;">
-				</div>
-				<p class="text-center">↓</p>
-				<div class="media">
-					<img class="media-object img-thumbnail center-block"
-						src="../img/web/here.png" style="max-width: 240px;">
-				</div>
-				<hr>
-				<h4>ナビ （チェックポイントへの誘導）</h4>
-				<p>コンパスとチェックポイントまでの距離が表示され，チェックポイントへと導いてもらえます．
-					コンパスの赤い先端が指す向きにチェックポイントがあります．</p>
-				<p>チェックポイントに近づき，「チェックイン」ボタンを押すと，チェックインすることができます．</p>
-				<div class="media">
-					<img class="media-object img-thumbnail center-block"
-						src="../img/web/navi.png" style="max-width: 240px;">
-				</div>
-				<hr>
-				<h4>チェックイン (「合い言葉」の入力)</h4>
-				<p>チェックポイントにたどり着いたら，チェックインしましょう．チェックポイントにある「合い言葉」を入力することでチェックインができます．</p>
-				<p>チェックインするとポイントを獲得できます．</p>
-				<!--
+        <p>訪問したいチェックポイントを選択したら，地図上で所在地を確認し，画面に表示された「ここに行く」ボタンをクリックしましょう．</p>
+        <div class="media">
+          <img class="media-object img-thumbnail center-block"
+            src="../img/web/mihoumon_addComments.png" style="max-width: 240px;">
+        </div>
+        <p class="text-center">↓</p>
+        <div class="media">
+          <img class="media-object img-thumbnail center-block" src="../img/web/here.png"
+            style="max-width: 240px;">
+        </div>
+        <hr>
+        <h4>ナビ （チェックポイントへの誘導）</h4>
+        <p>コンパスとチェックポイントまでの距離が表示され，チェックポイントへと導いてもらえます． コンパスの赤い先端が指す向きにチェックポイントがあります．</p>
+        <p>チェックポイントに近づき，「チェックイン」ボタンを押すと，チェックインすることができます．</p>
+        <div class="media">
+          <img class="media-object img-thumbnail center-block" src="../img/web/navi.png"
+            style="max-width: 240px;">
+        </div>
+        <hr>
+        <h4>チェックイン (「合い言葉」の入力)</h4>
+        <p>チェックポイントにたどり着いたら，チェックインしましょう．チェックポイントにある「合い言葉」を入力することでチェックインができます．</p>
+        <p>チェックインするとポイントを獲得できます．</p>
+        <!--
 				<p>表示されているのと同じ写真を撮ったり，QRコードを読み取ったり，いろいろな方法でチェックインします．
 					チェックインするとポイントを獲得できます．</p>
 				-->
-				<div class="media">
-					<img class="media-object img-thumbnail center-block"
-						src="../img/web/checkin.png" style="max-width: 240px;">
-				</div>
-				<hr>
-				<h4>クイズタスク (クイズに回答)</h4>
-				<p>チェックインするとクイズが出題されます．正解するとポイントを獲得できます．</p>
-				<p>クイズに答えたら，次の新たなチェックポイントを，目指しましょう．</p>
-				<!--
+        <div class="media">
+          <img class="media-object img-thumbnail center-block" src="../img/web/checkin.png"
+            style="max-width: 240px;">
+        </div>
+        <hr>
+        <h4>クイズタスク (クイズに回答)</h4>
+        <p>チェックインするとクイズが出題されます．正解するとポイントを獲得できます．</p>
+        <p>クイズに答えたら，次の新たなチェックポイントを，目指しましょう．</p>
+        <!--
 				<p>正解を選んで，「回答する」ボタンを押してください．回答が受け付けられると，「タスクを完了しました！」と表示され，未訪問チェックポイント画面に戻ります．
 					次の新たなチェックポイントを，目指しましょう．</p>
 					  -->
-				<div class="media">
-					<img class="media-object img-thumbnail center-block"
-						src="../img/web/task.png" style="max-width: 240px;">
-				</div>
-				<hr>
-				<h4>訪問済みチェックポイント (履歴の確認)</h4>
-				<p>これまでに訪問したチェックポイントが，チェックインした順に一覧で表示されます．獲得ポイントは，「獲得したポイント数/獲得できる最大ポイント数」で表示されます．</p>
-				<!--
+        <div class="media">
+          <img class="media-object img-thumbnail center-block" src="../img/web/task.png"
+            style="max-width: 240px;">
+        </div>
+        <hr>
+        <h4>訪問済みチェックポイント (履歴の確認)</h4>
+        <p>これまでに訪問したチェックポイントが，チェックインした順に一覧で表示されます．獲得ポイントは，「獲得したポイント数/獲得できる最大ポイント数」で表示されます．</p>
+        <!--
 				<p>
 					そのチェックポイントで獲得できたポイントも表示されます． 獲得ポイントは，<strong>「自分が獲得したポイント数/そのチェックポイントで獲得できる最大ポイント数」</strong>で表示されます．
 				</p>
 				 -->
-				<div class="media">
-					<img class="media-object img-thumbnail center-block"
-						src="../img/web/visited-checkpoints.png" style="max-width: 240px;">
-				</div>
-				<hr>
-				<h4>ランキング (順位とポイントの確認)</h4>
-				<p>参加した人を獲得ポイントの多い順に表示しています． また，自分の順位と獲得ポイントを知ることができます．</p>
-				<div class="media">
-					<img class="media-object img-thumbnail center-block"
-						src="../img/web/ranking.png" style="max-width: 240px;">
-				</div>
-				<hr>
-				<h4>ヘルプ (使い方の確認)</h4>
-				<p>ユーザ登録後，画面上部右端の「メニュー」ボタンをクリックするとメニューが表示されます．「使い方」を選ぶとこのページが見られます．</p>
-				<br>
-				<div class="initial btn-group btn-group-justified">
-					<a class="btn btn-primary" href="signup.html">はじめる</a>
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="media">
+          <img class="media-object img-thumbnail center-block"
+            src="../img/web/visited-checkpoints.png" style="max-width: 240px;">
+        </div>
+        <hr>
+        <h4>ランキング (順位とポイントの確認)</h4>
+        <p>参加した人を獲得ポイントの多い順に表示しています． また，自分の順位と獲得ポイントを知ることができます．</p>
+        <div class="media">
+          <img class="media-object img-thumbnail center-block" src="../img/web/ranking.png"
+            style="max-width: 240px;">
+        </div>
+        <hr>
+        <h4>ヘルプ (使い方の確認)</h4>
+        <p>ユーザ登録後，画面上部右端の「メニュー」ボタンをクリックするとメニューが表示されます．「使い方」を選ぶとこのページが見られます．</p>
+        <br>
+        <div class="initial btn-group btn-group-justified">
+          <a class="btn btn-primary" href="signup.html">はじめる</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

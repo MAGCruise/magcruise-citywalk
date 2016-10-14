@@ -1,9 +1,7 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org" lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
-<object th:include="/fragment/header.html :: meta-fragment"
-	th:remove="tag"></object>
+<object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <link rel="stylesheet" href="../css/top.css" />
 
 <title>LocalStorageクリア</title>
@@ -22,17 +20,17 @@
 </script>
 </head>
 <body>
-	<div class="container">
-		<div th:replace="/fragment/header.html :: top-menu"></div>
-		<div class="row">
-			<div class="col-sm-12 description">
-				<div class="col-sm-12">
-					<div class="course">
-						<a href="intro.html">ウォークラリーに参加</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div th:replace="/fragment/header.html :: top-menu"></div>
+    <div class="row">
+      <div class="col-sm-12 description">
+        <div class="col-sm-12">
+          <div class="course">
+            <a href="intro.html">ウォークラリーに参加</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,57 +1,52 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org" lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
-<object th:include="/fragment/header.html :: meta-fragment"
-	th:remove="tag"></object>
-<script type="text/javascript" src="../js/task-common.js"></script>	
+<object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
+<script type="text/javascript" src="../js/task-common.js"></script>
 <script type="text/javascript" src="../js/task-photo.js"></script>
 <link rel="stylesheet" href="../css/task-photo.css" />
 <title></title>
 </head>
 <head th:remove="all">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <script src="../js/citywalk.js"></script>
 </head>
 <body>
-	<input id="file-input" name="file-input" type="file" accept="image/*"
-		onchange="handleFiles(this.files)" />
-	<div class="container">
-		<div th:replace="/fragment/header.html :: top-menu"></div>
-		<div class="row">
-			<div class="description">左側の写真と同じような写真を撮って下さい。</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-				<div class="img-wrapper">
-					<img id="task-img" class="img-rounded">
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-				<div class="img-wrapper">
-					<img class="img-rounded" src="../img/nopicture.svg"
-						id="img-preview" onClick="$('#file-input').click()">
-				</div>
-				<div class="margin-container">
-					<div id="btn-file-input" class="btn btn-primary"
-						onClick="$('#file-input').click()">写真を撮影する</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="margin-container">
-					<button id="btn-next" class="btn btn-primary btn-next-fill"
-						disabled>チェックインする</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="loading">
-		<img src="../img/loading.gif">
-	</div>
-	<div th:replace="/fragment/modal.html :: modal"></div>
+  <input id="file-input" name="file-input" type="file" accept="image/*"
+    onchange="handleFiles(this.files)" />
+  <div class="container">
+    <div th:replace="/fragment/header.html :: top-menu"></div>
+    <div class="row">
+      <div class="description">左側の写真と同じような写真を撮って下さい。</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="img-wrapper">
+          <img id="task-img" class="img-rounded">
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="img-wrapper">
+          <img class="img-rounded" src="../img/nopicture.svg" id="img-preview"
+            onClick="$('#file-input').click()">
+        </div>
+        <div class="margin-container">
+          <div id="btn-file-input" class="btn btn-primary" onClick="$('#file-input').click()">写真を撮影する</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="margin-container">
+          <button id="btn-next" class="btn btn-primary btn-next-fill" disabled>チェックインする</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="loading">
+    <img src="../img/loading.gif">
+  </div>
+  <div th:replace="/fragment/modal.html :: modal"></div>
 </body>
 </html>

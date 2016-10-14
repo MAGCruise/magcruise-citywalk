@@ -94,17 +94,17 @@
 </script>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<h1>Server APIテスト</h1>
-				<a href="./">Index</a>
-				<h2>JSON-RPCでLogin</h2>
-				<textarea id="login-input">["waseda","ayaki","houchimin"]</textarea>
-				<a id="login" class="btn btn-primary">login</a>
-				<p id="login-result"></p>
-				<h2>JSON-RPCでActivityをInsert</h2>
-				<textarea id="insert-activity-input">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Server APIテスト</h1>
+        <a href="./">Index</a>
+        <h2>JSON-RPCでLogin</h2>
+        <textarea id="login-input">["waseda","ayaki","houchimin"]</textarea>
+        <a id="login" class="btn btn-primary">login</a>
+        <p id="login-result"></p>
+        <h2>JSON-RPCでActivityをInsert</h2>
+        <textarea id="insert-activity-input">
 [{
     "checkpointGroupId": "waseda",
     "checkpointId": "cafeteria",
@@ -119,18 +119,18 @@
     "userId": "ayaki"
 }]
 				</textarea>
-				<a id="insert-activity" class="btn btn-primary">insert activity</a>
-				<p id="insert-activity-result"></p>
-				<h2>JSON-RPCで画像をアップロード</h2>
-				<input type="file" id="files" name="files[]" multiple />
-				<output id="image_outputs"></output>
-				<p id="image-upload-result"></p>
-				<div id="result"></div>
-				<h2>Websocketでwaseda，cafeteriaの通知を取得</h2>
-				<div id="notification" class="well"></div>
+        <a id="insert-activity" class="btn btn-primary">insert activity</a>
+        <p id="insert-activity-result"></p>
+        <h2>JSON-RPCで画像をアップロード</h2>
+        <input type="file" id="files" name="files[]" multiple />
+        <output id="image_outputs"></output>
+        <p id="image-upload-result"></p>
+        <div id="result"></div>
+        <h2>Websocketでwaseda，cafeteriaの通知を取得</h2>
+        <div id="notification" class="well"></div>
 
-			</div>
-		</div>
-	</div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

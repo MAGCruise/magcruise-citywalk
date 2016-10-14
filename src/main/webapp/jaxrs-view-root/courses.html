@@ -1,37 +1,34 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org" lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
-<object th:include="/fragment/header.html :: meta-fragment"
-	th:remove="tag"></object>
+<object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <link rel="stylesheet" href="../css/courses.css" />
 <title>コース選択</title>
 <script src="../js/courses.js"></script>
 </head>
 <head th:remove="all">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <script src="../js/citywalk.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div th:replace="/fragment/header.html :: top-menu"></div>
-		<div class="row">
-			<div class="col-sm-12 description">
-				<div class="col-sm-12">
-					<div class="course">
-						<a href="#" id="waseda">Waseda 早稲田大学</a>
-					</div>
-					<div class="course">
-						<a href="#" id="wasedasai2016">早稲田祭2016</a>
-					</div>
-					<div class="course">
-						<a href="#" id="kyoto">Kyoto 京都</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div th:replace="/fragment/header.html :: top-menu"></div>
+    <div class="row">
+      <div class="col-sm-12 description">
+        <div class="col-sm-12">
+          <div class="course">
+            <a href="#" id="waseda">Waseda 早稲田大学</a>
+          </div>
+          <div class="course">
+            <a href="#" id="wasedasai2016">早稲田祭2016</a>
+          </div>
+          <div class="course">
+            <a href="#" id="kyoto">Kyoto 京都</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
