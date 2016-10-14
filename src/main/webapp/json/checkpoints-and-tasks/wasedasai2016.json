@@ -1,7 +1,7 @@
 {
   "checkpoints": [
     {
-      "id":"wasedasai-cafeteria",
+      "id": "wasedasai-cafeteria",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "大食堂",
@@ -9,10 +9,12 @@
       "marker_color": "red",
       "category": "施設",
       "subcategory": "飲食",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"wasedasai-pc-room",
+      "id": "wasedasai-pc-room",
       "lat": 35.705672,
       "lon": 139.705188,
       "name": "PCルーム",
@@ -20,10 +22,12 @@
       "marker_color": "green",
       "category": "施設",
       "subcategory": "学び舎",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"wasedasai-aed-1",
+      "id": "wasedasai-aed-1",
       "lat": 35.705517,
       "lon": 139.706716,
       "name": "aed1",
@@ -31,7 +35,9 @@
       "marker_color": "blue",
       "category": "ディープ",
       "subcategory": "aed",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
       "id": "wasedasai-aed-2",
@@ -42,7 +48,9 @@
       "marker_color": "blue",
       "category": "ディープ",
       "subcategory": "aed",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
       "id": "wasedasai-aed-3",
@@ -53,7 +61,9 @@
       "marker_color": "blue",
       "category": "ディープ",
       "subcategory": "aed",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
       "id": "wasedasai-aed-4",
@@ -64,7 +74,9 @@
       "marker_color": "blue",
       "category": "ディープ",
       "subcategory": "aed",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
       "id": "wasedasai-aed-5",
@@ -75,7 +87,9 @@
       "marker_color": "blue",
       "category": "ディープ",
       "subcategory": "aed",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
       "id": "wasedasai-aed-6",
@@ -86,7 +100,9 @@
       "marker_color": "blue",
       "category": "ディープ",
       "subcategory": "aed",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
       "id": "kiken-1",
@@ -97,7 +113,9 @@
       "marker_color": "blue",
       "category": "ディープ",
       "subcategory": "危険物",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
       "id": "kiken-2",
@@ -108,7 +126,9 @@
       "marker_color": "blue",
       "category": "ディープ",
       "subcategory": "危険物",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
       "id": "kiken-3",
@@ -119,7 +139,9 @@
       "marker_color": "blue",
       "category": "ディープ",
       "subcategory": "危険物",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
       "id": "kiken-4",
@@ -130,7 +152,9 @@
       "marker_color": "blue",
       "category": "ディープ",
       "subcategory": "危険物",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
       "id": "kituen-1",
@@ -141,7 +165,9 @@
       "marker_color": "blue",
       "category": "ディープ",
       "subcategory": "喫煙",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
       "id": "kituen-2",
@@ -152,7 +178,9 @@
       "marker_color": "blue",
       "category": "ディープ",
       "subcategory": "喫煙",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
       "id": "kituen-3",
@@ -163,10 +191,12 @@
       "marker_color": "blue",
       "category": "ディープ",
       "subcategory": "喫煙",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"51",
+      "id": "51",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "51号館",
@@ -175,10 +205,12 @@
       "visibleTimeFrom": "2016-10-01 00:00:00",
       "category": "施設",
       "subcategory": "学び舎",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"52",
+      "id": "52",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "52号館",
@@ -187,10 +219,12 @@
       "visibleTimeTo": "2016-10-31 00:00:00",
       "category": "施設",
       "subcategory": "学び舎",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"53",
+      "id": "53",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "53号館",
@@ -200,10 +234,12 @@
       "visibleTimeTo": "2016-10-31 00:00:00",
       "category": "施設",
       "subcategory": "学び舎",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"54",
+      "id": "54",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "54号館",
@@ -212,10 +248,12 @@
       "visibleTimeFrom": "2016-10-31 00:00:00",
       "category": "施設",
       "subcategory": "学び舎",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"56",
+      "id": "56",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "56号館",
@@ -224,10 +262,12 @@
       "visibleTimeTo": "2016-10-01 00:00:00",
       "category": "施設",
       "subcategory": "学び舎",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"57",
+      "id": "57",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "57号館",
@@ -237,10 +277,12 @@
       "visibleTimeTo": "2016-10-10 00:00:00",
       "category": "施設",
       "subcategory": "学び舎",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"atorie",
+      "id": "atorie",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "アトリエ",
@@ -248,10 +290,12 @@
       "marker_color": "red",
       "category": "施設",
       "subcategory": "学び舎",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"group",
+      "id": "group",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "グループ会議室",
@@ -259,10 +303,12 @@
       "marker_color": "red",
       "category": "施設",
       "subcategory": "学び舎",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"cafe",
+      "id": "cafe",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "タリーズ",
@@ -270,10 +316,12 @@
       "marker_color": "red",
       "category": "施設",
       "subcategory": "飲食",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"hozen",
+      "id": "hozen",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "保全センター",
@@ -281,10 +329,12 @@
       "marker_color": "red",
       "category": "施設",
       "subcategory": "特殊シリーズ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"syuei",
+      "id": "syuei",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "守衛室",
@@ -292,10 +342,12 @@
       "marker_color": "red",
       "category": "施設",
       "subcategory": "特殊シリーズ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"konsento",
+      "id": "konsento",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "コンセント",
@@ -303,10 +355,12 @@
       "marker_color": "red",
       "category": "施設",
       "subcategory": "菱山先生シリーズ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"hishiyama",
+      "id": "hishiyama",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "菱山先生の作ったソファー",
@@ -314,10 +368,12 @@
       "marker_color": "red",
       "category": "施設",
       "subcategory": "菱山先生シリーズ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"gorin",
+      "id": "gorin",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "五輪マーク",
@@ -325,10 +381,12 @@
       "marker_color": "red",
       "category": "ランドマーク",
       "subcategory": "不可解シリーズ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"shimizu",
+      "id": "shimizu",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "清水さんのモニュメント",
@@ -336,10 +394,12 @@
       "marker_color": "red",
       "category": "ランドマーク",
       "subcategory": "不可解シリーズ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"nazowindow",
+      "id": "nazowindow",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "謎の窓",
@@ -347,10 +407,12 @@
       "marker_color": "red",
       "category": "ランドマーク",
       "subcategory": "不可解シリーズ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"keiziban",
+      "id": "keiziban",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "掲示板",
@@ -358,10 +420,12 @@
       "marker_color": "red",
       "category": "ランドマーク",
       "subcategory": "不可解シリーズ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"kihu",
+      "id": "kihu",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "寄付の銘",
@@ -369,10 +433,12 @@
       "marker_color": "red",
       "category": "ランドマーク",
       "subcategory": "不可解シリーズ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"hara",
+      "id": "hara",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "原記念",
@@ -380,10 +446,12 @@
       "marker_color": "red",
       "category": "ランドマーク",
       "subcategory": "不可解シリーズ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"ike",
+      "id": "ike",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "池",
@@ -391,10 +459,12 @@
       "marker_color": "red",
       "category": "ランドマーク",
       "subcategory": "自然シリーズ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"tree",
+      "id": "tree",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "木",
@@ -402,10 +472,12 @@
       "marker_color": "red",
       "category": "ランドマーク",
       "subcategory": "自然シリーズ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"oasis",
+      "id": "oasis",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "オアシス",
@@ -413,10 +485,12 @@
       "marker_color": "red",
       "category": "ランドマーク",
       "subcategory": "自然シリーズ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"takeuti",
+      "id": "takeuti",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "竹内明太郎像",
@@ -424,10 +498,12 @@
       "marker_color": "red",
       "category": "ランドマーク",
       "subcategory": "石像",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"usiro",
+      "id": "usiro",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "像の後ろ姿",
@@ -435,10 +511,12 @@
       "marker_color": "red",
       "category": "ランドマーク",
       "subcategory": "石像",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"henkixyaku",
+      "id": "henkixyaku",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "返却ボックス",
@@ -446,10 +524,12 @@
       "marker_color": "red",
       "category": "機械",
       "subcategory": "便利",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"sixyoumei",
+      "id": "sixyoumei",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "証明書発行機",
@@ -457,10 +537,12 @@
       "marker_color": "red",
       "category": "機械",
       "subcategory": "便利",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"zihanki",
+      "id": "zihanki",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "自販機",
@@ -468,10 +550,12 @@
       "marker_color": "red",
       "category": "機械",
       "subcategory": "便利",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"souki",
+      "id": "souki",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "総機の学び場",
@@ -479,10 +563,12 @@
       "marker_color": "red",
       "category": "機械",
       "subcategory": "総機の闇",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"ookinakikai",
+      "id": "ookinakikai",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "大きな機械",
@@ -490,10 +576,12 @@
       "marker_color": "red",
       "category": "機械",
       "subcategory": "総機の闇",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     },
     {
-      "id":"robo",
+      "id": "robo",
       "lat": 35.706489,
       "lon": 139.708019,
       "name": "ロボ",
@@ -501,25 +589,31 @@
       "marker_color": "red",
       "category": "機械",
       "subcategory": "ロボ",
-      "checkpoint_group_ids": ["wasedasai2016"]
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
     }
   ],
   "tasks": [
     {
       "id": "wasedasai-cafeteria-phpto",
-      "checkpoint_ids": ["wasedasai-cafeteria"],
-      "content":{
+      "checkpoint_ids": [
+        "wasedasai-cafeteria"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "point": 2.0,
         "label": "表示されている写真と同じ写真を撮って下さい．",
-		    "imgSrc": "task/checkin-cafeteria.jpg"
+        "imgSrc": "task/checkin-cafeteria.jpg"
       }
     },
     {
       "id": "wasedasai-pc-room-qr",
-      "checkpoint_ids": ["wasedasai-pc-room"],
-      "content":{
+      "checkpoint_ids": [
+        "wasedasai-pc-room"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -529,8 +623,10 @@
     },
     {
       "id": "wasedasai-aed-1-qr",
-      "checkpoint_ids": ["wasedasai-aed-1"],
-      "content":{
+      "checkpoint_ids": [
+        "wasedasai-aed-1"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -540,8 +636,10 @@
     },
     {
       "id": "wasedasai-aed-2-qr",
-      "checkpoint_ids": ["wasedasai-aed-2"],
-      "content":{
+      "checkpoint_ids": [
+        "wasedasai-aed-2"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -551,8 +649,10 @@
     },
     {
       "id": "wasedasai-aed-3-qr",
-      "checkpoint_ids": ["wasedasai-aed-3"],
-      "content":{
+      "checkpoint_ids": [
+        "wasedasai-aed-3"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -562,8 +662,10 @@
     },
     {
       "id": "wasedasai-aed-4-qr",
-      "checkpoint_ids": ["wasedasai-aed-4"],
-      "content":{
+      "checkpoint_ids": [
+        "wasedasai-aed-4"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -573,8 +675,10 @@
     },
     {
       "id": "wasedasai-aed-5-qr",
-      "checkpoint_ids": ["wasedasai-aed-5"],
-      "content":{
+      "checkpoint_ids": [
+        "wasedasai-aed-5"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -584,8 +688,10 @@
     },
     {
       "id": "wasedasai-aed-6-qr",
-      "checkpoint_ids": ["wasedasai-aed-6"],
-      "content":{
+      "checkpoint_ids": [
+        "wasedasai-aed-6"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -595,8 +701,10 @@
     },
     {
       "id": "51-qr",
-      "checkpoint_ids": ["51"],
-      "content":{
+      "checkpoint_ids": [
+        "51"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -606,8 +714,10 @@
     },
     {
       "id": "52-qr",
-      "checkpoint_ids": ["52"],
-      "content":{
+      "checkpoint_ids": [
+        "52"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -617,8 +727,10 @@
     },
     {
       "id": "53-qr",
-      "checkpoint_ids": ["53"],
-      "content":{
+      "checkpoint_ids": [
+        "53"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -628,8 +740,10 @@
     },
     {
       "id": "54-qr",
-      "checkpoint_ids": ["54"],
-      "content":{
+      "checkpoint_ids": [
+        "54"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -639,8 +753,10 @@
     },
     {
       "id": "55-qr",
-      "checkpoint_ids": ["55"],
-      "content":{
+      "checkpoint_ids": [
+        "55"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -650,8 +766,10 @@
     },
     {
       "id": "56-qr",
-      "checkpoint_ids": ["56"],
-      "content":{
+      "checkpoint_ids": [
+        "56"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -661,8 +779,10 @@
     },
     {
       "id": "atorie-qr",
-      "checkpoint_ids": ["atorie"],
-      "content":{
+      "checkpoint_ids": [
+        "atorie"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -672,8 +792,10 @@
     },
     {
       "id": "cafe-qr",
-      "checkpoint_ids": ["cafe"],
-      "content":{
+      "checkpoint_ids": [
+        "cafe"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -683,8 +805,10 @@
     },
     {
       "id": "gorin-qr",
-      "checkpoint_ids": ["gorin"],
-      "content":{
+      "checkpoint_ids": [
+        "gorin"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -694,8 +818,10 @@
     },
     {
       "id": "group-qr",
-      "checkpoint_ids": ["group"],
-      "content":{
+      "checkpoint_ids": [
+        "group"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -705,8 +831,10 @@
     },
     {
       "id": "hara-qr",
-      "checkpoint_ids": ["hara"],
-      "content":{
+      "checkpoint_ids": [
+        "hara"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -716,8 +844,10 @@
     },
     {
       "id": "henkixyaku-qr",
-      "checkpoint_ids": ["henkixyaku"],
-      "content":{
+      "checkpoint_ids": [
+        "henkixyaku"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -727,8 +857,10 @@
     },
     {
       "id": "hishiyama-qr",
-      "checkpoint_ids": ["hishiyama"],
-      "content":{
+      "checkpoint_ids": [
+        "hishiyama"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -738,8 +870,10 @@
     },
     {
       "id": "hozen-qr",
-      "checkpoint_ids": ["hozen"],
-      "content":{
+      "checkpoint_ids": [
+        "hozen"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -749,8 +883,10 @@
     },
     {
       "id": "ike-qr",
-      "checkpoint_ids": ["ike"],
-      "content":{
+      "checkpoint_ids": [
+        "ike"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -760,8 +896,10 @@
     },
     {
       "id": "keiziban-qr",
-      "checkpoint_ids": ["keiziban"],
-      "content":{
+      "checkpoint_ids": [
+        "keiziban"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -771,8 +909,10 @@
     },
     {
       "id": "kihu-qr",
-      "checkpoint_ids": ["kihu"],
-      "content":{
+      "checkpoint_ids": [
+        "kihu"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -782,8 +922,10 @@
     },
     {
       "id": "kiken-1-qr",
-      "checkpoint_ids": ["kiken-1"],
-      "content":{
+      "checkpoint_ids": [
+        "kiken-1"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -793,8 +935,10 @@
     },
     {
       "id": "kiken-2-qr",
-      "checkpoint_ids": ["kiken-2"],
-      "content":{
+      "checkpoint_ids": [
+        "kiken-2"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -804,8 +948,10 @@
     },
     {
       "id": "kiken-3-qr",
-      "checkpoint_ids": ["kiken-3"],
-      "content":{
+      "checkpoint_ids": [
+        "kiken-3"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -815,8 +961,10 @@
     },
     {
       "id": "kiken-4-qr",
-      "checkpoint_ids": ["kiken-4"],
-      "content":{
+      "checkpoint_ids": [
+        "kiken-4"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -826,8 +974,10 @@
     },
     {
       "id": "kituen-1-qr",
-      "checkpoint_ids": ["kituen-1"],
-      "content":{
+      "checkpoint_ids": [
+        "kituen-1"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -837,8 +987,10 @@
     },
     {
       "id": "kituen-2-qr",
-      "checkpoint_ids": ["kituen-2"],
-      "content":{
+      "checkpoint_ids": [
+        "kituen-2"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -848,8 +1000,10 @@
     },
     {
       "id": "kituen-3-qr",
-      "checkpoint_ids": ["kituen-3"],
-      "content":{
+      "checkpoint_ids": [
+        "kituen-3"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -859,8 +1013,10 @@
     },
     {
       "id": "konsento-qr",
-      "checkpoint_ids": ["konsento"],
-      "content":{
+      "checkpoint_ids": [
+        "konsento"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -870,8 +1026,10 @@
     },
     {
       "id": "nazowindow-qr",
-      "checkpoint_ids": ["nazowindow"],
-      "content":{
+      "checkpoint_ids": [
+        "nazowindow"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -881,8 +1039,10 @@
     },
     {
       "id": "oasis-qr",
-      "checkpoint_ids": ["oasis"],
-      "content":{
+      "checkpoint_ids": [
+        "oasis"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -892,8 +1052,10 @@
     },
     {
       "id": "ookinakikai-qr",
-      "checkpoint_ids": ["ookinakikai"],
-      "content":{
+      "checkpoint_ids": [
+        "ookinakikai"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -903,8 +1065,10 @@
     },
     {
       "id": "robo-qr",
-      "checkpoint_ids": ["robo"],
-      "content":{
+      "checkpoint_ids": [
+        "robo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -914,8 +1078,10 @@
     },
     {
       "id": "shimizu-qr",
-      "checkpoint_ids": ["shimizu"],
-      "content":{
+      "checkpoint_ids": [
+        "shimizu"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -925,8 +1091,10 @@
     },
     {
       "id": "sixyoumei-qr",
-      "checkpoint_ids": ["sixyoumei"],
-      "content":{
+      "checkpoint_ids": [
+        "sixyoumei"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -936,8 +1104,10 @@
     },
     {
       "id": "souki-qr",
-      "checkpoint_ids": ["souki"],
-      "content":{
+      "checkpoint_ids": [
+        "souki"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -947,8 +1117,10 @@
     },
     {
       "id": "syuei-qr",
-      "checkpoint_ids": ["syuei"],
-      "content":{
+      "checkpoint_ids": [
+        "syuei"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -958,8 +1130,10 @@
     },
     {
       "id": "takeuti-qr",
-      "checkpoint_ids": ["takeuti"],
-      "content":{
+      "checkpoint_ids": [
+        "takeuti"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -969,8 +1143,10 @@
     },
     {
       "id": "tree-qr",
-      "checkpoint_ids": ["tree"],
-      "content":{
+      "checkpoint_ids": [
+        "tree"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -980,8 +1156,10 @@
     },
     {
       "id": "usiro-qr",
-      "checkpoint_ids": ["usiro"],
-      "content":{
+      "checkpoint_ids": [
+        "usiro"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -991,8 +1169,10 @@
     },
     {
       "id": "zihanki-qr",
-      "checkpoint_ids": ["zihanki"],
-      "content":{
+      "checkpoint_ids": [
+        "zihanki"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "point": 2.0,
@@ -1002,437 +1182,795 @@
     },
     {
       "id": "wasedasai-cafeteria-selection",
-      "checkpoint_ids": ["wasedasai-cafeteria"],
-      "content":{
+      "checkpoint_ids": [
+        "wasedasai-cafeteria"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "51-selection",
-      "checkpoint_ids": ["51"],
-      "content":{
+      "checkpoint_ids": [
+        "51"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "52-selection",
-      "checkpoint_ids": ["52"],
-      "content":{
+      "checkpoint_ids": [
+        "52"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "53-selection",
-      "checkpoint_ids": ["53"],
-      "content":{
+      "checkpoint_ids": [
+        "53"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "54-selection",
-      "checkpoint_ids": ["54"],
-      "content":{
+      "checkpoint_ids": [
+        "54"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "56-selection",
-      "checkpoint_ids": ["56"],
-      "content":{
+      "checkpoint_ids": [
+        "56"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "57-selection",
-      "checkpoint_ids": ["57"],
-      "content":{
+      "checkpoint_ids": [
+        "57"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "atorie-selection",
-      "checkpoint_ids": ["atorie"],
-      "content":{
+      "checkpoint_ids": [
+        "atorie"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "cafe-selection",
-      "checkpoint_ids": ["cafe"],
-      "content":{
+      "checkpoint_ids": [
+        "cafe"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "gorin-selection",
-      "checkpoint_ids": ["gorin"],
-      "content":{
+      "checkpoint_ids": [
+        "gorin"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "group-selection",
-      "checkpoint_ids": ["group"],
-      "content":{
+      "checkpoint_ids": [
+        "group"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "henkixyaku-selection",
-      "checkpoint_ids": ["henkixyaku"],
-      "content":{
+      "checkpoint_ids": [
+        "henkixyaku"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "hishiyama-selection",
-      "checkpoint_ids": ["hishiyama"],
-      "content":{
+      "checkpoint_ids": [
+        "hishiyama"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "hozen-selection",
-      "checkpoint_ids": ["hozen"],
-      "content":{
+      "checkpoint_ids": [
+        "hozen"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "ike-selection",
-      "checkpoint_ids": ["ike"],
-      "content":{
+      "checkpoint_ids": [
+        "ike"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "keiziban-selection",
-      "checkpoint_ids": ["keiziban"],
-      "content":{
+      "checkpoint_ids": [
+        "keiziban"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "kihu-selection",
-      "checkpoint_ids": ["kihu"],
-      "content":{
+      "checkpoint_ids": [
+        "kihu"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "kiken-1-selection",
-      "checkpoint_ids": ["kiken-1"],
-      "content":{
+      "checkpoint_ids": [
+        "kiken-1"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "kiken-2-selection",
-      "checkpoint_ids": ["kiken-2"],
-      "content":{
+      "checkpoint_ids": [
+        "kiken-2"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "kiken-3-selection",
-      "checkpoint_ids": ["kiken-3"],
-      "content":{
+      "checkpoint_ids": [
+        "kiken-3"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "kiken-4-selection",
-      "checkpoint_ids": ["kiken-4"],
-      "content":{
+      "checkpoint_ids": [
+        "kiken-4"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "kituen-1-selection",
-      "checkpoint_ids": ["kituen-1"],
-      "content":{
+      "checkpoint_ids": [
+        "kituen-1"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "kituen-2-selection",
-      "checkpoint_ids": ["kituen-2"],
-      "content":{
+      "checkpoint_ids": [
+        "kituen-2"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "kituen-3-selection",
-      "checkpoint_ids": ["kituen-3"],
-      "content":{
+      "checkpoint_ids": [
+        "kituen-3"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "konsento-selection",
-      "checkpoint_ids": ["konsento"],
-      "content":{
+      "checkpoint_ids": [
+        "konsento"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "nazowindow-selection",
-      "checkpoint_ids": ["nazowindow"],
-      "content":{
+      "checkpoint_ids": [
+        "nazowindow"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "oasis-selection",
-      "checkpoint_ids": ["oasis"],
-      "content":{
+      "checkpoint_ids": [
+        "oasis"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "ookinakikai-selection",
-      "checkpoint_ids": ["ookinakikai"],
-      "content":{
+      "checkpoint_ids": [
+        "ookinakikai"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "robo-selection",
-      "checkpoint_ids": ["robo"],
-      "content":{
+      "checkpoint_ids": [
+        "robo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "shimizu-selection",
-      "checkpoint_ids": ["shimizu"],
-      "content":{
+      "checkpoint_ids": [
+        "shimizu"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "sixyoumei-selection",
-      "checkpoint_ids": ["sixyoumei"],
-      "content":{
+      "checkpoint_ids": [
+        "sixyoumei"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "souki-selection",
-      "checkpoint_ids": ["souki"],
-      "content":{
+      "checkpoint_ids": [
+        "souki"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "syuei-selection",
-      "checkpoint_ids": ["syuei"],
-      "content":{
+      "checkpoint_ids": [
+        "syuei"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "takeuti-selection",
-      "checkpoint_ids": ["takeuti"],
-      "content":{
+      "checkpoint_ids": [
+        "takeuti"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "tree-selection",
-      "checkpoint_ids": ["tree"],
-      "content":{
+      "checkpoint_ids": [
+        "tree"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "usiro-selection",
-      "checkpoint_ids": ["usiro"],
-      "content":{
+      "checkpoint_ids": [
+        "usiro"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "zihanki-selection",
-      "checkpoint_ids": ["zihanki"],
-      "content":{
+      "checkpoint_ids": [
+        "zihanki"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-        "selections": ["豚玉丼","チキンおろしだれ", "カツカレー","ポーク焼肉"],
-        "answerIndexes": [1]
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "wasedasai-aed-selection",
-      "checkpoint_ids": ["wasedasai-aed-1","wasedasai-aed-2","wasedasai-aed-4","wasedasai-aed-5","wasedasai-aed-6"],
-      "content":{
+      "checkpoint_ids": [
+        "wasedasai-aed-1",
+        "wasedasai-aed-2",
+        "wasedasai-aed-4",
+        "wasedasai-aed-5",
+        "wasedasai-aed-6"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、AEDの使い方として、間違っているのはどれ？",
-        "selections": ["パッドは右胸と左わき腹に貼る","心電図解析中は体に触らない","放電ボタンを押す時は、体から離れる","呼吸が戻ったらパッドを速やかにはずす"],
-        "answerIndexes": [3]
+        "selections": [
+          "パッドは右胸と左わき腹に貼る",
+          "心電図解析中は体に触らない",
+          "放電ボタンを押す時は、体から離れる",
+          "呼吸が戻ったらパッドを速やかにはずす"
+        ],
+        "answerIndexes": [
+          3
+        ]
       }
     },
     {
       "id": "wasedasai-aed-selection-2",
-      "checkpoint_ids": ["wasedasai-aed-2"],
-      "content":{
+      "checkpoint_ids": [
+        "wasedasai-aed-2"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
         "label": "次のうち、AEDの使い方として、正しいのを全て選択して下さい。",
-        "selections": ["正しい","正しい","間違い","間違い"],
-        "answerIndexes": [0,1]
+        "selections": [
+          "正しい",
+          "正しい",
+          "間違い",
+          "間違い"
+        ],
+        "answerIndexes": [
+          0,
+          1
+        ]
       }
     },
-      {
-      "id":"wasedasai-pc-room-description",
-      "checkpoint_ids": ["wasedasai-pc-room"],
-      "content":{
+    {
+      "id": "wasedasai-pc-room-description",
+      "checkpoint_ids": [
+        "wasedasai-pc-room"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.DescriptionTask",
         "point": 2.0,
         "label": "伏見の大手酒造メーカーを一つ挙げて下さい。",

@@ -1,40 +1,56 @@
 {
   "checkpoints": [
     {
-      "id":"honnoji-temple",
+      "id": "honnoji-temple",
       "lat": 35.010297,
       "lon": 135.768279,
       "name": "本能寺",
       "label": "織田信長の最期の地",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["sights"]
-    }, 
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "sights"
+      ]
+    },
     {
-      "id":"nakamura-candle",
+      "id": "nakamura-candle",
       "lat": 35.007226,
       "lon": 135.766994,
       "name": "中村ローソク",
       "label": "ローソクの絵付け体験",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["experience"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "experience"
+      ]
     },
     {
-      "id":"ippodo",
+      "id": "ippodo",
       "lat": 35.014463,
       "lon": 135.767369,
       "name": "一保堂",
       "label": "お茶の魅力や面白さを伝え続ける老舗",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["tea"]
-    },   
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "tea"
+      ]
+    },
     {
       "id": "toriiti",
       "lat": 35.002937,
       "lon": 135.756681,
       "name": "とり市",
       "label": "京野菜の専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["products"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "products"
+      ]
     },
     {
       "id": "kakimoto",
@@ -42,8 +58,12 @@
       "lon": 135.767423,
       "name": "紙司柿本",
       "label": "紙の可能性を追求する紙の専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["stationery"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "stationery"
+      ]
     },
     {
       "id": "ibaraki",
@@ -51,8 +71,12 @@
       "lon": 135.7673033333333,
       "name": "茨木屋",
       "label": "京蒲鉾の専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["products"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "products"
+      ]
     },
     {
       "id": "aritugu",
@@ -60,8 +84,12 @@
       "lon": 135.766181,
       "name": "有次",
       "label": "500年以上の歴史を誇る世界的な包丁ブランド",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["knife"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "knife"
+      ]
     },
     {
       "id": "ryusido",
@@ -69,8 +97,12 @@
       "lon": 135.767013,
       "name": "龍枝堂",
       "label": "「筆は文化の母なり」を重んじる京文房の専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["stationery"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "stationery"
+      ]
     },
     {
       "id": "koyamaen",
@@ -78,8 +110,12 @@
       "lon": 135.755042,
       "name": "小山園",
       "label": "「品質本位の茶作り」をモットーとする茶の専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["tea"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "tea"
+      ]
     },
     {
       "id": "nakanoisuke",
@@ -87,8 +123,12 @@
       "lon": 135.767069,
       "name": "中野伊助",
       "label": "宗教用具の専門店でブレスレット作り体験",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["experience"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "experience"
+      ]
     },
     {
       "id": "ito-kumihimo",
@@ -96,8 +136,12 @@
       "lon": 135.766793,
       "name": "伊藤組紐店",
       "label": "美意識を伴った工芸的な美をもつ組紐の専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_arts"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_arts"
+      ]
     },
     {
       "id": "yoziya",
@@ -105,8 +149,12 @@
       "lon": 135.775276,
       "name": "よーじや",
       "label": "和製化粧品の専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_arts"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_arts"
+      ]
     },
     {
       "id": "kameya-yosinaga",
@@ -114,8 +162,12 @@
       "lon": 135.767143,
       "name": "亀屋良長",
       "label": "水にこだわる京菓子専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_sweets"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_sweets"
+      ]
     },
     {
       "id": "turuya-yosinobu",
@@ -123,8 +175,12 @@
       "lon": 135.751436,
       "name": "鶴屋吉信",
       "label": "最先端のお菓子作りを目指す京菓子専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_sweets"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_sweets"
+      ]
     },
     {
       "id": "hakutikudo",
@@ -132,8 +188,12 @@
       "lon": 135.764247,
       "name": "白竹堂",
       "label": "「皆様に喜んでいただけるものづくり」の伝統を受け継ぐ扇子専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["fan"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "fan"
+      ]
     },
     {
       "id": "kagizen",
@@ -141,8 +201,12 @@
       "lon": 135.77490333333,
       "name": "鍵善吉房",
       "label": "豊かな席の移ろいを映し出す京菓子専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_sweets"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_sweets"
+      ]
     },
     {
       "id": "suzuki-syohudo",
@@ -150,8 +214,12 @@
       "lon": 135.763872,
       "name": "鈴木松風堂",
       "label": "三位一体を重んじる紙の専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["stationery"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "stationery"
+      ]
     },
     {
       "id": "hukujuen",
@@ -159,8 +227,12 @@
       "lon": 135.7648,
       "name": "福寿園",
       "label": "サントリーとコラボする有名なお茶の老舗",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["tea"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "tea"
+      ]
     },
     {
       "id": "kitao",
@@ -168,8 +240,12 @@
       "lon": 135.776168,
       "name": "北尾",
       "label": "大豆にこだわる京料理専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_sweets"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_sweets"
+      ]
     },
     {
       "id": "kansyundo",
@@ -177,8 +253,12 @@
       "lon": 135.767945,
       "name": "甘春堂",
       "label": "神社仏閣とのつながりも深い京菓子専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_sweets"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_sweets"
+      ]
     },
     {
       "id": "kaneido",
@@ -186,8 +266,12 @@
       "lon": 135.770778,
       "name": "寛永堂",
       "label": "特殊な羊羹を作る京菓子専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_sweets"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_sweets"
+      ]
     },
     {
       "id": "jusanya",
@@ -195,8 +279,12 @@
       "lon": 135.76758,
       "name": "十三や",
       "label": "京を代表するくしの専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_arts"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_arts"
+      ]
     },
     {
       "id": "izawaya",
@@ -204,8 +292,12 @@
       "lon": 135.7730716666667,
       "name": "井澤屋",
       "label": "西陣織などの伝統伎を用いた京雑貨専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_arts"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_arts"
+      ]
     },
     {
       "id": "daiyasu",
@@ -213,8 +305,12 @@
       "lon": 135.774111,
       "name": "大安",
       "label": "京ものにこだわる漬物専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["products"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "products"
+      ]
     },
     {
       "id": "kazurakiyo",
@@ -222,8 +318,12 @@
       "lon": 135.77663,
       "name": "かづら清",
       "label": "伝統と現代の趣向を調和させる京雑貨専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_arts"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_arts"
+      ]
     },
     {
       "id": "eirakuya",
@@ -231,8 +331,12 @@
       "lon": 135.761445,
       "name": "永楽屋",
       "label": "「不易流行」を大切にする佃煮と京菓子の専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["products"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "products"
+      ]
     },
     {
       "id": "tuziri",
@@ -240,8 +344,12 @@
       "lon": 135.774471,
       "name": "辻利",
       "label": "おもてなしの心を大切にする茶の専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["tea"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "tea"
+      ]
     },
     {
       "id": "kikuitimonzi",
@@ -249,8 +357,12 @@
       "lon": 135.768029,
       "name": "菊一文字",
       "label": "新選組沖田総司の愛刀の名でも有名な包丁の老舗",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["knife"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "knife"
+      ]
     },
     {
       "id": "kyukyodo",
@@ -258,8 +370,12 @@
       "lon": 135.762062,
       "name": "鳩居堂",
       "label": "和の香りを今に伝える京雑貨専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_arts"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_arts"
+      ]
     },
     {
       "id": "kyoto-city-hall",
@@ -267,8 +383,12 @@
       "lon": 135.768167,
       "name": "京都市役所",
       "label": "京都の行政の中心",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["sights"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "sights"
+      ]
     },
     {
       "id": "onishi-kyosendo",
@@ -276,8 +396,12 @@
       "lon": 135.768097,
       "name": "大西京扇堂",
       "label": "宗本山に扇を納める京扇子の老舗",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["fan"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "fan"
+      ]
     },
     {
       "id": "yasaka-shrine",
@@ -285,8 +409,12 @@
       "lon": 135.778553,
       "name": "八坂神社",
       "label": "「祇園さん」と呼ばれる祇園を代表する神社",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["sights"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "sights"
+      ]
     },
     {
       "id": "zohiko",
@@ -294,8 +422,12 @@
       "lon": 135.767013,
       "name": "象彦",
       "label": "幅広い展開を見せる京漆器の専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_arts"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_arts"
+      ]
     },
     {
       "id": "aiba",
@@ -303,96 +435,138 @@
       "lon": 135.764214,
       "name": "阿以波",
       "label": "十代続く京うちわの専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["fan"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "fan"
+      ]
     },
     {
-      "id":"heian-shrine",
+      "id": "heian-shrine",
       "lat": 35.015982,
       "lon": 135.782426,
       "name": "平安神宮",
       "label": "日本を代表する日本庭園をもつ歴史のある神社",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["sights"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "sights"
+      ]
     },
     {
-      "id":"kenzin-temple",
+      "id": "kenzin-temple",
       "lat": 35.00073,
       "lon": 135.773822,
       "name": "建仁寺",
       "label": "京都五山第三位で有名な寺院",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["sights"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "sights"
+      ]
     },
     {
-      "id":"hiiragiya",
+      "id": "hiiragiya",
       "lat": 35.012843,
       "lon": 135.76664,
       "name": "柊屋",
       "label": "200年以上続く京の宿",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["hotel"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "hotel"
+      ]
     },
     {
-      "id":"nijowakasaya",
+      "id": "nijowakasaya",
       "lat": 35.013536,
       "lon": 135.767449,
       "name": "二條若狭屋",
       "label": "四代続く京菓子の老舗",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_sweets"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_sweets"
+      ]
     },
     {
-      "id":"kyotogosyo",
+      "id": "kyotogosyo",
       "lat": 35.025414,
       "lon": 135.762125,
       "name": "京都御所",
       "label": "非常に広い旧御所",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["sights"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "sights"
+      ]
     },
     {
-      "id":"ryuouen",
+      "id": "ryuouen",
       "lat": 35.013769,
       "lon": 135.766184,
       "name": "柳桜園茶舗",
       "label": "抹茶のにおいのする茶の老舗",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["tea"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "tea"
+      ]
     },
     {
-      "id":"kyokado",
+      "id": "kyokado",
       "lat": 35.013803,
       "lon": 135.774192,
       "name": "京華堂利保",
       "label": "歴史を感じる京菓子専門店",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["japanese_sweets"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "japanese_sweets"
+      ]
     },
     {
-      "id":"miyako",
+      "id": "miyako",
       "lat": 35.013051,
       "lon": 135.780962,
       "name": "みやこめっせ京都市勧業館-京都伝統産業ふれあい館",
       "label": "伝統産業について知れるみんなの学習の場",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["sights"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "sights"
+      ]
     },
     {
-      "id":"murakami",
+      "id": "murakami",
       "lat": 35.003057,
       "lon": 135.770092,
       "name": "村上重本店",
       "label": "素材の持ち味を生かす漬物の老舗",
-      "checkpoint_group_ids": ["kyoto"],
-      "category": ["products"]
+      "checkpoint_group_ids": [
+        "kyoto"
+      ],
+      "category": [
+        "products"
+      ]
     }
   ],
   "tasks": [
     {
       "id": "honnoji-temple-photo",
-      "checkpoint_ids": ["honnoji-temple"],  
-      "content":{
+      "checkpoint_ids": [
+        "honnoji-temple"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "label": "表示されている写真と同じ写真を撮って下さい．",
@@ -401,8 +575,10 @@
     },
     {
       "id": "nakamura-candle-qr",
-      "checkpoint_ids": ["nakamura-candle"],  
-      "content":{
+      "checkpoint_ids": [
+        "nakamura-candle"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -411,8 +587,10 @@
     },
     {
       "id": "ippodo-photo",
-      "checkpoint_ids": ["ippodo"],
-      "content":{
+      "checkpoint_ids": [
+        "ippodo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "label": "表示されている写真と同じ写真を撮って下さい．",
@@ -421,8 +599,10 @@
     },
     {
       "id": "toriiti-qr",
-      "checkpoint_ids": ["toriiti"],
-      "content":{
+      "checkpoint_ids": [
+        "toriiti"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -431,8 +611,10 @@
     },
     {
       "id": "kakimoto-photo",
-      "checkpoint_ids": ["kakimoto"],
-      "content":{
+      "checkpoint_ids": [
+        "kakimoto"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "label": "表示されている写真と同じ写真を撮って下さい．",
@@ -441,8 +623,10 @@
     },
     {
       "id": "ibaraki-qr",
-      "checkpoint_ids": ["ibaraki"],
-      "content":{
+      "checkpoint_ids": [
+        "ibaraki"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -451,8 +635,10 @@
     },
     {
       "id": "aritugu-qr",
-      "checkpoint_ids": ["aritugu"],
-      "content":{
+      "checkpoint_ids": [
+        "aritugu"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -461,8 +647,10 @@
     },
     {
       "id": "ryusido-qr",
-      "checkpoint_ids": ["ryusido"],
-      "content":{
+      "checkpoint_ids": [
+        "ryusido"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -471,8 +659,10 @@
     },
     {
       "id": "koyamaen-qr",
-      "checkpoint_ids": ["koyamaen"],
-      "content":{
+      "checkpoint_ids": [
+        "koyamaen"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -481,8 +671,10 @@
     },
     {
       "id": "ito-kumihimo-qr",
-      "checkpoint_ids": ["ito-kumihimo"],
-      "content":{
+      "checkpoint_ids": [
+        "ito-kumihimo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -491,8 +683,10 @@
     },
     {
       "id": "nakanoisuke-qr",
-      "checkpoint_ids": ["nakanoisuke"],
-      "content":{
+      "checkpoint_ids": [
+        "nakanoisuke"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -501,8 +695,10 @@
     },
     {
       "id": "yoziya-photo",
-      "checkpoint_ids": ["yoziya"],
-      "content":{
+      "checkpoint_ids": [
+        "yoziya"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "label": "表示されている写真と同じ写真を撮って下さい．",
@@ -511,8 +707,10 @@
     },
     {
       "id": "kameya-yosinaga-photo",
-      "checkpoint_ids": ["kameya-yosinaga"],
-      "content":{
+      "checkpoint_ids": [
+        "kameya-yosinaga"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "label": "表示されている写真と同じ写真を撮って下さい．",
@@ -521,8 +719,10 @@
     },
     {
       "id": "turuya-yosinobu-qr",
-      "checkpoint_ids": ["turuya-yosinobu"],
-      "content":{
+      "checkpoint_ids": [
+        "turuya-yosinobu"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -531,8 +731,10 @@
     },
     {
       "id": "hakutikudo-photo",
-      "checkpoint_ids": ["hakutikudo"],
-      "content":{
+      "checkpoint_ids": [
+        "hakutikudo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "label": "表示されている写真と同じ写真を撮って下さい．",
@@ -541,8 +743,10 @@
     },
     {
       "id": "kagizen-qr",
-      "checkpoint_ids": ["kagizen"],
-      "content":{
+      "checkpoint_ids": [
+        "kagizen"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -551,8 +755,10 @@
     },
     {
       "id": "suzuki-syohudo-qr",
-      "checkpoint_ids": ["suzuki-syohudo"],
-      "content":{
+      "checkpoint_ids": [
+        "suzuki-syohudo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -561,8 +767,10 @@
     },
     {
       "id": "hukujuen-photo",
-      "checkpoint_ids": ["hukujuen"],
-      "content":{
+      "checkpoint_ids": [
+        "hukujuen"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "label": "表示されている写真と同じ写真を撮って下さい．",
@@ -571,8 +779,10 @@
     },
     {
       "id": "kitao-photo",
-      "checkpoint_ids": ["kitao"],
-      "content":{
+      "checkpoint_ids": [
+        "kitao"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "label": "表示されている写真と同じ写真を撮って下さい．",
@@ -581,8 +791,10 @@
     },
     {
       "id": "kansyundo-qr",
-      "checkpoint_ids": ["kansyundo"],
-      "content":{
+      "checkpoint_ids": [
+        "kansyundo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -591,8 +803,10 @@
     },
     {
       "id": "kaneido-qr",
-      "checkpoint_ids": ["kaneido"],
-      "content":{
+      "checkpoint_ids": [
+        "kaneido"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -601,8 +815,10 @@
     },
     {
       "id": "jusanya-qr",
-      "checkpoint_ids": ["jusanya"],
-      "content":{
+      "checkpoint_ids": [
+        "jusanya"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -611,8 +827,10 @@
     },
     {
       "id": "izawaya-photo",
-      "checkpoint_ids": ["izawaya"],
-      "content":{
+      "checkpoint_ids": [
+        "izawaya"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "label": "表示されている写真と同じ写真を撮って下さい．",
@@ -621,8 +839,10 @@
     },
     {
       "id": "daiyasu-photo",
-      "checkpoint_ids": ["daiyasu"],
-      "content":{
+      "checkpoint_ids": [
+        "daiyasu"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "label": "表示されている写真と同じ写真を撮って下さい．",
@@ -631,8 +851,10 @@
     },
     {
       "id": "kazurakiyo-photo",
-      "checkpoint_ids": ["kazurakiyo"],
-      "content":{
+      "checkpoint_ids": [
+        "kazurakiyo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "label": "表示されている写真と同じ写真を撮って下さい．",
@@ -641,8 +863,10 @@
     },
     {
       "id": "eirakuya-qr",
-      "checkpoint_ids": ["eirakuya"],
-      "content":{
+      "checkpoint_ids": [
+        "eirakuya"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -651,8 +875,10 @@
     },
     {
       "id": "tuziri-qr",
-      "checkpoint_ids": ["tuziri"],
-      "content":{
+      "checkpoint_ids": [
+        "tuziri"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -661,8 +887,10 @@
     },
     {
       "id": "kikuitimonzi-qr",
-      "checkpoint_ids": ["kikuitimonzi"],
-      "content":{
+      "checkpoint_ids": [
+        "kikuitimonzi"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -671,8 +899,10 @@
     },
     {
       "id": "kyukyodo-photo",
-      "checkpoint_ids": ["kyukyodo"],
-      "content":{
+      "checkpoint_ids": [
+        "kyukyodo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "label": "表示されている写真と同じ写真を撮って下さい．",
@@ -681,8 +911,10 @@
     },
     {
       "id": "kyoto-city-hall-qr",
-      "checkpoint_ids": ["kyoto-city-hall"],
-      "content":{
+      "checkpoint_ids": [
+        "kyoto-city-hall"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -691,8 +923,10 @@
     },
     {
       "id": "onishi-kyosendo-qr",
-      "checkpoint_ids": ["onishi-kyosendo"],
-      "content":{
+      "checkpoint_ids": [
+        "onishi-kyosendo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -701,8 +935,10 @@
     },
     {
       "id": "yasaka-shrine-qr",
-      "checkpoint_ids": ["yasaka-shrine"],
-      "content":{
+      "checkpoint_ids": [
+        "yasaka-shrine"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -711,8 +947,10 @@
     },
     {
       "id": "zohiko-qr",
-      "checkpoint_ids": ["zohiko"],
-      "content":{
+      "checkpoint_ids": [
+        "zohiko"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -721,8 +959,10 @@
     },
     {
       "id": "aiba-qr",
-      "checkpoint_ids": ["aiba"],
-      "content":{
+      "checkpoint_ids": [
+        "aiba"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -731,8 +971,10 @@
     },
     {
       "id": "heian-shrine-qr",
-      "checkpoint_ids": ["heian-shrine"],
-      "content":{
+      "checkpoint_ids": [
+        "heian-shrine"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -741,8 +983,10 @@
     },
     {
       "id": "kenzin-temple-qr",
-      "checkpoint_ids": ["kenzin-temple"],
-      "content":{
+      "checkpoint_ids": [
+        "kenzin-temple"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -751,8 +995,10 @@
     },
     {
       "id": "hiiragiya-qr",
-      "checkpoint_ids": ["hiiragiya"],
-      "content":{
+      "checkpoint_ids": [
+        "hiiragiya"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -761,8 +1007,10 @@
     },
     {
       "id": "nijowakasaya-qr",
-      "checkpoint_ids": ["nijowakasaya"],
-      "content":{
+      "checkpoint_ids": [
+        "nijowakasaya"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -771,8 +1019,10 @@
     },
     {
       "id": "kyotogosyo-qr",
-      "checkpoint_ids": ["kyotogosyo"],
-      "content":{
+      "checkpoint_ids": [
+        "kyotogosyo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -781,8 +1031,10 @@
     },
     {
       "id": "ryuouen-qr",
-      "checkpoint_ids": ["ryuouen"],
-      "content":{
+      "checkpoint_ids": [
+        "ryuouen"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -791,8 +1043,10 @@
     },
     {
       "id": "kyokado-qr",
-      "checkpoint_ids": ["kyokado"],
-      "content":{
+      "checkpoint_ids": [
+        "kyokado"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -801,8 +1055,10 @@
     },
     {
       "id": "miyako-qr",
-      "checkpoint_ids": ["miyako"],
-      "content":{
+      "checkpoint_ids": [
+        "miyako"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -811,8 +1067,10 @@
     },
     {
       "id": "murakami-qr",
-      "checkpoint_ids": ["murakami"],
-      "content":{
+      "checkpoint_ids": [
+        "murakami"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
         "checkin": true,
         "label": "QRコードを撮って下さい．",
@@ -821,432 +1079,815 @@
     },
     {
       "id": "honnoji-temple-selection",
-      "checkpoint_ids": ["honnoji-temple"],
-      "content":{
+      "checkpoint_ids": [
+        "honnoji-temple"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "明智光秀が本能寺の変で織田信長を討って一時的に天下人になったことを「○○天下」という。○○には何が入るか？",
-        "selections": ["三日","七日", "夢見","謀反"],
-        "answerIndexes": [1]
+        "selections": [
+          "三日",
+          "七日",
+          "夢見",
+          "謀反"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "nakamura-candle-selection",
-      "checkpoint_ids": ["nakamura-candle"],
-      "content":{
+      "checkpoint_ids": [
+        "nakamura-candle"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "和蝋燭の特徴である、炎がゆっくり揺らめくという燃え方の理由は何か?",
-        "selections": ["原料が純植物性","内部が空洞という構造","職人の熱い思い","絵付師により描かれた外観"],
-        "answerIndexes": [2]
+        "selections": [
+          "原料が純植物性",
+          "内部が空洞という構造",
+          "職人の熱い思い",
+          "絵付師により描かれた外観"
+        ],
+        "answerIndexes": [
+          2
+        ]
       }
     },
     {
       "id": "ippodo-selection",
-      "checkpoint_ids": ["ippodo"],
-      "content":{
+      "checkpoint_ids": [
+        "ippodo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "古代中国では、茶は嗜好品というより、別の役割が強かったが、その役割とは何か?",
-        "selections": ["魔除け","装飾品","薬","お香"],
-        "answerIndexes": [3]
+        "selections": [
+          "魔除け",
+          "装飾品",
+          "薬",
+          "お香"
+        ],
+        "answerIndexes": [
+          3
+        ]
       }
     },
     {
       "id": "toriiti-selection",
-      "checkpoint_ids": ["toriiti"],
-      "content":{
+      "checkpoint_ids": [
+        "toriiti"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "京野菜の代表に「賀茂なす」が挙げられるが、この旬はいつか?",
-        "selections": ["春","夏","秋","冬"],
-        "answerIndexes": [2]
+        "selections": [
+          "春",
+          "夏",
+          "秋",
+          "冬"
+        ],
+        "answerIndexes": [
+          2
+        ]
       }
     },
     {
       "id": "kakimoto-selection",
-      "checkpoint_ids": ["kakimoto"],
-      "content":{
+      "checkpoint_ids": [
+        "kakimoto"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "次のうち、和紙のメリットとして正しくないものはどれ?",
-        "selections": ["リサイクルできる","丈夫で長持ち","通気性に優れる","水分を吸わない"],
-        "answerIndexes": [4]
+        "selections": [
+          "リサイクルできる",
+          "丈夫で長持ち",
+          "通気性に優れる",
+          "水分を吸わない"
+        ],
+        "answerIndexes": [
+          4
+        ]
       }
     },
     {
       "id": "ibaraki-selection",
-      "checkpoint_ids": ["ibaraki"],
-      "content":{
+      "checkpoint_ids": [
+        "ibaraki"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "鈴木松年画伯に、繁栄と円満の思いを込め、いただいた言葉である「光宝満家」に隠された秘密は何か?",
-        "selections": ["宋の時代に、王朝で同じ言葉が飾られていた","歴代社長の頭文字をとっている","有名な蒲鉾の名前だった","逆から音読みすると「かまぼこ」になる"],
-        "answerIndexes": [4]
+        "selections": [
+          "宋の時代に、王朝で同じ言葉が飾られていた",
+          "歴代社長の頭文字をとっている",
+          "有名な蒲鉾の名前だった",
+          "逆から音読みすると「かまぼこ」になる"
+        ],
+        "answerIndexes": [
+          4
+        ]
       }
     },
     {
       "id": "aritugu-selection",
-      "checkpoint_ids": ["aritugu"],
-      "content":{
+      "checkpoint_ids": [
+        "aritugu"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "包丁には「ツバ」のあるものとないものがあるが、あることによる利点はなにか?",
-        "selections": ["切りやすくなる","衛生面で優れている","耐熱性に優れる","かっこよく見える"],
-        "answerIndexes": [2]
+        "selections": [
+          "切りやすくなる",
+          "衛生面で優れている",
+          "耐熱性に優れる",
+          "かっこよく見える"
+        ],
+        "answerIndexes": [
+          2
+        ]
       }
     },
     {
       "id": "ryusido-selection",
-      "checkpoint_ids": ["ryusido"],
-      "content":{
+      "checkpoint_ids": [
+        "ryusido"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "書道をする上で必要な、筆・紙・硯・墨を、中国ではまとめてなんというか?",
-        "selections": ["四大文具","弘法四選","金文四平","文房四宝"],
-        "answerIndexes": [4]
+        "selections": [
+          "四大文具",
+          "弘法四選",
+          "金文四平",
+          "文房四宝"
+        ],
+        "answerIndexes": [
+          4
+        ]
       }
     },
     {
       "id": "koyamaen-selection",
-      "checkpoint_ids": ["koyamaen"],
-      "content":{
+      "checkpoint_ids": [
+        "koyamaen"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "次のうち、お茶の効用として正しくないものはどれ?",
-        "selections": ["口臭予防","腰痛改善","整腸作用","老化抑制"],
-        "answerIndexes": [2]
+        "selections": [
+          "口臭予防",
+          "腰痛改善",
+          "整腸作用",
+          "老化抑制"
+        ],
+        "answerIndexes": [
+          2
+        ]
       }
     },
     {
       "id": "nakanoisuke-selection",
-      "checkpoint_ids": ["nakanoisuke"],
-      "content":{
+      "checkpoint_ids": [
+        "nakanoisuke"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "数珠をつくる玉一つ一つには意味があるが、それはなにか?",
-        "selections": ["社会の不安","人間の煩悩","故人の魂","数珠職人の人数"],
-        "answerIndexes": [2]
+        "selections": [
+          "社会の不安",
+          "人間の煩悩",
+          "故人の魂",
+          "数珠職人の人数"
+        ],
+        "answerIndexes": [
+          2
+        ]
       }
     },
     {
       "id": "ito-kumihimo-selection",
-      "checkpoint_ids": ["ito-kumihimo"],
-      "content":{
+      "checkpoint_ids": [
+        "ito-kumihimo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "紐の長さを指す際に用いられる「一尺」は約何センチか?",
-        "selections": ["10センチ","20センチ","30センチ","40センチ"],
-        "answerIndexes": [3]
+        "selections": [
+          "10センチ",
+          "20センチ",
+          "30センチ",
+          "40センチ"
+        ],
+        "answerIndexes": [
+          3
+        ]
       }
     },
     {
       "id": "yoziya-selection",
-      "checkpoint_ids": ["yoziya"],
-      "content":{
+      "checkpoint_ids": [
+        "yoziya"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "よーじやのロゴマークは、京女以外に何が描かれているか?",
-        "selections": ["スプーン","金魚すくいのポイ","卓球のラケット","手鏡"],
-        "answerIndexes": [4]
+        "selections": [
+          "スプーン",
+          "金魚すくいのポイ",
+          "卓球のラケット",
+          "手鏡"
+        ],
+        "answerIndexes": [
+          4
+        ]
       }
     },
     {
       "id": "kameya-yosinaga-selection",
-      "checkpoint_ids": ["kameya-yosinaga"],
-      "content":{
+      "checkpoint_ids": [
+        "kameya-yosinaga"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "和菓子作りには水が重要だが、亀屋良長では特別な水を使っている。どんな水か?",
-        "selections": ["井戸水","雨水","鈴鹿山の湧水","雪解け水"],
-        "answerIndexes": [1]
+        "selections": [
+          "井戸水",
+          "雨水",
+          "鈴鹿山の湧水",
+          "雪解け水"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "turuya-yosinobu-selection",
-      "checkpoint_ids": ["turuya-yosinobu"],
-      "content":{
+      "checkpoint_ids": [
+        "turuya-yosinobu"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "鶴屋吉信で、安心安全のために用意している最先端の設備、検査のうち、誤っているのはどれ?",
-        "selections": ["金属探知機","MRI","抜き取り検査","X線検査"],
-        "answerIndexes": [2]
+        "selections": [
+          "金属探知機",
+          "MRI",
+          "抜き取り検査",
+          "X線検査"
+        ],
+        "answerIndexes": [
+          2
+        ]
       }
     },
     {
       "id": "hakutikudo-selection",
-      "checkpoint_ids": ["hakutikudo"],
-      "content":{
+      "checkpoint_ids": [
+        "hakutikudo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "昔、中国では、扇のことをなんと呼んでいたか?",
-        "selections": ["トビラ","ハネ","オキナ","センス"],
-        "answerIndexes": [1]
+        "selections": [
+          "トビラ",
+          "ハネ",
+          "オキナ",
+          "センス"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "kagizen-selection",
-      "checkpoint_ids": ["kagizen"],
-      "content":{
+      "checkpoint_ids": [
+        "kagizen"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "鍵善の代名詞でもある「菊寿糖」は、何を素材に作られているか?",
-        "selections": ["片栗粉","小麦粉","カソナード","和三盆"],
-        "answerIndexes": [4]
+        "selections": [
+          "片栗粉",
+          "小麦粉",
+          "カソナード",
+          "和三盆"
+        ],
+        "answerIndexes": [
+          4
+        ]
       }
     },
     {
       "id": "suzuki-syohudo-selection",
-      "checkpoint_ids": ["suzuki-syohudo"],
-      "content":{
+      "checkpoint_ids": [
+        "suzuki-syohudo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "「三ツ違い山形」というデザインで、共存共栄を描かれているが、これはある三者間の関係を示している。これらは、なにか?",
-        "selections": ["顧客・従業員・社長","得意先・当社・仕入先","木・紙・紙製品","和紙・洋紙・原材料"],
-        "answerIndexes": [2]
+        "selections": [
+          "顧客・従業員・社長",
+          "得意先・当社・仕入先",
+          "木・紙・紙製品",
+          "和紙・洋紙・原材料"
+        ],
+        "answerIndexes": [
+          2
+        ]
       }
     },
     {
       "id": "hukujuen-selection",
-      "checkpoint_ids": ["hukujuen"],
-      "content":{
+      "checkpoint_ids": [
+        "hukujuen"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "社是に、「福とは○○である」というものがあるが、○○に入るのは何か?",
-        "selections": ["豊かさ","幸せ","落着き","愛"],
-        "answerIndexes": [1]
+        "selections": [
+          "豊かさ",
+          "幸せ",
+          "落着き",
+          "愛"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "kitao-selection",
-      "checkpoint_ids": ["kitao"],
-      "content":{
+      "checkpoint_ids": [
+        "kitao"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "黒豆の効能として挙げられる「老化防止」は、どの機能性成分によるものか?",
-        "selections": ["ミネラル","ポリフェノール","ビタミン","トリプシンインヒビター"],
-        "answerIndexes": [3]
+        "selections": [
+          "ミネラル",
+          "ポリフェノール",
+          "ビタミン",
+          "トリプシンインヒビター"
+        ],
+        "answerIndexes": [
+          3
+        ]
       }
     },
     {
       "id": "kansyundo-selection",
-      "checkpoint_ids": ["kansyundo"],
-      "content":{
+      "checkpoint_ids": [
+        "kansyundo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "和菓子には、生菓子や干菓子など様々あるが、干菓子の条件は水分が何％以下か?",
-        "selections": ["5","10","15","20"],
-        "answerIndexes": [4]
+        "selections": [
+          "5",
+          "10",
+          "15",
+          "20"
+        ],
+        "answerIndexes": [
+          4
+        ]
       }
     },
     {
       "id": "kaneido-selection",
-      "checkpoint_ids": ["kaneido"],
-      "content":{
+      "checkpoint_ids": [
+        "kaneido"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "寛永堂では、羊羹を作る際に、水の代わりに何を使っているか?",
-        "selections": ["ウーロン茶","昆布だし","緑茶","黒豆茶"],
-        "answerIndexes": [4]
+        "selections": [
+          "ウーロン茶",
+          "昆布だし",
+          "緑茶",
+          "黒豆茶"
+        ],
+        "answerIndexes": [
+          4
+        ]
       }
     },
     {
       "id": "jusanya-selection",
-      "checkpoint_ids": ["jusanya"],
-      "content":{
+      "checkpoint_ids": [
+        "jusanya"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "店の名前が「十三や」である理由は何か?",
-        "selections": ["「くし」の九と四を足したから","初代店長の苗字だったから","昔、くしは十三歳の祝いでつけられていたから","創業時の従業員の数が十三人だったから"],
-        "answerIndexes": [1]
+        "selections": [
+          "「くし」の九と四を足したから",
+          "初代店長の苗字だったから",
+          "昔、くしは十三歳の祝いでつけられていたから",
+          "創業時の従業員の数が十三人だったから"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "izawaya-selection",
-      "checkpoint_ids": ["izawaya"],
-      "content":{
+      "checkpoint_ids": [
+        "izawaya"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "西陣織は、応仁の乱時に諸国の新技術を加えて大きく発展したが、その諸国とはどこか?",
-        "selections": ["宋","元","明","清"],
-        "answerIndexes": [3]
+        "selections": [
+          "宋",
+          "元",
+          "明",
+          "清"
+        ],
+        "answerIndexes": [
+          3
+        ]
       }
     },
     {
       "id": "daiyasu-selection",
-      "checkpoint_ids": ["daiyasu"],
-      "content":{
+      "checkpoint_ids": [
+        "daiyasu"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "大安では、工場のことを、つくるだけでなく考える場でありたいという気持ちから、別の呼び名で呼んでいるが、何と呼んでいるか?",
-        "selections": ["工房","学校","ワークショップ","プラント"],
-        "answerIndexes": [1]
+        "selections": [
+          "工房",
+          "学校",
+          "ワークショップ",
+          "プラント"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "kazurakiyo-selection",
-      "checkpoint_ids": ["kazurakiyo"],
-      "content":{
+      "checkpoint_ids": [
+        "kazurakiyo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "かづら清で用いられている「つばき油」はどこで生産されているものか?",
-        "selections": ["佐渡島","小豆島","五島列島","宮古島"],
-        "answerIndexes": [3]
+        "selections": [
+          "佐渡島",
+          "小豆島",
+          "五島列島",
+          "宮古島"
+        ],
+        "answerIndexes": [
+          3
+        ]
       }
     },
     {
       "id": "eirakuya-selection",
-      "checkpoint_ids": ["eirakuya"],
-      "content":{
+      "checkpoint_ids": [
+        "eirakuya"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "永楽屋では、佃煮などといった「からいもの」と、和菓子などといった「あまいもの」の両極端の商品を取り扱っている。そこで、佃煮などは「黒」の商品と呼ばれているが、和菓子などは何の商品と呼ばれているか?",
-        "selections": ["赤","白","黄","青"],
-        "answerIndexes": [2]
+        "selections": [
+          "赤",
+          "白",
+          "黄",
+          "青"
+        ],
+        "answerIndexes": [
+          2
+        ]
       }
     },
     {
       "id": "tuziri-selection",
-      "checkpoint_ids": ["tuziri"],
-      "content":{
+      "checkpoint_ids": [
+        "tuziri"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "こだわりの宇治茶を和の心で包んで、お客様をおもてなししたい、という想いから生まれた、辻利の包み紙に関する新しいアイデアは何か?",
-        "selections": ["紙に手書きでメッセージを加える","和紙を利用する","紙にお茶のにおいをつける","折り紙で箱を作る"],
-        "answerIndexes": [4]
+        "selections": [
+          "紙に手書きでメッセージを加える",
+          "和紙を利用する",
+          "紙にお茶のにおいをつける",
+          "折り紙で箱を作る"
+        ],
+        "answerIndexes": [
+          4
+        ]
       }
     },
     {
       "id": "kikuitimonzi-selection",
-      "checkpoint_ids": ["kikuitimonzi"],
-      "content":{
+      "checkpoint_ids": [
+        "kikuitimonzi"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "刀匠の元祖とも言われる則宗は、誰の御番鍛冶であったか?",
-        "selections": ["後鳥羽天皇","後白河天皇","六条天皇","二条天皇"],
-        "answerIndexes": [1]
+        "selections": [
+          "後鳥羽天皇",
+          "後白河天皇",
+          "六条天皇",
+          "二条天皇"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "kyukyodo-selection",
-      "checkpoint_ids": ["kyukyodo"],
-      "content":{
+      "checkpoint_ids": [
+        "kyukyodo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "鳩居堂の行っている特別なサービスは何か?",
-        "selections": ["商品購入につきマッサージのサービスが付く","赤ちゃんの髪の毛で筆を作る","京のサツマイモで印鑑を作る","使い古した筆を買い取ってくれる"],
-        "answerIndexes": [1]
+        "selections": [
+          "商品購入につきマッサージのサービスが付く",
+          "赤ちゃんの髪の毛で筆を作る",
+          "京のサツマイモで印鑑を作る",
+          "使い古した筆を買い取ってくれる"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "kyoto-city-hall-selection",
-      "checkpoint_ids": ["kyoto-city-hall"],
-      "content":{
+      "checkpoint_ids": [
+        "kyoto-city-hall"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "京都市の人口は日本で第何位か?",
-        "selections": ["3","5","8","11"],
-        "answerIndexes": [3]
+        "selections": [
+          "3",
+          "5",
+          "8",
+          "11"
+        ],
+        "answerIndexes": [
+          3
+        ]
       }
     },
     {
       "id": "onishi-kyosendo-selection",
-      "checkpoint_ids": ["onishi-kyosendo"],
-      "content":{
+      "checkpoint_ids": [
+        "onishi-kyosendo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "うちわと扇子では、どちらが先に日本で使われ始めたか?",
-        "selections": ["扇子","うちわ"],
-        "answerIndexes": [2]
+        "selections": [
+          "扇子",
+          "うちわ"
+        ],
+        "answerIndexes": [
+          2
+        ]
       }
     },
     {
       "id": "yasaka-shrine-selection",
-      "checkpoint_ids": ["yasaka-shrine"],
-      "content":{
+      "checkpoint_ids": [
+        "yasaka-shrine"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "八坂神社は、正月三が日の参拝者数は京都府下で第2位であるが、第1位はどこか?",
-        "selections": ["伏見稲荷大社","清水寺","平安神宮","本願寺"],
-        "answerIndexes": [1]
+        "selections": [
+          "伏見稲荷大社",
+          "清水寺",
+          "平安神宮",
+          "本願寺"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "zohiko-selection",
-      "checkpoint_ids": ["zohiko"],
-      "content":{
+      "checkpoint_ids": [
+        "zohiko"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "次のうち、漆器の特徴ではないのはどれか?",
-        "selections": ["保温性の高さ","抗菌性","軽さ","柔らかさ"],
-        "answerIndexes": [3]
+        "selections": [
+          "保温性の高さ",
+          "抗菌性",
+          "軽さ",
+          "柔らかさ"
+        ],
+        "answerIndexes": [
+          3
+        ]
       }
     },
     {
       "id": "aiba-selection",
-      "checkpoint_ids": ["aiba"],
-      "content":{
+      "checkpoint_ids": [
+        "aiba"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "「うちわ」は古代エジプトの壁画でも確認されている?",
-        "selections": ["○","×"],
-        "answerIndexes": [1]
+        "selections": [
+          "○",
+          "×"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     },
     {
       "id": "heian-shrine-selection",
-      "checkpoint_ids": ["heian-shrine"],
-      "content":{
+      "checkpoint_ids": [
+        "heian-shrine"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "平安神宮は、西暦何年に創建されたか?",
-        "selections": ["1485","1538","1672","1895"],
-        "answerIndexes": [4]
+        "selections": [
+          "1485",
+          "1538",
+          "1672",
+          "1895"
+        ],
+        "answerIndexes": [
+          4
+        ]
       }
     },
     {
       "id": "kenzin-temple-selection",
-      "checkpoint_ids": ["kenzin-temple"],
-      "content":{
+      "checkpoint_ids": [
+        "kenzin-temple"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "鎌倉時代に、北条氏は南宋にならいある制度を導入した。その結果として、建仁寺は厚い保護を受け、大いに栄えた。この制度とは何か?",
-        "selections": ["本山制度","禅寺保護制度","五山制度","宋国百丈山制度"],
-        "answerIndexes": [3]
+        "selections": [
+          "本山制度",
+          "禅寺保護制度",
+          "五山制度",
+          "宋国百丈山制度"
+        ],
+        "answerIndexes": [
+          3
+        ]
       }
     },
     {
       "id": "hiiragiya-selection",
-      "checkpoint_ids": ["hiiragiya"],
-      "content":{
+      "checkpoint_ids": [
+        "hiiragiya"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "柊家が創業以来大切にしている言葉である「来者○○」の○○には何が入るか?",
-        "selections": ["如師","如帰","如依","如王"],
-        "answerIndexes": [2]
+        "selections": [
+          "如師",
+          "如帰",
+          "如依",
+          "如王"
+        ],
+        "answerIndexes": [
+          2
+        ]
       }
     },
     {
       "id": "nijowakasaya-selection",
-      "checkpoint_ids": ["nijowakasaya"],
-      "content":{
+      "checkpoint_ids": [
+        "nijowakasaya"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "ここ、二條若狭屋寺町店の定休日はいつか?",
-        "selections": ["月曜日","水曜日","金曜日","日曜日"],
-        "answerIndexes": [2]
+        "selections": [
+          "月曜日",
+          "水曜日",
+          "金曜日",
+          "日曜日"
+        ],
+        "answerIndexes": [
+          2
+        ]
       }
     },
     {
       "id": "kyotogosyo-selection",
-      "checkpoint_ids": ["kyotogosyo"],
-      "content":{
+      "checkpoint_ids": [
+        "kyotogosyo"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "京都御所の広さは、東京ドームの約何個分か?",
-        "selections": ["1","2","3","4"],
-        "answerIndexes": [2]
+        "selections": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "answerIndexes": [
+          2
+        ]
       }
     },
     {
       "id": "ryuouen-selection",
-      "checkpoint_ids": ["ryuouen"],
-      "content":{
+      "checkpoint_ids": [
+        "ryuouen"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "柳桜園茶舗で抹茶の原料の葉を粉末状にするのには何が使われるか?",
-        "selections": ["すり鉢","ミキサー","石臼","包丁"],
-        "answerIndexes": [3]
+        "selections": [
+          "すり鉢",
+          "ミキサー",
+          "石臼",
+          "包丁"
+        ],
+        "answerIndexes": [
+          3
+        ]
       }
     },
     {
       "id": "kyokado-selection",
-      "checkpoint_ids": ["kyokado"],
-      "content":{
+      "checkpoint_ids": [
+        "kyokado"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "京華道利保の代表的なお菓子「濤々」は何代目当主が完成させたものか?",
-        "selections": ["初代","二代目","三代目","四代目"],
-        "answerIndexes": [2]
+        "selections": [
+          "初代",
+          "二代目",
+          "三代目",
+          "四代目"
+        ],
+        "answerIndexes": [
+          2
+        ]
       }
     },
     {
       "id": "miyako-selection",
-      "checkpoint_ids": ["miyako"],
-      "content":{
+      "checkpoint_ids": [
+        "miyako"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "京都発展のきっかけでもある、平安京が建設されたのは西暦何年か?",
-        "selections": ["710","723","743","794"],
-        "answerIndexes": [4]
+        "selections": [
+          "710",
+          "723",
+          "743",
+          "794"
+        ],
+        "answerIndexes": [
+          4
+        ]
       }
     },
     {
       "id": "murakami-selection",
-      "checkpoint_ids": ["murakami"],
-      "content":{
+      "checkpoint_ids": [
+        "murakami"
+      ],
+      "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "label": "家紋である「丸に十文字」は何家の家紋として有名か?",
-        "selections": ["島津家","長曾我部家","浅井家","桑山家"],
-        "answerIndexes": [1]
+        "selections": [
+          "島津家",
+          "長曾我部家",
+          "浅井家",
+          "桑山家"
+        ],
+        "answerIndexes": [
+          1
+        ]
       }
     }
   ]

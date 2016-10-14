@@ -1,304 +1,304 @@
 {
-	"checkpoints": [
-		{
-			"id": "cafeteria",
-			"lat": 35.706489,
-			"lon": 139.708019,
-			"name": "大食堂",
-			"label": "お昼は激こみ",
-			"description": "このカフェテリアは，学生の胃袋を満たしてくれます",
-			"marker_color": "red",
-			"category": "施設",
-			"subcategory": "食堂",
-			"imgSrc": "waseda/icon/cafeteria.jpg",
-			"checkpoint_group_ids": [
-				"waseda"
-			]
-		},
-		{
-			"id": "pc-room",
-			"lat": 35.705672,
-			"lon": 139.705188,
-			"name": "PCルーム",
-			"label": "みんなで課題",
-			"marker_color": "green",
-			"category": "施設",
-			"subcategory": "学習",
-			"imgSrc": "waseda/icon/pc-room.jpg",
-			"checkpoint_group_ids": [
-				"waseda"
-			]
-		},
-		{
-			"id": "aed-1",
-			"lat": 35.705517,
-			"lon": 139.706716,
-			"name": "aed1",
-			"label": "場所を知っておこう",
-			"marker_color": "blue",
-			"category": "AED",
-			"subcategory": "AED-GROUP-1",
-			"checkpoint_group_ids": [
-				"waseda"
-			]
-		},
-		{
-			"id": "aed-2",
-			"lat": 35.705975,
-			"lon": 139.706664,
-			"name": "aed2",
-			"label": "マルチタスク",
-			"marker_color": "blue",
-			"category": "AED",
-			"subcategory": "AED-GROUP-1",
-			"checkpoint_group_ids": [
-				"waseda"
-			]
-		},
-		{
-			"id": "aed-3",
-			"lat": 35.7063,
-			"lon": 139.70827,
-			"name": "aed3",
-			"label": "タスクなし",
-			"marker_color": "blue",
-			"category": "AED",
-			"subcategory": "AED-GROUP-1",
-			"checkpoint_group_ids": [
-				"waseda"
-			]
-		},
-		{
-			"id": "aed-4",
-			"lat": 35.705642,
-			"lon": 139.707068,
-			"name": "aed4",
-			"label": "場所を知っておこう",
-			"marker_color": "blue",
-			"category": "AED",
-			"subcategory": "AED-GROUP-2",
-			"checkpoint_group_ids": [
-				"waseda"
-			]
-		},
-		{
-			"id": "aed-5",
-			"lat": 35.705621,
-			"lon": 139.705007,
-			"name": "aed5",
-			"label": "場所を知っておこう",
-			"marker_color": "blue",
-			"category": "AED",
-			"subcategory": "AED-GROUP-2",
-			"checkpoint_group_ids": [
-				"waseda"
-			]
-		},
-		{
-			"id": "aed-6",
-			"lat": 35.688030,
-			"lon": 139.789083,
-			"name": "aed6",
-			"label": "場所を知っておこう",
-			"marker_color": "blue",
-			"category": "AED",
-			"subcategory": "AED-GROUP-3",
-			"checkpoint_group_ids": [
-				"waseda"
-			]
-		}
-	],
-	"tasks": [
-		{
-			"id": "cafeteria-photo",
-			"checkpoint_ids": [
-				"cafeteria"
-			],
-			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.PinTask",
-				"checkin": true,
-				"point": 2.0,
-				"label": "合い言葉(半角数字4桁)を入力して下さい．",
-				"answerTexts": [
-					"1111"
-				]
-			}
-		},
-		{
-			"id": "pc-room-qr",
-			"checkpoint_ids": [
-				"pc-room"
-			],
-			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.PinTask",
-				"checkin": true,
-				"point": 2.0,
-				"label": "合い言葉(半角数字4桁)を入力して下さい．",
-				"answerTexts": [
-					"1111"
-				]
-			}
-		},
-		{
-			"id": "aed-1-qr",
-			"checkpoint_ids": [
-				"aed-1"
-			],
-			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
-				"checkin": true,
-				"point": 2.0,
-				"label": "QRコードを撮って下さい．",
-				"answerQr": "decodedqr"
-			}
-		},
-		{
-			"id": "aed-2-qr",
-			"checkpoint_ids": [
-				"aed-2"
-			],
-			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
-				"checkin": true,
-				"point": 2.0,
-				"label": "QRコードを撮って下さい．",
-				"answerQr": "decodedqr"
-			}
-		},
-		{
-			"id": "aed-3-qr",
-			"checkpoint_ids": [
-				"aed-3"
-			],
-			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
-				"checkin": true,
-				"point": 2.0,
-				"label": "QRコードを撮って下さい．",
-				"answerQr": "decodedqr"
-			}
-		},
-		{
-			"id": "aed-4-qr",
-			"checkpoint_ids": [
-				"aed-4"
-			],
-			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
-				"checkin": true,
-				"point": 2.0,
-				"label": "QRコードを撮って下さい．",
-				"answerQr": "decodedqr"
-			}
-		},
-		{
-			"id": "aed-5-qr",
-			"checkpoint_ids": [
-				"aed-5"
-			],
-			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
-				"checkin": true,
-				"point": 2.0,
-				"label": "QRコードを撮って下さい．",
-				"answerQr": "decodedqr"
-			}
-		},
-		{
-			"id": "aed-6-qr",
-			"checkpoint_ids": [
-				"aed-6"
-			],
-			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
-				"checkin": true,
-				"point": 2.0,
-				"label": "QRコードを撮って下さい．",
-				"answerQr": "decodedqr"
-			}
-		},
-		{
-			"id": "cafeteria-selection",
-			"checkpoint_ids": [
-				"cafeteria"
-			],
-			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
-				"point": 2.0,
-				"label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
-				"selections": [
-					"豚玉丼",
-					"チキンおろしだれ",
-					"カツカレー",
-					"ポーク焼肉"
-				],
-				"answerIndexes": [
-					1
-				]
-			}
-		},
-		{
-			"id": "aed-selection",
-			"checkpoint_ids": [
-				"aed-1",
-				"aed-2",
-				"aed-4",
-				"aed-5",
-				"aed-6"
-			],
-			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
-				"point": 2.0,
-				"label": "次のうち、AEDの使い方として、間違っているのはどれ？",
-				"selections": [
-					"パッドは右胸と左わき腹に貼る",
-					"心電図解析中は体に触らない",
-					"放電ボタンを押す時は、体から離れる",
-					"呼吸が戻ったらパッドを速やかにはずす"
-				],
-				"answerIndexes": [
-					3
-				]
-			}
-		},
-		{
-			"id": "aed-selection-2",
-			"checkpoint_ids": [
-				"aed-2"
-			],
-			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
-				"point": 2.0,
-				"label": "次のうち、AEDの使い方として、正しいのを全て選択して下さい。",
-				"selections": [
-					"正しい",
-					"正しい",
-					"間違い",
-					"間違い"
-				],
-				"answerIndexes": [
-					0,
-					1
-				]
-			}
-		},
-		{
-			"id": "pc-room-description",
-			"checkpoint_ids": [
-				"pc-room"
-			],
-			"content": {
-				"instanceClass": "org.magcruise.citywalk.model.task.DescriptionTask",
-				"point": 2.0,
-				"label": "伏見の大手酒造メーカーを一つ挙げて下さい。",
-				"answerTexts": [
-					"宝",
-					"黄桜",
-					"月桂冠",
-					"キンシ正宗"
-				]
-			}
-		}
-	]
+  "checkpoints": [
+    {
+      "id": "cafeteria",
+      "lat": 35.706489,
+      "lon": 139.708019,
+      "name": "大食堂",
+      "label": "お昼は激こみ",
+      "description": "このカフェテリアは，学生の胃袋を満たしてくれます",
+      "marker_color": "red",
+      "category": "施設",
+      "subcategory": "食堂",
+      "imgSrc": "waseda/icon/cafeteria.jpg",
+      "checkpoint_group_ids": [
+        "waseda"
+      ]
+    },
+    {
+      "id": "pc-room",
+      "lat": 35.705672,
+      "lon": 139.705188,
+      "name": "PCルーム",
+      "label": "みんなで課題",
+      "marker_color": "green",
+      "category": "施設",
+      "subcategory": "学習",
+      "imgSrc": "waseda/icon/pc-room.jpg",
+      "checkpoint_group_ids": [
+        "waseda"
+      ]
+    },
+    {
+      "id": "aed-1",
+      "lat": 35.705517,
+      "lon": 139.706716,
+      "name": "aed1",
+      "label": "場所を知っておこう",
+      "marker_color": "blue",
+      "category": "AED",
+      "subcategory": "AED-GROUP-1",
+      "checkpoint_group_ids": [
+        "waseda"
+      ]
+    },
+    {
+      "id": "aed-2",
+      "lat": 35.705975,
+      "lon": 139.706664,
+      "name": "aed2",
+      "label": "マルチタスク",
+      "marker_color": "blue",
+      "category": "AED",
+      "subcategory": "AED-GROUP-1",
+      "checkpoint_group_ids": [
+        "waseda"
+      ]
+    },
+    {
+      "id": "aed-3",
+      "lat": 35.7063,
+      "lon": 139.70827,
+      "name": "aed3",
+      "label": "タスクなし",
+      "marker_color": "blue",
+      "category": "AED",
+      "subcategory": "AED-GROUP-1",
+      "checkpoint_group_ids": [
+        "waseda"
+      ]
+    },
+    {
+      "id": "aed-4",
+      "lat": 35.705642,
+      "lon": 139.707068,
+      "name": "aed4",
+      "label": "場所を知っておこう",
+      "marker_color": "blue",
+      "category": "AED",
+      "subcategory": "AED-GROUP-2",
+      "checkpoint_group_ids": [
+        "waseda"
+      ]
+    },
+    {
+      "id": "aed-5",
+      "lat": 35.705621,
+      "lon": 139.705007,
+      "name": "aed5",
+      "label": "場所を知っておこう",
+      "marker_color": "blue",
+      "category": "AED",
+      "subcategory": "AED-GROUP-2",
+      "checkpoint_group_ids": [
+        "waseda"
+      ]
+    },
+    {
+      "id": "aed-6",
+      "lat": 35.688030,
+      "lon": 139.789083,
+      "name": "aed6",
+      "label": "場所を知っておこう",
+      "marker_color": "blue",
+      "category": "AED",
+      "subcategory": "AED-GROUP-3",
+      "checkpoint_group_ids": [
+        "waseda"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "cafeteria-photo",
+      "checkpoint_ids": [
+        "cafeteria"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
+        "checkin": true,
+        "point": 2.0,
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "answerTexts": [
+          "1111"
+        ]
+      }
+    },
+    {
+      "id": "pc-room-qr",
+      "checkpoint_ids": [
+        "pc-room"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
+        "checkin": true,
+        "point": 2.0,
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "answerTexts": [
+          "1111"
+        ]
+      }
+    },
+    {
+      "id": "aed-1-qr",
+      "checkpoint_ids": [
+        "aed-1"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
+        "checkin": true,
+        "point": 2.0,
+        "label": "QRコードを撮って下さい．",
+        "answerQr": "decodedqr"
+      }
+    },
+    {
+      "id": "aed-2-qr",
+      "checkpoint_ids": [
+        "aed-2"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
+        "checkin": true,
+        "point": 2.0,
+        "label": "QRコードを撮って下さい．",
+        "answerQr": "decodedqr"
+      }
+    },
+    {
+      "id": "aed-3-qr",
+      "checkpoint_ids": [
+        "aed-3"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
+        "checkin": true,
+        "point": 2.0,
+        "label": "QRコードを撮って下さい．",
+        "answerQr": "decodedqr"
+      }
+    },
+    {
+      "id": "aed-4-qr",
+      "checkpoint_ids": [
+        "aed-4"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
+        "checkin": true,
+        "point": 2.0,
+        "label": "QRコードを撮って下さい．",
+        "answerQr": "decodedqr"
+      }
+    },
+    {
+      "id": "aed-5-qr",
+      "checkpoint_ids": [
+        "aed-5"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
+        "checkin": true,
+        "point": 2.0,
+        "label": "QRコードを撮って下さい．",
+        "answerQr": "decodedqr"
+      }
+    },
+    {
+      "id": "aed-6-qr",
+      "checkpoint_ids": [
+        "aed-6"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.QrCodeTask",
+        "checkin": true,
+        "point": 2.0,
+        "label": "QRコードを撮って下さい．",
+        "answerQr": "decodedqr"
+      }
+    },
+    {
+      "id": "cafeteria-selection",
+      "checkpoint_ids": [
+        "cafeteria"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+        "point": 2.0,
+        "label": "次のうち、理工の学食が発祥の地であるメニューはどれ？",
+        "selections": [
+          "豚玉丼",
+          "チキンおろしだれ",
+          "カツカレー",
+          "ポーク焼肉"
+        ],
+        "answerIndexes": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "aed-selection",
+      "checkpoint_ids": [
+        "aed-1",
+        "aed-2",
+        "aed-4",
+        "aed-5",
+        "aed-6"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+        "point": 2.0,
+        "label": "次のうち、AEDの使い方として、間違っているのはどれ？",
+        "selections": [
+          "パッドは右胸と左わき腹に貼る",
+          "心電図解析中は体に触らない",
+          "放電ボタンを押す時は、体から離れる",
+          "呼吸が戻ったらパッドを速やかにはずす"
+        ],
+        "answerIndexes": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "aed-selection-2",
+      "checkpoint_ids": [
+        "aed-2"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+        "point": 2.0,
+        "label": "次のうち、AEDの使い方として、正しいのを全て選択して下さい。",
+        "selections": [
+          "正しい",
+          "正しい",
+          "間違い",
+          "間違い"
+        ],
+        "answerIndexes": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "pc-room-description",
+      "checkpoint_ids": [
+        "pc-room"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.DescriptionTask",
+        "point": 2.0,
+        "label": "伏見の大手酒造メーカーを一つ挙げて下さい。",
+        "answerTexts": [
+          "宝",
+          "黄桜",
+          "月桂冠",
+          "キンシ正宗"
+        ]
+      }
+    }
+  ]
 }
 
