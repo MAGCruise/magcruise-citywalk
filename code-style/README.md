@@ -1,5 +1,8 @@
 # Java
-eclipse-java-magcruise-style.xmlを使う
+``eclipse-java-magcruise-style.xml`` を使う．
+
+# JavaScript
+``eclipse-javascript-magcruise-style.xml`` を使う．
 
 # JSON
 行の幅：100

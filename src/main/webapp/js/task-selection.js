@@ -3,41 +3,40 @@ var checkpoint = getCheckpoint();
 var task = getTask();
 
 $(function() {
-	if (getTaskIndex() != 0) {
-		$("#back").hide();
-	}
-	showCheckeinMessageIfNeeded();
-	$('#label').text(task.label);
+  if (getTaskIndex() != 0) {
+    $("#back").hide();
+  }
+  showCheckeinMessageIfNeeded();
+  $('#label').text(task.label);
 
-	var selectionType = (task.answerIndexes.length == 1) ? "radio" : "checkbox"
-	task.selections.forEach(function(selection, i) {
-		var selectionElem = '<div class="selection">' + '<label><input type="'
-				+ selectionType + '" name="selection" class="selection" value='
-				+ i + '>' + selection + '</label>'
-		'</div>';
-		$('.form-group').append(selectionElem);
-	});
+  var selectionType = (task.answerIndexes.length == 1) ? "radio" : "checkbox"
+  task.selections.forEach(function(selection, i) {
+    var selectionElem = '<div class="selection">' + '<label><input type="' + selectionType
+            + '" name="selection" class="selection" value=' + i + '>' + selection + '</label>'
+    '</div>';
+    $('.form-group').append(selectionElem);
+  });
 
-	$('.selection').click(function() {
-		var enableBtnNext = false;
-		// 一つでもチェックがあれば、回答するボタンを押せるように
-		// [name=selection]
-		$('.selection').each(function() {
-			enableBtnNext = (enableBtnNext || $(this).prop('checked'));
-		});
-		$('#btn-next').prop('disabled', !enableBtnNext);
-	});
-	$('#btn-next').click(function() {
-		// 回答を取得
-		var indexes = $('.selection:checked').map(function() {
-			return parseInt($(this).val());
-		}).get();
-		addAnswerDic(checkpoint, task, indexes);
-		var isCorrect = isSameAnswers(task.answerIndexes, indexes);
-		addActivity(task, indexes.sort().toString(), isCorrect);
-	});
+  $('.selection').click(function() {
+    var enableBtnNext = false;
+    // 一つでもチェックがあれば、回答するボタンを押せるように
+    // [name=selection]
+    $('.selection').each(function() {
+      enableBtnNext = (enableBtnNext || $(this).prop('checked'));
+    });
+    $('#btn-next').prop('disabled', !enableBtnNext);
+  });
+  $('#btn-next').click(function() {
+    // 回答を取得
+    var indexes = $('.selection:checked').map(function() {
+      return parseInt($(this).val());
+    }).get();
+    addAnswerDic(checkpoint, task, indexes);
+    var isCorrect = isSameAnswers(task.answerIndexes, indexes);
+    addActivity(task, indexes.sort().toString(), isCorrect);
+  });
 });
 
 function isSameAnswers(array1, array2) {
-	return array1.sort().toString() === array2.sort().toString();
+  return array1.sort().toString() === array2.sort().toString();
 }
