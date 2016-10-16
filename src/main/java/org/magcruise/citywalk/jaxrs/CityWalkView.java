@@ -28,8 +28,9 @@ public class CityWalkView extends JaxrsView {
 			if (UserSession.of(request).isLogined()) {
 				return createView(filePathFromViewRoot, new ThymeleafModel());
 			} else {
-				response.sendRedirect(getServletUrl() + "/index.html");
-				return createView("/index.html", new ThymeleafModel());
+				response.sendRedirect(
+						getServletUrl() + "/login.html?msg=nologin&redirect=" + getFullUrl());
+				return createView("/login.html", new ThymeleafModel());
 			}
 		} catch (Exception e) {
 			log.error(e, e);
@@ -59,6 +60,17 @@ public class CityWalkView extends JaxrsView {
 			return true;
 		}
 		return false;
+	}
+
+	public String getFullUrl() {
+		StringBuffer requestURL = request.getRequestURL();
+		String queryString = request.getQueryString();
+
+		if (queryString == null) {
+			return requestURL.toString();
+		} else {
+			return requestURL.append('?').append(queryString).toString();
+		}
 	}
 
 }
