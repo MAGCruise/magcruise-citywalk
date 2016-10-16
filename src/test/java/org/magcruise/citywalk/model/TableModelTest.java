@@ -39,17 +39,17 @@ public class TableModelTest {
 		checkpoints.remakeTable();
 		checkpoints.merge(new Checkpoint("aed-1", "aed-1", "A号館のAED", "desc", 38.4400, 134.11090,
 				Arrays.asList("waseda"),
-				"blue", "category-2", "subcategory-2-1", from, to, ""));
+				"blue", "category-2", "subcategory-2-1", from, to, "", "balloon"));
 		checkpoints.merge(new Checkpoint("aed-2", "aed-2", "B号館のAED", "desc", 38.4400, 134.11090,
 				Arrays.asList("waseda"),
-				"blue", "category-2", "subcategory-2-1", from, to, ""));
+				"blue", "category-2", "subcategory-2-1", from, to, "", "balloon"));
 		checkpoints.merge(new Checkpoint("cafeteria", "食堂", "みんながいく食堂", "desc", 38.4400, 134.11090,
 				Arrays.asList("waseda"),
-				"red", "category-1", "subcategory-1-1", from, to, ""));
+				"red", "category-1", "subcategory-1-1", from, to, "", "balloon"));
 		checkpoints
 				.merge(new Checkpoint("pc-room", "PCルーム", "演習で使うPCルーム", "desc", 38.4400, 134.11090,
 						Arrays.asList("waseda"), "green", "category-1", "subcategory-1-2", from, to,
-						""));
+						"", "balloon"));
 		log.debug(checkpoints.readAll());
 
 		TasksTable tasks = new TasksTable();
