@@ -89,6 +89,11 @@ function initMap() {
     position: center,
     map: map,
   });
+  // マーカータップ時のバルーンの初期化
+  var infoWindow = new google.maps.InfoWindow({
+    content: checkpoint.balloon
+  });
+  infoWindow.open(marker.getMap(), marker);
 
   // 目的地の設定&位置情報の連続取得
   ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);

@@ -22,6 +22,7 @@ public class GoogleSpreadsheetData {
 	private String imgsrc;
 	private String answerqr;
 	private String markercolor;
+	private String balloon;
 
 	public int getRownum() {
 		return rownum;
@@ -170,5 +171,13 @@ public class GoogleSpreadsheetData {
 
 	public void setMarkerColor(String markercolor) {
 		this.markercolor = markercolor;
+	}
+	
+	public String getBalloon() {
+		return balloon;
+	}
+
+	public void setBalloon(String balloon) {
+		this.balloon = balloon;
 	}
 }

@@ -249,12 +249,11 @@ function selectCheckpoint(checkpoint) {
   
   // マーカータップ時のバルーンの初期化
   infoWindow = new google.maps.InfoWindow({
-    content: checkpoint.id
+    content: checkpoint.balloon
   });
   var marker = markers.filter(function(marker) {
     return marker.checkpointId === checkpoint.id;
   })[0];
-  console.log(marker);
   infoWindow.open(marker.getMap(), marker);
   
   map.setZoom(MAX_ZOOM_LEVEL);
