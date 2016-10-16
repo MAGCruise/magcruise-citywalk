@@ -254,7 +254,6 @@ function selectCheckpoint(checkpoint) {
   var marker = markers.filter(function(marker) {
     return marker.checkpointId === checkpoint.id;
   })[0];
-  console.log(marker);
   infoWindow.open(marker.getMap(), marker);
   
   map.setZoom(MAX_ZOOM_LEVEL);
