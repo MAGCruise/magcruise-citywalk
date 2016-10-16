@@ -39,6 +39,9 @@
 	color: $lightGrayColor;
 	font-size: 15px;
 	margin: $baseMargin;
+	.link {
+		color: #337AB7;
+	}
 }
 
 $checkpointHeight: 70px;

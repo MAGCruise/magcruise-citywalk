@@ -1,23 +1,14 @@
 var MAX_ZOOM_LEVEL = 17;
 
-var map;
+var map = null;
 var markers = []; // マーカーs
-var infoWindows = []; // バルーンs
-var checkpoints = getNonVisitedCheckPoints(); // 未訪問チェックポイントデータをLocalStorageより取得
-var cPos; // 現在地
+var infoWindow = null; // バルーン
+var checkpoints =[];
+var cPos = null; // 現在地
 var selectedCheckpoint;
-var category = getParam("category");
-var subcategory = getParam("subcategory");
-if (category) {
-  checkpoints = checkpoints.filter(function(checkpoint) {
-    return checkpoint.category == category;
-  });
-}
-if (subcategory) {
-  checkpoints = checkpoints.filter(function(checkpoint) {
-    return checkpoint.subcategory == subcategory;
-  });
-}
+var category = null;
+var subcategory = null;
+var locationsAccuracy = 10;
 
 window.onload = function() {
   initMap();
@@ -40,49 +31,75 @@ $(function() {
     }
     location.href = "./navi.html?checkpoint_id=" + selectedCheckpoint.id;
   });
-
-  if (category || subcategory) {
-    var url = location.origin + location.pathname;
-    // トップ（カテゴリ一覧）へ
-    var html = '<a href="' + url + '">TOP</a>';
-    // サブカテゴリ一覧へ
-    if (category && subcategory) {
-      html += ' > <a href="' + url + '?category='
-              + encodeURIComponent(category) + '">' + category + '</a>';
-      html += ' > ' + subcategory;
-    } else if (category) {
-      html += ' > ' + category;
-    }
-    $("#breadcrumb").html(html);
-    $("#breadcrumb").show();
-  } else {
-    $("#breadcrumb").hide();
-  }
 });
 
-function getCurrentPosition() {
-  if (!navigator || !navigator.geolocation) {
-    alert('GPSが使用できません');
-  }
-  navigator.geolocation.getCurrentPosition(function(pos) { // success
-    cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-    console.log("currentPosition: " + pos.coords.latitude + ", "
-            + pos.coords.longitude);
-    showList();
-    // 現在地の表示
-    drawCurrentLocationCircle(map, cPos, pos.coords.accuracy);
-    // マップの表示位置とズームレベルの調整
-    fitMapPositionAndZoomLevel();
-  }, function(error) {
-    alert('位置情報の取得に失敗しました');
-  }, {
-    enableHighAccuracy: true,
-    timeout: 1000 * 60,
-    maximumAge: 1000 * 60,
+function updateViews() {
+  loadCheckpoints();
+  
+  initMarkers();
+  // 現在地の表示
+  drawCurrentLocationCircle(map, cPos, locationsAccuracy);
+  // マップの表示位置とズームレベルの調整
+  fitMapPositionAndZoomLevel();
+    
+  initBreadCrumb();
+  showList();
+}
+
+function loadCheckpoints() {
+	// 未訪問チェックポイントデータをLocalStorageより取得
+	checkpoints = getNonVisitedCheckPoints();
+	if (category) {
+		checkpoints = checkpoints.filter(function(checkpoint) {
+			return checkpoint.category == category;
+		});
+	}
+	if (subcategory) {
+	  checkpoints = checkpoints.filter(function(checkpoint) {
+	    return checkpoint.subcategory == subcategory;
+	  });
+	}
+}
+
+function initBreadCrumb() {
+  $("#breadcrumb").empty();
+  
+	if (category == null && subcategory == null) {
+		$("#breadcrumb").hide();
+		return;
+	}
+	
+  // トップ
+	var topElem = $('<span class="link">TOP</span>');
+	$("#breadcrumb").append(topElem);
+	topElem.click(function() {
+	  category = null;
+	  subcategory = null;
+	  updateViews();
   });
+	// カテゴリ
+	if (category) {
+    var categoryElem = $('<span> > ' + category + '</span>');
+    if (subcategory) {
+      categoryElem.addClass('link');
+      categoryElem.click(function() {
+        subcategory = null;
+        updateViews();
+      });
+    } else {
+      
+    }
+    $("#breadcrumb").append(categoryElem);
+  }
+  // サブカテゴリ
+  if (subcategory) {
+    $("#breadcrumb").append($('<span> > ' + subcategory + '</span>'));
+  } 
+  $("#breadcrumb").show();
 }
 
 function showList() {
+  $("#checkpoints").empty();
   if (category && subcategory) {
     showCheckpoints();
   } else if (category) {
@@ -102,7 +119,7 @@ function showCheckpoints() {
     var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg"
             : "../img/" + checkpoint.imgSrc;
 
-    var elem = $('<div class="checkpoint" id="checkpoint-' + i + '">'
+    var elem = $('<div class="checkpoint" id="checkpoint-' + checkpoint.id + '">'
             + '<span class="pull-left distance ' + distanceStyle + '">'
             + getFormattedDistance(distance) + '</span>' + '<img src="'
             + imgSrc + '" class="pull-left checkpoint-img">'
@@ -110,7 +127,7 @@ function showCheckpoints() {
             + '</div>' + '<div class="detail">' + checkpoint.label + '</div>'
             + '</div>' + '</div>');
     elem.click(function() {
-      selectCheckpoint(i);
+      selectCheckpoint(checkpoint);
     });
     $("#checkpoints").append(elem);
   });
@@ -134,8 +151,8 @@ function showSubcategory() {
   names.forEach(function(name, i) {
     var elem = makeListElemWithoutDistanceAndImage(name);
     elem.click(function() {
-      location.href = location.href + "&subcategory="
-              + encodeURIComponent(name);
+      subcategory = name;
+      updateViews();
     });
     $("#checkpoints").append(elem);
   });
@@ -152,7 +169,8 @@ function showCategory() {
   names.forEach(function(name, i) {
     var elem = makeListElemWithoutDistanceAndImage(name);
     elem.click(function() {
-      location.href = location.href + "?category=" + encodeURIComponent(name);
+      category = name;
+      updateViews();
     });
     $("#checkpoints").append(elem);
   });
@@ -170,41 +188,41 @@ function getFormattedDistance(distance) {
 }
 
 /* 全てのマーカーバルーンを閉じる */
-function closeAllInfoWindows() {
-  infoWindows.forEach(function(infoWindow, i) {
+function closeInfoWindow() {
+  if (infoWindow != null) {
     infoWindow.close();
-  });
-}
-
-/* チェックポイント選択処理 */
-function selectCheckpoint(index) {
-  selectedCheckpoint = checkpoints[index];
-  closeAllInfoWindows();
-  var marker = markers[index];
-  infoWindows[index].open(marker.getMap(), marker);
-  map.setZoom(MAX_ZOOM_LEVEL);
-  map.setCenter(marker.getPosition());
-  $(".checkpoint").removeClass("selected");
-  $("#checkpoint-" + String(index)).addClass("selected");
-  $("#nav-start").show();
-}
-
-/* チェックポイント非選択処理 */
-function unselectCheckpoint() {
-  closeAllInfoWindows();
-  $(".checkpoint").removeClass("selected");
-  $("#nav-start").hide();
+  }
 }
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {
-      lat: 0.0,
-      lng: 0.0
-    },
-  // zoom: 8
-  });
+  if (map == null) {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {
+        lat: 0.0,
+        lng: 0.0
+      },
+    // zoom: 8
+    });
+  }
 
+  // マップをドラッグした場合は、チェックポイントを非選択に
+  google.maps.event.addListener(map, "dragend", function() {
+    unselectCheckpoint();
+  });
+  if (cPos == null) {
+	  // 現在地取得し、チェックポイントリストを表示
+	  getCurrentPosition();
+  } else {
+	  updateViews();
+  }
+}
+
+function initMarkers() {
+  // マーカーの削除
+  markers.forEach(function(marker) {
+    marker.setMap(null);
+  });
+  markers = [];
   checkpoints.forEach(function(checkpoint, i) {
     // マーカーの追加
     var marker = new google.maps.Marker({
@@ -214,25 +232,62 @@ function initMap() {
       },
       map: map,
       icon: "//maps.google.com/mapfiles/ms/icons/" + checkpoint.markerColor
-              + "-dot.png"
+              + "-dot.png",
+      checkpointId: checkpoint.id
     });
     marker.addListener('click', function() {
-      selectCheckpoint(i);
+      selectCheckpoint(checkpoint);
     });
     markers.push(marker);
-    // マーカータップ時のバルーンの初期化
-    var infoWindow = new google.maps.InfoWindow({
-      content: checkpoint.id
-    });
-    infoWindows.push(infoWindow);
   });
+}
 
-  // マップをドラッグした場合は、チェックポイントを非選択に
-  google.maps.event.addListener(map, "dragend", function() {
-    unselectCheckpoint();
+/* チェックポイント選択処理 */
+function selectCheckpoint(checkpoint) {
+  selectedCheckpoint = checkpoint;
+  closeInfoWindow();
+  
+  // マーカータップ時のバルーンの初期化
+  infoWindow = new google.maps.InfoWindow({
+    content: checkpoint.id
   });
-  // 現在地取得し、チェックポイントリストを表示
-  getCurrentPosition();
+  var marker = markers.filter(function(marker) {
+    return marker.checkpointId === checkpoint.id;
+  })[0];
+  console.log(marker);
+  infoWindow.open(marker.getMap(), marker);
+  
+  map.setZoom(MAX_ZOOM_LEVEL);
+  map.setCenter(marker.getPosition());
+  $(".checkpoint").removeClass("selected");
+  $("#checkpoint-" + checkpoint.id).addClass("selected");
+  $("#nav-start").show();
+}
+
+/* チェックポイント非選択処理 */
+function unselectCheckpoint() {
+  closeInfoWindow();
+  $(".checkpoint").removeClass("selected");
+  $("#nav-start").hide();
+}
+
+function getCurrentPosition() {
+  if (!navigator || !navigator.geolocation) {
+    alert('GPSが使用できません');
+  }
+  navigator.geolocation.getCurrentPosition(function(pos) { // success
+    cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+    console.log("currentPosition: " + pos.coords.latitude + ", "
+            + pos.coords.longitude);
+    locationAccuracy = pos.coords.accuracy;
+    updateViews();
+  }, function(error) {
+    alert('位置情報の取得に失敗しました');
+  }, {
+    enableHighAccuracy: true,
+    timeout: 1000 * 60,
+    maximumAge: 1000 * 60,
+  });
 }
 
 function fitMapPositionAndZoomLevel() {
