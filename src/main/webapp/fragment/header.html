@@ -17,6 +17,18 @@
 <script src="../js/parseUri.js"></script>
 <script src="../js/util.js"></script>
 <script src="../js/remodal.min.js"></script>
+<script>
+	if ('serviceWorker' in navigator) {
+	  // , {'scope': '/magcruise-citywalk'}
+	  navigator.serviceWorker.register('../sw.js').then(function(registration) {
+	    // 登録成功
+	    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+	  }).catch(function(err) {
+	    // 登録失敗
+	    console.log('ServiceWorker registration failed: ', err);
+	  });
+	}
+</script>
 </head>
 <div class="container">
   <div class="row" th:fragment="top-menu" id="menu">
