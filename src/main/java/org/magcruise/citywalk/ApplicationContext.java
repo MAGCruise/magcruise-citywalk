@@ -79,6 +79,7 @@ public class ApplicationContext implements ServletContextListener {
 		//			new SubmittedActivitiesTable().dropTableIfExists();
 		//			new MovementsTable().dropTableIfExists();
 		//		}
+		
 		new CheckpointsTable().createTableIfNotExists();
 		new TasksTable().createTableIfNotExists();
 		new UserAccountsTable().createTableIfNotExists();
@@ -129,7 +130,8 @@ public class ApplicationContext implements ServletContextListener {
 
 			json.addCheckpoint(new CheckpointJson(d.getCheckpointid(), d.getName(), d.getLabel(),
 					d.getDescription(), d.getLat(), d.getLon(), Arrays.asList(checkpointGroupId),
-					d.getMarkerColor(), d.getCategory(), d.getSubcategory(), d.getImgsrc()));
+					d.getMarkerColor(), d.getCategory(), d.getSubcategory(), d.getImgsrc(),
+					d.getBalloon()));
 			json.addTask(
 					new TaskJson(d.getCheckpointid() + "-qr", Arrays.asList(d.getCheckpointid()),
 							new ContentJson(QrCodeTask.class.getName(), true, d.getPoint(),
