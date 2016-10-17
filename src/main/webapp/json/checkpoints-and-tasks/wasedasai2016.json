@@ -8,10 +8,30 @@
       "label": "(4点)体育各部トークショー！",
       "description": "体育各部がトークショーを行います。平時は勇ましい体育各部の意外な一面を垣間見れるのは、早稲田スポーツ魂だけ！ファンの方も、そうじゃない方もぜひ！",
       "markerColor": "red",
+      "visibleTimeFrom": "2016-10-18 13:30:00",
+      "visibleTimeTo": "2016-10-18 13:40:00",
       "category": "イベント",
       "subcategory": "14号館",
       "balloon": "14号館　101教室",
       "imgSrc": "wasedasai2016/icon/supodama.jpg",
+      "checkpoint_group_ids": [
+        "wasedasai2016"
+      ]
+    },
+    {
+      "id": "wasedasai2016-parado",
+      "lat": 35.71079167,
+      "lon": 139.7193,
+      "name": "パレード",
+      "label": "(4点)構外を巡るパレード",
+      "description": "早稲田周辺地域を練り歩くパレードを行います。光と音で鮮やかに彩られたパレードを観覧スペースから心行くまでご堪能ください。",
+      "markerColor": "red",
+      "visibleTimeFrom": "2016-10-18 13:45:00",
+      "visibleTimeTo": "2016-10-18 13:55:00",
+      "category": "イベント",
+      "subcategory": "22号館前",
+      "balloon": "22号館前観覧スペース",
+      "imgSrc": "wasedasai2016/icon/parado.jpg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -24,6 +44,8 @@
       "label": "(4点)公開クロストークー",
       "description": "1つのテーマについて各分野で活躍する早大生がクロストークを行います。まだ見ぬ早稲田の側面がきっと見つかる、早稲田文化の深みに一歩踏み出してみませんか？",
       "markerColor": "red",
+      "visibleTimeFrom": "2016-10-18 14:00:00",
+      "visibleTimeTo": "2016-10-18 14:10:00",
       "category": "イベント",
       "subcategory": "14号館",
       "balloon": "14号館　102教室",
@@ -40,10 +62,12 @@
       "label": "(4点)ア式蹴球部に体験入部",
       "description": "戸山公園でア式蹴球部による、スポーツ体験教室を開きます！ア式蹴球部のファンの方も、サッカー好きの方も、戸山公園にとびだせ！",
       "markerColor": "red",
+      "visibleTimeFrom": "2016-10-18 14:15:00",
+      "visibleTimeTo": "2016-10-18 14:25:00",
       "category": "イベント",
       "subcategory": "戸山公園",
       "balloon": "戸山公園",
-      "imgSrc": "wasedasai2016/icon/toyama.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -56,10 +80,12 @@
       "label": "(4点)地元愛を語りつくす",
       "description": "学生稲門会に所属する早大学生稲門会に所属する早大生がトークショーを行います。郷土愛に満ちた彼らの想いを来場者のみなさまに余すところなくお届け！",
       "markerColor": "red",
+      "visibleTimeFrom": "2016-10-18 11:50:00",
+      "visibleTimeTo": "2016-10-18 13:30:00",
       "category": "イベント",
       "subcategory": "14号館",
       "balloon": "14号館　101教室",
-      "imgSrc": "wasedasai2016/icon/kenmin.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -72,6 +98,8 @@
       "label": "(4点)競泳部による模擬泳",
       "description": "今年度初！高石記念プールを使い、競泳部がトークショー＆模擬泳を行います。オリンピック選手を多く輩出した競泳部の模擬泳を見れるのは、ここだけ！",
       "markerColor": "red",
+      "visibleTimeFrom": "2016-10-18 13:55:00",
+      "visibleTimeTo": "2016-10-18 17:30:00",
       "category": "イベント",
       "subcategory": "高石記念プール",
       "balloon": "高石記念プール",
@@ -91,7 +119,7 @@
       "category": "ホビー",
       "subcategory": "レク",
       "balloon": "14号館　406教室",
-      "imgSrc": "wasedasai2016/icon/ShandyGaff.png",
+      "imgSrc": "wasedasai2016/icon/ShandyGaff.jpg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -107,7 +135,7 @@
       "category": "ホビー",
       "subcategory": "レク",
       "balloon": "10号館　101教室",
-      "imgSrc": "wasedasai2016/icon/quizken.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -123,7 +151,7 @@
       "category": "ホビー",
       "subcategory": "レク",
       "balloon": "6号館　001教室",
-      "imgSrc": "wasedasai2016/icon/tenpoint.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -139,7 +167,7 @@
       "category": "ホビー",
       "subcategory": "レク",
       "balloon": "8号館　402教室",
-      "imgSrc": "wasedasai2016/icon/Floorball.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -155,7 +183,7 @@
       "category": "芸術・文化",
       "subcategory": "芸術",
       "balloon": "14号館　604教室",
-      "imgSrc": "wasedasai2016/icon/manken.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -171,7 +199,7 @@
       "category": "ホビー",
       "subcategory": "アニメ・漫画",
       "balloon": "8号館　B102教室",
-      "imgSrc": "wasedasai2016/icon/doraemon.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -200,8 +228,8 @@
       "label": "(4点)どの平沢進ですか？",
       "description": "チロルチョコ等のお菓子無料配布の他、「平沢進」と聞いてピンと来る方も来ない方もきっと楽しめる企画を用意してお待ちしております。是非お立ち寄りください。",
       "markerColor": "red",
-      "category": "ホビー",
-      "subcategory": "音楽",
+      "category": "メディア・出版",
+      "subcategory": "出版",
       "balloon": "14号館　405教室",
       "imgSrc": "wasedasai2016/icon/bakotu.jpg",
       "checkpoint_group_ids": [
@@ -219,7 +247,7 @@
       "category": "ホビー",
       "subcategory": "お笑い",
       "balloon": "16号館　303教室",
-      "imgSrc": "wasedasai2016/icon/Walkin.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -235,7 +263,7 @@
       "category": "芸術・文化",
       "subcategory": "映像",
       "balloon": "10号館　208教室",
-      "imgSrc": "wasedasai2016/icon/Sky-Link.png",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -251,7 +279,7 @@
       "category": "芸術・文化",
       "subcategory": "映像",
       "balloon": "33号館　1階スペース",
-      "imgSrc": "wasedasai2016/icon/photogra.png",
+      "imgSrc": "wasedasai2016/icon/photogra.jpg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -267,7 +295,7 @@
       "category": "芸術・文化",
       "subcategory": "映像",
       "balloon": "11号館　1階階段下スペース",
-      "imgSrc": "wasedasai2016/icon/sutawase.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -299,7 +327,7 @@
       "category": "芸術・文化",
       "subcategory": "芸術",
       "balloon": "11号館　813教室",
-      "imgSrc": "wasedasai2016/icon/supein.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -315,7 +343,7 @@
       "category": "メディア・出版",
       "subcategory": "出版",
       "balloon": "11号館　2階ラウンジ",
-      "imgSrc": "wasedasai2016/icon/wasebun1.jpg",
+      "imgSrc": "wasedasai2016/icon/wasebun.jpg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -331,7 +359,7 @@
       "category": "メディア・出版",
       "subcategory": "出版",
       "balloon": "15号館　0階ラウンジ",
-      "imgSrc": "wasedasai2016/icon/wasebun2.jpg",
+      "imgSrc": "wasedasai2016/icon/wasebun.jpg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -347,7 +375,7 @@
       "category": "メディア・出版",
       "subcategory": "出版",
       "balloon": "36号館　2階ラウンジ",
-      "imgSrc": "wasedasai2016/icon/wasebun3.jpg",
+      "imgSrc": "wasedasai2016/icon/wasebun.jpg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -379,7 +407,7 @@
       "category": "学問",
       "subcategory": "受験相談",
       "balloon": "10号館　406教室",
-      "imgSrc": "wasedasai2016/icon/wasemon.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -427,7 +455,7 @@
       "category": "学問",
       "subcategory": "教育",
       "balloon": "8号館　308教室",
-      "imgSrc": "wasedasai2016/icon/waseiti.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -443,7 +471,7 @@
       "category": "学問",
       "subcategory": "研究発表",
       "balloon": "14号館　516教室",
-      "imgSrc": "wasedasai2016/icon/iwaizemi.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -459,7 +487,7 @@
       "category": "学問",
       "subcategory": "研究発表",
       "balloon": "14号館　514教室",
-      "imgSrc": "wasedasai2016/icon/kawakisizemi.jpg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpoint_group_ids": [
         "wasedasai2016"
       ]
@@ -470,6 +498,21 @@
       "id": "wasedasai2016-supodama-pin",
       "checkpoint_ids": [
         "wasedasai2016-supodama"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
+        "checkin": true,
+        "point": 2.0,
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "answerTexts": [
+          "1111"
+        ]
+      }
+    },
+    {
+      "id": "wasedasai2016-parado-pin",
+      "checkpoint_ids": [
+        "wasedasai2016-parado"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -925,6 +968,29 @@
       }
     },
     {
+      "id": "wasedasai2016-parado-selection",
+      "checkpoint_ids": [
+        "wasedasai2016-parado"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+        "point": 2.0,
+        "label": "第二隊列「一体感への挑戦」において22号館前観覧スペースで使われた曲は？",
+        "selections": [
+          "Paradise Live",
+          "パーフェクトドリーム",
+          "武勇伝",
+          "PERFECT HUMAN"
+        ],
+        "answerIndexes": [
+          3
+        ],
+        "answerTexts": [
+          "PERFECT HUMAN"
+        ]
+      }
+    },
+    {
       "id": "wasedasai2016-wasetalk-selection",
       "checkpoint_ids": [
         "wasedasai2016-wasetalk"
@@ -1277,18 +1343,18 @@
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
         "point": 2.0,
-        "label": "考え中",
+        "label": "フォトスポット1枚に◯の数は何個あるか",
         "selections": [
-          "45枚",
-          "46枚",
-          "47枚",
-          "48枚"
+          "5個",
+          "6個",
+          "7個",
+          "8個"
         ],
         "answerIndexes": [
-          3
+          2
         ],
         "answerTexts": [
-          "48枚"
+          "7個"
         ]
       }
     },
