@@ -30,6 +30,7 @@ public class Checkpoint {
 	private Date visibleTimeFrom;
 	private Date visibleTimeTo;
 	private String imgSrc;
+	private String balloon;
 
 	public Checkpoint() {
 	}
@@ -37,7 +38,7 @@ public class Checkpoint {
 	public Checkpoint(String id, String name, String label, String description, double lat,
 			double lon, List<String> checkPointGroupIds, String markerColor, String category,
 			String subcategory, Date visibleTimeFrom,
-			Date visibleTimeTo, String imgSrc) {
+			Date visibleTimeTo, String imgSrc, String balloon) {
 		this.id = id;
 		this.name = name;
 		this.label = label;
@@ -51,6 +52,7 @@ public class Checkpoint {
 		this.visibleTimeFrom = visibleTimeFrom;
 		this.visibleTimeTo = visibleTimeTo;
 		this.imgSrc = imgSrc;
+		this.balloon = balloon;
 	}
 
 	public String getId() {
@@ -181,4 +183,11 @@ public class Checkpoint {
 		this.description = description;
 	}
 
+	public String getBalloon() {
+		return balloon;
+	}
+
+	public void setBalloon(String balloon) {
+		this.balloon = balloon;
+	}
 }

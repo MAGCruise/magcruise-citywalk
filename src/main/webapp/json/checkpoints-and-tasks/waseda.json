@@ -10,6 +10,7 @@
       "marker_color": "red",
       "category": "施設",
       "subcategory": "食堂",
+      "balloon": "14号館　101教室",
       "imgSrc": "waseda/icon/cafeteria.jpg",
       "checkpoint_group_ids": [
         "waseda"
@@ -24,6 +25,7 @@
       "marker_color": "green",
       "category": "施設",
       "subcategory": "学習",
+      "balloon": "14号館　101教室",
       "imgSrc": "waseda/icon/pc-room.jpg",
       "checkpoint_group_ids": [
         "waseda"
@@ -38,6 +40,7 @@
       "marker_color": "blue",
       "category": "AED",
       "subcategory": "AED-GROUP-1",
+      "balloon": "14号館　101教室",
       "checkpoint_group_ids": [
         "waseda"
       ]
@@ -51,6 +54,7 @@
       "marker_color": "blue",
       "category": "AED",
       "subcategory": "AED-GROUP-1",
+      "balloon": "14号館　101教室",
       "checkpoint_group_ids": [
         "waseda"
       ]
@@ -64,6 +68,7 @@
       "marker_color": "blue",
       "category": "AED",
       "subcategory": "AED-GROUP-1",
+      "balloon": "14号館　101教室",
       "checkpoint_group_ids": [
         "waseda"
       ]
@@ -77,6 +82,7 @@
       "marker_color": "blue",
       "category": "AED",
       "subcategory": "AED-GROUP-2",
+      "balloon": "14号館　101教室",
       "checkpoint_group_ids": [
         "waseda"
       ]
@@ -90,6 +96,7 @@
       "marker_color": "blue",
       "category": "AED",
       "subcategory": "AED-GROUP-2",
+      "balloon": "14号館　101教室",
       "checkpoint_group_ids": [
         "waseda"
       ]
@@ -103,6 +110,7 @@
       "marker_color": "blue",
       "category": "AED",
       "subcategory": "AED-GROUP-3",
+      "balloon": "14号館　101教室",
       "checkpoint_group_ids": [
         "waseda"
       ]

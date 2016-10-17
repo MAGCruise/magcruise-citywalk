@@ -74,7 +74,7 @@ public class CheckpointsAndTasksFactory {
 						checkpoint.getMarkerColor(),
 						checkpoint.getCategory(), checkpoint.getSubcategory(),
 						checkpoint.getVisibleTimeFrom(), checkpoint.getVisibleTimeTo(),
-						checkpoint.getImgSrc()))
+						checkpoint.getImgSrc(), checkpoint.getBalloon()))
 				.collect(Collectors.toList());
 		return checkpoints;
 	}
