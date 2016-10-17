@@ -236,16 +236,20 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 		verifiedActivities.getActivities(userId).stream()
 				.filter(a -> a.getCheckpointGroupId().equals(checkpointGroupId)).forEach(a -> {
-					result.putIfAbsent(a.getCheckpointId(),
-							new VisitedCheckpointJson(a.getCheckpointId()));
-					VisitedCheckpointJson j = result.get(a.getCheckpointId());
-					j.addScore(a.getScore());
-					Task t = tasks.getTask(a.getTaskId());
-					if (t == null) {
-						log.error("{} is not valid.", a.getTaskId());
-						return;
+					try {
+						result.putIfAbsent(a.getCheckpointId(),
+								new VisitedCheckpointJson(a.getCheckpointId()));
+						Task t = tasks.getTask(a.getTaskId());
+						if (t == null) {
+							log.error("{} is not valid.", a.getTaskId());
+							return;
+						}
+						VisitedCheckpointJson j = result.get(a.getCheckpointId());
+						j.addScore(a.getScore());
+						j.addPoint(t.getContentObject().getPoint());
+					} catch (Throwable e) {
+						log.warn(e, e);
 					}
-					j.addPoint(t.getContentObject().getPoint());
 				});
 		return result.values().toArray(new VisitedCheckpointJson[0]);
 	}
