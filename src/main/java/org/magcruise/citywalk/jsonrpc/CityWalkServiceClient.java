@@ -9,6 +9,7 @@ import org.magcruise.citywalk.model.json.MovementJson;
 import org.magcruise.citywalk.model.json.RankingJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
+import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
 
 import jp.go.nict.langrid.client.jsonrpc.JsonRpcClientFactory;

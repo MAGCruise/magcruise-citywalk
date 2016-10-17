@@ -44,6 +44,7 @@ public class ApplicationContext implements ServletContextListener {
 
 	static {
 		H2Server.start();
+		//ThymeleafTemplateProcessor.setcacheTTLMs(3600 * 1000L);
 	}
 
 	public static DbClient getDbClient() {

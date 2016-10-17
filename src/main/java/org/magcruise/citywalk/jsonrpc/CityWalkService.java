@@ -18,6 +18,7 @@ import org.magcruise.citywalk.model.json.RankJson;
 import org.magcruise.citywalk.model.json.RankingJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
+import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
 import org.magcruise.citywalk.model.relation.MovementsTable;
 import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
