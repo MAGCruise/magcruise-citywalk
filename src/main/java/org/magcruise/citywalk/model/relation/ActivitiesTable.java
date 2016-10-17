@@ -76,8 +76,7 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 	}
 
 	public List<Activity> getActivities(String checkpointGroupId, String userId,
-			String checkpointId,
-			String taskId) {
+			String checkpointId, String taskId) {
 		return getClient().readList(Activity.class,
 				"SELECT * FROM " + getName() + " WHERE " + CHECKPOINT_GROUP_ID + "=? AND " + USER_ID
 						+ "=? AND " + CHECKPOINT_ID + "=? AND " + TASK_ID + "=?",

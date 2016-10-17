@@ -102,10 +102,9 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public RewardJson addActivity(ActivityJson json) {
+	public synchronized RewardJson addActivity(ActivityJson json) {
 		SubmittedActivity a = new SubmittedActivity(json);
 		submittedActivities.insert(a);
-
 		verifyActivity(a);
 
 		return createRewardJson(a.getUserId());
