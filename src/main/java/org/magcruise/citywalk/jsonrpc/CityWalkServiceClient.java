@@ -97,4 +97,10 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 		return false;
 	}
 
+	@Override
+	public boolean join(String userId, String checkpointGroupId) {
+		// TODO 自動生成されたメソッド・スタブ
+		return false;
+	}
+
 }

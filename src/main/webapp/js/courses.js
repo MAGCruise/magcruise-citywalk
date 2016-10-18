@@ -3,7 +3,14 @@ function selectCheckpointGroup(checkpointGroupId) {
           function(data) {
             saveCityWalkData(data.result);
             setCheckpointGroupId(checkpointGroupId);
-            location.href = "checkpoints.html";
+            new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "join", [getUserId(),
+                getCheckpointGroupId()], function(data) {
+              if (data.result) {
+                location.href = "checkpoints.html";
+              } else {
+                alert("参加登録出来ませんでした．");
+              }
+            })).rpc();
           })).rpc();
 }
 
