@@ -107,16 +107,35 @@ function addActivity(task, input, isCorrect) {
     if (isLastTask()) {
       addVisitedCheckPointIds(checkpointId); // 訪問済みチェックポイントに追加
     }
+    var title = "";
     if (isCheckin()) {
-      moveToNextPage();
-      return;
+      title = "チェックイン完了！";
+      title += "<br>" + arg.score + "pt獲得しました．";
+    } else {
+      if (isCorrect) {
+        title += "<br>正解！"
+        title += "<br>" + arg.score + "pt獲得しました．";
+      } else {
+        title += "<br>不正解！";
+        if (task.taskType === "DescriptionTask") {
+          title += "<br>正解は「" + task.answerTexts.join('」，「') + "」でした．";
+        } else if (task.taskType === "SelectionTask") {
+          var answerTexts = [];
+          for (var i = 0; i < task.selections.length; i++) {
+            if (task.answerIndexes.indexOf(i) >= 0) {
+              answerTexts.push(task.selections[i]);
+            }
+          }
+          title += "<br>正解は「" + answerTexts.join('」，「') + "」でした．";
+        }
+      }
     }
-    var title = "タスクを完了しました！";
+
     if (data.result && data.result.badges.length > 0) {
       title = "バッジを獲得しました！";
       $('#modalDesc').html(data.result.badges.toString().replace(",", "</br>"));
     }
-    $('#modalTitle').text(title);
+    $('#modalTitle').html(title);
     $('#modal')[0].click();
   })).rpc();
 }
