@@ -83,9 +83,11 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 				checkpointGroupId, userId, checkpointId, taskId);
 	}
 
-	public List<Map<String, Object>> sumsOfScoreGroupByUserIdOrderByScore() {
+	public List<Map<String, Object>> sumsOfScoreGroupByUserIdOrderByScore(
+			String checkpointGroupId) {
 		return getClient().readMapList("SELECT " + USER_ID + ", SUM(score) AS " + SUM_OF_SCORE
-				+ " FROM " + getName() + " GROUP BY " + USER_ID + " ORDER BY sum_of_score DESC");
+				+ " FROM " + getName() + " WHERE " + CHECKPOINT_GROUP_ID + "=? GROUP BY " + USER_ID
+				+ " ORDER BY sum_of_score DESC", checkpointGroupId);
 
 	}
 
