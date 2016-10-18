@@ -9,6 +9,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.magcruise.citywalk.model.input.DescriptionInput;
 import org.magcruise.citywalk.model.input.Input;
 import org.magcruise.citywalk.model.input.PhotoInput;
+import org.magcruise.citywalk.model.input.PinInput;
 import org.magcruise.citywalk.model.input.QrCodeInput;
 import org.magcruise.citywalk.model.input.SelectionInput;
 import org.magcruise.citywalk.model.json.ActivityJson;
@@ -59,15 +60,15 @@ public class Activity {
 	private static Input convertToInput(String taskType, Map<String, String> inputs) {
 		switch (taskType) {
 		case "PhotoTask":
-			return new PhotoInput();
+			return new PhotoInput(inputs.get("value"));
 		case "QrCodeTask":
-			return new QrCodeInput();
+			return new QrCodeInput(inputs.get("value"));
 		case "SelectionTask":
 			return new SelectionInput(inputs.get("value"));
 		case "DescriptionTask":
 			return new DescriptionInput(inputs.get("value"));
 		case "PinTask":
-			return new DescriptionInput(inputs.get("value"));
+			return new PinInput(inputs.get("value"));
 		}
 		throw new IllegalArgumentException(taskType);
 	}
