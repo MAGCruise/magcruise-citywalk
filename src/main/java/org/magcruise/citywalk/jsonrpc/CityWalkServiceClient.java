@@ -30,8 +30,8 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	}
 
 	@Override
-	public boolean login(String userId, String groupId) {
-		return citywalkService.login(userId, groupId);
+	public boolean login(String userId) {
+		return citywalkService.login(userId);
 	}
 
 	@Override
@@ -47,11 +47,6 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 			log.error(e, e);
 			return null;
 		}
-	}
-
-	@Override
-	public String uploadImage(String userId, String base64EncodedImage) {
-		return citywalkService.uploadImage(userId, base64EncodedImage);
 	}
 
 	@Override
@@ -75,13 +70,13 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	}
 
 	@Override
-	public BadgeJson[] getBadges(String userId) {
-		return citywalkService.getBadges(userId);
+	public BadgeJson[] getBadges(String userId, String checkpointGroupId) {
+		return citywalkService.getBadges(userId, checkpointGroupId);
 	}
 
 	@Override
-	public RankingJson getRanking(String userId) {
-		return citywalkService.getRanking(userId);
+	public RankingJson getRanking(String userId, String checkpointGroupId) {
+		return citywalkService.getRanking(userId, checkpointGroupId);
 	}
 
 	@Override
@@ -97,7 +92,7 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	}
 
 	@Override
-	public boolean logout(String userId) {
+	public boolean logout() {
 		// TODO 自動生成されたメソッド・スタブ
 		return false;
 	}

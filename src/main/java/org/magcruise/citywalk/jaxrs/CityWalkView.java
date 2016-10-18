@@ -62,15 +62,4 @@ public class CityWalkView extends JaxrsView {
 		return false;
 	}
 
-	public String getFullUrl() {
-		StringBuffer requestURL = request.getRequestURL();
-		String queryString = request.getQueryString();
-
-		if (queryString == null) {
-			return requestURL.toString();
-		} else {
-			return requestURL.append('?').append(queryString).toString();
-		}
-	}
-
 }
