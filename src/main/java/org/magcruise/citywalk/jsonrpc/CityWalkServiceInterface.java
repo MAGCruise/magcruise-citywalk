@@ -21,6 +21,9 @@ public interface CityWalkServiceInterface {
 
 	boolean login(@Parameter(sample = "ayaki") String userId);
 
+	boolean join(@Parameter(sample = "ayaki") String userId,
+			@Parameter(sample = "waseda") String checkpointGroupId);
+
 	boolean logout();
 
 	RegisterResultJson register(@Parameter(sample = "ayaki") String userId,
@@ -33,9 +36,11 @@ public interface CityWalkServiceInterface {
 
 	void addMovements(MovementJson[] movements);
 
-	BadgeJson[] getBadges(@Parameter(sample = "ayaki") String userId, String checkpointGroupId);
+	BadgeJson[] getBadges(@Parameter(sample = "ayaki") String userId,
+			@Parameter(sample = "waseda") String checkpointGroupId);
 
-	RankingJson getRanking(@Parameter(sample = "ayaki") String userId, String checkpointGroupId);
+	RankingJson getRanking(@Parameter(sample = "ayaki") String userId,
+			@Parameter(sample = "waseda") String checkpointGroupId);
 
 	VisitedCheckpointJson[] getVisitedCheckpoints(
 			@Parameter(sample = "sample-at-magcruise.org") String userId,

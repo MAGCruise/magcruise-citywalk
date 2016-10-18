@@ -20,12 +20,14 @@ import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
+import org.magcruise.citywalk.model.relation.EntriesTable;
 import org.magcruise.citywalk.model.relation.MovementsTable;
 import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
 import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.relation.UserAccountsTable;
 import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
 import org.magcruise.citywalk.model.row.Activity;
+import org.magcruise.citywalk.model.row.Entry;
 import org.magcruise.citywalk.model.row.Movement;
 import org.magcruise.citywalk.model.row.SubmittedActivity;
 import org.magcruise.citywalk.model.row.Task;
@@ -49,6 +51,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	//private BadgesTable badges = new BadgesTable();
 	private TasksTable tasks = new TasksTable();
 	private MovementsTable movements = new MovementsTable();
+	private EntriesTable entries = new EntriesTable();
 
 	@Override
 	public boolean login(String userId) {
@@ -245,6 +248,16 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 					}
 				});
 		return result.values().toArray(new VisitedCheckpointJson[0]);
+	}
+
+	@Override
+	public boolean join(String userId, String checkpointGroupId) {
+		try {
+			entries.insert(new Entry(userId, checkpointGroupId));
+		} catch (Throwable e) {
+			return false;
+		}
+		return true;
 	}
 
 }

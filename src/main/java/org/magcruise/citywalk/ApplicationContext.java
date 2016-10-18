@@ -18,6 +18,7 @@ import org.magcruise.citywalk.model.json.db.ContentJson;
 import org.magcruise.citywalk.model.json.db.TaskJson;
 import org.magcruise.citywalk.model.relation.BadgesTable;
 import org.magcruise.citywalk.model.relation.CheckpointsTable;
+import org.magcruise.citywalk.model.relation.EntriesTable;
 import org.magcruise.citywalk.model.relation.MovementsTable;
 import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
 import org.magcruise.citywalk.model.relation.TasksTable;
@@ -74,13 +75,14 @@ public class ApplicationContext implements ServletContextListener {
 			new TasksTable().dropTableIfExists();
 		}
 		//		{
+		//			new EntriesTable().dropTableIfExists()
 		//			new UserAccountsTable().dropTableIfExists();
 		//			new BadgesTable().dropTableIfExists();
 		//			new VerifiedActivitiesTable().dropTableIfExists();
 		//			new SubmittedActivitiesTable().dropTableIfExists();
 		//			new MovementsTable().dropTableIfExists();
 		//		}
-		
+		new EntriesTable().createTableIfNotExists();
 		new CheckpointsTable().createTableIfNotExists();
 		new TasksTable().createTableIfNotExists();
 		new UserAccountsTable().createTableIfNotExists();
