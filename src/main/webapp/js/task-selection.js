@@ -6,7 +6,7 @@ $(function() {
   if (getTaskIndex() != 0) {
     $("#back").hide();
   }
-  showCheckeinMessageIfNeeded();
+
   $('#label').text(task.label);
 
   var selectionType = (task.answerIndexes.length == 1) ? "radio" : "checkbox"

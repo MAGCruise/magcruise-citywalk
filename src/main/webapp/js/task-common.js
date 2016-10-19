@@ -78,14 +78,6 @@ function setTaskTitle() {
   document.title = isCheckin() ? "チェックイン" : "タスク";
 }
 
-function showCheckeinMessageIfNeeded() {
-  // チェックイン直後のみ表示する
-  if (parseInt(getParam("task_index")) != 1) { return; }
-  var html = '<div class="row">' + '<div class="col-sm-12">'
-          + '<p class="alert alert-info">チェックインに成功しました！</p>' + '</div>' + '</div>';
-  $("#menu").after(html);
-}
-
 function addActivity(task, input, isCorrect) {
   var checkpointId = getParam("checkpoint_id");
   var arg = {

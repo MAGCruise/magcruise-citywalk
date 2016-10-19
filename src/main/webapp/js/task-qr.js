@@ -5,7 +5,6 @@ $(function() {
   if (getTaskIndex() != 0) {
     $("#back").hide();
   }
-  showCheckeinMessageIfNeeded();
 
   $("#btn-next").click(function() {
     addActivity(task, task.answerQr, true);

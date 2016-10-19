@@ -5,7 +5,6 @@ $(function() {
   if (getTaskIndex() != 0) {
     $("#back").hide();
   }
-  showCheckeinMessageIfNeeded();
 
   $("#loading").hide();
   $("#task-img").attr('src', task.imgSrc);
