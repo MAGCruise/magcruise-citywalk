@@ -73,7 +73,7 @@ function getEventsByWebsocket() {
   };
 }
 
-function CenterControl(controlDiv, map) {
+function createCenterControlUI(controlDiv, map) {
 
   // Set CSS for the control border.
   var controlUI = document.createElement('div');
@@ -98,11 +98,7 @@ function CenterControl(controlDiv, map) {
   controlText.innerHTML = '目的地・現在地を表示';
   controlUI.appendChild(controlText);
 
-  // Setup the click event listeners: simply set the map to Chicago.
-  controlUI.addEventListener('click', function() {
-    updateMapZoomLevelAndCenter();
-  });
-
+  return controlUI;
 }
 
 function initMap() {
@@ -119,11 +115,6 @@ function initMap() {
     zoom: 18
   });
 
-  var centerControlDiv = document.createElement('div');
-  var centerControl = new CenterControl(centerControlDiv, map);
-  centerControlDiv.index = 1;
-  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(centerControlDiv);
-
   // マーカーの追加
   var marker = new google.maps.Marker({
     position: center,
@@ -134,6 +125,22 @@ function initMap() {
     content: checkpoint.balloon
   });
   infoWindow.open(marker.getMap(), marker);
+
+  google.maps.event.addListener(infoWindow, "closeclick", function() {
+    google.maps.event.addListenerOnce(marker, "click", function(event) {
+      infoWindow.open(map, marker);
+    });
+  });
+
+  var centerControlDiv = document.createElement('div');
+  var centerControlUI = createCenterControlUI(centerControlDiv, map);
+  centerControlDiv.index = 1;
+  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(centerControlDiv);
+
+  centerControlUI.addEventListener('click', function() {
+    updateMapZoomLevelAndCenter();
+    infoWindow.open(map, marker);
+  });
 
   // 目的地の設定&位置情報の連続取得
   ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
