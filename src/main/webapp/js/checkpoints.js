@@ -15,6 +15,15 @@ window.onload = function() {
 }
 
 $(function() {
+  if (!navigator || !navigator.geolocation) {
+    alert('位置情報が利用できません．「使い方」ページにGPS設定のヒントを載せています．');
+  }
+  navigator.geolocation.getCurrentPosition(function(pos) { // success
+    console.log("GPS is enable.");
+  }, function(error) {
+    alert('位置情報が利用できません．「使い方」ページにGPS設定のヒントを載せています．');
+  });
+
   if (!document.referrer || document.referrer.indexOf("/task-") != -1) {
     $('#back').off('click');
     $('#back').css("opacity", "0.15");
@@ -287,7 +296,7 @@ function getCurrentPosition() {
   }, {
     enableHighAccuracy: true,
     timeout: 1000 * 60,
-    maximumAge: 1000 * 60,
+    maximumAge: 0,
   });
 }
 
