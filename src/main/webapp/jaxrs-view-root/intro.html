@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
+<script type="text/javascript" src="../js/ua-parser.min.js"></script>
 <title>はじめに</title>
 <style>
 hr {
@@ -15,6 +16,25 @@ hr {
       $("#login").hide();
     } else {
       $("#initial").hide();
+    }
+
+    var uaParser = new UAParser();
+    var errMsg = "OSまたはWebブラウザが推奨環境ではないため，正しく動作しない可能性があります．";
+    if (uaParser.getOS().name === "Windows") {
+      if (uaParser.getBrowser().name !== "Chrome") {
+        alert(errMsg);
+      }
+    } else if (uaParser.getOS().name === "iOS") {
+      if (uaParser.getBrowser().name !== "Chrome"
+              && uaParser.getBrowser().name.indexOf("Safari") == -1) {
+        alert(errMsg);
+      }
+    } else if (uaParser.getOS().name === "Android") {
+      if (uaParser.getBrowser().name !== "Chrome") {
+        alert(errMsg);
+      }
+    } else {
+      alert(errMsg);
     }
   });
 </script>
@@ -37,9 +57,27 @@ hr {
           <li>新たなチェックポイントを目指します．</li>
           <li>ランキング画面で表示される獲得ポイントが50pt以上になったらインフォメーションにお越し下さい．</li>
         </ol>
+        <h4>推奨環境</h4>
+        <p>GPSとインターネット接続が使える以下の環境を推奨します．</p>
+        <ul>
+          <li>iOS (iPhone, iPad, Macなど)
+            <ul>
+              <li>Safari (最新版)</li>
+              <li>Google Chrome (最新版)</li>
+            </ul>
+          </li>
+          <li>Android
+            <ul>
+              <li>Google Chrome (最新版)</li>
+            </ul>
+          </li>
+          <li>Windows
+            <ul>
+              <li>Google Chrome (最新版)</li>
+            </ul>
+          </li>
+        </ul>
         <h4>注意事項</h4>
-        <p>対応Webブラウザは，Safari または Google Chrome (iOS)，Google Chrome
-          (Android)です．また，GPSとインターネット接続を必要とします．</p>
         <p>このアプリでは，ナビ画面を開いている間，GPSログが記録されサーバに送信されます．
           GPSログは，ニックネームとともに保存されますが，論文発表などの学術目的以外には利用されません．</p>
         <p>
