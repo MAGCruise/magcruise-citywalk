@@ -17,6 +17,14 @@ window.onload = function() {
   showCheckpointInfo();
 }
 
+$(function() {
+  $("#current-position").click(function() {
+    if (!cPos) { return; }
+    map.setZoom(17);
+    map.setCenter(cPos);
+  });
+});
+
 // ブラウザがバックグラウンドに一度遷移すると、watchPositionキャンセルされる。
 // そこで、フォアグラウンドに戻ってきた際に、リロードする。initMap()だけでも良いが念のため。
 // ex.)ホームボタンを押す。
@@ -91,11 +99,11 @@ function createCenterControlUI(controlDiv, map) {
   var controlText = document.createElement('div');
   controlText.style.color = 'rgb(25,25,25)';
   controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
-  controlText.style.fontSize = '10px';
+  controlText.style.fontSize = '14px';
   controlText.style.lineHeight = '38px';
   controlText.style.paddingLeft = '5px';
   controlText.style.paddingRight = '5px';
-  controlText.innerHTML = '目的地・現在地を表示';
+  controlText.innerHTML = '目的地を表示';
   controlUI.appendChild(controlText);
 
   return controlUI;
@@ -112,9 +120,14 @@ function initMap() {
     center: center,
     mapTypeControl: false,
     streetViewControl: false,
+    scaleControl: true,
+    scaleControlOptions: {
+      position: google.maps.ControlPosition.BOTTOM_LEFT
+    },
+    // minZoom: 12,
+    // maxZoom: 20,
     zoom: 18
   });
-
   // マーカーの追加
   var marker = new google.maps.Marker({
     position: center,

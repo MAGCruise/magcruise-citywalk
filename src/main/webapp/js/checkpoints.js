@@ -3,7 +3,7 @@ var MAX_ZOOM_LEVEL = 17;
 var map = null;
 var markers = []; // マーカーs
 var infoWindow = null; // バルーン
-var checkpoints =[];
+var checkpoints = [];
 var cPos = null; // 現在地
 var selectedCheckpoint;
 var category = null;
@@ -35,50 +35,50 @@ $(function() {
 
 function updateViews() {
   loadCheckpoints();
-  
+
   initMarkers();
   // 現在地の表示
   drawCurrentLocationCircle(map, cPos, locationsAccuracy);
   // マップの表示位置とズームレベルの調整
   fitMapPositionAndZoomLevel();
-    
+
   initBreadCrumb();
   showList();
 }
 
 function loadCheckpoints() {
-	// 未訪問チェックポイントデータをLocalStorageより取得
-	checkpoints = getNonVisitedCheckPoints();
-	if (category) {
-		checkpoints = checkpoints.filter(function(checkpoint) {
-			return checkpoint.category == category;
-		});
-	}
-	if (subcategory) {
-	  checkpoints = checkpoints.filter(function(checkpoint) {
-	    return checkpoint.subcategory == subcategory;
-	  });
-	}
+  // 未訪問チェックポイントデータをLocalStorageより取得
+  checkpoints = getNonVisitedCheckPoints();
+  if (category) {
+    checkpoints = checkpoints.filter(function(checkpoint) {
+      return checkpoint.category == category;
+    });
+  }
+  if (subcategory) {
+    checkpoints = checkpoints.filter(function(checkpoint) {
+      return checkpoint.subcategory == subcategory;
+    });
+  }
 }
 
 function initBreadCrumb() {
   $("#breadcrumb").empty();
-  
-	if (category == null && subcategory == null) {
-		$("#breadcrumb").hide();
-		return;
-	}
-	
+
+  if (category == null && subcategory == null) {
+    $("#breadcrumb").hide();
+    return;
+  }
+
   // トップ
-	var topElem = $('<span class="link">TOP</span>');
-	$("#breadcrumb").append(topElem);
-	topElem.click(function() {
-	  category = null;
-	  subcategory = null;
-	  updateViews();
+  var topElem = $('<span class="link">TOP</span>');
+  $("#breadcrumb").append(topElem);
+  topElem.click(function() {
+    category = null;
+    subcategory = null;
+    updateViews();
   });
-	// カテゴリ
-	if (category) {
+  // カテゴリ
+  if (category) {
     var categoryElem = $('<span> > ' + category + '</span>');
     if (subcategory) {
       categoryElem.addClass('link');
@@ -87,14 +87,14 @@ function initBreadCrumb() {
         updateViews();
       });
     } else {
-      
+
     }
     $("#breadcrumb").append(categoryElem);
   }
   // サブカテゴリ
   if (subcategory) {
     $("#breadcrumb").append($('<span> > ' + subcategory + '</span>'));
-  } 
+  }
   $("#breadcrumb").show();
 }
 
@@ -113,18 +113,16 @@ function showList() {
 function showCheckpoints() {
   checkpoints.forEach(function(checkpoint, i) {
     var ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
-    var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos,
-            ePos);
+    var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
     var distanceStyle = (distance > 1000) ? "far" : "near";
-    var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg"
-            : "../img/" + checkpoint.imgSrc;
+    var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : "../img/"
+            + checkpoint.imgSrc;
 
     var elem = $('<div class="checkpoint" id="checkpoint-' + checkpoint.id + '">'
             + '<span class="pull-left distance ' + distanceStyle + '">'
-            + getFormattedDistance(distance) + '</span>' + '<img src="'
-            + imgSrc + '" class="pull-left checkpoint-img">'
-            + '<div class="text">' + '<div class="name">' + checkpoint.name
-            + '</div>' + '<div class="detail">' + checkpoint.label + '</div>'
+            + getFormattedDistance(distance) + '</span>' + '<img src="' + imgSrc
+            + '" class="pull-left checkpoint-img">' + '<div class="text">' + '<div class="name">'
+            + checkpoint.name + '</div>' + '<div class="detail">' + checkpoint.label + '</div>'
             + '</div>' + '</div>');
     elem.click(function() {
       selectCheckpoint(checkpoint);
@@ -134,8 +132,8 @@ function showCheckpoints() {
 }
 
 function makeListElemWithoutDistanceAndImage(name) {
-  return $('<div class="checkpoint">' + '<div class="text">'
-          + '<div class="name">' + name + '</div>' + '</div>' + '</div>');
+  return $('<div class="checkpoint">' + '<div class="text">' + '<div class="name">' + name
+          + '</div>' + '</div>' + '</div>');
 }
 
 /* サブカテゴリの表示 */
@@ -201,7 +199,14 @@ function initMap() {
         lat: 0.0,
         lng: 0.0
       },
-    // zoom: 8
+      // zoom: 8
+      mapTypeControl: false,
+      streetViewControl: false,
+      scaleControl: true,
+      scaleControlOptions: {
+        position: google.maps.ControlPosition.BOTTOM_LEFT
+      }
+
     });
   }
 
@@ -210,10 +215,10 @@ function initMap() {
     unselectCheckpoint();
   });
   if (cPos == null) {
-	  // 現在地取得し、チェックポイントリストを表示
-	  getCurrentPosition();
+    // 現在地取得し、チェックポイントリストを表示
+    getCurrentPosition();
   } else {
-	  updateViews();
+    updateViews();
   }
 }
 
@@ -231,8 +236,7 @@ function initMarkers() {
         lng: checkpoint.lon
       },
       map: map,
-      icon: "//maps.google.com/mapfiles/ms/icons/" + checkpoint.markerColor
-              + "-dot.png",
+      icon: "//maps.google.com/mapfiles/ms/icons/" + checkpoint.markerColor + "-dot.png",
       checkpointId: checkpoint.id
     });
     marker.addListener('click', function() {
@@ -246,7 +250,7 @@ function initMarkers() {
 function selectCheckpoint(checkpoint) {
   selectedCheckpoint = checkpoint;
   closeInfoWindow();
-  
+
   // マーカータップ時のバルーンの初期化
   infoWindow = new google.maps.InfoWindow({
     content: checkpoint.balloon
@@ -255,7 +259,7 @@ function selectCheckpoint(checkpoint) {
     return marker.checkpointId === checkpoint.id;
   })[0];
   infoWindow.open(marker.getMap(), marker);
-  
+
   map.setZoom(MAX_ZOOM_LEVEL);
   map.setCenter(marker.getPosition());
   $(".checkpoint").removeClass("selected");
@@ -276,8 +280,7 @@ function getCurrentPosition() {
   }
   navigator.geolocation.getCurrentPosition(function(pos) { // success
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-    console.log("currentPosition: " + pos.coords.latitude + ", "
-            + pos.coords.longitude);
+    console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     locationAccuracy = pos.coords.accuracy;
     updateViews();
   }, function(error) {
