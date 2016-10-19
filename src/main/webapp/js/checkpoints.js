@@ -16,7 +16,11 @@ window.onload = function() {
 
 $(function() {
   if (!document.referrer || document.referrer.indexOf("/task-") != -1) {
-    $("#back").hide();
+    $('#back').off('click');
+    $('#back').css("opacity", "0.15");
+    $('#back').on('click', function() {
+      alert('前のページに戻れません．チェックポイントグループの移動には矢印ボタン下のリストを使って下さい．')
+    });
   }
   unselectCheckpoint();
   $("#current-position").click(function() {
@@ -64,13 +68,8 @@ function loadCheckpoints() {
 function initBreadCrumb() {
   $("#breadcrumb").empty();
 
-  if (category == null && subcategory == null) {
-    $("#breadcrumb").hide();
-    return;
-  }
-
   // トップ
-  var topElem = $('<span class="link">TOP</span>');
+  var topElem = $('<span>カテゴリ：</span><span class="link">TOP</span>');
   $("#breadcrumb").append(topElem);
   topElem.click(function() {
     category = null;

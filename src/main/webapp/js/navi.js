@@ -103,7 +103,7 @@ function createCenterControlUI(controlDiv, map) {
   controlText.style.lineHeight = '38px';
   controlText.style.paddingLeft = '5px';
   controlText.style.paddingRight = '5px';
-  controlText.innerHTML = '目的地を表示';
+  controlText.innerHTML = '目的地と現在地を表示';
   controlUI.appendChild(controlText);
 
   return controlUI;
