@@ -14,7 +14,16 @@ var KEY_MOVEMENT_LIST = "movement_list";
 
 window.onload = function() {
   initMap();
+  showCheckpointInfo();
 }
+
+$(function() {
+  $("#current-position").click(function() {
+    if (!cPos) { return; }
+    map.setZoom(17);
+    map.setCenter(cPos);
+  });
+});
 
 // ブラウザがバックグラウンドに一度遷移すると、watchPositionキャンセルされる。
 // そこで、フォアグラウンドに戻ってきた際に、リロードする。initMap()だけでも良いが念のため。
@@ -37,15 +46,13 @@ $(function() {
             // 既に途中までタスクが進んでいる場合には、完了済みの次のタスクからはじめる
             var taskIndex = (checkpoint.id in getCheckpointProgressDic())
                     ? getCheckpointProgressDic()[checkpoint.id] + 1 : 0;
-            location.href = getTaskURLWithCurrentPosition(checkpoint,
-                    taskIndex, cPos);
+            location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
           });
 
   // コンパス画像の要素
   compassElem = $("#compass");
   // 端末の向きを取得
-  defaultOrientation = (screen.width > screen.height) ? "landscape"
-          : "portrait";
+  defaultOrientation = (screen.width > screen.height) ? "landscape" : "portrait";
   // 電子コンパスイベントの取得
   window.addEventListener("deviceorientation", onHeadingChange);
   getEventsByWebsocket();
@@ -54,16 +61,15 @@ $(function() {
 });
 
 function getEventsByWebsocket() {
-  var wsUrl = getActivityPublisherUrl() + "/" + getCheckpointGroupId() + "/"
-          + checkpoint.id + "/" + getUserId();
+  var wsUrl = getActivityPublisherUrl() + "/" + getCheckpointGroupId() + "/" + checkpoint.id + "/"
+          + getUserId();
   var connection = new WebSocket(wsUrl);
   connection.onmessage = function(e) {
     var messages = JSON.parse(e.data);
     for (var i = 0; i < messages.length; i++) {
       var a = messages[i];
-      var elem = $('<div class="item">' + '<span class="time">'
-              + toFormattedShortDate(a.created) + '</span>'
-              + '<span class="name">' + a.userId + '</span>' + 'さんがチェックインしました。'
+      var elem = $('<div class="item">' + '<span class="time">' + toFormattedShortDate(a.created)
+              + '</span>' + '<span class="name">' + a.userId + '</span>' + 'さんがチェックインしました。'
               + '</div>');
       $('#notification').prepend(elem);
     }
@@ -75,13 +81,51 @@ function getEventsByWebsocket() {
   };
 }
 
+function createCenterControlUI(controlDiv, map) {
+
+  // Set CSS for the control border.
+  var controlUI = document.createElement('div');
+  controlUI.style.backgroundColor = '#fff';
+  controlUI.style.border = '2px solid #fff';
+  controlUI.style.borderRadius = '3px';
+  controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+  controlUI.style.cursor = 'pointer';
+  controlUI.style.marginBottom = '22px';
+  controlUI.style.textAlign = 'center';
+  controlUI.title = 'Click to recenter the map';
+  controlDiv.appendChild(controlUI);
+
+  // Set CSS for the control interior.
+  var controlText = document.createElement('div');
+  controlText.style.color = 'rgb(25,25,25)';
+  controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+  controlText.style.fontSize = '14px';
+  controlText.style.lineHeight = '38px';
+  controlText.style.paddingLeft = '5px';
+  controlText.style.paddingRight = '5px';
+  controlText.innerHTML = '目的地と現在地を表示';
+  controlUI.appendChild(controlText);
+
+  return controlUI;
+}
+
 function initMap() {
+
   var center = {
     lat: checkpoint.lat,
     lng: checkpoint.lon
   };
+
   map = new google.maps.Map(document.getElementById('map'), {
     center: center,
+    mapTypeControl: false,
+    streetViewControl: false,
+    scaleControl: true,
+    scaleControlOptions: {
+      position: google.maps.ControlPosition.BOTTOM_LEFT
+    },
+    // minZoom: 12,
+    // maxZoom: 20,
     zoom: 18
   });
   // マーカーの追加
@@ -95,6 +139,22 @@ function initMap() {
   });
   infoWindow.open(marker.getMap(), marker);
 
+  google.maps.event.addListener(infoWindow, "closeclick", function() {
+    google.maps.event.addListenerOnce(marker, "click", function(event) {
+      infoWindow.open(map, marker);
+    });
+  });
+
+  var centerControlDiv = document.createElement('div');
+  var centerControlUI = createCenterControlUI(centerControlDiv, map);
+  centerControlDiv.index = 1;
+  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(centerControlDiv);
+
+  centerControlUI.addEventListener('click', function() {
+    updateMapZoomLevelAndCenter();
+    infoWindow.open(map, marker);
+  });
+
   // 目的地の設定&位置情報の連続取得
   ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
   watchCurrentPosition();
@@ -107,11 +167,9 @@ function watchCurrentPosition() {
   }
   watchID = window.navigator.geolocation.watchPosition(function(pos) {
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-    console.log("currentPosition: " + pos.coords.latitude + ", "
-            + pos.coords.longitude);
+    console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     showDistance();
     enqueueMovement(pos);
-    updateMapZoomLevel();
     updateCurrentCircle(pos.coords.accuracy);
   }, function(error) {
     alert('位置情報の取得に失敗しました');
@@ -126,8 +184,7 @@ function watchCurrentPosition() {
 /* 残り距離を表示 */
 function showDistance() {
   if (cPos == null || ePos == null) { return; }
-  var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos,
-          ePos);
+  var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
   $("#distance").text(getFormattedDistance(distance));
 }
 
@@ -137,8 +194,7 @@ function getFormattedDistance(distance) {
   } else {
     var distanceStr = String(Math.round(distance));
     if (distanceStr.length >= 4) {
-      distanceStr = distanceStr.slice(0, 1) + ","
-              + distanceStr.slice(1, distanceStr.length);
+      distanceStr = distanceStr.slice(0, 1) + "," + distanceStr.slice(1, distanceStr.length);
     }
     return distanceStr + "m";
   }
@@ -149,8 +205,7 @@ function getBrowserOrientation() {
   if (screen.orientation && screen.orientation.type) {
     orientation = screen.orientation.type;
   } else {
-    orientation = screen.orientation || screen.mozOrientation
-            || screen.msOrientation;
+    orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
   }
   /*
    * 'portait-primary': for (screen width < screen height, e.g. phone, phablet,
@@ -225,11 +280,9 @@ function showCompass(heading) {
   var absoluteAngle = google.maps.geometry.spherical.computeHeading(cPos, ePos);
   // apply rotation to compass
   if (compassElem.css("transform")) {
-    compassElem
-            .css("transform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
+    compassElem.css("transform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
   } else if (compassElem.css("webkitTransform")) {
-    compassElem.css("webkitTransform", 'rotate(' + (absoluteAngle - heading)
-            + 'deg)');
+    compassElem.css("webkitTransform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
   }
 }
 
@@ -270,22 +323,20 @@ var postMovementsFunc = function() {
   var lastMovements = getMovementQueue();
   if (movements.length == 0) { return; }
   removeItem(KEY_MOVEMENT_LIST); // クリア
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addMovements",
-          [movements], function(data) {
-            // console.log(data);
-          }, function(data, textStatus, errorThrown) {
-            console.error("fail to add movement.");
-            console.error(textStatus + ', ' + errorThrown + '. response: '
-                    + JSON.stringify(data));
-            console.error('request: ' + JSON.stringify(JSON.stringify(this)));
-            // リストア
-            var newMovements = lastMovements.concat(getMovementQueue());
-            setMovementQueue(newMovements);
-          })).rpc();
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addMovements", [movements], function(data) {
+    // console.log(data);
+  }, function(data, textStatus, errorThrown) {
+    console.error("fail to add movement.");
+    console.error(textStatus + ', ' + errorThrown + '. response: ' + JSON.stringify(data));
+    console.error('request: ' + JSON.stringify(JSON.stringify(this)));
+    // リストア
+    var newMovements = lastMovements.concat(getMovementQueue());
+    setMovementQueue(newMovements);
+  })).rpc();
 }
 
-/* マップのズームレベルを調整 */
-function updateMapZoomLevel() {
+/* マップのズームレベルと中央位置を調整 */
+function updateMapZoomLevelAndCenter() {
   var minLat, maxLat, minLng, maxLng;
   if (cPos.lat() > ePos.lat()) {
     minLat = ePos.lat();
@@ -319,4 +370,16 @@ function updateCurrentCircle(accuracy) {
     cCircle.setMap(null);
   }
   cCircle = drawCurrentLocationCircle(map, cPos, accuracy);
+}
+
+function showCheckpointInfo() {
+  var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : "../img/" + checkpoint.imgSrc;
+  var html = '<div class="row checkpoint">'
+          + '<i class="fa fa-check-square" aria-hidden="true"></i>' + '<img src="' + imgSrc
+          + '" class="img-responsive img col-xs-3 col-sm-3 col-md-2 col-lg-2">'
+          + '<div class="col-xs-9 col-sm-9 col-md-10 col-lg-10 description">' + '<p class="name">'
+          + checkpoint.name + '</p>' + checkpoint.label
+          + '<br/><p style="word-break: break-word;">' + (checkpoint.description || "") + '</p>'
+          + '</div>' + '</div>';
+  $('#checkpoint').append(html);
 }

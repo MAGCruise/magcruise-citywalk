@@ -118,18 +118,14 @@
   ],
   "tasks": [
     {
-      "id": "cafeteria-photo",
-      "checkpoint_ids": [
-        "cafeteria"
-      ],
-      "content": {
-        "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
+      "id": "cafeteria-phpto",
+      "checkpoint_ids": ["cafeteria"],
+      "content":{
+        "instanceClass": "org.magcruise.citywalk.model.task.PhotoTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
-        "answerTexts": [
-          "1111"
-        ]
+        "label": "表示されている写真と同じ写真を撮って下さい．",
+        "imgSrc": "waseda/task/checkin-cafeteria.jpg"
       }
     },
     {

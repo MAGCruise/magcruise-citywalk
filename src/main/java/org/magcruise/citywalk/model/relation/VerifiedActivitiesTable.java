@@ -15,8 +15,8 @@ public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 		super(TABLE_NAME);
 	}
 
-	public RankJson getRankJson(String userId) {
-		List<Map<String, Object>> scores = sumsOfScoreGroupByUserIdOrderByScore();
+	public RankJson getRankJson(String userId, String checkpointGroupId) {
+		List<Map<String, Object>> scores = sumsOfScoreGroupByUserIdOrderByScore(checkpointGroupId);
 		int rank = 0;
 		double lastScore = Integer.MAX_VALUE;
 		for (int i = 0; i < scores.size(); i++) {
@@ -36,12 +36,12 @@ public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 		return new RankJson(userId, -1, 0);
 	}
 
-	public List<RankJson> getRanksJson() {
+	public List<RankJson> getRanksJson(String checkpointGroupId) {
 		List<RankJson> result = new ArrayList<>();
-		List<Map<String, Object>> scores = sumsOfScoreGroupByUserIdOrderByScore();
+		List<Map<String, Object>> scores = sumsOfScoreGroupByUserIdOrderByScore(checkpointGroupId);
 		for (int i = 0; i < scores.size(); i++) {
 			try {
-				result.add(getRankJson(scores.get(i).get(USER_ID).toString()));
+				result.add(getRankJson(scores.get(i).get(USER_ID).toString(), checkpointGroupId));
 			} catch (Throwable t) {
 				log.error(t);
 			}

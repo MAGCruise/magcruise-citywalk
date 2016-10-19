@@ -20,12 +20,14 @@ import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
+import org.magcruise.citywalk.model.relation.EntriesTable;
 import org.magcruise.citywalk.model.relation.MovementsTable;
 import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
 import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.relation.UserAccountsTable;
 import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
 import org.magcruise.citywalk.model.row.Activity;
+import org.magcruise.citywalk.model.row.Entry;
 import org.magcruise.citywalk.model.row.Movement;
 import org.magcruise.citywalk.model.row.SubmittedActivity;
 import org.magcruise.citywalk.model.row.Task;
@@ -49,9 +51,10 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	//private BadgesTable badges = new BadgesTable();
 	private TasksTable tasks = new TasksTable();
 	private MovementsTable movements = new MovementsTable();
+	private EntriesTable entries = new EntriesTable();
 
 	@Override
-	public boolean login(String userId, String groupId) {
+	public boolean login(String userId) {
 		if (!users.exists(userId)) {
 			log.error("{} is not registered yet.", userId);
 			return false;
@@ -65,22 +68,17 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 				log.debug("userId is changed from {} to {}", session.getUserId(), userId);
 				session.setUserId(userId);
 			}
-			if (!session.getGroupId().equals(groupId)) {
-				log.debug("groupId is changed from {} to {}", session.getGroupId(), groupId);
-				session.setGroupId(groupId);
-			}
 			return true;
 		} else {
 			log.debug("create new session for {}", userId);
 			session.setMaxInactiveInterval(10 * 60 * 60);
 			session.setUserId(userId);
-			session.setGroupId(groupId);
 			return true;
 		}
 	}
 
 	@Override
-	public boolean logout(String userId) {
+	public boolean logout() {
 		return getSession().logout();
 	}
 
@@ -88,7 +86,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	public RegisterResultJson register(String userId, String groupId) {
 		if (!users.exists(userId)) {
 			users.insert(new UserAccount(userId, groupId));
-			login(userId, groupId);
+			login(userId);
 			return new RegisterResultJson(true, "");
 		}
 		int i = 0;
@@ -107,7 +105,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		submittedActivities.insert(a);
 		verifyActivity(a);
 
-		return createRewardJson(a.getUserId());
+		return createRewardJson(a.getUserId(), a.getCheckpointGroupId());
 	}
 
 	private void verifyActivity(Activity a) {
@@ -120,8 +118,8 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	}
 
-	private RewardJson createRewardJson(String userId) {
-		int rank = verifiedActivities.getRankJson(userId).getRank();
+	private RewardJson createRewardJson(String userId, String checkpointGroupId) {
+		int rank = verifiedActivities.getRankJson(userId, checkpointGroupId).getRank();
 		List<String> badges = calculateBadges(userId);
 		return new RewardJson(rank, badges);
 	}
@@ -154,7 +152,6 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		return result;
 	}
 
-	@Override
 	public String uploadImage(String userId, String base64EncodedImage) {
 		try {
 			log.debug(base64EncodedImage);
@@ -201,7 +198,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public BadgeJson[] getBadges(String userId) {
+	public BadgeJson[] getBadges(String userId, String checkpointGroupId) {
 		List<BadgeJson> badges = new ArrayList<>();
 		//		badges.add(new BadgeJson("AEDマスター", "img/badge-aed-master.jog"));
 		//		badges.add(new BadgeJson("早稲田マスター", "img/badge-waseda-master.jog"));
@@ -210,17 +207,17 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public RankingJson getRanking(String userId) {
+	public RankingJson getRanking(String userId, String checkpointGroupId) {
 		RankingJson rankingJson = new RankingJson();
 		try {
-			rankingJson.setRank(verifiedActivities.getRankJson(userId));
+			rankingJson.setRank(verifiedActivities.getRankJson(userId, checkpointGroupId));
 		} catch (Exception e) {
 			rankingJson.setRank(new RankJson(userId, -1, 0));
 		}
 		rankingJson.setGroupRank(new RankJson("g1", -1, 0));
 
 		try {
-			rankingJson.setRanking(verifiedActivities.getRanksJson());
+			rankingJson.setRanking(verifiedActivities.getRanksJson(checkpointGroupId));
 		} catch (Exception e) {
 			rankingJson.setRanking(new ArrayList<>());
 		}
@@ -251,6 +248,16 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 					}
 				});
 		return result.values().toArray(new VisitedCheckpointJson[0]);
+	}
+
+	@Override
+	public boolean join(String userId, String checkpointGroupId) {
+		try {
+			entries.insert(new Entry(userId, checkpointGroupId));
+		} catch (Throwable e) {
+			return false;
+		}
+		return true;
 	}
 
 }

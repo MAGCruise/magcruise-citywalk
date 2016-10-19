@@ -11,7 +11,20 @@ var KEY_CHECKPOINT_PROGRESS_DIC = "checkpoint_progress_dic";
 $(function() {
   setNavTitle();
   setUserNameInMenu();
+  setBack();
 });
+
+function setBack() {
+  if (!document.referrer) {
+    $('#back').css("opacity", "0.15");
+  }
+  $('#back').on('click', function() {
+    if (!document.referrer) {
+      alert('前ページが存在しないため戻れません')
+    }
+    window.history.back(-1);
+  });
+}
 
 function setUserNameInMenu() {
   if (getUserId()) {

@@ -1,5 +1,6 @@
 $(function() {
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getBadges", [getUserId()], function(data) {
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getBadges", [getUserId(),
+      getCheckpointGroupId()], function(data) {
     initBadgesView(data.result);
   })).rpc();
 });

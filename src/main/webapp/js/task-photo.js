@@ -5,20 +5,14 @@ $(function() {
   if (getTaskIndex() != 0) {
     $("#back").hide();
   }
-  showCheckeinMessageIfNeeded();
 
   $("#loading").hide();
   $("#task-img").attr('src', task.imgSrc);
-  $("#btn-next").click(
-          function() {
-            $("#loading").fadeIn();
-            var imgData = $("#img-preview").attr('src');
-            new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "uploadImage",
-                    [getUserId(), imgData], function(data) {
-                      $("#loading").fadeOut();
-                      addActivity(task, "", true);
-                    })).rpc();
-          });
+  $("#btn-next").click(function() {
+    $("#loading").fadeIn();
+    var imgData = $("#img-preview").attr('src');
+    addActivity(task, imgData, true);
+  });
 });
 
 function handleFiles(files) {
