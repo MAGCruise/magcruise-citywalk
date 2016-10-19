@@ -19,7 +19,7 @@
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
       <div class="col-sm-12">
-        <span class="pull-left" id="distance-prefix">あと</span><span class="pull-left" id="distance"></span>
+        <span class="pull-left" id="distance-prefix">残り約</span><span class="pull-left" id="distance"></span>
         <a class="btn btn-primary pull-right" id="btn-next" role="button">チェックイン</a>
       </div>
     </div>
@@ -34,6 +34,12 @@
         <div id="map"></div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="checkpoint"></div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-sm-12">
         <h3 id="activity-title"></h3>

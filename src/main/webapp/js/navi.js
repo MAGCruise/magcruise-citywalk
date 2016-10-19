@@ -14,6 +14,7 @@ var KEY_MOVEMENT_LIST = "movement_list";
 
 window.onload = function() {
   initMap();
+  showCheckpointInfo();
 }
 
 // ブラウザがバックグラウンドに一度遷移すると、watchPositionキャンセルされる。
@@ -37,15 +38,13 @@ $(function() {
             // 既に途中までタスクが進んでいる場合には、完了済みの次のタスクからはじめる
             var taskIndex = (checkpoint.id in getCheckpointProgressDic())
                     ? getCheckpointProgressDic()[checkpoint.id] + 1 : 0;
-            location.href = getTaskURLWithCurrentPosition(checkpoint,
-                    taskIndex, cPos);
+            location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
           });
 
   // コンパス画像の要素
   compassElem = $("#compass");
   // 端末の向きを取得
-  defaultOrientation = (screen.width > screen.height) ? "landscape"
-          : "portrait";
+  defaultOrientation = (screen.width > screen.height) ? "landscape" : "portrait";
   // 電子コンパスイベントの取得
   window.addEventListener("deviceorientation", onHeadingChange);
   getEventsByWebsocket();
@@ -54,16 +53,15 @@ $(function() {
 });
 
 function getEventsByWebsocket() {
-  var wsUrl = getActivityPublisherUrl() + "/" + getCheckpointGroupId() + "/"
-          + checkpoint.id + "/" + getUserId();
+  var wsUrl = getActivityPublisherUrl() + "/" + getCheckpointGroupId() + "/" + checkpoint.id + "/"
+          + getUserId();
   var connection = new WebSocket(wsUrl);
   connection.onmessage = function(e) {
     var messages = JSON.parse(e.data);
     for (var i = 0; i < messages.length; i++) {
       var a = messages[i];
-      var elem = $('<div class="item">' + '<span class="time">'
-              + toFormattedShortDate(a.created) + '</span>'
-              + '<span class="name">' + a.userId + '</span>' + 'さんがチェックインしました。'
+      var elem = $('<div class="item">' + '<span class="time">' + toFormattedShortDate(a.created)
+              + '</span>' + '<span class="name">' + a.userId + '</span>' + 'さんがチェックインしました。'
               + '</div>');
       $('#notification').prepend(elem);
     }
@@ -107,8 +105,7 @@ function watchCurrentPosition() {
   }
   watchID = window.navigator.geolocation.watchPosition(function(pos) {
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-    console.log("currentPosition: " + pos.coords.latitude + ", "
-            + pos.coords.longitude);
+    console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     showDistance();
     enqueueMovement(pos);
     updateMapZoomLevel();
@@ -126,8 +123,7 @@ function watchCurrentPosition() {
 /* 残り距離を表示 */
 function showDistance() {
   if (cPos == null || ePos == null) { return; }
-  var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos,
-          ePos);
+  var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
   $("#distance").text(getFormattedDistance(distance));
 }
 
@@ -137,8 +133,7 @@ function getFormattedDistance(distance) {
   } else {
     var distanceStr = String(Math.round(distance));
     if (distanceStr.length >= 4) {
-      distanceStr = distanceStr.slice(0, 1) + ","
-              + distanceStr.slice(1, distanceStr.length);
+      distanceStr = distanceStr.slice(0, 1) + "," + distanceStr.slice(1, distanceStr.length);
     }
     return distanceStr + "m";
   }
@@ -149,8 +144,7 @@ function getBrowserOrientation() {
   if (screen.orientation && screen.orientation.type) {
     orientation = screen.orientation.type;
   } else {
-    orientation = screen.orientation || screen.mozOrientation
-            || screen.msOrientation;
+    orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
   }
   /*
    * 'portait-primary': for (screen width < screen height, e.g. phone, phablet,
@@ -225,11 +219,9 @@ function showCompass(heading) {
   var absoluteAngle = google.maps.geometry.spherical.computeHeading(cPos, ePos);
   // apply rotation to compass
   if (compassElem.css("transform")) {
-    compassElem
-            .css("transform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
+    compassElem.css("transform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
   } else if (compassElem.css("webkitTransform")) {
-    compassElem.css("webkitTransform", 'rotate(' + (absoluteAngle - heading)
-            + 'deg)');
+    compassElem.css("webkitTransform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
   }
 }
 
@@ -270,18 +262,16 @@ var postMovementsFunc = function() {
   var lastMovements = getMovementQueue();
   if (movements.length == 0) { return; }
   removeItem(KEY_MOVEMENT_LIST); // クリア
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addMovements",
-          [movements], function(data) {
-            // console.log(data);
-          }, function(data, textStatus, errorThrown) {
-            console.error("fail to add movement.");
-            console.error(textStatus + ', ' + errorThrown + '. response: '
-                    + JSON.stringify(data));
-            console.error('request: ' + JSON.stringify(JSON.stringify(this)));
-            // リストア
-            var newMovements = lastMovements.concat(getMovementQueue());
-            setMovementQueue(newMovements);
-          })).rpc();
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addMovements", [movements], function(data) {
+    // console.log(data);
+  }, function(data, textStatus, errorThrown) {
+    console.error("fail to add movement.");
+    console.error(textStatus + ', ' + errorThrown + '. response: ' + JSON.stringify(data));
+    console.error('request: ' + JSON.stringify(JSON.stringify(this)));
+    // リストア
+    var newMovements = lastMovements.concat(getMovementQueue());
+    setMovementQueue(newMovements);
+  })).rpc();
 }
 
 /* マップのズームレベルを調整 */
@@ -319,4 +309,16 @@ function updateCurrentCircle(accuracy) {
     cCircle.setMap(null);
   }
   cCircle = drawCurrentLocationCircle(map, cPos, accuracy);
+}
+
+function showCheckpointInfo() {
+  var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : "../img/" + checkpoint.imgSrc;
+  var html = '<div class="row checkpoint">'
+          + '<i class="fa fa-check-square" aria-hidden="true"></i>' + '<img src="' + imgSrc
+          + '" class="img-responsive img col-xs-3 col-sm-3 col-md-2 col-lg-2">'
+          + '<div class="col-xs-9 col-sm-9 col-md-10 col-lg-10 description">' + '<p class="name">'
+          + checkpoint.name + '</p>' + checkpoint.label
+          + '<br/><p style="word-break: break-word;">' + (checkpoint.description || "") + '</p>'
+          + '</div>' + '</div>';
+  $('#checkpoint').append(html);
 }
