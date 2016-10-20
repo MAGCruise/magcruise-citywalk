@@ -2,28 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
-<title>使い方</title>
+<title>ヘルプ</title>
 <style>
 hr {
   border-top: 1px solid #ddd;
 }
 </style>
-<script>
-  $(function() {
-    $("#nav-menu").hide();
-    if (getUserId()) {
-      $(".initial").hide();
-    }
-
-  });
-</script>
 </head>
 <body>
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
       <div class="col-sm-12">
-        <h4 id="gps-settings">[端末の現在位置/方向が取得できません]</h4>
+        <h4 id="gps-settings">「端末の現在位置/方向が取得できません」が表示される</h4>
         <p>このメッセージが表示されているとき，端末の現在位置/方向が取得できていないため，正常なナビゲーションが出来ません．</p>
         <p>周辺の状況を見ながら，ユーザ自身の力でチェックポイントまで移動して下さい．</p>
         <h4>予想される原因</h4>
