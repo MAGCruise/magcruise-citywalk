@@ -16,6 +16,12 @@ window.onload = function() {
 }
 
 $(function() {
+  if (!category || !subcategory) {
+    loadCheckpoints();
+    initBreadCrumb();
+    showList();
+  }
+
   if (document.referrer) {
     if (document.referrer.indexOf("/task-") != -1) {
       $('#back').off('click');
@@ -38,9 +44,6 @@ $(function() {
 });
 
 function updateViews() {
-  if (cPos == null) {
-    cPos = new google.maps.LatLng(35.71079167, 139.7193);
-  }
   loadCheckpoints();
 
   initMarkers();
@@ -77,7 +80,8 @@ function initBreadCrumb() {
   topElem.click(function() {
     category = null;
     subcategory = null;
-    updateViews();
+    location.href = "./checkpoints.html";
+    // updateViews();
   });
   // カテゴリ
   if (category) {
@@ -86,7 +90,8 @@ function initBreadCrumb() {
       categoryElem.addClass('link');
       categoryElem.click(function() {
         subcategory = null;
-        updateViews();
+        location.href = "./checkpoints.html" + "?category=" + category;
+        // updateViews();
       });
     } else {
 
@@ -220,12 +225,7 @@ function initMap() {
   google.maps.event.addListener(map, "dragend", function() {
     unselectCheckpoint();
   });
-  if (cPos == null) {
-    // 現在地取得し、チェックポイントリストを表示
-    getCurrentPosition();
-  } else {
-    updateViews();
-  }
+  getCurrentPositionAndUpdateViews();
 }
 
 function initMarkers() {
@@ -280,7 +280,7 @@ function unselectCheckpoint() {
   $("#nav-start").hide();
 }
 
-function getCurrentPosition() {
+function getCurrentPositionAndUpdateViews() {
   if (!navigator || !navigator.geolocation) {
     $('#gps-error-msg').show();
     enableGps = false;
@@ -294,6 +294,7 @@ function getCurrentPosition() {
     $('#gps-error-msg').hide();
   }, function(error) {
     enableGps = false;
+    cPos = new google.maps.LatLng(35.71079167, 139.7193);
     updateViews();
     $('#gps-error-msg').show();
   }, {
