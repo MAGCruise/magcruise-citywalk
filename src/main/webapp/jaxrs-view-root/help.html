@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+<object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
+<title>使い方</title>
+<style>
+hr {
+  border-top: 1px solid #ddd;
+}
+</style>
+<script>
+  $(function() {
+    $("#nav-menu").hide();
+    if (getUserId()) {
+      $(".initial").hide();
+    }
+
+  });
+</script>
+</head>
+<body>
+  <div class="container">
+    <div th:replace="/fragment/header.html :: top-menu"></div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h4 id="gps-settings">[端末の現在位置/方向が取得できません]</h4>
+        <p>このメッセージが表示されているとき，端末の現在位置/方向が取得できていないため，正常なナビゲーションが出来ません．</p>
+        <p>周辺の状況を見ながら，ユーザ自身の力でチェックポイントまで移動して下さい．</p>
+        <h4>予想される原因</h4>
+        <h5>開けた場所にいますか？</h5>
+        <ul>
+          <li>屋内にいるときGPSによる測位が出来ないことがあります．</li>
+        </ul>
+        <h5>端末のGPSがONになっていますか？</h5>
+        <ul>
+          <li>iOSの場合：端末のホーム画面で，[設定]＞[プライバシー]＞[位置情報サービス] をタップし，[位置情報]をオンにします．
+            <div class="media">
+              <img class="media-object img-thumbnail center-block" src="../img/web/gps-ios.png"
+                style="max-width: 280px;">
+            </div>
+          </li>
+        </ul>
+        <h5>wasenavi.magcruise.orgに[位置情報の利用許可]を与えていますか？</h5>
+        <ul>
+          <li>iOSでSafariをお使いの場合：
+            端末のホーム画面で，[設定]＞[プライバシー]＞[位置情報サービス]＞[Safariのサイト]をタップし，位置情報を[許可しない]から[このAppの使用中のみ許可]に変更する．</li>
+          <li>Google Chromeをお使いの場合：
+            アドレスバーの先頭の鍵のアイコンをクリックすると，[権限：現在地]が表示されます．ここで[このサイトでは常に許可]を選んで下さい．
+            <div class="media">
+              <img class="media-object img-thumbnail center-block" src="../img/web/gps-chrome.png"
+                style="max-width: 280px;">
+            </div>
+          </li>
+        </ul>
+        <hr>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
