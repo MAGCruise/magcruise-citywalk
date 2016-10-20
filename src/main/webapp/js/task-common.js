@@ -129,6 +129,8 @@ function addActivity(task, input, isCorrect) {
     }
     $('#modalTitle').html(title);
     $('#modal')[0].click();
+  }, function(error) {
+    alert("送信失敗．もう一度送信して下さい．");
   })).rpc();
 }
 
