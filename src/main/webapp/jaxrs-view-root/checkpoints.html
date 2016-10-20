@@ -7,6 +7,12 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyGENOzS6lKjopS39UlIzljj5lj7Pl1ss&libraries=geometry"></script>
 <link rel="stylesheet" href="../css/checkpoints.css" />
 <title>未訪問チェックポイント</title>
+<style>
+#gps-error-msg {
+  padding: 0 1em;
+  margin:0;
+}
+</style>
 </head>
 <head th:remove="all">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -18,7 +24,9 @@
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
       <div class="col-sm-12">
-        <div id="gps-error-msg" class="alert alert-warning" style="display: none;">現在，位置情報を利用できません．</div>
+        <div id="gps-error-msg" class="alert alert-warning" style="display: none;">
+          現在，端末の位置情報が利用できません (<a href="how-to-use.html#gps-settings">ヘルプ</a>)
+        </div>
       </div>
     </div>
     <div class="row">

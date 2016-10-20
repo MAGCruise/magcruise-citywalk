@@ -4,7 +4,8 @@ var map = null;
 var markers = []; // マーカーs
 var infoWindow = null; // バルーン
 var checkpoints = [];
-var cPos = null; // 現在地
+var cPos = null;
+; // 現在地
 var selectedCheckpoint;
 var category = null;
 var subcategory = null;
@@ -15,15 +16,6 @@ window.onload = function() {
 }
 
 $(function() {
-  if (!navigator || !navigator.geolocation) {
-    alert('位置情報を利用できません．「使い方」ページにGPS設定のヒントを載せています．');
-  }
-  navigator.geolocation.getCurrentPosition(function(pos) { // success
-    console.log("GPS is enable.");
-  }, function(error) {
-    alert('位置情報を利用できません．「使い方」ページにGPS設定のヒントを載せています．');
-  });
-
   if (!document.referrer || document.referrer.indexOf("/task-") != -1) {
     $('#back').off('click');
     $('#back').css("opacity", "0.15");
@@ -47,6 +39,9 @@ $(function() {
 });
 
 function updateViews() {
+  if (cPos == null) {
+    cPos = new google.maps.LatLng(35.71079167, 139.7193);
+  }
   loadCheckpoints();
 
   initMarkers();
@@ -293,6 +288,7 @@ function getCurrentPosition() {
     updateViews();
     $('#gps-error-msg').hide();
   }, function(error) {
+    updateViews();
     $('#gps-error-msg').show();
   }, {
     enableHighAccuracy: true,
