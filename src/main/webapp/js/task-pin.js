@@ -25,7 +25,14 @@ $(function() {
   $(answerSel).keyup(checkChange(this));
 
   $(buttonSel).click(function() {
-    var text = $(answerSel).val();
+    var text = $(answerSel).val().replace(/\s+/g, "").replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
+      return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+    });
+    if (!/^[0-9]{4}$/g.test(text)) {
+      alert("半角数字4桁を入力しているか確認して下さい．");
+      return;
+    }
+
     addAnswerDic(checkpoint, task, text);
 
     var isCorrect = false;
