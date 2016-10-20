@@ -55,7 +55,7 @@ function getTaskURLWithLatLon(checkpoint, taskIndex, lat, lon) {
 }
 
 function getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos) {
-  return getTaskURLWithLatLon(checkpoint, taskIndex, cPos.lat(), cPos.lng())
+  return getTaskURLWithLatLon(checkpoint, taskIndex, cPos ? cPos.lat() : 0, cPos ? cPos.lng() : 0)
 }
 
 function isLastTask() {
