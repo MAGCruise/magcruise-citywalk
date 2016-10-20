@@ -5,17 +5,16 @@
 <link rel="stylesheet" href="../css/top.css" />
 <title></title>
 <script>
-	$(function() {
-		$("#back").hide();
-		$("#nav-menu").hide();
+  $(function() {
+    $("#back").hide();
+    $("#nav-menu").hide();
 
-		if (!getUserId()) {
-			$("#login").hide();
-		} else {
-			$("#initial").hide();
-		}
-
-	});
+    if (!getUserId()) {
+      $("#login").hide();
+    } else {
+      $("#initial").hide();
+    }
+  });
 </script>
 </head>
 <head th:remove="all">
@@ -29,11 +28,11 @@
     <div class="row">
       <div class="col-sm-12 description">
         <div class="col-sm-12">
-          <div id="initial" class="course">
-            <a href="intro.html">はじめての方</a>
-          </div>
           <div id="login" class="course">
             <a href="login.html">ログイン</a>
+          </div>
+          <div class="course">
+            <a href="intro.html">はじめての方</a>
           </div>
         </div>
       </div>

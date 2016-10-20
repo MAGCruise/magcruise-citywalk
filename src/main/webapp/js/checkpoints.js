@@ -4,12 +4,13 @@ var map = null;
 var markers = []; // マーカーs
 var infoWindow = null; // バルーン
 var checkpoints = [];
-var cPos = null; // 現在地
+var cPos = null;
+; // 現在地
 var selectedCheckpoint;
 var category = null;
 var subcategory = null;
 var locationsAccuracy = 10;
-
+var enableGps = false;
 window.onload = function() {
   initMap();
 }
@@ -38,6 +39,9 @@ $(function() {
 });
 
 function updateViews() {
+  if (cPos == null) {
+    cPos = new google.maps.LatLng(35.71079167, 139.7193);
+  }
   loadCheckpoints();
 
   initMarkers();
@@ -119,10 +123,10 @@ function showCheckpoints() {
 
     var elem = $('<div class="checkpoint" id="checkpoint-' + checkpoint.id + '">'
             + '<span class="pull-left distance ' + distanceStyle + '">'
-            + getFormattedDistance(distance) + '</span>' + '<img src="' + imgSrc
-            + '" class="pull-left checkpoint-img">' + '<div class="text">' + '<div class="name">'
-            + checkpoint.name + '</div>' + '<div class="detail">' + checkpoint.label + '</div>'
-            + '</div>' + '</div>');
+            + (enableGps ? getFormattedDistance(distance) : "?m") + '</span>' + '<img src="'
+            + imgSrc + '" class="pull-left checkpoint-img">' + '<div class="text">'
+            + '<div class="name">' + checkpoint.name + '</div>' + '<div class="detail">'
+            + checkpoint.label + '</div>' + '</div>' + '</div>');
     elem.click(function() {
       selectCheckpoint(checkpoint);
     });
@@ -275,19 +279,24 @@ function unselectCheckpoint() {
 
 function getCurrentPosition() {
   if (!navigator || !navigator.geolocation) {
-    alert('GPSが使用できません');
+    $('#gps-error-msg').show();
+    enableGps = false;
   }
   navigator.geolocation.getCurrentPosition(function(pos) { // success
+    enableGps = true;
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     locationAccuracy = pos.coords.accuracy;
     updateViews();
+    $('#gps-error-msg').hide();
   }, function(error) {
-    alert('位置情報の取得に失敗しました');
+    enableGps = false;
+    updateViews();
+    $('#gps-error-msg').show();
   }, {
     enableHighAccuracy: true,
     timeout: 1000 * 60,
-    maximumAge: 1000 * 60,
+    maximumAge: 0,
   });
 }
 

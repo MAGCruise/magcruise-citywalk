@@ -163,7 +163,13 @@ function initMap() {
 /* 位置情報を連続取得する */
 function watchCurrentPosition() {
   if (!navigator || !navigator.geolocation) {
-    alert('GPSが使用できません');
+    if ($('#error-msg-area').is(':hidden')) {
+      $('#error-msg-area').show();
+    }
+    $('#gps-error-msg').show();
+    if ($('#compass-error-msg').is(':visible')) {
+      $('#error-msg-spritter').show();
+    }
   }
   watchID = window.navigator.geolocation.watchPosition(function(pos) {
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
@@ -171,8 +177,19 @@ function watchCurrentPosition() {
     showDistance();
     enqueueMovement(pos);
     updateCurrentCircle(pos.coords.accuracy);
+    $('#gps-error-msg').hide();
+    $('#error-msg-spritter').hide();
+    if ($('#compass-error-msg').is(':hidden')) {
+      $('#error-msg-area').hide();
+    }
   }, function(error) {
-    alert('位置情報の取得に失敗しました');
+    if ($('#error-msg-area').is(':hidden')) {
+      $('#error-msg-area').show();
+    }
+    $('#gps-error-msg').show();
+    if ($('#compass-error-msg').is(':visible')) {
+      $('#error-msg-spritter').show();
+    }
     navigator.geolocation.clearWatch(watchID);
   }, {
     enableHighAccuracy: true,
@@ -235,9 +252,21 @@ function onHeadingChange(event) {
   }
   var orientation = getBrowserOrientation();
   if (typeof cHeading == "undefined" || cHeading == null) { // && typeof
-    // orientation !==
-    // "undefined") {
-    alert('方向を検出できません');
+    // orientation !=="undefined") {
+    if ($('#error-msg-area').is(':hidden')) {
+      $('#error-msg-area').show();
+    }
+    $('#compass-error-msg').show();
+    if ($('#gps-error-msg').is(':visible')) {
+      $('#error-msg-spritter').show();
+    }
+
+  } else {
+    $('#compass-error-msg').hide();
+    $('#error-msg-spritter').hide();
+    if ($('#gps-error-msg').is(':hidden')) {
+      $('#error-msg-area').hide();
+    }
   }
 
   // we have a browser that reports device cHeading and orientation

@@ -7,7 +7,13 @@
 <script type="text/javascript" src="../js/task-common.js"></script>
 <script type="text/javascript" src="../js/navi.js"></script>
 <link rel="stylesheet" href="../css/navi.css" />
-<title></title>
+<style>
+#error-msg-area {
+  padding: 0 1em;
+  margin: 0;
+}
+</style>
+<title>ナビ</title>
 </head>
 <head th:remove="all">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -17,6 +23,15 @@
 <body>
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="error-msg-area" class="alert alert-warning" style="display: none;">
+          現在，端末の<span id="gps-error-msg">位置情報</span><span class="error-msg-spritter"
+            style="display: none;">，</span><span id="compass-error-msg">方向情報</span>が利用できません (<a
+            class="alert-link" href="how-to-use.html#gps-settings">ヘルプ</a>)
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-12">
         <span class="pull-left" id="distance-prefix">残り約</span><span class="pull-left" id="distance"></span>
