@@ -14,10 +14,10 @@ var KEY_MOVEMENT_LIST = "movement_list";
 
 window.onload = function() {
   initMap();
-  showCheckpointInfo();
 }
 
 $(function() {
+  showCheckpointInfo();
   $("#current-position").click(function() {
     if (!cPos) { return; }
     map.setZoom(17);
