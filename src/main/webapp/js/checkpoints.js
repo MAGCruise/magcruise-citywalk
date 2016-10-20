@@ -10,7 +10,7 @@ var selectedCheckpoint;
 var category = null;
 var subcategory = null;
 var locationsAccuracy = 10;
-
+var enableGps = false;
 window.onload = function() {
   initMap();
 }
@@ -123,10 +123,10 @@ function showCheckpoints() {
 
     var elem = $('<div class="checkpoint" id="checkpoint-' + checkpoint.id + '">'
             + '<span class="pull-left distance ' + distanceStyle + '">'
-            + getFormattedDistance(distance) + '</span>' + '<img src="' + imgSrc
-            + '" class="pull-left checkpoint-img">' + '<div class="text">' + '<div class="name">'
-            + checkpoint.name + '</div>' + '<div class="detail">' + checkpoint.label + '</div>'
-            + '</div>' + '</div>');
+            + (enableGps ? getFormattedDistance(distance) : "?m") + '</span>' + '<img src="'
+            + imgSrc + '" class="pull-left checkpoint-img">' + '<div class="text">'
+            + '<div class="name">' + checkpoint.name + '</div>' + '<div class="detail">'
+            + checkpoint.label + '</div>' + '</div>' + '</div>');
     elem.click(function() {
       selectCheckpoint(checkpoint);
     });
@@ -280,14 +280,17 @@ function unselectCheckpoint() {
 function getCurrentPosition() {
   if (!navigator || !navigator.geolocation) {
     $('#gps-error-msg').show();
+    enableGps = false;
   }
   navigator.geolocation.getCurrentPosition(function(pos) { // success
+    enableGps = true;
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     locationAccuracy = pos.coords.accuracy;
     updateViews();
     $('#gps-error-msg').hide();
   }, function(error) {
+    enableGps = false;
     updateViews();
     $('#gps-error-msg').show();
   }, {
