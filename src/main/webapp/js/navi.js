@@ -168,7 +168,7 @@ function watchCurrentPosition() {
     }
     $('#gps-error-msg').show();
     if ($('#compass-error-msg').is(':visible')) {
-      $('#error-msg-spritter').show();
+      $('#error-msg-splitter').show();
     }
   }
   watchID = window.navigator.geolocation.watchPosition(function(pos) {
@@ -178,7 +178,7 @@ function watchCurrentPosition() {
     enqueueMovement(pos);
     updateCurrentCircle(pos.coords.accuracy);
     $('#gps-error-msg').hide();
-    $('#error-msg-spritter').hide();
+    $('#error-msg-splitter').hide();
     if ($('#compass-error-msg').is(':hidden')) {
       $('#error-msg-area').hide();
     }
@@ -188,7 +188,7 @@ function watchCurrentPosition() {
     }
     $('#gps-error-msg').show();
     if ($('#compass-error-msg').is(':visible')) {
-      $('#error-msg-spritter').show();
+      $('#error-msg-splitter').show();
     }
     navigator.geolocation.clearWatch(watchID);
   }, {
@@ -258,12 +258,12 @@ function onHeadingChange(event) {
     }
     $('#compass-error-msg').show();
     if ($('#gps-error-msg').is(':visible')) {
-      $('#error-msg-spritter').show();
+      $('#error-msg-splitter').show();
     }
 
   } else {
     $('#compass-error-msg').hide();
-    $('#error-msg-spritter').hide();
+    $('#error-msg-splitter').hide();
     if ($('#gps-error-msg').is(':hidden')) {
       $('#error-msg-area').hide();
     }
