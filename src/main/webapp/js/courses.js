@@ -8,8 +8,10 @@ function selectCheckpointGroup(checkpointGroupId) {
               if (data.result) {
                 location.href = "checkpoints.html";
               } else {
-                alert("参加登録出来ませんでした．");
+                alert("コースに参加できません．後でもう一度試して下さい．");
               }
+            }, function(error) {
+              alert("コースに参加できません．後でもう一度試して下さい．");
             })).rpc();
           })).rpc();
 }
