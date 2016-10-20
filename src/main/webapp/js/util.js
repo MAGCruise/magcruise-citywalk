@@ -3,6 +3,7 @@ var KEY_CITY_WALK_DATA = "city_walk_data";
 var KEY_USER_ID = "user_id";
 var KEY_GROUP_ID = "group_id";
 var KEY_CHECKPOINT_GROUP_ID = "checkpoint_group_id";
+var KEY_MAX_CATEGORY_DEPTH = "max_category_depth";
 var KEY_VISITED_CHECKPOINTS = "visited_checkpoints";
 var KEY_ANSWER_DIC = "answer_dic";
 var KEY_CHECKPOINT_PROGRESS_DIC = "checkpoint_progress_dic";
@@ -182,6 +183,13 @@ function getCheckpointGroupId() {
   return getItem(KEY_CHECKPOINT_GROUP_ID);
 }
 
+function getMaxCategoryDepth() {
+  return parseInt(getItem(KEY_MAX_CATEGORY_DEPTH));
+}
+
+function setMaxCategoryDepth(depth) {
+  setItem(KEY_MAX_CATEGORY_DEPTH, depth);
+}
 function getAnswerDic() {
   return JSON.parse(getItem(KEY_ANSWER_DIC)) || {};
 }

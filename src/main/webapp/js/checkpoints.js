@@ -16,12 +16,6 @@ window.onload = function() {
 }
 
 $(function() {
-  if (!category || !subcategory) {
-    loadCheckpoints();
-    initBreadCrumb();
-    showList();
-  }
-
   if (document.referrer) {
     if (document.referrer.indexOf("/task-") != -1) {
       $('#back').off('click');
@@ -107,12 +101,25 @@ function initBreadCrumb() {
 
 function showList() {
   $("#checkpoints").empty();
-  if (category && subcategory) {
+  switch (getMaxCategoryDepth()) {
+  case 0:
     showCheckpoints();
-  } else if (category) {
-    showSubcategory();
-  } else {
-    showCategory();
+    break;
+  case 1:
+    if (category) {
+      showCheckpoints();
+    } else {
+      showCategory();
+    }
+    break;
+  default:
+    if (category && subcategory) {
+      showCheckpoints();
+    } else if (category) {
+      showSubcategory();
+    } else {
+      showCategory();
+    }
   }
 }
 
@@ -217,7 +224,6 @@ function initMap() {
       scaleControlOptions: {
         position: google.maps.ControlPosition.BOTTOM_LEFT
       }
-
     });
   }
 
