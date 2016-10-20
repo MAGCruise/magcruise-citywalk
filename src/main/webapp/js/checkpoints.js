@@ -7,8 +7,8 @@ var checkpoints = [];
 var cPos = null;
 ; // 現在地
 var selectedCheckpoint;
-var category = null;
-var subcategory = null;
+var category = getParam("category");
+var subcategory = getParam("subcategory");
 var locationsAccuracy = 10;
 var enableGps = false;
 window.onload = function() {
@@ -16,12 +16,11 @@ window.onload = function() {
 }
 
 $(function() {
-  if (!document.referrer || document.referrer.indexOf("/task-") != -1) {
-    $('#back').off('click');
-    $('#back').css("opacity", "0.15");
-    $('#back').on('click', function() {
-      alert('前のページに戻れません．チェックポイントグループの移動には矢印ボタン下のリストを使って下さい．')
-    });
+  if (document.referrer) {
+    if (document.referrer.indexOf("/task-") != -1) {
+      $('#back').off('click');
+      $('#back').css("opacity", "0.15");
+    }
   }
   unselectCheckpoint();
   $("#current-position").click(function() {
@@ -153,7 +152,9 @@ function showSubcategory() {
     var elem = makeListElemWithoutDistanceAndImage(name);
     elem.click(function() {
       subcategory = name;
-      updateViews();
+      location.href = location.href + "&subcategory=" + encodeURIComponent(name);
+      // location.href =*; を消して updateViews();
+      // に変えると再読み込みが発生しないが，戻るボタンの挙動が直感にあわなくなる．
     });
     $("#checkpoints").append(elem);
   });
@@ -171,7 +172,9 @@ function showCategory() {
     var elem = makeListElemWithoutDistanceAndImage(name);
     elem.click(function() {
       category = name;
-      updateViews();
+      location.href = location.href + "?category=" + encodeURIComponent(name);
+      // location.href =*; を消して updateViews();
+      // に変えると再読み込みが発生しないが，戻るボタンの挙動が直感にあわなくなる．
     });
     $("#checkpoints").append(elem);
   });
