@@ -17,7 +17,14 @@
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
-      <div id="breadcrumb"></div>
+      <div class="col-sm-12">
+        <div id="gps-error-msg" class="alert alert-warning" style="display: none;">現在，位置情報を利用できません．</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="breadcrumb"></div>
+      </div>
     </div>
     <div class="row">
       <div class="col-sm-12">

@@ -16,12 +16,12 @@ window.onload = function() {
 
 $(function() {
   if (!navigator || !navigator.geolocation) {
-    alert('位置情報が利用できません．「使い方」ページにGPS設定のヒントを載せています．');
+    alert('位置情報を利用できません．「使い方」ページにGPS設定のヒントを載せています．');
   }
   navigator.geolocation.getCurrentPosition(function(pos) { // success
     console.log("GPS is enable.");
   }, function(error) {
-    alert('位置情報が利用できません．「使い方」ページにGPS設定のヒントを載せています．');
+    alert('位置情報を利用できません．「使い方」ページにGPS設定のヒントを載せています．');
   });
 
   if (!document.referrer || document.referrer.indexOf("/task-") != -1) {
@@ -284,15 +284,16 @@ function unselectCheckpoint() {
 
 function getCurrentPosition() {
   if (!navigator || !navigator.geolocation) {
-    alert('GPSが使用できません');
+    $('#gps-error-msg').show();
   }
   navigator.geolocation.getCurrentPosition(function(pos) { // success
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     locationAccuracy = pos.coords.accuracy;
     updateViews();
+    $('#gps-error-msg').hide();
   }, function(error) {
-    alert('位置情報の取得に失敗しました');
+    $('#gps-error-msg').show();
   }, {
     enableHighAccuracy: true,
     timeout: 1000 * 60,
