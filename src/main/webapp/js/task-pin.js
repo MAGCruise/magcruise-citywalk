@@ -1,3 +1,6 @@
+if (getTaskIndex() <= getLastTaskIndex(getCheckpoint().id)) {
+  moveToNextPage();
+}
 setTaskTitle();
 var checkpoint = getCheckpoint();
 var task = getTask();
