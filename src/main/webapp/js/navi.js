@@ -41,13 +41,11 @@ setInterval(function() {
 
 $(function() {
   $("#activity-title").text(checkpoint.name + "でのアクティビティ");
-  $("#btn-next").click(
-          function() {
-            // 既に途中までタスクが進んでいる場合には、完了済みの次のタスクからはじめる
-            var taskIndex = (checkpoint.id in getCheckpointProgressDic())
-                    ? getCheckpointProgressDic()[checkpoint.id] + 1 : 0;
-            location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
-          });
+  $("#btn-next").click(function() {
+    // 既に途中までタスクが進んでいる場合には、完了済みの次のタスクからはじめる
+    var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
+    location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
+  });
 
   // コンパス画像の要素
   compassElem = $("#compass");
