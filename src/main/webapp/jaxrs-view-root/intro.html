@@ -3,11 +3,8 @@
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <script type="text/javascript" src="../js/ua-parser.min.js"></script>
+<link rel="stylesheet" href="../css/doc-page.css" />
 <title>はじめに</title>
-<style>
-hr {
-  border-top: 1px solid #ddd;
-}
 </style>
 <script>
   $(function() {
@@ -40,7 +37,7 @@ hr {
 </script>
 </head>
 <body>
-  <div class="container">
+  <div class="container doc-page">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
       <div class="col-sm-12">
