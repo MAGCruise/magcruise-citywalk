@@ -11,22 +11,30 @@ var registerFunc = function() {
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "register", [userId, groupId], function(data) {
     if (data.result) {
       if (data.result.register) {
+        if (localStorage.length != 0) {
+          if (confirm('これまでのアクティビティを消去し，新しくユーザ登録をし直してよろしいですか？')) {
+            clear();
+          } else {
+            alert('ユーザ登録をキャンセルしました．');
+            return;
+          }
+        }
         setUserId(userId);
         setGroupId(groupId);
         location.href = "courses.html";
       } else {
         var recommendedUserId = data.result.recommendedUserId;
         $('#user-id').val(recommendedUserId);
-        alert("そのユーザ名は既に使われています。「" + recommendedUserId + "」が利用できます。");
+        alert("そのユーザ名は既に登録されています．「" + recommendedUserId + "」が利用できます．");
       }
     } else {
-      alert('ユーザを登録できませんでした。');
+      alert('ユーザを登録できませんでした．');
     }
   }, function(data, textStatus, errorThrown) {
+    alert('ユーザを登録できませんでした．');
     console.error("fail to register.");
     console.error(textStatus + ', ' + errorThrown + '. response: ' + JSON.stringify(data));
     console.error('request: ' + JSON.stringify(JSON.stringify(this)));
-    alert('ユーザを登録できませんでした。');
   })).rpc();
 };
 
