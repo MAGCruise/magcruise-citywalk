@@ -32,7 +32,7 @@ $(function() {
       return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
     });
     if (!/^[0-9]{4}$/g.test(text)) {
-      alert("半角数字4桁を入力しているか確認して下さい．");
+      alert("半角数字4桁が入力されていません");
       return;
     }
 
