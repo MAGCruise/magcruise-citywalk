@@ -25,5 +25,4 @@ $(function() {
     var checkpointGroupId = $(this).attr("id");
     selectCheckpointGroup(checkpointGroupId);
   });
-  // selectCheckpointGroup("wasedasai2016");
 });
