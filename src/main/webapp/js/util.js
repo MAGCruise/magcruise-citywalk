@@ -134,6 +134,11 @@ function getNonVisitedCheckPoints() {
   return nonVisitedCheckPoints;
 }
 
+function getLastTaskIndex(checkpointId) {
+  return (checkpointId in getCheckpointProgressDic()) ? getCheckpointProgressDic()[checkpointId]
+          : -1;
+}
+
 function getCheckpointProgressDic() {
   return JSON.parse(getItem(KEY_CHECKPOINT_PROGRESS_DIC)) || {};
 }
