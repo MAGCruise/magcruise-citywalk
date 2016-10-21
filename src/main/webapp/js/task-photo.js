@@ -6,7 +6,7 @@ var task = getTask();
 
 $(function() {
   if (getTaskIndex() != 0) {
-    $("#back").hide();
+    setBackDisabled();
   }
 
   $("#loading").hide();

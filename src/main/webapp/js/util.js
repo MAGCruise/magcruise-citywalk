@@ -17,14 +17,17 @@ $(function() {
 
 function setBack() {
   if (!document.referrer) {
-    $('#back').css("opacity", "0.15");
+    setBackDisabled();
+  } else {
+    $('#back').on('click', function() {
+      window.history.back(-1);
+    });
   }
-  $('#back').on('click', function() {
-    if (!document.referrer) {
-      alert('前ページが存在しないため戻れません')
-    }
-    window.history.back(-1);
-  });
+}
+
+function setBackDisabled() {
+  $('#back').off('click');
+  $('#back').css("opacity", "0.15");
 }
 
 function setUserNameInMenu() {
