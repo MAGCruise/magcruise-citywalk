@@ -23,8 +23,7 @@ $(function() {
   });
   if (document.referrer) {
     if (document.referrer.indexOf("/task-") != -1) {
-      $('#back').off('click');
-      $('#back').css("opacity", "0.15");
+      setBackDisabled();
     }
   }
 
