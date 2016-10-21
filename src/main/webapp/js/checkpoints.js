@@ -16,12 +16,24 @@ window.onload = function() {
 }
 
 $(function() {
+
   if (document.referrer) {
     if (document.referrer.indexOf("/task-") != -1) {
       $('#back').off('click');
       $('#back').css("opacity", "0.15");
+    } else {
+      $('#back').off('click');
+      $('#back').on('click', function() {
+        setTimeout(function() {
+          category = getParam("category");
+          subcategory = getParam("subcategory");
+          updateViews();
+        }, 0);
+        window.history.back(-1);
+      });
     }
   }
+
   unselectCheckpoint();
   $("#current-position").click(function() {
     if (!cPos) { return; }
@@ -74,8 +86,8 @@ function initBreadCrumb() {
   topElem.click(function() {
     category = null;
     subcategory = null;
-    location.href = "./checkpoints.html";
-    // updateViews();
+    location.href = "./checkpoints.html#";
+    updateViews();
   });
   // カテゴリ
   if (category) {
@@ -84,8 +96,8 @@ function initBreadCrumb() {
       categoryElem.addClass('link');
       categoryElem.click(function() {
         subcategory = null;
-        location.href = "./checkpoints.html" + "?category=" + category;
-        // updateViews();
+        location.href = "./checkpoints.html#" + "?category=" + category;
+        updateViews();
       });
     } else {
 
@@ -165,8 +177,7 @@ function showSubcategory() {
     elem.click(function() {
       subcategory = name;
       location.href = location.href + "&subcategory=" + encodeURIComponent(name);
-      // location.href =*; を消して updateViews();
-      // に変えると再読み込みが発生しないが，戻るボタンの挙動が直感にあわなくなる．
+      updateViews();
     });
     $("#checkpoints").append(elem);
   });
@@ -184,9 +195,8 @@ function showCategory() {
     var elem = makeListElemWithoutDistanceAndImage(name);
     elem.click(function() {
       category = name;
-      location.href = location.href + "?category=" + encodeURIComponent(name);
-      // location.href =*; を消して updateViews();
-      // に変えると再読み込みが発生しないが，戻るボタンの挙動が直感にあわなくなる．
+      location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(name);
+      updateViews();
     });
     $("#checkpoints").append(elem);
   });
