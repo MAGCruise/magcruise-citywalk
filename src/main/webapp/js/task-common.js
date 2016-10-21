@@ -128,12 +128,13 @@ function addActivity(task, input, isCorrect) {
       $('#modalDesc').html(data.result.badges.toString().replace(",", "</br>"));
     }
     $('#modalTitle').html(title);
-    $('#modal')[0].click();
+    $('[data-remodal-id=modal]').remodal().open();
   }, function(error) {
     alert("送信失敗．もう一度送信して下さい．");
   })).rpc();
 }
 
 $(document).on('confirmation', '.remodal', function() {
+  history.replaceState('', '', location.href.replace("#modal", ""));
   moveToNextPage();
 });
