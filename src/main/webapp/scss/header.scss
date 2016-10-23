@@ -8,6 +8,7 @@
 	background: $primaryColor;
 	padding: $baseMargin 0px;
 	#back {
+		cursor: pointer;
 		margin-top: 4px;
 		margin-left: $baseMargin;
 	}
@@ -21,6 +22,7 @@
 		min-width: 100px;
 	}
 	.dropdown {
+		cursor: pointer;
 		padding: $smallMargin;
 	}
 	.dropdown-toggle {
