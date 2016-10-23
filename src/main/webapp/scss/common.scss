@@ -146,12 +146,6 @@ a {
 		font-size: 14px;
 		display: inline-block;
 	}
-	&:hover {
-		opacity: $hoverOpacity;
-	}
-	&:hover img {
-		opacity: $hoverOpacity;
-	}
 }
 
 .center {
