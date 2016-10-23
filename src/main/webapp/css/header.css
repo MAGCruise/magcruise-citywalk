@@ -7,6 +7,7 @@
 }
 
 #mag-nav #back {
+  cursor: pointer;
   margin-top: 4px;
   margin-left: 10px;
 }
@@ -24,6 +25,7 @@
 }
 
 #mag-nav .dropdown {
+  cursor: pointer;
   padding: 6px;
 }
 
