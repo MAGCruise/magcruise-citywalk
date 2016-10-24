@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
-<script type="text/javascript" src="../js/ua-parser.min.js"></script>
 <link rel="stylesheet" href="../css/doc-page.css" />
+<script type="text/javascript" src="../js/ua-parser.min.js"></script>
 <title>はじめに</title>
 <script>
   $(function() {
@@ -45,49 +45,45 @@
           <h1 class="text-center">Navi + Checkin + Quiz</h1>
           <p class="text-center">早稲田祭をめぐり，ランドマークやイベントにチェックイン．クイズを解いて早稲田文化を体感しよう．</p>
         </div>
-        <h4>ワセナビの流れ</h4>
-        <ol>
-          <li>ユーザ登録をします．</li>
-          <li>チェックポイントを選び，ナビに従って，チェックポイントへ行きます．</li>
-          <li>チェックポイントで「合い言葉」を入力してチェックインし，クイズに答えます．</li>
-          <li>新たなチェックポイントを目指します．</li>
-          <li>ランキング画面で表示される獲得ポイントが50pt以上になったらインフォメーションにお越し下さい．</li>
-        </ol>
-        <h4>推奨環境</h4>
-        <p>GPSとインターネット接続が使える以下の環境を推奨します．</p>
-        <ul>
-          <li>iOS (iPhone, iPad, Macなど)
-            <ul>
-              <li>Safari (最新版)</li>
-              <li>Google Chrome (最新版)</li>
-            </ul>
-          </li>
-          <li>Android
-            <ul>
-              <li>Google Chrome (最新版)</li>
-            </ul>
-          </li>
-          <li>Windows
-            <ul>
-              <li>Google Chrome (最新版)</li>
-            </ul>
-          </li>
-        </ul>
-        <h4>注意事項</h4>
-        <ul>
-          <li>このアプリをお使いになる場合，ナビ画面を開いている間，GPSログが記録されサーバに送信されることに同意下さい．
-            GPSログは，ニックネームとともに保存されますが，論文発表などの学術目的以外には利用されません．</li>
-          <li>このアプリにGPSの利用を許可する場合，以下のようなアラートが表示されたときに，許可を押してください．
-            <div class="media">
-              <img class="media-object img-thumbnail center-block" src="../img/web/gps-alert.png"
-                style="max-width: 240px;">
-            </div>
-          </li>
-          <li><strong>移動するときは周辺の状況に十分注意してご利用下さい．</strong></li>
-        </ul>
-        <div class="btn-group btn-group-justified">
-          <a id="login" class="btn btn-default" href="login.html">ログイン</a> <a id="initial"
-            class="btn btn-primary" href="how-to-use.html">ワセナビに参加</a>
+        <div style="font-size: 85%;">
+          <h5>推奨環境</h5>
+          <p>GPSとインターネット接続が使える以下の環境を推奨します．</p>
+          <ul>
+            <li>iOS (iPhone, iPad, Macなど)
+              <ul>
+                <li>Safari (最新版)</li>
+                <li>Google Chrome (最新版)</li>
+              </ul>
+            </li>
+            <li>Android
+              <ul>
+                <li>Google Chrome (最新版)</li>
+              </ul>
+            </li>
+            <li>Windows
+              <ul>
+                <li>Google Chrome (最新版)</li>
+              </ul>
+            </li>
+          </ul>
+          <h5>注意事項</h5>
+          <ul>
+            <li>このアプリをお使いになる場合，ナビ画面を開いている間，GPSログが記録されサーバに送信されることに同意下さい．
+              GPSログは，ニックネームとともに保存されますが，論文発表などの学術目的以外には利用されません．</li>
+            <li>このアプリにGPSの利用を許可する場合，以下のようなアラートが表示されたときに，許可を押してください．
+              <div class="media">
+                <img class="media-object img-thumbnail center-block" src="../img/web/gps-alert.png"
+                  style="max-width: 240px;">
+              </div>
+            </li>
+          </ul>
+          <div class="alert alert-warning" style="padding: 0 1em">
+            <p>移動するときは周辺の状況に十分注意してご利用下さい．</p>
+          </div>
+          <div class="btn-group btn-group-justified">
+            <a id="login" class="btn btn-default" href="login.html">ログイン</a> <a id="initial"
+              class="btn btn-success" href="quick-start.html">ワセナビに参加</a>
+          </div>
         </div>
       </div>
     </div>
