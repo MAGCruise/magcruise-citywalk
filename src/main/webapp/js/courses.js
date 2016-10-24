@@ -21,7 +21,7 @@ function selectCheckpointGroup(checkpointGroupId) {
 
 $(function() {
   $("#nav-menu").hide();
-  $(".course a").click(function() {
+  $(".course a").on('click',function() {
     var checkpointGroupId = $(this).attr("id");
     selectCheckpointGroup(checkpointGroupId);
   });

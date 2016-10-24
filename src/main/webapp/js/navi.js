@@ -18,7 +18,7 @@ window.onload = function() {
 
 $(function() {
   showCheckpointInfo();
-  $("#current-position").click(function() {
+  $("#current-position").on('click',function() {
     if (!cPos) { return; }
     map.setZoom(17);
     map.setCenter(cPos);
@@ -41,7 +41,7 @@ setInterval(function() {
 
 $(function() {
   $("#activity-title").text(checkpoint.name + "でのアクティビティ");
-  $("#btn-next").click(function() {
+  $("#btn-next").on('click',function() {
     // 既に途中までタスクが進んでいる場合には、完了済みの次のタスクからはじめる
     var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
     location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);

@@ -11,7 +11,7 @@ $(function() {
 
   $("#loading").hide();
   $("#task-img").attr('src', task.imgSrc);
-  $("#btn-next").click(function() {
+  $("#btn-next").on('click',function() {
     $("#loading").fadeIn();
     var imgData = $("#img-preview").attr('src');
     addActivity(task, imgData, true);
