@@ -27,7 +27,7 @@ $(function() {
   }
   $(answerSel).keyup(checkChange(this));
 
-  $(buttonSel).click(function() {
+  $(buttonSel).on('click',function() {
     var text = $(answerSel).val();
     addAnswerDic(checkpoint, task, text);
 
