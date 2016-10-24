@@ -4,33 +4,33 @@
 @import "mixins";
 
 body {
-	background-color: $bgColor;
-	margin: 0 auto;
-	padding: 0px;
-	font-size: 14px;
-	font-family: "HiraginoSans-W3","Hiragino Kaku Gothic Pro","Osaka","メイリオ","Meiryo","ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+  background-color: $bgColor;
+  margin: 0 auto;
+  padding: 0px;
+  font-size: 14px;
+  font-family: "HiraginoSans-W3","Hiragino Kaku Gothic Pro","Osaka","メイリオ","Meiryo","ＭＳ Ｐゴシック","MS PGothic",sans-serif;
 }
 
 img {
-	border: 0px;
+  border: 0px;
 }
 
 .w1024 {
-	width: $baseWidth;
-	margin: 0 auto;
+  width: $baseWidth;
+  margin: 0 auto;
 }
 
 
 /* Start overwrite bootstrap style */
 .container {
-	max-width: none !important;
-	padding-right: 0px !important;
-	padding-left: 0px !important;
+  max-width: none !important;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
 }
 
 .margin-container {
-	@extend .container;
-	margin: 0 $baseMargin;
+  @extend .container;
+  margin: 0 $baseMargin;
 }
 
 .row,
@@ -82,112 +82,111 @@ img {
 .col-lg-10,
 .col-lg-11,
 .col-lg-12 {
-	padding-right: 0px;
-	padding-left: 0px;
-	margin-right: 0px;
-	margin-left: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 a:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .btn {
-	@include round(5px);
-	font-size: 20px;
-	border: none;
-	padding: 10px 0px;
+  @include round(5px);
+  font-size: 20px;
+  border: none;
+  padding: 10px 0px;
 }
 
 .btn-primary {
-	background: #FA833C;
-	color: white;
-	&:hover {
-		background-color: #FA833C;
-	}
+  background: #FA833C;
+  color: white;
+  &:hover {
+    background-color: #FA833C;
+  }
 }
 
 .btn-info {
-	background-color: #0587C4;
-	&:hover {
-		background-color: #0587C4;
-	}
+  background-color: #0587C4;
+  &:hover {
+    background-color: #0587C4;
+  }
 }
 
 .btn-post {
-	background-color: #FF972B;
-	&:hover {
-		background-color: #FF972B;
-	}
+  background-color: #FF972B;
+  &:hover {
+    background-color: #FF972B;
+  }
 }
 
 .fs3 {
-	font-size: $fs3;
+  font-size: $fs3;
 }
 .fs4 {
-	font-size: $fs4;
+  font-size: $fs4;
 }
 .fs5 {
-	font-size: $fs5;
+  font-size: $fs5;
 }
 .fs6 {
-	font-size: $fs6;
+  font-size: $fs6;
 }
 
 /* End overwrite bootstrap style */
 
 a {
-	&.login, &.sign_up {
-		margin: 20px 0px;
-		padding: 10px 15px;
-		background: #fff;
-		border-radius: 5px;
-		border: 1px solid #333;
-		font-size: 14px;
-		display: inline-block;
-	}
+  &.login, &.sign_up {
+    margin: 20px 0px;
+    padding: 10px 15px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #333;
+    font-size: 14px;
+    display: inline-block;
+  }
 }
 
 .center {
-	text-align: center;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .clr {
-	clear: both;
+  clear: both;
 }
 
 .title {
-	font-size: $fs3;
-	color: #777;
+  font-size: $fs3;
+  color: #777;
 }
 
 h1 {
-	margin: $baseMargin;
-	font-size: $fs2;
-	color: $greenColor;
+  margin: $baseMargin;
+  font-size: $fs2;
+  color: $greenColor;
 }
 
 .description {
-	margin: $baseMargin;
-	font-size: 13px;
-	color: $descriptionColor;
-	letter-spacing: 0.07px;
-	line-height: 17px;
+  margin: $baseMargin;
+  font-size: 13px;
+  color: $descriptionColor;
+  letter-spacing: 0.07px;
+  line-height: 17px;
 }
 
 .form-control {
-	font-size: 20px;
-	padding: 20px 0px 20px 20px;
-	background: white;
-	border: 1px solid #CACACA;
-	@include round(8px);
+  font-size: 20px;
+  background: white;
+  border: 1px solid #CACACA;
+  @include round(8px);
 }
 
 .btn-next-fill {
-	margin-top: $xLargeMargin;
-	margin-bottom: $xLargeMargin;
-	width: 100%;
+  margin-top: $xLargeMargin;
+  margin-bottom: $xLargeMargin;
+  width: 100%;
 }

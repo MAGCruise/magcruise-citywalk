@@ -1,4 +1,4 @@
-.course {
+.nav-btn-big {
   margin-top: 10px;
   line-height: 76px;
   text-align: center;
@@ -9,9 +9,13 @@
   color: #0074BF;
   background-image: url("../img/next_button.svg");
   background-position: 96% center;
-  background-repeat: no-repeat; }
-  .course a {
+  background-repeat: no-repeat;
+  cursor: pointer;
+  a {
     display: block;
-    cursor: pointer;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    cursor: pointer;
+  }
+}
+

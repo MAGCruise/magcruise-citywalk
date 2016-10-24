@@ -1,10 +1,13 @@
+if (getTaskIndex() <= getLastTaskIndex(getCheckpoint().id)) {
+  moveToNextPage();
+}
 setTaskTitle();
 var checkpoint = getCheckpoint();
 var task = getTask();
 
 $(function() {
   if (getTaskIndex() != 0) {
-    $("#back").hide();
+    setBackDisabled();
   }
 
   $('#label').text(task.label);
@@ -17,7 +20,7 @@ $(function() {
     $('.form-group').append(selectionElem);
   });
 
-  $('.selection').click(function() {
+  $('.selection').on('click',function() {
     var enableBtnNext = false;
     // 一つでもチェックがあれば、回答するボタンを押せるように
     // [name=selection]
@@ -26,7 +29,7 @@ $(function() {
     });
     $('#btn-next').prop('disabled', !enableBtnNext);
   });
-  $('#btn-next').click(function() {
+  $('#btn-next').on('click',function() {
     // 回答を取得
     var indexes = $('.selection:checked').map(function() {
       return parseInt($(this).val());

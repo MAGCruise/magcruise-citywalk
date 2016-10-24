@@ -15,6 +15,26 @@
 ![](https://i.gyazo.com/4a4cb0f9fdb21d378dd571a348e006ae.png)
 
 # CSS
-行の幅：100
+~~行の幅：100~~
+~~インデント：スペースx2~~
+~~![](https://i.gyazo.com/5142546261feecfadeeec5306041f36c.png)~~
+SCSS任せにする．
+
+# SCSS
 インデント：スペースx2
-![](https://i.gyazo.com/5142546261feecfadeeec5306041f36c.png)
+
+scssディレクトリ監視
+```
+cd magcruise-citywalk/src/main/webapp
+scss --watch scss:css --sourcemap=none
+```
+
+scssディレクトリのscssファイルを一括で変換してcssディレクトリへ
+```
+cd magcruise-citywalk/src/main/webapp
+sass --update scss:css --sourcemap=none
+```
+
+![](https://i.gyazo.com/3f381f28ba568861fd4034f6dbd3897b.png)
+
+

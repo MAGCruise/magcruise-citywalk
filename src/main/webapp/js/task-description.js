@@ -1,10 +1,13 @@
+if (getTaskIndex() <= getLastTaskIndex(getCheckpoint().id)) {
+  moveToNextPage();
+}
 setTaskTitle();
 var checkpoint = getCheckpoint();
 var task = getTask();
 
 $(function() {
   if (getTaskIndex() != 0) {
-    $("#back").hide();
+    setBackDisabled();
   }
 
   $('#label').text(task.label);
@@ -24,7 +27,7 @@ $(function() {
   }
   $(answerSel).keyup(checkChange(this));
 
-  $(buttonSel).click(function() {
+  $(buttonSel).on('click',function() {
     var text = $(answerSel).val();
     addAnswerDic(checkpoint, task, text);
 

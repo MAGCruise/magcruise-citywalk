@@ -55,7 +55,7 @@ function getTaskURLWithLatLon(checkpoint, taskIndex, lat, lon) {
 }
 
 function getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos) {
-  return getTaskURLWithLatLon(checkpoint, taskIndex, cPos.lat(), cPos.lng())
+  return getTaskURLWithLatLon(checkpoint, taskIndex, cPos ? cPos.lat() : 0, cPos ? cPos.lng() : 0)
 }
 
 function isLastTask() {
@@ -128,10 +128,13 @@ function addActivity(task, input, isCorrect) {
       $('#modalDesc').html(data.result.badges.toString().replace(",", "</br>"));
     }
     $('#modalTitle').html(title);
-    $('#modal')[0].click();
+    $('[data-remodal-id=modal]').remodal().open();
+  }, function(error) {
+    alert("送信失敗．もう一度送信して下さい．");
   })).rpc();
 }
 
 $(document).on('confirmation', '.remodal', function() {
+  history.replaceState('', '', location.href.replace("#modal", ""));
   moveToNextPage();
 });
