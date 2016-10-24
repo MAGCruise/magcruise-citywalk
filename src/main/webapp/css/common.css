@@ -1,0 +1,107 @@
+@charset "UTF-8";
+body {
+  background-color: #E4EFF3;
+  margin: 0 auto;
+  padding: 0px;
+  font-size: 14px;
+  font-family: "HiraginoSans-W3","Hiragino Kaku Gothic Pro","Osaka","メイリオ","Meiryo","ＭＳ Ｐゴシック","MS PGothic",sans-serif; }
+
+img {
+  border: 0px; }
+
+.w1024 {
+  width: 1024px;
+  margin: 0 auto; }
+
+/* Start overwrite bootstrap style */
+.no-padding {
+  padding-right: 0px;
+  padding-left: 0px; }
+
+.btn {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -m-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  font-size: 20px;
+  border: none;
+  padding: 10px 0px; }
+
+.btn-primary {
+  background: #FA833C;
+  color: white; }
+  .btn-primary:hover {
+    background-color: #FA833C; }
+
+.btn-info {
+  background-color: #0587C4; }
+  .btn-info:hover {
+    background-color: #0587C4; }
+
+.btn-post {
+  background-color: #FF972B; }
+  .btn-post:hover {
+    background-color: #FF972B; }
+
+.fs3 {
+  font-size: 21px; }
+
+.fs4 {
+  font-size: 13px; }
+
+.fs5 {
+  font-size: 11px; }
+
+.fs6 {
+  font-size: 9px; }
+
+/* End overwrite bootstrap style */
+a.login, a.sign_up {
+  margin: 20px 0px;
+  padding: 10px 15px;
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #333;
+  font-size: 14px;
+  display: inline-block; }
+
+.center {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.clr {
+  clear: both; }
+
+.title {
+  font-size: 21px;
+  color: #777; }
+
+h1 {
+  margin: 10px;
+  font-size: 24px;
+  color: #38A997; }
+
+.description {
+  margin: 10px;
+  font-size: 13px;
+  color: #ABABAB;
+  letter-spacing: 0.07px;
+  line-height: 17px; }
+
+.form-control {
+  font-size: 20px;
+  background: white;
+  border: 1px solid #CACACA;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -m-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px; }
+
+.btn-next-fill {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%; }
