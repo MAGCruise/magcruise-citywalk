@@ -15,10 +15,10 @@
   #current-position {
     cursor: pointer;
     position: absolute;
-    width: $length;
-    height: $length;
-    left:  $baseMargin;
-    bottom:  $baseMargin;
+    width: 28px;
+    height: 28px;
+    right: 10px;
+    bottom: 90px;
   }
   #nav-start {
     position: absolute;
