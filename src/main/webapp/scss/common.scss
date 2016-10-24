@@ -121,6 +121,10 @@ a:hover {
   }
 }
 
+.btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) {
+	@include round(5px);
+}
+
 .fs3 {
   font-size: $fs3;
 }
