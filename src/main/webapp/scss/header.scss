@@ -1,6 +1,12 @@
 @import "settings";
 @import "mixins";
 
+.vcenter {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 #mag-nav {
   width: 100%;
   height: 60px;
@@ -9,8 +15,7 @@
   padding: $baseMargin 0px;
   #back {
     cursor: pointer;
-    margin-top: 4px;
-    margin-left: $baseMargin;
+    padding-left:10px;
   }
   #nav-title {
     font-size: 14px;
@@ -18,7 +23,7 @@
   }
   #nav-menu {
     font-size: 12px;
-    margin-top: 4px;
+    margin-top: 6px;
     min-width: 100px;
   }
   .dropdown {

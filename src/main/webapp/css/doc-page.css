@@ -1,11 +1,15 @@
-.doc-page hr {
-  border-top: 1px solid #ddd; }
-.doc-page h3 {
-  font-size: 20px; }
-.doc-page ul, .doc-page ol {
-  padding-left: 2em; }
-.doc-page .col-lg-12, .doc-page .col-md-12, .doc-page .col-sm-12, .doc-page .col-xs-12 {
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px; }
+.doc-page {
+  /*
+    .col-lg-12, .col-md-12, .col-sm-12, .col-xs-12 {
+      position: relative;
+      min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  */ }
+  .doc-page hr {
+    border-top: 1px solid #ddd; }
+  .doc-page h3 {
+    font-size: 20px; }
+  .doc-page ul, .doc-page ol {
+    padding-left: 2em; }
