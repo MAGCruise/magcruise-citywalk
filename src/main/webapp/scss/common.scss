@@ -15,13 +15,25 @@ img {
   border: 0px;
 }
 
-/* Start overwrite bootstrap style */
-
-.no-padding{
-    padding-right: 0px;
-    padding-left: 0px;
+.h-center {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.v-middle {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.no-padding{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+/* Start overwrite bootstrap style */
 
 .btn {
   @include round(5px);
@@ -50,6 +62,7 @@ img {
     background-color: #FF972B;
   }
 }
+<<<<<<< HEAD
 
 .btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) {
 	@include round(5px);
@@ -68,37 +81,11 @@ img {
   font-size: $fs6;
 }
 
+=======
+>>>>>>> 913e695... commonのcssで使っていないもの削除．タグセレクタとなっていたところをクラスセレクタにした．
 /* End overwrite bootstrap style */
 
-a {
-  &.login, &.sign_up {
-    margin: 20px 0px;
-    padding: 10px 15px;
-    background: #fff;
-    border-radius: 5px;
-    border: 1px solid #333;
-    font-size: 14px;
-    display: inline-block;
-  }
-}
-
-.center {
-  text-align: center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.clr {
-  clear: both;
-}
-
-.title {
-  font-size: $fs3;
-  color: #777;
-}
-
-h1 {
+h1.doc-header {
   margin: $baseMargin;
   font-size: $fs2;
   color: $greenColor;
