@@ -13,27 +13,35 @@
   border: 2px solid #CCC;
 }
 
-.carousel-inner .item {
-  height: 350px;
+.carousel-indicators{
+  background-color: #333;
+  opacity: 0.6;
 }
 
-.carousel-inner img {
-  margin: auto;
+
+.carousel-inner {
+  .item {
+    height: 350px;
+  }
+  img {
+    margin: auto;
+  }
 }
+
+
 
 .carousel-caption {
   color: #000;
   background-color: #eee;
   opacity: 0.9;
+  h3 {
+  font-size: 24px;
+  }
 }
 
-.carousel-caption h3 {
-  font-size: 24px;
-}
 
 .carousel-control .icon-next, .carousel-control .icon-prev {
-  color: #FA833C;
-  font-size: 72px;
+  font-size: 48px;
   font-weight: bold;
 }
 
