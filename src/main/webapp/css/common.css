@@ -9,6 +9,7 @@ body {
 img {
   border: 0px; }
 
+/** util **/
 .h-center {
   text-align: center;
   display: block;
@@ -23,6 +24,12 @@ img {
 .no-padding {
   padding-right: 0px;
   padding-left: 0px; }
+
+.top-margin {
+  margin-top: 20px; }
+
+.bottom-margin {
+  margin-bottom: 20px; }
 
 /* Start overwrite bootstrap style */
 .btn {
@@ -84,6 +91,3 @@ h1.doc-header {
   margin-top: 30px;
   margin-bottom: 30px;
   width: 100%; }
-
-.bottom-margin {
-  margin-bottom: 20px; }
