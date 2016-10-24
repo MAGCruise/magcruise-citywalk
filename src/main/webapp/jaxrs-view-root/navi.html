@@ -24,7 +24,7 @@
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-12 no-padding">
         <div id="error-msg-area" class="alert alert-warning" style="display: none;">
           端末の<span id="gps-error-msg">現在位置</span><span id="error-msg-splitter"
             style="display: none;">/</span><span id="compass-error-msg">方向</span>が取得できません (<a
@@ -40,7 +40,7 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <img src="../img/arrow.png" id="compass" class="center">
+        <img src="../img/arrow.png" id="compass" class="h-center">
         <p class="notice text-center">コンパスが指す方向に目的地があります</p>
       </div>
     </div>
@@ -53,13 +53,13 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-12 no-padding">
         <div id="checkpoint"></div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-12 no-padding">
         <h3 id="activity-title"></h3>
         <div id="notification"></div>
       </div>
