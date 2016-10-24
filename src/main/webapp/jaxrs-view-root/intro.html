@@ -8,10 +8,11 @@
 <script>
   $(function() {
     $("#nav-menu").hide();
-    if (!getUserId()) {
-      $("#login").hide();
+    if (getUserId()) {
+      $("#initial").removeClass("btn-success");
+      $("#initial").addClass("btn-default");
     } else {
-      $("#initial").hide();
+      $("#login").hide();
     }
 
     var uaParser = new UAParser();
@@ -68,18 +69,20 @@
           </ul>
           <h5>注意事項</h5>
           <ul>
-            <li>このアプリをお使いになる場合，ナビ画面を開いている間，GPSログが記録されサーバに送信されることに同意下さい．
+            <li>本アプリをお使いになる場合，ナビ画面を開いている間，GPSログが記録されサーバに送信されることに同意下さい．
               GPSログは，ニックネームとともに保存されますが，論文発表などの学術目的以外には利用されません．</li>
-            <li>このアプリにGPSの利用を許可する場合，以下のようなアラートが表示されたときに，許可を押してください．
+            <li>本アプリにGPSの利用を許可する場合，以下のアラートが表示されたときに許可を押して下さい．
               <div class="media">
                 <img class="media-object img-thumbnail center-block" src="../img/web/gps-alert.png"
                   style="max-width: 240px;">
               </div>
             </li>
           </ul>
-        <div class="btn-group btn-group-justified bottom-margin">
-            <a id="login" class="btn btn-default" href="login.html">ログイン</a> <a id="initial"
-              class="btn btn-success" href="quick-start.html">ワセナビに参加</a>
+          <div class="btn-group btn-group-justified">              class="btn btn-success" href="quick-start.html">ワセナビに参加</a>
+            <a id="login" class="btn btn-default" href="login.html">ログイン</a>
+          </div>
+          <div class="btn-group btn-group-justified">
+            <a id="initial" class="btn btn-success" href="tutorial.html">ワセナビに参加</a>
           </div>
         </div>
       </div>

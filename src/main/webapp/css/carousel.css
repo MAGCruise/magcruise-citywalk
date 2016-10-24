@@ -1,3 +1,10 @@
+/*
+.carousel-control .icon-next, .carousel-control .icon-prev{
+  width: 1em;
+  height: 1em;
+  background-color: white;
+}
+*/
 #qs-carousel {
   border: 2px solid #CCC; }
 
@@ -10,22 +17,18 @@
 .carousel-caption {
   color: #000;
   background-color: #eee;
-  opacity: 0.8; }
+  opacity: 0.9; }
 
 .carousel-caption h3 {
   font-size: 24px; }
 
 .carousel-control .icon-next, .carousel-control .icon-prev {
   color: #FA833C;
-  font-size: 64px;
+  font-size: 72px;
   font-weight: bold; }
 
-/*
 .carousel-control.left {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, .1) 100%);
-}
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.2) 100%); }
 
 .carousel-control.right {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, .1) 0, rgba(0, 0, 0, 0.5) 100%);
-}
-*/
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.5) 100%); }
