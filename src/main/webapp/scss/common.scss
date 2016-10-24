@@ -62,27 +62,12 @@ img {
     background-color: #FF972B;
   }
 }
-<<<<<<< HEAD
 
 .btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) {
 	@include round(5px);
 }
 
-.fs3 {
-  font-size: $fs3;
-}
-.fs4 {
-  font-size: $fs4;
-}
-.fs5 {
-  font-size: $fs5;
-}
-.fs6 {
-  font-size: $fs6;
-}
 
-=======
->>>>>>> 913e695... commonのcssで使っていないもの削除．タグセレクタとなっていたところをクラスセレクタにした．
 /* End overwrite bootstrap style */
 
 h1.doc-header {
