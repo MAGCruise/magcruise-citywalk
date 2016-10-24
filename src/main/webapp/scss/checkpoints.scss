@@ -2,96 +2,96 @@
 @import "mixins";
 
 #map-box {
-	height: 240px;
-	#map {
-		height: auto;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		top: 0;
-	}
-	$length: 50px;
-	#current-position {
-		cursor: pointer;
-		position: absolute;
-		width: $length;
-		height: $length;
-		left:  $baseMargin;
-		bottom:  $baseMargin;
-	}
-	#nav-start {
-		position: absolute;
-		height: $length;
-		right:  $baseMargin * 5;
-		bottom:  $baseMargin;
-	}
+  height: 240px;
+  #map {
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+  $length: 50px;
+  #current-position {
+    cursor: pointer;
+    position: absolute;
+    width: $length;
+    height: $length;
+    left:  $baseMargin;
+    bottom:  $baseMargin;
+  }
+  #nav-start {
+    position: absolute;
+    height: $length;
+    right:  $baseMargin * 5;
+    bottom:  $baseMargin;
+  }
 }
 
 .near {
-	background: $orangeColor;
+  background: $orangeColor;
 }
 
 .far {
-	background: $greenColor;
+  background: $greenColor;
 }
 
 #breadcrumb {
-	color: $lightGrayColor;
-	font-size: 16px;
-	margin: $baseMargin;
-	.link {
-		color: #337AB7;
-	}
+  color: $lightGrayColor;
+  font-size: 16px;
+  margin: $baseMargin;
+  .link {
+    color: #337AB7;
+  }
 }
 
 $checkpointHeight: 70px;
 $margin: 8px;
 .checkpoint {
-	cursor: pointer;
-	background: white;
-	border: 1px solid #DDDDDD;
-	height: $checkpointHeight;
-	max-height: $checkpointHeight;
-	a {
-		display: block;
-    	width: 100%;
-    	height: 100%;
-	}
-	.distance {
-		color: white;
-		$length: $checkpointHeight - $margin*2;
-		margin: $margin 0px $margin $margin;
-		line-height: $length;
-		text-align: center;
-		height: $length;
-		width: $length;
-		font-size: 12px;
-		font-weight: bold;
-		@include round($checkpointHeight - $margin*2);
-	}
-	.checkpoint-img {
-		display: block;
-		margin-left: $margin;
-		width: $checkpointHeight;
-		height: $checkpointHeight;
-	}
-	.text {
-		padding-left: $baseMargin;
-		display: table-cell;
-		vertical-align: middle;
-		height: $checkpointHeight;
-		.name {
-			font-size: 16px;
-			color: $primaryColor;
-		}
-		.detail {
-			font-size: 12px;
-			color: $lightGrayColor;
-		}
-	}
+  cursor: pointer;
+  background: white;
+  border: 1px solid #DDDDDD;
+  height: $checkpointHeight;
+  max-height: $checkpointHeight;
+  a {
+    display: block;
+      width: 100%;
+      height: 100%;
+  }
+  .distance {
+    color: white;
+    $length: $checkpointHeight - $margin*2;
+    margin: $margin 0px $margin $margin;
+    line-height: $length;
+    text-align: center;
+    height: $length;
+    width: $length;
+    font-size: 12px;
+    font-weight: bold;
+    @include round($checkpointHeight - $margin*2);
+  }
+  .checkpoint-img {
+    display: block;
+    margin-left: $margin;
+    width: $checkpointHeight;
+    height: $checkpointHeight;
+  }
+  .text {
+    padding-left: $baseMargin;
+    display: table-cell;
+    vertical-align: middle;
+    height: $checkpointHeight;
+    .name {
+      font-size: 16px;
+      color: $primaryColor;
+    }
+    .detail {
+      font-size: 12px;
+      color: $lightGrayColor;
+    }
+  }
 }
 
 .selected {
-	background: #FCF8E3;
+  background: #FCF8E3;
 }

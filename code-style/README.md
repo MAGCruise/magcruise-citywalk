@@ -20,6 +20,9 @@
 ~~![](https://i.gyazo.com/5142546261feecfadeeec5306041f36c.png)~~
 SCSS任せにする．
 
+# SCSS
+インデント：スペースx2
+
 scssディレクトリ監視
 ```
 cd magcruise-citywalk/src/main/webapp
@@ -31,5 +34,7 @@ scssディレクトリのscssファイルを一括で変換してcssディレク
 cd magcruise-citywalk/src/main/webapp
 sass --update scss:css --sourcemap=none
 ```
+
+![](https://i.gyazo.com/3f381f28ba568861fd4034f6dbd3897b.png)
 
 

@@ -2,10 +2,10 @@
 @import "mixins";
 
 .selection {
-	margin: $largeMargin;
-	font-size: $fs4;
-	
-	.selection {
-		margin-right: $baseMargin; 
-	}
+  margin: $largeMargin;
+  font-size: $fs4;
+  
+  .selection {
+    margin-right: $baseMargin; 
+  }
 }

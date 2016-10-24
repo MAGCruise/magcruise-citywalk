@@ -2,23 +2,23 @@
 @import "mixins";
 
 .img-wrapper {
-	display: table;
-	padding: $baseMargin;
-	text-align: center;
-	margin: 0 auto;
-	img {
-		display: table-cell;
-		vertical-align: middle;
-		width: 150px;
-		height: 150px;
-	}
+  display: table;
+  padding: $baseMargin;
+  text-align: center;
+  margin: 0 auto;
+  img {
+    display: table-cell;
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+  }
 }
 
 #file-input {
-	position: absolute;
-	top: -100px;
+  position: absolute;
+  top: -100px;
 }
 
 #btn-file-input {
-	width: 100%;
+  width: 100%;
 }
