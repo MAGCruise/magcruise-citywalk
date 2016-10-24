@@ -7,14 +7,7 @@
 <title>はじめに</title>
 <script>
   $(function() {
-    $("#nav-menu").hide();
-    if (getUserId()) {
-      $("#initial").removeClass("btn-success");
-      $("#initial").addClass("btn-default");
-    } else {
-      $("#login").hide();
-    }
-
+    $("#mag-nav").hide();
     var uaParser = new UAParser();
     var errMsg = "OSまたはWebブラウザが推奨環境ではないため，正しく動作しない可能性があります．";
     if (uaParser.getOS().name === "Windows") {
@@ -46,26 +39,13 @@
           <h1 class="text-center">Navi + Checkin + Quiz</h1>
           <p class="text-center">早稲田祭をめぐり，ランドマークやイベントにチェックイン．クイズを解いて早稲田文化を体感しよう．</p>
         </div>
-        <div style="font-size: 85%;">
+        <div style="font-size: 95%;">
           <h5>推奨環境</h5>
-          <p>GPSとインターネット接続が使える以下の環境を推奨します．</p>
+          <p>GPSとインターネット接続が使える以下の環境．</p>
           <ul>
-            <li>iOS (iPhone, iPad, Macなど)
-              <ul>
-                <li>Safari (最新版)</li>
-                <li>Google Chrome (最新版)</li>
-              </ul>
-            </li>
-            <li>Android
-              <ul>
-                <li>Google Chrome (最新版)</li>
-              </ul>
-            </li>
-            <li>Windows
-              <ul>
-                <li>Google Chrome (最新版)</li>
-              </ul>
-            </li>
+            <li>iOS : Safari または Google Chrome (最新版)</li>
+            <li>Android : Google Chrome (最新版)</li>
+            <li>Windows : Google Chrome (最新版)</li>
           </ul>
           <h5>注意事項</h5>
           <ul>
@@ -78,13 +58,17 @@
               </div>
             </li>
           </ul>
-          <div class="btn-group btn-group-justified">              class="btn btn-success" href="quick-start.html">ワセナビに参加</a>
+          <div class="alert alert-warning" style="padding: 0 1em">
+            <p>移動中は周辺の状況に十分注意してご利用下さい．</p>
+          </div>
+          <div class="btn-group btn-group-justified">
             <a id="login" class="btn btn-default" href="login.html">ログイン</a>
           </div>
           <div class="btn-group btn-group-justified">
             <a id="initial" class="btn btn-success" href="tutorial.html">ワセナビに参加</a>
           </div>
         </div>
+
       </div>
     </div>
   </div>
