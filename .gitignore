@@ -4,3 +4,4 @@
 .project
 *.css.map
 .sass-cache
+/src/main/webapp/scss/css
