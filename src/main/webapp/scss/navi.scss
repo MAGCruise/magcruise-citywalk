@@ -3,10 +3,10 @@
 
 
 #distance {
-	margin: $baseMargin;
-	color: $greenColor;
-	letter-spacing: 0.3px;
-	font-size: 36px;
+  margin: $baseMargin;
+  color: $greenColor;
+  letter-spacing: 0.3px;
+  font-size: 36px;
 }
 
 #distance-prefix {
@@ -19,45 +19,45 @@
   color: #97a6a3;}
 
 #btn-next {
-	margin: $baseMargin;
-	padding-left: $baseMargin;
-	padding-right: $baseMargin;
+  margin: $baseMargin;
+  padding-left: $baseMargin;
+  padding-right: $baseMargin;
 }
 
 #compass {
-	margin-bottom: $baseMargin;
-	$length: 200px;
-	width: $length;
-	height: $length;
+  margin-bottom: $baseMargin;
+  $length: 200px;
+  width: $length;
+  height: $length;
 }
 
 #map {
-	height: 200px;
+  height: 200px;
 }
 
 #activity-title {
-	margin-left: $baseMargin;
-	font-size: 16px;
-	color: $greenColor;
+  margin-left: $baseMargin;
+  font-size: 16px;
+  color: $greenColor;
 }
 
 #notification {
-	.item {
-		margin-bottom: 1px;
-		padding: $baseMargin;
-		background: #FFFFFF;
-		box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.17);
-		font-size: 13px;
-		font-family: HiraginoSans-W4;
-		color: #8D8D8D;
-		.name {
-			font-size: 16px;
-			font-family: HiraginoSans-W6;
-			color: #38A997;
-			margin-left: $baseMargin;
-			margin-right: $baseMargin/2;
-		}
-	}
+  .item {
+    margin-bottom: 1px;
+    padding: $baseMargin;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.17);
+    font-size: 13px;
+    font-family: HiraginoSans-W4;
+    color: #8D8D8D;
+    .name {
+      font-size: 16px;
+      font-family: HiraginoSans-W6;
+      color: #38A997;
+      margin-left: $baseMargin;
+      margin-right: $baseMargin/2;
+    }
+  }
 }
 
 .checkpoint {

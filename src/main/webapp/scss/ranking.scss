@@ -1,62 +1,62 @@
 @import "settings";
 @import "mixins";
-	
+  
 
 .rank-text {
-	font-size: 20px;
-	color: $greenColor;
+  font-size: 20px;
+  color: $greenColor;
 }
 
 .rank-first-img {
-	height: 50px;
-	margin-right: 10px;
+  height: 50px;
+  margin-right: 10px;
 }
 
 .rank-second-img {
-	height: 40px;
-	margin-right: 20px;
+  height: 40px;
+  margin-right: 20px;
 }
 
 .rank-third-img {
-	height: 30px;
-	margin-right: 30px;
+  height: 30px;
+  margin-right: 30px;
 }
 
 .point {
-	display: inline-block;
+  display: inline-block;
     vertical-align: middle;
     float: none;
 }
 
 .name {
-	margin: 0 $smallMargin;
-	color: $greenColor;
-	font-size: 28px;
-	font-weight: bold;
+  margin: 0 $smallMargin;
+  color: $greenColor;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 #my-names {
-	margin-right: $baseMargin;
-	font-size: 20px;
-	color: #8D8D8D;
+  margin-right: $baseMargin;
+  font-size: 20px;
+  color: #8D8D8D;
 }
 
 .ranking {
-	margin-right: $baseMargin;
-	font-size: 20px;
-	color: #8D8D8D;
-	.num {
-		margin: 0 $smallMargin;
-		color: $greenColor;
-		font-size: 28px;
-		font-weight: bold;
-	}
+  margin-right: $baseMargin;
+  font-size: 20px;
+  color: #8D8D8D;
+  .num {
+    margin: 0 $smallMargin;
+    color: $greenColor;
+    font-size: 28px;
+    font-weight: bold;
+  }
 }
 
 #my-ranking {
-	@extend .ranking;
+  @extend .ranking;
 }
 
 #group-ranking {
-	@extend .ranking;
+  @extend .ranking;
 }

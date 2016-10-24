@@ -1,26 +1,26 @@
 @import "settings";
 @import "mixins";
-	
+  
 .checkpoint {
-	margin-top: $baseMargin;
-	background: white;
-	border: 1px solid #DDDDDD;
-	box-shadow: 0px 1px 1px 0px rgba(198,198,198,0.50);
-	padding: $baseMargin;
-	.name {
-		font-size: 20px;
-		color: $greenColor;
-		.result {
-			font-size: 16px;
-			color: $orangeColor;
-		}
-	}
-	.answer {
-		font-size: 14px;
-		color: $greenColor;
-	}
-	.description {
-		margin: 0px;
-		padding-left: $baseMargin;
-	}
+  margin-top: $baseMargin;
+  background: white;
+  border: 1px solid #DDDDDD;
+  box-shadow: 0px 1px 1px 0px rgba(198,198,198,0.50);
+  padding: $baseMargin;
+  .name {
+    font-size: 20px;
+    color: $greenColor;
+    .result {
+      font-size: 16px;
+      color: $orangeColor;
+    }
+  }
+  .answer {
+    font-size: 14px;
+    color: $greenColor;
+  }
+  .description {
+    margin: 0px;
+    padding-left: $baseMargin;
+  }
 }

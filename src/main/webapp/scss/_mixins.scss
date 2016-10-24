@@ -1,32 +1,32 @@
 @mixin round($radius:4px) {
-	border-radius: $radius;
-	-webkit-border-radius: $radius;
-	-m-border-radius: $radius;
-	-o-border-radius: $radius;
-	-ms-border-radius: $radius;
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -m-border-radius: $radius;
+  -o-border-radius: $radius;
+  -ms-border-radius: $radius;
 }
 
 @mixin center() {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @mixin box-shadow($dx:1px, $dy:1px, $radius:1px, $color:#000) {
-	box-shadow: $dx $dy $radius $color; /* CSS3 */
-	-moz-box-shadow: $dx $dy $radius $color; /* Firefox用*/
-	-webkit-box-shadow: $dx $dy $radius $color; /* Google Chrome, Safari用*/
+  box-shadow: $dx $dy $radius $color; /* CSS3 */
+  -moz-box-shadow: $dx $dy $radius $color; /* Firefox用*/
+  -webkit-box-shadow: $dx $dy $radius $color; /* Google Chrome, Safari用*/
 }
 
 @mixin gradient($from, $to) {
-	/* fallback/image non-cover color */
-	background-color: $from;
-	/* Firefox 3.6+ */
-	background-image: -moz-linear-gradient($from, $to);
-	/* Safari 4+, Chrome 1+ */
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
-	/* Safari 5.1+, Chrome 10+ */
-	background-image: -webkit-linear-gradient($from, $to);
-	/* Opera 11.10+ */
-	background-image: -o-linear-gradient($from, $to);
+  /* fallback/image non-cover color */
+  background-color: $from;
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient($from, $to);
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient($from, $to);
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient($from, $to);
 }
