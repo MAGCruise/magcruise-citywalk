@@ -6,11 +6,9 @@
 <link rel="stylesheet" href="../css/doc-page.css" />
 <script>
   $(function() {
-    $("#nav-menu").hide();
-    if (getUserId()) {
-      $(".initial").hide();
+    if (!getUserId()) {
+      $("#nav-menu").hide();
     }
-
   });
 </script>
 </head>
@@ -19,10 +17,6 @@
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
       <div class="col-sm-12">
-        <div class="initial btn-group btn-group-justified">
-          <a class="btn btn-success" href="signup.html">はじめる</a>
-        </div>
-        <br>
         <h4>ユーザ登録 （ニックネーム登録）</h4>
         <p>まずニックネームを登録してください．ニックネームは，自由に決められます．実名である必要はありません．</p>
         <p>ニックネームはアプリケーション内で，他のユーザに表示されることがあります．</p>
@@ -30,7 +24,7 @@
 				<p>他の人が既に利用しているニックネームは利用することができません．また，一度，ユーザ登録をするとニックネームを変更することはできません．</p>
 				 -->
         <div class="media">
-          <img class="media-object img-thumbnail center-block" src="../img/web/register.png"
+          <img class="media-object img-thumbnail center-block" src="../img/web/signup.png"
             style="max-width: 240px;">
         </div>
         <hr>
@@ -97,7 +91,7 @@
             src="../img/web/visited-checkpoints.png" style="max-width: 240px;">
         </div>
         <hr>
-        <h4>ランキング (順位とポイントの確認)</h4>
+        <h4>ランキング/獲得ポイント (順位とポイントの確認)</h4>
         <p>参加した人を獲得ポイントの多い順に表示しています． また，自分の順位と獲得ポイントを知ることができます．</p>
         <p>獲得ポイントが50pt以上になったらインフォメーションにお越し下さい．</p>
         <div class="media">
@@ -105,12 +99,6 @@
             style="max-width: 240px;">
         </div>
         <hr>
-        <h4>ヘルプ (使い方の確認)</h4>
-        <p>ユーザ登録後，画面上部右端の「メニュー」ボタンをクリックするとメニューが表示されます．「使い方」を選ぶとこのページが見られます．</p>
-        <br>
-        <div class="initial btn-group btn-group-justified">
-          <a class="btn btn-primary" href="signup.html">はじめる</a>
-        </div>
       </div>
     </div>
   </div>
