@@ -121,6 +121,10 @@ a:hover {
   }
 }
 
+.btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) {
+	@include round(5px);
+}
+
 .fs3 {
   font-size: $fs3;
 }
@@ -189,4 +193,8 @@ h1 {
   margin-top: $xLargeMargin;
   margin-bottom: $xLargeMargin;
   width: 100%;
+}
+
+.bottom-margin {
+  margin-bottom: $largeMargin;
 }
