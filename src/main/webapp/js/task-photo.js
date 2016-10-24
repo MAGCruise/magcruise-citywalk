@@ -1,14 +1,17 @@
+if (getTaskIndex() <= getLastTaskIndex(getCheckpoint().id)) {
+  moveToNextPage();
+}
 setTaskTitle();
 var task = getTask();
 
 $(function() {
   if (getTaskIndex() != 0) {
-    $("#back").hide();
+    setBackDisabled();
   }
 
   $("#loading").hide();
   $("#task-img").attr('src', task.imgSrc);
-  $("#btn-next").click(function() {
+  $("#btn-next").on('click',function() {
     $("#loading").fadeIn();
     var imgData = $("#img-preview").attr('src');
     addActivity(task, imgData, true);
