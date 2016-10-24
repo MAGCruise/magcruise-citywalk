@@ -46,7 +46,8 @@ public class CityWalkView extends JaxrsView {
 
 	private boolean isUnneededLogin(String filePathFromViewRoot) {
 		for (String unneededLoginPage : Arrays.asList("index.html", "clear.html", "dev.html",
-				"login.html", "signup.html", "how-to-use.html", "intro.html", "help.html")) {
+				"login.html", "signup.html", "how-to-use.html", "intro.html", "help.html",
+				"tutorial.html")) {
 			if (filePathFromViewRoot.contains(unneededLoginPage)) {
 				return true;
 			}

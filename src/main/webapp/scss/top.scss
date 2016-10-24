@@ -1,4 +1,7 @@
-.nav-btn-big {
+@import "settings";
+@import "mixins";
+
+  .nav-btn-big {
   margin-top: 10px;
   line-height: 76px;
   text-align: center;
