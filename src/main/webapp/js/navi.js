@@ -14,11 +14,11 @@ var KEY_MOVEMENT_LIST = "movement_list";
 
 window.onload = function() {
   initMap();
-  showCheckpointInfo();
 }
 
 $(function() {
-  $("#current-position").click(function() {
+  showCheckpointInfo();
+  $("#current-position").on('click',function() {
     if (!cPos) { return; }
     map.setZoom(17);
     map.setCenter(cPos);
@@ -41,13 +41,11 @@ setInterval(function() {
 
 $(function() {
   $("#activity-title").text(checkpoint.name + "でのアクティビティ");
-  $("#btn-next").click(
-          function() {
-            // 既に途中までタスクが進んでいる場合には、完了済みの次のタスクからはじめる
-            var taskIndex = (checkpoint.id in getCheckpointProgressDic())
-                    ? getCheckpointProgressDic()[checkpoint.id] + 1 : 0;
-            location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
-          });
+  $("#btn-next").on('click',function() {
+    // 既に途中までタスクが進んでいる場合には、完了済みの次のタスクからはじめる
+    var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
+    location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
+  });
 
   // コンパス画像の要素
   compassElem = $("#compass");
@@ -168,7 +166,7 @@ function watchCurrentPosition() {
     }
     $('#gps-error-msg').show();
     if ($('#compass-error-msg').is(':visible')) {
-      $('#error-msg-spritter').show();
+      $('#error-msg-splitter').show();
     }
   }
   watchID = window.navigator.geolocation.watchPosition(function(pos) {
@@ -178,7 +176,7 @@ function watchCurrentPosition() {
     enqueueMovement(pos);
     updateCurrentCircle(pos.coords.accuracy);
     $('#gps-error-msg').hide();
-    $('#error-msg-spritter').hide();
+    $('#error-msg-splitter').hide();
     if ($('#compass-error-msg').is(':hidden')) {
       $('#error-msg-area').hide();
     }
@@ -188,7 +186,7 @@ function watchCurrentPosition() {
     }
     $('#gps-error-msg').show();
     if ($('#compass-error-msg').is(':visible')) {
-      $('#error-msg-spritter').show();
+      $('#error-msg-splitter').show();
     }
     navigator.geolocation.clearWatch(watchID);
   }, {
@@ -258,12 +256,12 @@ function onHeadingChange(event) {
     }
     $('#compass-error-msg').show();
     if ($('#gps-error-msg').is(':visible')) {
-      $('#error-msg-spritter').show();
+      $('#error-msg-splitter').show();
     }
 
   } else {
     $('#compass-error-msg').hide();
-    $('#error-msg-spritter').hide();
+    $('#error-msg-splitter').hide();
     if ($('#gps-error-msg').is(':hidden')) {
       $('#error-msg-area').hide();
     }

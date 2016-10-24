@@ -47,6 +47,12 @@ public class InitialDataFactory {
 				}
 				taskJsons.add(new TaskJson(t));
 			}
+
+			if (taskJsons.size() == 0) {
+				throw new RuntimeException(
+						"At least one task is assigned to checkpoint. " + c.toString());
+			}
+
 			// チェックインタスクを先頭に持ってくる
 			TaskJson checkinTaskJson = taskJsons.get(checkinIndex);
 			taskJsons.remove(checkinIndex);

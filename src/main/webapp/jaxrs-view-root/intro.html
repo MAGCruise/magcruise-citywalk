@@ -3,12 +3,8 @@
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <script type="text/javascript" src="../js/ua-parser.min.js"></script>
+<link rel="stylesheet" href="../css/doc-page.css" />
 <title>はじめに</title>
-<style>
-hr {
-  border-top: 1px solid #ddd;
-}
-</style>
 <script>
   $(function() {
     $("#nav-menu").hide();
@@ -40,7 +36,7 @@ hr {
 </script>
 </head>
 <body>
-  <div class="container">
+  <div class="container doc-page">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
       <div class="col-sm-12">
@@ -92,9 +88,6 @@ hr {
         <div class="btn-group btn-group-justified">
           <a id="login" class="btn btn-default" href="login.html">ログイン</a> <a id="initial"
             class="btn btn-primary" href="how-to-use.html">ワセナビに参加</a>
-        </div>
-        <div class="btn-group btn-group-justified">
-          <a id="login" class="btn btn-default" href="dev.html">開発者ツール(本番では消します)</a>
         </div>
       </div>
     </div>

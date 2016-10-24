@@ -1,12 +1,15 @@
+if (getTaskIndex() <= getLastTaskIndex(getCheckpoint().id)) {
+  moveToNextPage();
+}
 setTaskTitle();
 var task = getTask();
 
 $(function() {
   if (getTaskIndex() != 0) {
-    $("#back").hide();
+    setBackDisabled();
   }
 
-  $("#btn-next").click(function() {
+  $("#btn-next").on('click',function() {
     addActivity(task, task.answerQr, true);
   });
 });

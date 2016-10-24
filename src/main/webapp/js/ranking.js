@@ -21,18 +21,22 @@ function initNames() {
 
 function initMyRankingView(myRanking) {
   if (myRanking.rank == -1) {
-    $('#my-ranking').hide();
+    $('#my-rank').text("-");
+    $('#my-score').text("-");
+  } else {
+    $('#my-rank').text(myRanking.rank);
+    $('#my-score').text(myRanking.score);
   }
-  $('#my-rank').text(myRanking.rank);
-  $('#my-score').text(myRanking.score);
 }
 
 function initMyGroupRankingView(myGroupRanking) {
   if (myGroupRanking.rank == -1) {
-    $('#my-group-ranking').hide();
+    $('#my-group-rank').text("-");
+    $('#my-group-score').text("-");
+  } else {
+    $('#my-group-rank').text(myGroupRanking.rank);
+    $('#my-group-score').text(myGroupRanking.score);
   }
-  $('#my-group-rank').text(myGroupRanking.rank);
-  $('#my-group-score').text(myGroupRanking.score);
 }
 
 function initRankingsView(rankings, isGroup) {
