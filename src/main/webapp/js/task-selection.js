@@ -22,7 +22,7 @@ $(function() {
 
   $('.selection').on('click',function() {
     var enableBtnNext = false;
-    // 一つでもチェックがあれば、回答するボタンを押せるように
+    // 一つでもチェックがあれば，回答するボタンを押せるように
     // [name=selection]
     $('.selection').each(function() {
       enableBtnNext = (enableBtnNext || $(this).prop('checked'));

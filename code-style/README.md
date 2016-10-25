@@ -38,3 +38,6 @@ sass --update scss:css --sourcemap=none
 ![](https://i.gyazo.com/3f381f28ba568861fd4034f6dbd3897b.png)
 
 
+# 句読点
+- 表示される日本語の文章では「，．」を使うこと．
+- 一文だけ表示するときは末尾に句点はつけなくとも良い．

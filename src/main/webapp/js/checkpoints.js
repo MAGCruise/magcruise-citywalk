@@ -40,7 +40,7 @@ $(function() {
   });
   $("#nav-start").on('click', function() {
     if (!selectedCheckpoint) {
-      alert("チェックポイントが選択されていません。");
+      alert("チェックポイントが選択されていません");
       return;
     }
     location.href = "./navi.html?checkpoint_id=" + selectedCheckpoint.id;
@@ -158,7 +158,7 @@ function makeListElemWithoutDistanceAndImage(name) {
 
 /* サブカテゴリの表示 */
 function showSubcategory() {
-  // カテゴリでフィルタ、サブカテゴリ名を抽出、ユニークに
+  // カテゴリでフィルタ，サブカテゴリ名を抽出，ユニークに
   var names = checkpoints.filter(function(checkpoint) {
     return checkpoint.category = category;
   }).map(function(checkpoint) {
@@ -178,7 +178,7 @@ function showSubcategory() {
 
 /* カテゴリの表示 */
 function showCategory() {
-  // カテゴリ名を抽出、ユニークに
+  // カテゴリ名を抽出，ユニークに
   var names = checkpoints.map(function(checkpoint) {
     return checkpoint.category;
   }).filter(function(category, index, self) {
@@ -229,7 +229,7 @@ function initMap() {
     });
   }
 
-  // マップをドラッグした場合は、チェックポイントを非選択に
+  // マップをドラッグした場合は，チェックポイントを非選択に
   google.maps.event.addListener(map, "dragend", function() {
     unselectCheckpoint();
   });

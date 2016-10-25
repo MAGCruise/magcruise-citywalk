@@ -16,7 +16,7 @@ $(function() {
 
 function handleFiles(files) {
   if (files == null || files.length == 0 || files[0] == null) {
-    alert("画像を取得できませんでした。");
+    alert("画像を取得できませんでした");
     return;
   }
   var file = files[0];
@@ -38,7 +38,7 @@ qrcode.callback = function(res) {
     if (res == task.answerQr) {
       $("#btn-next").prop("disabled", false);
     } else {
-      alert("誤ったQRコードを読み込んでいます。別のQRコードを探して下さい。");
+      alert("誤ったQRコードを読み込んでいます．別のQRコードを探して下さい．");
     }
   }
 };

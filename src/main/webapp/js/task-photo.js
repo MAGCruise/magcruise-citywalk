@@ -20,7 +20,7 @@ $(function() {
 
 function handleFiles(files) {
   if (files == null || files.length == 0 || files[0] == null) {
-    alert("画像を取得できませんでした。");
+    alert("画像を取得できませんでした");
     return;
   }
   var file = files[0];

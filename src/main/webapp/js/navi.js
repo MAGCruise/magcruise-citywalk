@@ -25,11 +25,11 @@ $(function() {
   });
 });
 
-// ブラウザがバックグラウンドに一度遷移すると、watchPositionキャンセルされる。
-// そこで、フォアグラウンドに戻ってきた際に、リロードする。initMap()だけでも良いが念のため。
+// ブラウザがバックグラウンドに一度遷移すると，watchPositionキャンセルされる。
+// そこで，フォアグラウンドに戻ってきた際に，リロードする。initMap()だけでも良いが念のため。
 // ex.)ホームボタンを押す。
 // ex.)電源ボタンを押す。
-// ex.)通知より、別のアプリを起動する。
+// ex.)通知より，別のアプリを起動する。
 var lastChecked = new Date().getTime();
 setInterval(function() {
   var now = new Date().getTime();
@@ -42,7 +42,7 @@ setInterval(function() {
 $(function() {
   $("#activity-title").text(checkpoint.name + "でのアクティビティ");
   $("#btn-next").on('click',function() {
-    // 既に途中までタスクが進んでいる場合には、完了済みの次のタスクからはじめる
+    // 既に途中までタスクが進んでいる場合には，完了済みの次のタスクからはじめる
     var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
     location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
   });
@@ -67,7 +67,7 @@ function getEventsByWebsocket() {
     for (var i = 0; i < messages.length; i++) {
       var a = messages[i];
       var elem = $('<div class="item">' + '<span class="time">' + toFormattedShortDate(a.created)
-              + '</span>' + '<span class="name">' + a.userId + '</span>' + 'さんがチェックインしました。'
+              + '</span>' + '<span class="name">' + a.userId + '</span>' + 'さんがチェックインしました．'
               + '</div>');
       $('#notification').prepend(elem);
     }
@@ -344,7 +344,7 @@ function setMovementQueue(movements) {
   setItem(KEY_MOVEMENT_LIST, JSON.stringify(movements));
 }
 
-/* 一定周期で呼び出され、ムーブメントを送信する */
+/* 一定周期で呼び出され，ムーブメントを送信する */
 var postMovementsFunc = function() {
   var movements = getMovementQueue();
   var lastMovements = getMovementQueue();

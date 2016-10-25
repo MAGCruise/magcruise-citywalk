@@ -161,7 +161,7 @@ function setItem(key, val) {
 function getItem(key) {
   return window.localStorage.getItem(key);
 }
-// localStorageに保存されている、あるkeyの値を削除する
+// localStorageに保存されている，あるkeyの値を削除する
 function removeItem(key) {
   window.localStorage.removeItem(key);
 }
