@@ -1,3 +1,7 @@
+if (!getCheckpointGroupId()) {
+  location.href = "courses.html";
+}
+
 var MAX_ZOOM_LEVEL = 17;
 
 var map = null;
@@ -22,18 +26,19 @@ $(function() {
     updateViews();
   });
   if (document.referrer) {
-    if (document.referrer.indexOf("/task-") != -1) {
+    if (document.referrer.indexOf("/task-") != -1
+            || document.referrer.indexOf("/courses.html") != -1) {
       setBackDisabled();
     }
   }
 
   unselectCheckpoint();
-  $("#current-position").on('click',function() {
+  $("#current-position").on('click', function() {
     if (!cPos) { return; }
     map.setZoom(17);
     map.setCenter(cPos);
   });
-  $("#nav-start").on('click',function() {
+  $("#nav-start").on('click', function() {
     if (!selectedCheckpoint) {
       alert("チェックポイントが選択されていません。");
       return;
@@ -76,7 +81,7 @@ function initBreadCrumb() {
   // トップ
   var topElem = $('<span>カテゴリ：</span><span class="link">TOP</span>');
   $("#breadcrumb").append(topElem);
-  topElem.on('click',function() {
+  topElem.on('click', function() {
     category = null;
     subcategory = null;
     location.href = "./checkpoints.html#";
@@ -86,7 +91,7 @@ function initBreadCrumb() {
     var categoryElem = $('<span> > ' + category + '</span>');
     if (subcategory) {
       categoryElem.addClass('link');
-      categoryElem.on('click',function() {
+      categoryElem.on('click', function() {
         subcategory = null;
         location.href = "./checkpoints.html#" + "?category=" + category;
       });
@@ -139,7 +144,7 @@ function showCheckpoints() {
             + imgSrc + '" class="pull-left checkpoint-img">' + '<div class="text">'
             + '<div class="name">' + checkpoint.name + '</div>' + '<div class="detail">'
             + checkpoint.label + '</div>' + '</div>' + '</div>');
-    elem.on('click',function() {
+    elem.on('click', function() {
       selectCheckpoint(checkpoint);
     });
     $("#checkpoints").append(elem);
@@ -163,7 +168,7 @@ function showSubcategory() {
   });
   names.forEach(function(name, i) {
     var elem = makeListElemWithoutDistanceAndImage(name);
-    elem.on('click',function() {
+    elem.on('click', function() {
       subcategory = name;
       location.href = location.href + "&subcategory=" + encodeURIComponent(name);
     });
@@ -181,7 +186,7 @@ function showCategory() {
   });
   names.forEach(function(name, i) {
     var elem = makeListElemWithoutDistanceAndImage(name);
-    elem.on('click',function() {
+    elem.on('click', function() {
       category = name;
       location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(name);
     });
