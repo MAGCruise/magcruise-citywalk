@@ -64,5 +64,6 @@ function getResultByCheckpoint(results, checkpoint) {
 
 function makeResultHtml(result) {
   if (result == null) { return ""; }
-  return '<span class="pull-right result">獲得ポイント：' + result.score + "/" + result.point + '</span>';
+  return '<span class="pull-right result">スコア： ' + result.score + "pt/" + result.point
+          + 'pt</span>';
 }
