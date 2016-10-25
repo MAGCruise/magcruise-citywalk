@@ -82,3 +82,7 @@
     height: 50px;
     right: 50px;
     bottom: 10px; }
+
+#error-msg-area {
+  padding: 0 1em;
+  margin: 0; }
