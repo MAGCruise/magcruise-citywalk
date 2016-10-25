@@ -4,36 +4,8 @@
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <link rel="stylesheet" href="../css/doc-page.css" />
 <script type="text/javascript" src="../js/ua-parser.min.js"></script>
+<script type="text/javascript" src="../js/intro.js"></script>
 <title>ワセナビへようこそ: 早稲田祭2016ウォークラリー</title>
-<script>
-  $(function() {
-    $("#mag-nav").hide();
-    var uaParser = new UAParser();
-    var errMsg = "OSまたはWebブラウザが推奨環境ではないため，正しく動作しない可能性があります．";
-    if (uaParser.getOS().name === "Windows") {
-      if (uaParser.getBrowser().name !== "Chrome") {
-        alert(errMsg);
-      }
-    } else if (uaParser.getOS().name === "iOS") {
-      if (uaParser.getBrowser().name !== "Chrome"
-              && uaParser.getBrowser().name.indexOf("Safari") == -1) {
-        alert(errMsg);
-      }
-    } else if (uaParser.getOS().name === "Android") {
-      if (uaParser.getBrowser().name !== "Chrome") {
-        alert(errMsg);
-      }
-    } else {
-      alert(errMsg);
-    }
-    $('#btn-skip-tutorial').on('click', function(e) {
-      if (confirm('チュートリアルをスキップしてワセナビに参加してよろしいですか？')) {
-        location.href = "signup.html";
-      }
-    });
-
-  });
-</script>
 </head>
 <body>
   <div class="container doc-page">
@@ -73,9 +45,6 @@
         </div>
         <div class="btn-group btn-group-justified bottom-margin">
           <a id="btn-join" class="btn btn-success" href="tutorial.html">ワセナビに参加</a>
-        </div>
-        <div class="btn-group btn-group-justified bottom-margin">
-          <a id="btn-skip-tutorial" class="btn btn-default">チュートリアルをスキップ</a>
         </div>
       </div>
     </div>
