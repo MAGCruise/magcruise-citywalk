@@ -37,7 +37,7 @@ function showVisitedCheckPoints(results) {
       }
       // 改行
       if (index != checkpoint.tasks.length - 1) {
-        answerHtml += '<br/><br/>';
+        answerHtml += '<br/>';
       }
     });
     var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : "../img/"

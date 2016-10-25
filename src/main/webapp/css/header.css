@@ -8,20 +8,17 @@
     cursor: pointer;
     padding-left: 10px; }
   #mag-nav #nav-title {
-    font-size: 14px;
+    font-size: 110%;
     color: white; }
-  #mag-nav #nav-menu {
-    font-size: 12px;
-    margin-top: 6px;
-    min-width: 100px; }
   #mag-nav .dropdown {
     cursor: pointer;
-    padding: 6px; }
+    padding: 0 10px; }
   #mag-nav .dropdown-toggle {
     color: white; }
 
 #orange-dropdown {
-  padding: 10px;
+  font-size: 120%;
+  padding: 10px 15px;
   background: #FA833C;
   border-radius: 5px;
   -webkit-border-radius: 5px;

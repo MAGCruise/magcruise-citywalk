@@ -9,20 +9,15 @@
   padding: $baseMargin 0px;
   #back {
     cursor: pointer;
-    padding-left:10px;
+    padding-left: $baseMargin;
   }
   #nav-title {
-    font-size: 14px;
+    font-size: 110%;
     color: white;
-  }
-  #nav-menu {
-    font-size: 12px;
-    margin-top: 6px;
-    min-width: 100px;
   }
   .dropdown {
     cursor: pointer;
-    padding: $smallMargin;
+    padding: 0 $baseMargin;
   }
   .dropdown-toggle {
     color: white;
@@ -30,7 +25,8 @@
 }
 
 #orange-dropdown {
-  padding: $baseMargin;
+  font-size: 120%;
+  padding: $baseMargin $baseMargin*1.5;
   background: $orangeColor;
   @include round($baseMargin/2);
 }
