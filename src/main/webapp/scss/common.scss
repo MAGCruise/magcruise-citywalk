@@ -101,9 +101,8 @@ h1.doc-header-bg {
 }
 
 .form-control {
+  font-family: arial, sans-serif;
   font-size: 20px;
-  background: white;
-  border: 1px solid #CACACA;
   @include round(8px);
 }
 
