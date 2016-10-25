@@ -138,12 +138,13 @@ function showCheckpoints() {
     var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : "../img/"
             + checkpoint.imgSrc;
 
-    var elem = $('<div class="row"><div class="col-sm-12 no-padding"><div class="checkpoint" id="checkpoint-' + checkpoint.id + '">'
-            + '<span class="pull-left distance ' + distanceStyle + '">'
-            + (enableGps ? getFormattedDistance(distance) : "?m") + '</span>' + '<img src="'
+    var elem = $('<div class="row">' + '<div class="col-sm-12 no-padding">'
+            + '<div class="checkpoint" id="checkpoint-' + checkpoint.id + '">'
+            + '<div class="pull-left distance ' + distanceStyle + '">'
+            + (enableGps ? getFormattedDistance(distance) : "?m") + '</div>' + '<img src="'
             + imgSrc + '" class="pull-left checkpoint-img">' + '<div class="text">'
-            + '<div class="name">' + checkpoint.name + '</div>' + '<div class="detail">'
-            + checkpoint.label + '</div></div></div></div></div>');
+            + '<div class="name">' + checkpoint.name + '</div>' + '<div class="detail">' + '<div>'
+            + checkpoint.balloon + '</div>' + checkpoint.label + '</div></div></div></div></div>');
     elem.on('click', function() {
       selectCheckpoint(checkpoint);
     });
@@ -152,8 +153,8 @@ function showCheckpoints() {
 }
 
 function makeListElemWithoutDistanceAndImage(name) {
-  return $('<div class="row"><div class="col-sm-12 no-padding"><div class="checkpoint">' + '<div class="text">' + '<div class="name">' + name
-          + '</div></div></div></div></div>');
+  return $('<div class="row">' + '<div class="col-sm-12 no-padding">' + '<div class="checkpoint">'
+          + '<div class="text">' + '<div class="name">' + name + '</div></div></div></div></div>');
 }
 
 /* サブカテゴリの表示 */
@@ -267,7 +268,7 @@ function selectCheckpoint(checkpoint) {
 
   // マーカータップ時のバルーンの初期化
   infoWindow = new google.maps.InfoWindow({
-    content: checkpoint.balloon
+    content: checkpoint.name+"<br>("+checkpoint.balloon+")"
   });
   var marker = markers.filter(function(marker) {
     return marker.checkpointId === checkpoint.id;
@@ -278,6 +279,9 @@ function selectCheckpoint(checkpoint) {
   map.setCenter(marker.getPosition());
   $(".checkpoint").removeClass("selected");
   $("#checkpoint-" + checkpoint.id).addClass("selected");
+  $("#selected-checkpoint-description").remove();
+  $(".checkpoint.selected .detail").append(
+          $("<p>").attr("id", "selected-checkpoint-description").html(checkpoint.description));
   $("#nav-start").show();
 }
 
