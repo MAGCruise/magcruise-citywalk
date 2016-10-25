@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
-<title>ランキング/獲得ポイント</title>
-<script type="text/javascript" src="../js/ranking.js"></script>
-<link rel="stylesheet" href="../css/ranking.css" />
+<title>スコア</title>
+<script type="text/javascript" src="../js/score.js"></script>
+<link rel="stylesheet" href="../css/score.css" />
 </head>
 <head th:remove="all">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -23,12 +23,12 @@
     </div>
     <div class="row">
       <p id="my-ranking" class="pull-right">
-        個人順位<span id="my-rank" class="num"></span>位／スコア<span id="my-score" class="num"></span>点
+        スコア<span id="my-score" class="num"></span>pt/個人順位<span id="my-rank" class="num"></span>位
       </p>
     </div>
     <div class="row" style="display: none;">
       <p id="my-group-ranking" class="pull-right">
-        グループ順位<span id="my-group-rank" class="num"></span>位／スコア<span id="my-group-score" class="num"></span>点
+        スコア<span id="my-group-score" class="num"></span>pt/グループ順位<span id="my-group-rank" class="num"></span>位
       </p>
     </div>
     <div class="row">
