@@ -4,67 +4,9 @@
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <link rel="stylesheet" href="../css/doc-page.css" />
 <link rel="stylesheet" href="../css/carousel.css" />
+<link rel="stylesheet" href="../css/tutorial.css" />
+<script type="text/javascript" src="../js/tutorial.js"></script>
 <title>チュートリアル</title>
-<style>
-li {
-  list-style-position: inside;
-}
-
-.current-step {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .2);
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 1px 2px rgba(0, 0, 0, .05);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 1px 2px rgba(0, 0, 0, .05);
-  background-image: -webkit-linear-gradient(top, #f2dede 0, #e7c3c3 100%);
-  background-image: -o-linear-gradient(top, #f2dede 0, #e7c3c3 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f2dede), to(#e7c3c3));
-  background-image: linear-gradient(to bottom, #f2dede 0, #e7c3c3 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3',
-    GradientType=0);
-  background-repeat: repeat-x;
-  border-color: #dca7a7;
-}
-</style>
-<script>
-  $(function() {
-    if (!getUserId()) {
-      $("#nav-back-wrapper").remove();
-      $("#nav-menu-wrapper").remove();
-      $("#nav-title-wrapper").removeClass("col-xs-8");
-      $("#nav-title-wrapper").addClass("col-xs-12");
-      $("#nav-title").css("font-size", "18px");
-    } else {
-      $("#mag-nav").css("height", "72px");
-    }
-
-    $("#step-" + $("li.active").attr("data-slide-to")).addClass("current-step");
-    $("#nav-title").html("チュートリアル<br>" + $("#step-" + $("li.active").attr("data-slide-to")).text());
-
-    $("#btn-next-step").on("click", function(e) {
-      $("#carousel-next").trigger('click');
-    });
-
-    $(".carousel-control").on(
-            "click",
-            function(e) {
-              setTimeout(function() {
-                $(".step").removeClass("current-step");
-                $("#step-" + $("li.active").attr("data-slide-to")).addClass("current-step");
-                $("#nav-title").html(
-                        "チュートリアル<br>" + $("#step-" + $("li.active").attr("data-slide-to")).text());
-
-                if ($("li.active").attr("data-slide-to") == 5) {
-                  $("#btn-start").show();
-                  $("#btn-skip-tutorial").hide();
-                  $("#btn-next-step").hide();
-                  $("#nav-title").html("チュートリアル<br>終了！");
-                }
-              }, 500)
-            });
-  });
-</script>
 </head>
 <body>
   <div class="container doc-page">
