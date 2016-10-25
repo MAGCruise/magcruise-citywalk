@@ -3,7 +3,7 @@
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <script src="../js/signup.js"></script>
-<title>ユーザ登録</title>
+<title>サインアップ</title>
 </head>
 <head th:remove="all">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -15,13 +15,17 @@
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
       <div class="margin-container">
-        <div class="col-sm-12" style="margin-top: 10px;">
+        <div class="col-sm-12">
+          <h4>ニックネームの登録</h4>
+          <div class="description">
+            <p>アプリの利用をはじめる前にニックネームの登録が必要です．ニックネームは自由に決められます．実名である必要はありません．</p>
+            <p>ニックネームはアプリケーション内で他のユーザに表示されることがあります．</p>
+            <p>一つの端末に指定できるニックネームは一つだけで，一度決めると変更できません．</p>
+          </div>
           <form>
             <div class="form-group">
-              <label class="description">ニックネーム(1文字以上8文字以下)<br>
-                ニックネームはアプリ内で表示されます．一つの端末に指定できるニックネームは一つだけで，一度決めると変更できません．
-              </label> <input class="form-control" type="text" id="user-id" name="user-id"
-                placeholder="nickname" pattern=".{1,8}" required />
+              <label>ニックネーム(1文字以上8文字以下) </label> <input class="form-control" type="text"
+                id="user-id" name="user-id" placeholder="nickname" pattern=".{1,8}" required />
             </div>
             <div class="form-group" style="display: none;">
               <label class="description">グループ名</label> <input class="form-control" type="text"
