@@ -29,6 +29,9 @@ public interface CityWalkServiceInterface {
 	RegisterResultJson register(@Parameter(sample = "ayaki") String userId,
 			@Parameter(sample = "houchimin") String groupId);
 
+	RegisterResultJson register(@Parameter(sample = "ayaki") String userId,
+			@Parameter(sample = "houchimin") String groupId, int maxLengthOfUserId);
+
 	RewardJson addActivity(
 			@Parameter(sample = "{\"userId\": \"ayaki\", " + "\"checkpointId\": \"1\", "
 					+ "\"taskId\": \"1\", " + "\"score\": 9.0, " + "\"inputs\": "

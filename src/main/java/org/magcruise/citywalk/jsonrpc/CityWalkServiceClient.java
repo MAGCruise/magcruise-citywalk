@@ -7,8 +7,8 @@ import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
 import org.magcruise.citywalk.model.json.MovementJson;
 import org.magcruise.citywalk.model.json.RankingJson;
-import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
+import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
 
@@ -101,6 +101,12 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	public boolean join(String userId, String checkpointGroupId) {
 		// TODO 自動生成されたメソッド・スタブ
 		return false;
+	}
+
+	@Override
+	public RegisterResultJson register(String userId, String groupId, int maxLengthOfUserId) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
 	}
 
 }

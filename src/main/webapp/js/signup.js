@@ -1,3 +1,4 @@
+var MAX_LENGTH_OF_USER_ID = 8;
 var registerFunc = function() {
   for (var i = 0; i < $('input').size(); i++) {
     if (!$('input')[i].checkValidity()) {
@@ -8,14 +9,15 @@ var registerFunc = function() {
   var checkpointGroupId = parseUri(location).anchor;
   var userId = $('#user-id').val();
   var groupId = $('#group-id').val();
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "register", [userId, groupId], function(data) {
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "register", [userId, groupId,
+      MAX_LENGTH_OF_USER_ID], function(data) {
     if (data.result) {
-      if (data.result.register) {
+      if (data.result.success) {
         if (localStorage.length != 0) {
-          if (confirm('これまでのアクティビティを消去し，新しくユーザ登録をし直してよろしいですか？')) {
+          if (confirm('これまでのアクティビティを消去し，新しくニックネームを登録し直してよろしいですか？')) {
             clear();
           } else {
-            alert('ユーザ登録をキャンセルしました．');
+            alert('新しいニックネームの登録をキャンセルしました．');
             return;
           }
         }
@@ -25,13 +27,13 @@ var registerFunc = function() {
       } else {
         var recommendedUserId = data.result.recommendedUserId;
         $('#user-id').val(recommendedUserId);
-        alert("そのユーザ名は既に登録されています．「" + recommendedUserId + "」が利用できます．");
+        alert("そのニックネームは既に登録されています．「" + recommendedUserId + "」が利用できます．");
       }
     } else {
-      alert('ユーザを登録できませんでした．');
+      alert('ニックネームの登録に失敗しました');
     }
   }, function(data, textStatus, errorThrown) {
-    alert('ユーザを登録できませんでした．');
+    alert('ニックネームの登録に失敗しました');
     console.error("fail to register.");
     console.error(textStatus + ', ' + errorThrown + '. response: ' + JSON.stringify(data));
     console.error('request: ' + JSON.stringify(JSON.stringify(this)));
