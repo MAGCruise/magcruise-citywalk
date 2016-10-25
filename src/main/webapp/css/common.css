@@ -1,13 +1,6 @@
-@charset "UTF-8";
 body {
   background-color: #E4EFF3;
-  margin: 0 auto;
-  padding: 0px;
-  font-size: 14px;
-  font-family: "HiraginoSans-W3","Hiragino Kaku Gothic Pro","Osaka","メイリオ","Meiryo","ＭＳ Ｐゴシック","MS PGothic",sans-serif; }
-
-img {
-  border: 0px; }
+  font-family: helvetica, arial, 'hiragino kaku gothic pro', meiryo, 'ms pgothic', sans-serif; }
 
 /** util **/
 .h-center {
@@ -64,6 +57,15 @@ img {
   -o-border-radius: 5px;
   -ms-border-radius: 5px; }
 
+.form-control {
+  font-family: arial, sans-serif;
+  font-size: 20px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -m-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px; }
+
 /* End overwrite bootstrap style */
 h1.doc-header {
   margin: 10px;
@@ -80,15 +82,6 @@ h1.doc-header-bg {
   color: #ABABAB;
   letter-spacing: 0.07px;
   line-height: 17px; }
-
-.form-control {
-  font-family: arial, sans-serif;
-  font-size: 20px;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -m-border-radius: 8px;
-  -o-border-radius: 8px;
-  -ms-border-radius: 8px; }
 
 .btn-next-fill {
   margin-top: 30px;

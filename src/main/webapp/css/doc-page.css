@@ -1,6 +1,8 @@
-.doc-page hr {
-  border-top: 1px solid #ddd; }
-.doc-page h3 {
+.doc h3 {
   font-size: 20px; }
-.doc-page ul, .doc-page ol {
+.doc ul, .doc ol {
   padding-left: 2em; }
+.doc p, .doc ul, .doc ol {
+  font-family: arial, sans-serif; }
+.doc hr {
+  border-top: 1px solid #ddd; }

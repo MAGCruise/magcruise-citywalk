@@ -5,14 +5,7 @@
 
 body {
   background-color: $bgColor;
-  margin: 0 auto;
-  padding: 0px;
-  font-size: 14px;
-  font-family: "HiraginoSans-W3","Hiragino Kaku Gothic Pro","Osaka","メイリオ","Meiryo","ＭＳ Ｐゴシック","MS PGothic",sans-serif;
-}
-
-img {
-  border: 0px;
+  font-family: helvetica, arial, 'hiragino kaku gothic pro', meiryo, 'ms pgothic', sans-serif;;
 }
 
 /** util **/
@@ -77,6 +70,11 @@ img {
 	@include round(5px);
 }
 
+.form-control {
+  font-family: $simpleFontFamily;
+  font-size: 20px;
+  @include round(8px);
+}
 
 /* End overwrite bootstrap style */
 
@@ -99,11 +97,6 @@ h1.doc-header-bg {
   line-height: 17px;
 }
 
-.form-control {
-  font-family: arial, sans-serif;
-  font-size: 20px;
-  @include round(8px);
-}
 
 .btn-next-fill {
   margin-top: $xLargeMargin;
