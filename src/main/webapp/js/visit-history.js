@@ -35,21 +35,17 @@ function showVisitedCheckPoints(results) {
         answerHtml += '問題：' + task.label + '<br/>正解：' + answerTexts.join('，') + '<br/>回答：'
                 + userAnswerTexts.join('，');
       }
-      // 改行
-      if (index != checkpoint.tasks.length - 1) {
-        answerHtml += '<br/>';
-      }
     });
     var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : "../img/"
             + checkpoint.imgSrc;
-    var html = '<div class="row checkpoint">' + '<div class="col-xs-12">' + '<div class="row">'
-            + '<i class="fa fa-check-square" aria-hidden="true"></i>' + '<p class="name">'
-            + checkpoint.name + resultHtml + '</p>' + '<p class="answer">' + answerHtml + '</p>'
-            + '<img src="' + imgSrc
-            + '" class="img-responsive img col-xs-3 col-sm-3 col-md-2 col-lg-2 no-padding">'
-            + '<div class="col-xs-9 col-sm-9 col-md-10 col-lg-10 description">' + checkpoint.label
-            + '<br/><p style="word-break: break-word;">' + (checkpoint.description || "") + '</p>'
-            + '</div>' + '</div>' + '</div>' + '</div>';
+    var html = '<div class="row checkpoint">' + '<div class="col-xs-12">'
+            + '<i class="fa fa-check-square" aria-hidden="true"></i>' + '<div class="name">'
+            + checkpoint.name + resultHtml + '</div><p class="description">' + checkpoint.balloon
+            + '</p><p class="answer">' + answerHtml + '</p>'
+            + '<div class="row"><div class="col-xs-3"><img src="' + imgSrc
+            + '" class="img-responsive img"></div>' + '<div class="col-xs-9 description">'
+            + checkpoint.label + '<br/><p style="word-break: break-word;">'
+            + (checkpoint.description || "") + '</p>' + '</div></div>' + '</div>' + '</div>';
     $('#checkpoints').append(html);
   });
 }

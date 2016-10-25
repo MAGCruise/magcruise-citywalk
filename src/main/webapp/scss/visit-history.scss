@@ -1,13 +1,12 @@
 @import "settings";
 @import "mixins";
-  
+
 .checkpoint {
-  margin-top: $baseMargin;
   background: white;
   border: 1px solid #DDDDDD;
   box-shadow: 0px 1px 1px 0px rgba(198,198,198,0.50);
-  padding: $baseMargin;
-  .name {
+  padding: 6px 0;
+    .name {
     font-size: 20px;
     color: $greenColor;
     .result {
@@ -20,7 +19,5 @@
     color: $greenColor;
   }
   .description {
-    margin: 0px;
-    padding-left: $baseMargin;
   }
 }
