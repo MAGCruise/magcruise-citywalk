@@ -45,7 +45,7 @@
   }
 }
 
-$checkpointHeight: 70px;
+$checkpointHeight: 72px;
 $margin: 8px;
 .checkpoint {
   cursor: pointer;
@@ -61,7 +61,7 @@ $margin: 8px;
   .distance {
     color: white;
     $length: $checkpointHeight - $margin*2;
-    margin: $margin 0px $margin $margin;
+    margin: $margin;
     line-height: $length;
     text-align: center;
     height: $length;
@@ -72,9 +72,8 @@ $margin: 8px;
   }
   .checkpoint-img {
     display: block;
-    margin-left: $margin;
-    width: $checkpointHeight;
-    height: $checkpointHeight;
+    width: $checkpointHeight - 2;
+    height: $checkpointHeight - 2;
   }
   .text {
     padding-left: $baseMargin;
