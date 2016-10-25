@@ -2,20 +2,20 @@ package org.magcruise.citywalk.model.json;
 
 public class RegisterResultJson {
 
-	private boolean register;
+	private boolean success;
 	private String recommendedUserId;
 
-	public RegisterResultJson(boolean register, String recommended) {
-		this.register = register;
+	public RegisterResultJson(boolean success, String recommended) {
+		this.success = success;
 		this.recommendedUserId = recommended;
 	}
 
-	public boolean isRegister() {
-		return register;
+	public boolean isSuccess() {
+		return success;
 	}
 
-	public void setRegister(boolean register) {
-		this.register = register;
+	public void setSuccess(boolean success) {
+		this.success = success;
 	}
 
 	public String getRecommendedUserId() {

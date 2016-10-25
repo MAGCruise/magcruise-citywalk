@@ -84,16 +84,36 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	@Override
 	public RegisterResultJson register(String userId, String groupId) {
+		return register(userId, groupId, Integer.MAX_VALUE);
+	}
+
+	@Override
+	public RegisterResultJson register(String userId, String groupId, int maxLengthOfUserId) {
 		if (!users.exists(userId)) {
 			users.insert(new UserAccount(userId, groupId));
 			login(userId);
-			return new RegisterResultJson(true, "");
+			return new RegisterResultJson(true, userId);
 		}
+		String recommended = createUnregisterdUserId(userId, maxLengthOfUserId);
+		return new RegisterResultJson(false, recommended);
+	}
+
+	private String createUnregisterdUserId(String userId, int maxLengthOfUserId) {
+		String recommended = createUnregisterdUserId(userId);
+		if (recommended.length() <= maxLengthOfUserId) {
+			return recommended;
+		} else {
+			return createUnregisterdUserId(userId.substring(0, userId.length() - 1),
+					maxLengthOfUserId);
+		}
+	}
+
+	private String createUnregisterdUserId(String userId) {
 		int i = 0;
 		while (true) {
 			String recommended = userId + i;
 			if (!users.exists(recommended)) {
-				return new RegisterResultJson(false, recommended);
+				return recommended;
 			}
 			i++;
 		}
