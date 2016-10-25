@@ -5,10 +5,10 @@
 <link rel="stylesheet" href="../css/top.css" />
 <title>開発者ツール</title>
 <script>
-	$(function() {
-		$("#back").hide();
-		$("#nav-menu").hide();
-	});
+  $(function() {
+    $("#back").hide();
+    $("#nav-menu").hide();
+  });
 </script>
 </head>
 <head th:remove="all">
@@ -20,23 +20,21 @@
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
-      <div class="col-sm-12 description">
-        <div class="col-sm-12">
-          <div class="nav-btn-big">
-            <a href="clear.html">LocalStorageの初期化</a>
-          </div>
-          <div class="nav-btn-big">
-            <a href="/manager">Tomcat</a>
-          </div>
-          <div class="nav-btn-big">
-            <a href="/h2/">h2 database</a>
-          </div>
-          <div class="nav-btn-big">
-            <a href="intro.html">はじめての方</a>
-          </div>
-          <div class="nav-btn-big">
-            <a href="login.html">ログイン</a>
-          </div>
+      <div class="col-sm-12 no-padding">
+        <div class="nav-btn-big">
+          <a href="clear.html">LocalStorageの初期化</a>
+        </div>
+        <div class="nav-btn-big">
+          <a href="/manager">Tomcat</a>
+        </div>
+        <div class="nav-btn-big">
+          <a href="/h2/">h2 database</a>
+        </div>
+        <div class="nav-btn-big">
+          <a href="intro.html">はじめての方</a>
+        </div>
+        <div class="nav-btn-big">
+          <a href="login.html">ログイン</a>
         </div>
       </div>
     </div>

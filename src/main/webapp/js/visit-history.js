@@ -8,8 +8,8 @@ $(function() {
 function showVisitedCheckPoints(results) {
   var answerDic = getAnswerDic();
   var cp = getVisitedCheckPoints();
-  if (cp.length != 0) {
-    $('#initial-msg').remove();
+  if (cp.length == 0) {
+    $('#initial-msg').show();
   }
 
   cp.forEach(function(checkpoint) {
