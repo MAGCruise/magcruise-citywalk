@@ -4,7 +4,7 @@
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <link rel="stylesheet" href="../css/doc-page.css" />
 <script type="text/javascript" src="../js/ua-parser.min.js"></script>
-<title>はじめに</title>
+<title>ワセナビへようこそ: 早稲田祭2016ウォークラリー</title>
 <script>
   $(function() {
     $("#mag-nav").hide();
@@ -39,15 +39,19 @@
   <div class="container doc-page">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-12 no-padding">
         <div class="well well-sm">
-          <h1 class="text-center doc-header">ワセナビ</h1>
-          <h1 class="text-center doc-header">Navi + Checkin + Quiz</h1>
-          <p class="text-center">早稲田祭をめぐり，ランドマークやイベントにチェックイン．クイズを解いて早稲田文化を体感しよう．</p>
+          <h1 class="text-center doc-header-bg">ワセナビ</h1>
+          <h1 class="text-center doc-header-bg">Navi + Checkin + Quiz</h1>
+          <p class="text-center lead">早稲田祭をめぐり, ランドマークやイベントにチェックイン, クイズを解いて早稲田文化を体感しよう．</p>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
         <div style="font-size: 95%;">
           <h5>推奨環境</h5>
-          <p>GPSとインターネット接続が使える以下の環境．</p>
+          <p>GPSとインターネット接続が使える以下の環境</p>
           <ul>
             <li>iOS : Safari または Google Chrome (最新版)</li>
             <li>Android : Google Chrome (最新版)</li>
@@ -55,20 +59,19 @@
           </ul>
           <h5>注意事項</h5>
           <ul>
-            <li>本アプリをお使いになる場合，ナビ画面を開いている間，GPSログが記録されサーバに送信されることに同意下さい．
-              GPSログは，ニックネームとともに保存されますが，論文発表などの学術目的以外には利用されません．</li>
-            <li>本アプリにGPSの利用を許可する場合，以下のアラートが表示されたときに許可を押して下さい．
+            <li>本アプリに端末の緯度経度情報の利用を許可する場合，表示されるアラートで許可を選択して下さい．
               <div class="media">
                 <img class="media-object img-thumbnail center-block" src="../img/web/gps-alert.png"
                   style="max-width: 240px;">
               </div>
             </li>
+            <li>位置情報の利用許可を与えた場合，端末の緯度経度情報がサーバに送信され記録されることに同意下さい．この情報はニックネームとともに保存されますが，論文発表などの学術目的以外には利用されません．</li>
           </ul>
         </div>
-        <div class="alert alert-warning" style="padding: 0 1em">
+        <div class="alert alert-warning" style="padding: 0 1em;">
           <p>移動中は周辺に十分注意してご利用下さい．</p>
         </div>
-        <div class="btn-group btn-group-justified">
+        <div class="btn-group btn-group-justified bottom-margin">
           <a id="btn-join" class="btn btn-success" href="tutorial.html">ワセナビに参加</a>
         </div>
         <div class="btn-group btn-group-justified bottom-margin">

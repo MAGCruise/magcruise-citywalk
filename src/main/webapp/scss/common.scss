@@ -86,6 +86,12 @@ h1.doc-header {
   color: $greenColor;
 }
 
+h1.doc-header-bg {
+  margin: $baseMargin;
+  font-size: $fs1;
+  color: $greenColor;
+}
+
 .description {
   margin: $baseMargin;
   font-size: 13px;

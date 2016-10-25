@@ -7,34 +7,52 @@
   text-align: center;
   background: $primaryColor;
   padding: $baseMargin 0px;
-  #back {
-    cursor: pointer;
-    padding-left: $baseMargin;
+}
+
+#back {
+  cursor: pointer;
+  padding-left: $baseMargin;
+}
+
+#nav-title {
+  font-size: 110%;
+  color: white;
+}
+
+#nav-menu{
+  padding-right: $baseMargin;
+  #top-dropdown {
+    font-size: 120%;
+    padding: $baseMargin $baseMargin*1.5;
+    background: $orangeColor;
+    @include round($baseMargin/2);
   }
-  #nav-title {
-    font-size: 110%;
-    color: white;
+
+  .dropdown-menu{
+    padding:0;
   }
+
   .dropdown {
     cursor: pointer;
     padding: 0 $baseMargin;
   }
+
   .dropdown-toggle {
     color: white;
   }
+
+  .dropdown-menu>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .dropdown-menu>li>div {
+    padding-top: 10px;
+    text-align:center;
+  }
 }
 
-#orange-dropdown {
-  font-size: 120%;
-  padding: $baseMargin $baseMargin*1.5;
-  background: $orangeColor;
-  @include round($baseMargin/2);
+#user-name{
+  color: $lightGrayColor;
 }
 
-.dropdown-menu>li>a {
-  padding: 10px 20px;
-}
-
-#user-name {
-  padding: 10px 20px;
-}

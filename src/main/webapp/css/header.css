@@ -4,30 +4,39 @@
   text-align: center;
   background: #0074BF;
   padding: 10px 0px; }
-  #mag-nav #back {
-    cursor: pointer;
-    padding-left: 10px; }
-  #mag-nav #nav-title {
-    font-size: 110%;
-    color: white; }
-  #mag-nav .dropdown {
+
+#back {
+  cursor: pointer;
+  padding-left: 10px; }
+
+#nav-title {
+  font-size: 110%;
+  color: white; }
+
+#nav-menu {
+  padding-right: 10px; }
+  #nav-menu #top-dropdown {
+    font-size: 120%;
+    padding: 10px 15px;
+    background: #FA833C;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -m-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px; }
+  #nav-menu .dropdown-menu {
+    padding: 0; }
+  #nav-menu .dropdown {
     cursor: pointer;
     padding: 0 10px; }
-  #mag-nav .dropdown-toggle {
+  #nav-menu .dropdown-toggle {
     color: white; }
-
-#orange-dropdown {
-  font-size: 120%;
-  padding: 10px 15px;
-  background: #FA833C;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -m-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px; }
-
-.dropdown-menu > li > a {
-  padding: 10px 20px; }
+  #nav-menu .dropdown-menu > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+  #nav-menu .dropdown-menu > li > div {
+    padding-top: 10px;
+    text-align: center; }
 
 #user-name {
-  padding: 10px 20px; }
+  color: #AAA; }

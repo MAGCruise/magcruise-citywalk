@@ -32,7 +32,7 @@ function setBackDisabled() {
 
 function setUserNameInMenu() {
   if (getUserId()) {
-    $("#user-name").text(getUserId());
+    $("#user-name").text(getUserId() + " さん");
   }
 }
 
