@@ -1,5 +1,5 @@
 $(function() {
-  if (!getUserId()) {
+  if (!getUserId() || !getCheckpointGroupId()) {
     $("#nav-back-wrapper").remove();
     $("#nav-menu-wrapper").remove();
     $("#nav-title-wrapper").removeClass("col-xs-8");
@@ -8,6 +8,12 @@ $(function() {
   } else {
     $("#mag-nav").css("height", "72px");
   }
+
+  $('#btn-skip-tutorial').on('click', function(e) {
+    if (confirm('チュートリアルをスキップしますか？')) {
+      location.href = "signup.html";
+    }
+  });
 
   $("#step-" + $("li.active").attr("data-slide-to")).addClass("current-step");
   $("#nav-title").html("チュートリアル<br>" + $("#step-" + $("li.active").attr("data-slide-to")).text());
