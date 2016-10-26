@@ -14,6 +14,28 @@ var subcategory = getParam("subcategory");
 var locationsAccuracy = 10;
 var enableGps = false;
 window.onload = function() {
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {
+        lat: 0.0,
+        lng: 0.0
+      },
+      // zoom: 8
+      mapTypeControl: false,
+      streetViewControl: false,
+      scaleControl: true,
+      scaleControlOptions: {
+        position: google.maps.ControlPosition.BOTTOM_LEFT
+      }
+    });
+
+    // マップをドラッグした場合は，チェックポイントを非選択に
+    google.maps.event.addListener(map, "dragend", function() {
+      unselectCheckpoint();
+    });
+    getCurrentPositionAndUpdateViews();
+  }
+
   initMap();
 }
 
@@ -204,30 +226,6 @@ function closeInfoWindow() {
   if (infoWindow != null) {
     infoWindow.close();
   }
-}
-
-function initMap() {
-  if (map == null) {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {
-        lat: 0.0,
-        lng: 0.0
-      },
-      // zoom: 8
-      mapTypeControl: false,
-      streetViewControl: false,
-      scaleControl: true,
-      scaleControlOptions: {
-        position: google.maps.ControlPosition.BOTTOM_LEFT
-      }
-    });
-  }
-
-  // マップをドラッグした場合は，チェックポイントを非選択に
-  google.maps.event.addListener(map, "dragend", function() {
-    unselectCheckpoint();
-  });
-  getCurrentPositionAndUpdateViews();
 }
 
 function initMarkers() {

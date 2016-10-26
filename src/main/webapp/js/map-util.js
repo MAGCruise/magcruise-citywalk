@@ -1,9 +1,6 @@
 var MAX_ZOOM_LEVEL = 17;
 
-function createMapControlUI(map, position) {
-  if (!position) {
-    position = google.maps.ControlPosition.TOP_RIGHT;
-  }
+function createMapControlUI(map, label, fontSize, controlPosition) {
   var centerControlDiv = document.createElement('div');
 
   // Set CSS for the control border.
@@ -21,16 +18,16 @@ function createMapControlUI(map, position) {
   // Set CSS for the control interior.
   var controlText = document.createElement('div');
   controlText.style.color = 'rgb(25,25,25)';
-  controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
-  controlText.style.fontSize = '14px';
-  controlText.style.lineHeight = '38px';
-  controlText.style.paddingLeft = '5px';
-  controlText.style.paddingRight = '5px';
-  controlText.innerHTML = '目的地と現在地を表示';
+  controlText.style.fontSize = fontSize;
+  controlText.style.paddingTop = '4px';
+  controlText.style.paddingBottom = '4px';
+  controlText.style.paddingLeft = '4px';
+  controlText.style.paddingRight = '4px';
+  controlText.innerHTML = label;
   controlUI.appendChild(controlText);
 
   centerControlDiv.index = 1;
-  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(centerControlDiv);
+  map.controls[controlPosition].push(centerControlDiv);
 
   return controlUI;
 }
@@ -46,4 +43,19 @@ function fitBoundsAndZoom(map, checkpoints) {
     if (map.getZoom() > MAX_ZOOM_LEVEL) map.setZoom(MAX_ZOOM_LEVEL);
     google.maps.event.removeListener(listener);
   });
+}
+
+// 誤差を円で描く
+function drawCurrentLocationCircle(map, cPos, radius) {
+  var circle = new google.maps.Circle({
+    map: map,
+    center: cPos,
+    radius: radius, // 単位はメートル
+    strokeColor: '#0088ff',
+    strokeOpacity: 0.8,
+    strokeWeight: 1,
+    fillColor: '#0088ff',
+    fillOpacity: 0.2
+  });
+  return circle;
 }

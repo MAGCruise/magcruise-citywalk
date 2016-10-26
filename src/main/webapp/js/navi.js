@@ -1,7 +1,6 @@
 var checkpoint = getCheckpoint();
 document.title = checkpoint.name; // タイトルの変更
 var cPos; // 現在地
-var cCircle; // 現在地を示す円
 var ePos; // チェックポイント
 var cHeading; // 絶対角
 var map;
@@ -18,11 +17,6 @@ window.onload = function() {
 
 $(function() {
   $('#checkpoint-info').append(makeCheckpointInfoHtml(checkpoint));
-  $("#current-position").on('click', function() {
-    if (!cPos) { return; }
-    map.setZoom(17);
-    map.setCenter(cPos);
-  });
 });
 
 // ブラウザがバックグラウンドに一度遷移すると，watchPositionキャンセルされる。
@@ -114,18 +108,34 @@ function initMap() {
     });
   });
 
-  var centerControlUI = createMapControlUI(map, google.maps.ControlPosition.TOP_RIGHT);
+  createMapControlUI(map, "目的地～現在地", "12px", google.maps.ControlPosition.TOP_RIGHT)
+          .addEventListener('click', function() {
+            fitBoundsAndZoom(map, [{
+              lat: ePos.lat(),
+              lon: ePos.lng()
+            }, {
+              lat: cPos.lat(),
+              lon: cPos.lng()
+            }]);
+            infoWindow.open(map, marker);
+          });
 
-  centerControlUI.addEventListener('click', function() {
-    fitBoundsAndZoom(map, [{
-      lat: ePos.lat(),
-      lon: ePos.lng()
-    }, {
-      lat: cPos.lat(),
-      lon: cPos.lng()
-    }]);
-    infoWindow.open(map, marker);
-  });
+  createMapControlUI(map, "目的地", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
+          'click', function() {
+            fitBoundsAndZoom(map, [{
+              lat: ePos.lat(),
+              lon: ePos.lng()
+            }]);
+            infoWindow.open(map, marker);
+          });
+
+  createMapControlUI(map, "現在地", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
+          'click', function() {
+            fitBoundsAndZoom(map, [{
+              lat: cPos.lat(),
+              lon: cPos.lng()
+            }]);
+          });
 
   // 目的地の設定&位置情報の連続取得
   ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
@@ -337,8 +347,5 @@ var postMovementsFunc = function() {
 }
 
 function updateCurrentCircle(accuracy) {
-  if (cCircle != null) {
-    cCircle.setMap(null);
-  }
-  cCircle = drawCurrentLocationCircle(map, cPos, accuracy);
+  drawCurrentLocationCircle(map, cPos, accuracy);
 }
