@@ -1,11 +1,7 @@
 @import "settings";
 @import "mixins";
 
-.doc-page{
-  hr {
-    border-top: 1px solid #ddd;
-  }
-
+.doc{
   h3 {
     font-size: 20px;
   }
@@ -13,4 +9,13 @@
   ul, ol{
     padding-left: 2em;
   }
+
+  p,ul,ol{
+    font-family: $simpleFontFamily;
+  }
+
+  hr {
+    border-top: 1px solid #ddd;
+  }
+
 }

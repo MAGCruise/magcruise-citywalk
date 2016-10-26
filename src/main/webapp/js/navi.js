@@ -17,8 +17,8 @@ window.onload = function() {
 }
 
 $(function() {
-  showCheckpointInfo();
-  $("#current-position").on('click',function() {
+  $('#checkpoint-info').append(makeCheckpointInfoHtml(checkpoint));
+  $("#current-position").on('click', function() {
     if (!cPos) { return; }
     map.setZoom(17);
     map.setCenter(cPos);
@@ -40,8 +40,7 @@ setInterval(function() {
 }, 1000 * 5);
 
 $(function() {
-  $("#activity-title").text(checkpoint.name + "でのアクティビティ");
-  $("#btn-next").on('click',function() {
+  $("#btn-next").on('click', function() {
     // 既に途中までタスクが進んでいる場合には，完了済みの次のタスクからはじめる
     var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
     location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
@@ -133,7 +132,7 @@ function initMap() {
   });
   // マーカータップ時のバルーンの初期化
   var infoWindow = new google.maps.InfoWindow({
-    content: checkpoint.balloon
+    content: checkpoint.name + "<br>(" + checkpoint.balloon + ")"
   });
   infoWindow.open(marker.getMap(), marker);
 
@@ -397,16 +396,4 @@ function updateCurrentCircle(accuracy) {
     cCircle.setMap(null);
   }
   cCircle = drawCurrentLocationCircle(map, cPos, accuracy);
-}
-
-function showCheckpointInfo() {
-  var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : "../img/" + checkpoint.imgSrc;
-  var html = '<div class="row checkpoint">'
-          + '<i class="fa fa-check-square" aria-hidden="true"></i>' + '<img src="' + imgSrc
-          + '" class="img-responsive img col-xs-3 col-sm-3 col-md-2 col-lg-2">'
-          + '<div class="col-xs-9 col-sm-9 col-md-10 col-lg-10 description">' + '<p class="name">'
-          + checkpoint.name + '</p>' + checkpoint.label
-          + '<br/><p style="word-break: break-word;">' + (checkpoint.description || "") + '</p>'
-          + '</div>' + '</div>';
-  $('#checkpoint').append(html);
 }

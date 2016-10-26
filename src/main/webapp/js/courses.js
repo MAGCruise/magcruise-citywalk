@@ -1,6 +1,11 @@
 var MAX_CATEGORY_DEPTH = 1;
 
 function selectCheckpointGroup(checkpointGroupId) {
+  if (checkpointGroupId == getCheckpointGroupId()) {
+    location.href = "checkpoints.html";
+    return;
+  }
+
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getInitialData", [checkpointGroupId],
           function(data) {
             saveCityWalkData(data.result);
@@ -21,7 +26,7 @@ function selectCheckpointGroup(checkpointGroupId) {
 
 $(function() {
   $("#nav-menu").hide();
-  $(".course a").on('click',function() {
+  $(".course a").on('click', function() {
     var checkpointGroupId = $(this).attr("id");
     selectCheckpointGroup(checkpointGroupId);
   });

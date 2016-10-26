@@ -60,23 +60,21 @@
   }
 }
 
+#checkpoint-info{
+  border-bottom: 1px solid #DDD;
+}
 .checkpoint {
   margin-top: 10px;
   background: white;
-  border: 1px solid #DDDDDD;
   box-shadow: 0px 1px 1px 0px rgba(198, 198, 198, 0.5);
   padding: 10px;
+  .name {
+    font-size: 14px;
+    color: #38A997;
+  }
 }
 
-.checkpoint .name {
-  font-size: 14px;
-  color: #38A997;
-}
 
-.checkpoint .description {
-  margin: 0px;
-  padding-left: 10px;
-}
 
 #map-box {
   height: 240px;
