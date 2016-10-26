@@ -38,14 +38,33 @@ function showVisitedCheckPoints(results) {
     });
     var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : "../img/"
             + checkpoint.imgSrc;
-    var html = '<div class="row checkpoint">' + '<div class="col-xs-12">'
-            + '<i class="fa fa-check-square" aria-hidden="true"></i>' + '<div class="name">'
-            + checkpoint.name + resultHtml + '</div><p class="description">' + checkpoint.balloon
-            + '</p><p class="answer">' + answerHtml + '</p>'
-            + '<div class="row"><div class="col-xs-3"><img src="' + imgSrc
-            + '" class="img-responsive img"></div>' + '<div class="col-xs-9 description">'
-            + checkpoint.label + '<br/><p style="word-break: break-word;">'
-            + (checkpoint.description || "") + '</p>' + '</div></div>' + '</div>' + '</div>';
+    var html = '<div class="row checkpoint">' + '<div class="col-xs-12">' + '<div class="name">'
+            + '<i class="fa fa-check-square""></i> '
+            + checkpoint.name
+            + '</div>'
+            + '<div class="row bottom-margin"><div class="col-xs-7">'
+            + '<div class="description">'
+            + checkpoint.balloon
+            + '</div></div>'
+            + '<div class="col-xs-5">'
+            + resultHtml
+            + '</div></div>'
+            + '<div class="row">'
+            + '<div class="col-xs-12">'
+            + '<p class="answer">'
+            + answerHtml
+            + '</p></div></div>'
+            + '<div class="row"><div class="col-xs-3"><img src="'
+            + imgSrc
+            + '" class="img-responsive img"></div>'
+            + '<div class="col-xs-9 description">'
+            + checkpoint.label
+            + '<br/><p style="word-break: break-word;">'
+            + (checkpoint.description || "")
+            + '</p>'
+            + '</div>'
+            + '</div></div>'
+            + '</div></div></div>';
     $('#checkpoints').append(html);
   });
 }
