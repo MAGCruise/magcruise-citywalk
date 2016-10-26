@@ -52,29 +52,6 @@ body {
   -ms-border-radius: 5px;
   border: none; }
 
-.btn-primary {
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -m-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border: none;
-  background: #FA833C;
-  color: white; }
-  .btn-primary:hover {
-    background-color: #FA833C; }
-
-.btn-info {
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -m-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border: none;
-  background-color: #0587C4; }
-  .btn-info:hover {
-    background-color: #0587C4; }
-
 .btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -109,13 +86,14 @@ h1.doc-header-bg {
   -o-border-radius: 8px;
   -ms-border-radius: 8px; }
 
+.btn-primary-magc {
+  background: #FA833C;
+  color: white; }
+  .btn-primary-magc:hover, .btn-primary-magc:focus {
+    background: #FA833C;
+    color: white; }
+
 .btn-fill {
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -m-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border: none;
   margin-top: 30px;
   margin-bottom: 30px;
   width: 100%; }

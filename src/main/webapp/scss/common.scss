@@ -58,7 +58,6 @@ body {
 
 
 /* Start overwrite bootstrap style */
-
 .container{
   max-width: 720px;
 }
@@ -66,25 +65,6 @@ body {
 .btn {
   @include round(5px);
   border: none;
-}
-
-.btn-primary {
-  @include round(5px);
-  border: none;
-  background: #FA833C;
-  color: white;
-  &:hover {
-    background-color: #FA833C;
-  }
-}
-
-.btn-info {
-  @include round(5px);
-  border: none;
-  background-color: #0587C4;
-  &:hover {
-    background-color: #0587C4;
-  }
 }
 
 .btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) {
@@ -120,9 +100,17 @@ h1.doc-header-bg {
 }
 
 
+.btn-primary-magc{
+  background: #FA833C;
+  color: white;
+  &:hover,&:focus {
+    background: #FA833C;
+    color: white;
+  }
+}
+
+
 .btn-fill {
-  @include round(5px);
-  border: none;
   margin-top: $xLargeMargin;
   margin-bottom: $xLargeMargin;
   width: 100%;
