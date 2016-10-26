@@ -15,11 +15,12 @@
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-xs-12">
         <h1 id="label" class="doc-header"></h1>
-        <input id="answer-text" class="form-control answer-input" type="text" size="20"
-          placeholder="答えを入力して下さい" />
-        <button id="btn-fill" class="btn btn-primary btn-lg btn-fill" disabled>回答する</button>
+        <div class="form">
+          <input id="answer-text" class="form-control answer-input" placeholder="答えを入力して下さい" />
+          <button id="btn-fill" class="btn btn-primary btn-lg btn-fill" disabled>送信</button>
+        </div>
       </div>
     </div>
   </div>

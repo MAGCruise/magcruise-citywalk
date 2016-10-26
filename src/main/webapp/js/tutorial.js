@@ -13,7 +13,6 @@ $(function() {
   });
 
   $("#step-" + $("li.active").attr("data-slide-to")).addClass("current-step");
-  $("#nav-title").html($("#step-" + $("li.active").attr("data-slide-to")).text());
 
   $("#btn-next-step").on("click", function(e) {
     $("#carousel-next").trigger('click');
@@ -23,8 +22,6 @@ $(function() {
     setTimeout(function() {
       $(".step").removeClass("current-step");
       $("#step-" + $("li.active").attr("data-slide-to")).addClass("current-step");
-      $("#nav-title").html($("#step-" + $("li.active").attr("data-slide-to")).text());
-
       if ($("li.active").attr("data-slide-to") == 5) {
         $("#btn-start").show();
         $("#btn-skip-tutorial").hide();

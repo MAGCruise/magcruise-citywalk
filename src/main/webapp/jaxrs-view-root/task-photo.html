@@ -18,25 +18,27 @@
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
-      <div class="description">左側の写真と同じような写真を撮って下さい</div>
+      <div class="col-xs-12">
+        <div class="narrow-description">左側の写真と同じような写真を撮って下さい．</div>
+      </div>
     </div>
     <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <div class="col-xs-6">
         <div class="img-wrapper">
           <img id="task-img" class="img-rounded">
         </div>
       </div>
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <div class="col-xs-6">
         <div class="img-wrapper">
           <img class="img-rounded" src="../img/nopicture.svg" id="img-preview"
             onClick="$('#file-input').click()">
         </div>
-        <div id="btn-file-input" class="btn btn-primary btn-lg" onClick="$('#file-input').click()">写真を撮影する</div>
+        <div id="btn-file-input" class="btn btn-primary btn-lg" onClick="$('#file-input').click()">写真を撮影</div>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12">
-        <button id="btn-next" class="btn btn-primary btn-lg btn-fill" disabled>チェックインする</button>
+      <div class="col-xs-12">
+        <button id="btn-next" class="btn btn-primary btn-lg btn-fill" disabled>アップロード</button>
       </div>
     </div>
   </div>
