@@ -2,8 +2,8 @@ $baseWidthValue: 1024;
 $baseWidth: #{$baseWidthValue}px;
 
 $smallMargin: 6px;
-$baseMargin: 10px;
-$largeMargin: 20px;
+$standardMargin: 10px;
+$bootstrapMargin: 15px;
 $xLargeMargin: 30px;
 
 $sideMargin: 10px;
@@ -20,7 +20,7 @@ $fs6: 9px;
 $hoverOpacity: 0.6;
 
 $primaryColor: #0074BF;
-$descriptionColor: #ABABAB;
+$descriptionColor: #999;
 $greenColor: #38A997;
 $orangeColor: #FA833C;
 $bgColor: #E4EFF3;
