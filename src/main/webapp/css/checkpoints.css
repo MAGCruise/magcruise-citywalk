@@ -36,8 +36,7 @@
 .checkpoint {
   cursor: pointer;
   background: white;
-  border: 1px solid #DDDDDD;
-  padding: 0 15px; }
+  border: 1px solid #DDDDDD; }
   .checkpoint a {
     display: block;
     width: 100%;

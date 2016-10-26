@@ -25,12 +25,6 @@ $(function() {
     subcategory = getParam("subcategory");
     updateViews();
   });
-  if (document.referrer) {
-    if (document.referrer.indexOf("/task-") != -1
-            || document.referrer.indexOf("/courses.html") != -1) {
-      setBackDisabled();
-    }
-  }
 
   unselectCheckpoint();
   $("#current-position").on('click', function() {
@@ -268,7 +262,7 @@ function selectCheckpoint(checkpoint) {
 
   // マーカータップ時のバルーンの初期化
   infoWindow = new google.maps.InfoWindow({
-    content: checkpoint.name+"<br>("+checkpoint.balloon+")"
+    content: checkpoint.name + "<br>(" + checkpoint.balloon + ")"
   });
   var marker = markers.filter(function(marker) {
     return marker.checkpointId === checkpoint.id;

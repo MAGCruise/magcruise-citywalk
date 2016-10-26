@@ -46,10 +46,12 @@
     margin-left: 10px;
     margin-right: 5px; }
 
+#checkpoint-info {
+  border-bottom: 1px solid #DDD; }
+
 .checkpoint {
   margin-top: 10px;
   background: white;
-  border: 1px solid #DDDDDD;
   box-shadow: 0px 1px 1px 0px rgba(198, 198, 198, 0.5);
   padding: 10px; }
   .checkpoint .name {

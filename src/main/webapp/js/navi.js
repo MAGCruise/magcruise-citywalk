@@ -17,7 +17,7 @@ window.onload = function() {
 }
 
 $(function() {
-  $('#checkpoint').append(makeCheckpointInfoHtml(checkpoint));
+  $('#checkpoint-info').append(makeCheckpointInfoHtml(checkpoint));
   $("#current-position").on('click', function() {
     if (!cPos) { return; }
     map.setZoom(17);
