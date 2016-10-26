@@ -1,5 +1,9 @@
 $(function() {
-  $("#mag-nav").hide();
+  if (!getUserId() || !getCheckpointGroupId()) {
+    $("#mag-nav").remove();
+  }
+  $("#nav-title-wrapper").empty();
+
   checkDevice();
 });
 

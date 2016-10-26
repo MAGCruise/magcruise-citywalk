@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+<object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
+<title>ヘルプ</title>
+<link rel="stylesheet" href="../css/doc-page.css" />
+<script>
+  $(function() {
+    if (!getUserId()) {
+      $("#nav-menu").hide();
+    }
+  });
+</script>
+</head>
+<body>
+  <div class="container">
+    <div th:replace="/fragment/header.html :: top-menu"></div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h4>チュートリアル</h4>
+        <ul class="list-group">
+          <li class="list-group-item"><a href="tutorial.html">チュートリアル</a></li>
+        </ul>
+        <h4>ページの役割</h4>
+        <ul class="list-group">
+          <li class="list-group-item"><a href="how-to-use.html#signup">サインアップ</a></li>
+          <li class="list-group-item"><a href="how-to-use.html#cources">コース選択</a></li>
+          <li class="list-group-item"><a href="how-to-use.html#checkpoints">チェックポイント</a></li>
+          <li class="list-group-item"><a href="how-to-use.html#navi">ナビ</a></li>
+          <li class="list-group-item"><a href="how-to-use.html#checkin">チェックイン</a></li>
+          <li class="list-group-item"><a href="how-to-use.html#task">クイズタスク</a></li>
+          <li class="list-group-item"><a href="how-to-use.html#visit-history">活動記録</a></li>
+          <li class="list-group-item"><a href="how-to-use.html#score">スコア</a></li>
+        </ul>
+        <h4>トラブルシューティング</h4>
+        <ul class="list-group">
+          <li class="list-group-item"><a href="troubleshooting.html#gps-settings">「端末の現在位置/方向が取得できません」が表示される</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
