@@ -51,7 +51,9 @@ $margin: 8px;
 .checkpoint {
   cursor: pointer;
   background: white;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #DDD;
+  padding-left: $baseMargin * 2;
+
   a {
     display: block;
       width: 100%;
