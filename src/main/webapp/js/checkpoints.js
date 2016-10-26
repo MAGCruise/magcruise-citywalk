@@ -147,8 +147,9 @@ function showCheckpoints() {
 }
 
 function makeListElemWithoutDistanceAndImage(name) {
-  return $('<div class="row">' + '<div class="col-sm-12 no-padding">' + '<div class="checkpoint">'
-          + '<div class="text">' + '<div class="name">' + name + '</div></div></div></div></div>');
+  return $('<div class="row no-margin">' + '<div class="col-sm-12 no-padding">'
+          + '<div class="checkpoint">' + '<div class="text">' + '<div class="name">' + name
+          + '</div></div></div></div></div>');
 }
 
 /* サブカテゴリの表示 */
