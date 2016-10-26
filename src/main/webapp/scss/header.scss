@@ -10,6 +10,7 @@
 }
 
 #back {
+  height: 40px;
   cursor: pointer;
   padding-left: $baseMargin;
 }
@@ -21,9 +22,10 @@
 
 #nav-menu{
   padding-right: $baseMargin;
-  #top-dropdown {
-    font-size: 120%;
-    padding: $baseMargin $baseMargin*1.5;
+
+    #top-dropdown {
+    font-size: 20px;
+    padding: 6px 12px;
     background: $orangeColor;
     @include round($baseMargin/2);
   }

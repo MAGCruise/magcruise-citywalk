@@ -24,6 +24,10 @@ body {
 .bottom-margin {
   margin-bottom: 20px; }
 
+.v-cell-middle {
+  display: table-cell;
+  vertical-align: middle; }
+
 /* Start overwrite bootstrap style */
 .btn {
   border-radius: 5px;

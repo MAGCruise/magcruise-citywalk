@@ -35,6 +35,10 @@ body {
   margin-bottom: $largeMargin;
 }
 
+.v-cell-middle{
+  display:table-cell;
+  vertical-align:middle;
+}
 
 /* Start overwrite bootstrap style */
 
