@@ -237,7 +237,8 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		rankingJson.setGroupRank(new RankJson("g1", -1, 0));
 
 		try {
-			rankingJson.setRanking(verifiedActivities.getRanksJson(checkpointGroupId));
+			final int rankLimit = 10;
+			rankingJson.setRanking(verifiedActivities.getRanksJson(checkpointGroupId, rankLimit));
 		} catch (Exception e) {
 			rankingJson.setRanking(new ArrayList<>());
 		}
