@@ -116,3 +116,7 @@ h1.doc-header-bg {
   margin-top: 30px;
   margin-bottom: 30px;
   width: 100%; }
+
+.sweet-alert h2 {
+  color: black;
+  font-weight: normal; }

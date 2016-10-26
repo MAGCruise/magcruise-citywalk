@@ -27,20 +27,22 @@ $(function() {
   $('.selection').on('click', function() {
     var enableBtnNext = false;
     // 一つでもチェックがあれば，回答するボタンを押せるように
-    // [name=selection]
     $('.selection').each(function() {
       enableBtnNext = (enableBtnNext || $(this).prop('checked'));
     });
     $('#btn-next').prop('disabled', !enableBtnNext);
   });
   $('#btn-next').on('click', function() {
-    // 回答を取得
-    var indexes = $('.selection:checked').map(function() {
-      return parseInt($(this).val());
-    }).get();
-    addAnswerDic(checkpoint, task, indexes);
-    var isCorrect = isSameAnswers(task.answerIndexes, indexes);
-    addActivity(task, indexes.sort().toString(), isCorrect);
+
+    confirmSubmission(function() {
+      var indexes = $('.selection:checked').map(function() {
+        return parseInt($(this).val());
+      }).get();
+      addAnswerDic(checkpoint, task, indexes);
+      var isCorrect = isSameAnswers(task.answerIndexes, indexes);
+      addActivity(task, indexes.sort().toString(), isCorrect);
+    });
+
   });
 });
 

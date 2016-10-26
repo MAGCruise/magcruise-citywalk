@@ -16,9 +16,11 @@ $(function() {
   $("#loading").hide();
   $("#task-img").attr('src', task.imgSrc);
   $("#btn-next").on('click', function() {
-    $("#loading").fadeIn();
-    var imgData = $("#img-preview").attr('src');
-    addActivity(task, imgData, true);
+    if (confirm("送信しますか？")) {
+      $("#loading").fadeIn();
+      var imgData = $("#img-preview").attr('src');
+      addActivity(task, imgData, true);
+    }
   });
 });
 

@@ -130,7 +130,7 @@ function addActivity(task, input, isCorrect) {
     $('#modalTitle').html(title);
     $('[data-remodal-id=modal]').remodal().open();
   }, function(error) {
-    alert("送信に失敗しました．もう一度送信して下さい．");
+    swal("送信失敗", "もう一度送信して下さい", "error");
   })).rpc();
 }
 
@@ -138,3 +138,10 @@ $(document).on('confirmation', '.remodal', function() {
   history.replaceState('', '', location.href.replace("#modal", ""));
   moveToNextPage();
 });
+
+function confirmSubmission(callback) {
+  swal({
+    title: "送信しますか？",
+    showCancelButton: true
+  }, callback);
+}

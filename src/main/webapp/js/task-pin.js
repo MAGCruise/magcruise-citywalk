@@ -33,7 +33,7 @@ function procTask() {
     return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
   });
   if (!/^[0-9]{4}$/g.test(text)) {
-    alert("半角数字4桁が入力されていません");
+    swal("照合失敗", "半角数字4桁が入力されていません", "error");
     return;
   }
   var isCorrect = false;
@@ -44,6 +44,6 @@ function procTask() {
     addAnswerDic(checkpoint, task, text);
     addActivity(task, text, isCorrect);
   } else {
-    alert("合い言葉が間違っています．");
+    swal("照合失敗", "合い言葉が間違っています", "error");
   }
 }
