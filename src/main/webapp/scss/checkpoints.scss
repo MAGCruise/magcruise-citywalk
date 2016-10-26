@@ -23,8 +23,8 @@
   #nav-start {
     position: absolute;
     height: $length;
-    right:  $baseMargin * 5;
-    bottom:  $baseMargin;
+    right:  $standardMargin * 5;
+    bottom:  $standardMargin;
   }
 }
 
@@ -77,7 +77,7 @@ $margin: 8px;
     height: $checkpointHeight;
   }
   .text {
-    padding-left: $baseMargin;
+    padding-left: $standardMargin;
     display: table-cell;
     vertical-align: middle;
     height: $checkpointHeight;

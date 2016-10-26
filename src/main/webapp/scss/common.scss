@@ -33,11 +33,11 @@ body {
 }
 
 .top-margin {
-  margin-top: $largeMargin;
+  margin-top: $bootstrapMargin;
 }
 
 .bottom-margin {
-  margin-bottom: $largeMargin;
+  margin-bottom: $bootstrapMargin;
 }
 
 .top-margin-sm {
@@ -80,48 +80,40 @@ body {
   }
 }
 
-.btn-post {
-  @include round(5px);
-  border: none;
-  background-color: #FF972B;
-  &:hover {
-    background-color: #FF972B;
-  }
-}
-
 .btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) {
 	@include round(5px);
 }
 
-.form-control {
-  font-family: $simpleFontFamily;
-  font-size: 20px;
-  @include round(8px);
-}
-
 /* End overwrite bootstrap style */
 
+/* common */
 h1.doc-header {
-  margin: $baseMargin;
+  margin: $standardMargin;
   font-size: $fs2;
   color: $greenColor;
 }
 
 h1.doc-header-bg {
-  margin: $baseMargin;
+  margin: $standardMargin;
   font-size: $fs1;
   color: $greenColor;
 }
 
-.description {
+.narrow-description {
   font-size: 13px;
   color: $descriptionColor;
   letter-spacing: 0.07px;
   line-height: 17px;
 }
 
+.answer-input {
+  font-family: $simpleFontFamily;
+  font-size: 20px;
+  @include round(8px);
+}
 
-.btn-next-fill {
+
+.btn-fill {
   @include round(5px);
   border: none;
   margin-top: $xLargeMargin;

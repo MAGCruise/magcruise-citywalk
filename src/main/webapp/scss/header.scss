@@ -8,13 +8,13 @@ $navHeight: 60px;
   height: $navHeight;
   text-align: center;
   background: $primaryColor;
-  padding: $baseMargin 0px;
+  padding: $standardMargin 0px;
 }
 
 #back {
   height: 40px;
   cursor: pointer;
-  padding-left: $baseMargin;
+  padding-left: $standardMargin;
 }
 
 #nav-title {
@@ -23,14 +23,14 @@ $navHeight: 60px;
 }
 
 #nav-menu{
-  padding-right: $baseMargin;
+  padding-right: $standardMargin;
 
   #top-dropdown {
     cursor: pointer;
     font-size: 20px;
     padding: 6px 12px;
     background: $orangeColor;
-    @include round($baseMargin/2);
+    @include round($standardMargin/2);
   }
 
   #dropdown-menu-icon{
@@ -43,7 +43,7 @@ $navHeight: 60px;
 
   .dropdown {
     cursor: pointer;
-    padding: 0 $baseMargin;
+    padding: 0 $standardMargin;
   }
 
   .dropdown-toggle {

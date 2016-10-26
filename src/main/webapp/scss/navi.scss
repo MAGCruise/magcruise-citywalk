@@ -3,7 +3,7 @@
 
 
 #distance {
-  margin: $baseMargin;
+  margin: $standardMargin;
   color: $greenColor;
   letter-spacing: 0.3px;
   font-size: 36px;
@@ -19,13 +19,13 @@
   color: #97a6a3;}
 
 #btn-next {
-  margin: $baseMargin;
-  padding-left: $baseMargin;
-  padding-right: $baseMargin;
+  margin: $standardMargin;
+  padding-left: $standardMargin;
+  padding-right: $standardMargin;
 }
 
 #compass {
-  margin-bottom: $baseMargin;
+  margin-bottom: $standardMargin;
   $length: 200px;
   width: $length;
   height: $length;
@@ -36,7 +36,7 @@
 }
 
 #activity-title {
-  margin-left: $baseMargin;
+  margin-left: $standardMargin;
   font-size: 16px;
   color: $greenColor;
 }
@@ -44,7 +44,7 @@
 #notification {
   .item {
     margin-bottom: 1px;
-    padding: $baseMargin;
+    padding: $standardMargin;
     background: #FFFFFF;
     box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.17);
     font-size: 13px;
@@ -54,8 +54,8 @@
       font-size: 16px;
       font-family: HiraginoSans-W6;
       color: #38A997;
-      margin-left: $baseMargin;
-      margin-right: $baseMargin/2;
+      margin-left: $standardMargin;
+      margin-right: $standardMargin/2;
     }
   }
 }

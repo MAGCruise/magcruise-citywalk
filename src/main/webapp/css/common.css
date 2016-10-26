@@ -23,10 +23,10 @@ body {
   padding-left: 0px; }
 
 .top-margin {
-  margin-top: 20px; }
+  margin-top: 15px; }
 
 .bottom-margin {
-  margin-bottom: 20px; }
+  margin-bottom: 15px; }
 
 .top-margin-sm {
   margin-top: 6px; }
@@ -70,17 +70,6 @@ body {
   .btn-info:hover {
     background-color: #0587C4; }
 
-.btn-post {
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -m-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border: none;
-  background-color: #FF972B; }
-  .btn-post:hover {
-    background-color: #FF972B; }
-
 .btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -88,16 +77,8 @@ body {
   -o-border-radius: 5px;
   -ms-border-radius: 5px; }
 
-.form-control {
-  font-family: arial, sans-serif;
-  font-size: 20px;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -m-border-radius: 8px;
-  -o-border-radius: 8px;
-  -ms-border-radius: 8px; }
-
 /* End overwrite bootstrap style */
+/* common */
 h1.doc-header {
   margin: 10px;
   font-size: 24px;
@@ -108,13 +89,22 @@ h1.doc-header-bg {
   font-size: 28px;
   color: #38A997; }
 
-.description {
+.narrow-description {
   font-size: 13px;
-  color: #ABABAB;
+  color: #999;
   letter-spacing: 0.07px;
   line-height: 17px; }
 
-.btn-next-fill {
+.answer-input {
+  font-family: arial, sans-serif;
+  font-size: 20px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -m-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px; }
+
+.btn-fill {
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -m-border-radius: 5px;
