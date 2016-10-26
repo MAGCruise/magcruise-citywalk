@@ -40,21 +40,14 @@ function initMyGroupRankingView(myGroupRanking) {
 }
 
 function initRankingsView(rankings, isGroup) {
-  rankings.sort(function(a, b) {
-    return (a.score < b.score) ? 1 : (a.score > b.score) ? -1 : 0;
-  });
-  // 順位の更新（同率あり）
-  var rank = 0;
-  var lastScore = -1;
-  rankings.forEach(function(ranking) {
-    if (lastScore != ranking.score) {
-      rank++;
-      lastScore = ranking.score;
-    }
-    ranking.rank = rank;
-  });
+  var MAX_ROW = 100;
 
-  rankings.forEach(function(ranking) {
+  for (var i = 0; i < rankings.length; i++) {
+    if (i >= MAX_ROW) {
+      break;
+    }
+    var ranking = rankings[i];
+
     var listItem = $('<li></li>').addClass('list-group-item');
     var html = "";
     if (ranking.rank <= 3) {
@@ -75,7 +68,7 @@ function initRankingsView(rankings, isGroup) {
               + ptMarginTop + 'px">' + ranking.score + 'pt</div>');
       $('#rankings').append(listItem);
     }
-  });
+  }
   /*
    * <div class="row"> <h1>グループランキング</h1> <ul class="list-group">
    * <li class="list-group-item rank-text"><img src="../img/rank_first.png"
