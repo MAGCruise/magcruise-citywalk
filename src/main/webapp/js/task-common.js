@@ -101,12 +101,12 @@ function addActivity(task, input, isCorrect) {
     }
     var title = "";
     if (isCheckin()) {
-      title = "チェックイン完了！";
-      title += "<br>" + arg.score + "pt獲得しました．";
+      title = "チェックイン完了";
+      title += "<br>" + arg.score + "pt獲得しました！";
     } else {
       if (isCorrect) {
         title += "<br>正解！"
-        title += "<br>" + arg.score + "pt獲得しました．";
+        title += "<br>" + arg.score + "pt獲得しました！";
       } else {
         title += "<br>不正解！";
         if (task.taskType === "DescriptionTask") {
