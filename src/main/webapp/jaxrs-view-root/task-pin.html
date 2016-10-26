@@ -4,7 +4,6 @@
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <script type="text/javascript" src="../js/task-common.js"></script>
 <script type="text/javascript" src="../js/task-pin.js"></script>
-<!-- <link rel="stylesheet" href="../css/task-description.css" /> -->
 <title></title>
 </head>
 <head th:remove="all">
@@ -16,11 +15,9 @@
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
       <div class="col-sm-12">
-        <div class="margin-container">
-          <h1 id="label" class="doc-header"></h1>
-          <input id="answer-text" class="form-control answer-input" type="number" placeholder="半角数字4桁" />
-          <button id="btn-next" class="btn btn-primary btn-lg btn-fill">回答する</button>
-        </div>
+        <h1 id="label" class="doc-header"></h1>
+        <input id="answer-text" class="form-control answer-input" type="number" placeholder="半角数字4桁" />
+        <button id="btn-next" class="btn btn-primary btn-lg btn-fill">回答する</button>
       </div>
     </div>
   </div>
