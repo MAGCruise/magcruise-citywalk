@@ -1,8 +1,11 @@
+var checkpoint = getCheckpoint();
+if (!checkpoint) {
+  history.back();
+}
 if (getTaskIndex() <= getLastTaskIndex(getCheckpoint().id)) {
   moveToNextPage();
 }
 setTaskTitle();
-var checkpoint = getCheckpoint();
 var task = getTask();
 
 $(function() {
@@ -12,7 +15,7 @@ $(function() {
 
   $('#label').text(task.label);
 
-  $("form").on('keypress', function(ev) {
+  $(".form").on('keypress', function(ev) {
     if ((ev.which && ev.which === 13) || (ev.keyCode && ev.keyCode === 13)) {
       procPinTask();
       return false;
