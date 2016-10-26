@@ -132,7 +132,7 @@ function showCheckpoints() {
     var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : "../img/"
             + checkpoint.imgSrc;
 
-    var elem = $('<div class="row">' + '<div class="col-sm-12 no-padding">'
+    var elem = $('<div class="row no-margin">' + '<div class="col-sm-12 no-padding">'
             + '<div class="checkpoint" id="checkpoint-' + checkpoint.id + '">'
             + '<div class="pull-left distance ' + distanceStyle + '">'
             + (enableGps ? getFormattedDistance(distance) : "?m") + '</div>' + '<img src="'
