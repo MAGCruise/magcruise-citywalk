@@ -41,6 +41,9 @@ body {
   margin-bottom: 6px; }
 
 /* Start overwrite bootstrap style */
+.container {
+  max-width: 720px; }
+
 .btn {
   border-radius: 5px;
   -webkit-border-radius: 5px;

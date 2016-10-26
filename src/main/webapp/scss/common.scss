@@ -59,6 +59,10 @@ body {
 
 /* Start overwrite bootstrap style */
 
+.container{
+  max-width: 720px;
+}
+
 .btn {
   @include round(5px);
   border: none;

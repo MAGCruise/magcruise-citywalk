@@ -44,6 +44,6 @@ function procTask() {
     addAnswerDic(checkpoint, task, text);
     addActivity(task, text, isCorrect);
   } else {
-    swal("照合失敗", "合い言葉が間違っています", "error");
+    swal("照合失敗", "キーワードが間違っています", "error");
   }
 }

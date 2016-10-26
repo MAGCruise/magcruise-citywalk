@@ -1117,7 +1117,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1132,7 +1132,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1147,7 +1147,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1162,7 +1162,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1177,7 +1177,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1192,7 +1192,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1207,7 +1207,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1222,7 +1222,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1237,7 +1237,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1252,7 +1252,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1267,7 +1267,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1282,7 +1282,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1297,7 +1297,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1385"
         ]
@@ -1312,7 +1312,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1327,7 +1327,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1598"
         ]
@@ -1342,7 +1342,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1357,7 +1357,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1741"
         ]
@@ -1372,7 +1372,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1387,7 +1387,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1402,7 +1402,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1252"
         ]
@@ -1417,7 +1417,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1432,7 +1432,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1447,7 +1447,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1462,7 +1462,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1477,7 +1477,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1492,7 +1492,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1507,7 +1507,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1522,7 +1522,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 3.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1537,7 +1537,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1552,7 +1552,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1567,7 +1567,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1582,7 +1582,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1597,7 +1597,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1612,7 +1612,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1627,7 +1627,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1642,7 +1642,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1657,7 +1657,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1672,7 +1672,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1687,7 +1687,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1702,7 +1702,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1717,7 +1717,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1732,7 +1732,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1747,7 +1747,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1762,7 +1762,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 3.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1777,7 +1777,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1792,7 +1792,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1807,7 +1807,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1822,7 +1822,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1837,7 +1837,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1852,7 +1852,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1867,7 +1867,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1882,7 +1882,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 3.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1897,7 +1897,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1912,7 +1912,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1927,7 +1927,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 3.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1942,7 +1942,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 3.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1957,7 +1957,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1972,7 +1972,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1987,7 +1987,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2002,7 +2002,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2017,7 +2017,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2032,7 +2032,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 3.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2047,7 +2047,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2062,7 +2062,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 0.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2077,7 +2077,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 0.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2092,7 +2092,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 0.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
