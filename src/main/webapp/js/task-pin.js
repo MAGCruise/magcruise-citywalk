@@ -1,11 +1,12 @@
-var checkpoint = getCheckpoint();
-if (!checkpoint) {
+if (!getCheckpoint()) {
   history.back();
 }
 if (getTaskIndex() <= getLastTaskIndex(getCheckpoint().id)) {
   moveToNextPage();
 }
+
 setTaskTitle();
+var checkpoint = getCheckpoint();
 var task = getTask();
 
 $(function() {
@@ -17,17 +18,17 @@ $(function() {
 
   $(".form").on('keypress', function(ev) {
     if ((ev.which && ev.which === 13) || (ev.keyCode && ev.keyCode === 13)) {
-      procPinTask();
+      procTask();
       return false;
     }
   });
 
   $("#btn-next").on('click', function(e) {
-    procPinTask();
+    procTask();
   });
 });
 
-function procPinTask() {
+function procTask() {
   var text = $("#answer-text").val().replace(/\s+/g, "").replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
     return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
   });

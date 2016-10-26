@@ -1,3 +1,7 @@
+if (!getCheckpoint()) {
+  history.back();
+}
+
 if (getTaskIndex() <= getLastTaskIndex(getCheckpoint().id)) {
   moveToNextPage();
 }
@@ -9,7 +13,7 @@ $(function() {
     setBackDisabled();
   }
 
-  $("#btn-next").on('click',function() {
+  $("#btn-next").on('click', function() {
     addActivity(task, task.answerQr, true);
   });
 });
