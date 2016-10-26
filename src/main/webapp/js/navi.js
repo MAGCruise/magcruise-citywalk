@@ -17,7 +17,7 @@ window.onload = function() {
 }
 
 $(function() {
-  showCheckpointInfo();
+  $('#checkpoint').append(makeCheckpointInfoHtml(checkpoint));
   $("#current-position").on('click', function() {
     if (!cPos) { return; }
     map.setZoom(17);
@@ -40,7 +40,6 @@ setInterval(function() {
 }, 1000 * 5);
 
 $(function() {
-  $("#activity-title").text(checkpoint.name + "でのアクティビティ");
   $("#btn-next").on('click', function() {
     // 既に途中までタスクが進んでいる場合には，完了済みの次のタスクからはじめる
     var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
@@ -133,7 +132,7 @@ function initMap() {
   });
   // マーカータップ時のバルーンの初期化
   var infoWindow = new google.maps.InfoWindow({
-    content: checkpoint.name+"<br>("+checkpoint.balloon+")"
+    content: checkpoint.name + "<br>(" + checkpoint.balloon + ")"
   });
   infoWindow.open(marker.getMap(), marker);
 
@@ -227,15 +226,15 @@ function getBrowserOrientation() {
    * small tablet) device is in 'normal' orientation for (screen width > screen
    * height, e.g. large tablet, laptop) device has been turned 90deg clockwise
    * from normal
-   *
+   * 
    * 'portait-secondary': for (screen width < screen height) device has been
    * turned 180deg from normal for (screen width > screen height) device has
    * been turned 90deg anti-clockwise (or 270deg clockwise) from normal
-   *
+   * 
    * 'landscape-primary': for (screen width < screen height) device has been
    * turned 90deg clockwise from normal for (screen width > screen height)
    * device is in 'normal' orientation
-   *
+   * 
    * 'landscape-secondary': for (screen width < screen height) device has been
    * turned 90deg anti-clockwise (or 270deg clockwise) from normal for (screen
    * width > screen height) device has been turned 180deg from normal
@@ -397,16 +396,4 @@ function updateCurrentCircle(accuracy) {
     cCircle.setMap(null);
   }
   cCircle = drawCurrentLocationCircle(map, cPos, accuracy);
-}
-
-function showCheckpointInfo() {
-  var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : "../img/" + checkpoint.imgSrc;
-  var html = '<div class="row checkpoint">' + '<div class="col-xs-12">'
-          + '<i class="fa fa-check-square" aria-hidden="true"></i>' + '<div class="name">'
-          + checkpoint.name + '</div><div class="description">' + checkpoint.balloon + '</div>'
-          + '<div class="row"><div class="col-xs-3"><img src="' + imgSrc
-          + '" class="img-responsive img"></div>' + '<div class="col-xs-9 description">'
-          + checkpoint.label + '<br/><p style="word-break: break-word;">'
-          + (checkpoint.description || "") + '</p>' + '</div></div>' + '</div>' + '</div>';
-  $('#checkpoint').append(html);
 }

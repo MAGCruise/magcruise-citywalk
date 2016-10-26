@@ -10,14 +10,16 @@
     font-size: 20px;
     color: $greenColor;
   }
-  .result {
-      font-size: 16px;
+  .balloon{
+    color: $descriptionColor;
+  }
+  .score {
       color: $orangeColor;
   }
   .answer {
-    font-size: 14px;
     color: $greenColor;
   }
-  .description {
+  .description>p{
+    word-break: break-word;
   }
 }
