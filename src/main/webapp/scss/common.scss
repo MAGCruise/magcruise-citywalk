@@ -22,6 +22,10 @@ body {
   transform: translateY(-50%);
 }
 
+.v-middle-cell{
+  display:table-cell;
+  vertical-align:middle;
+}
 .no-margin {
   margin-right: 0px;
   margin-left: 0px;
@@ -49,10 +53,7 @@ body {
 }
 
 
-.v-cell-middle{
-  display:table-cell;
-  vertical-align:middle;
-}
+
 
 /* Start overwrite bootstrap style */
 
