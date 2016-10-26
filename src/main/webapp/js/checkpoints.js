@@ -2,8 +2,6 @@ if (!getCheckpointGroupId()) {
   location.href = "courses.html";
 }
 
-var MAX_ZOOM_LEVEL = 17;
-
 var map = null;
 var markers = []; // マーカーs
 var infoWindow = null; // バルーン
@@ -48,7 +46,7 @@ function updateViews() {
   // 現在地の表示
   drawCurrentLocationCircle(map, cPos, locationsAccuracy);
   // マップの表示位置とズームレベルの調整
-  fitMapPositionAndZoomLevel();
+  fitBoundsAndZoom(map, checkpoints);
 
   initBreadCrumb();
   showList();
@@ -270,7 +268,7 @@ function selectCheckpoint(checkpoint) {
   })[0];
   infoWindow.open(marker.getMap(), marker);
 
-  map.setZoom(MAX_ZOOM_LEVEL);
+  map.setZoom(17);
   map.setCenter(marker.getPosition());
   $(".checkpoint").removeClass("selected");
   $("#checkpoint-" + checkpoint.id).addClass("selected");
@@ -308,35 +306,5 @@ function getCurrentPositionAndUpdateViews() {
     enableHighAccuracy: true,
     timeout: 1000 * 60,
     maximumAge: 0,
-  });
-}
-
-function fitMapPositionAndZoomLevel() {
-  var maxLat = minLat = cPos.lat();
-  var maxLon = minLon = cPos.lng();
-
-  checkpoints.forEach(function(checkpoint, i) {
-    // 最大最小緯度経度の計算
-    if (maxLat < checkpoint.lat) maxLat = checkpoint.lat;
-    if (minLat > checkpoint.lat) minLat = checkpoint.lat;
-    if (maxLon < checkpoint.lon) maxLon = checkpoint.lon;
-    if (minLon > checkpoint.lon) minLon = checkpoint.lon;
-  });
-
-  // 全てのマーカーが入るように縮尺を調整
-  var sw = {
-    lat: minLat,
-    lng: minLon
-  };
-  var ne = {
-    lat: maxLat,
-    lng: maxLon
-  };
-  var latlngBounds = new google.maps.LatLngBounds(sw, ne);
-  map.fitBounds(latlngBounds);
-  // 最小ズームレベルの調整
-  var listener = google.maps.event.addListener(map, "idle", function() {
-    if (map.getZoom() > MAX_ZOOM_LEVEL) map.setZoom(MAX_ZOOM_LEVEL);
-    google.maps.event.removeListener(listener);
   });
 }

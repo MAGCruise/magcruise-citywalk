@@ -78,34 +78,6 @@ function getEventsByWebsocket() {
   };
 }
 
-function createCenterControlUI(controlDiv, map) {
-
-  // Set CSS for the control border.
-  var controlUI = document.createElement('div');
-  controlUI.style.backgroundColor = '#fff';
-  controlUI.style.border = '2px solid #fff';
-  controlUI.style.borderRadius = '3px';
-  controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
-  controlUI.style.cursor = 'pointer';
-  controlUI.style.marginBottom = '22px';
-  controlUI.style.textAlign = 'center';
-  controlUI.title = 'Click to recenter the map';
-  controlDiv.appendChild(controlUI);
-
-  // Set CSS for the control interior.
-  var controlText = document.createElement('div');
-  controlText.style.color = 'rgb(25,25,25)';
-  controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
-  controlText.style.fontSize = '14px';
-  controlText.style.lineHeight = '38px';
-  controlText.style.paddingLeft = '5px';
-  controlText.style.paddingRight = '5px';
-  controlText.innerHTML = '目的地と現在地を表示';
-  controlUI.appendChild(controlText);
-
-  return controlUI;
-}
-
 function initMap() {
 
   var center = {
@@ -142,13 +114,16 @@ function initMap() {
     });
   });
 
-  var centerControlDiv = document.createElement('div');
-  var centerControlUI = createCenterControlUI(centerControlDiv, map);
-  centerControlDiv.index = 1;
-  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(centerControlDiv);
+  var centerControlUI = createMapControlUI(map, google.maps.ControlPosition.TOP_RIGHT);
 
   centerControlUI.addEventListener('click', function() {
-    updateMapZoomLevelAndCenter();
+    fitBoundsAndZoom(map, [{
+      lat: ePos.lat(),
+      lon: ePos.lng()
+    }, {
+      lat: cPos.lat(),
+      lon: cPos.lng()
+    }]);
     infoWindow.open(map, marker);
   });
 
@@ -359,36 +334,6 @@ var postMovementsFunc = function() {
     var newMovements = lastMovements.concat(getMovementQueue());
     setMovementQueue(newMovements);
   })).rpc();
-}
-
-/* マップのズームレベルと中央位置を調整 */
-function updateMapZoomLevelAndCenter() {
-  var minLat, maxLat, minLng, maxLng;
-  if (cPos.lat() > ePos.lat()) {
-    minLat = ePos.lat();
-    maxLat = cPos.lat();
-  } else {
-    minLat = cPos.lat();
-    maxLat = ePos.lat();
-  }
-  if (cPos.lng() > ePos.lng()) {
-    minLng = ePos.lng();
-    maxLng = cPos.lng();
-  } else {
-    minLng = cPos.lng();
-    maxLng = ePos.lng();
-  }
-  // 全てのマーカーが入るように縮尺を調整
-  var sw = {
-    lat: minLat,
-    lng: minLng
-  };
-  var ne = {
-    lat: maxLat,
-    lng: maxLng
-  };
-  var latlngBounds = new google.maps.LatLngBounds(sw, ne);
-  map.fitBounds(latlngBounds);
 }
 
 function updateCurrentCircle(accuracy) {
