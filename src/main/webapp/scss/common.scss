@@ -40,6 +40,15 @@ body {
   margin-bottom: $largeMargin;
 }
 
+.top-margin-sm {
+  margin-top: $smallMargin;
+}
+
+.bottom-margin-sm {
+  margin-bottom: $smallMargin;
+}
+
+
 .v-cell-middle{
   display:table-cell;
   vertical-align:middle;
@@ -49,11 +58,12 @@ body {
 
 .btn {
   @include round(5px);
-  font-size: 20px;
   border: none;
 }
 
 .btn-primary {
+  @include round(5px);
+  border: none;
   background: #FA833C;
   color: white;
   &:hover {
@@ -62,6 +72,8 @@ body {
 }
 
 .btn-info {
+  @include round(5px);
+  border: none;
   background-color: #0587C4;
   &:hover {
     background-color: #0587C4;
@@ -69,6 +81,8 @@ body {
 }
 
 .btn-post {
+  @include round(5px);
+  border: none;
   background-color: #FF972B;
   &:hover {
     background-color: #FF972B;
@@ -108,6 +122,8 @@ h1.doc-header-bg {
 
 
 .btn-next-fill {
+  @include round(5px);
+  border: none;
   margin-top: $xLargeMargin;
   margin-bottom: $xLargeMargin;
   width: 100%;

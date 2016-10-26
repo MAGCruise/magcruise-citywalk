@@ -26,12 +26,10 @@
 .far {
   background: #38A997; }
 
-#breadcrumb {
-  color: #AAA;
-  font-size: 16px;
-  margin: 10px; }
-  #breadcrumb .link {
-    color: #337AB7; }
+#breadcrumb > span {
+  color: #AAA; }
+#breadcrumb .btn-sm {
+  font-size: 14px; }
 
 .checkpoint {
   cursor: pointer;

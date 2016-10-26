@@ -28,6 +28,12 @@ body {
 .bottom-margin {
   margin-bottom: 20px; }
 
+.top-margin-sm {
+  margin-top: 6px; }
+
+.bottom-margin-sm {
+  margin-bottom: 6px; }
+
 .v-cell-middle {
   display: table-cell;
   vertical-align: middle; }
@@ -39,21 +45,38 @@ body {
   -m-border-radius: 5px;
   -o-border-radius: 5px;
   -ms-border-radius: 5px;
-  font-size: 20px;
   border: none; }
 
 .btn-primary {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -m-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border: none;
   background: #FA833C;
   color: white; }
   .btn-primary:hover {
     background-color: #FA833C; }
 
 .btn-info {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -m-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border: none;
   background-color: #0587C4; }
   .btn-info:hover {
     background-color: #0587C4; }
 
 .btn-post {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -m-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border: none;
   background-color: #FF972B; }
   .btn-post:hover {
     background-color: #FF972B; }
@@ -92,6 +115,12 @@ h1.doc-header-bg {
   line-height: 17px; }
 
 .btn-next-fill {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -m-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border: none;
   margin-top: 30px;
   margin-bottom: 30px;
   width: 100%; }

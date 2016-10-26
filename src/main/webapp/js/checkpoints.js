@@ -20,7 +20,6 @@ window.onload = function() {
         lat: 0.0,
         lng: 0.0
       },
-      // zoom: 8
       mapTypeControl: false,
       streetViewControl: false,
       scaleControl: true,
@@ -40,7 +39,7 @@ window.onload = function() {
 }
 
 $(function() {
-  $(window).on('hashchange', function() {
+  $(window).on('hashchange popstate', function() {
     category = getParam("category");
     subcategory = getParam("subcategory");
     updateViews();
@@ -62,6 +61,8 @@ $(function() {
 });
 
 function updateViews() {
+  $(".checkpoint").removeClass("selected");
+
   loadCheckpoints();
 
   initMarkers();
@@ -93,7 +94,7 @@ function initBreadCrumb() {
   $("#breadcrumb").empty();
 
   // トップ
-  var topElem = $('<span>カテゴリ：</span><span class="link">TOP</span>');
+  var topElem = $('<span>カテゴリ：</span><a class="btn btn-sm btn-success">TOP</a>');
   $("#breadcrumb").append(topElem);
   topElem.on('click', function() {
     category = null;
@@ -102,19 +103,25 @@ function initBreadCrumb() {
   });
   // カテゴリ
   if (category) {
-    var categoryElem = $('<span> > ' + category + '</span>');
-    if (subcategory) {
-      categoryElem.addClass('link');
-      categoryElem.on('click', function() {
-        subcategory = null;
-        location.href = "./checkpoints.html#" + "?category=" + category;
-      });
-    }
+    var categoryElem = $('<span> &gt; </span><a class="btn btn-sm btn-success">' + category
+            + '</a>');
+    categoryElem.on('click', function() {
+      subcategory = null;
+      location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(category);
+    });
     $("#breadcrumb").append(categoryElem);
   }
   // サブカテゴリ
   if (subcategory) {
-    $("#breadcrumb").append($('<span> > ' + subcategory + '</span>'));
+    var subCategoryElem = $('<span> &gt; </span><a class="btn btn-sm btn-success">' + subcategory
+            + '</a>');
+    $("#breadcrumb").append(subCategoryElem);
+    categoryElem.on('click', function() {
+      subcategory = null;
+      location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(category)
+              + "&subcategory=" + encodeURIComponent(subcategory);
+    });
+
   }
   $("#breadcrumb").show();
 }
@@ -186,7 +193,8 @@ function showSubcategory() {
     var elem = makeListElemWithoutDistanceAndImage(name);
     elem.on('click', function() {
       subcategory = name;
-      location.href = location.href + "&subcategory=" + encodeURIComponent(name);
+      location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(category)
+              + "&subcategory=" + encodeURIComponent(subcategory);
     });
     $("#checkpoints").append(elem);
   });
@@ -204,7 +212,7 @@ function showCategory() {
     var elem = makeListElemWithoutDistanceAndImage(name);
     elem.on('click', function() {
       category = name;
-      location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(name);
+      location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(category);
     });
     $("#checkpoints").append(elem);
   });
@@ -268,6 +276,7 @@ function selectCheckpoint(checkpoint) {
 
   map.setZoom(17);
   map.setCenter(marker.getPosition());
+
   $(".checkpoint").removeClass("selected");
   $("#checkpoint-" + checkpoint.id).addClass("selected");
   $("#selected-checkpoint-description").remove();

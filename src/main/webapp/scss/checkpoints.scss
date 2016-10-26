@@ -37,11 +37,12 @@
 }
 
 #breadcrumb {
-  color: $lightGrayColor;
-  font-size: 16px;
-  margin: $baseMargin;
-  .link {
-    color: #337AB7;
+  >span{
+    color: $lightGrayColor;
+  }
+
+  .btn-sm{
+    font-size: 14px;
   }
 }
 
