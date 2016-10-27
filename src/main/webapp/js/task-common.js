@@ -138,10 +138,3 @@ $(document).on('confirmation', '.remodal', function() {
   history.replaceState('', '', location.href.replace("#modal", ""));
   moveToNextPage();
 });
-
-function confirmSubmission(callback) {
-  swal({
-    title: "送信しますか？",
-    showCancelButton: true
-  }, callback);
-}

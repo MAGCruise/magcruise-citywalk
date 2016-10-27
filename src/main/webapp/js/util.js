@@ -235,3 +235,20 @@ function toFormattedShortDate(milliseconds) {
   return padding(date.getMonth() + 1) + '月' + padding(date.getDate()) + '日' + ' '
           + [padding(date.getHours()), padding(date.getMinutes())].join(':');
 }
+
+/** SweetAlert * */
+function confirmSubmission(callback) {
+  swal({
+    title: "送信しますか？",
+    animation: false,
+    showCancelButton: true
+  }, callback);
+}
+function alertWarning(title, text) {
+  swal({
+    title: title,
+    text: text,
+    type: "warning",
+    animation: false
+  });
+}

@@ -137,7 +137,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "label": "キーワード(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
