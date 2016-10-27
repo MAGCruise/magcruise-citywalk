@@ -129,9 +129,11 @@ function addActivity(task, input, isCorrect) {
     }
     $('#modalTitle').html(title);
     $('[data-remodal-id=modal]').remodal().open();
-  }, function(error) {
+  })).retry(3, function() {
+    // Nothing to do
+  }, function() {
     swal("送信失敗", "もう一度送信して下さい", "error");
-  })).rpc();
+  });
 }
 
 $(document).on('confirmation', '.remodal', function() {
