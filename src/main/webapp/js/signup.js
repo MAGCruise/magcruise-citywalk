@@ -1,3 +1,6 @@
+window.onunload = function() {
+};
+
 var MAX_LENGTH_OF_USER_ID = 8;
 var registerFunc = function() {
   for (var i = 0; i < $('input').size(); i++) {
