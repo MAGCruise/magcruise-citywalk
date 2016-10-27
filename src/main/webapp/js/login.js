@@ -1,3 +1,6 @@
+window.onunload = function() {
+};
+
 function isNoLogin() {
   return parseUri(location).queryKey.msg == "nologin";
 }
@@ -13,6 +16,7 @@ var loginFunc = function() {
               }
             }
           })).retry(3, function() {
+    // Nothing to do
   }, function() {
     alert('ログインに失敗しました．後でもう一度試して下さい．');
   });
