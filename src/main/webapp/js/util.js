@@ -9,10 +9,25 @@ var KEY_ANSWER_DIC = "answer_dic";
 var KEY_CHECKPOINT_PROGRESS_DIC = "checkpoint_progress_dic";
 /** *********** */
 
+window.onload = function() {
+  memorizeHistory();
+}
+
+function memorizeHistory() {
+  if (history && typeof (history.replaceState) == "function") {
+    history.replaceState({
+      page: history.length,
+      href: location.href
+    }, document.title, location.href);
+  }
+
+}
+
 $(function() {
   setNavTitle();
   setUserNameInMenu();
   setBack();
+  setForward();
 });
 
 function setBack() {
@@ -20,14 +35,32 @@ function setBack() {
     setBackDisabled();
   } else {
     $('#back').on('click', function() {
-      window.history.back(-1);
+      window.history.back();
     });
   }
+}
+
+function setForward() {
+  if (!history.state) {
+    setForwardDisabled();
+  } else if (history.state && history.state.page == history.length) {
+    setForwardDisabled();
+  } else {
+    $('#forward').on('click', function() {
+      window.history.forward();
+    });
+  }
+
 }
 
 function setBackDisabled() {
   $('#back').off('click');
   $('#back').css("opacity", "0.15");
+}
+
+function setForwardDisabled() {
+  $('#forward').off('click');
+  $('#forward').css("opacity", "0.15");
 }
 
 function setUserNameInMenu() {

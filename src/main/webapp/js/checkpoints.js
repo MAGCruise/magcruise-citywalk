@@ -40,6 +40,7 @@ window.onload = function() {
 
 $(function() {
   $(window).on('hashchange popstate', function() {
+    memorizeHistory();
     category = getParam("category");
     subcategory = getParam("subcategory");
     updateViews();

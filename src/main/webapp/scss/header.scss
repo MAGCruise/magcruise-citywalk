@@ -6,7 +6,6 @@ $navHeight: 60px;
 #mag-nav {
   width: 100%;
   height: $navHeight;
-  text-align: center;
   background: $primaryColor;
   padding: $standardMargin 0px;
 }
@@ -14,8 +13,14 @@ $navHeight: 60px;
 #back {
   height: 40px;
   cursor: pointer;
-  padding-left: $standardMargin;
+  padding-left: 2px;
 }
+
+#forward {
+  height: 40px;
+  cursor: pointer;
+}
+
 
 #nav-title {
   font-size: 110%;
