@@ -15,17 +15,6 @@ $(function() {
     $("#carousel-next").trigger('click');
   });
 
-  var hammer = new Hammer.Manager(window);
-  hammer.add(new Hammer.Swipe());
-
-  hammer.on("swipeleft", function(e) {
-    $("#carousel-next").trigger('click');
-  });
-
-  hammer.on("swiperight", function(e) {
-    $("#carousel-prev").trigger('click');
-  });
-
   $(".carousel-control").on("click", function(e) {
     setTimeout(function() {
       $(".step").removeClass("current-step");
