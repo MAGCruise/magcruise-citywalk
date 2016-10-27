@@ -281,9 +281,17 @@ function selectCheckpoint(checkpoint) {
 
   $(".checkpoint").removeClass("selected");
   $("#checkpoint-" + checkpoint.id).addClass("selected");
+
   $("#selected-checkpoint-description").remove();
+  $("#nav-start-in-list").remove();
   $(".checkpoint.selected .detail").append(
-          $("<p>").attr("id", "selected-checkpoint-description").html(checkpoint.description));
+          $("<p>").attr("id", "selected-checkpoint-description").html(checkpoint.description))
+          .append('<a id="nav-start-in-list" class="btn btn-success btn-sm">ここに行く</a>');
+
+  $(document).on('click', "#nav-start-in-list", function() {
+    $("#nav-start").trigger('click');
+  });
+
   $("#nav-start").show();
 }
 
