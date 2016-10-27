@@ -13,7 +13,9 @@ var category = getParam("category");
 var subcategory = getParam("subcategory");
 var locationsAccuracy = 10;
 var enableGps = false;
+
 window.onload = function() {
+  memorizeHistory();
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {
@@ -40,6 +42,7 @@ window.onload = function() {
 
 $(function() {
   $(window).on('hashchange popstate', function() {
+    memorizeHistory();
     category = getParam("category");
     subcategory = getParam("subcategory");
     updateViews();

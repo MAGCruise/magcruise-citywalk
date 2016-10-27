@@ -12,6 +12,7 @@ var POST_MOVEMENT_INTERVAL = 1000 * 10; // msec
 var KEY_MOVEMENT_LIST = "movement_list";
 
 window.onload = function() {
+  memorizeHistory();
   initMap();
 }
 

@@ -17,6 +17,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script
+  src="//cdnjs.cloudflare.com/ajax/libs/history.js/1.8/bundled-uncompressed/html4+html5/jquery.history.js"></script>
 <script src="../js/lib/hammer-time.min.js"></script>
 <script src="../js/jsonrpc.js"></script>
 <script src="../js/parseUri.js"></script>
@@ -26,13 +28,13 @@
 <div class="container">
   <div class="row" th:fragment="top-menu" id="menu">
     <div id="mag-nav">
-      <div id="nav-back-wrapper" class="col-xs-2 no-padding">
+      <div id="nav-btns-wrapper" class="col-xs-10 no-padding">
         <div class="pull-left">
-          <img id="back" src="../img/back.svg">
+          <img id="back" src="../img/back.svg"> <img id="forward" src="../img/forward.svg">
         </div>
-      </div>
-      <div id="nav-title-wrapper" class="col-xs-8 no-padding v-middle">
-        <div id="nav-title"></div>
+        <div id="nav-title-wrapper">
+          <div id="nav-title"></div>
+        </div>
       </div>
       <div id="nav-menu-wrapper" class="col-xs-2 no-padding">
         <div id="nav-menu" class="dropdown pull-right">
