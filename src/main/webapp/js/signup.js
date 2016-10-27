@@ -1,8 +1,22 @@
 window.onunload = function() {
-};
+}
 
 var MAX_LENGTH_OF_USER_ID = 8;
+
 var registerFunc = function() {
+  if (getUserId()) {
+    location.href = "courses.html";
+    return;
+  }
+
+  // スマートフォンでの戻る対策
+  $(window).on('popstate', function(e) {
+    if (getUserId()) {
+      location.href = "courses.html";
+      return;
+    }
+  });
+
   for (var i = 0; i < $('input').size(); i++) {
     if (!$('input')[i].checkValidity()) {
       $('#submit-for-validation').trigger("click");
@@ -14,28 +28,22 @@ var registerFunc = function() {
   var groupId = $('#group-id').val();
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "register", [userId, groupId,
       MAX_LENGTH_OF_USER_ID], function(data) {
-    if (data.result.success) {
-      if (localStorage.length != 0) {
-        if (confirm('これまでのアクティビティを消去し，新しくニックネームを登録し直してよろしいですか？')) {
-          clear();
-        } else {
-          alert('新しいニックネームの登録をキャンセルしました．');
-          return;
-        }
+    if (data.result) {
+      if (data.result.success) {
+        setUserId(userId);
+        setGroupId(groupId);
+        location.href = "courses.html";
+      } else {
+        var recommendedUserId = data.result.recommendedUserId;
+        $('#user-id').val(recommendedUserId);
+        alert("そのニックネームは既に登録されています．「" + recommendedUserId + "」が利用できます．");
       }
-      setUserId(userId);
-      setGroupId(groupId);
-      location.href = "courses.html";
     } else {
-      var recommendedUserId = data.result.recommendedUserId;
-      $('#user-id').val(recommendedUserId);
-      alert("そのニックネームは既に登録されています．「" + recommendedUserId + "」が利用できます．");
+      alert('サインアップに失敗しました．後でもう一度試して下さい．');
     }
-  })).retry(3, function() {
-    // Nothing to do
-  }, function() {
+  }, function(data, textStatus, errorThrown) {
     alert('サインアップに失敗しました．後でもう一度試して下さい．');
-  });
+  })).rpc();
 };
 
 $(function() {
