@@ -3,22 +3,20 @@ function isNoLogin() {
 }
 var loginFunc = function() {
   var userId = $('#user-id').val();
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "login", [userId], function(data) {
-    if (data.result) {
-      if (isNoLogin()) {
-        location.href = parseUri(location).query.replace("msg=nologin&redirect=", "");
-      } else {
-        location.href = "courses.html";
-      }
-    } else {
-      alert('ログインに失敗しました．後でもう一度試して下さい．');
-    }
-  }, function(data, textStatus, errorThrown) {
+  var client = new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "login", [userId],
+          function(data) {
+            if (data.result) {
+              if (isNoLogin()) {
+                location.href = parseUri(location).query.replace("msg=nologin&redirect=", "");
+              } else {
+                location.href = "courses.html";
+              }
+            }
+          })).retry(3, function() {
+  }, function() {
     alert('ログインに失敗しました．後でもう一度試して下さい．');
-    console.error("fail to login.");
-    console.error(textStatus + ', ' + errorThrown + '. response: ' + JSON.stringify(data));
-    console.error('request: ' + JSON.stringify(JSON.stringify(this)));
-  })).rpc();
+  });
+
 };
 
 $(function() {
@@ -27,7 +25,8 @@ $(function() {
     return;
   }
   if (isNoLogin()) {
-    alert("ログアウトされました．もう一度ログインして下さい．");
+    loginFunc();
+    // alert("ログアウトされています．もう一度ログインして下さい．");
   }
 
   $("#nav-menu").hide();
