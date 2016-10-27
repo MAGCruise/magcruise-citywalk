@@ -15,6 +15,11 @@ $(function() {
 
   $("#loading").hide();
   $("#task-img").attr('src', task.imgSrc);
+
+  $("#btn-file-input, #img-preview").on('click', function() {
+    $('#file-input').click();
+  });
+
   $("#btn-next").on('click', function() {
     if (confirm("送信しますか？")) {
       $("#loading").fadeIn();
