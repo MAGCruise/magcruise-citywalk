@@ -118,9 +118,13 @@ h1.doc-header-bg {
   border: none;
   &:hover,&:focus {
     background: #ef7f38;
+    color: white;
+    border: none;
   }
   &:active {
     background: #dd7533;
+    color: white;
+    border: none;
   }
 }
 
