@@ -282,17 +282,20 @@ function confirmSubmission(callback) {
 function confirmAndAct(title, text, type, callback) {
   swal({
     title: title,
-    text: text ? "" : text,
-    type: type ? null : type,
+    text: text ? text : "",
+    type: type ? type : null,
     animation: false,
+    html: true,
     showCancelButton: true
   }, callback);
 }
-function alertWarning(title, text) {
+
+function alertWarning(title, text, callback) {
   swal({
     title: title,
     text: text,
     type: "warning",
-    animation: false
-  });
+    animation: false,
+    html: true,
+  }, callback);
 }

@@ -17,8 +17,8 @@
 <body>
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
-    <div class="row">
-      <div class="col-sm-12 no-padding">
+    <div class="row no-gutter">
+      <div class="col-sm-12">
         <div id="gps-error-msg" class="alert alert-warning" style="display: none;">
           端末の現在位置が取得できません (<a class="alert-link" href="troubleshooting.html#gps-settings">詳細</a>)
         </div>
@@ -33,14 +33,12 @@
         </div>
       </div>
     </div>
-    <div class="row top-margin bottom-margin-sm">
-      <div class="col-sm-12 no-padding">
+    <div class="row top-margin bottom-margin-sm no-gutter">
+      <div class="col-sm-12">
         <div id="breadcrumb"></div>
       </div>
     </div>
-    <div class="row">
-      <div id="checkpoints" class="col-sm-12 no-padding"></div>
-    </div>
+    <div id="checkpoints" class="row no-gutter"></div>
   </div>
 </body>
 </html>

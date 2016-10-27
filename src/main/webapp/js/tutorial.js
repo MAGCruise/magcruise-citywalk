@@ -4,9 +4,9 @@ $(function() {
   }
 
   $('#btn-skip-tutorial').on('click', function(e) {
-    if (confirm('チュートリアルをスキップしますか？')) {
+    confirmAndAct("確認", 'チュートリアルをスキップしてよろしいですか？', "warning", function() {
       location.href = "signup.html";
-    }
+    });
   });
 
   $("#step-" + $("li.active").attr("data-slide-to")).addClass("current-step");

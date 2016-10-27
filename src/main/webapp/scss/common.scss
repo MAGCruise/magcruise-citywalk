@@ -3,11 +3,20 @@
 @import "settings";
 @import "mixins";
 
+html {
+  height: 100%;
+}
+
 body {
-  background-color: $bgColor;
+  height: 100%;
   font-family: helvetica, arial, 'hiragino kaku gothic pro', meiryo, 'ms pgothic', sans-serif;
+  background-color: $bgColor;
+}
+
+a, button, input .btn{
   touch-action: none;
 }
+
 
 /** util **/
 .h-center {
@@ -34,9 +43,11 @@ body {
   margin-left: 0px;
 }
 
-.no-padding{
-  padding-right: 0px;
-  padding-left: 0px;
+
+// For row class
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
 }
 
 .top-margin {
@@ -59,8 +70,8 @@ body {
 
 
 /* Start overwrite bootstrap style */
-.container{
-  max-width: 720px;
+.container {
+  height: 100%;
 }
 
 .btn {
@@ -104,9 +115,12 @@ h1.doc-header-bg {
 .btn-primary-magc{
   background: #FA833C;
   color: white;
+  border: none;
   &:hover,&:focus {
-    background: #FA833C;
-    color: white;
+    background: #ef7f38;
+  }
+  &:active {
+    background: #dd7533;
   }
 }
 

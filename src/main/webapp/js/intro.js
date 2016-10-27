@@ -4,26 +4,43 @@ $(function() {
   }
   $("#nav-title-wrapper").empty();
 
-  checkDevice();
+  $("#btn-join").on('click', function() {
+    checkDevice();
+  });
+
 });
 
 function checkDevice() {
   var uaParser = new UAParser();
-  var errMsg = "OSまたはWebブラウザが推奨環境ではないため，正しく動作しない可能性があります．";
-  if (uaParser.getOS().name === "Windows") {
+  var errTitle = "非推奨環境";
+  var errText = "OSまたはWebブラウザが推奨環境ではありません．正しく動作しない可能性があります．";
+  var unrecommended = false;
+
+  var callback = function() {
+    location.href = "tutorial.html"
+  }
+
+  if (!uaParser.getOS() || !uaParser.getBrowser()) {
+    unrecommended = true;
+    alertWarning(errTitle, errText, callback);
+    return;
+  } else if (uaParser.getOS().name === "Windows" || uaParser.getOS().name === "Android"
+          || uaParser.getOS().name === "Linux") {
     if (uaParser.getBrowser().name !== "Chrome") {
-      alert(errMsg);
+      unrecommended = true;
     }
   } else if (uaParser.getOS().name === "iOS") {
     if (uaParser.getBrowser().name !== "Chrome"
             && uaParser.getBrowser().name.indexOf("Safari") == -1) {
-      alert(errMsg);
-    }
-  } else if (uaParser.getOS().name === "Android") {
-    if (uaParser.getBrowser().name !== "Chrome") {
-      alert(errMsg);
+      unrecommended = true;
     }
   } else {
-    alert(errMsg);
+    unrecommended = true;
+  }
+  if (unrecommended) {
+    errText += "<br>" + uaParser.getBrowser().name + " on " + uaParser.getOS().name;
+    alertWarning(errTitle, errText, callback);
+  } else {
+    callback();
   }
 }
