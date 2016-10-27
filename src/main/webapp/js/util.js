@@ -238,8 +238,14 @@ function toFormattedShortDate(milliseconds) {
 
 /** SweetAlert * */
 function confirmSubmission(callback) {
+  confirmAndAct("送信しますか？", "", null, callback);
+}
+
+function confirmAndAct(title, text, type, callback) {
   swal({
-    title: "送信しますか？",
+    title: title,
+    text: text ? "" : text,
+    type: type ? null : type,
     animation: false,
     showCancelButton: true
   }, callback);
