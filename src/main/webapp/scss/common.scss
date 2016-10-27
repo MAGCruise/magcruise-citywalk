@@ -5,7 +5,8 @@
 
 body {
   background-color: $bgColor;
-  font-family: helvetica, arial, 'hiragino kaku gothic pro', meiryo, 'ms pgothic', sans-serif;;
+  font-family: helvetica, arial, 'hiragino kaku gothic pro', meiryo, 'ms pgothic', sans-serif;
+  touch-action: none;
 }
 
 /** util **/
