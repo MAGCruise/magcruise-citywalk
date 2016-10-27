@@ -1,9 +1,6 @@
 $(function() {
   if (!getUserId() || !getCheckpointGroupId()) {
-    $("#nav-back-wrapper").remove();
     $("#nav-menu-wrapper").remove();
-    $("#nav-title-wrapper").removeClass("col-xs-8");
-    $("#nav-title-wrapper").addClass("col-xs-12");
   }
 
   $('#btn-skip-tutorial').on('click', function(e) {

@@ -71,6 +71,11 @@ function setUserNameInMenu() {
 
 function setNavTitle() {
   $("#nav-title").text(document.title);
+  $("#nav-title").ready(function() {
+    if ($("#nav-title").height() < 30) {
+      $("#nav-title").css("padding-top", "8px");
+    }
+  });
 }
 
 function getParamDic() {

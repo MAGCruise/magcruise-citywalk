@@ -13,7 +13,6 @@ $navHeight: 60px;
 #back {
   height: 40px;
   cursor: pointer;
-  padding-left: 2px;
 }
 
 #forward {
@@ -21,14 +20,21 @@ $navHeight: 60px;
   cursor: pointer;
 }
 
+#nav-btns-wrapper{
+  padding: 0 $standardMargin;
+}
+
+#nav-title-wrapper {
+}
 
 #nav-title {
   font-size: 110%;
   color: white;
+  text-align: center;
 }
 
 #nav-menu{
-  padding-right: $standardMargin;
+  padding: 0 $standardMargin;
 
   #top-dropdown {
     cursor: pointer;

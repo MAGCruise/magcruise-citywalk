@@ -28,18 +28,15 @@
 <div class="container">
   <div class="row" th:fragment="top-menu" id="menu">
     <div id="mag-nav">
-      <div id="nav-back-wrapper" class="col-xs-4 col-sm-2 no-padding">
+      <div id="nav-btns-wrapper" class="col-xs-10 no-padding">
         <div class="pull-left">
-          <img id="back" src="../img/back.svg">
+          <img id="back" src="../img/back.svg"> <img id="forward" src="../img/forward.svg">
         </div>
-        <div class="pull-left">
-          <img id="forward" src="../img/forward.svg">
+        <div id="nav-title-wrapper">
+          <div id="nav-title"></div>
         </div>
       </div>
-      <div id="nav-title-wrapper" class="col-xs-6 col-sm-8 v-middle">
-        <div id="nav-title"></div>
-      </div>
-      <div id="nav-menu-wrapper" class="col-xs-2  col-sm-2 no-padding">
+      <div id="nav-menu-wrapper" class="col-xs-2 no-padding">
         <div id="nav-menu" class="dropdown pull-right">
           <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" id="top-dropdown">
             <div id="dropdown-menu-icon">
