@@ -1,217 +1,287 @@
 {
   "checkpoints": [
     {
+      "id": "wasedasai2016-stomp",
+      "lat": 35.708556,
+      "lon": 139.718876,
+      "name": "B.M.O. STOMP STAGE",
+      "label": "(10pt) 楽器を使わない音楽",
+      "description": "僕たちは去年結成されたストンプサークルのBMOです。楽器を使わない音楽をやっており、ボディパーカッションやデッキブラシなど色々な物で演奏します！",
+      "markerColor": "red",
+      "visibleTimeFrom": "2016-11-05 13:30:00",
+      "visibleTimeTo": "2016-11-05 13:40:00",
+      "category": "イベント",
+      "subcategory": "11号館前",
+      "balloon": "11号館前",
+      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
+      "checkpointGroupIds": [
+        "wasedasai2016"
+      ]
+    },
+    {
+      "id": "wasedasai2016-pianonokai",
+      "lat": 35.708917,
+      "lon": 139.719879,
+      "name": "わせだピアノフェスティバル2016～Can’t Take Your Eyes Off The Piano～",
+      "label": "(10pt) 多種多様なピアノ演奏",
+      "description": "ピアノはクラシックを一人で弾くものだと思っていませんか？そんな考えを変える、多種多様なプログラムを用意しました！あなたはもう、ピアノから目が離せない。",
+      "markerColor": "red",
+      "visibleTimeFrom": "2016-11-05 13:30:00",
+      "visibleTimeTo": "2016-11-05 13:40:00",
+      "category": "イベント",
+      "subcategory": "3号館前",
+      "balloon": "3号館前",
+      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
+      "checkpointGroupIds": [
+        "wasedasai2016"
+      ]
+    },
+    {
+      "id": "wasedasai2016-theterdance",
+      "lat": 35.708917,
+      "lon": 139.719879,
+      "name": "ダンスパフォーマンス2016",
+      "label": "(10pt) ダンスパフォーマンス",
+      "description": "今年4月から活動を始めたダンスサークルです。セクシーでクールに、そして、熱く、パフォーマンスをお届けします。最高の自惚れ野郎揃えました。",
+      "markerColor": "red",
+      "visibleTimeFrom": "2016-11-05 13:30:00",
+      "visibleTimeTo": "2016-11-05 13:40:00",
+      "category": "イベント",
+      "subcategory": "3号館前",
+      "balloon": "3号館前",
+      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
+      "checkpointGroupIds": [
+        "wasedasai2016"
+      ]
+    },
+    {
+      "id": "wasedasai2016-ijiman",
+      "lat": 35.70974308,
+      "lon": 139.7188157,
+      "name": "イラスト展示",
+      "label": "(4pt) 書き下ろし作品多数",
+      "description": "早稲田祭のために書き下ろしたイラストを展示したり、来客のリクエストにお応えしてキャラのイラストを書かせていただきます。",
+      "markerColor": "red",
+      "category": "ホビー",
+      "subcategory": "アニメ・漫画",
+      "balloon": "",
+      "imgSrc": "wasedasai2016/icon/ijiman.jpg",
+      "checkpointGroupIds": [
+        "wasedasai2016"
+      ]
+    },
+    {
       "id": "wasedasai2016-hawai",
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "WASEHULA stage 2016",
-      "label": "(4点) フラダンス",
+      "label": "(10pt) フラダンス",
       "description": "ようこそ、WASEHULAのステージへ！！総勢80名のフラガールのはじける笑顔と息のあった可憐で美しいパフォーマンスで会場全体を魅了します！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:30:00",
-      "visibleTimeTo": "2016-10-18 13:40:00",
+      "visibleTimeFrom": "2016-11-05 13:30:00",
+      "visibleTimeTo": "2016-11-05 13:40:00",
       "category": "イベント",
-      "subcategory": "",
-      "balloon": "",
-      "imgSrc": "wasedasai2016/icon/hawai.jpg",
+      "subcategory": "戸山カフェテリア",
+      "balloon": "戸山カフェテリア",
+      "imgSrc": "wasedasai2016/icon/toyamaibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-mitudomoe",
-      "lat": 35.70974308,
-      "lon": 139.7188157,
+      "lat": 35.708917,
+      "lon": 139.719879,
       "name": "遠からん者は音に聴け 近くば寄って目にも見よ 三津巴2016秋の陣！",
-      "label": "(4点) 津軽三味線による演奏",
+      "label": "(10pt) 津軽三味線による演奏",
       "description": "総勢47名による圧巻の津軽三味線演奏！三津巴2016の最初で最後のいのち、とくとご覧に入れよ！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:30:00",
-      "visibleTimeTo": "2016-10-18 13:40:00",
+      "visibleTimeFrom": "2016-11-06 13:30:00",
+      "visibleTimeTo": "2016-11-06 13:40:00",
       "category": "イベント",
-      "subcategory": "",
-      "balloon": "",
-      "imgSrc": "wasedasai2016/icon/mitudomoe.jpg",
+      "subcategory": "3号館前",
+      "balloon": "3号館前",
+      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-artas",
-      "lat": 35.70974308,
-      "lon": 139.7188157,
+      "lat": 35.708917,
+      "lon": 139.719879,
       "name": "始まARTAS～早稲田祭2016～",
-      "label": "(4点) ストリートダンス",
+      "label": "(10pt) ストリートダンス",
       "description": "心と体で物語る。私たちARTASは、声にならない言葉や思いを、踊りや表情で伝えます。ストーリーダンスという挑戦的なスタイルで、早稲田の常識を変えます。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:30:00",
-      "visibleTimeTo": "2016-10-18 13:40:00",
+      "visibleTimeFrom": "2016-11-06 13:30:00",
+      "visibleTimeTo": "2016-11-06 13:40:00",
       "category": "イベント",
-      "subcategory": "",
-      "balloon": "",
-      "imgSrc": "wasedasai2016/icon/artas.jpg",
+      "subcategory": "3号館前",
+      "balloon": "3号館前",
+      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-himawari",
-      "lat": 35.70974308,
-      "lon": 139.7188157,
+      "lat": 35.708556,
+      "lon": 139.718876,
       "name": "もう一度ステージへ。満開笑顔でひまわりタイム！",
-      "label": "(4点) 早大アイドル",
+      "label": "(10pt) 早大アイドル",
       "description": "ひまわりタイム！とは、ユニドルをもとに結成されたアイドルグループです。決勝大会では、元モー娘。の紺野アナと踊る賞を獲得し、テレビにも出演しました。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:30:00",
-      "visibleTimeTo": "2016-10-18 13:40:00",
+      "visibleTimeFrom": "2016-11-05 13:30:00",
+      "visibleTimeTo": "2016-11-05 13:40:00",
       "category": "イベント",
-      "subcategory": "",
-      "balloon": "",
-      "imgSrc": "wasedasai2016/icon/himawari.jpg",
+      "subcategory": "11号館前",
+      "balloon": "11号館前",
+      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-wasedatti",
-      "lat": 35.70974308,
-      "lon": 139.7188157,
+      "lat": 35.708556,
+      "lon": 139.718876,
       "name": "ダブルダッチ",
-      "label": "(4点) ロープパフォーマンス",
+      "label": "(10pt) ロープパフォーマンス",
       "description": "私たちW-Dutchは早稲田祭で皆さんを感動させれるように日々練習しています！当日は後悔させません。是非見に来てください！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:30:00",
-      "visibleTimeTo": "2016-10-18 13:40:00",
+      "visibleTimeFrom": "2016-11-05 13:30:00",
+      "visibleTimeTo": "2016-11-05 13:40:00",
       "category": "イベント",
-      "subcategory": "",
-      "balloon": "",
-      "imgSrc": "wasedasai2016/icon/wasedatti.jpg",
+      "subcategory": "11号館前",
+      "balloon": "11号館前",
+      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-salsa",
-      "lat": 35.70974308,
-      "lon": 139.7188157,
+      "lat": 35.708556,
+      "lon": 139.718876,
       "name": "Waseda Salsa Party",
-      "label": "(4点) 社交ダンス",
+      "label": "(10pt) 社交ダンス",
       "description": "私たちは週に2回、サルサをはじめとする社交ダンスをみんなで楽しく踊っています。今回は社交ダンスを見たことない人も楽しめるようなステージを用意しました！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:30:00",
-      "visibleTimeTo": "2016-10-18 13:40:00",
+      "visibleTimeFrom": "2016-11-06 13:30:00",
+      "visibleTimeTo": "2016-11-06 13:40:00",
       "category": "イベント",
-      "subcategory": "",
-      "balloon": "",
-      "imgSrc": "wasedasai2016/icon/salsa.jpg",
+      "subcategory": "11号館前",
+      "balloon": "11号館前",
+      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-viorila",
-      "lat": 35.70974308,
-      "lon": 139.7188157,
+      "lat": 35.708917,
+      "lon": 139.719879,
       "name": "ヴィオリラLIVEinわせさい2016",
-      "label": "(4点) ヴィオリラによる演奏",
+      "label": "(10pt) ヴィオリラによる演奏",
       "description": "21世紀の電気弦楽器「ヴィオリラ」の音色を存分にお楽しみいただけるステージです！どの楽器にもない不思議で魅力的な音色をどうぞ聴きに来てください☆￥",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:30:00",
-      "visibleTimeTo": "2016-10-18 13:40:00",
+      "visibleTimeFrom": "2016-11-05 13:30:00",
+      "visibleTimeTo": "2016-11-05 13:40:00",
       "category": "イベント",
-      "subcategory": "",
-      "balloon": "",
-      "imgSrc": "wasedasai2016/icon/viorila.jpg",
+      "subcategory": "3号館前",
+      "balloon": "3号館前",
+      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-ciel",
-      "lat": 35.70974308,
-      "lon": 139.7188157,
+      "lat": 35.708917,
+      "lon": 139.719879,
       "name": "バレエパフォーマンス2016",
-      "label": "(4点) バレエの公演",
+      "label": "(10pt) バレエの公演",
       "description": "誰もが知っている曲！普段着！屋外！舞台と観客の距離も近い…‼︎早稲田祭ならではのバレエをお届けします‼︎お気軽にクラシックバレエをお楽しみください♪",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:30:00",
-      "visibleTimeTo": "2016-10-18 13:40:00",
+      "visibleTimeFrom": "2016-11-06 13:30:00",
+      "visibleTimeTo": "2016-11-06 13:40:00",
       "category": "イベント",
-      "subcategory": "",
-      "balloon": "",
-      "imgSrc": "wasedasai2016/icon/ciel.jpg",
+      "subcategory": "3号館前",
+      "balloon": "3号館前",
+      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-bannkara",
-      "lat": 35.70974308,
-      "lon": 139.7188157,
+      "lat": 35.708556,
+      "lon": 139.718876,
       "name": "烈",
-      "label": "(4点) ダンスパフォーマンス",
+      "label": "(10pt) ダンスパフォーマンス",
       "description": "バラバラだった表現者たちが1つのイズムを体現する–我々は挑戦する。全ての人の心に“進取の精神”を植え付けるパフォーマンスを。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:30:00",
-      "visibleTimeTo": "2016-10-18 13:40:00",
+      "visibleTimeFrom": "2016-11-05 13:30:00",
+      "visibleTimeTo": "2016-11-05 13:40:00",
       "category": "イベント",
-      "subcategory": "",
-      "balloon": "",
-      "imgSrc": "wasedasai2016/icon/bannkara.jpg",
+      "subcategory": "11号館前",
+      "balloon": "11号館前",
+      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-genesis",
-      "lat": 35.70974308,
-      "lon": 139.7188157,
+      "lat": 35.708556,
+      "lon": 139.718876,
       "name": "GENESIS 11号館前ステージ公演",
-      "label": "(4点) ストリート＆ジャズ",
+      "label": "(10pt) ストリート＆ジャズ",
       "description": "こんにちは！Dancing Crew GENESISです！早稲田祭にいらした皆様を魅せる為にこの日まで練習を重ねてきました。是非ご覧になってください！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:30:00",
-      "visibleTimeTo": "2016-10-18 13:40:00",
+      "visibleTimeFrom": "2016-11-05 13:30:00",
+      "visibleTimeTo": "2016-11-05 13:40:00",
       "category": "イベント",
-      "subcategory": "",
-      "balloon": "",
-      "imgSrc": "wasedasai2016/icon/genesis.jpg",
+      "subcategory": "11号館前",
+      "balloon": "11号館前",
+      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-oasis",
-      "lat": 35.70974308,
-      "lon": 139.7188157,
+      "lat": 35.708917,
+      "lon": 139.719879,
       "name": "Oasis早稲田祭Live2016",
-      "label": "(4点) ジャズダンス",
+      "label": "(10pt) ジャズダンス",
       "description": "今年もOasisは3号館前ステージで踊ります！アップテンポで華やかなジャズダンスを是非ご覧ください！楽しんでいただけること間違いなしです！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:30:00",
-      "visibleTimeTo": "2016-10-18 13:40:00",
+      "visibleTimeFrom": "2016-11-05 13:30:00",
+      "visibleTimeTo": "2016-11-05 13:40:00",
       "category": "イベント",
-      "subcategory": "",
-      "balloon": "",
-      "imgSrc": "wasedasai2016/icon/oasis.jpg",
+      "subcategory": "3号館前",
+      "balloon": "3号館前",
+      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-kyougidance",
-      "lat": 35.70974308,
-      "lon": 139.7188157,
+      "lat": 35.708917,
+      "lon": 139.719879,
       "name": "君は見たか…舞台を焦がすダンスを‼",
-      "label": "(4点) 競技ダンス",
+      "label": "(10pt) 競技ダンス",
       "description": "競技ダンスは社交ダンスを競技化したもので、最近ジャンプでの連載や、金スマで社交ダンス企画が放送されるなど、注目を浴びています。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:30:00",
-      "visibleTimeTo": "2016-10-18 13:40:00",
+      "visibleTimeFrom": "2016-11-05 13:30:00",
+      "visibleTimeTo": "2016-11-05 13:40:00",
       "category": "イベント",
-      "subcategory": "",
-      "balloon": "",
-      "imgSrc": "wasedasai2016/icon/kyougidance.jpg",
+      "subcategory": "3号館前",
+      "balloon": "3号館前",
+      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -221,7 +291,7 @@
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "早稲田スポーツ魂",
-      "label": "(4点) 体育各部トークショー！",
+      "label": "(10pt) 体育各部トークショー！",
       "description": "体育各部がトークショーを行います。平時は勇ましい体育各部の意外な一面を垣間見れるのは、早稲田スポーツ魂だけ！ファンの方も、そうじゃない方もぜひ！",
       "markerColor": "red",
       "visibleTimeFrom": "2016-10-18 13:30:00",
@@ -239,7 +309,7 @@
       "lat": 35.71061533,
       "lon": 139.7192368,
       "name": "パレード",
-      "label": "(4点) 構外を巡るパレード",
+      "label": "(10pt) 構外を巡るパレード",
       "description": "早稲田周辺地域を練り歩くパレードを行います。光と音で鮮やかに彩られたパレードを観覧スペースから心行くまでご堪能ください。",
       "markerColor": "red",
       "visibleTimeFrom": "2016-10-18 13:45:00",
@@ -257,7 +327,7 @@
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "ワセトーク",
-      "label": "(4点) 公開クロストークー",
+      "label": "(10pt) 公開クロストークー",
       "description": "1つのテーマについて各分野で活躍する早大生がクロストークを行います。まだ見ぬ早稲田の側面がきっと見つかる、早稲田文化の深みに一歩踏み出してみませんか？",
       "markerColor": "red",
       "visibleTimeFrom": "2016-10-18 14:00:00",
@@ -271,29 +341,11 @@
       ]
     },
     {
-      "id": "wasedasai2016-toyama",
-      "lat": 35.70608701,
-      "lon": 139.7157097,
-      "name": "戸山公園企画",
-      "label": "(4点) ア式蹴球部に体験入部",
-      "description": "戸山公園でア式蹴球部による、スポーツ体験教室を開きます！ア式蹴球部のファンの方も、サッカー好きの方も、戸山公園にとびだせ！",
-      "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 14:15:00",
-      "visibleTimeTo": "2016-10-18 14:25:00",
-      "category": "イベント",
-      "subcategory": "戸山公園",
-      "balloon": "戸山公園",
-      "imgSrc": "placeholder.svg",
-      "checkpointGroupIds": [
-        "wasedasai2016"
-      ]
-    },
-    {
       "id": "wasedasai2016-kenmin",
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "早大生ケンミンSHOW",
-      "label": "(4点) 地元愛を語りつくす",
+      "label": "(10pt) 地元愛を語りつくす",
       "description": "学生稲門会に所属する早大学生稲門会に所属する早大生がトークショーを行います。郷土愛に満ちた彼らの想いを来場者のみなさまに余すところなくお届け！",
       "markerColor": "red",
       "visibleTimeFrom": "2016-10-18 11:50:00",
@@ -301,7 +353,7 @@
       "category": "イベント",
       "subcategory": "14号館",
       "balloon": "14号館 101教室",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/pkenmin.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -310,9 +362,9 @@
       "id": "wasedasai2016-pool",
       "lat": 35.70554033,
       "lon": 139.7183946,
-      "name": "ワセダのプール開き",
-      "label": "(4点) 競泳部による模擬泳",
-      "description": "今年度初！高石記念プールを使い、競泳部がトークショー＆模擬泳を行います。オリンピック選手を多く輩出した競泳部の模擬泳を見れるのは、ここだけ！",
+      "name": "早稲田水泳2016",
+      "label": "(10pt) 水泳部によるリレー",
+      "description": "今年度初！高石記念プールを使い、水泳部がトークショー＆リレーを行います。オリンピック選手を多く輩出した水泳部のリレーを見れるのは、ここだけ！",
       "markerColor": "red",
       "visibleTimeFrom": "2016-10-18 13:55:00",
       "visibleTimeTo": "2016-10-18 17:30:00",
@@ -329,7 +381,7 @@
       "lat": 35.70747221,
       "lon": 139.7197196,
       "name": "‐演‐",
-      "label": "(4点) 台本を用いた公演",
+      "label": "(10pt) 台本を用いた公演",
       "description": "ドラマ館にて、演劇・お笑いなど、さまざまなジャンルの公演をご覧いただけます。早稲田の伝統と革新を一挙に詰め込んだ-演-。ぜひともお見逃しないように！",
       "markerColor": "red",
       "visibleTimeFrom": "2016-10-18 13:55:00",
@@ -337,7 +389,7 @@
       "category": "イベント",
       "subcategory": "ドラマ館",
       "balloon": "ドラマ館",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/doramakan.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -347,7 +399,7 @@
       "lat": 35.708198,
       "lon": 139.720688,
       "name": "早稲田祭ライブ",
-      "label": "(4点) 早大生によるライブ",
+      "label": "(10pt) 早大生によるライブ",
       "description": "毎週末のセッションや年数回のライブを中心に活動。早稲田祭ライブでは、皆さんに楽しい演奏をお届けできるように部員一同励みますので是非遊びに来てください！",
       "markerColor": "red",
       "visibleTimeFrom": "2016-10-18 13:55:00",
@@ -355,97 +407,61 @@
       "category": "イベント",
       "subcategory": "hoge",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/swingjazz.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-tenngokugakudann",
-      "lat": 35.708198,
-      "lon": 139.720688,
+      "lat": 35.708917,
+      "lon": 139.719879,
       "name": "天国楽団in早稲田2016",
-      "label": "(4点) マーチングバンド",
+      "label": "(10pt) マーチングバンド",
       "description": "天国楽団は真・善・忍を修煉する楽団員によるマーチングバンドです。オリジナル曲の他に涙そうそう、歓喜の歌等を演奏します。心温まる演奏をお聞きください！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:55:00",
-      "visibleTimeTo": "2016-10-18 17:30:00",
+      "visibleTimeFrom": "2016-11-05 13:55:00",
+      "visibleTimeTo": "2016-11-05 17:30:00",
       "category": "イベント",
-      "subcategory": "hoge",
-      "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "subcategory": "3号館前",
+      "balloon": "3号館前",
+      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-chotokakao",
-      "lat": 35.708198,
-      "lon": 139.720688,
+      "lat": 35.708556,
+      "lon": 139.718876,
       "name": "choco'toカカオ％早稲田祭特別ステージ～ReNY直後に、ごっつぁんです！～",
-      "label": "(4点) 学生アイドルの公演",
+      "label": "(10pt) 学生アイドルの公演",
       "description": "11/2（水）に2ndワンマンを新宿ReNYで成功させたちょこカカが早稲田に凱旋！ガチモンのアイドルとして、威厳を見せつけます！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:55:00",
-      "visibleTimeTo": "2016-10-18 17:30:00",
+      "visibleTimeFrom": "2016-11-06 13:55:00",
+      "visibleTimeTo": "2016-11-06 17:30:00",
       "category": "イベント",
-      "subcategory": "hoge",
-      "balloon": "仮",
-      "imgSrc": "placeholder.svg",
-      "checkpointGroupIds": [
-        "wasedasai2016"
-      ]
-    },
-    {
-      "id": "wasedasai2016-himawaritime",
-      "lat": 35.708198,
-      "lon": 139.720688,
-      "name": "もう一度ステージへ。満開笑顔でひまわりタイム！",
-      "label": "(4点) 学生アイドルの公演",
-      "description": "ひまわりタイム！とは、ユニドルをもとに結成されたアイドルグループです。決勝大会では、元モー娘。の紺野アナと踊る賞を獲得し、テレビにも出演しました。",
-      "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:55:00",
-      "visibleTimeTo": "2016-10-18 17:30:00",
-      "category": "イベント",
-      "subcategory": "hoge",
-      "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "subcategory": "11号館前",
+      "balloon": "11号館前",
+      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     },
     {
       "id": "wasedasai2016-sakigakehibiki",
-      "lat": 35.708198,
-      "lon": 139.720688,
+      "lat": 35.708917,
+      "lon": 139.719879,
       "name": "魁響2016",
-      "label": "(4点) 和太鼓演奏",
+      "label": "(10pt) 和太鼓演奏",
       "description": "長い人生から見れば、30分なんて一瞬。しかし、その一瞬に全てを賭けて挑みます。ぜひ生の和太鼓演奏の迫力を体感しに来てください！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:55:00",
-      "visibleTimeTo": "2016-10-18 17:30:00",
+      "visibleTimeFrom": "2016-11-06 13:55:00",
+      "visibleTimeTo": "2016-11-06 17:30:00",
       "category": "イベント",
-      "subcategory": "hoge",
-      "balloon": "仮",
-      "imgSrc": "placeholder.svg",
-      "checkpointGroupIds": [
-        "wasedasai2016"
-      ]
-    },
-    {
-      "id": "wasedasai2016-bitorumania",
-      "lat": 35.708198,
-      "lon": 139.720688,
-      "name": "早稲田祭ライブ",
-      "label": "(4点) 早大生によるライブ",
-      "description": "本キャンパスの騒がしい雰囲気に疲れた方、世に遍く縦ノリのロック音楽に最近どうにも辟易している方、学生会館のB203教室にCome together。",
-      "markerColor": "red",
-      "visibleTimeFrom": "2016-10-18 13:55:00",
-      "visibleTimeTo": "2016-10-18 17:30:00",
-      "category": "イベント",
-      "subcategory": "hoge",
-      "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "subcategory": "3号館前",
+      "balloon": "3号館前",
+      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -455,7 +471,7 @@
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "ダーツフェスタ2016 in WASEDA",
-      "label": "(4点) ダーツするなら来い",
+      "label": "(4pt) ダーツするなら来い",
       "description": "今年も開催！ダーツができるのは早稲田でここだけ。豪華景品多数。DARTSLIVE社製ダーツマシン完備。ダーツレッスン・対戦随時実施中。",
       "markerColor": "red",
       "category": "ホビー",
@@ -471,13 +487,13 @@
       "lat": 35.7085278,
       "lon": 139.7187352,
       "name": "クイズフェスティバル2016",
-      "label": "(4点) 参加型クイズ大会",
+      "label": "(6pt) 参加型クイズ大会",
       "description": "来場者参加型クイズ大会！全員に参加賞、勝ち進めば豪華な商品をゲットできます！更になんと！勝ち進めなかった方にも豪華賞品をゲットするチャンス多数あり！！",
       "markerColor": "red",
       "category": "ホビー",
       "subcategory": "レク",
       "balloon": "10号館 101教室",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/quizken.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -487,13 +503,13 @@
       "lat": 35.70962112,
       "lon": 139.7194541,
       "name": "ウインズ早稲田",
-      "label": "(4点) 中央競馬、生中継！",
+      "label": "(pt) 中央競馬、生中継！",
       "description": "教室設備を利用して中継映像を流します。部員は朝から馬券を買ってます(インターネット投票)。申し訳程度に競馬関係の展示も予定。",
       "markerColor": "red",
       "category": "ホビー",
       "subcategory": "レク",
       "balloon": "6号館 001教室",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/tenpoint.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -503,13 +519,13 @@
       "lat": 35.70857571,
       "lon": 139.7197008,
       "name": "Floorball Game",
-      "label": "(4点) フロアボール体験",
+      "label": "(pt) フロアボール体験",
       "description": "フロアボールは体育館で行うホッケーです！大人も子どもも簡単にできるシューティングゲームです！ゴールに応じてポイントをゲットした方に景品をさしあげます。",
       "markerColor": "red",
       "category": "ホビー",
       "subcategory": "レク",
       "balloon": "8号館 402教室",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/floorball.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -519,13 +535,13 @@
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "5分でそっくり！今日の思い出を似顔絵に",
-      "label": "(4点) 思い出を似顔絵で",
+      "label": "(pt) 思い出を似顔絵で",
       "description": "あなたの似顔絵を約5分でお描きします！今日という素敵な思い出をカタチに。写真にはない、一味違った楽しさを体験してください。話題の「早稲田漫」もどうぞ！",
       "markerColor": "red",
       "category": "芸術・文化",
       "subcategory": "芸術",
       "balloon": "14号館 604教室",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/manken.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -535,13 +551,13 @@
       "lat": 35.70857571,
       "lon": 139.7197008,
       "name": "ドラえもん検定2016",
-      "label": "(4点) 集え、チャレンジャー",
+      "label": "(4pt) 集え、チャレンジャー",
       "description": "今年は,「ドラえもん」の原作者藤子・F・不二雄先生没後20年にあたる節目の年。この年を記念して今年もドラえもん検定を実施いたします!",
       "markerColor": "red",
       "category": "ホビー",
       "subcategory": "アニメ・漫画",
       "balloon": "8号館 B102教室",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/doraemon.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -551,7 +567,7 @@
       "lat": 35.7071583333333,
       "lon": 139.721405555556,
       "name": "早稲田爆音2016 〜教室編 DAY2〜",
-      "label": "(4点) ハロプロを楽しむ",
+      "label": "(4pt) ハロプロを楽しむ",
       "description": "入場無料、整理券不要。BON◯Sに怯えることなく、思う存分ハロプロソングに酔いしれましょう。ヲタクじゃない方も大歓迎。この際一緒に踊っちゃお！",
       "markerColor": "red",
       "category": "ホビー",
@@ -567,13 +583,13 @@
       "lat": 35.70818586,
       "lon": 139.7206932,
       "name": "WASE‐UTA",
-      "label": "(4点) 留学生歌唱コンテスト",
+      "label": "(4pt) 留学生歌唱コンテスト",
       "description": "No.1留学生シンガーを決めるための歌唱コンテストを開催します。No.1を決めるのはみなさんの1票です。留学生たちの渾身の1曲をお楽しみください。",
       "markerColor": "red",
       "category": "ホビー",
       "subcategory": "音楽",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/waseuta.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -583,7 +599,7 @@
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "キミは『平沢進』を知っているか？",
-      "label": "(4点) どの平沢進ですか？",
+      "label": "(4pt) どの平沢進ですか？",
       "description": "チロルチョコ等のお菓子無料配布の他、「平沢進」と聞いてピンと来る方も来ない方もきっと楽しめる企画を用意してお待ちしております。是非お立ち寄りください。",
       "markerColor": "red",
       "category": "メディア・出版",
@@ -599,13 +615,13 @@
       "lat": 35.70997829,
       "lon": 139.7180915,
       "name": "大喜利カフェ",
-      "label": "(4点) プロのMC監修！",
+      "label": "(4pt) プロのMC監修！",
       "description": "大喜利をするのが好きという方にも、見るのが好きという方にも、たまらない空間がここにある。2日限りの大喜利専門カフェが誕生！",
       "markerColor": "red",
       "category": "ホビー",
       "subcategory": "お笑い",
       "balloon": "16号館 303教室",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/Walkin.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -615,13 +631,13 @@
       "lat": 35.7085278,
       "lon": 139.7187352,
       "name": "映画上映会",
-      "label": "(4点) メンバー渾身の一作",
+      "label": "(4pt) メンバー渾身の一作",
       "description": "Sky-Link Studioです。私たちは、メンバー全員で映画を作っています。今年も、私たちの個性が詰まった作品群を上映します。ぜひご覧ください！",
       "markerColor": "red",
       "category": "芸術・文化",
       "subcategory": "映像",
       "balloon": "10号館 208教室",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/Sky-Link.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -631,7 +647,7 @@
       "lat": 35.70511706,
       "lon": 139.7177401,
       "name": "早稲田演劇フォトグラファーの会",
-      "label": "(4点) 舞台写真の特別展示",
+      "label": "(4pt) 舞台写真の特別展示",
       "description": "早稲田を中心に活動する多くの劇団の協力のもと、さまざまな舞台写真を特別展示。舞台上で繰り広げられる一瞬を収めた写真たちを、ぜひあなたの目に焼き付けて。",
       "markerColor": "red",
       "category": "芸術・文化",
@@ -647,13 +663,13 @@
       "lat": 35.70889369,
       "lon": 139.7190678,
       "name": "スタジオワセダ2016",
-      "label": "(4点) 憧れの団体と記念撮影",
+      "label": "(4pt) 憧れの団体と記念撮影",
       "description": "ステージで輝く憧れのパフォーマーと写真撮影しませんか？色あせない早稲田祭2016の思い出を、この１枚で！",
       "markerColor": "red",
       "category": "芸術・文化",
       "subcategory": "映像",
       "balloon": "11号館 1階階段下スペース",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/sutawase.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -663,7 +679,7 @@
       "lat": 35.70511706,
       "lon": 139.7177401,
       "name": "美研展覧会",
-      "label": "(4点) 最大規模の美術展覧会",
+      "label": "(4pt) 最大規模の美術展覧会",
       "description": "早稲田大学最大の美術系サークル「美術研究創作会」の展覧会です。作品数はなんと100点以上！手作りグッズの販売もあり！皆様のお越しをお待ちしています。",
       "markerColor": "red",
       "category": "芸術・文化",
@@ -679,13 +695,13 @@
       "lat": 35.7051416666667,
       "lon": 139.718261111111,
       "name": "考古学体験",
-      "label": "(4点) とっても簡単考古学！",
+      "label": "(4pt) とっても簡単考古学！",
       "description": "早稲田祭の思い出に、あなただけの勾玉と泥面子（どろめんこ：江戸時代の玩具）を作ってみませんか？部員による丁寧な作り方の説明があるため、初めての方も安心です。",
       "markerColor": "red",
       "category": "芸術・文化",
       "subcategory": "芸術",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/kouken.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -695,13 +711,13 @@
       "lat": 35.70889369,
       "lon": 139.7190678,
       "name": "フラメンコに触れよう！",
-      "label": "(4点) これぞ本物！",
+      "label": "(4pt) これぞ本物！",
       "description": "スペインの伝統的な踊り、フラメンコ。真っ赤なドレスとバラにカスタネットというイメージがある方も多いでしょうが、この機会に本物に触れてみましょう！",
       "markerColor": "red",
       "category": "芸術・文化",
       "subcategory": "芸術",
       "balloon": "11号館 813教室",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/supein.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -711,29 +727,13 @@
       "lat": 35.7099583333333,
       "lon": 139.718658333333,
       "name": "Origamism",
-      "label": "(4点) 折り紙作品目白押し",
+      "label": "(4pt) 折り紙作品目白押し",
       "description": "サークルメンバーが制作・創作した折り紙作品を展示いたします。見たことのない折り紙の世界をお楽しみください。芸術展にも出展しているのでそちらもチェック！",
       "markerColor": "red",
       "category": "芸術・文化",
       "subcategory": "芸術",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
-      "checkpointGroupIds": [
-        "wasedasai2016"
-      ]
-    },
-    {
-      "id": "wasedasai2016-wasebun1",
-      "lat": 35.70889369,
-      "lon": 139.7190678,
-      "name": "わせだ文庫(11号館)",
-      "label": "(4点) 出版物設置スペース",
-      "description": "早稲田に数多く存在する出版サークルが大集結！今年こそ、読書の秋。みなさんを魅了する１冊にきっと出会えます。お気軽にお手に取ってください。",
-      "markerColor": "red",
-      "category": "メディア・出版",
-      "subcategory": "出版",
-      "balloon": "11号館 2階ラウンジ",
-      "imgSrc": "wasedasai2016/icon/wasebun.jpg",
+      "imgSrc": "wasedasai2016/icon/origami.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -743,7 +743,7 @@
       "lat": 35.71028756,
       "lon": 139.7186816,
       "name": "わせだ文庫(15号館)",
-      "label": "(4点) 出版物設置スペース",
+      "label": "(6pt) 出版物設置スペース",
       "description": "早稲田に数多く存在する出版サークルが大集結！今年こそ、読書の秋。みなさんを魅了する１冊にきっと出会えます。お気軽にお手に取ってください。",
       "markerColor": "red",
       "category": "メディア・出版",
@@ -759,7 +759,7 @@
       "lat": 35.70549168,
       "lon": 139.7171903,
       "name": "わせだ文庫(36号館)",
-      "label": "(4点) 出版物設置スペース",
+      "label": "(4pt) 出版物設置スペース",
       "description": "早稲田に数多く存在する出版サークルが大集結！今年こそ、読書の秋。みなさんを魅了する１冊にきっと出会えます。お気軽にお手に取ってください。",
       "markerColor": "red",
       "category": "メディア・出版",
@@ -775,7 +775,7 @@
       "lat": 35.70997829,
       "lon": 139.7180915,
       "name": "受験生相談会＆早稲田魂17初売り",
-      "label": "(4点) 早大生の受験相談",
+      "label": "(4pt) 早大生の受験相談",
       "description": "毎年大盛況の受験相談会！！個性豊かな現役早大生の部員たちに受験の悩みを相談してみませんか？受験生応援雑誌「早稲田魂17」の初売りもやるよ！！",
       "markerColor": "red",
       "category": "学問",
@@ -791,13 +791,13 @@
       "lat": 35.7085278,
       "lon": 139.7187352,
       "name": "ワセモンGO！",
-      "label": "(4点) 早大生の受験相談",
+      "label": "(4pt) 早大生の受験相談",
       "description": "みんなが知らない早稲田を紹介！受験、サークル、将来のこと、現役生が何でも答えます。ここに来ればあなたも進化すること間違いなし！？プレゼントも貰えるよ。",
       "markerColor": "red",
       "category": "学問",
       "subcategory": "受験相談",
       "balloon": "10号館 406教室",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/wasemon.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -807,7 +807,7 @@
       "lat": 35.71028756,
       "lon": 139.7186816,
       "name": "早稲田祭 電波ジャック2016",
-      "label": "(4点) ラジオ公開収録",
+      "label": "(4pt) ラジオ公開収録",
       "description": "大学唯一の公認ラジオサークル・FMwasedaが、今年も皆さまにラジオの魅力をお届け！著名なゲストをお招きしての公開生放送はあなたの世界を広げます！",
       "markerColor": "red",
       "category": "メディア・出版",
@@ -823,7 +823,7 @@
       "lat": 35.70997829,
       "lon": 139.7180915,
       "name": "T-team 秋の課外授業",
-      "label": "(4点) 模擬授業と理科実験",
+      "label": "(4pt) 模擬授業と理科実験",
       "description": "ここを読んでるあなた、教育に興味があったりしませんか？ぜひT-teamに来てください！学校では受けられない楽しい授業や理科実験があなたを待っています！",
       "markerColor": "red",
       "category": "学問",
@@ -839,13 +839,13 @@
       "lat": 35.70857571,
       "lon": 139.7197008,
       "name": "早稲田一受けたい授業",
-      "label": "(4点) 拘り抜いた模擬授業",
+      "label": "(4pt) 拘り抜いた模擬授業",
       "description": "日々研究を重ねる早大生が授業を行います！身近なテーマに合わせて行われる特別授業。みなさん、早稲田の学問をのぞいていきませんか？",
       "markerColor": "red",
       "category": "学問",
       "subcategory": "教育",
       "balloon": "8号館 308教室",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/placeholder.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -855,13 +855,13 @@
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "アフリカゾウとの共生を実践するボランティア",
-      "label": "(4点) アフリカ雑貨販売",
+      "label": "(4pt) アフリカ雑貨販売",
       "description": "私達はWAVOCのエコミュニティ・タンザニアを進めています。アフリカゾウが村人の土地に入ってこないように、ワイヤーフェンスを設置する活動をしています。",
       "markerColor": "red",
       "category": "学問",
       "subcategory": "研究発表",
       "balloon": "14号館 516教室",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/iwaizemi.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -871,13 +871,13 @@
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "幸福ヲ追求セヨ－政経生からの挑戦状－",
-      "label": "(4点) 憲法に関する展示",
+      "label": "(6pt) 憲法に関する展示",
       "description": "政治経済学部政治学科の異色の法律系ゼミ、それが川岸ゼミ。今回は憲法問題と川岸ゼミを身近に知ってほしい。14号館514教室であなたを待っている。",
       "markerColor": "red",
       "category": "学問",
       "subcategory": "研究発表",
       "balloon": "14号館 514教室",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/kawakisizemi.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -887,13 +887,13 @@
       "lat": 35.71000556,
       "lon": 139.7186444,
       "name": "豆・地・識 2016",
-      "label": "(4点) どんな町にも謎はある",
+      "label": "(4pt) どんな町にも謎はある",
       "description": "早稲田から島原まで！ジオラマや模擬巡検の他、メンバーの活動域や地理的な写真を展示！さらにはクイズも？地理研がこれまでに見てきた地域を一緒に体験しよう！",
       "markerColor": "red",
       "category": "学問",
       "subcategory": "研究発表",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/tiriken.jpg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -903,13 +903,13 @@
       "lat": 35.70943817,
       "lon": 139.7199744,
       "name": "3号館",
-      "label": "(4点) 過去を未来へ繋ぐ建物",
+      "label": "(4pt) 過去を未来へ繋ぐ建物",
       "description": "1993年の竣工当時の情景を残した姿で、2014年に再建された3号館。グローバル人材育成を実現する次世代教育空間を目指し生まれたこの場所で、今なお、多くの早大生が日々勉学に励む。",
       "markerColor": "red",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/hoge.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -919,13 +919,13 @@
       "lat": 35.70980624,
       "lon": 139.7192958,
       "name": "坪内逍遥記念演劇博物館",
-      "label": "(4点) 演劇の宝庫",
+      "label": "(6pt) 演劇の宝庫",
       "description": "1928年の設立以来、内外古今の劇に関する資料を多く収集・整理・保管している。現在は、館蔵品をデジタル化し、文化資材の共有を推進している。",
       "markerColor": "red",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/hoge.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -935,13 +935,13 @@
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "藪野健『集り散じて』",
-      "label": "(4点) 理想の光に集う人々",
+      "label": "(6pt) 理想の光に集う人々",
       "description": "藪野健氏の作品。早稲田大学創立125周年記念絵画として創作された。校歌の1節である「集り散じて、人は変れど」を見事に体現している早稲田キャンパスを描いた。",
       "markerColor": "red",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/hoge.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -951,13 +951,13 @@
       "lat": 35.70889369,
       "lon": 139.7190678,
       "name": "藪野健『思えばここに立つ日、全てが始まる』",
-      "label": "(4点) 心に染みる傑作",
+      "label": "(4pt) 心に染みる傑作",
       "description": "藪野健氏の作品。2009年竣工の11号館に藪野健氏に寄贈いただいた。1975年以来、時代を跨いで数多くの賞を受賞し、さまざまな場所に展示されてきた。",
       "markerColor": "red",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/hoge.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -967,13 +967,13 @@
       "lat": 35.71000556,
       "lon": 139.7186444,
       "name": "石油・天然ガス井掘削用ピット",
-      "label": "(4点) 過去を想起する遺産",
+      "label": "(4pt) 過去を想起する遺産",
       "description": "勇払油ガス田（北海道）の沼ノ瑞SK‐60号井の掘削に使用した掘削用ピット。ここに設置されているのは実際に使用された40個の内の3つです。",
       "markerColor": "red",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/hoge.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -983,13 +983,13 @@
       "lat": 35.71000556,
       "lon": 139.7186444,
       "name": "高田早苗全身像",
-      "label": "(4点) 早稲田大学初代総長",
+      "label": "(4pt) 早稲田大学初代総長",
       "description": "早稲田大学の初代総長である高田早苗先生の全身像。彫刻家朝倉文夫氏の作品であり、1932年に創立50周年として校友会により建立された。",
       "markerColor": "red",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/hoge.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -999,13 +999,13 @@
       "lat": 35.71000556,
       "lon": 139.7186444,
       "name": "坪内逍遥銅像",
-      "label": "(4点) 早稲田の四尊が1人",
+      "label": "(4pt) 早稲田の四尊が1人",
       "description": "日本近代文学の先駆者・開拓者である坪内逍遥の銅像。現在も刊行されている文芸誌『早稲田文学』の創刊者でもある。",
       "markerColor": "red",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/hoge.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -1015,13 +1015,13 @@
       "lat": 35.70511706,
       "lon": 139.7177401,
       "name": "辻晉堂『陶壁　三点-2』",
-      "label": "(4点) 彫刻の立役者",
+      "label": "(4pt) 彫刻の立役者",
       "description": "彫刻家辻晉堂氏の作品。初期はモデルを使用した作品を創作していたが、次第に抽象的な作品が多くなっていく。",
       "markerColor": "red",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/hoge.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -1031,13 +1031,13 @@
       "lat": 35.70511706,
       "lon": 139.7177401,
       "name": "辻晉堂『胸壁』",
-      "label": "(4点) 現代彫刻界の祖",
+      "label": "(4pt) 現代彫刻界の祖",
       "description": "彫刻家辻晉堂氏の作品。当初は木工を扱っていたが、次第に彫刻に興味が移り、石膏、ブロンズ、鉄など様々の素材と触れ合い、素描、木版画、石版画なども楽しんだ。",
       "markerColor": "red",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/hoge.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -1047,13 +1047,13 @@
       "lat": 35.7081619,
       "lon": 139.7208113,
       "name": "小野梓銅像",
-      "label": "(4点) 建学の母",
+      "label": "(6pt) 建学の母",
       "description": "早稲田大学の母とも呼ばれる小野梓の銅像。友人である大隈重信を助け、東京専門学校（現在の早稲田大学）創立の中心人物となる。",
       "markerColor": "red",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "仮",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/hoge.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -1064,12 +1064,12 @@
       "lon": 139.7192958,
       "name": "景品交換スポット（演劇博物館）",
       "label": "(0点) 30ptたまったら、ここでチェックイン！",
-      "description": "仮",
+      "description": "ここで景品と交換できます。みんな！30ptためてカモン！",
       "markerColor": "red",
       "category": "ワセナビ受付ブース",
       "subcategory": "演劇博物館",
       "balloon": "演劇博物館",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/hoge.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -1080,12 +1080,12 @@
       "lon": 139.71858636,
       "name": "景品交換スポット（14号館2階）",
       "label": "(0点) 30ptたまったら、ここでチェックイン！",
-      "description": "仮",
+      "description": "ここで景品と交換できます。みんな！30ptためてカモン！",
       "markerColor": "red",
       "category": "ワセナビ受付ブース",
       "subcategory": "14号館",
       "balloon": "14号館2階",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/hoge.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
@@ -1096,18 +1096,78 @@
       "lon": 139.71831143,
       "name": "景品交換スポット（戸山キャンパス正門付近）",
       "label": "(0点) 30ptたまったら、ここでチェックイン！",
-      "description": "仮",
+      "description": "ここで景品と交換できます。みんな！30ptためてカモン！",
       "markerColor": "red",
       "category": "ワセナビ受付ブース",
       "subcategory": "戸山キャンパス正門付近",
       "balloon": "戸山キャンパス正門付近",
-      "imgSrc": "placeholder.svg",
+      "imgSrc": "wasedasai2016/icon/hoge.svg",
       "checkpointGroupIds": [
         "wasedasai2016"
       ]
     }
   ],
   "tasks": [
+    {
+      "id": "wasedasai2016-stomp-pin",
+      "checkpoint_ids": [
+        "wasedasai2016-stomp"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
+        "checkin": true,
+        "point": 5.0,
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "answerTexts": [
+          "1111"
+        ]
+      }
+    },
+    {
+      "id": "wasedasai2016-pianonokai-pin",
+      "checkpoint_ids": [
+        "wasedasai2016-pianonokai"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
+        "checkin": true,
+        "point": 5.0,
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "answerTexts": [
+          "1111"
+        ]
+      }
+    },
+    {
+      "id": "wasedasai2016-theterdance-pin",
+      "checkpoint_ids": [
+        "wasedasai2016-theterdance"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
+        "checkin": true,
+        "point": 5.0,
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "answerTexts": [
+          "1111"
+        ]
+      }
+    },
+    {
+      "id": "wasedasai2016-ijiman-pin",
+      "checkpoint_ids": [
+        "wasedasai2016-ijiman"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
+        "checkin": true,
+        "point": 5.0,
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
+        "answerTexts": [
+          "1111"
+        ]
+      }
+    },
     {
       "id": "wasedasai2016-hawai-pin",
       "checkpoint_ids": [
@@ -1117,7 +1177,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1132,7 +1192,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1147,7 +1207,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1162,7 +1222,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1177,7 +1237,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1192,7 +1252,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1207,7 +1267,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1222,7 +1282,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1237,7 +1297,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1252,7 +1312,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1267,7 +1327,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1282,7 +1342,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1297,7 +1357,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1385"
         ]
@@ -1312,7 +1372,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1327,24 +1387,9 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1598"
-        ]
-      }
-    },
-    {
-      "id": "wasedasai2016-toyama-pin",
-      "checkpoint_ids": [
-        "wasedasai2016-toyama"
-      ],
-      "content": {
-        "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
-        "checkin": true,
-        "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
-        "answerTexts": [
-          "1111"
         ]
       }
     },
@@ -1357,7 +1402,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1741"
         ]
@@ -1372,7 +1417,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1387,7 +1432,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1402,7 +1447,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1252"
         ]
@@ -1417,7 +1462,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1432,7 +1477,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1447,22 +1492,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
-        "answerTexts": [
-          "1111"
-        ]
-      }
-    },
-    {
-      "id": "wasedasai2016-himawaritime-pin",
-      "checkpoint_ids": [
-        "wasedasai2016-himawaritime"
-      ],
-      "content": {
-        "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
-        "checkin": true,
-        "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1477,22 +1507,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
-        "answerTexts": [
-          "1111"
-        ]
-      }
-    },
-    {
-      "id": "wasedasai2016-bitorumania-pin",
-      "checkpoint_ids": [
-        "wasedasai2016-bitorumania"
-      ],
-      "content": {
-        "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
-        "checkin": true,
-        "point": 5.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1507,7 +1522,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1522,7 +1537,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 3.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1537,7 +1552,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1552,7 +1567,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1567,7 +1582,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1582,7 +1597,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1597,7 +1612,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1612,7 +1627,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1627,7 +1642,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1642,7 +1657,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1657,7 +1672,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1672,7 +1687,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1687,7 +1702,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1702,7 +1717,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1717,7 +1732,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1732,24 +1747,9 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
-        ]
-      }
-    },
-    {
-      "id": "wasedasai2016-wasebun1-pin",
-      "checkpoint_ids": [
-        "wasedasai2016-wasebun1"
-      ],
-      "content": {
-        "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
-        "checkin": true,
-        "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
-        "answerTexts": [
-          "1111"
         ]
       }
     },
@@ -1762,7 +1762,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 3.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1777,7 +1777,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1792,7 +1792,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1807,7 +1807,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1822,7 +1822,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1837,7 +1837,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1852,7 +1852,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1867,7 +1867,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "1111"
         ]
@@ -1882,7 +1882,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 3.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1897,7 +1897,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1912,7 +1912,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1927,7 +1927,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 3.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1942,7 +1942,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 3.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1957,7 +1957,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1972,7 +1972,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -1987,7 +1987,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2002,7 +2002,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2017,7 +2017,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2032,7 +2032,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 3.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2047,7 +2047,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 2.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2062,7 +2062,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 0.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2077,7 +2077,7 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 0.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
         ]
@@ -2092,9 +2092,101 @@
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
         "checkin": true,
         "point": 0.0,
-        "label": "キーワード(半角数字4桁)を入力して下さい．",
+        "label": "合い言葉(半角数字4桁)を入力して下さい．",
         "answerTexts": [
           "9999"
+        ]
+      }
+    },
+    {
+      "id": "wasedasai2016-stomp-selection",
+      "checkpoint_ids": [
+        "wasedasai2016-stomp"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+        "point": 5.0,
+        "label": "私たちの演奏に使われていたものは何でしょう？",
+        "selections": [
+          "デッキブラシ",
+          "ほうき",
+          "ゴミ箱",
+          "ギター"
+        ],
+        "answerIndexes": [
+          0
+        ],
+        "answerTexts": [
+          "デッキブラシ"
+        ]
+      }
+    },
+    {
+      "id": "wasedasai2016-pianonokai-selection",
+      "checkpoint_ids": [
+        "wasedasai2016-pianonokai"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+        "point": 5.0,
+        "label": "早大ピアノの会の早稲田祭のもう一つの企画、「企画演奏会2016」。今年はある物語がテーマとなっているがそれは何か？",
+        "selections": [
+          "不思議の国のアリス",
+          "ロミオとジュリエット",
+          "竹取物語",
+          "星の王子さま"
+        ],
+        "answerIndexes": [
+          1
+        ],
+        "answerTexts": [
+          "ロミオとジュリエット"
+        ]
+      }
+    },
+    {
+      "id": "wasedasai2016-theterdance-selection",
+      "checkpoint_ids": [
+        "wasedasai2016-theterdance"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+        "point": 5.0,
+        "label": "ステージで使用する小道具は次のうちどれでしょうか。",
+        "selections": [
+          "ステッキ",
+          "物干し竿",
+          "傘",
+          "大根"
+        ],
+        "answerIndexes": [
+          2
+        ],
+        "answerTexts": [
+          "傘"
+        ]
+      }
+    },
+    {
+      "id": "wasedasai2016-ijiman-selection",
+      "checkpoint_ids": [
+        "wasedasai2016-ijiman"
+      ],
+      "content": {
+        "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+        "point": 5.0,
+        "label": "この中で、我がサークルのOBが関わっている作品は？",
+        "selections": [
+          "マギ シンドバッドの冒険",
+          "ナナとカオル",
+          "みゅうあんどあい",
+          "上の全部"
+        ],
+        "answerIndexes": [
+          3
+        ],
+        "answerTexts": [
+          "上の全部"
         ]
       }
     },
@@ -2444,29 +2536,6 @@
       }
     },
     {
-      "id": "wasedasai2016-toyama-selection",
-      "checkpoint_ids": [
-        "wasedasai2016-toyama"
-      ],
-      "content": {
-        "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
-        "point": 5.0,
-        "label": "本企画において司会進行を努めた団体の名前は何ですか？",
-        "selections": [
-          "早稲田祭2016運営スタッフ",
-          "応援部",
-          "アナウンス研究会",
-          "放送研究会"
-        ],
-        "answerIndexes": [
-          1
-        ],
-        "answerTexts": [
-          "応援部"
-        ]
-      }
-    },
-    {
       "id": "wasedasai2016-kenmin-selection",
       "checkpoint_ids": [
         "wasedasai2016-kenmin"
@@ -2605,29 +2674,6 @@
       }
     },
     {
-      "id": "wasedasai2016-himawaritime-selection",
-      "checkpoint_ids": [
-        "wasedasai2016-himawaritime"
-      ],
-      "content": {
-        "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
-        "point": 5.0,
-        "label": "私たちの光合成に必要ないものはどれでしょう？",
-        "selections": [
-          "気合い",
-          "土",
-          "水",
-          "太陽"
-        ],
-        "answerIndexes": [
-          0
-        ],
-        "answerTexts": [
-          "気合い"
-        ]
-      }
-    },
-    {
       "id": "wasedasai2016-sakigakehibiki-selection",
       "checkpoint_ids": [
         "wasedasai2016-sakigakehibiki"
@@ -2647,29 +2693,6 @@
         ],
         "answerTexts": [
           "吉田兄弟"
-        ]
-      }
-    },
-    {
-      "id": "wasedasai2016-bitorumania-selection",
-      "checkpoint_ids": [
-        "wasedasai2016-bitorumania"
-      ],
-      "content": {
-        "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
-        "point": 5.0,
-        "label": "ビートルマニアの幹事長の好きな動物は？",
-        "selections": [
-          "兎",
-          "トカゲ",
-          "パンダ",
-          "亀"
-        ],
-        "answerIndexes": [
-          3
-        ],
-        "answerTexts": [
-          "亀"
         ]
       }
     },
@@ -2844,7 +2867,7 @@
         "point": 2.0,
         "label": "挑戦者に、参加賞として渡される景品は何でしょうか？",
         "selections": [
-          "クリアファイル",
+          "キーホルダー",
           "ボールペン",
           "ノート",
           "ステッカー"
@@ -2853,7 +2876,7 @@
           0
         ],
         "answerTexts": [
-          "ステッカー"
+          "キーホルダー"
         ]
       }
     },
@@ -3061,29 +3084,6 @@
         ],
         "answerTexts": [
           "2匹"
-        ]
-      }
-    },
-    {
-      "id": "wasedasai2016-wasebun1-selection",
-      "checkpoint_ids": [
-        "wasedasai2016-wasebun1"
-      ],
-      "content": {
-        "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
-        "point": 2.0,
-        "label": "11号館のわせだ文庫で使っている棚は、何の前にある？",
-        "selections": [
-          "自動販売機",
-          "記念品",
-          "防火扉",
-          "トイレ"
-        ],
-        "answerIndexes": [
-          2
-        ],
-        "answerTexts": [
-          "防火扉"
         ]
       }
     },
