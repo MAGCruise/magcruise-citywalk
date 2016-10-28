@@ -24,41 +24,39 @@
 <script src="../js/remodal.min.js"></script>
 </head>
 <div class="container">
-  <div class="row" th:fragment="top-menu" id="menu">
-    <div id="mag-nav">
-      <div id="nav-btns-wrapper" class="col-xs-10 no-padding">
-        <div class="pull-left">
-          <img id="back" src="../img/back.svg"> <img id="forward" src="../img/forward.svg">
-        </div>
-        <div id="nav-title-wrapper">
-          <div id="nav-title"></div>
-        </div>
+  <div id="mag-nav" class="row no-gutter" th:fragment="top-menu">
+    <div id="nav-btns-wrapper" class="col-xs-10">
+      <div class="pull-left">
+        <img id="back" src="../img/back.svg"> <img id="forward" src="../img/forward.svg">
       </div>
-      <div id="nav-menu-wrapper" class="col-xs-2 no-padding">
-        <div id="nav-menu" class="dropdown pull-right">
-          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" id="top-dropdown">
-            <div id="dropdown-menu-icon">
-              <span class="glyphicon glyphicon-menu-hamburger"></span>
-            </div>
-          </button>
-          <ul class="dropdown-menu">
-            <li><div id="user-name" class="item"></div></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="checkpoints.html" class="item">チェックポイント</a></li>
-            <li><a href="visit-history.html" class="item">活動記録</a></li>
-            <li><a href="score.html" class="item">スコア</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="help.html" class="item">ヘルプ</a></li>
-            <li><a href="intro.html" class="item">はじめに</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="about-wasedasai.html" class="item">早稲田祭について</a></li>
-            <li><a href="credits.html" class="item">クレジット</a></li>
-            <!-- <li><a href="badge.html" class="item">バッジ</a></li>
+      <div id="nav-title-wrapper">
+        <div id="nav-title"></div>
+      </div>
+    </div>
+    <div id="nav-menu-wrapper" class="col-xs-2">
+      <div id="nav-menu" class="dropdown pull-right">
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" id="top-dropdown">
+          <div id="dropdown-menu-icon">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+          </div>
+        </button>
+        <ul class="dropdown-menu">
+          <li><div id="user-name" class="item"></div></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="checkpoints.html" class="item">チェックポイント</a></li>
+          <li><a href="visit-history.html" class="item">活動記録</a></li>
+          <li><a href="score.html" class="item">スコア</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="help.html" class="item">ヘルプ</a></li>
+          <li><a href="intro.html" class="item">はじめに</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="about-wasedasai.html" class="item">早稲田祭について</a></li>
+          <li><a href="credits.html" class="item">クレジット</a></li>
+          <!-- <li><a href="badge.html" class="item">バッジ</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="course.html" class="item">コース</a></li>
             -->
-          </ul>
-        </div>
+        </ul>
       </div>
     </div>
   </div>

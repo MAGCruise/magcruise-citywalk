@@ -10,43 +10,41 @@
 <body>
   <div class="container ">
     <div th:replace="/fragment/header.html :: top-menu"></div>
-    <div class="doc">
-      <div class="row">
-        <div class="col-sm-12 no-padding">
-          <div class="well well-sm">
-            <h1 class="text-center doc-header-bg">ワセナビ</h1>
-            <h1 class="text-center doc-header-bg">Navi + Checkin + Quiz</h1>
-            <p class="text-center lead">早稲田祭をめぐり, ランドマークやイベントにチェックイン, クイズを解いて早稲田文化を体感しよう．</p>
-          </div>
+    <div class="row no-gutter doc">
+      <div class="col-sm-12">
+        <div class="well well-sm">
+          <h1 class="text-center doc-header-bg">ワセナビ</h1>
+          <h1 class="text-center doc-header-bg">Navi + Checkin + Quiz</h1>
+          <p class="text-center lead">早稲田祭をめぐり, ランドマークやイベントにチェックイン, クイズを解いて早稲田文化を体感しよう．</p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div style="font-size: 95%;">
-            <h5>推奨環境</h5>
-            <p>GPSとインターネット接続が使える以下の環境</p>
-            <ul>
-              <li>iOS: Safari または Google Chrome (最新版)</li>
-              <li>Android: Google Chrome (最新版)</li>
-              <li>Windows: Google Chrome (最新版)</li>
-            </ul>
-            <h5>注意事項</h5>
-            <ul>
-              <li>本アプリに端末の緯度経度情報の利用を許可する場合，表示されるアラートで許可を選択して下さい．
-                <div class="media">
-                  <img class="media-object img-thumbnail center-block"
-                    src="../img/web/gps-alert.png" style="max-width: 240px;">
-                </div>
-              </li>
-              <li>位置情報の利用許可を与えた場合，端末の緯度経度情報がサーバに送信され記録されることに同意下さい．この情報はニックネームとともに保存されますが，論文発表などの学術目的以外には利用されません．</li>
-            </ul>
-          </div>
-          <div class="alert alert-warning" style="padding: 0 1em;">
-            <p>移動中は周辺に十分注意してご利用下さい．</p>
-          </div>
-          <div class="btn-group btn-group-justified bottom-margin">
-            <a id="btn-join" class="btn btn-success btn-lg" href="tutorial.html">チュートリアルへ</a>
-          </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div style="font-size: 95%;">
+          <h5>推奨環境</h5>
+          <p>GPSとインターネット接続が使える以下の環境</p>
+          <ul>
+            <li>iOS: Safari または Google Chrome (最新版)</li>
+            <li>Android: Google Chrome (最新版)</li>
+            <li>Windows: Google Chrome (最新版)</li>
+          </ul>
+          <h5>注意事項</h5>
+          <ul>
+            <li>本アプリに端末の緯度経度情報の利用を許可する場合，表示されるアラートで許可を選択して下さい．
+              <div class="media">
+                <img class="media-object img-thumbnail center-block" src="../img/web/gps-alert.png"
+                  style="max-width: 240px;">
+              </div>
+            </li>
+            <li>位置情報の利用許可を与えた場合，端末の緯度経度情報がサーバに送信され記録されることに同意下さい．この情報はニックネームとともに保存されますが，論文発表などの学術目的以外には利用されません．</li>
+          </ul>
+        </div>
+        <div class="alert alert-warning" style="padding: 0 1em;">
+          <p>移動中は周辺に十分注意してご利用下さい．</p>
+        </div>
+        <div class="btn-group btn-group-justified bottom-margin">
+          <a id="btn-join" class="btn btn-success btn-lg">チュートリアルへ</a>
         </div>
       </div>
     </div>

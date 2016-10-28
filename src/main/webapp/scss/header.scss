@@ -4,28 +4,24 @@
 $navHeight: 60px;
 
 #mag-nav {
-  width: 100%;
   height: $navHeight;
   background: $primaryColor;
   padding: $standardMargin 0px;
 }
 
+
 #back {
   height: 40px;
   cursor: pointer;
+  padding-left: $smallMargin;
 }
 
 #forward {
   height: 40px;
   cursor: pointer;
+  padding-left: $standardMargin;
 }
 
-#nav-btns-wrapper{
-  padding: 0 $standardMargin;
-}
-
-#nav-title-wrapper {
-}
 
 #nav-title {
   font-size: 110%;

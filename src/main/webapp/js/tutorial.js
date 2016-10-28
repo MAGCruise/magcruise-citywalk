@@ -4,26 +4,15 @@ $(function() {
   }
 
   $('#btn-skip-tutorial').on('click', function(e) {
-    if (confirm('チュートリアルをスキップしますか？')) {
+    swalConfirm("確認", 'チュートリアルをスキップしてよろしいですか？', "warning", function() {
       location.href = "signup.html";
-    }
+    });
   });
 
   $("#step-" + $("li.active").attr("data-slide-to")).addClass("current-step");
 
   $("#btn-next-step").on("click", function(e) {
     $("#carousel-next").trigger('click');
-  });
-
-  var hammer = new Hammer.Manager(window);
-  hammer.add(new Hammer.Swipe());
-
-  hammer.on("swipeleft", function(e) {
-    $("#carousel-next").trigger('click');
-  });
-
-  hammer.on("swiperight", function(e) {
-    $("#carousel-prev").trigger('click');
   });
 
   $(".carousel-control").on("click", function(e) {

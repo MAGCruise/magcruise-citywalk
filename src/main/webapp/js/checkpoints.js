@@ -6,8 +6,7 @@ var map = null;
 var markers = []; // マーカーs
 var infoWindow = null; // バルーン
 var checkpoints = [];
-var cPos = null;
-; // 現在地
+var cPos = null; // 現在地
 var selectedCheckpoint;
 var category = getParam("category");
 var subcategory = getParam("subcategory");
@@ -15,7 +14,6 @@ var locationsAccuracy = 10;
 var enableGps = false;
 
 window.onload = function() {
-  memorizeHistory();
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {
@@ -41,8 +39,7 @@ window.onload = function() {
 }
 
 $(function() {
-  $(window).on('hashchange popstate', function() {
-    memorizeHistory();
+  $(window).on('hashchange', function() {
     category = getParam("category");
     subcategory = getParam("subcategory");
     updateViews();
@@ -162,7 +159,7 @@ function showCheckpoints() {
     var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : "../img/"
             + checkpoint.imgSrc;
 
-    var elem = $('<div class="row no-margin">' + '<div class="col-sm-12 no-padding">'
+    var elem = $('<div class="row">' + '<div class="col-sm-12">'
             + '<div class="checkpoint" id="checkpoint-' + checkpoint.id + '">'
             + '<div class="pull-left distance ' + distanceStyle + '">'
             + (enableGps ? getFormattedDistance(distance) : "?m") + '</div>' + '<img src="'
@@ -177,9 +174,8 @@ function showCheckpoints() {
 }
 
 function makeListElemWithoutDistanceAndImage(name) {
-  return $('<div class="row no-margin">' + '<div class="col-sm-12 no-padding">'
-          + '<div class="checkpoint">' + '<div class="text">' + '<div class="name">' + name
-          + '</div></div></div></div></div>');
+  return $('<div class="row">' + '<div class="col-sm-12">' + '<div class="checkpoint">'
+          + '<div class="text">' + '<div class="name">' + name + '</div></div></div></div></div>');
 }
 
 /* サブカテゴリの表示 */
@@ -282,9 +278,17 @@ function selectCheckpoint(checkpoint) {
 
   $(".checkpoint").removeClass("selected");
   $("#checkpoint-" + checkpoint.id).addClass("selected");
+
   $("#selected-checkpoint-description").remove();
+  $("#nav-start-in-list").remove();
   $(".checkpoint.selected .detail").append(
-          $("<p>").attr("id", "selected-checkpoint-description").html(checkpoint.description));
+          $("<p>").attr("id", "selected-checkpoint-description").html(checkpoint.description))
+          .append('<a id="nav-start-in-list" class="btn btn-success btn-sm">ここに行く</a>');
+
+  $(document).on('click', "#nav-start-in-list", function() {
+    $("#nav-start").trigger('click');
+  });
+
   $("#nav-start").show();
 }
 

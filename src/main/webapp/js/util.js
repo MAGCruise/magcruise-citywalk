@@ -9,8 +9,15 @@ var KEY_ANSWER_DIC = "answer_dic";
 var KEY_CHECKPOINT_PROGRESS_DIC = "checkpoint_progress_dic";
 /** *********** */
 
-window.onload = function() {
+window.addEventListener("load", function() {
   memorizeHistory();
+  $(window).on('popstate', function() {
+    memorizeHistory();
+  });
+}, false);
+
+// スマートフォンにonloadを毎回読み込ませるための対策．
+window.onunload = function() {
 }
 
 function memorizeHistory() {
@@ -276,23 +283,26 @@ function toFormattedShortDate(milliseconds) {
 
 /** SweetAlert * */
 function confirmSubmission(callback) {
-  confirmAndAct("送信しますか？", "", null, callback);
+  swalConfirm("送信しますか？", "", null, callback);
 }
 
-function confirmAndAct(title, text, type, callback) {
+function swalConfirm(title, text, type, callback) {
   swal({
     title: title,
-    text: text ? "" : text,
-    type: type ? null : type,
+    text: text ? text : "",
+    type: type ? type : null,
     animation: false,
+    html: true,
     showCancelButton: true
   }, callback);
 }
-function alertWarning(title, text) {
+
+function swalWarning(title, text, callback) {
   swal({
     title: title,
     text: text,
     type: "warning",
-    animation: false
-  });
+    animation: false,
+    html: true,
+  }, callback);
 }

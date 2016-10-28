@@ -1,6 +1,12 @@
+html {
+  height: 100%; }
+
 body {
-  background-color: #E4EFF3;
+  height: 100%;
   font-family: helvetica, arial, 'hiragino kaku gothic pro', meiryo, 'ms pgothic', sans-serif;
+  background-color: #E4EFF3; }
+
+a, button, input .btn {
   touch-action: none; }
 
 /** util **/
@@ -25,9 +31,9 @@ body {
   margin-right: 0px;
   margin-left: 0px; }
 
-.no-padding {
-  padding-right: 0px;
-  padding-left: 0px; }
+.no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0; }
 
 .top-margin {
   margin-top: 15px; }
@@ -43,7 +49,7 @@ body {
 
 /* Start overwrite bootstrap style */
 .container {
-  max-width: 720px; }
+  height: 100%; }
 
 .btn {
   border-radius: 5px;
@@ -89,10 +95,16 @@ h1.doc-header-bg {
 
 .btn-primary-magc {
   background: #FA833C;
-  color: white; }
+  color: white;
+  border: none; }
   .btn-primary-magc:hover, .btn-primary-magc:focus {
-    background: #FA833C;
-    color: white; }
+    background: #ef7f38;
+    color: white;
+    border: none; }
+  .btn-primary-magc:active {
+    background: #dd7533;
+    color: white;
+    border: none; }
 
 .btn-fill {
   margin-top: 30px;

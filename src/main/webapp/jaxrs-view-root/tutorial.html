@@ -12,8 +12,8 @@
 <body>
   <div class="container doc-page">
     <div th:replace="/fragment/header.html :: top-menu"></div>
-    <div class="row">
-      <div class="col-xs-12 top-margin no-padding">
+    <div class="row top-margin">
+      <div class="col-xs-12">
         <div class="btn-group btn-group-justified">
           <a id="btn-next-step" class="btn btn-success btn-lg">次のステップ</a>
         </div>
@@ -32,6 +32,10 @@
           <li id="step-3" class="step">クイズに答えてポイントを獲得！</li>
           <li id="step-4" class="step">30pt集めてワセナビブースで景品ゲット！</li>
         </ol>
+      </div>
+    </div>
+    <div class="row no-gutter">
+      <div class="col-xs-12">
         <!-- Carousel -->
         <div id="qs-carousel" class="carousel slide bottom-margin" data-ride="carousel"
           data-interval="100000" data-wrap="false">

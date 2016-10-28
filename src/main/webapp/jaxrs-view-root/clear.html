@@ -3,28 +3,23 @@
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <link rel="stylesheet" href="../css/top.css" />
-
-<title>LocalStorageクリア</title>
-<script>
-  window.onload = function() {
-    memorizeHistory();
-    if (window.confirm('LocalStorageを初期化します')) {
-      clear();
-      alert('LocalStorageを初期化しました．');
-    } else {
-      alert('LocalStorageの初期化がキャンセルされました');
-    }
-  }
-</script>
+<script src="../js/clear.js"></script>
+<title>初期化</title>
 </head>
 <body>
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
-    <div class="row">
-      <div class="col-sm-12 no-padding">
+    <div class="row no-gutter">
+      <div class="col-sm-12">
+        <h1>実験参加者はこちら</h1>
         <div class="nav-btn-big">
-          <a href="intro.html">はじめに</a>
+          <a href="intro.html">実験をはじめる</a>
         </div>
+      </div>
+    </div>
+    <div class="row no-gutter">
+      <div class="col-sm-12">
+        <h1>開発者・運用者</h1>
         <div class="nav-btn-big">
           <a href="signup.html">サインアップ</a>
         </div>
