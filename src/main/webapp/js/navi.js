@@ -12,7 +12,6 @@ var POST_MOVEMENT_INTERVAL = 1000 * 10; // msec
 var KEY_MOVEMENT_LIST = "movement_list";
 
 window.onload = function() {
-  memorizeHistory();
   initMap();
 }
 
@@ -212,15 +211,15 @@ function getBrowserOrientation() {
    * small tablet) device is in 'normal' orientation for (screen width > screen
    * height, e.g. large tablet, laptop) device has been turned 90deg clockwise
    * from normal
-   * 
+   *
    * 'portait-secondary': for (screen width < screen height) device has been
    * turned 180deg from normal for (screen width > screen height) device has
    * been turned 90deg anti-clockwise (or 270deg clockwise) from normal
-   * 
+   *
    * 'landscape-primary': for (screen width < screen height) device has been
    * turned 90deg clockwise from normal for (screen width > screen height)
    * device is in 'normal' orientation
-   * 
+   *
    * 'landscape-secondary': for (screen width < screen height) device has been
    * turned 90deg anti-clockwise (or 270deg clockwise) from normal for (screen
    * width > screen height) device has been turned 180deg from normal

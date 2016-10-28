@@ -9,8 +9,11 @@ var KEY_ANSWER_DIC = "answer_dic";
 var KEY_CHECKPOINT_PROGRESS_DIC = "checkpoint_progress_dic";
 /** *********** */
 
-window.onload = function() {
+window.addEventListener("load", function() {
   memorizeHistory();
+}, false);
+
+window.onunload = function() {
 }
 
 function memorizeHistory() {
