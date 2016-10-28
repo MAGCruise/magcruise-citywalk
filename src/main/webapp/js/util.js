@@ -283,10 +283,10 @@ function toFormattedShortDate(milliseconds) {
 
 /** SweetAlert * */
 function confirmSubmission(callback) {
-  confirmAndAct("送信しますか？", "", null, callback);
+  swalConfirm("送信しますか？", "", null, callback);
 }
 
-function confirmAndAct(title, text, type, callback) {
+function swalConfirm(title, text, type, callback) {
   swal({
     title: title,
     text: text ? text : "",
@@ -297,7 +297,7 @@ function confirmAndAct(title, text, type, callback) {
   }, callback);
 }
 
-function alertWarning(title, text, callback) {
+function swalWarning(title, text, callback) {
   swal({
     title: title,
     text: text,

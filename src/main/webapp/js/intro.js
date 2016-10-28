@@ -22,7 +22,7 @@ function checkDevice() {
 
   if (!uaParser.getOS() || !uaParser.getBrowser()) {
     unrecommended = true;
-    alertWarning(errTitle, errText, callback);
+    swalWarning(errTitle, errText, callback);
     return;
   } else if (uaParser.getOS().name === "Windows" || uaParser.getOS().name === "Android"
           || uaParser.getOS().name === "Linux") {
@@ -39,7 +39,7 @@ function checkDevice() {
   }
   if (unrecommended) {
     errText += "<br>" + uaParser.getBrowser().name + " on " + uaParser.getOS().name;
-    alertWarning(errTitle, errText, callback);
+    swalWarning(errTitle, errText, callback);
   } else {
     callback();
   }
