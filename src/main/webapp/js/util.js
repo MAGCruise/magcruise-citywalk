@@ -11,6 +11,9 @@ var KEY_CHECKPOINT_PROGRESS_DIC = "checkpoint_progress_dic";
 
 window.addEventListener("load", function() {
   memorizeHistory();
+  $(window).on('popstate', function() {
+    memorizeHistory();
+  });
 }, false);
 
 // スマートフォンにonloadを毎回読み込ませるための対策．

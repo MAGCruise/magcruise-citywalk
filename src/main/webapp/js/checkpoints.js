@@ -6,8 +6,7 @@ var map = null;
 var markers = []; // マーカーs
 var infoWindow = null; // バルーン
 var checkpoints = [];
-var cPos = null;
-; // 現在地
+var cPos = null; // 現在地
 var selectedCheckpoint;
 var category = getParam("category");
 var subcategory = getParam("subcategory");
@@ -40,10 +39,6 @@ window.onload = function() {
 }
 
 $(function() {
-  $(window).on('popstate', function() {
-    memorizeHistory();
-  });
-
   $(window).on('hashchange', function() {
     category = getParam("category");
     subcategory = getParam("subcategory");
