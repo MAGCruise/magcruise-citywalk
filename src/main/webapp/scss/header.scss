@@ -14,12 +14,21 @@ $navHeight: 60px;
   height: 40px;
   cursor: pointer;
   padding-left: $smallMargin;
+  &.disabled{
+    opacity: 0.15;
+  }
 }
+
+
+
 
 #forward {
   height: 40px;
   cursor: pointer;
   padding-left: $standardMargin;
+  &.disabled{
+    opacity: 0.15;
+  }
 }
 
 

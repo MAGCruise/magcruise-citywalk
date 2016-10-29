@@ -7,11 +7,15 @@
   height: 40px;
   cursor: pointer;
   padding-left: 6px; }
+  #back.disabled {
+    opacity: 0.15; }
 
 #forward {
   height: 40px;
   cursor: pointer;
   padding-left: 10px; }
+  #forward.disabled {
+    opacity: 0.15; }
 
 #nav-title {
   font-size: 110%;

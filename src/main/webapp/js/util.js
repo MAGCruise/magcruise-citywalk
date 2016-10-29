@@ -38,7 +38,7 @@ function setBack() {
   if (!document.referrer) {
     setBackDisabled();
   } else {
-    $('#back').css("opacity", "1");
+    $('#back').removeClass("disabled");
     $('#back').on('click', function() {
       window.history.back();
     });
@@ -53,7 +53,7 @@ function setForward() {
     // 来たことがあってその時の履歴が今の履歴の長さと同じである(先頭のページでリロードしたときなど)
     setForwardDisabled();
   } else {
-    $('#forward').css("opacity", "1");
+    $('#forward').removeClass("disabled");
     $('#forward').on('click', function() {
       window.history.forward();
     });
@@ -62,13 +62,13 @@ function setForward() {
 }
 
 function setBackDisabled() {
+  $('#back').addClass('disabled');
   $('#back').off('click');
-  $('#back').css("opacity", "0.15");
 }
 
 function setForwardDisabled() {
+  $('#forward').addClass('disabled');
   $('#forward').off('click');
-  $('#forward').css("opacity", "0.15");
 }
 
 function setUserNameInMenu() {
