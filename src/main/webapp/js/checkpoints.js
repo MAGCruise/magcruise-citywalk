@@ -39,14 +39,12 @@ window.onload = function() {
 }
 
 $(function() {
-  $(window).on('popstate', function() {
-    memorizeHistory();
-  });
-
   $(window).on('hashchange', function() {
     category = getParam("category");
     subcategory = getParam("subcategory");
     updateViews();
+    memorizeHistory();
+    setForward();
   });
 
   unselectCheckpoint();
@@ -77,6 +75,10 @@ function updateViews() {
 
   initBreadCrumb();
   showList();
+
+  if (map && selectedCheckpoint) {
+    selectCheckpoint(selectedCheckpoint);
+  }
 }
 
 function loadCheckpoints() {
@@ -270,7 +272,10 @@ function selectCheckpoint(checkpoint) {
 
   // マーカータップ時のバルーンの初期化
   infoWindow = new google.maps.InfoWindow({
-    content: checkpoint.name + "<br>(" + checkpoint.balloon + ")"
+    content: checkpoint.name + "<br>(" + checkpoint.balloon + ")" + "<br>" + '<a href="'
+            + "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category)
+            + "&selected-id=" + encodeURIComponent(checkpoint.id) + '">' + checkpoint.category
+            + "</a>"
   });
   var marker = markers.filter(function(marker) {
     return marker.checkpointId === checkpoint.id;

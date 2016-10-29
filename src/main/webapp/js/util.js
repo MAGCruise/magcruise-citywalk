@@ -18,7 +18,7 @@ window.onunload = function() {
 }
 
 function memorizeHistory() {
-  if (history && typeof (history.replaceState) == "function") {
+  if (history && typeof (history.replaceState) == "function" && !history.state) {
     history.replaceState({
       page: history.length,
       href: location.href
@@ -38,6 +38,7 @@ function setBack() {
   if (!document.referrer) {
     setBackDisabled();
   } else {
+    $('#back').css("opacity", "1");
     $('#back').on('click', function() {
       window.history.back();
     });
@@ -46,10 +47,13 @@ function setBack() {
 
 function setForward() {
   if (!history.state) {
+    // このページに来たことがない(つまり先頭)
     setForwardDisabled();
   } else if (history.state && history.state.page == history.length) {
+    // 来たことがあってその時の履歴が今の履歴の長さと同じである(先頭のページでリロードしたときなど)
     setForwardDisabled();
   } else {
+    $('#forward').css("opacity", "1");
     $('#forward').on('click', function() {
       window.history.forward();
     });
