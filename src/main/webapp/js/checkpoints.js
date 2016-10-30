@@ -162,8 +162,9 @@ function showCheckpoints() {
     var ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
     var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
     var distanceStyle = (distance > 1000) ? "far" : "near";
-    var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : "../img/"
-            + checkpoint.imgSrc;
+
+    var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" :  checkpoint.imgSrc;
+    imgSrc = checkpoint.imgSrc.indexOf("http") == -1 ? "../img/"+imgSrc : imgSrc;
 
     var elem = $('<div class="row">' + '<div class="col-sm-12">'
             + '<div class="checkpoint" id="checkpoint-' + checkpoint.id + '">'

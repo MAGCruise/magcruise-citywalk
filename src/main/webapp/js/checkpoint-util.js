@@ -36,7 +36,8 @@ function makeAnswerHtml(checkpoint) {
 }
 
 function makeImgHtml(checkpoint) {
-  var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : "../img/" + checkpoint.imgSrc;
+  var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" :  checkpoint.imgSrc;
+  imgSrc = checkpoint.imgSrc.indexOf("http") == -1 ? "../img/"+imgSrc : imgSrc;
   return '<img src="' + imgSrc + '" class="img-responsive img">';
 
 }
