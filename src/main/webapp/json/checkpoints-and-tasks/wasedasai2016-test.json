@@ -1,25 +1,25 @@
 {
   "checkpoints": [
     {
-      "id": "wasedasai2016-stomp",
+      "id": "wasedasai2016-test-stomp",
       "lat": 35.708556,
       "lon": 139.718876,
       "name": "B.M.O. STOMP STAGE",
       "label": "(10pt) 楽器を使わない音楽 <15:40～16:20>",
       "description": "僕たちは去年結成されたストンプサークルのBMOです。楽器を使わない音楽をやっており、ボディパーカッションやデッキブラシなど色々な物で演奏します！",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 15:40:00",
-      "visibleTimeTo": "2016-11-05 16:20:00",
+      "visibleTimeFrom": "2016-10-05 15:40:00",
+      "visibleTimeTo": "2016-10-05 16:20:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "11号館前ステージ",
       "balloon": "11号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/11ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-pianonokai",
+      "id": "wasedasai2016-test-pianonokai",
       "lat": 35.708917,
       "lon": 139.719879,
       "name": "わせだピアノフェスティバル2016～Can't Take Your Eyes Off The Piano～",
@@ -31,49 +31,49 @@
       "category": "イベント（表示時間制限あり）",
       "subcategory": "3号館前ステージ",
       "balloon": "3号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/3ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-theterdance",
+      "id": "wasedasai2016-test-theterdance",
       "lat": 35.708917,
       "lon": 139.719879,
       "name": "ダンスパフォーマンス2016",
       "label": "(10pt) ダンスパフォーマンス <13:25～14:10>",
       "description": "今年4月から活動を始めたダンスサークルです。セクシーでクールに、そして、熱く、パフォーマンスをお届けします。最高の自惚れ野郎揃えました。",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 13:25:00",
-      "visibleTimeTo": "2016-11-05 14:10:00",
+      "visibleTimeFrom": "2016-10-05 13:25:00",
+      "visibleTimeTo": "2016-10-05 14:10:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "3号館前ステージ",
       "balloon": "3号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/3ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-hawai",
+      "id": "wasedasai2016-test-hawai",
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "WASEHULA stage 2016＊ALOHA＊",
       "label": "(10pt) フラダンス <11:30～12:20>",
       "description": "ようこそ、WASEHULAのステージへ！！総勢80名のフラガールのはじける笑顔と息のあった可憐で美しいパフォーマンスで会場全体を魅了します！",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 11:30:00",
-      "visibleTimeTo": "2016-11-05 12:20:00",
+      "visibleTimeFrom": "2016-10-05 11:30:00",
+      "visibleTimeTo": "2016-10-05 12:20:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "戸山カフェテリア",
       "balloon": "戸山カフェテリアステージ",
-      "imgSrc": "wasedasai2016/icon/toyamaibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/toyamaibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-mitudomoe",
+      "id": "wasedasai2016-test-mitudomoe",
       "lat": 35.708917,
       "lon": 139.719879,
       "name": "遠からん者は音に聴け 近くば寄って目にも見よ 三津巴2016秋の陣！",
@@ -85,13 +85,13 @@
       "category": "イベント（表示時間制限あり）",
       "subcategory": "3号館前ステージ",
       "balloon": "3号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/3ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-artas",
+      "id": "wasedasai2016-test-artas",
       "lat": 35.708917,
       "lon": 139.719879,
       "name": "始まARTAS～早稲田祭2016～",
@@ -103,49 +103,49 @@
       "category": "イベント（表示時間制限あり）",
       "subcategory": "3号館前ステージ",
       "balloon": "3号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/3ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-himawari",
+      "id": "wasedasai2016-test-himawari",
       "lat": 35.708556,
       "lon": 139.718876,
       "name": "もう一度ステージへ。満開笑顔でひまわりタイム！",
       "label": "(10pt) 早大アイドル <16:20～16:45>",
       "description": "ひまわりタイム！とは、ユニドルをもとに結成されたアイドルグループです。決勝大会では、元モー娘。の紺野アナと踊る賞を獲得し、テレビにも出演しました。",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 16:20:00",
-      "visibleTimeTo": "2016-11-05 16:45:00",
+      "visibleTimeFrom": "2016-10-05 16:20:00",
+      "visibleTimeTo": "2016-10-05 16:45:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "11号館前ステージ",
       "balloon": "11号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/11ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-wasedatti",
+      "id": "wasedasai2016-test-wasedatti",
       "lat": 35.708556,
       "lon": 139.718876,
       "name": "ダブルダッチ",
       "label": "(10pt) ロープパフォーマンス <13:10～13:30>",
       "description": "私たちW-Dutchは早稲田祭で皆さんを感動させれるように日々練習しています！当日は後悔させません。是非見に来てください！",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 13:10:00",
-      "visibleTimeTo": "2016-11-05 13:30:00",
+      "visibleTimeFrom": "2016-10-05 13:10:00",
+      "visibleTimeTo": "2016-10-05 13:30:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "11号館前ステージ",
       "balloon": "11号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/11ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-salsa",
+      "id": "wasedasai2016-test-salsa",
       "lat": 35.708556,
       "lon": 139.718876,
       "name": "ダンス",
@@ -157,31 +157,31 @@
       "category": "イベント（表示時間制限あり）",
       "subcategory": "11号館前ステージ",
       "balloon": "11号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/11ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-viorila",
+      "id": "wasedasai2016-test-viorila",
       "lat": 35.708917,
       "lon": 139.719879,
       "name": "ヴィオリラLIVEinわせさい2016",
       "label": "(10pt) ヴィオリラによる演奏 <13:50～14:25>",
       "description": "21世紀の電気弦楽器「ヴィオリラ」の音色を存分にお楽しみいただけるステージです！どの楽器にもない不思議で魅力的な音色をどうぞ聴きに来てください☆￥",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 13:50:00",
-      "visibleTimeTo": "2016-11-05 14:25:00",
+      "visibleTimeFrom": "2016-10-05 13:50:00",
+      "visibleTimeTo": "2016-10-05 14:25:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "3号館前ステージ",
       "balloon": "3号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/3ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-ciel",
+      "id": "wasedasai2016-test-ciel",
       "lat": 35.708917,
       "lon": 139.719879,
       "name": "バレエパフォーマンス2016",
@@ -193,193 +193,193 @@
       "category": "イベント（表示時間制限あり）",
       "subcategory": "3号館前ステージ",
       "balloon": "3号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/3ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-bannkara",
+      "id": "wasedasai2016-test-bannkara",
       "lat": 35.708556,
       "lon": 139.718876,
       "name": "烈",
       "label": "(10pt) ダンスパフォーマンス <12:40～13:10>",
       "description": "バラバラだった表現者たちが1つのイズムを体現する–我々は挑戦する。全ての人の心に“進取の精神”を植え付けるパフォーマンスを。",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 12:40:00",
-      "visibleTimeTo": "2016-11-05 13:10:00",
+      "visibleTimeFrom": "2016-10-05 12:40:00",
+      "visibleTimeTo": "2016-10-05 13:10:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "11号館前ステージ",
       "balloon": "11号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/11ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-genesis",
+      "id": "wasedasai2016-test-genesis",
       "lat": 35.708556,
       "lon": 139.718876,
       "name": "GENESIS 11号館前ステージ公演",
       "label": "(10pt) ストリート＆ジャズ <13:30～14:15>",
       "description": "こんにちは！Dancing Crew GENESISです！早稲田祭にいらした皆様を魅せる為にこの日まで練習を重ねてきました。是非ご覧になってください！",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 13:30:00",
-      "visibleTimeTo": "2016-11-05 14:15:00",
+      "visibleTimeFrom": "2016-10-05 13:30:00",
+      "visibleTimeTo": "2016-10-05 14:15:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "11号館前ステージ",
       "balloon": "11号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/11ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-oasis",
+      "id": "wasedasai2016-test-oasis",
       "lat": 35.708917,
       "lon": 139.719879,
       "name": "Oasis早稲田祭Live2016",
       "label": "(10pt) ジャズダンス <13:00～13:50>",
       "description": "今年もOasisは3号館前ステージで踊ります！アップテンポで華やかなジャズダンスを是非ご覧ください！楽しんでいただけること間違いなしです！",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 13:00:00",
-      "visibleTimeTo": "2016-11-05 13:50:00",
+      "visibleTimeFrom": "2016-10-05 13:00:00",
+      "visibleTimeTo": "2016-10-05 13:50:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "3号館前ステージ",
       "balloon": "3号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/3ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-kyougidance",
+      "id": "wasedasai2016-test-kyougidance",
       "lat": 35.708917,
       "lon": 139.719879,
       "name": "君は見たか…舞台を焦がすダンスを‼",
       "label": "(10pt) 競技ダンス <12:25～13:00>",
       "description": "競技ダンスは社交ダンスを競技化したもので、最近ジャンプでの連載や、金スマで社交ダンス企画が放送されるなど、注目を浴びています。",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 12:25:00",
-      "visibleTimeTo": "2016-11-05 13:00:00",
+      "visibleTimeFrom": "2016-10-05 12:25:00",
+      "visibleTimeTo": "2016-10-05 13:00:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "3号館前ステージ",
       "balloon": "3号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/3ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-supodama",
+      "id": "wasedasai2016-test-supodama",
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "早稲田スポーツ魂",
       "label": "(10pt) 体育各部トークショー！ <14:30～15:50>",
       "description": "体育各部がトークショーを行います。平時は勇ましい体育各部の意外な一面を垣間見れるのは、早稲田スポーツ魂だけ！ファンの方も、そうじゃない方もぜひ！",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 14:30:00",
-      "visibleTimeTo": "2016-11-05 15:45:00",
+      "visibleTimeFrom": "2016-10-05 14:30:00",
+      "visibleTimeTo": "2016-10-05 15:45:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "14号館",
       "balloon": "14号館 101教室",
-      "imgSrc": "wasedasai2016/icon/supodama.jpg",
+      "imgSrc": "wasedasai2016-test/icon/supodama.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-parado",
+      "id": "wasedasai2016-test-parado",
       "lat": 35.71061533,
       "lon": 139.7192368,
       "name": "パレード",
       "label": "(10pt) 構外を巡るパレード <16:15～17:00>",
       "description": "早稲田周辺地域を練り歩くパレードを行います。光と音で鮮やかに彩られたパレードを観覧スペースから心行くまでご堪能ください。",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 16:10:00",
-      "visibleTimeTo": "2016-11-05 17:00:00",
+      "visibleTimeFrom": "2016-10-05 16:10:00",
+      "visibleTimeTo": "2016-10-05 17:00:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "22号館前",
       "balloon": "22号館前観覧スペース",
-      "imgSrc": "wasedasai2016/icon/parado.jpg",
+      "imgSrc": "wasedasai2016-test/icon/parado.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-wasetalk",
+      "id": "wasedasai2016-test-wasetalk",
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "ワセトーーク！",
       "label": "(10pt) 公開クロストークー <13:30～14:30>",
       "description": "1つのテーマについて各分野で活躍する早大生がクロストークを行います。まだ見ぬ早稲田の側面がきっと見つかる、早稲田文化の深みに一歩踏み出してみませんか？",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 13:30:00",
-      "visibleTimeTo": "2016-11-05 14:30:00",
+      "visibleTimeFrom": "2016-10-05 13:30:00",
+      "visibleTimeTo": "2016-10-05 14:30:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "14号館",
       "balloon": "14号館 102教室",
-      "imgSrc": "wasedasai2016/icon/wasetalk.jpg",
+      "imgSrc": "wasedasai2016-test/icon/wasetalk.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-kenmin",
+      "id": "wasedasai2016-test-kenmin",
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "早大生ケンミンSHOW",
       "label": "(10pt) 地元愛を語りつくす <11:50～13:00>",
       "description": "学生稲門会に所属する早大学生稲門会に所属する早大生がトークショーを行います。郷土愛に満ちた彼らの想いを来場者のみなさまに余すところなくお届け！",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 11:50:00",
-      "visibleTimeTo": "2016-11-05 13:00:00",
+      "visibleTimeFrom": "2016-10-05 11:50:00",
+      "visibleTimeTo": "2016-10-05 13:00:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "14号館",
       "balloon": "14号館 101教室",
-      "imgSrc": "wasedasai2016/icon/kenmin.jpg",
+      "imgSrc": "wasedasai2016-test/icon/kenmin.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-pool",
+      "id": "wasedasai2016-test-pool",
       "lat": 35.70554033,
       "lon": 139.7183946,
       "name": "早稲田水泳2016",
       "label": "(10pt) 水泳部によるリレー <12:00～13:00>",
       "description": "今年度初！高石記念プールを使い、水泳部がトークショー＆リレーを行います。オリンピック選手を多く輩出した水泳部のリレーを見れるのは、ここだけ！",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 12:00:00",
-      "visibleTimeTo": "2016-11-05 13:00:00",
+      "visibleTimeFrom": "2016-10-05 12:00:00",
+      "visibleTimeTo": "2016-10-05 13:00:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "高石記念プール",
       "balloon": "高石記念プール",
-      "imgSrc": "wasedasai2016/icon/pool.jpg",
+      "imgSrc": "wasedasai2016-test/icon/pool.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-doramakan-5",
+      "id": "wasedasai2016-test-doramakan-5",
       "lat": 35.70747221,
       "lon": 139.7197196,
       "name": "演-えん-",
       "label": "(10pt) 台本を用いた公演 <11:10～16:00>",
       "description": "どらま館にて、演劇・お笑いなど、さまざまなジャンルの公演をご覧いただけます。早稲田の伝統と革新を一挙に詰め込んだ-演-。ぜひともお見逃しないように！",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 11:10:00",
-      "visibleTimeTo": "2016-11-05 16:00:00",
+      "visibleTimeFrom": "2016-10-05 11:10:00",
+      "visibleTimeTo": "2016-10-05 16:00:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "早稲田小劇場どらま館",
       "balloon": "早稲田小劇場どらま館",
-      "imgSrc": "wasedasai2016/icon/doramakan.jpg",
+      "imgSrc": "wasedasai2016-test/icon/doramakan.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-doramakan-6",
+      "id": "wasedasai2016-test-doramakan-6",
       "lat": 35.70747221,
       "lon": 139.7197196,
       "name": "演-えん-",
@@ -391,31 +391,31 @@
       "category": "イベント（表示時間制限あり）",
       "subcategory": "早稲田小劇場どらま館",
       "balloon": "早稲田小劇場どらま館",
-      "imgSrc": "wasedasai2016/icon/doramakan.jpg",
+      "imgSrc": "wasedasai2016-test/icon/doramakan.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-tenngokugakudann",
+      "id": "wasedasai2016-test-tenngokugakudann",
       "lat": 35.708917,
       "lon": 139.719879,
       "name": "天国楽団in早稲田2016",
       "label": "(10pt) マーチングバンド <16:00～17:00>",
       "description": "天国楽団は真・善・忍を修煉する楽団員によるマーチングバンドです。オリジナル曲の他に涙そうそう、歓喜の歌等を演奏します。心温まる演奏をお聞きください！",
       "markerColor": "blue",
-      "visibleTimeFrom": "2016-11-05 16:00:00",
-      "visibleTimeTo": "2016-11-05 17:00:00",
+      "visibleTimeFrom": "2016-10-05 16:00:00",
+      "visibleTimeTo": "2016-10-05 17:00:00",
       "category": "イベント（表示時間制限あり）",
       "subcategory": "3号館前ステージ",
       "balloon": "3号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/3ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-chotokakao",
+      "id": "wasedasai2016-test-chotokakao",
       "lat": 35.708556,
       "lon": 139.718876,
       "name": "choco'toカカオ％早稲田祭特別ステージ～ReNY直後に、ごっつぁんです！～",
@@ -427,13 +427,13 @@
       "category": "イベント（表示時間制限あり）",
       "subcategory": "11号館前ステージ",
       "balloon": "11号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/11ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/11ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-sakigakehibiki",
+      "id": "wasedasai2016-test-sakigakehibiki",
       "lat": 35.708917,
       "lon": 139.719879,
       "name": "魁響2016",
@@ -445,49 +445,49 @@
       "category": "イベント（表示時間制限あり）",
       "subcategory": "3号館前ステージ",
       "balloon": "3号館前ステージ",
-      "imgSrc": "wasedasai2016/icon/3ibe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/3ibe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
         {
-      "id": "wasedasai2016-ijiman",
+      "id": "wasedasai2016-test-ijiman",
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "イラスト展示",
       "label": "(4pt) 書き下ろし作品多数",
       "description": "早稲田祭のために書き下ろしたイラストを展示したり、来客のリクエストにお応えしてキャラのイラストを書かせていただきます。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "ホビー",
       "subcategory": "アニメ・漫画",
       "balloon": "32号館 226教室",
-      "imgSrc": "wasedasai2016/icon/ijiman.jpg",
+      "imgSrc": "wasedasai2016-test/icon/ijiman.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-ShandyGaff-5",
+      "id": "wasedasai2016-test-ShandyGaff-5",
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "ダーツフェスタ2016 in WASEDA",
       "label": "(4pt) ダーツするなら来い",
       "description": "今年も開催！ダーツができるのは早稲田でここだけ。豪華景品多数。DARTSLIVE社製ダーツマシン完備。ダーツレッスン・対戦随時実施中。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
-      "visibleTimeTo": "2016-11-05 17:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
+      "visibleTimeTo": "2016-10-05 17:00:00",
       "category": "ホビー",
       "subcategory": "レク",
       "balloon": "14号館 406教室",
-      "imgSrc": "wasedasai2016/icon/ShandyGaff.jpg",
+      "imgSrc": "wasedasai2016-test/icon/ShandyGaff.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
         {
-      "id": "wasedasai2016-swingjazz",
+      "id": "wasedasai2016-test-swingjazz",
       "lat": 35.708198,
       "lon": 139.720688,
       "name": "早稲田祭ライブ",
@@ -499,13 +499,13 @@
       "category": "ホビー",
       "subcategory": "音楽",
       "balloon": "学生会館 B201",
-      "imgSrc": "wasedasai2016/icon/swingjazz.jpg",
+      "imgSrc": "wasedasai2016-test/icon/swingjazz.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-ShandyGaff-6",
+      "id": "wasedasai2016-test-ShandyGaff-6",
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "ダーツフェスタ2016 in WASEDA",
@@ -517,31 +517,31 @@
       "category": "ホビー",
       "subcategory": "レク",
       "balloon": "14号館 406教室",
-      "imgSrc": "wasedasai2016/icon/ShandyGaff.jpg",
+      "imgSrc": "wasedasai2016-test/icon/ShandyGaff.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-quizken",
+      "id": "wasedasai2016-test-quizken",
       "lat": 35.708528,
       "lon": 139.718735,
       "name": "クイズフェスティバル2016",
       "label": "(6pt) 参加型クイズ大会",
       "description": "来場者参加型クイズ大会！全員に参加賞、勝ち進めば豪華な商品をゲットできます！更になんと！勝ち進めなかった方にも豪華賞品をゲットするチャンス多数あり！！",
       "markerColor": "yellow",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
-      "visibleTimeTo": "2016-11-05 17:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
+      "visibleTimeTo": "2016-10-05 17:00:00",
       "category": "ホビー",
       "subcategory": "レク",
       "balloon": "10号館 101教室",
-      "imgSrc": "wasedasai2016/icon/quizken.jpg",
+      "imgSrc": "wasedasai2016-test/icon/quizken.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-tenpoint",
+      "id": "wasedasai2016-test-tenpoint",
       "lat": 35.70962112,
       "lon": 139.7194541,
       "name": "ウインズ早稲田",
@@ -553,85 +553,85 @@
       "category": "ホビー",
       "subcategory": "レク",
       "balloon": "6号館 001教室",
-      "imgSrc": "wasedasai2016/icon/tenpoint.jpg",
+      "imgSrc": "wasedasai2016-test/icon/tenpoint.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-Floorball",
+      "id": "wasedasai2016-test-Floorball",
       "lat": 35.70857571,
       "lon": 139.7197008,
       "name": "Floorball Game",
       "label": "(4pt) フロアボール体験",
       "description": "フロアボールは体育館で行うホッケーです！大人も子どもも簡単にできるシューティングゲームです！ゴールに応じてポイントをゲットした方に景品をさしあげます。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "ホビー",
       "subcategory": "レク",
       "balloon": "8号館 402教室",
-      "imgSrc": "wasedasai2016/icon/floorball.jpg",
+      "imgSrc": "wasedasai2016-test/icon/floorball.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-manken",
+      "id": "wasedasai2016-test-manken",
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "5分でそっくり！今日の思い出を似顔絵に",
       "label": "(4pt) 思い出を似顔絵で",
       "description": "あなたの似顔絵を約5分でお描きします！今日という素敵な思い出をカタチに。写真にはない、一味違った楽しさを体験してください。話題の「早稲田漫」もどうぞ！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
-      "visibleTimeTo": "2016-11-05 17:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
+      "visibleTimeTo": "2016-10-05 17:00:00",
       "category": "芸術・文化",
       "subcategory": "芸術",
       "balloon": "14号館 604教室",
-      "imgSrc": "wasedasai2016/icon/manken.jpg",
+      "imgSrc": "wasedasai2016-test/icon/manken.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-doraemon",
+      "id": "wasedasai2016-test-doraemon",
       "lat": 35.70857571,
       "lon": 139.7197008,
       "name": "ドラえもん検定2016",
       "label": "(4pt) 集え、チャレンジャー",
       "description": "今年は,「ドラえもん」の原作者藤子・F・不二雄先生没後20年にあたる節目の年。この年を記念して今年もドラえもん検定を実施いたします!",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
-      "visibleTimeTo": "2016-11-05 17:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
+      "visibleTimeTo": "2016-10-05 17:00:00",
       "category": "ホビー",
       "subcategory": "アニメ・漫画",
       "balloon": "8号館 B102教室",
-      "imgSrc": "wasedasai2016/icon/doraemon.jpg",
+      "imgSrc": "wasedasai2016-test/icon/doraemon.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-momusu-5",
+      "id": "wasedasai2016-test-momusu-5",
       "lat": 35.7071583333333,
       "lon": 139.721405555556,
       "name": "早稲田爆音2016 〜教室編 DAY1〜",
       "label": "(4pt) ハロプロを楽しむ",
       "description": "入場無料、整理券不要。BON◯Sに怯えることなく、思う存分ハロプロソングに酔いしれましょう。ヲタクじゃない方も大歓迎。この際一緒に踊っちゃお！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 13:30:00",
-      "visibleTimeTo": "2016-11-05 17:00:00",
+      "visibleTimeFrom": "2016-10-05 13:30:00",
+      "visibleTimeTo": "2016-10-05 17:00:00",
       "category": "ホビー",
       "subcategory": "音楽",
       "balloon": "1号館 303教室",
-      "imgSrc": "wasedasai2016/icon/momusu.jpg",
+      "imgSrc": "wasedasai2016-test/icon/momusu.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-momusu-6",
+      "id": "wasedasai2016-test-momusu-6",
       "lat": 35.7071583333333,
       "lon": 139.721405555556,
       "name": "早稲田爆音2016 〜教室編 DAY2〜",
@@ -643,13 +643,13 @@
       "category": "ホビー",
       "subcategory": "音楽",
       "balloon": "1号館 303教室",
-      "imgSrc": "wasedasai2016/icon/momusu.jpg",
+      "imgSrc": "wasedasai2016-test/icon/momusu.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-waseuta",
+      "id": "wasedasai2016-test-waseuta",
       "lat": 35.70818586,
       "lon": 139.7206932,
       "name": "WASE-UTA",
@@ -661,49 +661,49 @@
       "category": "ホビー",
       "subcategory": "音楽",
       "balloon": "小野記念講堂 26号館",
-      "imgSrc": "wasedasai2016/icon/waseuta.jpg",
+      "imgSrc": "wasedasai2016-test/icon/waseuta.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-bakotu",
+      "id": "wasedasai2016-test-bakotu",
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "キミは『平沢進』を知っているか？",
       "label": "(4pt) どの平沢進ですか？",
       "description": "チロルチョコ等のお菓子無料配布の他、「平沢進」と聞いてピンと来る方も来ない方もきっと楽しめる企画を用意してお待ちしております。是非お立ち寄りください。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
-      "visibleTimeTo": "2016-11-05 17:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
+      "visibleTimeTo": "2016-10-05 17:00:00",
       "category": "メディア・出版",
       "subcategory": "出版",
       "balloon": "14号館 405教室",
-      "imgSrc": "wasedasai2016/icon/bakotu.jpg",
+      "imgSrc": "wasedasai2016-test/icon/bakotu.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-Walkin",
+      "id": "wasedasai2016-test-Walkin",
       "lat": 35.70997829,
       "lon": 139.7180915,
       "name": "大喜利カフェ",
       "label": "(4pt) プロのMC監修！",
       "description": "大喜利をするのが好きという方にも、見るのが好きという方にも、たまらない空間がここにある。2日限りの大喜利専門カフェが誕生！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
-      "visibleTimeTo": "2016-11-05 17:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
+      "visibleTimeTo": "2016-10-05 17:00:00",
       "category": "ホビー",
       "subcategory": "お笑い",
       "balloon": "16号館 303教室",
-      "imgSrc": "wasedasai2016/icon/Walkin.jpg",
+      "imgSrc": "wasedasai2016-test/icon/Walkin.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-Sky-Link",
+      "id": "wasedasai2016-test-Sky-Link",
       "lat": 35.7085278,
       "lon": 139.7187352,
       "name": "映画上映会",
@@ -715,13 +715,13 @@
       "category": "芸術・文化",
       "subcategory": "映像",
       "balloon": "10号館 208教室",
-      "imgSrc": "wasedasai2016/icon/Sky-Link.jpg",
+      "imgSrc": "wasedasai2016-test/icon/Sky-Link.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-photogra",
+      "id": "wasedasai2016-test-photogra",
       "lat": 35.70511706,
       "lon": 139.7177401,
       "name": "舞台写真展「Theatrical」",
@@ -733,31 +733,31 @@
       "category": "芸術・文化",
       "subcategory": "映像",
       "balloon": "33号館 1階スペース",
-      "imgSrc": "wasedasai2016/icon/photogra.jpg",
+      "imgSrc": "wasedasai2016-test/icon/photogra.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-sutawase-5",
+      "id": "wasedasai2016-test-sutawase-5",
       "lat": 35.70889369,
       "lon": 139.7190678,
       "name": "スタジオワセダ2016",
       "label": "(4pt) 憧れの団体と記念撮影",
       "description": "ステージで輝く憧れのパフォーマーと写真撮影しませんか？色あせない早稲田祭2016の思い出を、この１枚で！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 11:00:00",
-      "visibleTimeTo": "2016-11-05 17:00:00",
+      "visibleTimeFrom": "2016-10-05 11:00:00",
+      "visibleTimeTo": "2016-10-05 17:00:00",
       "category": "芸術・文化",
       "subcategory": "映像",
       "balloon": "11号館 1階階段下スペース",
-      "imgSrc": "wasedasai2016/icon/sutawase.jpg",
+      "imgSrc": "wasedasai2016-test/icon/sutawase.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-sutawase-6",
+      "id": "wasedasai2016-test-sutawase-6",
       "lat": 35.70889369,
       "lon": 139.7190678,
       "name": "スタジオワセダ2016",
@@ -769,49 +769,49 @@
       "category": "芸術・文化",
       "subcategory": "映像",
       "balloon": "11号館 1階階段下スペース",
-      "imgSrc": "wasedasai2016/icon/sutawase.jpg",
+      "imgSrc": "wasedasai2016-test/icon/sutawase.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-artken",
+      "id": "wasedasai2016-test-artken",
       "lat": 35.70511706,
       "lon": 139.7177401,
       "name": "美研展覧会",
       "label": "(4pt) 最大規模の美術展覧会",
       "description": "早稲田大学最大の美術系サークル「美術研究創作会」の展覧会です。作品数はなんと100点以上！手作りグッズの販売もあり！皆様のお越しをお待ちしています。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "芸術・文化",
       "subcategory": "芸術",
       "balloon": "33号館 437・438教室",
-      "imgSrc": "wasedasai2016/icon/artken.jpg",
+      "imgSrc": "wasedasai2016-test/icon/artken.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-kouken",
+      "id": "wasedasai2016-test-kouken",
       "lat": 35.7051416666667,
       "lon": 139.718261111111,
       "name": "考古学体験",
       "label": "(6pt) とっても簡単考古学！",
       "description": "早稲田祭の思い出に、あなただけの勾玉と泥面子（どろめんこ：江戸時代の玩具）を作ってみませんか？部員による丁寧な作り方の説明があるため、初めての方も安心です。",
       "markerColor": "yellow",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "芸術・文化",
       "subcategory": "芸術",
       "balloon": "11号館 506教室",
-      "imgSrc": "wasedasai2016/icon/kouken.jpg",
+      "imgSrc": "wasedasai2016-test/icon/kouken.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-supein",
+      "id": "wasedasai2016-test-supein",
       "lat": 35.70889369,
       "lon": 139.7190678,
       "name": "フラメンコに触れよう！",
@@ -823,67 +823,67 @@
       "category": "芸術・文化",
       "subcategory": "芸術",
       "balloon": "11号館 813教室",
-      "imgSrc": "wasedasai2016/icon/supein.jpg",
+      "imgSrc": "wasedasai2016-test/icon/supein.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-origami",
+      "id": "wasedasai2016-test-origami",
       "lat": 35.7099583333333,
       "lon": 139.718658333333,
       "name": "Origamism",
       "label": "(4pt) 折り紙作品目白押し",
       "description": "サークルメンバーが制作・創作した折り紙作品を展示いたします。見たことのない折り紙の世界をお楽しみください。芸術展にも出展しているのでそちらもチェック！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "芸術・文化",
       "subcategory": "芸術",
       "balloon": "16号館 307教室",
-      "imgSrc": "wasedasai2016/icon/origami.jpg",
+      "imgSrc": "wasedasai2016-test/icon/origami.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-wasebun2",
+      "id": "wasedasai2016-test-wasebun2",
       "lat": 35.71028758,
       "lon": 139.7186818,
       "name": "わせだ文庫(15号館)",
       "label": "(6pt) 出版物設置スペース",
       "description": "早稲田に数多く存在する出版サークルが大集結！今年こそ、読書の秋。みなさんを魅了する１冊にきっと出会えます。お気軽にお手に取ってください。",
       "markerColor": "yellow",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "メディア・出版",
       "subcategory": "出版",
       "balloon": "15号館 0階ラウンジ",
-      "imgSrc": "wasedasai2016/icon/wasebun.jpg",
+      "imgSrc": "wasedasai2016-test/icon/wasebun.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-wasebun3",
+      "id": "wasedasai2016-test-wasebun3",
       "lat": 35.70549168,
       "lon": 139.7171903,
       "name": "わせだ文庫(36号館)",
       "label": "(4pt) 出版物設置スペース",
       "description": "早稲田に数多く存在する出版サークルが大集結！今年こそ、読書の秋。みなさんを魅了する１冊にきっと出会えます。お気軽にお手に取ってください。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "メディア・出版",
       "subcategory": "出版",
       "balloon": "36号館 2階ラウンジ",
-      "imgSrc": "wasedasai2016/icon/wasebun.jpg",
+      "imgSrc": "wasedasai2016-test/icon/wasebun.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-wasedagardian",
+      "id": "wasedasai2016-test-wasedagardian",
       "lat": 35.70997829,
       "lon": 139.7180915,
       "name": "受験生相談会＆早稲田魂17初売り",
@@ -895,377 +895,377 @@
       "category": "学問",
       "subcategory": "受験相談",
       "balloon": "16号館 309教室",
-      "imgSrc": "wasedasai2016/icon/wasedagardian.jpg",
+      "imgSrc": "wasedasai2016-test/icon/wasedagardian.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-wasemon",
+      "id": "wasedasai2016-test-wasemon",
       "lat": 35.7085278,
       "lon": 139.7187352,
       "name": "ワセモンGO！",
       "label": "(4pt) 早大生の受験相談",
       "description": "みんなが知らない早稲田を紹介！受験、サークル、将来のこと、現役生が何でも答えます。ここに来ればあなたも進化すること間違いなし！？プレゼントも貰えるよ。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "学問",
       "subcategory": "受験相談",
       "balloon": "10号館 406教室",
-      "imgSrc": "wasedasai2016/icon/wasemon.jpg",
+      "imgSrc": "wasedasai2016-test/icon/wasemon.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-fmwaseda",
+      "id": "wasedasai2016-test-fmwaseda",
       "lat": 35.71028756,
       "lon": 139.7186816,
       "name": "早稲田祭 電波ジャック2016",
       "label": "(4pt) ラジオ公開収録",
       "description": "大学唯一の公認ラジオサークル・FMwasedaが、今年も皆さまにラジオの魅力をお届け！著名なゲストをお招きしての公開生放送はあなたの世界を広げます！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
-      "visibleTimeTo": "2016-11-05 16:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
+      "visibleTimeTo": "2016-10-05 16:00:00",
       "category": "メディア・出版",
       "subcategory": "マスメディア",
       "balloon": "15号館 03教室",
-      "imgSrc": "wasedasai2016/icon/fmwaseda.jpg",
+      "imgSrc": "wasedasai2016-test/icon/fmwaseda.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-T-team",
+      "id": "wasedasai2016-test-T-team",
       "lat": 35.70997829,
       "lon": 139.7180915,
       "name": "T-team 秋の課外授業",
       "label": "(4pt) 模擬授業と理科実験",
       "description": "ここを読んでるあなた、教育に興味があったりしませんか？ぜひT-teamに来てください！学校では受けられない楽しい授業や理科実験があなたを待っています！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
-      "visibleTimeTo": "2016-11-05 17:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
+      "visibleTimeTo": "2016-10-05 17:00:00",
       "category": "学問",
       "subcategory": "教育",
       "balloon": "16号館 405教室",
-      "imgSrc": "wasedasai2016/icon/T-team.jpg",
+      "imgSrc": "wasedasai2016-test/icon/T-team.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-waseiti",
+      "id": "wasedasai2016-test-waseiti",
       "lat": 35.70857571,
       "lon": 139.7197008,
       "name": "早稲田一受けたい授業",
       "label": "(4pt) 拘り抜いた模擬授業",
       "description": "日々研究を重ねる早大生が授業を行います！身近なテーマに合わせて行われる特別授業。みなさん、早稲田の学問をのぞいていきませんか？",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:30:00",
-      "visibleTimeTo": "2016-11-05 15:30:00",
+      "visibleTimeFrom": "2016-10-05 10:30:00",
+      "visibleTimeTo": "2016-10-05 15:30:00",
       "category": "学問",
       "subcategory": "教育",
       "balloon": "8号館 308教室",
-      "imgSrc": "wasedasai2016/icon/waseiti.jpg",
+      "imgSrc": "wasedasai2016-test/icon/waseiti.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-iwaizemi-5",
+      "id": "wasedasai2016-test-iwaizemi-5",
       "lat": 35.70974308,
       "lon": 139.7188157,
       "name": "アフリカゾウとの共生を実践するボランティア",
       "label": "(4pt) アフリカ雑貨販売",
       "description": "私達はWAVOCのエコミュニティ・タンザニアを進めています。アフリカゾウが村人の土地に入ってこないように、ワイヤーフェンスを設置する活動をしています。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "学問",
       "subcategory": "研究発表",
       "balloon": "14号館 516教室",
-      "imgSrc": "wasedasai2016/icon/iwaizemi.jpg",
+      "imgSrc": "wasedasai2016-test/icon/iwaizemi.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-kawakisizemi",
+      "id": "wasedasai2016-test-kawakisizemi",
       "lat": 35.7097421,
       "lon": 139.718606,
       "name": "幸福ヲ追求セヨ－政経生からの挑戦状－",
       "label": "(6pt) 憲法に関する展示",
       "description": "政治経済学部政治学科の異色の法律系ゼミ、それが川岸ゼミ。今回は憲法問題と川岸ゼミを身近に知ってほしい。14号館514教室であなたを待っている。",
       "markerColor": "yellow",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
-      "visibleTimeTo": "2016-11-05 17:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
+      "visibleTimeTo": "2016-10-05 17:00:00",
       "category": "学問",
       "subcategory": "研究発表",
       "balloon": "14号館 514教室",
-      "imgSrc": "wasedasai2016/icon/kawakisizemi.jpg",
+      "imgSrc": "wasedasai2016-test/icon/kawakisizemi.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-tiriken",
+      "id": "wasedasai2016-test-tiriken",
       "lat": 35.71000556,
       "lon": 139.7186444,
       "name": "豆・地・識 2016",
       "label": "(4pt) どんな町にも謎はある",
       "description": "早稲田から島原まで！ジオラマや模擬巡検の他、メンバーの活動域や地理的な写真を展示！さらにはクイズも？地理研がこれまでに見てきた地域を一緒に体験しよう！",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "学問",
       "subcategory": "研究発表",
       "balloon": "16号館 306教室",
-      "imgSrc": "wasedasai2016/icon/tiriken.jpg",
+      "imgSrc": "wasedasai2016-test/icon/tiriken.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-3gokan",
+      "id": "wasedasai2016-test-3gokan",
       "lat": 35.70935396,
       "lon": 139.71987784,
       "name": "3号館（休憩所）",
       "label": "(4pt) 過去を未来へ繋ぐ建物",
       "description": "1993年の竣工当時の情景を残した姿で、2014年に再建された3号館。グローバル人材育成を実現する次世代教育空間を目指し生まれたこの場所で、今なお、多くの早大生が日々勉学に励む。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "3号館",
-      "imgSrc": "wasedasai2016/icon/3gokan.jpg",
+      "imgSrc": "wasedasai2016-test/icon/3gokan.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-engekihakubutukann",
+      "id": "wasedasai2016-test-engekihakubutukann",
       "lat": 35.70992457,
       "lon": 139.71969545,
       "name": "坪内逍遥記念演劇博物館",
       "label": "(6pt) 演劇の宝庫",
       "description": "1928年の設立以来、内外古今の劇に関する資料を多く収集・整理・保管している。現在は、館蔵品をデジタル化し、文化資材の共有を推進している。",
       "markerColor": "yellow",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "坪内逍遥記念演劇博物館",
-      "imgSrc": "wasedasai2016/icon/engeki.jpg",
+      "imgSrc": "wasedasai2016-test/icon/engeki.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-14noe",
+      "id": "wasedasai2016-test-14noe",
       "lat": 35.70982874,
       "lon": 139.71868694,
       "name": "藪野健『集り散じて』",
       "label": "(6pt) 理想の光に集う人々",
       "description": "藪野健氏の作品。早稲田大学創立125周年記念絵画として創作された。校歌の1節である「集り散じて、人は変れど」を見事に体現している早稲田キャンパスを描いた。",
       "markerColor": "yellow",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "『集り散じて』",
-      "imgSrc": "wasedasai2016/icon/14noe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/14noe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-11noe",
+      "id": "wasedasai2016-test-11noe",
       "lat": 35.70924942,
       "lon": 139.71904099,
       "name": "藪野健『思えばここに立つ日、全てが始まる』",
       "label": "(4pt) 心に染みる傑作",
       "description": "藪野健氏の作品。2009年竣工の11号館に藪野健氏に寄贈いただいた。1975年以来、時代を跨いで数多くの賞を受賞し、さまざまな場所に展示されてきた。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "『思えばここに立つ日、全てが始まる』",
-      "imgSrc": "wasedasai2016/icon/11noe.jpg",
+      "imgSrc": "wasedasai2016-test/icon/11noe.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-sekiyunokannbann",
+      "id": "wasedasai2016-test-sekiyunokannbann",
       "lat": 35.70971694,
       "lon": 139.71919388,
       "name": "石油・天然ガス井掘削用ピット",
       "label": "(4pt) 過去を想起する遺産",
       "description": "勇払油ガス田（北海道）の沼ノ瑞SK-60号井の掘削に使用した掘削用ピット。ここに設置されているのは実際に使用された40個の内の3つです。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "石油・天然ガス井掘削用ピット",
-      "imgSrc": "wasedasai2016/icon/sekiyuno.jpg",
+      "imgSrc": "wasedasai2016-test/icon/sekiyuno.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-takadasanaezou",
+      "id": "wasedasai2016-test-takadasanaezou",
       "lat": 35.70887844,
       "lon": 139.71972495,
       "name": "高田早苗全身像",
       "label": "(4pt) 早稲田大学初代総長",
       "description": "早稲田大学の初代総長である高田早苗先生の全身像。彫刻家朝倉文夫氏の作品であり、1932年に創立50周年として校友会により建立された。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "高田早苗全身像",
-      "imgSrc": "wasedasai2016/icon/takadasanaezou.jpg",
+      "imgSrc": "wasedasai2016-test/icon/takadasanaezou.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-tuboutisyouyouzou",
+      "id": "wasedasai2016-test-tuboutisyouyouzou",
       "lat": 35.70976486,
       "lon": 139.7194621,
       "name": "坪内逍遥銅像",
       "label": "(4pt) 早稲田の四尊が1人",
       "description": "日本近代文学の先駆者・開拓者である坪内逍遥の銅像。現在も刊行されている文芸誌『早稲田文学』の創刊者でもある。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "坪内逍遥銅像",
-      "imgSrc": "wasedasai2016/icon/tuboutisyouyouzou.jpg",
+      "imgSrc": "wasedasai2016-test/icon/tuboutisyouyouzou.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-33goukanrelihu1",
+      "id": "wasedasai2016-test-33goukanrelihu1",
       "lat": 35.70510181,
       "lon": 139.71772403,
       "name": "辻晉堂『陶壁　三点-2』",
       "label": "(4pt) 彫刻の立役者",
       "description": "彫刻家辻晉堂氏の作品。初期はモデルを使用した作品を創作していたが、次第に抽象的な作品が多くなっていく。",
       "markerColor": "red",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "33号館 1階",
-      "imgSrc": "wasedasai2016/icon/33goukanrelihu1.jpg",
+      "imgSrc": "wasedasai2016-test/icon/33goukanrelihu1.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-33goukanrelihu2",
+      "id": "wasedasai2016-test-33goukanrelihu2",
       "lat": 35.70498202,
       "lon": 139.71818536,
       "name": "辻晉堂『胸壁』",
       "label": "(6pt) 現代彫刻界の祖",
       "description": "彫刻家辻晉堂氏の作品。当初は木工を扱っていたが、次第に彫刻に興味が移り、石膏、ブロンズ、鉄など様々の素材と触れ合い、素描、木版画、石版画なども楽しんだ。",
       "markerColor": "yellow",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "32号館前",
-      "imgSrc": "wasedasai2016/icon/33goukanrelihu2.jpg",
+      "imgSrc": "wasedasai2016-test/icon/33goukanrelihu2.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-onokinennkoudou",
+      "id": "wasedasai2016-test-onokinennkoudou",
       "lat": 35.7081619,
       "lon": 139.7208113,
       "name": "小野梓銅像",
       "label": "(6pt) 建学の母",
       "description": "早稲田大学の母とも呼ばれる小野梓の銅像。友人である大隈重信を助け、東京専門学校（現在の早稲田大学）創立の中心人物となる。",
       "markerColor": "yellow",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "早稲田",
       "subcategory": "文化",
       "balloon": "小野梓銅像",
-      "imgSrc": "wasedasai2016/icon/onokinennkoudou.jpg",
+      "imgSrc": "wasedasai2016-test/icon/onokinennkoudou.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-wasenabi1",
+      "id": "wasedasai2016-test-wasenabi1",
       "lat": 35.70980624,
       "lon": 139.7192958,
       "name": "景品交換スポット（坪内逍遥記念演劇博物館）",
       "label": "(0点) 30ptたまったら、ここでチェックイン！",
       "description": "ここで景品と交換できます。みんな！30ptためてカモン！",
       "markerColor": "green",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "ワセナビ受付ブース",
       "subcategory": "坪内逍遥記念演劇博物館",
       "balloon": "坪内逍遥記念演劇博物館",
-      "imgSrc": "wasedasai2016/icon/wasenabi.jpg",
+      "imgSrc": "wasedasai2016-test/icon/wasenabi.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-wasenabi2",
+      "id": "wasedasai2016-test-wasenabi2",
       "lat": 35.70956304,
       "lon": 139.71858636,
       "name": "景品交換スポット（14号館2階）",
       "label": "(0点) 30ptたまったら、ここでチェックイン！",
       "description": "ここで景品と交換できます。みんな！30ptためてカモン！",
       "markerColor": "green",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "ワセナビ受付ブース",
       "subcategory": "14号館",
       "balloon": "14号館2階",
-      "imgSrc": "wasedasai2016/icon/wasenabi.jpg",
+      "imgSrc": "wasedasai2016-test/icon/wasenabi.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     },
     {
-      "id": "wasedasai2016-wasenabi3",
+      "id": "wasedasai2016-test-wasenabi3",
       "lat": 35.70606232,
       "lon": 139.71831143,
       "name": "景品交換スポット（戸山キャンパス正門付近）",
       "label": "(0点) 30ptたまったら、ここでチェックイン！",
       "description": "ここで景品と交換できます。みんな！30ptためてカモン！",
       "markerColor": "green",
-      "visibleTimeFrom": "2016-11-05 10:00:00",
+      "visibleTimeFrom": "2016-10-05 10:00:00",
       "visibleTimeTo": "2016-11-06 17:00:00",
       "category": "ワセナビ受付ブース",
       "subcategory": "戸山キャンパス正門付近",
       "balloon": "戸山キャンパス正門付近",
-      "imgSrc": "wasedasai2016/icon/wasenabi.jpg",
+      "imgSrc": "wasedasai2016-test/icon/wasenabi.jpg",
       "checkpointGroupIds": [
-        "wasedasai2016"
+        "wasedasai2016-test"
       ]
     }
   ],
   "tasks": [
     {
-      "id": "wasedasai2016-stomp-pin",
+      "id": "wasedasai2016-test-stomp-pin",
       "checkpoint_ids": [
-        "wasedasai2016-stomp"
+        "wasedasai2016-test-stomp"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1278,9 +1278,9 @@
       }
     },
     {
-      "id": "wasedasai2016-pianonokai-pin",
+      "id": "wasedasai2016-test-pianonokai-pin",
       "checkpoint_ids": [
-        "wasedasai2016-pianonokai"
+        "wasedasai2016-test-pianonokai"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1293,9 +1293,9 @@
       }
     },
     {
-      "id": "wasedasai2016-theterdance-pin",
+      "id": "wasedasai2016-test-theterdance-pin",
       "checkpoint_ids": [
-        "wasedasai2016-theterdance"
+        "wasedasai2016-test-theterdance"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1308,9 +1308,9 @@
       }
     },
     {
-      "id": "wasedasai2016-ijiman-pin",
+      "id": "wasedasai2016-test-ijiman-pin",
       "checkpoint_ids": [
-        "wasedasai2016-ijiman"
+        "wasedasai2016-test-ijiman"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1323,9 +1323,9 @@
       }
     },
     {
-      "id": "wasedasai2016-hawai-pin",
+      "id": "wasedasai2016-test-hawai-pin",
       "checkpoint_ids": [
-        "wasedasai2016-hawai"
+        "wasedasai2016-test-hawai"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1338,9 +1338,9 @@
       }
     },
     {
-      "id": "wasedasai2016-mitudomoe-pin",
+      "id": "wasedasai2016-test-mitudomoe-pin",
       "checkpoint_ids": [
-        "wasedasai2016-mitudomoe"
+        "wasedasai2016-test-mitudomoe"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1353,9 +1353,9 @@
       }
     },
     {
-      "id": "wasedasai2016-artas-pin",
+      "id": "wasedasai2016-test-artas-pin",
       "checkpoint_ids": [
-        "wasedasai2016-artas"
+        "wasedasai2016-test-artas"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1368,9 +1368,9 @@
       }
     },
     {
-      "id": "wasedasai2016-himawari-pin",
+      "id": "wasedasai2016-test-himawari-pin",
       "checkpoint_ids": [
-        "wasedasai2016-himawari"
+        "wasedasai2016-test-himawari"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1383,9 +1383,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasedatti-pin",
+      "id": "wasedasai2016-test-wasedatti-pin",
       "checkpoint_ids": [
-        "wasedasai2016-wasedatti"
+        "wasedasai2016-test-wasedatti"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1398,9 +1398,9 @@
       }
     },
     {
-      "id": "wasedasai2016-salsa-pin",
+      "id": "wasedasai2016-test-salsa-pin",
       "checkpoint_ids": [
-        "wasedasai2016-salsa"
+        "wasedasai2016-test-salsa"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1413,9 +1413,9 @@
       }
     },
     {
-      "id": "wasedasai2016-viorila-pin",
+      "id": "wasedasai2016-test-viorila-pin",
       "checkpoint_ids": [
-        "wasedasai2016-viorila"
+        "wasedasai2016-test-viorila"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1428,9 +1428,9 @@
       }
     },
     {
-      "id": "wasedasai2016-ciel-pin",
+      "id": "wasedasai2016-test-ciel-pin",
       "checkpoint_ids": [
-        "wasedasai2016-ciel"
+        "wasedasai2016-test-ciel"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1443,9 +1443,9 @@
       }
     },
     {
-      "id": "wasedasai2016-bannkara-pin",
+      "id": "wasedasai2016-test-bannkara-pin",
       "checkpoint_ids": [
-        "wasedasai2016-bannkara"
+        "wasedasai2016-test-bannkara"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1458,9 +1458,9 @@
       }
     },
     {
-      "id": "wasedasai2016-genesis-pin",
+      "id": "wasedasai2016-test-genesis-pin",
       "checkpoint_ids": [
-        "wasedasai2016-genesis"
+        "wasedasai2016-test-genesis"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1473,9 +1473,9 @@
       }
     },
     {
-      "id": "wasedasai2016-oasis-pin",
+      "id": "wasedasai2016-test-oasis-pin",
       "checkpoint_ids": [
-        "wasedasai2016-oasis"
+        "wasedasai2016-test-oasis"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1488,9 +1488,9 @@
       }
     },
     {
-      "id": "wasedasai2016-kyougidance-pin",
+      "id": "wasedasai2016-test-kyougidance-pin",
       "checkpoint_ids": [
-        "wasedasai2016-kyougidance"
+        "wasedasai2016-test-kyougidance"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1503,9 +1503,9 @@
       }
     },
     {
-      "id": "wasedasai2016-supodama-pin",
+      "id": "wasedasai2016-test-supodama-pin",
       "checkpoint_ids": [
-        "wasedasai2016-supodama"
+        "wasedasai2016-test-supodama"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1518,9 +1518,9 @@
       }
     },
     {
-      "id": "wasedasai2016-parado-pin",
+      "id": "wasedasai2016-test-parado-pin",
       "checkpoint_ids": [
-        "wasedasai2016-parado"
+        "wasedasai2016-test-parado"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1533,9 +1533,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasetalk-pin",
+      "id": "wasedasai2016-test-wasetalk-pin",
       "checkpoint_ids": [
-        "wasedasai2016-wasetalk"
+        "wasedasai2016-test-wasetalk"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1548,9 +1548,9 @@
       }
     },
     {
-      "id": "wasedasai2016-kenmin-pin",
+      "id": "wasedasai2016-test-kenmin-pin",
       "checkpoint_ids": [
-        "wasedasai2016-kenmin"
+        "wasedasai2016-test-kenmin"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1563,9 +1563,9 @@
       }
     },
     {
-      "id": "wasedasai2016-pool-pin",
+      "id": "wasedasai2016-test-pool-pin",
       "checkpoint_ids": [
-        "wasedasai2016-pool"
+        "wasedasai2016-test-pool"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1578,9 +1578,9 @@
       }
     },
     {
-      "id": "wasedasai2016-doramakan-5-pin",
+      "id": "wasedasai2016-test-doramakan-5-pin",
       "checkpoint_ids": [
-        "wasedasai2016-doramakan-5"
+        "wasedasai2016-test-doramakan-5"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1593,9 +1593,9 @@
       }
     },
     {
-      "id": "wasedasai2016-doramakan-6-pin",
+      "id": "wasedasai2016-test-doramakan-6-pin",
       "checkpoint_ids": [
-        "wasedasai2016-doramakan-6"
+        "wasedasai2016-test-doramakan-6"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1608,9 +1608,9 @@
       }
     },
     {
-      "id": "wasedasai2016-waseuta-pin",
+      "id": "wasedasai2016-test-waseuta-pin",
       "checkpoint_ids": [
-        "wasedasai2016-waseuta"
+        "wasedasai2016-test-waseuta"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1623,9 +1623,9 @@
       }
     },
     {
-      "id": "wasedasai2016-swingjazz-pin",
+      "id": "wasedasai2016-test-swingjazz-pin",
       "checkpoint_ids": [
-        "wasedasai2016-swingjazz"
+        "wasedasai2016-test-swingjazz"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1638,9 +1638,9 @@
       }
     },
     {
-      "id": "wasedasai2016-tenngokugakudann-pin",
+      "id": "wasedasai2016-test-tenngokugakudann-pin",
       "checkpoint_ids": [
-        "wasedasai2016-tenngokugakudann"
+        "wasedasai2016-test-tenngokugakudann"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1653,9 +1653,9 @@
       }
     },
     {
-      "id": "wasedasai2016-chotokakao-pin",
+      "id": "wasedasai2016-test-chotokakao-pin",
       "checkpoint_ids": [
-        "wasedasai2016-chotokakao"
+        "wasedasai2016-test-chotokakao"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1668,9 +1668,9 @@
       }
     },
     {
-      "id": "wasedasai2016-sakigakehibiki-pin",
+      "id": "wasedasai2016-test-sakigakehibiki-pin",
       "checkpoint_ids": [
-        "wasedasai2016-sakigakehibiki"
+        "wasedasai2016-test-sakigakehibiki"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1683,9 +1683,9 @@
       }
     },
     {
-      "id": "wasedasai2016-ShandyGaff-5-pin",
+      "id": "wasedasai2016-test-ShandyGaff-5-pin",
       "checkpoint_ids": [
-        "wasedasai2016-ShandyGaff-5"
+        "wasedasai2016-test-ShandyGaff-5"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1698,9 +1698,9 @@
       }
     },
     {
-      "id": "wasedasai2016-ShandyGaff-6-pin",
+      "id": "wasedasai2016-test-ShandyGaff-6-pin",
       "checkpoint_ids": [
-        "wasedasai2016-ShandyGaff-6"
+        "wasedasai2016-test-ShandyGaff-6"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1713,9 +1713,9 @@
       }
     },
     {
-      "id": "wasedasai2016-quizken-pin",
+      "id": "wasedasai2016-test-quizken-pin",
       "checkpoint_ids": [
-        "wasedasai2016-quizken"
+        "wasedasai2016-test-quizken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1728,9 +1728,9 @@
       }
     },
     {
-      "id": "wasedasai2016-tenpoint-pin",
+      "id": "wasedasai2016-test-tenpoint-pin",
       "checkpoint_ids": [
-        "wasedasai2016-tenpoint"
+        "wasedasai2016-test-tenpoint"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1743,9 +1743,9 @@
       }
     },
     {
-      "id": "wasedasai2016-Floorball-pin",
+      "id": "wasedasai2016-test-Floorball-pin",
       "checkpoint_ids": [
-        "wasedasai2016-Floorball"
+        "wasedasai2016-test-Floorball"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1758,9 +1758,9 @@
       }
     },
     {
-      "id": "wasedasai2016-manken-pin",
+      "id": "wasedasai2016-test-manken-pin",
       "checkpoint_ids": [
-        "wasedasai2016-manken"
+        "wasedasai2016-test-manken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1773,9 +1773,9 @@
       }
     },
     {
-      "id": "wasedasai2016-doraemon-pin",
+      "id": "wasedasai2016-test-doraemon-pin",
       "checkpoint_ids": [
-        "wasedasai2016-doraemon"
+        "wasedasai2016-test-doraemon"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1788,9 +1788,9 @@
       }
     },
     {
-      "id": "wasedasai2016-momusu-5-pin",
+      "id": "wasedasai2016-test-momusu-5-pin",
       "checkpoint_ids": [
-        "wasedasai2016-momusu-5"
+        "wasedasai2016-test-momusu-5"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1803,9 +1803,9 @@
       }
     },
     {
-      "id": "wasedasai2016-momusu-6-pin",
+      "id": "wasedasai2016-test-momusu-6-pin",
       "checkpoint_ids": [
-        "wasedasai2016-momusu-6"
+        "wasedasai2016-test-momusu-6"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1818,9 +1818,9 @@
       }
     },
     {
-      "id": "wasedasai2016-bakotu-pin",
+      "id": "wasedasai2016-test-bakotu-pin",
       "checkpoint_ids": [
-        "wasedasai2016-bakotu"
+        "wasedasai2016-test-bakotu"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1833,9 +1833,9 @@
       }
     },
     {
-      "id": "wasedasai2016-Walkin-pin",
+      "id": "wasedasai2016-test-Walkin-pin",
       "checkpoint_ids": [
-        "wasedasai2016-Walkin"
+        "wasedasai2016-test-Walkin"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1848,9 +1848,9 @@
       }
     },
     {
-      "id": "wasedasai2016-Sky-Link-pin",
+      "id": "wasedasai2016-test-Sky-Link-pin",
       "checkpoint_ids": [
-        "wasedasai2016-Sky-Link"
+        "wasedasai2016-test-Sky-Link"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1863,9 +1863,9 @@
       }
     },
     {
-      "id": "wasedasai2016-photogra-pin",
+      "id": "wasedasai2016-test-photogra-pin",
       "checkpoint_ids": [
-        "wasedasai2016-photogra"
+        "wasedasai2016-test-photogra"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1878,9 +1878,9 @@
       }
     },
     {
-      "id": "wasedasai2016-sutawase-5-pin",
+      "id": "wasedasai2016-test-sutawase-5-pin",
       "checkpoint_ids": [
-        "wasedasai2016-sutawase-5"
+        "wasedasai2016-test-sutawase-5"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1893,9 +1893,9 @@
       }
     },
     {
-      "id": "wasedasai2016-sutawase-6-pin",
+      "id": "wasedasai2016-test-sutawase-6-pin",
       "checkpoint_ids": [
-        "wasedasai2016-sutawase-6"
+        "wasedasai2016-test-sutawase-6"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1908,9 +1908,9 @@
       }
     },
     {
-      "id": "wasedasai2016-artken-pin",
+      "id": "wasedasai2016-test-artken-pin",
       "checkpoint_ids": [
-        "wasedasai2016-artken"
+        "wasedasai2016-test-artken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1923,9 +1923,9 @@
       }
     },
     {
-      "id": "wasedasai2016-kouken-pin",
+      "id": "wasedasai2016-test-kouken-pin",
       "checkpoint_ids": [
-        "wasedasai2016-kouken"
+        "wasedasai2016-test-kouken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1938,9 +1938,9 @@
       }
     },
     {
-      "id": "wasedasai2016-supein-pin",
+      "id": "wasedasai2016-test-supein-pin",
       "checkpoint_ids": [
-        "wasedasai2016-supein"
+        "wasedasai2016-test-supein"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1953,9 +1953,9 @@
       }
     },
     {
-      "id": "wasedasai2016-origami-pin",
+      "id": "wasedasai2016-test-origami-pin",
       "checkpoint_ids": [
-        "wasedasai2016-origami"
+        "wasedasai2016-test-origami"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1968,9 +1968,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasebun2-pin",
+      "id": "wasedasai2016-test-wasebun2-pin",
       "checkpoint_ids": [
-        "wasedasai2016-wasebun2"
+        "wasedasai2016-test-wasebun2"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1983,9 +1983,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasebun3-pin",
+      "id": "wasedasai2016-test-wasebun3-pin",
       "checkpoint_ids": [
-        "wasedasai2016-wasebun3"
+        "wasedasai2016-test-wasebun3"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -1998,9 +1998,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasedagardian-pin",
+      "id": "wasedasai2016-test-wasedagardian-pin",
       "checkpoint_ids": [
-        "wasedasai2016-wasedagardian"
+        "wasedasai2016-test-wasedagardian"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2013,9 +2013,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasemon-pin",
+      "id": "wasedasai2016-test-wasemon-pin",
       "checkpoint_ids": [
-        "wasedasai2016-wasemon"
+        "wasedasai2016-test-wasemon"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2028,9 +2028,9 @@
       }
     },
     {
-      "id": "wasedasai2016-fmwaseda-pin",
+      "id": "wasedasai2016-test-fmwaseda-pin",
       "checkpoint_ids": [
-        "wasedasai2016-fmwaseda"
+        "wasedasai2016-test-fmwaseda"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2043,9 +2043,9 @@
       }
     },
     {
-      "id": "wasedasai2016-T-team-pin",
+      "id": "wasedasai2016-test-T-team-pin",
       "checkpoint_ids": [
-        "wasedasai2016-T-team"
+        "wasedasai2016-test-T-team"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2058,9 +2058,9 @@
       }
     },
     {
-      "id": "wasedasai2016-waseiti-pin",
+      "id": "wasedasai2016-test-waseiti-pin",
       "checkpoint_ids": [
-        "wasedasai2016-waseiti"
+        "wasedasai2016-test-waseiti"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2073,9 +2073,9 @@
       }
     },
     {
-      "id": "wasedasai2016-iwaizemi-5-pin",
+      "id": "wasedasai2016-test-iwaizemi-5-pin",
       "checkpoint_ids": [
-        "wasedasai2016-iwaizemi-5"
+        "wasedasai2016-test-iwaizemi-5"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2088,9 +2088,9 @@
       }
     },
     {
-      "id": "wasedasai2016-kawakisizemi-pin",
+      "id": "wasedasai2016-test-kawakisizemi-pin",
       "checkpoint_ids": [
-        "wasedasai2016-kawakisizemi"
+        "wasedasai2016-test-kawakisizemi"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2103,9 +2103,9 @@
       }
     },
     {
-      "id": "wasedasai2016-tiriken-pin",
+      "id": "wasedasai2016-test-tiriken-pin",
       "checkpoint_ids": [
-        "wasedasai2016-tiriken"
+        "wasedasai2016-test-tiriken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2118,9 +2118,9 @@
       }
     },
     {
-      "id": "wasedasai2016-3gokan-pin",
+      "id": "wasedasai2016-test-3gokan-pin",
       "checkpoint_ids": [
-        "wasedasai2016-3gokan"
+        "wasedasai2016-test-3gokan"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2133,9 +2133,9 @@
       }
     },
     {
-      "id": "wasedasai2016-engekihakubutukann-pin",
+      "id": "wasedasai2016-test-engekihakubutukann-pin",
       "checkpoint_ids": [
-        "wasedasai2016-engekihakubutukann"
+        "wasedasai2016-test-engekihakubutukann"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2148,9 +2148,9 @@
       }
     },
     {
-      "id": "wasedasai2016-14noe-pin",
+      "id": "wasedasai2016-test-14noe-pin",
       "checkpoint_ids": [
-        "wasedasai2016-14noe"
+        "wasedasai2016-test-14noe"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2163,9 +2163,9 @@
       }
     },
     {
-      "id": "wasedasai2016-11noe-pin",
+      "id": "wasedasai2016-test-11noe-pin",
       "checkpoint_ids": [
-        "wasedasai2016-11noe"
+        "wasedasai2016-test-11noe"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2178,9 +2178,9 @@
       }
     },
     {
-      "id": "wasedasai2016-sekiyunokannbann-pin",
+      "id": "wasedasai2016-test-sekiyunokannbann-pin",
       "checkpoint_ids": [
-        "wasedasai2016-sekiyunokannbann"
+        "wasedasai2016-test-sekiyunokannbann"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2193,9 +2193,9 @@
       }
     },
     {
-      "id": "wasedasai2016-takadasanaezou-pin",
+      "id": "wasedasai2016-test-takadasanaezou-pin",
       "checkpoint_ids": [
-        "wasedasai2016-takadasanaezou"
+        "wasedasai2016-test-takadasanaezou"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2208,9 +2208,9 @@
       }
     },
     {
-      "id": "wasedasai2016-tuboutisyouyouzou-pin",
+      "id": "wasedasai2016-test-tuboutisyouyouzou-pin",
       "checkpoint_ids": [
-        "wasedasai2016-tuboutisyouyouzou"
+        "wasedasai2016-test-tuboutisyouyouzou"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2223,9 +2223,9 @@
       }
     },
     {
-      "id": "wasedasai2016-33goukanrelihu1-pin",
+      "id": "wasedasai2016-test-33goukanrelihu1-pin",
       "checkpoint_ids": [
-        "wasedasai2016-33goukanrelihu1"
+        "wasedasai2016-test-33goukanrelihu1"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2238,9 +2238,9 @@
       }
     },
     {
-      "id": "wasedasai2016-33goukanrelihu2-pin",
+      "id": "wasedasai2016-test-33goukanrelihu2-pin",
       "checkpoint_ids": [
-        "wasedasai2016-33goukanrelihu2"
+        "wasedasai2016-test-33goukanrelihu2"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2253,9 +2253,9 @@
       }
     },
     {
-      "id": "wasedasai2016-onokinennkoudou-pin",
+      "id": "wasedasai2016-test-onokinennkoudou-pin",
       "checkpoint_ids": [
-        "wasedasai2016-onokinennkoudou"
+        "wasedasai2016-test-onokinennkoudou"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2268,9 +2268,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasenabi1-pin",
+      "id": "wasedasai2016-test-wasenabi1-pin",
       "checkpoint_ids": [
-        "wasedasai2016-wasenabi1"
+        "wasedasai2016-test-wasenabi1"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2283,9 +2283,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasenabi2-pin",
+      "id": "wasedasai2016-test-wasenabi2-pin",
       "checkpoint_ids": [
-        "wasedasai2016-wasenabi2"
+        "wasedasai2016-test-wasenabi2"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2298,9 +2298,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasenabi3-pin",
+      "id": "wasedasai2016-test-wasenabi3-pin",
       "checkpoint_ids": [
-        "wasedasai2016-wasenabi3"
+        "wasedasai2016-test-wasenabi3"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.PinTask",
@@ -2313,9 +2313,9 @@
       }
     },
     {
-      "id": "wasedasai2016-stomp-selection",
+      "id": "wasedasai2016-test-stomp-selection",
       "checkpoint_ids": [
-        "wasedasai2016-stomp"
+        "wasedasai2016-test-stomp"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2336,9 +2336,9 @@
       }
     },
     {
-      "id": "wasedasai2016-pianonokai-selection",
+      "id": "wasedasai2016-test-pianonokai-selection",
       "checkpoint_ids": [
-        "wasedasai2016-pianonokai"
+        "wasedasai2016-test-pianonokai"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2359,9 +2359,9 @@
       }
     },
     {
-      "id": "wasedasai2016-theterdance-selection",
+      "id": "wasedasai2016-test-theterdance-selection",
       "checkpoint_ids": [
-        "wasedasai2016-theterdance"
+        "wasedasai2016-test-theterdance"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2382,9 +2382,9 @@
       }
     },
     {
-      "id": "wasedasai2016-ijiman-selection",
+      "id": "wasedasai2016-test-ijiman-selection",
       "checkpoint_ids": [
-        "wasedasai2016-ijiman"
+        "wasedasai2016-test-ijiman"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2405,9 +2405,9 @@
       }
     },
     {
-      "id": "wasedasai2016-hawai-selection",
+      "id": "wasedasai2016-test-hawai-selection",
       "checkpoint_ids": [
-        "wasedasai2016-hawai"
+        "wasedasai2016-test-hawai"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2428,9 +2428,9 @@
       }
     },
     {
-      "id": "wasedasai2016-mitudomoe-selection",
+      "id": "wasedasai2016-test-mitudomoe-selection",
       "checkpoint_ids": [
-        "wasedasai2016-mitudomoe"
+        "wasedasai2016-test-mitudomoe"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2451,9 +2451,9 @@
       }
     },
     {
-      "id": "wasedasai2016-artas-selection",
+      "id": "wasedasai2016-test-artas-selection",
       "checkpoint_ids": [
-        "wasedasai2016-artas"
+        "wasedasai2016-test-artas"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2474,9 +2474,9 @@
       }
     },
     {
-      "id": "wasedasai2016-himawari-selection",
+      "id": "wasedasai2016-test-himawari-selection",
       "checkpoint_ids": [
-        "wasedasai2016-himawari"
+        "wasedasai2016-test-himawari"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2497,9 +2497,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasedatti-selection",
+      "id": "wasedasai2016-test-wasedatti-selection",
       "checkpoint_ids": [
-        "wasedasai2016-wasedatti"
+        "wasedasai2016-test-wasedatti"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2520,9 +2520,9 @@
       }
     },
     {
-      "id": "wasedasai2016-salsa-selection",
+      "id": "wasedasai2016-test-salsa-selection",
       "checkpoint_ids": [
-        "wasedasai2016-salsa"
+        "wasedasai2016-test-salsa"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2543,9 +2543,9 @@
       }
     },
     {
-      "id": "wasedasai2016-viorila-selection",
+      "id": "wasedasai2016-test-viorila-selection",
       "checkpoint_ids": [
-        "wasedasai2016-viorila"
+        "wasedasai2016-test-viorila"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2566,9 +2566,9 @@
       }
     },
     {
-      "id": "wasedasai2016-ciel-selection",
+      "id": "wasedasai2016-test-ciel-selection",
       "checkpoint_ids": [
-        "wasedasai2016-ciel"
+        "wasedasai2016-test-ciel"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2589,9 +2589,9 @@
       }
     },
     {
-      "id": "wasedasai2016-bannkara-selection",
+      "id": "wasedasai2016-test-bannkara-selection",
       "checkpoint_ids": [
-        "wasedasai2016-bannkara"
+        "wasedasai2016-test-bannkara"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2612,9 +2612,9 @@
       }
     },
     {
-      "id": "wasedasai2016-genesis-selection",
+      "id": "wasedasai2016-test-genesis-selection",
       "checkpoint_ids": [
-        "wasedasai2016-genesis"
+        "wasedasai2016-test-genesis"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2635,9 +2635,9 @@
       }
     },
     {
-      "id": "wasedasai2016-oasis-selection",
+      "id": "wasedasai2016-test-oasis-selection",
       "checkpoint_ids": [
-        "wasedasai2016-oasis"
+        "wasedasai2016-test-oasis"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2658,9 +2658,9 @@
       }
     },
     {
-      "id": "wasedasai2016-kyougidance-selection",
+      "id": "wasedasai2016-test-kyougidance-selection",
       "checkpoint_ids": [
-        "wasedasai2016-kyougidance"
+        "wasedasai2016-test-kyougidance"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2681,9 +2681,9 @@
       }
     },
     {
-      "id": "wasedasai2016-supodama-selection",
+      "id": "wasedasai2016-test-supodama-selection",
       "checkpoint_ids": [
-        "wasedasai2016-supodama"
+        "wasedasai2016-test-supodama"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2704,9 +2704,9 @@
       }
     },
     {
-      "id": "wasedasai2016-parado-selection",
+      "id": "wasedasai2016-test-parado-selection",
       "checkpoint_ids": [
-        "wasedasai2016-parado"
+        "wasedasai2016-test-parado"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2727,9 +2727,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasetalk-selection",
+      "id": "wasedasai2016-test-wasetalk-selection",
       "checkpoint_ids": [
-        "wasedasai2016-wasetalk"
+        "wasedasai2016-test-wasetalk"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2750,9 +2750,9 @@
       }
     },
     {
-      "id": "wasedasai2016-kenmin-selection",
+      "id": "wasedasai2016-test-kenmin-selection",
       "checkpoint_ids": [
-        "wasedasai2016-kenmin"
+        "wasedasai2016-test-kenmin"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2773,9 +2773,9 @@
       }
     },
     {
-      "id": "wasedasai2016-pool-selection",
+      "id": "wasedasai2016-test-pool-selection",
       "checkpoint_ids": [
-        "wasedasai2016-pool"
+        "wasedasai2016-test-pool"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2796,9 +2796,9 @@
       }
     },
     {
-      "id": "wasedasai2016-doramakan-5-selection",
+      "id": "wasedasai2016-test-doramakan-5-selection",
       "checkpoint_ids": [
-        "wasedasai2016-doramakan-5"
+        "wasedasai2016-test-doramakan-5"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2819,9 +2819,9 @@
       }
     },
     {
-      "id": "wasedasai2016-doramakan-6-selection",
+      "id": "wasedasai2016-test-doramakan-6-selection",
       "checkpoint_ids": [
-        "wasedasai2016-doramakan-6"
+        "wasedasai2016-test-doramakan-6"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2842,9 +2842,9 @@
       }
     },
     {
-      "id": "wasedasai2016-swingjazz-selection",
+      "id": "wasedasai2016-test-swingjazz-selection",
       "checkpoint_ids": [
-        "wasedasai2016-swingjazz"
+        "wasedasai2016-test-swingjazz"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2865,9 +2865,9 @@
       }
     },
     {
-      "id": "wasedasai2016-tenngokugakudann-selection",
+      "id": "wasedasai2016-test-tenngokugakudann-selection",
       "checkpoint_ids": [
-        "wasedasai2016-tenngokugakudann"
+        "wasedasai2016-test-tenngokugakudann"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2888,9 +2888,9 @@
       }
     },
     {
-      "id": "wasedasai2016-chotokakao-selection",
+      "id": "wasedasai2016-test-chotokakao-selection",
       "checkpoint_ids": [
-        "wasedasai2016-chotokakao"
+        "wasedasai2016-test-chotokakao"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2911,9 +2911,9 @@
       }
     },
     {
-      "id": "wasedasai2016-sakigakehibiki-selection",
+      "id": "wasedasai2016-test-sakigakehibiki-selection",
       "checkpoint_ids": [
-        "wasedasai2016-sakigakehibiki"
+        "wasedasai2016-test-sakigakehibiki"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2934,9 +2934,9 @@
       }
     },
     {
-      "id": "wasedasai2016-ShandyGaff-5-selection",
+      "id": "wasedasai2016-test-ShandyGaff-5-selection",
       "checkpoint_ids": [
-        "wasedasai2016-ShandyGaff-5"
+        "wasedasai2016-test-ShandyGaff-5"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2957,9 +2957,9 @@
       }
     },
     {
-      "id": "wasedasai2016-ShandyGaff-6-selection",
+      "id": "wasedasai2016-test-ShandyGaff-6-selection",
       "checkpoint_ids": [
-        "wasedasai2016-ShandyGaff-6"
+        "wasedasai2016-test-ShandyGaff-6"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -2980,9 +2980,9 @@
       }
     },
     {
-      "id": "wasedasai2016-quizken-selection",
+      "id": "wasedasai2016-test-quizken-selection",
       "checkpoint_ids": [
-        "wasedasai2016-quizken"
+        "wasedasai2016-test-quizken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3003,9 +3003,9 @@
       }
     },
     {
-      "id": "wasedasai2016-tenpoint-selection",
+      "id": "wasedasai2016-test-tenpoint-selection",
       "checkpoint_ids": [
-        "wasedasai2016-tenpoint"
+        "wasedasai2016-test-tenpoint"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3026,9 +3026,9 @@
       }
     },
     {
-      "id": "wasedasai2016-Floorball-selection",
+      "id": "wasedasai2016-test-Floorball-selection",
       "checkpoint_ids": [
-        "wasedasai2016-Floorball"
+        "wasedasai2016-test-Floorball"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3049,9 +3049,9 @@
       }
     },
     {
-      "id": "wasedasai2016-manken-selection",
+      "id": "wasedasai2016-test-manken-selection",
       "checkpoint_ids": [
-        "wasedasai2016-manken"
+        "wasedasai2016-test-manken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3072,9 +3072,9 @@
       }
     },
     {
-      "id": "wasedasai2016-doraemon-selection",
+      "id": "wasedasai2016-test-doraemon-selection",
       "checkpoint_ids": [
-        "wasedasai2016-doraemon"
+        "wasedasai2016-test-doraemon"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3095,9 +3095,9 @@
       }
     },
     {
-      "id": "wasedasai2016-momusu-5-selection",
+      "id": "wasedasai2016-test-momusu-5-selection",
       "checkpoint_ids": [
-        "wasedasai2016-momusu-5"
+        "wasedasai2016-test-momusu-5"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3118,9 +3118,9 @@
       }
     },
     {
-      "id": "wasedasai2016-momusu-6-selection",
+      "id": "wasedasai2016-test-momusu-6-selection",
       "checkpoint_ids": [
-        "wasedasai2016-momusu-6"
+        "wasedasai2016-test-momusu-6"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3141,9 +3141,9 @@
       }
     },
     {
-      "id": "wasedasai2016-waseuta-selection",
+      "id": "wasedasai2016-test-waseuta-selection",
       "checkpoint_ids": [
-        "wasedasai2016-waseuta"
+        "wasedasai2016-test-waseuta"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3164,9 +3164,9 @@
       }
     },
     {
-      "id": "wasedasai2016-bakotu-selection",
+      "id": "wasedasai2016-test-bakotu-selection",
       "checkpoint_ids": [
-        "wasedasai2016-bakotu"
+        "wasedasai2016-test-bakotu"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3187,9 +3187,9 @@
       }
     },
     {
-      "id": "wasedasai2016-Walkin-selection",
+      "id": "wasedasai2016-test-Walkin-selection",
       "checkpoint_ids": [
-        "wasedasai2016-Walkin"
+        "wasedasai2016-test-Walkin"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3210,9 +3210,9 @@
       }
     },
     {
-      "id": "wasedasai2016-Sky-Link-selection",
+      "id": "wasedasai2016-test-Sky-Link-selection",
       "checkpoint_ids": [
-        "wasedasai2016-Sky-Link"
+        "wasedasai2016-test-Sky-Link"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3233,9 +3233,9 @@
       }
     },
     {
-      "id": "wasedasai2016-photogra-selection",
+      "id": "wasedasai2016-test-photogra-selection",
       "checkpoint_ids": [
-        "wasedasai2016-photogra"
+        "wasedasai2016-test-photogra"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3256,9 +3256,9 @@
       }
     },
     {
-      "id": "wasedasai2016-sutawase-5-selection",
+      "id": "wasedasai2016-test-sutawase-5-selection",
       "checkpoint_ids": [
-        "wasedasai2016-sutawase-5"
+        "wasedasai2016-test-sutawase-5"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3279,9 +3279,9 @@
       }
     },
     {
-      "id": "wasedasai2016-sutawase-6-selection",
+      "id": "wasedasai2016-test-sutawase-6-selection",
       "checkpoint_ids": [
-        "wasedasai2016-sutawase-6"
+        "wasedasai2016-test-sutawase-6"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3302,9 +3302,9 @@
       }
     },
     {
-      "id": "wasedasai2016-artken-selection",
+      "id": "wasedasai2016-test-artken-selection",
       "checkpoint_ids": [
-        "wasedasai2016-artken"
+        "wasedasai2016-test-artken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3325,9 +3325,9 @@
       }
     },
     {
-      "id": "wasedasai2016-kouken-selection",
+      "id": "wasedasai2016-test-kouken-selection",
       "checkpoint_ids": [
-        "wasedasai2016-kouken"
+        "wasedasai2016-test-kouken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3348,9 +3348,9 @@
       }
     },
     {
-      "id": "wasedasai2016-supein-selection",
+      "id": "wasedasai2016-test-supein-selection",
       "checkpoint_ids": [
-        "wasedasai2016-supein"
+        "wasedasai2016-test-supein"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3371,9 +3371,9 @@
       }
     },
     {
-      "id": "wasedasai2016-origami-selection",
+      "id": "wasedasai2016-test-origami-selection",
       "checkpoint_ids": [
-        "wasedasai2016-origami"
+        "wasedasai2016-test-origami"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3394,9 +3394,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasebun2-selection",
+      "id": "wasedasai2016-test-wasebun2-selection",
       "checkpoint_ids": [
-        "wasedasai2016-wasebun2"
+        "wasedasai2016-test-wasebun2"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3417,9 +3417,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasebun3-selection",
+      "id": "wasedasai2016-test-wasebun3-selection",
       "checkpoint_ids": [
-        "wasedasai2016-wasebun3"
+        "wasedasai2016-test-wasebun3"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3440,9 +3440,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasedagardian-selection",
+      "id": "wasedasai2016-test-wasedagardian-selection",
       "checkpoint_ids": [
-        "wasedasai2016-wasedagardian"
+        "wasedasai2016-test-wasedagardian"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3463,9 +3463,9 @@
       }
     },
     {
-      "id": "wasedasai2016-wasemon-selection",
+      "id": "wasedasai2016-test-wasemon-selection",
       "checkpoint_ids": [
-        "wasedasai2016-wasemon"
+        "wasedasai2016-test-wasemon"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3486,9 +3486,9 @@
       }
     },
     {
-      "id": "wasedasai2016-fmwaseda-selection",
+      "id": "wasedasai2016-test-fmwaseda-selection",
       "checkpoint_ids": [
-        "wasedasai2016-fmwaseda"
+        "wasedasai2016-test-fmwaseda"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3509,9 +3509,9 @@
       }
     },
     {
-      "id": "wasedasai2016-T-team-selection",
+      "id": "wasedasai2016-test-T-team-selection",
       "checkpoint_ids": [
-        "wasedasai2016-T-team"
+        "wasedasai2016-test-T-team"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3532,9 +3532,9 @@
       }
     },
     {
-      "id": "wasedasai2016-waseiti-selection",
+      "id": "wasedasai2016-test-waseiti-selection",
       "checkpoint_ids": [
-        "wasedasai2016-waseiti"
+        "wasedasai2016-test-waseiti"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3555,9 +3555,9 @@
       }
     },
     {
-      "id": "wasedasai2016-iwaizemi-5-selection",
+      "id": "wasedasai2016-test-iwaizemi-5-selection",
       "checkpoint_ids": [
-        "wasedasai2016-iwaizemi-5"
+        "wasedasai2016-test-iwaizemi-5"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3578,9 +3578,9 @@
       }
     },
     {
-      "id": "wasedasai2016-kawakisizemi-selection",
+      "id": "wasedasai2016-test-kawakisizemi-selection",
       "checkpoint_ids": [
-        "wasedasai2016-kawakisizemi"
+        "wasedasai2016-test-kawakisizemi"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3601,9 +3601,9 @@
       }
     },
     {
-      "id": "wasedasai2016-tiriken-selection",
+      "id": "wasedasai2016-test-tiriken-selection",
       "checkpoint_ids": [
-        "wasedasai2016-tiriken"
+        "wasedasai2016-test-tiriken"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3624,9 +3624,9 @@
       }
     },
     {
-      "id": "wasedasai2016-3gokan-selection",
+      "id": "wasedasai2016-test-3gokan-selection",
       "checkpoint_ids": [
-        "wasedasai2016-3gokan"
+        "wasedasai2016-test-3gokan"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3647,9 +3647,9 @@
       }
     },
     {
-      "id": "wasedasai2016-engekihakubutukann-selection",
+      "id": "wasedasai2016-test-engekihakubutukann-selection",
       "checkpoint_ids": [
-        "wasedasai2016-engekihakubutukann"
+        "wasedasai2016-test-engekihakubutukann"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3670,9 +3670,9 @@
       }
     },
     {
-      "id": "wasedasai2016-14noe-selection",
+      "id": "wasedasai2016-test-14noe-selection",
       "checkpoint_ids": [
-        "wasedasai2016-14noe"
+        "wasedasai2016-test-14noe"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3693,9 +3693,9 @@
       }
     },
     {
-      "id": "wasedasai2016-11noe-selection",
+      "id": "wasedasai2016-test-11noe-selection",
       "checkpoint_ids": [
-        "wasedasai2016-11noe"
+        "wasedasai2016-test-11noe"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3716,9 +3716,9 @@
       }
     },
     {
-      "id": "wasedasai2016-sekiyunokannbann-selection",
+      "id": "wasedasai2016-test-sekiyunokannbann-selection",
       "checkpoint_ids": [
-        "wasedasai2016-sekiyunokannbann"
+        "wasedasai2016-test-sekiyunokannbann"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3739,9 +3739,9 @@
       }
     },
     {
-      "id": "wasedasai2016-takadasanaezou-selection",
+      "id": "wasedasai2016-test-takadasanaezou-selection",
       "checkpoint_ids": [
-        "wasedasai2016-takadasanaezou"
+        "wasedasai2016-test-takadasanaezou"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3762,9 +3762,9 @@
       }
     },
     {
-      "id": "wasedasai2016-tuboutisyouyouzou-selection",
+      "id": "wasedasai2016-test-tuboutisyouyouzou-selection",
       "checkpoint_ids": [
-        "wasedasai2016-tuboutisyouyouzou"
+        "wasedasai2016-test-tuboutisyouyouzou"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3785,9 +3785,9 @@
       }
     },
     {
-      "id": "wasedasai2016-33goukanrelihu1-selection",
+      "id": "wasedasai2016-test-33goukanrelihu1-selection",
       "checkpoint_ids": [
-        "wasedasai2016-33goukanrelihu1"
+        "wasedasai2016-test-33goukanrelihu1"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3808,9 +3808,9 @@
       }
     },
     {
-      "id": "wasedasai2016-33goukanrelihu2-selection",
+      "id": "wasedasai2016-test-33goukanrelihu2-selection",
       "checkpoint_ids": [
-        "wasedasai2016-33goukanrelihu2"
+        "wasedasai2016-test-33goukanrelihu2"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
@@ -3831,9 +3831,9 @@
       }
     },
     {
-      "id": "wasedasai2016-onokinennkoudou-selection",
+      "id": "wasedasai2016-test-onokinennkoudou-selection",
       "checkpoint_ids": [
-        "wasedasai2016-onokinennkoudou"
+        "wasedasai2016-test-onokinennkoudou"
       ],
       "content": {
         "instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",

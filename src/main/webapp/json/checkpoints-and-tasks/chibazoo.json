@@ -1,0 +1,285 @@
+{
+	"checkpoints": [
+		{
+			"id": "chibazoo-0",
+			"lat": 35.64519779490854,
+			"lon": 140.12664288282394,
+			"name": "レッサーパンダ",
+			"label": "しましまが　かわいいよ",
+			"markerColor": "blue",
+			"category": "ちいさいどうぶつ",
+			"subcategory": "",
+			"balloon": "",
+			"imgSrc": "https://i.gyazo.com/1632fe88632ffc4738115d7b1aa7724d.png",
+			"checkpointGroupIds": [
+				"chibazoo"
+			]
+		},
+		{
+			"id": "chibazoo-1",
+			"lat": 35.64528716148519,
+			"lon": 140.12669652700424,
+			"name": "コツメカワウソ",
+			"label": "ちょこちょこと　うごきまわるよ",
+			"markerColor": "blue",
+			"category": "ちいさいどうぶつ",
+			"subcategory": "",
+			"balloon": "",
+			"imgSrc": "https://i.gyazo.com/a6a07e545411ede8c30fdb7929f52d3d.png",
+			"checkpointGroupIds": [
+				"chibazoo"
+			]
+		},
+		{
+			"id": "chibazoo-2",
+			"lat": 35.64596285675673,
+			"lon": 140.12806445360184,
+			"name": "ゾウ",
+			"label": "おはなが　ながいよ",
+			"markerColor": "red",
+			"category": "おおきいどうぶつ",
+			"subcategory": "",
+			"balloon": "",
+			"imgSrc": "https://i.gyazo.com/c9ad841f60259ef97be8c5959f5dd460.png",
+			"checkpointGroupIds": [
+				"chibazoo"
+			]
+		},
+		{
+			"id": "chibazoo-3",
+			"lat": 35.64593670091709,
+			"lon": 140.1283434033394,
+			"name": "キリン",
+			"label": "おくびが　ながいよ",
+			"markerColor": "red",
+			"category": "おおきいどうぶつ",
+			"subcategory": "",
+			"balloon": "",
+			"imgSrc": "https://i.gyazo.com/6bcb797c73e3bbf801e53fc21bd9f74c.png",
+			"checkpointGroupIds": [
+				"chibazoo"
+			]
+		},
+		{
+			"id": "chibazoo-4",
+			"lat": 35.64259958146882,
+			"lon": 140.12552440166473,
+			"name": "どうぶつこうえん　えき",
+			"label": "もうすぐ　どうぶつえん",
+			"markerColor": "yellow",
+			"category": "えき",
+			"subcategory": "",
+			"balloon": "",
+			"imgSrc": "https://i.gyazo.com/15a1450d034fa58f7b2864d477b5d8e5.png",
+			"checkpointGroupIds": [
+				"chibazoo"
+			]
+		},
+		{
+			"id": "chibazoo-5",
+			"lat": 35.68601047497034,
+			"lon": 140.0485396385193,
+			"name": "けいせいおおくぼ　えき",
+			"label": "はじめの　ちぇっくぽいんと",
+			"markerColor": "yellow",
+			"category": "えき",
+			"subcategory": "",
+			"balloon": "",
+			"imgSrc": "https://i.gyazo.com/b897b28258ce9fac8edbf58b77aa47d0.png",
+			"checkpointGroupIds": [
+				"chibazoo"
+			]
+		},
+		{
+			"id": "chibazoo-6",
+			"lat": 35.64574925048217,
+			"lon": 140.12823343276978,
+			"name": "ハシビロコウ",
+			"label": "じっとしてるよ",
+			"markerColor": "green",
+			"category": "とり",
+			"subcategory": "",
+			"balloon": "",
+			"imgSrc": "https://i.gyazo.com/740856841e2ed3a1068959d66a027dcc.png",
+			"checkpointGroupIds": [
+				"chibazoo"
+			]
+		},
+		{
+			"id": "chibazoo-7",
+			"lat": 35.645156381095184,
+			"lon": 140.1284721493721,
+			"name": "ペンギン",
+			"label": "すいすい　およぐよ",
+			"markerColor": "green",
+			"category": "とり",
+			"subcategory": "",
+			"balloon": "",
+			"imgSrc": "https://i.gyazo.com/67cd0345d12b51b0d364940ca22dacff.png",
+			"checkpointGroupIds": [
+				"chibazoo"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"id": "chibazoo-task-0",
+			"checkin": true,
+			"checkpoint_ids": [
+				"chibazoo-0"
+			],
+			"content": {
+				"instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+				"point": 3.0,
+				"label": "れっさーぱんだは きに のぼれる？",
+				"selections": [
+					"のぼれる",
+					"のぼれない"
+				],
+				"answerIndexes": [
+					0
+				]
+			}
+		},
+		{
+			"id": "chibazoo-task-1",
+			"checkin": true,
+			"checkpoint_ids": [
+				"chibazoo-1"
+			],
+			"content": {
+				"instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+				"point": 3.0,
+				"label": "コツメカワウソは なんのなかま？",
+				"selections": [
+					"ウサギ",
+					"イタチ",
+					"イヌ"
+				],
+				"answerIndexes": [
+					1
+				]
+			}
+		},
+		{
+			"id": "chibazoo-task-2",
+			"checkin": true,
+			"checkpoint_ids": [
+				"chibazoo-2"
+			],
+			"content": {
+				"instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+				"point": 3.0,
+				"label": "アフリカゾウ　と　アジアゾウ　おおきいのは　どっち？",
+				"selections": [
+					"アフリカゾウ",
+					"アジアゾウ"
+				],
+				"answerIndexes": [
+					0
+				]
+			}
+		},
+		{
+			"id": "chibazoo-task-3",
+			"checkin": true,
+			"checkpoint_ids": [
+				"chibazoo-3"
+			],
+			"content": {
+				"instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+				"point": 3.0,
+				"label": "ちばどうぶつえんのキリンは　○○○キリン",
+				"selections": [
+					"アジア",
+					"アミメ",
+					"オメメ"
+				],
+				"answerIndexes": [
+					1
+				]
+			}
+		},
+		{
+			"id": "chibazoo-task-4",
+			"checkin": true,
+			"checkpoint_ids": [
+				"chibazoo-4"
+			],
+			"content": {
+				"instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+				"point": 3.0,
+				"label": "きょうは　どうぶつえんに　ついたら　はじめに　なにをする？",
+				"selections": [
+					"といれ",
+					"おきがえ",
+					"おひるごはん"
+				],
+				"answerIndexes": [
+					2
+				]
+			}
+		},
+		{
+			"id": "chibazoo-task-5",
+			"checkin": true,
+			"checkpoint_ids": [
+				"chibazoo-5"
+			],
+			"content": {
+				"instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+				"point": 3.0,
+				"label": "いまから　のる　でんしゃは　なにかな？",
+				"selections": [
+					"けいきゅう",
+					"けいせい",
+					"そうぶせん"
+				],
+				"answerIndexes": [
+					1
+				]
+			}
+		},
+		{
+			"id": "chibazoo-task-6",
+			"checkin": true,
+			"checkpoint_ids": [
+				"chibazoo-6"
+			],
+			"content": {
+				"instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+				"point": 3.0,
+				"label": "ハシビロコウの　おとこのこ　の　なまえは？",
+				"selections": [
+					"じっと",
+					"しずか",
+					"しーん"
+				],
+				"answerIndexes": [
+					0
+				]
+			}
+		},
+		{
+			"id": "chibazoo-task-7",
+			"checkin": true,
+			"checkpoint_ids": [
+				"chibazoo-7"
+			],
+			"content": {
+				"instanceClass": "org.magcruise.citywalk.model.task.SelectionTask",
+				"point": 3.0,
+				"label": "どうぶつえんに　いる　ペンギンの　しゅるいは？",
+				"selections": [
+					"コウテイ　ペンギン",
+					"オウサマ　ペンギン",
+					"フンボルト　ペンギン"
+				],
+				"answerIndexes": [
+					2
+				]
+			}
+		}
+	]
+}
+
