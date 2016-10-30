@@ -2,6 +2,8 @@ if (!getCheckpointGroupId()) {
   location.href = "courses.html";
 }
 
+var DEFAULT_FOCUS_ZOOM = 18;
+
 var map = null;
 var markers = []; // マーカーs
 var infoWindow = null; // バルーン
@@ -50,7 +52,7 @@ $(function() {
   unselectCheckpoint();
   $("#current-position").on('click', function() {
     if (!cPos) { return; }
-    map.setZoom(17);
+    map.setZoom(DEFAULT_FOCUS_ZOOM);
     map.setCenter(cPos);
   });
   $("#nav-start").on('click', function() {
@@ -71,7 +73,7 @@ function updateViews() {
   // 現在地の表示
   drawCurrentLocationCircle(map, cPos, locationsAccuracy);
   // マップの表示位置とズームレベルの調整
-  fitBoundsAndZoom(map, checkpoints,cPos);
+  fitBoundsAndZoom(map, checkpoints, cPos, DEFAULT_FOCUS_ZOOM);
 
   initBreadCrumb();
   showList();
@@ -105,6 +107,8 @@ function initBreadCrumb() {
   topElem.on('click', function() {
     category = null;
     subcategory = null;
+    unselectCheckpoint();
+    fitBoundsAndZoom(map, checkpoints, cPos, DEFAULT_FOCUS_ZOOM);
     location.href = "./checkpoints.html#";
   });
   // カテゴリ
@@ -113,6 +117,8 @@ function initBreadCrumb() {
             + '</a>');
     categoryElem.on('click', function() {
       subcategory = null;
+      unselectCheckpoint();
+      fitBoundsAndZoom(map, checkpoints, cPos, DEFAULT_FOCUS_ZOOM);
       location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(category);
     });
     $("#breadcrumb").append(categoryElem);
@@ -123,7 +129,8 @@ function initBreadCrumb() {
             + '</a>');
     $("#breadcrumb").append(subCategoryElem);
     categoryElem.on('click', function() {
-      subcategory = null;
+      unselectCheckpoint();
+      fitBoundsAndZoom(map, checkpoints, cPos, DEFAULT_FOCUS_ZOOM);
       location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(category)
               + "&subcategory=" + encodeURIComponent(subcategory);
     });
@@ -163,8 +170,8 @@ function showCheckpoints() {
     var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
     var distanceStyle = (distance > 1000) ? "far" : "near";
 
-    var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" :  checkpoint.imgSrc;
-    imgSrc = checkpoint.imgSrc.indexOf("http") == -1 ? "../img/"+imgSrc : imgSrc;
+    var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : checkpoint.imgSrc;
+    imgSrc = checkpoint.imgSrc.indexOf("http") == -1 ? "../img/" + imgSrc : imgSrc;
 
     var elem = $('<div class="row">' + '<div class="col-sm-12">'
             + '<div class="checkpoint" id="checkpoint-' + checkpoint.id + '">'
@@ -283,7 +290,7 @@ function selectCheckpoint(checkpoint) {
   })[0];
   infoWindow.open(marker.getMap(), marker);
 
-  map.setZoom(17);
+  map.setZoom(DEFAULT_FOCUS_ZOOM);
   map.setCenter(marker.getPosition());
 
   $(".checkpoint").removeClass("selected");
@@ -307,6 +314,7 @@ function unselectCheckpoint() {
   closeInfoWindow();
   $(".checkpoint").removeClass("selected");
   $("#nav-start").hide();
+  selectedCheckpoint = null;
 }
 
 function getCurrentPositionAndUpdateViews() {

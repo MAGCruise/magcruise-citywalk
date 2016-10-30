@@ -11,6 +11,8 @@ var defaultOrientation;
 var POST_MOVEMENT_INTERVAL = 1000 * 10; // msec
 var KEY_MOVEMENT_LIST = "movement_list";
 
+var MAX_ZOOM = 20;
+
 window.onload = function() {
   initMap();
 }
@@ -116,25 +118,25 @@ function initMap() {
             }, {
               lat: cPos.lat(),
               lon: cPos.lng()
-            }],cPos);
+            }], cPos, MAX_ZOOM);
             infoWindow.open(map, marker);
           });
 
-  createMapControlUI(map, "目的地", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
-          'click', function() {
+  createMapControlUI(map, "目的地", "12px", google.maps.ControlPosition.RIGHT_TOP, MAX_ZOOM)
+          .addEventListener('click', function() {
             fitBoundsAndZoom(map, [{
               lat: ePos.lat(),
               lon: ePos.lng()
-            }],cPos);
+            }], cPos, MAX_ZOOM);
             infoWindow.open(map, marker);
           });
 
-  createMapControlUI(map, "現在地", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
-          'click', function() {
+  createMapControlUI(map, "現在地", "12px", google.maps.ControlPosition.RIGHT_TOP, MAX_ZOOM)
+          .addEventListener('click', function() {
             fitBoundsAndZoom(map, [{
               lat: cPos.lat(),
               lon: cPos.lng()
-            }],cPos);
+            }], cPos, MAX_ZOOM);
           });
 
   // 目的地の設定&位置情報の連続取得

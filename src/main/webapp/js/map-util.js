@@ -1,5 +1,3 @@
-var MAX_ZOOM_LEVEL = 17;
-
 function createMapControlUI(map, label, fontSize, controlPosition) {
   var centerControlDiv = document.createElement('div');
 
@@ -32,7 +30,7 @@ function createMapControlUI(map, label, fontSize, controlPosition) {
   return controlUI;
 }
 
-function fitBoundsAndZoom(map, checkpoints, cPos) {
+function fitBoundsAndZoom(map, checkpoints, cPos, maxZoom) {
   var latlngBounds = new google.maps.LatLngBounds();
   if (!checkpoints || checkpoints.length == 0) {
     latlngBounds.extend(new google.maps.LatLng(cPos.lat(), cPos.lng()));
@@ -44,7 +42,7 @@ function fitBoundsAndZoom(map, checkpoints, cPos) {
   map.fitBounds(latlngBounds);
   // 最小ズームレベルの調整
   var listener = google.maps.event.addListener(map, "idle", function() {
-    if (map.getZoom() > MAX_ZOOM_LEVEL) map.setZoom(MAX_ZOOM_LEVEL);
+    if (map.getZoom() > maxZoom) map.setZoom(maxZoom);
     google.maps.event.removeListener(listener);
   });
 }
