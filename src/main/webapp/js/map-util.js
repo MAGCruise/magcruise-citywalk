@@ -32,11 +32,15 @@ function createMapControlUI(map, label, fontSize, controlPosition) {
   return controlUI;
 }
 
-function fitBoundsAndZoom(map, checkpoints) {
+function fitBoundsAndZoom(map, checkpoints, cPos) {
   var latlngBounds = new google.maps.LatLngBounds();
-  checkpoints.forEach(function(checkpoint, i) {
-    latlngBounds.extend(new google.maps.LatLng(checkpoint.lat, checkpoint.lon));
-  });
+  if (!checkpoints || checkpoints.length == 0) {
+    latlngBounds.extend(new google.maps.LatLng(cPos.lat(), cPos.lng()));
+  } else {
+    checkpoints.forEach(function(checkpoint, i) {
+      latlngBounds.extend(new google.maps.LatLng(checkpoint.lat, checkpoint.lon));
+    });
+  }
   map.fitBounds(latlngBounds);
   // 最小ズームレベルの調整
   var listener = google.maps.event.addListener(map, "idle", function() {

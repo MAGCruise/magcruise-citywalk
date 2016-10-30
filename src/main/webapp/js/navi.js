@@ -116,7 +116,7 @@ function initMap() {
             }, {
               lat: cPos.lat(),
               lon: cPos.lng()
-            }]);
+            }],cPos);
             infoWindow.open(map, marker);
           });
 
@@ -125,7 +125,7 @@ function initMap() {
             fitBoundsAndZoom(map, [{
               lat: ePos.lat(),
               lon: ePos.lng()
-            }]);
+            }],cPos);
             infoWindow.open(map, marker);
           });
 
@@ -134,7 +134,7 @@ function initMap() {
             fitBoundsAndZoom(map, [{
               lat: cPos.lat(),
               lon: cPos.lng()
-            }]);
+            }],cPos);
           });
 
   // 目的地の設定&位置情報の連続取得

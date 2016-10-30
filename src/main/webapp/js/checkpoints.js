@@ -71,7 +71,7 @@ function updateViews() {
   // 現在地の表示
   drawCurrentLocationCircle(map, cPos, locationsAccuracy);
   // マップの表示位置とズームレベルの調整
-  fitBoundsAndZoom(map, checkpoints);
+  fitBoundsAndZoom(map, checkpoints,cPos);
 
   initBreadCrumb();
   showList();
