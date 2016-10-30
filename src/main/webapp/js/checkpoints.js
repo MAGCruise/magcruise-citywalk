@@ -65,6 +65,7 @@ $(function() {
 });
 
 function updateViews() {
+  $("#nav-start").hide();
   $(".checkpoint").removeClass("selected");
 
   loadCheckpoints();
@@ -78,8 +79,8 @@ function updateViews() {
   initBreadCrumb();
   showList();
 
-  if (map && selectedCheckpoint) {
-    selectCheckpoint(selectedCheckpoint);
+  if (map && getParam("selected-id")) {
+    selectCheckpoint(getCheckpoint(getParam("selected-id")));
   }
 }
 
@@ -307,6 +308,20 @@ function selectCheckpoint(checkpoint) {
   });
 
   $("#nav-start").show();
+  switch (getMaxCategoryDepth()) {
+  case 0:
+    location.href = "./checkpoints.html#" + "&selected-id=" + encodeURIComponent(checkpoint.id);
+    break;
+  case 1:
+    location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category)
+            + "&selected-id=" + encodeURIComponent(checkpoint.id);
+    break;
+  default:
+    location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category)
+            + "&subcategory=" + encodeURIComponent(checkpoint.subcategory) + "&selected-id="
+            + encodeURIComponent(checkpoint.id);
+  }
+
 }
 
 /* チェックポイント非選択処理 */

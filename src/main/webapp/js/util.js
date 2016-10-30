@@ -143,8 +143,11 @@ function getCheckpoints() {
   return loadCityWalkData()["checkpoints"];
 }
 
-function getCheckpoint() {
-  var id = getParam("checkpoint_id");
+function getCheckpoint(id) {
+  if (!id) {
+    id = getParam("checkpoint_id");
+  }
+
   var array = getCheckpoints().filter(function(c) {
     return c.id == id;
   });
