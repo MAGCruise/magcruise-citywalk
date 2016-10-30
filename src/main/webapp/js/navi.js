@@ -100,7 +100,7 @@ function initMap() {
   });
   // マーカータップ時のバルーンの初期化
   var infoWindow = new google.maps.InfoWindow({
-    content: checkpoint.name + "<br>(" + checkpoint.balloon + ")"
+    content: checkpoint.name + "<br>(" + checkpoint.place + ")"
   });
   infoWindow.open(marker.getMap(), marker);
 

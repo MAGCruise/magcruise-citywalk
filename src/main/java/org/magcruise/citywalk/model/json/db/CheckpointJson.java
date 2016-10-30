@@ -23,14 +23,14 @@ public class CheckpointJson {
 	private Date visibleTimeFrom = new Date(0);
 	private Date visibleTimeTo = DateTimeUtils.fromTimestamp("2099-01-01 00:00:00");
 	private String imgSrc;
-	private String balloon;
+	private String place;
 
 	public CheckpointJson() {
 	}
 
 	public CheckpointJson(String id, String name, String label, String description, double lat,
 			double lon, List<String> checkPointGroupIds, String markerColor, String category,
-			String subcategory, String imgSrc, String balloon) {
+			String subcategory, String imgSrc, String place) {
 		this.id = id;
 		this.name = name;
 		this.label = label;
@@ -42,7 +42,7 @@ public class CheckpointJson {
 		this.category = category;
 		this.subcategory = subcategory;
 		this.imgSrc = imgSrc;
-		this.balloon = balloon;
+		this.place = place;
 	}
 
 	public String getId() {
@@ -154,11 +154,11 @@ public class CheckpointJson {
 		this.description = description;
 	}
 	
-	public String getBalloon() {
-		return balloon;
+	public String getPlace() {
+		return place;
 	}
 
-	public void setBalloon(String balloon) {
-		this.balloon = balloon;
+	public void setPlace(String place) {
+		this.place = place;
 	}
 }

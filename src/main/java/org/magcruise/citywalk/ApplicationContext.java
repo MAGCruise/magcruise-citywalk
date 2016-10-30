@@ -134,7 +134,7 @@ public class ApplicationContext implements ServletContextListener {
 			json.addCheckpoint(new CheckpointJson(d.getCheckpointid(), d.getName(), d.getLabel(),
 					d.getDescription(), d.getLat(), d.getLon(), Arrays.asList(checkpointGroupId),
 					d.getMarkerColor(), d.getCategory(), d.getSubcategory(), d.getImgsrc(),
-					d.getBalloon()));
+					d.getPlace()));
 			json.addTask(
 					new TaskJson(d.getCheckpointid() + "-qr", Arrays.asList(d.getCheckpointid()),
 							new ContentJson(QrCodeTask.class.getName(), true, d.getPoint(),

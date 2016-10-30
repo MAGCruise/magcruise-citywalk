@@ -27,7 +27,7 @@ public class CheckpointsTable extends RelationalModel<Checkpoint> {
 	private static final String VISIBLE_TIME_FROM = "visible_time_from";
 	private static final String VISIBLE_TIME_TO = "visible_time_to";
 	private static final String IMG_SRC = "img_src";
-	private static final String BALLOON = "balloon";
+	private static final String PLACE = "place";
 
 	public CheckpointsTable() {
 		super(TABLE_NAME, ApplicationContext.getDbClient());
@@ -45,7 +45,7 @@ public class CheckpointsTable extends RelationalModel<Checkpoint> {
 		addColumnDefinition(VISIBLE_TIME_FROM, Keyword.TIMESTAMP);
 		addColumnDefinition(VISIBLE_TIME_TO, Keyword.TIMESTAMP);
 		addColumnDefinition(IMG_SRC, Keyword.VARCHAR);
-		addColumnDefinition(BALLOON, Keyword.VARCHAR);
+		addColumnDefinition(PLACE, Keyword.VARCHAR);
 	}
 
 	public List<Checkpoint> findByCheckpointGroupId(String checkpointGroupId) {

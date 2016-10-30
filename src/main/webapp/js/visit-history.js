@@ -34,12 +34,12 @@ function makeVisitedCheckpointInfoHtml(results, cp) {
   }
 
   var html = '<div class="row checkpoint">' + '<div class="col-xs-12">' + makeNameHtml(cp)
-          + '<div class="row bottom-margin">' + '<div class="col-xs-7">' + makeBalloonHtml(cp)
+          + '<div class="row bottom-margin">' + '<div class="col-xs-7">' + makePlaceHtml(cp)
           + '</div>' + '<div class="col-xs-5">' + makeScoreHtml(results, cp) + '</div>' + '</div>'
           + '<div class="row">' + '<div class="col-xs-12">' + '<p class="answer">'
           + makeAnswerHtml(cp) + '</p>' + '</div>' + '</div>' + '<div class="row">'
           + '<div class="col-xs-3">' + makeImgHtml(cp) + '</div>'
-          + '<div class="col-xs-9 narrow-description">' + makeLabelAndDescriptionHtml(cp) + '</div>'
-          + '</div>' + '</div>' + '</div></div></div>';
+          + '<div class="col-xs-9 narrow-description">' + makeLabelAndDescriptionHtml(cp)
+          + '</div>' + '</div>' + '</div>' + '</div></div></div>';
   return html;
 }

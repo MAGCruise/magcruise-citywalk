@@ -61,7 +61,7 @@ public class InitialDataFactory {
 			return new CheckpointJson(c.getId(), c.getName(), c.getLabel(), c.getDescription(),
 					c.getLat(), c.getLon(), checkin, taskJsons, c.getMarkerColor(), c.getCategory(),
 					c.getSubcategory(), c.getVisibleTimeFrom(), c.getVisibleTimeTo(),
-					c.getImgSrc(), c.getBalloon());
+					c.getImgSrc(), c.getPlace());
 		}).collect(Collectors.toList());
 		return new InitialDataJson(result);
 

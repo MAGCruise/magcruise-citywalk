@@ -180,7 +180,7 @@ function showCheckpoints() {
             + (enableGps ? getFormattedDistance(distance) : "?m") + '</div>' + '<img src="'
             + imgSrc + '" class="pull-left checkpoint-img">' + '<div class="text">'
             + '<div class="name">' + checkpoint.name + '</div>' + '<div class="detail">' + '<div>'
-            + checkpoint.balloon + '</div>' + checkpoint.label + '</div></div></div></div></div>');
+            + checkpoint.place + '</div>' + checkpoint.label + '</div></div></div></div></div>');
     elem.on('click', function() {
       selectCheckpoint(checkpoint);
     });
@@ -281,7 +281,7 @@ function selectCheckpoint(checkpoint) {
 
   // マーカータップ時のバルーンの初期化
   infoWindow = new google.maps.InfoWindow({
-    content: checkpoint.name + "<br>(" + checkpoint.balloon + ")" + "<br>" + '<a href="'
+    content: checkpoint.name + "<br>(" + checkpoint.place + ")" + "<br>" + '<a href="'
             + "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category)
             + "&selected-id=" + encodeURIComponent(checkpoint.id) + '">' + checkpoint.category
             + "</a>"

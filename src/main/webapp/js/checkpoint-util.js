@@ -2,8 +2,8 @@ function makeLabelAndDescriptionHtml(checkpoint) {
   return checkpoint.label + '<p>' + (checkpoint.description || "") + '</p>';
 }
 
-function makeBalloonHtml(checkpoint) {
-  return '<div class="balloon">' + checkpoint.balloon + '</div>';
+function makePlaceHtml(checkpoint) {
+  return '<div class="place">' + checkpoint.place + '</div>';
 }
 function makeNameHtml(checkpoint) {
   return '<div class="name">' + '<i class="fa fa-check-square""></i> ' + checkpoint.name + '</div>';
@@ -36,8 +36,8 @@ function makeAnswerHtml(checkpoint) {
 }
 
 function makeImgHtml(checkpoint) {
-  var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" :  checkpoint.imgSrc;
-  imgSrc = checkpoint.imgSrc.indexOf("http") == -1 ? "../img/"+imgSrc : imgSrc;
+  var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : checkpoint.imgSrc;
+  imgSrc = checkpoint.imgSrc.indexOf("http") == -1 ? "../img/" + imgSrc : imgSrc;
   return '<img src="' + imgSrc + '" class="img-responsive img">';
 
 }
@@ -48,7 +48,7 @@ function makeCheckpointInfoHtml(cp) {
           + makeBalloonHtml(cp) + '</div>' + '</div>' + '<div class="row">'
           + '<div class="col-xs-12">' + '<p class="answer">' + makeAnswerHtml(cp) + '</p>'
           + '</div>' + '</div>' + '<div class="row">' + '<div class="col-xs-3">' + makeImgHtml(cp)
-          + '</div>' + '<div class="col-xs-9 narrow-description">' + makeLabelAndDescriptionHtml(cp)
-          + '</div>' + '</div>' + '</div>' + '</div></div></div>';
+          + '</div>' + '<div class="col-xs-9 narrow-description">'
+          + makeLabelAndDescriptionHtml(cp) + '</div>' + '</div>' + '</div>' + '</div></div></div>';
   return html;
 }

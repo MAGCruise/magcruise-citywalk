@@ -22,7 +22,7 @@ public class GoogleSpreadsheetData {
 	private String imgsrc;
 	private String answerqr;
 	private String markercolor;
-	private String balloon;
+	private String place;
 
 	public int getRownum() {
 		return rownum;
@@ -173,11 +173,11 @@ public class GoogleSpreadsheetData {
 		this.markercolor = markercolor;
 	}
 	
-	public String getBalloon() {
-		return balloon;
+	public String getPlace() {
+		return place;
 	}
 
-	public void setBalloon(String balloon) {
-		this.balloon = balloon;
+	public void setPlace(String balloon) {
+		this.place = balloon;
 	}
 }
