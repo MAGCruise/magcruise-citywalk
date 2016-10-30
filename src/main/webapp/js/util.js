@@ -290,7 +290,7 @@ function confirmSubmission(callback) {
 function swalConfirm(title, text, type, callback) {
   swal({
     title: title,
-    text: text ? text : "",
+    text: text ? text : null,
     type: type ? type : null,
     animation: false,
     html: true,
@@ -298,10 +298,11 @@ function swalConfirm(title, text, type, callback) {
   }, callback);
 }
 
-function swalWarning(title, text, callback) {
+function swalAlert(title, text, type, callback) {
   swal({
     title: title,
-    text: text,
+    text: text ? text : null,
+    type: type ? type : null,
     type: "warning",
     animation: false,
     html: true,

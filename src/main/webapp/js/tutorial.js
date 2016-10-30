@@ -4,7 +4,7 @@ $(function() {
   }
 
   $('#btn-skip-tutorial').on('click', function(e) {
-    swalConfirm("確認", 'チュートリアルをスキップしてよろしいですか？', "warning", function() {
+    swalConfirm("確認", 'チュートリアルをスキップしてよろしいですか？', null, function() {
       location.href = "signup.html";
     });
   });

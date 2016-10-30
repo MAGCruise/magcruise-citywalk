@@ -5,24 +5,28 @@ $(function() {
   $("#nav-title-wrapper").empty();
 
   $("#btn-join").on('click', function() {
-    checkDevice();
+    checkDeviceAndMoveNext();
   });
 
 });
 
-function checkDevice() {
+function checkDeviceAndMoveNext() {
   var uaParser = new UAParser();
   var errTitle = "非推奨環境";
   var errText = "OSまたはWebブラウザが推奨環境ではありません．正しく動作しない可能性があります．";
   var unrecommended = false;
 
   var callback = function() {
-    location.href = "tutorial.html"
+    setTimeout(function() {
+      swalAlert("「歩きスマホ」はやめましょう", "画面を見つめながらの歩行は危険です", "warning", function() {
+        location.href = "tutorial.html"
+      });
+    }, 300);
   }
 
   if (!uaParser.getOS() || !uaParser.getBrowser()) {
     unrecommended = true;
-    swalWarning(errTitle, errText, callback);
+    swalAlert(errTitle, errText, "warning", callback);
     return;
   } else if (uaParser.getOS().name === "Windows" || uaParser.getOS().name === "Android"
           || uaParser.getOS().name === "Linux") {
@@ -39,7 +43,7 @@ function checkDevice() {
   }
   if (unrecommended) {
     errText += "<br>" + uaParser.getBrowser().name + " on " + uaParser.getOS().name;
-    swalWarning(errTitle, errText, callback);
+    swalAlert(errTitle, errText, "warning", callback);
   } else {
     callback();
   }

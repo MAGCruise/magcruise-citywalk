@@ -4,10 +4,12 @@ $(function() {
       clear();
       swal.close();
       setTimeout(function() {
-        swalWarning('LocalStorageを初期化しました');
+        swalAlert('LocalStorageを初期化しました');
       }, 300);
     } else {
-      swalWarning('LocalStorageの初期化がキャンセルされました');
+      setTimeout(function() {
+        swalAlert('LocalStorageの初期化がキャンセルされました');
+      }, 300);
     }
   });
 });
