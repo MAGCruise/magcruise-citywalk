@@ -13,7 +13,7 @@
   margin: 10px 5px 10px 10px;
   color: #97a6a3;
   letter-spacing: 0.3px;
-  font-size: 36px; }
+}
 
 .notice {
   color: #97a6a3;}
@@ -26,7 +26,7 @@
 
 #compass {
   margin-bottom: $standardMargin;
-  $length: 200px;
+  $length: 160px;
   width: $length;
   height: $length;
 }
@@ -69,8 +69,11 @@
   box-shadow: 0px 1px 1px 0px rgba(198, 198, 198, 0.5);
   padding: 10px;
   .name {
-    font-size: 14px;
-    color: #38A997;
+    color: $descriptionColor;
+  }
+  .place {
+    font-size: 16px;
+    color: $greenColor;
   }
 }
 

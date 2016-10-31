@@ -17,6 +17,15 @@ a, button, input .btn{
   touch-action: none;
 }
 
+em{
+  color: $greenColor;
+}
+
+strong{
+  color: $greenColor;
+  font-weight: bold;
+}
+
 
 /** util **/
 .h-center {
@@ -138,3 +147,4 @@ h1.doc-header-bg {
   color: black;
   font-weight: normal;
   }
+
