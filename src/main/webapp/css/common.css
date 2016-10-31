@@ -9,12 +9,8 @@ body {
 a, button, input .btn {
   touch-action: none; }
 
-em {
+.green {
   color: #38A997; }
-
-strong {
-  color: #38A997;
-  font-weight: bold; }
 
 /** util **/
 .h-center {
