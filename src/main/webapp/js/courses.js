@@ -2,7 +2,7 @@ var MAX_CATEGORY_DEPTH = 1;
 
 function selectCheckpointGroup(checkpointGroupId) {
   if (checkpointGroupId == getCheckpointGroupId()) {
-    location.href = "checkpoints.html";
+    wifiAlertAndGoNext();
     return;
   }
 
@@ -14,7 +14,7 @@ function selectCheckpointGroup(checkpointGroupId) {
             new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "join", [getUserId(),
                 getCheckpointGroupId()], function(data) {
               if (data.result) {
-                location.href = "checkpoints.html";
+                wifiAlertAndGoNext();
               } else {
                 alert("コースに参加できません．後でもう一度試して下さい．");
               }
@@ -22,6 +22,12 @@ function selectCheckpointGroup(checkpointGroupId) {
               alert("コースに参加できません．後でもう一度試して下さい．");
             })).rpc();
           })).rpc();
+}
+
+function wifiAlertAndGoNext() {
+  swalAlert("WiFiオンで位置精度アップ！", "WiFiをオンにするだけで位置情報の精度が上がることがあります", "info", function() {
+    location.href = "checkpoints.html";
+  });
 }
 
 $(function() {
