@@ -20,13 +20,20 @@
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row no-gutter">
+      <div id="initial-msg" class="col-sm-12">
+        <div class="alert alert-info" style="margin: 0; padding: 0 1em;">
+          位置情報を取得しています… (<a class="alert-link" href="troubleshooting.html#gps-settings"> <i
+            class="glyphicon glyphicon-hand-right"></i> 位置情報設定の方法を見ますか？
+          </a>)
+        </div>
+      </div>
       <div class="col-sm-12">
         <div id="error-msg-area" class="alert alert-warning" style="display: none;">
           端末の<span class="gps-error-msg">現在位置</span><span class="error-msg-splitter"
             style="display: none;">/</span><span class="compass-error-msg">方向</span>が取得できないためナビゲーションできません．会場名をたよりに探して下さい．
           (<span class="gps-error-msg"><a class="alert-link"
             href="troubleshooting.html#gps-settings"> <i class="glyphicon glyphicon-hand-right"></i>
-              位置情報設定の方法を見る
+              位置情報設定の方法を見ますか？
           </a></span><span class="error-msg-splitter" style="display: none;">/</span><span
             class="compass-error-msg"><a class="alert-link"
             href="troubleshooting.html#heading-settings"> <i

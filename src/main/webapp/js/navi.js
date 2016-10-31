@@ -156,6 +156,7 @@ function watchCurrentPosition() {
     }
   }
   watchID = window.navigator.geolocation.watchPosition(function(pos) {
+    $('#initial-msg').hide();
     $('#distance-wrapper').show();
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
@@ -168,6 +169,7 @@ function watchCurrentPosition() {
       $('#error-msg-area').hide();
     }
   }, function(error) {
+    $('#initial-msg').hide();
     if ($('#error-msg-area').is(':hidden')) {
       $('#error-msg-area').show();
     }
