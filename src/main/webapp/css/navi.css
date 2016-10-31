@@ -7,8 +7,7 @@
 #distance-prefix {
   margin: 10px 5px 10px 10px;
   color: #97a6a3;
-  letter-spacing: 0.3px;
-  font-size: 36px; }
+  letter-spacing: 0.3px; }
 
 .notice {
   color: #97a6a3; }
@@ -20,8 +19,8 @@
 
 #compass {
   margin-bottom: 10px;
-  width: 200px;
-  height: 200px; }
+  width: 160px;
+  height: 160px; }
 
 #map {
   height: 200px; }
@@ -55,7 +54,9 @@
   box-shadow: 0px 1px 1px 0px rgba(198, 198, 198, 0.5);
   padding: 10px; }
   .checkpoint .name {
-    font-size: 14px;
+    color: #999; }
+  .checkpoint .place {
+    font-size: 16px;
     color: #38A997; }
 
 #map-box {

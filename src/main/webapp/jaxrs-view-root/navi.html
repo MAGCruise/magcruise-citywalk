@@ -22,19 +22,32 @@
     <div class="row no-gutter">
       <div class="col-sm-12">
         <div id="error-msg-area" class="alert alert-warning" style="display: none;">
-          端末の<span id="gps-error-msg">現在位置</span><span id="error-msg-splitter"
-            style="display: none;">/</span><span id="compass-error-msg">方向</span>が取得できないためナビゲーションできません(<a
-            class="alert-link" href="troubleshooting.html#gps-settings">トラブルシューティング</a>)
+          端末の<span class="gps-error-msg">現在位置</span><span class="error-msg-splitter"
+            style="display: none;">/</span><span class="compass-error-msg">方向</span>が取得できないためナビゲーションできません
+          (<span class="gps-error-msg"><a class="alert-link"
+            href="troubleshooting.html#gps-settings"> <i class="glyphicon glyphicon-hand-right"></i>
+              位置情報設定の方法を見る
+          </a></span><span class="error-msg-splitter" style="display: none;">/</span><span
+            class="compass-error-msg"><a class="alert-link"
+            href="troubleshooting.html#heading-settings"> <i class="glyphicon glyphicon-hand-right"></i>
+              端末の方向について見る
+          </a></span>)
         </div>
       </div>
     </div>
     <div class="row no-gutter">
       <div class="col-sm-12">
-        <span class="pull-left" id="distance-prefix">残り約</span><span class="pull-left" id="distance"></span>
-        <a class="btn btn-primary-magc btn-lg pull-right" id="btn-next" role="button">チェックイン</a>
+        <div id="checkpoint-info"></div>
       </div>
     </div>
     <div class="row no-gutter">
+      <div class="col-sm-12">
+        <span id="distance-wrapper" class="pull-left" style="display: none;"><span
+          id="distance-prefix">残り約</span><span id="distance"></span></span> <a
+          class="btn btn-primary-magc btn-lg pull-right" id="btn-next" role="button">チェックイン</a>
+      </div>
+    </div>
+    <div id="compass-wrapper" class="row no-gutter" style="display: none;">
       <div class="col-sm-12">
         <img src="../img/arrow.png" id="compass" class="h-center">
         <p class="notice text-center">コンパスが指す方向に目的地があります</p>
@@ -47,12 +60,6 @@
         </div>
       </div>
     </div>
-    <div class="row no-gutter">
-      <div class="col-sm-12">
-        <div id="checkpoint-info"></div>
-      </div>
-    </div>
-
     <div class="row no-gutter">
       <div class="col-sm-12">
         <div id="notification"></div>

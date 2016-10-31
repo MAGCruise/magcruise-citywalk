@@ -177,7 +177,7 @@ public class GoogleSpreadsheetData {
 		return place;
 	}
 
-	public void setPlace(String balloon) {
-		this.place = balloon;
+	public void setPlace(String place) {
+		this.place = place;
 	}
 }

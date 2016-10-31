@@ -150,29 +150,30 @@ function watchCurrentPosition() {
     if ($('#error-msg-area').is(':hidden')) {
       $('#error-msg-area').show();
     }
-    $('#gps-error-msg').show();
-    if ($('#compass-error-msg').is(':visible')) {
-      $('#error-msg-splitter').show();
+    $('.gps-error-msg').show();
+    if ($('.compass-error-msg').is(':visible')) {
+      $('.error-msg-splitter').show();
     }
   }
   watchID = window.navigator.geolocation.watchPosition(function(pos) {
+    $('#distance-wrapper').show();
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     showDistance();
     enqueueMovement(pos);
     updateCurrentCircle(pos.coords.accuracy);
-    $('#gps-error-msg').hide();
-    $('#error-msg-splitter').hide();
-    if ($('#compass-error-msg').is(':hidden')) {
+    $('.gps-error-msg').hide();
+    $('.error-msg-splitter').hide();
+    if ($('.compass-error-msg').is(':hidden')) {
       $('#error-msg-area').hide();
     }
   }, function(error) {
     if ($('#error-msg-area').is(':hidden')) {
       $('#error-msg-area').show();
     }
-    $('#gps-error-msg').show();
-    if ($('#compass-error-msg').is(':visible')) {
-      $('#error-msg-splitter').show();
+    $('.gps-error-msg').show();
+    if ($('.compass-error-msg').is(':visible')) {
+      $('.error-msg-splitter').show();
     }
     navigator.geolocation.clearWatch(watchID);
   }, {
@@ -213,15 +214,15 @@ function getBrowserOrientation() {
    * small tablet) device is in 'normal' orientation for (screen width > screen
    * height, e.g. large tablet, laptop) device has been turned 90deg clockwise
    * from normal
-   *
+   * 
    * 'portait-secondary': for (screen width < screen height) device has been
    * turned 180deg from normal for (screen width > screen height) device has
    * been turned 90deg anti-clockwise (or 270deg clockwise) from normal
-   *
+   * 
    * 'landscape-primary': for (screen width < screen height) device has been
    * turned 90deg clockwise from normal for (screen width > screen height)
    * device is in 'normal' orientation
-   *
+   * 
    * 'landscape-secondary': for (screen width < screen height) device has been
    * turned 90deg anti-clockwise (or 270deg clockwise) from normal for (screen
    * width > screen height) device has been turned 180deg from normal
@@ -240,15 +241,17 @@ function onHeadingChange(event) {
     if ($('#error-msg-area').is(':hidden')) {
       $('#error-msg-area').show();
     }
-    $('#compass-error-msg').show();
-    if ($('#gps-error-msg').is(':visible')) {
-      $('#error-msg-splitter').show();
+    $('.compass-error-msg').show();
+    $('#compass-wrapper').hide();
+
+    if ($('.gps-error-msg').is(':visible')) {
+      $('.error-msg-splitter').show();
     }
 
   } else {
-    $('#compass-error-msg').hide();
-    $('#error-msg-splitter').hide();
-    if ($('#gps-error-msg').is(':hidden')) {
+    $('.compass-error-msg').hide();
+    $('.error-msg-splitter').hide();
+    if ($('.gps-error-msg').is(':hidden')) {
       $('#error-msg-area').hide();
     }
   }
@@ -290,6 +293,8 @@ function onHeadingChange(event) {
 /* コンパスを回転 */
 function showCompass(heading) {
   if (cPos == null || ePos == null) { return; }
+  $('#compass-wrapper').show();
+
   var absoluteAngle = google.maps.geometry.spherical.computeHeading(cPos, ePos);
   // apply rotation to compass
   if (compassElem.css("transform")) {
