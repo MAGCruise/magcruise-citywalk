@@ -34,6 +34,11 @@ window.onload = function() {
     google.maps.event.addListener(map, "dragend", function() {
       unselectCheckpoint();
     });
+    
+    var currentPositionMarker = new GeolocationMarker();
+    currentPositionMarker.setCircleOptions({fillColor: '#C2D3E3'});
+    currentPositionMarker.setMap(map);
+    
     getCurrentPositionAndUpdateViews();
   }
 
@@ -71,8 +76,6 @@ function updateViews() {
   loadCheckpoints();
 
   initMarkers();
-  // 現在地の表示
-  drawCurrentLocationCircle(map, cPos, locationsAccuracy);
   // マップの表示位置とズームレベルの調整
   fitBoundsAndZoom(map, checkpoints, cPos, DEFAULT_FOCUS_ZOOM);
 
