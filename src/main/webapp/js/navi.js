@@ -138,6 +138,10 @@ function initMap() {
               lon: cPos.lng()
             }], cPos, MAX_ZOOM);
           });
+  
+  var currentPositionMarker = new GeolocationMarker();
+  currentPositionMarker.setCircleOptions({fillColor: '#C2D3E3'});
+  currentPositionMarker.setMap(map);
 
   // 目的地の設定&位置情報の連続取得
   ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
@@ -162,7 +166,6 @@ function watchCurrentPosition() {
     console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     showDistance();
     enqueueMovement(pos);
-    updateCurrentCircle(pos.coords.accuracy);
     $('.gps-error-msg').hide();
     $('.error-msg-splitter').hide();
     if ($('.compass-error-msg').is(':hidden')) {
@@ -353,8 +356,4 @@ var postMovementsFunc = function() {
     var newMovements = lastMovements.concat(getMovementQueue());
     setMovementQueue(newMovements);
   })).rpc();
-}
-
-function updateCurrentCircle(accuracy) {
-  drawCurrentLocationCircle(map, cPos, accuracy);
 }
