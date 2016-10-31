@@ -158,6 +158,7 @@ function watchCurrentPosition() {
     if ($('.compass-error-msg').is(':visible')) {
       $('.error-msg-splitter').show();
     }
+    return;
   }
   watchID = window.navigator.geolocation.watchPosition(function(pos) {
     $('#initial-msg').hide();
@@ -181,6 +182,7 @@ function watchCurrentPosition() {
       $('.error-msg-splitter').show();
     }
     navigator.geolocation.clearWatch(watchID);
+    setTimeout(watchCurrentPosition, 5000);
   }, {
     enableHighAccuracy: true,
     timeout: 1000 * 60 * 60 * 2,
