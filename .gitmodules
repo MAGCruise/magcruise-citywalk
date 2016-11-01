@@ -1,0 +1,3 @@
+[submodule "src/main/webapp/projects/wasenavi"]
+	path = src/main/webapp/projects/wasenavi
+	url = git@github.com:nkjmlab/MAGCruiseCityWalk.git
