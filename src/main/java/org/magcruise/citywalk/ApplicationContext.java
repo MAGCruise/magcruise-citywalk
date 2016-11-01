@@ -90,11 +90,30 @@ public class ApplicationContext implements ServletContextListener {
 		new VerifiedActivitiesTable().createTableIfNotExists();
 		new SubmittedActivitiesTable().createTableIfNotExists();
 		new MovementsTable().createTableIfNotExists();
-		Arrays.stream(new File(event.getServletContext().getRealPath("json/checkpoints-and-tasks/"))
+
+		File projectsDir = new File(
+				event.getServletContext()
+						.getRealPath("projects"));
+
+		Arrays.stream(projectsDir.listFiles()).filter(f -> f.isDirectory())
+				.forEach(f -> {
+					log.info("{} will be scanned.", f);
+					File j = new File(f.getPath() + "/json/checkpoints-and-tasks/");
+					readJson(j);
+				});
+
+		//importFromGoogleSpreadsheets();
+	}
+
+	private void readJson(File jsonDir) {
+		Arrays.stream(jsonDir
 				.listFiles((FilenameFilter) (dir, name) -> {
 					return name.endsWith(".json");
-				})).forEach(f -> CheckpointsAndTasksFactory.insertToDb(f.getPath()));
-		//importFromGoogleSpreadsheets();
+				})).forEach(f -> {
+					log.info("{} is loaded.", f);
+					CheckpointsAndTasksFactory.insertToDb(f.getPath());
+				});
+
 	}
 
 	private void importFromGoogleSpreadsheets() {

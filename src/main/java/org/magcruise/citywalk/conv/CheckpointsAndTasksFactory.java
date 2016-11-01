@@ -27,10 +27,28 @@ public class CheckpointsAndTasksFactory {
 		CheckpointsAndTasksJson json = JsonUtils.decode(
 				"src/main/webapp/json/checkpoints-and-tasks/wasedasai2016.json",
 				CheckpointsAndTasksJson.class);
-		refreshCheckpointAtdTaskTable();
-		log.info(createCheckpoints(json.getCheckpoints()));
-		log.info(createTasks(json.getTasks()));
-		log.info(insertToDb("src/main/webapp/json/checkpoints-and-tasks/wasedasai2016.json"));
+
+		json.getTasks().forEach(t -> {
+			if (t.getContent().getInstanceClass().contains("Pin")) {
+				System.out.println(t.getCheckpointIds().get(0) + "\t"
+						+ t.getContent().getAnswerTexts().get(0));
+			}
+		});
+
+		//		json.getTasks().forEach(t -> {
+		//			if (t.getContent().getInstanceClass().contains("Pin")) {
+		//				List<String> l = new ArrayList<>();
+		//				l.add(String.valueOf(new Random().nextInt(9000) + 1000));
+		//				t.getContent().setAnswerTexts(l);
+		//			}
+		//		});
+		//		JsonUtils.encode(json, "src/main/webapp/json/checkpoints-and-tasks/wasedasai2016-nkjm.json",
+		//				true);
+
+		//refreshCheckpointAtdTaskTable();
+		//log.info(createCheckpoints(json.getCheckpoints()));
+		//log.info(createTasks(json.getTasks()));
+		//log.info(insertToDb("src/main/webapp/json/checkpoints-and-tasks/wasedasai2016.json"));
 	}
 
 	public static CheckpointsAndTasksJson insertToDb(String file) {
