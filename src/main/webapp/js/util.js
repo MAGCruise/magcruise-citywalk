@@ -32,7 +32,18 @@ $(function() {
   setUserNameInMenu();
   setBack();
   setForward();
+  setGFormLink();
 });
+
+function setGFormLink() {
+  $('#gForm')
+          .on(
+                  'click',
+                  function() {
+                    location.href = "https://docs.google.com/forms/d/e/1FAIpQLScluqlpE64IkDjsCaERUtuZL_MUAd4Hfbxwi5o6uUolp498iA/viewform?entry.1317694510="
+                            + encodeURIComponent(getUserId()) + "&entry.1660844838"
+                  });
+}
 
 function setBack() {
   if (!document.referrer) {
