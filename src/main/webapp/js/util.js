@@ -189,10 +189,8 @@ function getNonVisitedCheckPoints() {
   var nonVisitedCheckPoints = getCheckpoints().filter(function(checkpoint) {
     return visitedCheckPointIds.indexOf(checkpoint.id) < 0;
   }).filter(function(checkpoint) {
-    var now = (new Date()).getTime();
-    var from = (new Date(checkpoint.visibleTimeFrom)).getTime();
-    var to = (new Date(checkpoint.visibleTimeTo)).getTime();
-    return (now >= from) && (now <= to);
+    var now = Date.now();
+    return (now >= checkpoint.visibleTimeFrom) && (now <= checkpoint.visibleTimeTo);
   });
   return nonVisitedCheckPoints;
 }
