@@ -25,7 +25,7 @@ public class MovementsTable extends RelationalModel<Movement> {
 														// South->180, West->270
 
 	public MovementsTable() {
-		super(TABLE_NAME, ApplicationContext.getDbClient());
+		super(TABLE_NAME, ApplicationContext.getMovementDbClient());
 		addColumnDefinition(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(RECORDED_AT, Keyword.TIMESTAMP);
