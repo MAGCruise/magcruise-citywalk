@@ -62,8 +62,7 @@ function makeCheckpointInfoHtml(cp) {
           + '<div class="col-xs-3">'
           + makeImgHtml(cp)
           + '</div>'
-          + '<div class="col-xs-9 narrow-description">'
-          + makeLabelAndDescriptionHtml(cp)
-          + '</div>' + '</div>' + '</div>';
+          + '<div class="col-xs-9 narrow-description checkpoint-info-description">'
+          + makeLabelAndDescriptionHtml(cp) + '</div>' + '</div>' + '</div>';
   return html;
 }

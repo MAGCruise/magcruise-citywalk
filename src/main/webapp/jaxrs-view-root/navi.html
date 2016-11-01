@@ -21,14 +21,14 @@
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row no-gutter">
-      <div id="initial-msg" class="col-sm-12">
+      <div id="initial-msg" class="col-xs-12">
         <div class="alert alert-info" style="margin: 0; padding: 0 1em;">
           位置情報を取得しています… (<a class="alert-link" href="troubleshooting.html#gps-settings"> <i
             class="glyphicon glyphicon-hand-right"></i> 位置情報設定の方法を見ますか？
           </a>)
         </div>
       </div>
-      <div class="col-sm-12">
+      <div class="col-xs-12">
         <div id="error-msg-area" class="alert alert-warning" style="display: none;">
           端末の<span class="gps-error-msg">現在位置</span><span class="error-msg-splitter"
             style="display: none;">/</span><span class="compass-error-msg">方向</span>が取得できないためナビゲーションできません．会場名をたよりに探して下さい．
@@ -44,35 +44,32 @@
       </div>
     </div>
     <div class="row no-gutter">
-      <div class="col-sm-12">
+      <div class="col-xs-12">
         <div id="checkpoint-info"></div>
       </div>
     </div>
-    <div class="row no-gutter">
-      <div class="col-sm-12">
-        <span id="distance-wrapper" class="pull-left" style="display: none;"><span
-          id="distance-prefix">残り およそ</span><span id="distance"></span></span> <a
-          class="btn btn-primary-magc btn-lg pull-right" id="btn-next" role="button">チェックイン</a>
+    <div class="row top-margin bottom-margin">
+      <div class="col-xs-6">
+        <div>
+          <a class="btn btn-primary-magc btn-lg" id="btn-next" role="button">チェックイン</a>
+        </div>
+        <div>
+          <span id="distance-wrapper" style="display: none;"><span id="distance-prefix">残り
+              およそ</span><span id="distance"></span></span>
+        </div>
+        <p id="compass-notice">コンパスは目的地の大まかな方向を指します．電波が届きにくい場所では正常に動作しません．</p>
       </div>
-    </div>
-    <div id="compass-wrapper" class="row no-gutter" style="display: none;">
-      <div class="col-sm-12">
-        <img src="../img/arrow.png" id="compass" class="h-center">
-        <p class="notice text-center">
-          コンパスは目的地の大まかな方向を指します<br>屋内では正常に動作しません
-        </p>
-      </div>
-    </div>
-    <div class="row no-gutter">
-      <div class="col-sm-12">
-        <div id="map-box">
-          <div id="map"></div>
+      <div id="compass-wrapper" class="row" style="display: none;">
+        <div class="col-xs-6">
+          <img src="../img/arrow.png" id="compass" class="h-center">
         </div>
       </div>
     </div>
     <div class="row no-gutter">
-      <div class="col-sm-12">
-        <div id="notification"></div>
+      <div class="col-xs-12">
+        <div id="map-box">
+          <div id="map"></div>
+        </div>
       </div>
     </div>
   </div>

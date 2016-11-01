@@ -15,7 +15,8 @@
   letter-spacing: 0.3px;
 }
 
-.notice {
+#compass-notice {
+  font-size: 13px;
   color: #97a6a3;}
 
 #btn-next {
@@ -24,11 +25,11 @@
   padding-right: $standardMargin;
 }
 
+
 #compass {
-  margin-bottom: $standardMargin;
-  $length: 160px;
-  width: $length;
-  height: $length;
+  $length: 200px;
+  width: 100%;
+  max-width: $length;
 }
 
 #map {
@@ -42,17 +43,15 @@
 }
 
 #notification {
+  max-height: 4.5em;
+  overflow-y: scroll;
   .item {
     margin-bottom: 1px;
-    padding: $standardMargin;
     background: #FFFFFF;
     box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.17);
-    font-size: 13px;
-    font-family: HiraginoSans-W4;
-    color: #8D8D8D;
+    font-size: 12px;
+    color: $descriptionColor;
     .name {
-      font-size: 16px;
-      font-family: HiraginoSans-W6;
       color: #38A997;
       margin-left: $standardMargin;
       margin-right: $standardMargin/2;

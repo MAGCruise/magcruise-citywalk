@@ -17,10 +17,6 @@ window.onload = function() {
   initMap();
 }
 
-$(function() {
-  $('#checkpoint-info').append(makeCheckpointInfoHtml(checkpoint));
-});
-
 // ブラウザがバックグラウンドに一度遷移すると，watchPositionキャンセルされる。
 // そこで，フォアグラウンドに戻ってきた際に，リロードする。initMap()だけでも良いが念のため。
 // ex.)ホームボタンを押す。
@@ -34,6 +30,11 @@ setInterval(function() {
   }
   lastChecked = now;
 }, 1000 * 5);
+
+$(function() {
+  $('#checkpoint-info').append(makeCheckpointInfoHtml(checkpoint));
+  $('#checkpoint-info .checkpoint-info-description').append($("<div>").attr("id", "notification"));
+});
 
 $(function() {
   $("#btn-next").on('click', function() {
@@ -62,8 +63,7 @@ function getEventsByWebsocket() {
     for (var i = 0; i < messages.length; i++) {
       var a = messages[i];
       var elem = $('<div class="item">' + '<span class="time">' + toFormattedShortDate(a.created)
-              + '</span>' + '<span class="name">' + a.userId + '</span>' + 'さんがチェックインしました．'
-              + '</div>');
+              + '</span>' + '<span class="name">' + a.userId + '</span>' + 'さんがチェックイン' + '</div>');
       $('#notification').prepend(elem);
     }
   };
@@ -138,9 +138,11 @@ function initMap() {
               lon: cPos.lng()
             }], cPos, MAX_ZOOM);
           });
-  
+
   var currentPositionMarker = new GeolocationMarker();
-  currentPositionMarker.setCircleOptions({fillColor: '#C2D3E3'});
+  currentPositionMarker.setCircleOptions({
+    fillColor: '#C2D3E3'
+  });
   currentPositionMarker.setMap(map);
 
   // 目的地の設定&位置情報の連続取得
@@ -250,6 +252,7 @@ function onHeadingChange(event) {
     }
     $('.compass-error-msg').show();
     $('#compass-wrapper').hide();
+    $('#compass-notice').hide();
 
     if ($('.gps-error-msg').is(':visible')) {
       $('.error-msg-splitter').show();
@@ -301,6 +304,7 @@ function onHeadingChange(event) {
 function showCompass(heading) {
   if (cPos == null || ePos == null) { return; }
   $('#compass-wrapper').show();
+  $('#compass-notice').show();
 
   var absoluteAngle = google.maps.geometry.spherical.computeHeading(cPos, ePos);
   // apply rotation to compass
