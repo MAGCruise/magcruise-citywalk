@@ -20,7 +20,7 @@ public class CheckpointsTable extends RelationalModel<Checkpoint> {
 	private static final String NAME = "name";
 	private static final String LABEL = "label";
 	private static final String DESCRIPTION = "description";
-	private static final String CREATED = "created";
+	private static final String CREATED_AT = "created_at";
 	private static final String MARKER_COLOR = "marker_color";
 	private static final String CATEGORY = "category";
 	private static final String SUBCATEGORY = "subcategory";
@@ -32,7 +32,7 @@ public class CheckpointsTable extends RelationalModel<Checkpoint> {
 	public CheckpointsTable() {
 		super(TABLE_NAME, ApplicationContext.getDbClient());
 		addColumnDefinition(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
-		addColumnDefinition(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
+		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(NAME, Keyword.VARCHAR);
 		addColumnDefinition(LABEL, Keyword.VARCHAR);
 		addColumnDefinition(DESCRIPTION, Keyword.VARCHAR);

@@ -1,6 +1,5 @@
 package org.magcruise.citywalk.model.row;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -16,7 +15,7 @@ public class Badge {
 	private long id;
 	private String userId;
 	private String badge;
-	private Date created = new Timestamp(new Date().getTime());
+	private Date createdAt;
 
 	public Badge() {
 	}
@@ -56,12 +55,12 @@ public class Badge {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
-	public Date getCreated() {
-		return created;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreated(Date created) {
-		this.created = created;
+	public void setCreatedAt(Date created) {
+		this.createdAt = created;
 	}
 
 }

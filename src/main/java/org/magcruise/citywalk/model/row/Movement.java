@@ -23,8 +23,10 @@ public class Movement {
 	private double altitude;
 	private double altitudeAccuracy;
 	private double speed;
-	private Date created;
 	private double heading;
+	private Date recordedAt;
+
+	private Date createdAt;
 
 	public Movement() {
 	}
@@ -39,7 +41,7 @@ public class Movement {
 		this.altitude = json.getAltitude();
 		this.altitudeAccuracy = json.getAltitudeAccuracy();
 		this.speed = json.getSpeed();
-		this.created = json.getDate();
+		this.recordedAt = json.getRecordedAt();
 		this.heading = json.getHeading();
 	}
 
@@ -121,12 +123,12 @@ public class Movement {
 		this.checkpointGroupId = checkpointGroupId;
 	}
 
-	public Date getCreated() {
-		return created;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreated(Date created) {
-		this.created = created;
+	public void setCreatedAt(Date created) {
+		this.createdAt = created;
 	}
 
 	public String getUserId() {
@@ -143,6 +145,14 @@ public class Movement {
 
 	public void setHeading(double heading) {
 		this.heading = heading;
+	}
+
+	public Date getRecordedAt() {
+		return recordedAt;
+	}
+
+	public void setRecordedAt(Date recordedAt) {
+		this.recordedAt = recordedAt;
 	}
 
 }

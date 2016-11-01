@@ -1,6 +1,5 @@
 package org.magcruise.citywalk.model.row;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Map;
 
@@ -32,15 +31,13 @@ public class Activity {
 	private String taskId;
 	private double score;
 	private Input input;
-	private Date saved = new Timestamp(new Date().getTime());
-	private Date created = new Timestamp(new Date().getTime());
+	private Date createdAt;
 
 	public Activity() {
 	}
 
 	public Activity(String checkpointGroupId, String userId, String checkpointId, double lat,
-			double lon,
-			String taskId, double score, Input input) {
+			double lon, String taskId, double score, Input input) {
 		this.checkpointGroupId = checkpointGroupId;
 		this.userId = userId;
 		this.checkpointId = checkpointId;
@@ -71,14 +68,6 @@ public class Activity {
 			return new PinInput(inputs.get("value"));
 		}
 		throw new IllegalArgumentException(taskType);
-	}
-
-	public Date getSaved() {
-		return saved;
-	}
-
-	public void setSaved(Date saved) {
-		this.saved = saved;
 	}
 
 	public String getUserId() {
@@ -173,12 +162,12 @@ public class Activity {
 		this.checkpointGroupId = checkpointGroupId;
 	}
 
-	public Date getCreated() {
-		return created;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreated(Date created) {
-		this.created = created;
+	public void setCreatedAt(Date created) {
+		this.createdAt = created;
 	}
 
 }

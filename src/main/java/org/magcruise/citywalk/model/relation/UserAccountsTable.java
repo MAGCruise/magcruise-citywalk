@@ -10,13 +10,13 @@ public class UserAccountsTable extends RelationalModel<UserAccount> {
 	public static final String TABLE_NAME = "USER_ACCOUNTS";
 
 	public static final String ID = "id";
-	public static final String CREATED = "created";
+	public static final String CREATED_AT = "created_at";
 	public static final String GROUP_ID = "group_id";
 
 	public UserAccountsTable() {
 		super(TABLE_NAME, ApplicationContext.getDbClient());
 		addColumnDefinition(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
-		addColumnDefinition(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
+		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(GROUP_ID, Keyword.VARCHAR);
 	}
 

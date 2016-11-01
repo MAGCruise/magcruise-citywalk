@@ -9,14 +9,14 @@ public class BadgesTable extends RelationalModel<Badge> {
 
 	public static final String TABLE_NAME = "BADGES";
 	private static final String ID = "id";
-	private static final String CREATED = "created";
+	private static final String CREATED_AT = "created_at";
 	private static final String USER_ID = "user_id";
 	private static final String BADGE = "badge";
 
 	public BadgesTable() {
 		super(TABLE_NAME, ApplicationContext.getDbClient());
 		addColumnDefinition(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
-		addColumnDefinition(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
+		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(USER_ID, Keyword.VARCHAR);
 		addColumnDefinition(BADGE, Keyword.VARCHAR);
 	}

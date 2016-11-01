@@ -75,7 +75,7 @@ public class ApplicationContext implements ServletContextListener {
 			new TasksTable().dropTableIfExists();
 		}
 		//		{
-		//			new EntriesTable().dropTableIfExists()
+		//			new EntriesTable().dropTableIfExists();
 		//			new UserAccountsTable().dropTableIfExists();
 		//			new BadgesTable().dropTableIfExists();
 		//			new VerifiedActivitiesTable().dropTableIfExists();

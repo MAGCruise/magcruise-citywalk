@@ -17,7 +17,7 @@ public class MovementJson {
 	private double heading;
 	private String checkpointGroupId;
 	private String checkpointId;
-	private Date date;
+	private Date recordedAt;
 
 	public MovementJson() {
 	}
@@ -102,12 +102,12 @@ public class MovementJson {
 		this.checkpointId = checkpointId;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getRecordedAt() {
+		return recordedAt;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setRecordedAt(Date date) {
+		this.recordedAt = date;
 	}
 
 	@Override

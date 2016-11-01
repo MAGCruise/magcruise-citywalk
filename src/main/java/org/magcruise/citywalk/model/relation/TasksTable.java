@@ -13,14 +13,14 @@ public class TasksTable extends RelationalModel<Task> {
 
 	public static final String TABLE_NAME = "TASKS";
 	private static final String ID = "id";
-	private static final String CREATED = "created";
+	private static final String CREATED_AT = "created_at";
 	public static final String CHECKPOINT_IDS = "checkpoint_ids";
 	private static final String CONTENT = "content";
 
 	public TasksTable() {
 		super(TABLE_NAME, ApplicationContext.getDbClient());
 		addColumnDefinition(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
-		addColumnDefinition(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
+		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(CHECKPOINT_IDS, Keyword.VARCHAR);
 		addColumnDefinition(CONTENT, Keyword.VARCHAR);
 	}

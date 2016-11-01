@@ -1,6 +1,5 @@
 package org.magcruise.citywalk.model.row;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -16,7 +15,7 @@ public class Entry {
 	private String id;
 	private String userId;
 	private String checkpointGroupId;
-	private Date createdAt = new Timestamp(new Date().getTime());
+	private Date createdAt;
 
 	public Entry() {
 	}

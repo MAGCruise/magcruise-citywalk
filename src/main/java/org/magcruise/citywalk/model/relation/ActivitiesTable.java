@@ -11,13 +11,12 @@ import org.nkjmlab.util.db.RelationalModel;
 public abstract class ActivitiesTable<T extends Activity> extends RelationalModel<T> {
 
 	private static final String ID = "id";
-	private static final String CREATED = "created";
+	private static final String CREATED_AT = "created_at";
 	private static final String CHECKPOINT_GROUP_ID = "checkpoint_group_id";
 	public static final String USER_ID = "user_id";
 	private static final String CHECKPOINT_ID = "checkpoint_id";
 	private static final String TASK_ID = "task_id";
 	private static final String INPUT = "input";
-	private static final String SAVED = "saved";
 	private static final String SCORE = "score";
 	private static final String LAT = "lat";
 	private static final String LON = "lon";
@@ -27,8 +26,7 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 	public ActivitiesTable(String name) {
 		super(name, ApplicationContext.getDbClient());
 		addColumnDefinition(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
-		addColumnDefinition(CREATED, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
-		addColumnDefinition(SAVED, Keyword.TIMESTAMP);
+		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(USER_ID, Keyword.VARCHAR);
 		addColumnDefinition(CHECKPOINT_GROUP_ID, Keyword.VARCHAR);
 		addColumnDefinition(CHECKPOINT_ID, Keyword.VARCHAR);

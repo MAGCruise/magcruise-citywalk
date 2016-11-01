@@ -1,6 +1,5 @@
 package org.magcruise.citywalk.model.row;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +16,7 @@ import net.sf.persist.annotations.Table;
 public class Checkpoint {
 
 	private String id;
-	private Date created = new Timestamp(new Date().getTime());
+	private Date createdAt;
 	private String name;
 	private String label;
 	private String description;
@@ -37,8 +36,8 @@ public class Checkpoint {
 
 	public Checkpoint(String id, String name, String label, String description, double lat,
 			double lon, List<String> checkPointGroupIds, String markerColor, String category,
-			String subcategory, Date visibleTimeFrom,
-			Date visibleTimeTo, String imgSrc, String place) {
+			String subcategory, Date visibleTimeFrom, Date visibleTimeTo, String imgSrc,
+			String place) {
 		this.id = id;
 		this.name = name;
 		this.label = label;
@@ -119,12 +118,12 @@ public class Checkpoint {
 		this.label = label;
 	}
 
-	public Date getCreated() {
-		return created;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreated(Date created) {
-		this.created = created;
+	public void setCreatedAt(Date created) {
+		this.createdAt = created;
 	}
 
 	public String getMarkerColor() {

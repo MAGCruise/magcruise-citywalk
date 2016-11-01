@@ -22,9 +22,9 @@ window.onload = function() {
 // ex.)ホームボタンを押す。
 // ex.)電源ボタンを押す。
 // ex.)通知より，別のアプリを起動する。
-var lastChecked = new Date().getTime();
+var lastChecked = Date.now();
 setInterval(function() {
-  var now = new Date().getTime();
+  var now = Date.now();
   if (now - lastChecked > 1000 * 10) {
     location.reload();
   }
@@ -328,7 +328,7 @@ function enqueueMovement(pos) {
     heading: cHeading,
     checkpointGroupId: getCheckpointGroupId(),
     checkpointId: checkpoint.id,
-    date: new Date(),
+    recordedAt: Date.now(),
   };
   var movements = getMovementQueue();
   movements.push(movement);
