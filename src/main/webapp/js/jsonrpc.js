@@ -7,7 +7,7 @@ var JsonRpcRequest = (function() {
     this.fail = getDefaultFailIfAbsent(fail);
     this.delay = 1000;
     this.initialDelay = 0;
-    this.timeout = 60000;
+    this.timeout = 3000;
   };
 
   return JsonRpcRequest;
