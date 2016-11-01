@@ -130,7 +130,9 @@ function addActivity(task, input, isCorrect) {
     $('#modalTitle').html(title);
     $('[data-remodal-id=modal]').remodal().open();
   }, function() {
-    swalAlert("送信失敗", "もう一度送信して下さい", "error");
+    setTimeout(function() {
+      swalAlert("送信失敗", "電波の良いところで，もう一度送信して下さい", "error")
+    }, 500);
   })).rpc();
 }
 

@@ -5,11 +5,11 @@ $(function() {
       swal.close();
       setTimeout(function() {
         swalAlert('LocalStorageを初期化しました');
-      }, 300);
+      }, 500);
     } else {
       setTimeout(function() {
         swalAlert('LocalStorageの初期化がキャンセルされました');
-      }, 300);
+      }, 500);
     }
   });
 });

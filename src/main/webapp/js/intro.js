@@ -21,7 +21,7 @@ function checkDeviceAndMoveNext() {
       swalAlert("「歩きスマホ」はやめましょう", "画面を見つめながらの歩行は危険です", "warning", function() {
         location.href = "tutorial.html"
       });
-    }, 300);
+    }, 500);
   }
 
   if (!uaParser.getOS() || !uaParser.getBrowser()) {
