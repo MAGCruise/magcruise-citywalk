@@ -11,7 +11,7 @@
       "category": "施設",
       "subcategory": "食堂",
       "place": "14号館　101教室",
-      "imgSrc": "waseda/icon/cafeteria.jpg",
+      "imgSrc": "projects/default/img/waseda/icon/cafeteria.jpg",
       "checkpoint_group_ids": [
         "waseda"
       ]
@@ -26,7 +26,7 @@
       "category": "施設",
       "subcategory": "学習",
       "place": "14号館　101教室",
-      "imgSrc": "waseda/icon/pc-room.jpg",
+      "imgSrc": "projects/default/img/waseda/icon/pc-room.jpg",
       "checkpoint_group_ids": [
         "waseda"
       ]
