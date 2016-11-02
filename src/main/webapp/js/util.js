@@ -28,6 +28,7 @@ function memorizeHistory() {
 }
 
 $(function() {
+  hideLoading();
   setNavTitle();
   setUserNameInMenu();
   setBack();
