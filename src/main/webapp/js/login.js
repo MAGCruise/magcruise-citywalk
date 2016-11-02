@@ -36,10 +36,10 @@ $(function() {
   $("#nav-menu").hide();
   $('#user-id').val(getUserId());
   $('#login-btn').on('click', loginFunc);
-  $(".form").on('keypress', function(ev) {
+  $("form input").on('keypress', function(ev) {
     if ((ev.which && ev.which === 13) || (ev.keyCode && ev.keyCode === 13)) {
+      ev.preventDefault();
       loginFunc();
-      return false;
     }
   });
 });

@@ -16,14 +16,15 @@ $(function() {
 
   $('#label').text(task.label);
 
-  $(".form").on('keypress', function(ev) {
+  $("form input").on('keypress', function(ev) {
     if ((ev.which && ev.which === 13) || (ev.keyCode && ev.keyCode === 13)) {
+      ev.preventDefault();
       procTask();
-      return false;
     }
   });
 
-  $("#btn-next").on('click', function(e) {
+  $("#btn-next").on('click', function(ev) {
+    ev.preventDefault();
     procTask();
   });
 });

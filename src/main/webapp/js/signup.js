@@ -53,10 +53,11 @@ $(function() {
   }
   $("#nav-menu").hide();
   $('#register-btn').on('click', registerFunc);
-  $(".form").on('keypress', function(ev) {
+
+  $("form input").on('keypress', function(ev) {
     if ((ev.which && ev.which === 13) || (ev.keyCode && ev.keyCode === 13)) {
+      ev.preventDefault();
       registerFunc();
-      return false;
     }
   });
 });
