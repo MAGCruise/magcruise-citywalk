@@ -33,13 +33,17 @@ setInterval(function() {
 }, 1000 * 5);
 
 $(function() {
+  $("#hide-gps-settings-alert").on('click', function() {
+    localStorage.hideGpsSettingsAlert = "true";
+    updateGpsEnableMessage();
+  });
   updateGpsEnableMessage();
   $('#checkpoint-info').append(makeCheckpointInfoHtml(checkpoint));
   $('#checkpoint-info .checkpoint-info-description').append($("<div>").attr("id", "notification"));
 });
 
 function updateGpsEnableMessage() {
-  if (localStorage.enableGpsWhenOnce) {
+  if (localStorage.hideGpsSettingsAlert && JSON.parse(localStorage.hideGpsSettingsAlert)) {
     $("#initial-warning-msg-area").remove();
   } else {
     if (uaParser.getOS().name === "iOS") {
@@ -177,7 +181,7 @@ function watchCurrentPosition() {
     return;
   }
   watchID = window.navigator.geolocation.watchPosition(function(pos) {
-    localStorage.enableGpsWhenOnce = true;
+    localStorage.hideGpsSettingsAlert = "true";
     updateGpsEnableMessage();
     $('#initial-msg').hide();
     $('#distance-wrapper').show();
