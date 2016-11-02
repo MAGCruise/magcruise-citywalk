@@ -35,6 +35,7 @@ import org.nkjmlab.util.db.H2ConfigFactory;
 import org.nkjmlab.util.db.H2Server;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.log4j.LogManager;
+import org.nkjmlab.webui.common.jaxrs.ThymeleafTemplateProcessor;
 
 @WebListener
 public class ApplicationContext implements ServletContextListener {
@@ -46,7 +47,7 @@ public class ApplicationContext implements ServletContextListener {
 
 	static {
 		H2Server.start();
-		//ThymeleafTemplateProcessor.setcacheTTLMs(3600 * 1000L);
+		ThymeleafTemplateProcessor.setcacheTTLMs(60 * 1000L);
 	}
 
 	public static DbClient getDbClient() {
