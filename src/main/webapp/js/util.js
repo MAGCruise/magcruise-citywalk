@@ -10,6 +10,7 @@ var KEY_CHECKPOINT_PROGRESS_DIC = "checkpoint_progress_dic";
 /** *********** */
 
 window.addEventListener("load", function() {
+  hideLoading();
   memorizeHistory();
 }, false);
 
@@ -28,7 +29,6 @@ function memorizeHistory() {
 }
 
 $(function() {
-  hideLoading();
   setNavTitle();
   setUserNameInMenu();
   setBack();
@@ -36,8 +36,13 @@ $(function() {
   setGFormLink();
 });
 
+var loadingTimer;
 function showLoading() {
   $("#loading").show();
+  if (!loadingTimer) {
+    clearTimeout(loadingTimer);
+  }
+  loadingTimer = setTimeout(hideLoading, 5000);
 }
 
 function hideLoading() {
