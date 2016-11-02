@@ -25,12 +25,14 @@ public class CheckpointsAndTasksFactory {
 
 	public static void main(String[] args) {
 		CheckpointsAndTasksJson json = JsonUtils.decode(
-				"src/main/webapp/json/checkpoints-and-tasks/wasedasai2016.json",
+				"src/main/webapp/projects/wasenavi/json/checkpoints-and-tasks/wasedasai2016.json",
 				CheckpointsAndTasksJson.class);
 
 		json.getTasks().forEach(t -> {
 			if (t.getContent().getInstanceClass().contains("Pin")) {
-				System.out.println(t.getCheckpointIds().get(0) + "\t"
+				System.out.println(json.getCheckpoints().stream()
+						.filter(c -> c.getId().equals(t.getCheckpointIds().get(0))).findFirst()
+						.get().getName() + "\t"
 						+ t.getContent().getAnswerTexts().get(0));
 			}
 		});
