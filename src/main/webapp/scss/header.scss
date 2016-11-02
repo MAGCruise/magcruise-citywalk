@@ -1,7 +1,7 @@
 @import "settings";
 @import "mixins";
 
-$navHeight: 60px;
+$navHeight: 70px;
 
 #mag-nav {
   height: $navHeight;
@@ -43,6 +43,7 @@ $navHeight: 60px;
     cursor: pointer;
     font-size: 20px;
     padding: 6px 12px;
+    height: 40px;
     background: $orangeColor;
     @include round($standardMargin/2);
   }
