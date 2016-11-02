@@ -6,6 +6,7 @@ function selectCheckpointGroup(checkpointGroupId) {
     return;
   }
 
+  $.blockUI();
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getInitialData", [checkpointGroupId],
           function(data) {
             saveCityWalkData(data.result);
@@ -19,6 +20,7 @@ function selectCheckpointGroup(checkpointGroupId) {
                 alert("コースに参加できません．後でもう一度試して下さい．");
               }
             }, function(error) {
+              $.unblockUI();
               alert("コースに参加できません．後でもう一度試して下さい．");
             })).rpc();
           })).rpc();

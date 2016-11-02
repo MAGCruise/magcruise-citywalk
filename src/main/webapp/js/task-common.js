@@ -79,6 +79,7 @@ function setTaskTitle() {
 }
 
 function addActivity(task, input, isCorrect) {
+
   var checkpointId = getParam("checkpoint_id");
   var arg = {
     checkpointId: checkpointId,
@@ -93,7 +94,9 @@ function addActivity(task, input, isCorrect) {
       value: input
     }
   };
+  $.blockUI();
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [arg], function(data) {
+    $.unblockUI();
     setCheckpointProgress(checkpointId, getTaskIndex()); // 完了済みtask
     // indexを保存
     if (isLastTask()) {
@@ -130,6 +133,7 @@ function addActivity(task, input, isCorrect) {
     $('#modalTitle').html(title);
     $('[data-remodal-id=modal]').remodal().open();
   }, function() {
+    $.unblockUI();
     setTimeout(function() {
       swalAlert("送信失敗", "電波の良いところで，もう一度送信して下さい", "error")
     }, 500);

@@ -8,6 +8,8 @@ var KEY_VISITED_CHECKPOINTS = "visited_checkpoints";
 var KEY_ANSWER_DIC = "answer_dic";
 var KEY_CHECKPOINT_PROGRESS_DIC = "checkpoint_progress_dic";
 /** *********** */
+$.blockUI.defaults.css = {};
+/** *********** */
 
 window.addEventListener("load", function() {
   memorizeHistory();
