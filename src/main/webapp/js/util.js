@@ -37,6 +37,14 @@ $(function() {
   setGFormLink();
 });
 
+function showLoading() {
+  $("#loading").show();
+}
+
+function hideLoading() {
+  $("#loading").hide();
+}
+
 function setGFormLink() {
   $('#gForm')
           .on(
@@ -91,7 +99,7 @@ function setUserNameInMenu() {
 }
 
 function setNavTitle() {
-  $("#nav-title").text(document.title);
+  $("#nav-title").html(document.title);
   $("#nav-title").ready(function() {
     if ($("#nav-title").height() < 30) {
       $("#nav-title").css("padding-top", "8px");

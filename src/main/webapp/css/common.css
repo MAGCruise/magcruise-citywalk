@@ -118,8 +118,9 @@ h1.doc-header-bg {
   color: black;
   font-weight: normal; }
 
+/*
 .blockMsg {
-  width: 30%;
+  width:  30%;
   left: 35%;
   top: 40%;
   background-color: white;
@@ -127,4 +128,15 @@ h1.doc-header-bg {
   padding: 17px;
   border-radius: 5px;
   text-align: center;
-  z-index: 99999; }
+  z-index: 99999;
+}
+*/
+#loading {
+  width: 90px;
+  height: 90px;
+  margin: -45px 0 0 -45px;
+  opacity: 0.5;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 100000; }

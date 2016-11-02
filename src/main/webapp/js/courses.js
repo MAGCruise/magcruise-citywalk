@@ -6,7 +6,7 @@ function selectCheckpointGroup(checkpointGroupId) {
     return;
   }
 
-  $.blockUI();
+  showLoading();
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getInitialData", [checkpointGroupId],
           function(data) {
             saveCityWalkData(data.result);
@@ -14,13 +14,14 @@ function selectCheckpointGroup(checkpointGroupId) {
             setMaxCategoryDepth(MAX_CATEGORY_DEPTH);
             new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "join", [getUserId(),
                 getCheckpointGroupId()], function(data) {
+              hideLoading();
               if (data.result) {
                 wifiAlertAndGoNext();
               } else {
                 alert("コースに参加できません．後でもう一度試して下さい．");
               }
             }, function(error) {
-              $.unblockUI();
+              hideLoading();
               alert("コースに参加できません．後でもう一度試して下さい．");
             })).rpc();
           })).rpc();
