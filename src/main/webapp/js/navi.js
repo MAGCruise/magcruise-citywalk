@@ -55,7 +55,16 @@ function updateGpsEnableMessage() {
   }
 }
 
+function updateMapHeight() {
+  var height = $(window).height() - 320;
+  if (height > Number($("#map-box").css("height").replace("px", ""))) {
+    $("#map-box").css("height", height + "px");
+  }
+}
+
 $(function() {
+  updateMapHeight();
+
   $("#btn-next").on('click', function() {
     // 既に途中までタスクが進んでいる場合には，完了済みの次のタスクからはじめる
     var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
