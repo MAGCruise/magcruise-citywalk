@@ -2,7 +2,7 @@
 @import "mixins";
 
 #map-box {
-  height: 240px;
+  height: 280px;
   #map {
     height: auto;
     position: absolute;
@@ -48,6 +48,13 @@
 
 $checkpointHeight: 70px;
 $margin: 8px;
+
+#checkpoints{
+  min-height: 320px;
+  max-height: 320px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 
 .checkpoint {
   cursor: pointer;

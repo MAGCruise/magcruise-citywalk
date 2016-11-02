@@ -11,7 +11,8 @@ var defaultOrientation;
 var POST_MOVEMENT_INTERVAL = 1000 * 10; // msec
 var KEY_MOVEMENT_LIST = "movement_list";
 
-var MAX_ZOOM = 20;
+var DEFAULT_FOCUS_ZOOM = 18;
+
 var uaParser = new UAParser();
 
 window.onload = function() {
@@ -107,9 +108,7 @@ function initMap() {
     scaleControlOptions: {
       position: google.maps.ControlPosition.BOTTOM_LEFT
     },
-    // minZoom: 12,
-    // maxZoom: 20,
-    zoom: 18
+    zoom: DEFAULT_FOCUS_ZOOM
   });
   // マーカーの追加
   var marker = new google.maps.Marker({
@@ -136,25 +135,25 @@ function initMap() {
             }, {
               lat: cPos.lat(),
               lon: cPos.lng()
-            }], cPos, MAX_ZOOM);
+            }], cPos, DEFAULT_FOCUS_ZOOM);
             infoWindow.open(map, marker);
           });
 
-  createMapControlUI(map, "目的地", "12px", google.maps.ControlPosition.RIGHT_TOP, MAX_ZOOM)
-          .addEventListener('click', function() {
+  createMapControlUI(map, "目的地", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
+          'click', function() {
             fitBoundsAndZoom(map, [{
               lat: ePos.lat(),
               lon: ePos.lng()
-            }], cPos, MAX_ZOOM);
+            }], cPos, DEFAULT_FOCUS_ZOOM);
             infoWindow.open(map, marker);
           });
 
-  createMapControlUI(map, "現在地", "12px", google.maps.ControlPosition.RIGHT_TOP, MAX_ZOOM)
-          .addEventListener('click', function() {
+  createMapControlUI(map, "現在地", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
+          'click', function() {
             fitBoundsAndZoom(map, [{
               lat: cPos.lat(),
               lon: cPos.lng()
-            }], cPos, MAX_ZOOM);
+            }], cPos, DEFAULT_FOCUS_ZOOM);
           });
 
   var currentPositionMarker = new GeolocationMarker();

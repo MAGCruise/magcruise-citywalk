@@ -47,7 +47,19 @@ window.onload = function() {
   initMap();
 }
 
+function updateCheckpointListHeight() {
+  var height = $(window).height() - 450;
+  if (height > Number($("#checkpoints").css("max-height").replace("px", ""))) {
+    $("#checkpoints").css("max-height", height + "px");
+  }
+}
+
 $(function() {
+  updateCheckpointListHeight();
+  $(window).resize(function() {
+    updateCheckpointListHeight();
+  });
+
   $(window).on('hashchange', function() {
     category = getParam("category");
     subcategory = getParam("subcategory");

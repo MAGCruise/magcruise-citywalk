@@ -23,7 +23,7 @@
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row no-gutter">
       <div id="initial-warning-msg-area" class="col-xs-12">
-        <div class="alert alert-warning" style="margin: 0; padding: 0.5em 1em;">
+        <div class="alert alert-warning" style="margin: 0; padding: 0 1em;">
           <h5>位置情報が利用できません．設定を確認して下さい</h5>
           <div id="initial-warning-msg-ios" style="display: none">
             <p>
@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="col-xs-12">
-        <div id="error-msg-area" class="alert alert-warning" style="display: none;">
+        <div id="error-msg-area" class="alert alert-warning" style="display: none; padding: 0 1em;">
           端末の<span class="gps-error-msg">現在位置</span><span class="error-msg-splitter"
             style="display: none;">/</span><span class="compass-error-msg">方向</span>が取得できないためナビゲーションできません．会場名をたよりに探して下さい．
           (<span class="gps-error-msg"><a class="alert-link"

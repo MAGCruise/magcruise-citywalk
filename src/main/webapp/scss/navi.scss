@@ -32,9 +32,7 @@
   max-width: $length;
 }
 
-#map {
-  height: 200px;
-}
+
 
 #activity-title {
   margin-left: $standardMargin;
@@ -76,10 +74,8 @@
   }
 }
 
-
-
 #map-box {
-  height: 240px;
+  height: 320px;
   #map {
     height: auto;
     position: absolute;

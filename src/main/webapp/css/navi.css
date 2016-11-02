@@ -22,9 +22,6 @@
   width: 100%;
   max-width: 200px; }
 
-#map {
-  height: 200px; }
-
 #activity-title {
   margin-left: 10px;
   font-size: 16px;
@@ -59,7 +56,7 @@
     color: #38A997; }
 
 #map-box {
-  height: 240px; }
+  height: 320px; }
   #map-box #map {
     height: auto;
     position: absolute;

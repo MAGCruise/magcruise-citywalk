@@ -1,5 +1,5 @@
 #map-box {
-  height: 240px; }
+  height: 280px; }
   #map-box #map {
     height: auto;
     position: absolute;
@@ -30,6 +30,12 @@
   color: #AAA; }
 #breadcrumb .btn-sm {
   font-size: 14px; }
+
+#checkpoints {
+  min-height: 320px;
+  max-height: 320px;
+  overflow-y: scroll;
+  overflow-x: hidden; }
 
 .checkpoint {
   cursor: pointer;
