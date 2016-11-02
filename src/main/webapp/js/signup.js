@@ -36,13 +36,13 @@ var registerFunc = function() {
       } else {
         var recommendedUserId = data.result.recommendedUserId;
         $('#user-id').val(recommendedUserId);
-        alert("そのニックネームは既に登録されています．「" + recommendedUserId + "」が利用できます．");
+        swalAlert("既に登録されているニックネームです", "「" + recommendedUserId + "」はいかがでしょうか？", "info");
       }
     } else {
-      alert('サインアップに失敗しました．後でもう一度試して下さい．');
+      swalAlert('サインアップ失敗', 'もう一度試して下さい．', 'warning');
     }
   }, function(data, textStatus, errorThrown) {
-    alert('サインアップに失敗しました．後でもう一度試して下さい．');
+    swalAlert('サインアップ失敗', '後でもう一度試して下さい．', 'warning');
   })).rpc();
 };
 
