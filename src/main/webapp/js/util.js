@@ -14,10 +14,6 @@ window.addEventListener("load", function() {
   memorizeHistory();
 }, false);
 
-// スマートフォンにonloadを毎回読み込ませるための対策．
-window.onunload = function() {
-}
-
 function memorizeHistory() {
   if (history && typeof (history.replaceState) == "function" && !history.state) {
     history.replaceState({

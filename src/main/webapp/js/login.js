@@ -1,6 +1,3 @@
-window.onunload = function() {
-};
-
 function isNoLogin() {
   return parseUri(location).queryKey.msg == "nologin";
 }
