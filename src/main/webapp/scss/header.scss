@@ -11,6 +11,7 @@ $navHeight: 70px;
 
 
 #back {
+  margin-top: $smallMargin;
   height: 40px;
   cursor: pointer;
   padding-left: $smallMargin;
@@ -21,6 +22,7 @@ $navHeight: 70px;
 
 
 #forward {
+  margin-top: $smallMargin;
   height: 40px;
   cursor: pointer;
   padding-left: $standardMargin;
@@ -37,7 +39,7 @@ $navHeight: 70px;
 }
 
 #nav-menu{
-  padding: 0 $standardMargin;
+  margin: $smallMargin $standardMargin;
 
   #top-dropdown {
     cursor: pointer;

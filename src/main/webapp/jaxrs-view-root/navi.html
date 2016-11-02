@@ -23,7 +23,7 @@
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row no-gutter">
       <div id="initial-warning-msg-area" class="col-xs-12">
-        <div class="alert alert-warning" style="margin: 0; padding: 0 1em;">
+        <div class="alert alert-warning" style="margin: 0 0 1em 0; padding: 0 1em;">
           <h5>位置情報が利用できません．設定を確認して下さい</h5>
           <div id="initial-warning-msg-ios" style="display: none">
             <p>
@@ -37,9 +37,6 @@
               <img class="media-object img-thumbnail center-block" src="../img/web/gps-ios-app.png"
                 style="max-width: 200px;">
             </div>
-            (<a id="hide-gps-settings-alert" class="alert-link"> <i
-              class="glyphicon glyphicon-hand-right"></i> このメッセージを二度と表示しない
-            </a>)
           </div>
           <div id="initial-warning-msg-android" style="display: none">
             <p>端末のホーム画面で，[設定]＞ [ユーザー設定]をタップし，上部の [ON/OFFスイッチ] をタップします．</p>
@@ -48,6 +45,9 @@
                 style="max-width: 280px;">
             </div>
           </div>
+          (<a id="hide-gps-settings-alert" class="alert-link"> <i
+            class="glyphicon glyphicon-hand-right"></i> このメッセージを二度と表示しない
+          </a>)
         </div>
       </div>
       <div id="initial-msg" class="col-xs-12">

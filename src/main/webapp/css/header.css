@@ -4,6 +4,7 @@
   padding: 10px 0px; }
 
 #back {
+  margin-top: 6px;
   height: 40px;
   cursor: pointer;
   padding-left: 6px; }
@@ -11,6 +12,7 @@
     opacity: 0.15; }
 
 #forward {
+  margin-top: 6px;
   height: 40px;
   cursor: pointer;
   padding-left: 10px; }
@@ -23,7 +25,7 @@
   text-align: center; }
 
 #nav-menu {
-  padding: 0 10px; }
+  margin: 6px 10px; }
   #nav-menu #top-dropdown {
     cursor: pointer;
     font-size: 20px;
