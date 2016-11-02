@@ -2,7 +2,7 @@ if (!getCheckpointGroupId()) {
   location.href = "courses.html";
 }
 
-var DEFAULT_FOCUS_ZOOM = 18;
+var DEFAULT_FOCUS_ZOOM = 17;
 
 var map = null;
 var markers = []; // マーカーs
