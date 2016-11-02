@@ -4,6 +4,7 @@
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <script
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyGENOzS6lKjopS39UlIzljj5lj7Pl1ss&libraries=geometry"></script>
+<script type="text/javascript" src="../js/lib/ua-parser.min.js"></script>
 <link rel="stylesheet" href="../css/navi.css" />
 <script type="text/javascript" src="../js/lib/geolocation-marker.js"></script>
 <script type="text/javascript" src="../js/task-common.js"></script>
@@ -21,11 +22,32 @@
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row no-gutter">
+      <div id="initial-warning-msg-area" class="col-xs-12">
+        <div class="alert alert-warning" style="margin: 0; padding: 0.5em 1em;">
+          <h5>位置情報が利用できません．設定を確認して下さい</h5>
+          <div id="initial-warning-msg-ios" style="display: none">
+            <p>
+              端末のホーム画面で，[設定]＞[プライバシー]＞[位置情報サービス] をタップし，<strong class="green">[位置情報]をオン</strong>にします．
+              つづいて，<strong class="green">[Safariのサイト]または[Chrome]をタップし，位置情報を[許可しない]から[使用中のみ許可]</strong>に変更して下さい．
+            </p>
+            <div class="media">
+              <img class="media-object img-thumbnail center-block" src="../img/web/gps-ios-app.png"
+                style="max-width: 200px;">
+            </div>
+          </div>
+          <div id="initial-warning-msg-android" style="display: none">
+            <p>端末のホーム画面で，[設定]＞ [ユーザー設定]をタップし，上部の [ON/OFFスイッチ] をタップします．</p>
+            <div class="media">
+              <img class="media-object img-thumbnail center-block" src="../img/web/gps-android.png"
+                style="max-width: 280px;">
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="initial-msg" class="col-xs-12">
         <div class="alert alert-info" style="margin: 0; padding: 0 1em;">
-          位置情報を取得しています．しばらく時間がかかることがあります… (<a class="alert-link"
-            href="troubleshooting.html#gps-settings"> <i class="glyphicon glyphicon-hand-right"></i>
-            位置情報設定の方法を見ますか？
+          位置情報を取得しています… (<a class="alert-link" href="troubleshooting.html#gps-settings"> <i
+            class="glyphicon glyphicon-hand-right"></i> 位置情報設定の方法
           </a>)
         </div>
       </div>

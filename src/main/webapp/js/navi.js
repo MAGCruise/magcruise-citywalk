@@ -12,6 +12,7 @@ var POST_MOVEMENT_INTERVAL = 1000 * 10; // msec
 var KEY_MOVEMENT_LIST = "movement_list";
 
 var MAX_ZOOM = 20;
+var uaParser = new UAParser();
 
 window.onload = function() {
   initMap();
@@ -32,9 +33,22 @@ setInterval(function() {
 }, 1000 * 5);
 
 $(function() {
+  updateGpsEnableMessage();
   $('#checkpoint-info').append(makeCheckpointInfoHtml(checkpoint));
   $('#checkpoint-info .checkpoint-info-description').append($("<div>").attr("id", "notification"));
 });
+
+function updateGpsEnableMessage() {
+  if (localStorage.enableGpsWhenOnce) {
+    $("#initial-warning-msg-area").remove();
+  } else {
+    if (uaParser.getOS().name === "iOS") {
+      $("#initial-warning-msg-ios").show();
+    } else {
+      $("#initial-warning-msg-android").show();
+    }
+  }
+}
 
 $(function() {
   $("#btn-next").on('click', function() {
@@ -62,7 +76,7 @@ function getEventsByWebsocket() {
     var messages = JSON.parse(e.data);
     for (var i = 0; i < messages.length; i++) {
       var a = messages[i];
-      var elem = $('<div class="item">' + '<span class="time">' + toFormattedShortDate(a.created)
+      var elem = $('<div class="item">' + '<span class="time">' + toFormattedShortDate(a.createdAt)
               + '</span>' + '<span class="name">' + a.userId + '</span>' + 'さんがチェックイン' + '</div>');
       $('#notification').prepend(elem);
     }
@@ -163,6 +177,8 @@ function watchCurrentPosition() {
     return;
   }
   watchID = window.navigator.geolocation.watchPosition(function(pos) {
+    localStorage.enableGpsWhenOnce = true;
+    updateGpsEnableMessage();
     $('#initial-msg').hide();
     $('#distance-wrapper').show();
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
