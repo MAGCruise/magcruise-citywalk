@@ -43,26 +43,12 @@ function makeImgHtml(checkpoint) {
 }
 
 function makeCheckpointInfoHtml(cp) {
-  var html = '<div class="row checkpoint no-margin">' + '<div class="row">'
-          + '<div class="col-xs-6">'
-          + makeNameHtml(cp)
-          + '</div>'
-          + '<div class="col-xs-6">'
-          + makePlaceHtml(cp)
-          + '</div>'
-          + '</div>'
-          + '<div class="row">'
-          + '<div class="col-xs-12">'
-          + '<p class="answer">'
-          + makeAnswerHtml(cp)
-          + '</p>'
-          + '</div>'
-          + '</div>'
-          + '<div class="row">'
-          + '<div class="col-xs-3">'
-          + makeImgHtml(cp)
-          + '</div>'
+  var html = '<div class="row">' + '<div class="col-xs-6">' + makeNameHtml(cp) + '</div>'
+          + '<div class="col-xs-6">' + makePlaceHtml(cp) + '</div>' + '</div>'
+          + '<div class="row">' + '<div class="col-xs-12">' + '<p class="answer">'
+          + makeAnswerHtml(cp) + '</p>' + '</div>' + '</div>' + '<div class="row">'
+          + '<div class="col-xs-3">' + makeImgHtml(cp) + '</div>'
           + '<div class="col-xs-9 narrow-description checkpoint-info-description">'
-          + makeLabelAndDescriptionHtml(cp) + '</div>' + '</div>' + '</div>';
+          + makeLabelAndDescriptionHtml(cp) + '</div>' + '</div>';
   return html;
 }
