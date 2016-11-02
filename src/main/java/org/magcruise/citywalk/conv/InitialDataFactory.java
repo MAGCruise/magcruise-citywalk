@@ -2,6 +2,8 @@ package org.magcruise.citywalk.conv;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 import org.magcruise.citywalk.model.json.init.CheckinJson;
@@ -25,11 +27,18 @@ public class InitialDataFactory {
 		JsonUtils.encode(create("waseda"), "src/main/webapp/json/initial-data/waseda.json", true);
 	}
 
+	public static final Map<String, InitialDataJson> initialDataJsonCache = new ConcurrentHashMap<>();
+
 	public static InitialDataJson create(String checkpointGroupId) {
+		InitialDataJson json = initialDataJsonCache.get(checkpointGroupId);
+		if (json != null) {
+			return json;
+		}
 		List<Checkpoint> checkpoints = new CheckpointsTable()
 				.findByCheckpointGroupId(checkpointGroupId);
-		return create(checkpoints);
-
+		json = create(checkpoints);
+		initialDataJsonCache.putIfAbsent(checkpointGroupId, json);
+		return json;
 	}
 
 	private static InitialDataJson create(List<Checkpoint> checkpoints) {
