@@ -329,7 +329,6 @@ function swalAlert(title, text, type, callback) {
     title: title,
     text: text ? text : null,
     type: type ? type : null,
-    type: "warning",
     animation: false,
     html: true,
   }, callback);

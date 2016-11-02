@@ -14,12 +14,12 @@ var loginFunc = function() {
               } else {
                 location.href = "courses.html";
               }
+            } else {
+              swalAlert('ログイン失敗', 'アカウントが無効です．', 'error');
             }
-          })).retry(3, function() {
-    // Nothing to do
-  }, function() {
-    alert('ログインに失敗しました．後でもう一度試して下さい．');
-  });
+          }, function(error) {
+            swalAlert('ログイン失敗', '後でもう一度試して下さい．', 'warining');
+          })).rpc();
 
 };
 
