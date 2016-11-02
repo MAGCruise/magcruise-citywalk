@@ -141,7 +141,7 @@ function addActivity(task, input, isCorrect) {
   })).rpc();
 }
 
-$('.remodal').on('confirmation', function() {
+$(document).on('confirmation', '.remodal', function() {
   history.replaceState('', '', location.href.replace("#modal", ""));
   moveToNextPage();
 });

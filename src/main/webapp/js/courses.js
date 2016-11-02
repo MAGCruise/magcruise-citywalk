@@ -27,7 +27,7 @@ function selectCheckpointGroup(checkpointGroupId) {
     hideLoading();
     alert("コースに参加できません．後でもう一度試して下さい．");
   });
-  req.tieout = 10000;
+  req.tieout = 20000;
   new JsonRpcClient(req).rpc();
 }
 
