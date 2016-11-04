@@ -22,9 +22,9 @@
   }
   #nav-start {
     position: absolute;
-    height: $length;
+    height: 32px;
     right:  $standardMargin * 5;
-    bottom:  $standardMargin;
+    bottom:  20px;
   }
 }
 
@@ -124,8 +124,5 @@ $margin: 8px;
 }
 
 .balloon-description {
-  font-size: 11px;
-  color: $descriptionColor;
-  letter-spacing: 0.07px;
-  line-height: 17px;
+  color: #999;
 }

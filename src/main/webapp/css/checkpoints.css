@@ -16,9 +16,9 @@
     bottom: 90px; }
   #map-box #nav-start {
     position: absolute;
-    height: 50px;
+    height: 32px;
     right: 50px;
-    bottom: 10px; }
+    bottom: 20px; }
 
 .near {
   background: #FA833C; }
@@ -95,7 +95,4 @@
     border: none; }
 
 .balloon-description {
-  font-size: 11px;
-  color: #999;
-  letter-spacing: 0.07px;
-  line-height: 17px; }
+  color: #999; }
