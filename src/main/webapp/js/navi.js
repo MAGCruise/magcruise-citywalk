@@ -104,6 +104,9 @@ function getEventsByWebsocket() {
 
 function initMap() {
 
+  // 目的地の設定&位置情報の連続取得
+  ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
+
   var center = {
     lat: checkpoint.lat,
     lng: checkpoint.lon
@@ -171,8 +174,6 @@ function initMap() {
   });
   currentPositionMarker.setMap(map);
 
-  // 目的地の設定&位置情報の連続取得
-  ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
   watchCurrentPosition();
 }
 
@@ -189,11 +190,26 @@ function watchCurrentPosition() {
     return;
   }
   watchID = window.navigator.geolocation.watchPosition(function(pos) {
-    localStorage.hideGpsSettingsAlert = "true";
+    if (!localStorage.hideGpsSettingsAlert) {
+      localStorage.hideGpsSettingsAlert = "true";
+    }
     updateGpsEnableMessage();
     $('#initial-msg').hide();
     $('#distance-wrapper').show();
-    cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+    if (!cPos) {
+      cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+      setTimeout(function() {
+        fitBoundsAndZoom(map, [{
+          lat: ePos.lat(),
+          lon: ePos.lng()
+        }, {
+          lat: cPos.lat(),
+          lon: cPos.lng()
+        }], cPos, DEFAULT_FOCUS_ZOOM)
+      }, 500);
+    } else {
+      cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+    }
     console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     showDistance();
     enqueueMovement(pos);
