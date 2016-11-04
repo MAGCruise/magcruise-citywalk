@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
-<title>スコア</title>
+<title>スコア / 順位</title>
 <script src="../js/score.js"></script>
 <link rel="stylesheet" href="../css/score.css" />
 </head>
@@ -16,7 +16,6 @@
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
       <!-- <p class="my-names pull-right"><span id="my-user-name" class="name"></span>さん／<span id="my-group-name" class="name"></span>グループ</p> -->
-      <!-- 早稲田祭の時はグループ概念がない -->
       <p id="my-names" class="pull-right">
         <span id="my-user-name" class="name"></span>さん
       </p>
@@ -28,7 +27,8 @@
     </div>
     <div class="row" style="display: none;">
       <p id="my-group-ranking" class="pull-right">
-        スコア<span id="my-group-score" class="num"></span>pt / グループ順位<span id="my-group-rank" class="num"></span>位
+        スコア<span id="my-group-score" class="num"></span>pt / グループ順位<span id="my-group-rank"
+          class="num"></span>位
       </p>
     </div>
     <div class="row">
