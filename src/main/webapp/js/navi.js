@@ -11,7 +11,8 @@ var defaultOrientation;
 var POST_MOVEMENT_INTERVAL = 1000 * 10; // msec
 var KEY_MOVEMENT_LIST = "movement_list";
 
-var DEFAULT_FOCUS_ZOOM = 18;
+var DEFAULT_FOCUS_ZOOM = 17;
+var infoWindow;
 
 var uaParser = new UAParser();
 
@@ -122,13 +123,16 @@ function initMap() {
     },
     zoom: DEFAULT_FOCUS_ZOOM
   });
+
+  initMakers();
+
   // マーカーの追加
   var marker = new google.maps.Marker({
     position: center,
     map: map,
   });
-  // マーカータップ時のバルーンの初期化
-  var infoWindow = new google.maps.InfoWindow({
+
+  infoWindow = new google.maps.InfoWindow({
     content: checkpoint.name + "<br>(" + checkpoint.place + ")"
   });
   infoWindow.open(marker.getMap(), marker);
@@ -175,6 +179,47 @@ function initMap() {
   currentPositionMarker.setMap(map);
 
   watchCurrentPosition();
+}
+
+function initMakers() {
+  var checkpoints = getNonVisitedCheckPoints();
+  var markers = [];
+  checkpoints.forEach(function(checkpoint, i) {
+    var marker = new google.maps.Marker({
+      position: {
+        lat: checkpoint.lat,
+        lng: checkpoint.lon
+      },
+      map: map,
+      icon: "//maps.google.com/mapfiles/ms/icons/blue-dot.png",
+    });
+    marker.addListener('click', function() {
+      if (infoWindow != null) {
+        infoWindow.close();
+      }
+
+      var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : checkpoint.imgSrc;
+      imgSrc = checkpoint.imgSrc.indexOf("http") == -1 ? "../" + imgSrc : imgSrc;
+
+      infoWindow = new google.maps.InfoWindow({
+        content: "<span class='green'>" + checkpoint.name + "</span> (" + checkpoint.place + ")"
+                + "<br><span class='balloon-description'>カテゴリ： </span>" + '<a href="'
+                + "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category)
+                + "&selected-id=" + encodeURIComponent(checkpoint.id) + '&no-refresh=true">'
+                + checkpoint.category + "</a>" + '<img src="' + imgSrc
+                + '" class="pull-right checkpoint-img" style="max-width: 70px;">'
+                + "<div class='balloon-description'>" + checkpoint.label + "<br>"
+                + checkpoint.description
+                + '<br><a id="nav-start-in-list" class="btn btn-success btn-sm">ここに行く</a>'
+                + "</div>"
+      });
+      infoWindow.open(marker.getMap(), marker);
+      $("#nav-start-in-list").on("click", function() {
+        location.href = "./navi.html?checkpoint_id=" + checkpoint.id;
+      });
+    });
+    markers.push(marker);
+  });
 }
 
 /* 位置情報を連続取得する */

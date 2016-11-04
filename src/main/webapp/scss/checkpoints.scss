@@ -122,3 +122,10 @@ $margin: 8px;
     border: none;
   }
 }
+
+.balloon-description {
+  font-size: 11px;
+  color: $descriptionColor;
+  letter-spacing: 0.07px;
+  line-height: 17px;
+}

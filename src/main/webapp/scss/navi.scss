@@ -25,7 +25,6 @@
   padding-right: $standardMargin;
 }
 
-
 #compass {
   $length: 200px;
   width: 100%;
@@ -105,4 +104,20 @@
 
 #error-msg-area {
   margin: 0;
+}
+
+#nav-start-in-list{
+  background: #31aa97;
+  color: white;
+  border: none;
+  &:hover,&:focus {
+    background: #31aa97;
+    color: white;
+    border: none;
+  }
+  &:active {
+    background: #31aa97;
+    color: white;
+    border: none;
+  }
 }

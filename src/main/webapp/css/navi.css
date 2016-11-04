@@ -78,3 +78,16 @@
 
 #error-msg-area {
   margin: 0; }
+
+#nav-start-in-list {
+  background: #31aa97;
+  color: white;
+  border: none; }
+  #nav-start-in-list:hover, #nav-start-in-list:focus {
+    background: #31aa97;
+    color: white;
+    border: none; }
+  #nav-start-in-list:active {
+    background: #31aa97;
+    color: white;
+    border: none; }

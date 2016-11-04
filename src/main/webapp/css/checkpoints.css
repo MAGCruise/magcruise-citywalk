@@ -93,3 +93,9 @@
     background: #31aa97;
     color: white;
     border: none; }
+
+.balloon-description {
+  font-size: 11px;
+  color: #999;
+  letter-spacing: 0.07px;
+  line-height: 17px; }
