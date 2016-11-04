@@ -39,6 +39,11 @@ function wifiAlertAndGoNext() {
 
 $(function() {
   $("#nav-menu").hide();
+  if (getParam("checkpointGroupId")) {
+    selectCheckpointGroup(getParam("checkpointGroupId"));
+    return;
+  }
+
   $(".course a").on('click', function() {
     var checkpointGroupId = $(this).attr("id");
     selectCheckpointGroup(checkpointGroupId);
