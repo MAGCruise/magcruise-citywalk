@@ -2,7 +2,7 @@ var MAX_CATEGORY_DEPTH = 1;
 
 function selectCheckpointGroup(checkpointGroupId) {
   if (checkpointGroupId == getCheckpointGroupId()) {
-    wifiAlertAndGoNext();
+    location.href = "checkpoints.html";
     return;
   }
 
