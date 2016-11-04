@@ -61,6 +61,11 @@ $(function() {
   });
 
   $(window).on('hashchange', function() {
+    if (getParam("no-refresh")) {
+      memorizeHistory();
+      setForward();
+      return;
+    }
     category = getParam("category");
     subcategory = getParam("subcategory");
     updateViews();
@@ -303,19 +308,18 @@ function selectCheckpoint(checkpoint) {
   infoWindow = new google.maps.InfoWindow({
     content: "<span class='green'>" + checkpoint.name + "</span> (" + checkpoint.place + ")"
             + "<br><span class='balloon-description'>カテゴリ： </span>" + '<a href="'
-            + "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category) + '">'
-            + checkpoint.category + "</a>" + '<img src="' + imgSrc
+            + "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category)
+            + "&selected-id=" + encodeURIComponent(checkpoint.id) + '">' + checkpoint.category
+            + "</a>" + '<img src="' + imgSrc
             + '" class="pull-right checkpoint-img" style="max-width: 70px;">'
             + "<div class='balloon-description'>" + checkpoint.label + "<br>"
             + checkpoint.description + "</div>"
   });
+
   var marker = markers.filter(function(marker) {
     return marker.checkpointId === checkpoint.id;
   })[0];
   infoWindow.open(marker.getMap(), marker);
-
-  map.setZoom(DEFAULT_FOCUS_ZOOM);
-  map.setCenter(marker.getPosition());
 
   $(".checkpoint").removeClass("selected");
   $("#checkpoint-" + checkpoint.id).addClass("selected");
@@ -333,16 +337,17 @@ function selectCheckpoint(checkpoint) {
   $("#nav-start").show();
   switch (getMaxCategoryDepth()) {
   case 0:
-    location.href = "./checkpoints.html#" + "&selected-id=" + encodeURIComponent(checkpoint.id);
+    location.href = "./checkpoints.html#" + "&selected-id=" + encodeURIComponent(checkpoint.id)
+            + "&no-refresh=true";
     break;
   case 1:
     location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category)
-            + "&selected-id=" + encodeURIComponent(checkpoint.id);
+            + "&selected-id=" + encodeURIComponent(checkpoint.id) + "&no-refresh=true";
     break;
   default:
     location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category)
             + "&subcategory=" + encodeURIComponent(checkpoint.subcategory) + "&selected-id="
-            + encodeURIComponent(checkpoint.id);
+            + encodeURIComponent(checkpoint.id) + "&no-refresh=true";
   }
 
 }
