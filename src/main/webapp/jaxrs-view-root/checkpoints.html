@@ -19,7 +19,7 @@
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row no-gutter">
-      <div class="col-sm-12">
+      <div class="col-xs-12">
         <div id="gps-error-msg" class="alert alert-warning" style="display: none; padding: 0 1em;">
           端末の現在位置が取得できないためナビゲーションできません (<a class="alert-link"
             href="troubleshooting.html#gps-settings"><i class="glyphicon glyphicon-hand-right"></i>
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-xs-12">
         <div id="map-box">
           <div id="map"></div>
           <img src="../img/btn_current_position.png" id="current-position"> <img
@@ -36,9 +36,9 @@
         </div>
       </div>
     </div>
-    <div class="row top-margin bottom-margin-sm no-gutter">
-      <div class="col-sm-12">
-        <p class="narrow-description">赤:4pt, 黄:6pt, 青:10pt, 緑:受付ブース</p>
+    <div class="row top-margin-sm bottom-margin-sm no-gutter">
+      <div class="col-xs-12">
+        <div class="narrow-description">赤:4pt, 黄:6pt, 青:10pt, 緑:受付ブース</div>
         <div id="breadcrumb"></div>
       </div>
     </div>

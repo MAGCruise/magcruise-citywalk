@@ -57,8 +57,8 @@ function updateGpsEnableMessage() {
 }
 
 function updateMapHeight() {
-  var height = $(window).height() - $("#map-box").offset().top - 24;
-  if (height > Number($("#map-box").css("height").replace("px", ""))) {
+  var height = window.innerHeight - $("#map-box").offset().top;
+  if (height > 280) {
     $("#map-box").css("height", height + "px");
   }
 }
@@ -66,6 +66,7 @@ function updateMapHeight() {
 $(function() {
   updateMapHeight();
   setInterval(updateMapHeight, 500);
+
   $("#btn-next").on('click', function() {
     // 既に途中までタスクが進んでいる場合には，完了済みの次のタスクからはじめる
     var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
@@ -124,6 +125,12 @@ function initMap() {
     zoom: DEFAULT_FOCUS_ZOOM
   });
 
+  google.maps.event.addListener(map, "dragend", function() {
+    if (infoWindow != null) {
+      infoWindow.close();
+    }
+  });
+
   initMakers();
 
   // マーカーの追加
@@ -135,7 +142,6 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow({
     content: checkpoint.name + "<br>(" + checkpoint.place + ")"
   });
-  infoWindow.open(marker.getMap(), marker);
 
   google.maps.event.addListener(infoWindow, "closeclick", function() {
     google.maps.event.addListenerOnce(marker, "click", function(event) {
@@ -157,7 +163,7 @@ function initMap() {
     fillColor: '#C2D3E3'
   });
   currentPositionMarker.setMap(map);
-
+  
   watchCurrentPosition();
 }
 

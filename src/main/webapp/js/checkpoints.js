@@ -44,17 +44,15 @@ window.onload = function() {
 }
 
 function updateCheckpointListHeight() {
-  var height = $(window).height() - 450;
-  if (height > Number($("#checkpoints").css("max-height").replace("px", ""))) {
+  var height = window.innerHeight - $("#checkpoints").offset().top + 15;
+  if (height > 280) {
     $("#checkpoints").css("max-height", height + "px");
   }
 }
 
 $(function() {
   updateCheckpointListHeight();
-  $(window).resize(function() {
-    updateCheckpointListHeight();
-  });
+  setInterval(updateCheckpointListHeight, 500);
 
   $(window).on('hashchange', function() {
     if (getParam("no-refresh")) {
@@ -119,7 +117,7 @@ function initBreadCrumb() {
   $("#breadcrumb").empty();
 
   // トップ
-  var topElem = $('<span>カテゴリ：</span><a class="btn btn-sm btn-success">TOP</a>');
+  var topElem = $('<span>カテゴリ: </span><a class="btn btn-sm btn-success">TOP</a>');
   $("#breadcrumb").append(topElem);
   topElem.on('click', function() {
     category = null;

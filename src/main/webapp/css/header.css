@@ -1,10 +1,10 @@
 #mag-nav {
-  height: 70px;
+  height: 60px;
   background: #0074BF;
   padding: 10px 0px; }
 
 #back {
-  margin-top: 6px;
+  margin-top: 4px;
   height: 40px;
   cursor: pointer;
   padding-left: 6px; }
@@ -12,7 +12,7 @@
     opacity: 0.15; }
 
 #forward {
-  margin-top: 6px;
+  margin-top: 4px;
   height: 40px;
   cursor: pointer;
   padding-left: 10px; }
@@ -25,8 +25,9 @@
   text-align: center; }
 
 #nav-menu {
-  margin: 6px 10px; }
-  #nav-menu #top-dropdown {
+  margin: 4px 10px; }
+
+#nav-menu #top-dropdown {
     cursor: pointer;
     font-size: 20px;
     padding: 6px 12px;
