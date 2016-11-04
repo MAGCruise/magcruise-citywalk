@@ -143,18 +143,6 @@ function initMap() {
     });
   });
 
-  createMapControlUI(map, "目的地～現在地", "12px", google.maps.ControlPosition.TOP_RIGHT)
-          .addEventListener('click', function() {
-            fitBoundsAndZoom(map, [{
-              lat: ePos.lat(),
-              lon: ePos.lng()
-            }, {
-              lat: cPos.lat(),
-              lon: cPos.lng()
-            }], cPos, DEFAULT_FOCUS_ZOOM);
-            infoWindow.open(map, marker);
-          });
-
   createMapControlUI(map, "目的地", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
           'click', function() {
             fitBoundsAndZoom(map, [{
@@ -162,14 +150,6 @@ function initMap() {
               lon: ePos.lng()
             }], cPos, DEFAULT_FOCUS_ZOOM);
             infoWindow.open(map, marker);
-          });
-
-  createMapControlUI(map, "現在地", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
-          'click', function() {
-            fitBoundsAndZoom(map, [{
-              lat: cPos.lat(),
-              lon: cPos.lng()
-            }], cPos, DEFAULT_FOCUS_ZOOM);
           });
 
   var currentPositionMarker = new GeolocationMarker();
@@ -249,6 +229,33 @@ function watchCurrentPosition() {
     if ($('.compass-error-msg').is(':hidden')) {
       $('#error-msg-area').hide();
     }
+    createMapControlUI(map, "現在地", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
+            'click', function() {
+              fitBoundsAndZoom(map, [{
+                lat: cPos.lat(),
+                lon: cPos.lng()
+              }], cPos, DEFAULT_FOCUS_ZOOM);
+            });
+
+    createMapControlUI(map, "目的地～現在地", "12px", google.maps.ControlPosition.TOP_RIGHT)
+            .addEventListener('click', function() {
+              fitBoundsAndZoom(map, [{
+                lat: ePos.lat(),
+                lon: ePos.lng()
+              }, {
+                lat: cPos.lat(),
+                lon: cPos.lng()
+              }], cPos, DEFAULT_FOCUS_ZOOM);
+            });
+
+    createMapControlUI(map, "現在地", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
+            'click', function() {
+              fitBoundsAndZoom(map, [{
+                lat: cPos.lat(),
+                lon: cPos.lng()
+              }], cPos, DEFAULT_FOCUS_ZOOM);
+            });
+
   }, function(error) {
     $('#initial-msg').hide();
     if ($('#error-msg-area').is(':hidden')) {
