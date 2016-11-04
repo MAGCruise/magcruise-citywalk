@@ -27,25 +27,24 @@
   font-size: 16px;
   color: #38A997; }
 
-#notification {
-  max-height: 4.5em;
-  overflow-y: scroll; }
-  #notification .item {
-    margin-bottom: 1px;
-    background: #FFFFFF;
-    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.17);
-    font-size: 12px;
-    color: #999; }
-    #notification .item .name {
-      color: #38A997;
-      margin-left: 10px;
-      margin-right: 5px; }
+#notification .item {
+  margin-bottom: 1px;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.17);
+  font-size: 12px;
+  color: #999; }
+  #notification .item .name {
+    color: #38A997;
+    margin-left: 10px;
+    margin-right: 5px; }
 
 #checkpoint-info {
   border-bottom: 1px solid #DDD;
   margin-top: 10px;
   background: white;
-  box-shadow: 0px 1px 1px 0px rgba(198, 198, 198, 0.5); }
+  box-shadow: 0px 1px 1px 0px rgba(198, 198, 198, 0.5);
+  max-height: 160px;
+  overflow-y: scroll; }
   #checkpoint-info img {
     max-height: 160px; }
   #checkpoint-info .name {
@@ -55,7 +54,7 @@
     color: #38A997; }
 
 #map-box {
-  height: 320px; }
+  height: 180px; }
   #map-box #map {
     height: auto;
     position: absolute;
@@ -91,3 +90,6 @@
     background: #31aa97;
     color: white;
     border: none; }
+
+.balloon-description {
+  color: #999; }

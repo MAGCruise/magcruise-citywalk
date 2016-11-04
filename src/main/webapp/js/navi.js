@@ -57,7 +57,7 @@ function updateGpsEnableMessage() {
 }
 
 function updateMapHeight() {
-  var height = $(window).height() - 320;
+  var height = $(window).height() - $("#map-box").offset().top - 16;
   if (height > Number($("#map-box").css("height").replace("px", ""))) {
     $("#map-box").css("height", height + "px");
   }
@@ -65,7 +65,7 @@ function updateMapHeight() {
 
 $(function() {
   updateMapHeight();
-
+  setInterval(updateMapHeight, 500);
   $("#btn-next").on('click', function() {
     // 既に途中までタスクが進んでいる場合には，完了済みの次のタスクからはじめる
     var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
@@ -207,11 +207,9 @@ function initMakers() {
                 + "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category)
                 + "&selected-id=" + encodeURIComponent(checkpoint.id) + '&no-refresh=true">'
                 + checkpoint.category + "</a>" + '<img src="' + imgSrc
-                + '" class="pull-right checkpoint-img" style="max-width: 70px;">'
+                + '" class="pull-right checkpoint-img" style="max-width: 70px;margin-left: 2em;">'
                 + "<div class='balloon-description'>" + checkpoint.label + "<br>"
-                + checkpoint.description
-                + '<br><a id="nav-start-in-list" class="btn btn-success btn-sm">ここに行く</a>'
-                + "</div>"
+                + '<a id="nav-start-in-list" class="btn btn-success btn-sm">ここに行く</a>' + "</div>"
       });
       infoWindow.open(marker.getMap(), marker);
       $("#nav-start-in-list").on("click", function() {
@@ -241,20 +239,8 @@ function watchCurrentPosition() {
     updateGpsEnableMessage();
     $('#initial-msg').hide();
     $('#distance-wrapper').show();
-    if (!cPos) {
-      cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-      setTimeout(function() {
-        fitBoundsAndZoom(map, [{
-          lat: ePos.lat(),
-          lon: ePos.lng()
-        }, {
-          lat: cPos.lat(),
-          lon: cPos.lng()
-        }], cPos, DEFAULT_FOCUS_ZOOM)
-      }, 500);
-    } else {
-      cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-    }
+
+    cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     showDistance();
     enqueueMovement(pos);
