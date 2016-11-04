@@ -1,7 +1,7 @@
 @import "settings";
 @import "mixins";
 
-$navHeight: 70px;
+$navHeight: 60px;
 
 #mag-nav {
   height: $navHeight;
@@ -11,7 +11,7 @@ $navHeight: 70px;
 
 
 #back {
-  margin-top: $smallMargin;
+  margin-top: 4px;
   height: 40px;
   cursor: pointer;
   padding-left: $smallMargin;
@@ -22,7 +22,7 @@ $navHeight: 70px;
 
 
 #forward {
-  margin-top: $smallMargin;
+  margin-top: 4px;
   height: 40px;
   cursor: pointer;
   padding-left: $standardMargin;
@@ -39,7 +39,7 @@ $navHeight: 70px;
 }
 
 #nav-menu{
-  margin: $smallMargin $standardMargin;
+  margin: 4px $standardMargin;
 
   #top-dropdown {
     cursor: pointer;
