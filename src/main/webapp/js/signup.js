@@ -1,13 +1,21 @@
-window.onunload = function() {
-}
-
 var MAX_LENGTH_OF_USER_ID = 8;
 
+var enableButton = true;
+
 var registerFunc = function() {
+  if (!isEnableLocalStorage()) { return; }
+
   if (getUserId()) {
     location.href = "courses.html";
     return;
   }
+
+  if (!enableButton) { return; }
+
+  enableButton = false;
+  setTimeout(function() {
+    enableButton = true;
+  }, 1000);
 
   // スマートフォンでの戻る対策
   $(window).on('popstate', function(e) {
@@ -21,14 +29,9 @@ var registerFunc = function() {
   var userId = $('#user-id').val().trim();
   var groupId = $('#group-id').val().trim();
 
-  if(userId.length<1 || 8<userId.length){
-    swalAlert('サインアップ失敗',"1文字以上8文字以下で入力して下さい");
-    return;
-  }
-
   for (var i = 0; i < $('input').size(); i++) {
     if (!$('input')[i].checkValidity()) {
-      $('#submit-for-validation').trigger("click");
+      swalAlert('サインアップ失敗', "1文字以上8文字以下で入力して下さい");
       return;
     }
   }
