@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+<object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
+<link rel="stylesheet" href="../css/courses.css" />
+<title>動作環境チェック</title>
+<script src="../js/lib/ua-parser.min.js"></script>
+<script src="../js/check-environment.js"></script>
+</head>
+<head th:remove="all">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<script src="../js/citywalk.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div th:replace="/fragment/header.html :: top-menu"></div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h4>動作環境チェック</h4>
+        <p>
+          動作環境のチェックをします．<span class="alert-danger">ERROR</span>が表示される端末では利用できません．<span
+            class="alert-warning">WARN</span>が表示される端末では一部機能が利用できません．
+        </p>
+        <h4 class="green">ブラウザ/OSのチェック</h4>
+        <p id="os-browser"></p>
+        <h4 class="green">ローカルストレージのチェック</h4>
+        <p id="localStorage"></p>
+        <h4 class="green">GPSのチェック</h4>
+        <p id="gps"></p>
+        <h4 class="green">電子コンパスのチェック</h4>
+        <p id="compass"></p>
+        <h4 class="green">位置情報の精度向上のヒント</h4>
+        <p>WiFiをオンにするだけで位置情報サービスの精度が上がることがあります．</p>
+        <p id="wifi"></p>
+        <div class="btn-group btn-group-justified bottom-margin">
+          <a id="btn-join" class="btn btn-primary-magc btn-lg">参加する</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

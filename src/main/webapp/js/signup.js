@@ -3,8 +3,6 @@ var MAX_LENGTH_OF_USER_ID = 8;
 var enableButton = true;
 
 var registerFunc = function() {
-  if (!isEnableLocalStorage()) { return; }
-
   if (getUserId()) {
     location.href = "courses.html";
     return;

@@ -36,14 +36,9 @@ $(function() {
 function isEnableLocalStorage() {
   try {
     window.localStorage.setItem("enableLocalStorage", "true");
+    window.localStorage.getItem("enableLocalStorage");
     return true;
   } catch (e) {
-    if (e.code == 22) {
-      swalAlert(
-              'プライベートモードをオフにして下さい',
-              '<a href="https://support.apple.com/ja-jp/HT203036">プライベートブラウズをオフにする  - Apple サポート</a> を見る',
-              "error");
-    }
     return false;
   }
 }
