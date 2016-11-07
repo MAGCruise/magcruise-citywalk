@@ -1,4 +1,5 @@
 $(function() {
+  $("#btn-join").hide();
   if (!getUserId() || !getCheckpointGroupId()) {
     $("#nav-menu-wrapper").remove();
   }
@@ -17,8 +18,9 @@ $(function() {
             .html(
                     $('<div class="alert alert-danger">')
                             .html(
-                                    'ERROR: ローカルストレージが利用できません．プライベートモードになっているならばオフにして下さい．'
+                                    'ERROR: ローカルストレージが利用できません．プライベートモードになっているならばオフにして，ページを再読み込みして下さい．'
                                             + '<a class="alert-link" href="https://support.apple.com/ja-jp/HT203036">プライベートブラウズをオフにする  - Apple サポート<i class="fa fa-external-link"></i></a> を見る'));
+    $("#btn-join").remove();
   }
   checkGPS();
   window.addEventListener("deviceorientation", onHeadingChange);
@@ -58,6 +60,7 @@ function checkGPS() {
                     $("#gps").html(
                             $('<div class="alert alert-success">').html(
                                     "SUCCESS: " + "位置情報サービスを利用できます．"));
+                    $("#btn-join").show();
                   },
                   function(error) {
                     $("#gps")
@@ -67,6 +70,7 @@ function checkGPS() {
                                                     "WARN: "
                                                             + "位置情報サービスを利用できません．残り距離，コンパスによるナビゲーションなどは利用できません．"
                                                             + '<i class="glyphicon glyphicon-hand-right"></i> <a class="alert-link" href="https://wasenavi.magcruise.org/magcruise-citywalk/app/troubleshooting.html#gps-settings">位置情報サービスの設定</a> を見る．'));
+                    $("#btn-join").show();
                   }, {
                     enableHighAccuracy: true,
                     timeout: 1000 * 60,
