@@ -1,5 +1,4 @@
 $(function() {
-  $("#btn-join").hide();
   if (!getUserId() || !getCheckpointGroupId()) {
     $("#nav-menu-wrapper").remove();
   }
@@ -12,15 +11,17 @@ $(function() {
   checkDeviceAndMoveNext();
   if (isEnableLocalStorage()) {
     $("#localStorage").html(
-            $('<div class="alert alert-success">').html("SUCCESS: ローカルストレージが利用できます．"));
+            $('<div class="alert alert-success">').html(
+                    '<span class="label label-success">SUCCESS</span> ' + "ローカルストレージが利用できます．"));
   } else {
     $("#localStorage")
             .html(
                     $('<div class="alert alert-danger">')
                             .html(
-                                    'ERROR: ローカルストレージが利用できません．プライベートモードになっているならばオフにして，ページを再読み込みして下さい．'
+                                    '<span class="label label-danger">ERROR</span> '
+                                            + 'ローカルストレージが利用できません．ブラウザがプライベートモードになっているならばオフにして，ページを再読み込みして下さい．'
                                             + '<a class="alert-link" href="https://support.apple.com/ja-jp/HT203036">プライベートブラウズをオフにする  - Apple サポート<i class="fa fa-external-link"></i></a> を見る'));
-    $("#btn-join").remove();
+    $("#btn-join").prop("disabled", true);
   }
   checkGPS();
   window.addEventListener("deviceorientation", onHeadingChange);
@@ -46,9 +47,12 @@ function onHeadingChange(event) {
   if (typeof cHeading == "undefined" || cHeading == null) {
     $("#compass").html(
             $('<div class="alert alert-warning">').html(
-                    "WARN: " + "電子コンパスを利用できません．コンパスによるナビゲーションはできません．"));
+                    '<span class="label label-warning">WARN</span> '
+                            + "電子コンパスを利用できません．コンパスによるナビゲーションはできません．"));
   } else {
-    $("#compass").html($('<div class="alert alert-success">').html("SUCCESS: " + "電子コンパスを利用できます．"));
+    $("#compass").html(
+            $('<div class="alert alert-success">').html(
+                    '<span class="label label-success">SUCCESS</span> ' + "電子コンパスを利用できます．"));
   }
 
 }
@@ -59,18 +63,17 @@ function checkGPS() {
                   function(pos) {
                     $("#gps").html(
                             $('<div class="alert alert-success">').html(
-                                    "SUCCESS: " + "位置情報サービスを利用できます．"));
-                    $("#btn-join").show();
+                                    '<span class="label label-success">SUCCESS</span> '
+                                            + "位置情報サービスを利用できます．"));
                   },
                   function(error) {
                     $("#gps")
                             .html(
                                     $('<div class="alert alert-warning">')
                                             .html(
-                                                    "WARN: "
+                                                    '<span class="label label-warning">WARN</span> '
                                                             + "位置情報サービスを利用できません．残り距離，コンパスによるナビゲーションなどは利用できません．"
                                                             + '<i class="glyphicon glyphicon-hand-right"></i> <a class="alert-link" href="https://wasenavi.magcruise.org/magcruise-citywalk/app/troubleshooting.html#gps-settings">位置情報サービスの設定</a> を見る．'));
-                    $("#btn-join").show();
                   }, {
                     enableHighAccuracy: true,
                     timeout: 1000 * 60,
@@ -80,7 +83,6 @@ function checkGPS() {
 
 function checkDeviceAndMoveNext() {
   var uaParser = new UAParser();
-  var errText = "OSまたはWebブラウザが推奨環境ではありません．正しく動作しない可能性があります．";
   var unrecommended = false;
 
   if (!uaParser.getOS() || !uaParser.getBrowser()) {
@@ -119,9 +121,14 @@ function checkDeviceAndMoveNext() {
                   : "unkown OS") + ")";
   if (unrecommended) {
     $("#os-browser").html(
-            $('<div class="alert alert-warning">').html("WARN: " + errText + osAndBrowser));
+            $('<div class="alert alert-warning">').html(
+                    '<span class="label label-warning">WARN</span> '
+                            + "OSまたはWebブラウザが推奨環境ではありません．正しく動作しない可能性があります．" + osAndBrowser));
   } else {
-    $("#os-browser").html(
-            $('<div class="alert alert-success">').html("SUCCESS: " + "推奨環境です．" + osAndBrowser));
+    $("#os-browser")
+            .html(
+                    $('<div class="alert alert-success">').html(
+                            '<span class="label label-success">SUCCESS</span> ' + "推奨環境です．"
+                                    + osAndBrowser));
   }
 }
