@@ -1,18 +1,14 @@
 var MAX_LENGTH_OF_USER_ID = 8;
 
-var enableButton = true;
-
 var registerFunc = function() {
   if (getUserId()) {
     location.href = "courses.html";
     return;
   }
 
-  if (!enableButton) { return; }
-
-  enableButton = false;
+  $('#register-btn').prop("disabled", true);
   setTimeout(function() {
-    enableButton = true;
+    $('#register-btn').prop("disabled", false);
   }, 1000);
 
   // スマートフォンでの戻る対策
