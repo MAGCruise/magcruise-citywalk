@@ -52,17 +52,26 @@ function onHeadingChange(event) {
 }
 
 function checkGPS() {
-  navigator.geolocation.getCurrentPosition(function(pos) {
-    $("#gps").html($('<div class="alert alert-success">').html("SUCCESS: " + "位置情報サービスを利用できます．"));
-  }, function(error) {
-    $("#gps").html(
-            $('<div class="alert alert-warning">').html(
-                    "WARN: " + "位置情報サービスを利用できません．残り距離，コンパスによるナビゲーションなどは利用できません"));
-  }, {
-    enableHighAccuracy: true,
-    timeout: 1000 * 60,
-    maximumAge: 0,
-  });
+  navigator.geolocation
+          .getCurrentPosition(
+                  function(pos) {
+                    $("#gps").html(
+                            $('<div class="alert alert-success">').html(
+                                    "SUCCESS: " + "位置情報サービスを利用できます．"));
+                  },
+                  function(error) {
+                    $("#gps")
+                            .html(
+                                    $('<div class="alert alert-warning">')
+                                            .html(
+                                                    "WARN: "
+                                                            + "位置情報サービスを利用できません．残り距離，コンパスによるナビゲーションなどは利用できません．"
+                                                            + '<i class="glyphicon glyphicon-hand-right"></i> <a class="alert-link" href="https://wasenavi.magcruise.org/magcruise-citywalk/app/troubleshooting.html#gps-settings">位置情報サービスの設定</a> を見る．'));
+                  }, {
+                    enableHighAccuracy: true,
+                    timeout: 1000 * 60,
+                    maximumAge: 0,
+                  });
 }
 
 function checkDeviceAndMoveNext() {
