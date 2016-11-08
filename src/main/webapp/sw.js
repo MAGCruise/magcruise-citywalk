@@ -70,7 +70,9 @@ self.addEventListener('fetch', (event) => {
                           let responseToCache = response.clone();
                           caches.open(CACHE_NAME)
                                 .then((cache) => {
+                                  if(event.request.method==="GET"){
                                     cache.put(event.request, responseToCache);
+                                  }
                                 });
                           return response;
                       });
