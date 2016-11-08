@@ -13,7 +13,7 @@ $(function() {
   if (isEnableLocalStorage()) {
     $("#localStorage").html(
             $('<div class="alert alert-success">').html(
-                    '<span class="label label-success">OK</span> ' + "ブラウザ設定が正常です．"));
+                    '<span class="label label-success">OK</span> ' + "ブラウザ設定は正常です．"));
   } else {
     $("#localStorage")
             .html(
