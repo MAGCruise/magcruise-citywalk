@@ -39,12 +39,16 @@ self.addEventListener('fetch', (event) => {
       return response;
   }).catch(function(ev) {
     return caches.match(exchangeCitywalkUrl(event.request.url)).then((response)=>{
-        if(!response && isCitywalkHtmlUrl(event.request.url)){
-          return caches.match(DOC_ROOT+"checkpoints.html");
-        }
-        return response;
+      if(!response && isCitywalkHtmlUrl(event.request.url)){
+        return caches.match(exchangeCitywalkUrl(event.request.referrer)).then((response)=>{
+          if(!response && isCitywalkHtmlUrl(event.request.url)){
+            return caches.match(DOC_ROOT+"checkpoints.html");
+          }
+          return response;
+        });
       }
-    );
+      return response;
+    });
   });
 
   event.respondWith(res);
