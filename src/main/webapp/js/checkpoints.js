@@ -40,7 +40,7 @@ window.onload = function() {
     getCurrentPositionAndUpdateViews();
   }
 
-  initMap();
+  setTimeout(initMap, 300);
 }
 
 function updateCheckpointListHeight() {
