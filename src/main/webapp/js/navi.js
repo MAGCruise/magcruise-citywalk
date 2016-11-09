@@ -17,7 +17,7 @@ var infoWindow;
 var uaParser = new UAParser();
 
 window.onload = function() {
-  initMap();
+  setTimeout(initMap, 300);
 }
 
 // ブラウザがバックグラウンドに一度遷移すると，watchPositionキャンセルされる。
@@ -163,7 +163,7 @@ function initMap() {
     fillColor: '#C2D3E3'
   });
   currentPositionMarker.setMap(map);
-  
+
   watchCurrentPosition();
 }
 
