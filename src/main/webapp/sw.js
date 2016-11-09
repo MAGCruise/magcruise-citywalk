@@ -22,6 +22,10 @@ self.addEventListener('fetch', (event) => {
     }
   }
 
+  function isCitywalkHtmlUrl(url){
+    return url.indexOf(DOC_ROOT)!=-1 && url.indexOf(".html")!=-1;
+  }
+
   var res = fetch(event.request).then((response) => {
       if (!response || response.status !== 200 || response.type !== 'basic') {
         return response;
@@ -34,7 +38,13 @@ self.addEventListener('fetch', (event) => {
       });
       return response;
   }).catch(function(ev) {
-    return caches.match(exchangeCitywalkUrl(event.request.url));
+    return caches.match(exchangeCitywalkUrl(event.request.url)).then((response)=>{
+        if(!response && isCitywalkHtmlUrl(event.request.url)){
+          return caches.match(DOC_ROOT+"checkpoints.html");
+        }
+        return response;
+      }
+    );
   });
 
   event.respondWith(res);
