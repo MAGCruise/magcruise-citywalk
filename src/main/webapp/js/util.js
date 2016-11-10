@@ -1,5 +1,6 @@
 /* Consntants */
 var KEY_CITY_WALK_DATA = "city_walk_data";
+var KEY_CITY_WALK_DATA_DATE = "city_walk_data_date";
 var KEY_USER_ID = "user_id";
 var KEY_GROUP_ID = "group_id";
 var KEY_CHECKPOINT_GROUP_ID = "checkpoint_group_id";
@@ -163,6 +164,15 @@ function getActivityPublisherWssUrl() {
 /* City Walk Data */
 function saveCityWalkData(data) {
   setItem(KEY_CITY_WALK_DATA, JSON.stringify(data));
+  setCityWalkDataDate(Date.now());
+}
+
+function setCityWalkDataDate(date) {
+  setItem(KEY_CITY_WALK_DATA_DATE, JSON.stringify(date));
+}
+
+function getCityWalkDataDate() {
+  return JSON.parse(getItem(KEY_CITY_WALK_DATA_DATE));
 }
 
 function loadCityWalkData() {
@@ -397,4 +407,19 @@ var postMovementsFunc = function() {
     // リストア
     setItems(KEY_MOVEMENT_LIST, movements.concat(getItems(KEY_MOVEMENT_LIST)));
   })).rpc();
+}
+
+function updateInitialDataIfNeeded(checkpointGroupId) {
+  if (!getCityWalkDataDate()) { return; }
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "exsitsUpdatedInitialData",
+          [getCityWalkDataDate()], function(data) {
+            if (data.result) {
+              var req = new JsonRpcRequest(getBaseUrl(), "getInitialData", [checkpointGroupId],
+                      function(data) {
+                        saveCityWalkData(data.result);
+                      });
+              req.timeout = 20000;
+              new JsonRpcClient(req).rpc();
+            }
+          })).rpc();
 }

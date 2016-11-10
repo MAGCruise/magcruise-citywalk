@@ -1,6 +1,7 @@
 package org.magcruise.citywalk.conv;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,12 +54,16 @@ public class CheckpointsAndTasksFactory {
 		//log.info(insertToDb("src/main/webapp/json/checkpoints-and-tasks/wasedasai2016.json"));
 	}
 
+	public static volatile Date lastUpdateTimes;
+
 	public static CheckpointsAndTasksJson insertToDb(String file) {
 		try {
 			CheckpointsAndTasksJson json = JSON.decode(FileUtils.getFileReader(file),
 					CheckpointsAndTasksJson.class);
 			log.info("insertToDb:{}", json);
 			insertToDb(json);
+			lastUpdateTimes = new Date();
+			InitialDataFactory.initialDataJsonCache.clear();
 			return json;
 		} catch (JSONException | IOException e) {
 			throw new RuntimeException(e);

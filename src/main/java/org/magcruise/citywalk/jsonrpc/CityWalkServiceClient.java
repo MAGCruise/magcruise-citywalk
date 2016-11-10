@@ -109,4 +109,10 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 		return null;
 	}
 
+	@Override
+	public boolean exsitsUpdatedInitialData(long timeOfInitialData) {
+		// TODO 自動生成されたメソッド・スタブ
+		return false;
+	}
+
 }

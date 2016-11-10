@@ -13,6 +13,8 @@ import jp.go.nict.langrid.commons.rpc.intf.Parameter;
 
 public interface CityWalkServiceInterface {
 
+	boolean exsitsUpdatedInitialData(long timeOfInitialData);
+
 	InitialDataJson getInitialData(
 			@Parameter(sample = "waseda") String checkpointGroupId);
 

@@ -51,6 +51,7 @@ function updateCheckpointListHeight() {
 }
 
 $(function() {
+  updateInitialDataIfNeeded(getCheckpointGroupId());
   updateCheckpointListHeight();
   setInterval(updateCheckpointListHeight, 500);
 
