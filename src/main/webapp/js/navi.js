@@ -7,10 +7,6 @@ var map;
 var watchID;
 var compassElem;
 var defaultOrientation;
-
-var POST_MOVEMENT_INTERVAL = 1000 * 10; // msec
-var KEY_MOVEMENT_LIST = "movement_list";
-
 var DEFAULT_FOCUS_ZOOM = 17;
 var infoWindow;
 
@@ -245,8 +241,9 @@ function watchCurrentPosition() {
                   lon: cPos.lng()
                 }], cPos, DEFAULT_FOCUS_ZOOM);
               });
+      enqueueMovement(pos);
+      postMovementsFunc();
     }
-
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     showDistance();
@@ -396,53 +393,4 @@ function showCompass(heading) {
   } else if (compassElem.css("webkitTransform")) {
     compassElem.css("webkitTransform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
   }
-}
-
-/* ローカルストレージにムーブメントを追加する */
-function enqueueMovement(pos) {
-  var movement = {
-    userId: getUserId(),
-    lat: pos.coords.latitude,
-    lon: pos.coords.longitude,
-    accuracy: pos.coords.accuracy,
-    altitude: pos.coords.altitude || -1,
-    altitudeAccuracy: pos.coords.altitudeAccuracy || -1,
-    speed: pos.coords.speed || -1,
-    heading: cHeading,
-    checkpointGroupId: getCheckpointGroupId(),
-    checkpointId: checkpoint.id,
-    recordedAt: Date.now(),
-  };
-  var movements = getMovementQueue();
-  movements.push(movement);
-  setMovementQueue(movements);
-}
-
-/* ローカルストレージから未送信ムーブメントを取得する */
-function getMovementQueue() {
-  var movements = getItem(KEY_MOVEMENT_LIST);
-  return (movements != null) ? JSON.parse(movements) : [];
-}
-
-/* ローカルストレージにムーブメントを保存する */
-function setMovementQueue(movements) {
-  setItem(KEY_MOVEMENT_LIST, JSON.stringify(movements));
-}
-
-/* 一定周期で呼び出され，ムーブメントを送信する */
-var postMovementsFunc = function() {
-  var movements = getMovementQueue();
-  var lastMovements = getMovementQueue();
-  if (movements.length == 0) { return; }
-  removeItem(KEY_MOVEMENT_LIST); // クリア
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addMovements", [movements], function(data) {
-    // console.log(data);
-  }, function(data, textStatus, errorThrown) {
-    console.error("fail to add movement.");
-    console.error(textStatus + ', ' + errorThrown + '. response: ' + JSON.stringify(data));
-    console.error('request: ' + JSON.stringify(JSON.stringify(this)));
-    // リストア
-    var newMovements = lastMovements.concat(getMovementQueue());
-    setMovementQueue(newMovements);
-  })).rpc();
 }
