@@ -120,6 +120,8 @@ function initMap() {
     },
     zoom: DEFAULT_FOCUS_ZOOM
   });
+  fitBoundsAndZoom(map, getCheckpoints(), cPos, DEFAULT_FOCUS_ZOOM);
+
 
   google.maps.event.addListener(map, "dragend", function() {
     if (infoWindow != null) {
@@ -159,6 +161,8 @@ function initMap() {
     fillColor: '#C2D3E3'
   });
   currentPositionMarker.setMap(map);
+
+  if(!navigator.onLine){return;}
 
   watchCurrentPosition();
 }
