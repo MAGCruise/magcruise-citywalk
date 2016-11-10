@@ -32,6 +32,18 @@ window.onload = function() {
     google.maps.event.addListener(map, "dragend", function() {
       unselectCheckpoint();
     });
+    google.maps.event.addListener(map, "click", function() {
+      $("#map-box").css("height", (window.innerHeight - $("#map-box").offset().top - 160) + "px");
+      google.maps.event.trigger(map, "resize");
+    });
+
+    $("#checkpoints").on("click", function() {
+      var height = $("#map-box").css("height", (window.innerHeight / 4) + "px");
+      height = height > 200 ? height : 200;
+      $("#map-box").css("height", height + "px");
+      google.maps.event.trigger(map, "resize");
+      updateCheckpointListHeight(200);
+    });
 
     var currentPositionMarker = new GeolocationMarker();
     currentPositionMarker.setCircleOptions({
@@ -39,24 +51,41 @@ window.onload = function() {
     });
     currentPositionMarker.setMap(map);
 
-    if(!navigator.onLine){return;}
+    if (!navigator.onLine) { return; }
     getCurrentPositionAndUpdateViews();
   }
 
   setTimeout(initMap, 300);
 }
 
-function updateCheckpointListHeight() {
+function updateCheckpointListHeight(maxHeight) {
   var height = window.innerHeight - $("#checkpoints").offset().top + 15;
-  if (height > 280) {
+  if (height > maxHeight) {
     $("#checkpoints").css("max-height", height + "px");
   }
 }
 
 $(function() {
   updateInitialDataIfNeeded(getCheckpointGroupId());
-  updateCheckpointListHeight();
-  setInterval(updateCheckpointListHeight, 500);
+  updateCheckpointListHeight(280);
+
+  $('#max-category-depth').val(getMaxCategoryDepth());
+
+  $('#max-category-depth').on('change', function() {
+    setMaxCategoryDepth($(this).val());
+
+    switch (getMaxCategoryDepth()) {
+    case 0:
+      category = null;
+      subcategory = null;
+      break;
+    case 1:
+      subcategory = null;
+      break;
+    default:
+    }
+    updateViews();
+  });
 
   $(window).on('hashchange', function() {
     if (getParam("no-refresh")) {
@@ -89,6 +118,7 @@ $(function() {
 function updateViews() {
   $("#nav-start").hide();
   $(".checkpoint").removeClass("selected");
+  updateTitle();
 
   loadCheckpoints();
 
@@ -118,10 +148,14 @@ function loadCheckpoints() {
 }
 
 function initBreadCrumb() {
+  function snipBread(word) {
+    return (word.length <= 4 ? word : word.substring(0, 3) + "...")
+  }
+
   $("#breadcrumb").empty();
 
   // トップ
-  var topElem = $('<span>カテゴリ: </span><a class="btn btn-sm btn-success">TOP</a>');
+  var topElem = $('<a class="btn btn-sm btn-success">TOP</a>');
   $("#breadcrumb").append(topElem);
   topElem.on('click', function() {
     category = null;
@@ -131,8 +165,8 @@ function initBreadCrumb() {
   });
   // カテゴリ
   if (category) {
-    var categoryElem = $('<span> &gt; </span><a class="btn btn-sm btn-success">' + category
-            + '</a>');
+    var categoryElem = $('<span> &gt; </span><a class="btn btn-sm btn-success">'
+            + snipBread(category) + '</a>');
     categoryElem.on('click', function() {
       subcategory = null;
       unselectCheckpoint();
@@ -142,17 +176,27 @@ function initBreadCrumb() {
   }
   // サブカテゴリ
   if (subcategory) {
-    var subCategoryElem = $('<span> &gt; </span><a class="btn btn-sm btn-success">' + subcategory
-            + '</a>');
+    var subCategoryElem = $('<span> &gt; </span><a class="btn btn-sm btn-success">'
+            + snipBread(subcategory) + '</a>');
     $("#breadcrumb").append(subCategoryElem);
-    categoryElem.on('click', function() {
+    subCategoryElem.on('click', function() {
       unselectCheckpoint();
       location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(category)
               + "&subcategory=" + encodeURIComponent(subcategory);
     });
-
   }
   $("#breadcrumb").show();
+}
+
+function updateTitle() {
+  if (category && subcategory) {
+    document.title = subcategory;
+  } else if (category) {
+    document.title = category;
+  } else {
+    document.title = "チェックポイント一覧";
+  }
+  setNavTitle();
 }
 
 function showList() {
@@ -329,7 +373,7 @@ function selectCheckpoint(checkpoint) {
   $("#nav-start").show();
   switch (getMaxCategoryDepth()) {
   case 0:
-    location.href = "./checkpoints.html#" + "&selected-id=" + encodeURIComponent(checkpoint.id)
+    location.href = "./checkpoints.html#" + "?selected-id=" + encodeURIComponent(checkpoint.id)
             + "&no-refresh=true";
     break;
   case 1:

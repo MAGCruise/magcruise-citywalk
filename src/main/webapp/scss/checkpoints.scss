@@ -36,13 +36,25 @@
   background: $greenColor;
 }
 
+#max-category-depth-wrapper {
+  >span{
+    color: $lightGrayColor;
+  }
+
+  button{
+    font-size: 12px;
+  }
+
+}
+
+
 #breadcrumb {
   >span{
     color: $lightGrayColor;
   }
 
   .btn-sm{
-    font-size: 14px;
+    padding:5px;
   }
 }
 

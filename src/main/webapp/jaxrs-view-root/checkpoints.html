@@ -9,6 +9,10 @@
 <script src="../js/lib/geolocation-marker.js"></script>
 <script src="../js/map-util.js"></script>
 <script src="../js/checkpoints.js"></script>
+<link rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/2.0.0-beta1/css/bootstrap-select.min.css">
+<script
+  src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/2.0.0-beta1/js/bootstrap-select.min.js"></script>
 <title>チェックポイント</title>
 </head>
 <head th:remove="all">
@@ -37,9 +41,18 @@
         </div>
       </div>
     </div>
-    <div class="row top-margin-sm bottom-margin-sm no-gutter">
-      <div class="col-xs-12">
+    <div class="row top-margin-sm bottom-margin-sm">
+      <div class="col-xs-8">
         <div id="breadcrumb"></div>
+      </div>
+      <div class="col-xs-4">
+        <div id="max-category-depth-wrapper" class="pull-right">
+          <select id="max-category-depth" class="selectpicker show-tick" data-width="fit">
+            <option value="0">距離順</option>
+            <option value="1">カテゴリ</option>
+            <option value="2">サブカテゴリ</option>
+          </select>
+        </div>
       </div>
     </div>
     <div id="checkpoints" class="row no-gutter"></div>

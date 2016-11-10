@@ -111,8 +111,15 @@ function setUserNameInMenu() {
 function setNavTitle() {
   $("#nav-title").html(document.title);
   $("#nav-title").ready(function() {
-    if ($("#nav-title").height() < 30) {
-      $("#nav-title").css("padding-top", "8px");
+    if ($("#nav-title").height() <= 20) {
+      $("#mag-nav").css("height", "60px");
+      $("#nav-title").css("padding-top", "10px");
+    } else if ($("#nav-title").height() <= 40) {
+      $("#mag-nav").css("height", "60px");
+      $("#nav-title").css("padding-top", "6px");
+    } else {
+      $("#mag-nav").css("height", "70px");
+      $("#nav-title").css("padding-top", "2px");
     }
   });
 }
@@ -293,7 +300,7 @@ function getCheckpointGroupId() {
 }
 
 function getMaxCategoryDepth() {
-  return parseInt(getItem(KEY_MAX_CATEGORY_DEPTH));
+  return parseInt(getItem(KEY_MAX_CATEGORY_DEPTH) ? getItem(KEY_MAX_CATEGORY_DEPTH) : 0);
 }
 
 function setMaxCategoryDepth(depth) {

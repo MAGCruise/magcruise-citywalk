@@ -26,10 +26,15 @@
 .far {
   background: #38A997; }
 
+#max-category-depth-wrapper > span {
+  color: #AAA; }
+#max-category-depth-wrapper button {
+  font-size: 12px; }
+
 #breadcrumb > span {
   color: #AAA; }
 #breadcrumb .btn-sm {
-  font-size: 14px; }
+  padding: 5px; }
 
 #checkpoints {
   min-height: 320px;

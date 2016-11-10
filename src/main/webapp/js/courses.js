@@ -1,12 +1,8 @@
-var MAX_CATEGORY_DEPTH = 1;
-
 function selectCheckpointGroup(checkpointGroupId) {
   showLoading();
   var req = new JsonRpcRequest(getBaseUrl(), "getInitialData", [checkpointGroupId], function(data) {
     saveCityWalkData(data.result);
     setCheckpointGroupId(checkpointGroupId);
-
-    setMaxCategoryDepth(MAX_CATEGORY_DEPTH);
     new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "join",
             [getUserId(), getCheckpointGroupId()], function(data) {
               hideLoading();
