@@ -46,8 +46,6 @@ window.onload = function() {
       fillColor: '#C2D3E3'
     });
     currentPositionMarker.setMap(map);
-
-    if (!navigator.onLine) { return; }
     getCurrentPositionAndUpdateViews();
   }
 
