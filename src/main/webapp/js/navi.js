@@ -120,13 +120,6 @@ function initMap() {
     },
     zoom: DEFAULT_FOCUS_ZOOM
   });
-  fitBoundsAndZoom(map, getCheckpoints(), cPos, DEFAULT_FOCUS_ZOOM);
-
-  google.maps.event.addListener(map, "dragend", function() {
-    if (infoWindow != null) {
-      infoWindow.close();
-    }
-  });
 
   initMakers();
 
@@ -173,6 +166,7 @@ function initMakers() {
   var checkpoints = getNonVisitedCheckPoints();
   var markers = [];
   checkpoints.forEach(function(checkpoint, i) {
+    if (checkpoint.id === getCheckpoint().id) { return; }
     var marker = new google.maps.Marker({
       position: {
         lat: checkpoint.lat,
