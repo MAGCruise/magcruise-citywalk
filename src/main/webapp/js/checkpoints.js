@@ -28,10 +28,6 @@ window.onload = function() {
 
     fitBoundsAndZoom(map, getCheckpoints(), cPos, DEFAULT_FOCUS_ZOOM);
 
-    // マップをドラッグした場合は，チェックポイントを非選択に
-    google.maps.event.addListener(map, "dragend", function() {
-      unselectCheckpoint();
-    });
     google.maps.event.addListener(map, "click", function() {
       $("#map-box").css("height", (window.innerHeight - $("#map-box").offset().top - 160) + "px");
       google.maps.event.trigger(map, "resize");
@@ -155,7 +151,7 @@ function initBreadCrumb() {
   $("#breadcrumb").empty();
 
   // トップ
-  var topElem = $('<a class="btn btn-sm btn-success">TOP</a>');
+  var topElem = $('<a class="btn btn-success">TOP</a>');
   $("#breadcrumb").append(topElem);
   topElem.on('click', function() {
     category = null;
@@ -165,8 +161,8 @@ function initBreadCrumb() {
   });
   // カテゴリ
   if (category) {
-    var categoryElem = $('<span> &gt; </span><a class="btn btn-sm btn-success">'
-            + snipBread(category) + '</a>');
+    var categoryElem = $('<span> &gt; </span><a class="btn btn-success">' + snipBread(category)
+            + '</a>');
     categoryElem.on('click', function() {
       subcategory = null;
       unselectCheckpoint();
@@ -176,7 +172,7 @@ function initBreadCrumb() {
   }
   // サブカテゴリ
   if (subcategory) {
-    var subCategoryElem = $('<span> &gt; </span><a class="btn btn-sm btn-success">'
+    var subCategoryElem = $('<span> &gt; </span><a class="btn btn-success">'
             + snipBread(subcategory) + '</a>');
     $("#breadcrumb").append(subCategoryElem);
     subCategoryElem.on('click', function() {
@@ -349,13 +345,16 @@ function selectCheckpoint(checkpoint) {
             + "&selected-id=" + encodeURIComponent(checkpoint.id) + '">' + checkpoint.category
             + "</a>" + '<img src="' + imgSrc
             + '" class="pull-right checkpoint-img" style="max-width: 70px;margin-left: 2em;">'
-            + "<div class='balloon-description'>" + checkpoint.label + "</div>"
+            + "<div class='balloon-description'>" + checkpoint.label + "</div>",
+    maxWidth: 200,
+    disableAutoPan: true,
   });
 
   var marker = markers.filter(function(marker) {
     return marker.checkpointId === checkpoint.id;
   })[0];
   infoWindow.open(marker.getMap(), marker);
+  map.panTo(marker.getPosition());
 
   $(".checkpoint").removeClass("selected");
   $("#checkpoint-" + checkpoint.id).addClass("selected");

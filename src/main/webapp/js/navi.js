@@ -122,7 +122,6 @@ function initMap() {
   });
   fitBoundsAndZoom(map, getCheckpoints(), cPos, DEFAULT_FOCUS_ZOOM);
 
-
   google.maps.event.addListener(map, "dragend", function() {
     if (infoWindow != null) {
       infoWindow.close();
@@ -138,12 +137,15 @@ function initMap() {
   });
 
   infoWindow = new google.maps.InfoWindow({
-    content: checkpoint.name + "<br>(" + checkpoint.place + ")"
+    content: checkpoint.name + "<br>(" + checkpoint.place + ")",
+    maxWidth: 200,
+    disableAutoPan: true,
   });
 
   google.maps.event.addListener(infoWindow, "closeclick", function() {
     google.maps.event.addListenerOnce(marker, "click", function(event) {
       infoWindow.open(map, marker);
+      map.panTo(marker.getPosition());
     });
   });
 
@@ -162,7 +164,7 @@ function initMap() {
   });
   currentPositionMarker.setMap(map);
 
-  if(!navigator.onLine){return;}
+  if (!navigator.onLine) { return; }
 
   watchCurrentPosition();
 }
@@ -195,9 +197,12 @@ function initMakers() {
                 + checkpoint.category + "</a>" + '<img src="' + imgSrc
                 + '" class="pull-right checkpoint-img" style="max-width: 70px;margin-left: 2em;">'
                 + "<div class='balloon-description'>" + checkpoint.label + "<br>"
-                + '<a id="nav-start-in-list" class="btn btn-success btn-sm">ここに行く</a>' + "</div>"
+                + '<a id="nav-start-in-list" class="btn btn-success btn-sm">ここに行く</a>' + "</div>",
+        maxWidth: 200,
+        disableAutoPan: true,
       });
       infoWindow.open(marker.getMap(), marker);
+      map.panTo(marker.getPosition());
       $("#nav-start-in-list").on("click", function() {
         location.href = "./navi.html?checkpoint_id=" + checkpoint.id;
       });

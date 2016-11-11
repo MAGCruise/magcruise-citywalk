@@ -13,8 +13,8 @@ $navHeight: 60px;
 #back {
   height: 40px;
   cursor: pointer;
-  padding-left: $smallMargin;
-  padding-bottom: $smallMargin;
+  margin-left: $smallMargin;
+  margin-bottom: $smallMargin;
   &.disabled{
     opacity: 0.15;
   }

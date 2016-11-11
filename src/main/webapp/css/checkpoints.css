@@ -33,8 +33,6 @@
 
 #breadcrumb > span {
   color: #AAA; }
-#breadcrumb .btn-sm {
-  padding: 5px; }
 
 #checkpoints {
   min-height: 320px;
