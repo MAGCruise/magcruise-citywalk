@@ -192,6 +192,12 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
+	public boolean exsitsUpdatedInitialData(long timeOfInitialData) {
+		boolean b = timeOfInitialData < CheckpointsAndTasksFactory.lastUpdateTimes.getTime();
+		return b;
+	}
+
+	@Override
 	public InitialDataJson getInitialDataFromFile(String checkpointGroupId) {
 		InitialDataJson data = JsonUtils.decode(
 				new File(getServiceContext()

@@ -6,15 +6,15 @@ $navHeight: 60px;
 #mag-nav {
   height: $navHeight;
   background: $primaryColor;
-  padding: $standardMargin 0px;
+  padding: $smallMargin 0px;
 }
 
 
 #back {
-  margin-top: 4px;
   height: 40px;
   cursor: pointer;
-  padding-left: $smallMargin;
+  margin-left: $smallMargin;
+  margin-bottom: $smallMargin;
   &.disabled{
     opacity: 0.15;
   }
@@ -22,10 +22,9 @@ $navHeight: 60px;
 
 
 #forward {
-  margin-top: 4px;
   height: 40px;
   cursor: pointer;
-  padding-left: $standardMargin;
+  margin-bottom: $smallMargin;
   &.disabled{
     opacity: 0.15;
   }
@@ -33,9 +32,11 @@ $navHeight: 60px;
 
 
 #nav-title {
-  font-size: 110%;
   color: white;
   text-align: center;
+}
+#nav-title-wrapper {
+  padding-right: $standardMargin;
 }
 
 #nav-menu{

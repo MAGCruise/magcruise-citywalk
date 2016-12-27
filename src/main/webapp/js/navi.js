@@ -1,30 +1,26 @@
 var checkpoint = getCheckpoint();
-document.title = checkpoint.name; // ã‚¿ã‚¤ãƒˆãƒ«ã®å¤‰æ›´
-var cPos; // ç¾åœ¨åœ°
-var ePos; // ãƒã‚§ãƒƒã‚¯ãƒã‚¤ãƒ³ãƒˆ
-var cHeading; // çµ¶å¯¾è§’
+document.title = checkpoint.name; // ƒ^ƒCƒgƒ‹‚Ì•ÏX
+var cPos; // Œ»İ’n
+var ePos; // ƒ`ƒFƒbƒNƒ|ƒCƒ“ƒg
+var cHeading; // â‘ÎŠp
 var map;
 var watchID;
 var compassElem;
 var defaultOrientation;
-
-var POST_MOVEMENT_INTERVAL = 1000 * 10; // msec
-var KEY_MOVEMENT_LIST = "movement_list";
-
 var DEFAULT_FOCUS_ZOOM = 17;
 var infoWindow;
 
 var uaParser = new UAParser();
 
 window.onload = function() {
-  initMap();
+  setTimeout(initMap, 300);
 }
 
-// ãƒ–ãƒ©ã‚¦ã‚¶ãŒãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã«ä¸€åº¦é·ç§»ã™ã‚‹ã¨ï¼ŒwatchPositionã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã‚‹ã€‚
-// ãã“ã§ï¼Œãƒ•ã‚©ã‚¢ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã«æˆ»ã£ã¦ããŸéš›ã«ï¼Œãƒªãƒ­ãƒ¼ãƒ‰ã™ã‚‹ã€‚initMap()ã ã‘ã§ã‚‚è‰¯ã„ãŒå¿µã®ãŸã‚ã€‚
-// ex.)ãƒ›ãƒ¼ãƒ ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã€‚
-// ex.)é›»æºãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã€‚
-// ex.)é€šçŸ¥ã‚ˆã‚Šï¼Œåˆ¥ã®ã‚¢ãƒ—ãƒªã‚’èµ·å‹•ã™ã‚‹ã€‚
+// ƒuƒ‰ƒEƒU‚ªƒoƒbƒNƒOƒ‰ƒEƒ“ƒh‚Éˆê“x‘JˆÚ‚·‚é‚ÆCwatchPositionƒLƒƒƒ“ƒZƒ‹‚³‚ê‚éB
+// ‚»‚±‚ÅCƒtƒHƒAƒOƒ‰ƒEƒ“ƒh‚É–ß‚Á‚Ä‚«‚½Û‚ÉCƒŠƒ[ƒh‚·‚éBinitMap()‚¾‚¯‚Å‚à—Ç‚¢‚ª”O‚Ì‚½‚ßB
+// ex.)ƒz[ƒ€ƒ{ƒ^ƒ“‚ğ‰Ÿ‚·B
+// ex.)“dŒ¹ƒ{ƒ^ƒ“‚ğ‰Ÿ‚·B
+// ex.)’Ê’m‚æ‚èC•Ê‚ÌƒAƒvƒŠ‚ğ‹N“®‚·‚éB
 var lastChecked = Date.now();
 setInterval(function() {
   var now = Date.now();
@@ -68,19 +64,19 @@ $(function() {
   setInterval(updateMapHeight, 500);
 
   $("#btn-next").on('click', function() {
-    // æ—¢ã«é€”ä¸­ã¾ã§ã‚¿ã‚¹ã‚¯ãŒé€²ã‚“ã§ã„ã‚‹å ´åˆã«ã¯ï¼Œå®Œäº†æ¸ˆã¿ã®æ¬¡ã®ã‚¿ã‚¹ã‚¯ã‹ã‚‰ã¯ã˜ã‚ã‚‹
+    // Šù‚É“r’†‚Ü‚Åƒ^ƒXƒN‚ªi‚ñ‚Å‚¢‚éê‡‚É‚ÍCŠ®—¹Ï‚İ‚ÌŸ‚Ìƒ^ƒXƒN‚©‚ç‚Í‚¶‚ß‚é
     var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
     location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
   });
 
-  // ã‚³ãƒ³ãƒ‘ã‚¹ç”»åƒã®è¦ç´ 
+  // ƒRƒ“ƒpƒX‰æ‘œ‚Ì—v‘f
   compassElem = $("#compass");
-  // ç«¯æœ«ã®å‘ãã‚’å–å¾—
+  // ’[––‚ÌŒü‚«‚ğæ“¾
   defaultOrientation = (screen.width > screen.height) ? "landscape" : "portrait";
-  // é›»å­ã‚³ãƒ³ãƒ‘ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã®å–å¾—
+  // “dqƒRƒ“ƒpƒXƒCƒxƒ“ƒg‚Ìæ“¾
   window.addEventListener("deviceorientation", onHeadingChange);
   getEventsByWebsocket();
-  // ç§»å‹•ãƒ­ã‚°ã®é€ä¿¡
+  // ˆÚ“®ƒƒO‚Ì‘—M
   setInterval(postMovementsFunc, POST_MOVEMENT_INTERVAL);
 });
 
@@ -93,7 +89,7 @@ function getEventsByWebsocket() {
     for (var i = 0; i < messages.length; i++) {
       var a = messages[i];
       var elem = $('<div class="item">' + '<span class="time">' + toFormattedShortDate(a.createdAt)
-              + '</span>' + '<span class="name">' + a.userId + '</span>' + 'ã•ã‚“ãŒãƒã‚§ãƒƒã‚¯ã‚¤ãƒ³' + '</div>');
+              + '</span>' + '<span class="name">' + a.userId + '</span>' + '‚³‚ñ‚ªƒ`ƒFƒbƒNƒCƒ“' + '</div>');
       $('#notification').prepend(elem);
     }
   };
@@ -106,7 +102,7 @@ function getEventsByWebsocket() {
 
 function initMap() {
 
-  // ç›®çš„åœ°ã®è¨­å®š&ä½ç½®æƒ…å ±ã®é€£ç¶šå–å¾—
+  // –Ú“I’n‚Ìİ’è&ˆÊ’uî•ñ‚Ì˜A‘±æ“¾
   ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
 
   var center = {
@@ -125,31 +121,28 @@ function initMap() {
     zoom: DEFAULT_FOCUS_ZOOM
   });
 
-  google.maps.event.addListener(map, "dragend", function() {
-    if (infoWindow != null) {
-      infoWindow.close();
-    }
-  });
-
   initMakers();
 
-  // ãƒãƒ¼ã‚«ãƒ¼ã®è¿½åŠ 
+  // ƒ}[ƒJ[‚Ì’Ç‰Á
   var marker = new google.maps.Marker({
     position: center,
     map: map,
   });
 
   infoWindow = new google.maps.InfoWindow({
-    content: checkpoint.name + "<br>(" + checkpoint.place + ")"
+    content: checkpoint.name + "<br>(" + checkpoint.place + ")",
+    maxWidth: 200,
+    disableAutoPan: true,
   });
 
   google.maps.event.addListener(infoWindow, "closeclick", function() {
     google.maps.event.addListenerOnce(marker, "click", function(event) {
       infoWindow.open(map, marker);
+      map.panTo(marker.getPosition());
     });
   });
 
-  createMapControlUI(map, "ç›®çš„åœ°", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
+  createMapControlUI(map, "–Ú“I’n", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
           'click', function() {
             fitBoundsAndZoom(map, [{
               lat: ePos.lat(),
@@ -163,7 +156,9 @@ function initMap() {
     fillColor: '#C2D3E3'
   });
   currentPositionMarker.setMap(map);
-  
+
+  if (!navigator.onLine) { return; }
+
   watchCurrentPosition();
 }
 
@@ -171,6 +166,7 @@ function initMakers() {
   var checkpoints = getNonVisitedCheckPoints();
   var markers = [];
   checkpoints.forEach(function(checkpoint, i) {
+    if (checkpoint.id === getCheckpoint().id) { return; }
     var marker = new google.maps.Marker({
       position: {
         lat: checkpoint.lat,
@@ -189,15 +185,18 @@ function initMakers() {
 
       infoWindow = new google.maps.InfoWindow({
         content: "<span class='green'>" + checkpoint.name + "</span> (" + checkpoint.place + ")"
-                + "<br><span class='balloon-description'>ã‚«ãƒ†ã‚´ãƒªï¼š </span>" + '<a href="'
+                + "<br><span class='balloon-description'>ƒJƒeƒSƒŠF </span>" + '<a href="'
                 + "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category)
                 + "&selected-id=" + encodeURIComponent(checkpoint.id) + '&no-refresh=true">'
                 + checkpoint.category + "</a>" + '<img src="' + imgSrc
                 + '" class="pull-right checkpoint-img" style="max-width: 70px;margin-left: 2em;">'
                 + "<div class='balloon-description'>" + checkpoint.label + "<br>"
-                + '<a id="nav-start-in-list" class="btn btn-success btn-sm">ã“ã“ã«è¡Œã</a>' + "</div>"
+                + '<a id="nav-start-in-list" class="btn btn-success btn-sm">‚±‚±‚És‚­</a>' + "</div>",
+        maxWidth: 200,
+        disableAutoPan: true,
       });
       infoWindow.open(marker.getMap(), marker);
+      map.panTo(marker.getPosition());
       $("#nav-start-in-list").on("click", function() {
         location.href = "./navi.html?checkpoint_id=" + checkpoint.id;
       });
@@ -206,7 +205,7 @@ function initMakers() {
   });
 }
 
-/* ä½ç½®æƒ…å ±ã‚’é€£ç¶šå–å¾—ã™ã‚‹ */
+/* ˆÊ’uî•ñ‚ğ˜A‘±æ“¾‚·‚é */
 function watchCurrentPosition() {
   if (!navigator || !navigator.geolocation) {
     if ($('#error-msg-area').is(':hidden')) {
@@ -227,7 +226,7 @@ function watchCurrentPosition() {
     $('#initial-msg').hide();
     $('#distance-wrapper').show();
     if (!cPos) {
-      createMapControlUI(map, "ç›®çš„åœ°ï½ç¾åœ¨åœ°", "12px", google.maps.ControlPosition.TOP_RIGHT)
+      createMapControlUI(map, "–Ú“I’n`Œ»İ’n", "12px", google.maps.ControlPosition.TOP_RIGHT)
               .addEventListener('click', function() {
                 fitBoundsAndZoom(map, [{
                   lat: ePos.lat(),
@@ -238,15 +237,16 @@ function watchCurrentPosition() {
                 }], cPos, DEFAULT_FOCUS_ZOOM);
               });
 
-      createMapControlUI(map, "ç¾åœ¨åœ°", "12px", google.maps.ControlPosition.RIGHT_TOP)
+      createMapControlUI(map, "Œ»İ’n", "12px", google.maps.ControlPosition.RIGHT_TOP)
               .addEventListener('click', function() {
                 fitBoundsAndZoom(map, [{
                   lat: cPos.lat(),
                   lon: cPos.lng()
                 }], cPos, DEFAULT_FOCUS_ZOOM);
               });
+      enqueueMovement(pos);
+      postMovementsFunc();
     }
-
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     showDistance();
@@ -275,7 +275,7 @@ function watchCurrentPosition() {
   });
 }
 
-/* æ®‹ã‚Šè·é›¢ã‚’è¡¨ç¤º */
+/* c‚è‹——£‚ğ•\¦ */
 function showDistance() {
   if (cPos == null || ePos == null) { return; }
   var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
@@ -283,7 +283,7 @@ function showDistance() {
 }
 
 function getFormattedDistance(distance) {
-  if (distance >= 1000 * 5) { // 5kmä»¥ä¸Š
+  if (distance >= 1000 * 5) { // 5kmˆÈã
     return String(floatFormat(distance / 1000, 1)) + "km";
   } else {
     var distanceStr = String(Math.round(distance));
@@ -383,7 +383,7 @@ function onHeadingChange(event) {
   showCompass(cHeading);
 }
 
-/* ã‚³ãƒ³ãƒ‘ã‚¹ã‚’å›è»¢ */
+/* ƒRƒ“ƒpƒX‚ğ‰ñ“] */
 function showCompass(heading) {
   if (cPos == null || ePos == null) { return; }
   $('#compass-wrapper').show();
@@ -396,53 +396,4 @@ function showCompass(heading) {
   } else if (compassElem.css("webkitTransform")) {
     compassElem.css("webkitTransform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
   }
-}
-
-/* ãƒ­ãƒ¼ã‚«ãƒ«ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ã«ãƒ ãƒ¼ãƒ–ãƒ¡ãƒ³ãƒˆã‚’è¿½åŠ ã™ã‚‹ */
-function enqueueMovement(pos) {
-  var movement = {
-    userId: getUserId(),
-    lat: pos.coords.latitude,
-    lon: pos.coords.longitude,
-    accuracy: pos.coords.accuracy,
-    altitude: pos.coords.altitude || -1,
-    altitudeAccuracy: pos.coords.altitudeAccuracy || -1,
-    speed: pos.coords.speed || -1,
-    heading: cHeading,
-    checkpointGroupId: getCheckpointGroupId(),
-    checkpointId: checkpoint.id,
-    recordedAt: Date.now(),
-  };
-  var movements = getMovementQueue();
-  movements.push(movement);
-  setMovementQueue(movements);
-}
-
-/* ãƒ­ãƒ¼ã‚«ãƒ«ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ã‹ã‚‰æœªé€ä¿¡ãƒ ãƒ¼ãƒ–ãƒ¡ãƒ³ãƒˆã‚’å–å¾—ã™ã‚‹ */
-function getMovementQueue() {
-  var movements = getItem(KEY_MOVEMENT_LIST);
-  return (movements != null) ? JSON.parse(movements) : [];
-}
-
-/* ãƒ­ãƒ¼ã‚«ãƒ«ã‚¹ãƒˆãƒ¬ãƒ¼ã‚¸ã«ãƒ ãƒ¼ãƒ–ãƒ¡ãƒ³ãƒˆã‚’ä¿å­˜ã™ã‚‹ */
-function setMovementQueue(movements) {
-  setItem(KEY_MOVEMENT_LIST, JSON.stringify(movements));
-}
-
-/* ä¸€å®šå‘¨æœŸã§å‘¼ã³å‡ºã•ã‚Œï¼Œãƒ ãƒ¼ãƒ–ãƒ¡ãƒ³ãƒˆã‚’é€ä¿¡ã™ã‚‹ */
-var postMovementsFunc = function() {
-  var movements = getMovementQueue();
-  var lastMovements = getMovementQueue();
-  if (movements.length == 0) { return; }
-  removeItem(KEY_MOVEMENT_LIST); // ã‚¯ãƒªã‚¢
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addMovements", [movements], function(data) {
-    // console.log(data);
-  }, function(data, textStatus, errorThrown) {
-    console.error("fail to add movement.");
-    console.error(textStatus + ', ' + errorThrown + '. response: ' + JSON.stringify(data));
-    console.error('request: ' + JSON.stringify(JSON.stringify(this)));
-    // ãƒªã‚¹ãƒˆã‚¢
-    var newMovements = lastMovements.concat(getMovementQueue());
-    setMovementQueue(newMovements);
-  })).rpc();
 }

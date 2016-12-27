@@ -9,7 +9,7 @@ $(function() {
     location.href = "tutorial.html"
   });
 
-  checkDeviceAndMoveNext();
+  checkDevice();
   if (isEnableLocalStorage()) {
     $("#localStorage").html(
             $('<div class="alert alert-success">').html(
@@ -83,7 +83,7 @@ function checkGPS() {
                   });
 }
 
-function checkDeviceAndMoveNext() {
+function checkDevice() {
   var uaParser = new UAParser();
   var unrecommended = false;
 
@@ -111,7 +111,8 @@ function checkDeviceAndMoveNext() {
       unrecommended = true;
     }
 
-    if (uaParser.getBrowser().name === "Chrome" && Number(uaParser.getBrowser().version) >= 54) {
+    if (uaParser.getBrowser().name === "Chrome"
+            && Number(uaParser.getBrowser().version.split(".")[0]) >= 54) {
     } else if (uaParser.getBrowser().name.indexOf("Safari") != -1
             && Number(uaParser.getBrowser().version) >= 9.0) {
     } else {

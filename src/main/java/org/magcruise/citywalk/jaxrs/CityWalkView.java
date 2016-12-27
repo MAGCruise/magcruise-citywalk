@@ -21,6 +21,10 @@ public class CityWalkView extends JaxrsView {
 				response.sendRedirect(getServletUrl() + "/index.html");
 				return createView("/index.html", new ThymeleafModel());
 			}
+			if (isFromServiceWorker(params)) {
+				return createView(filePathFromViewRoot, new ThymeleafModel());
+			}
+
 			if (isUnneededLogin(filePathFromViewRoot)) {
 				return createView(filePathFromViewRoot, new ThymeleafModel());
 			}
@@ -42,6 +46,15 @@ public class CityWalkView extends JaxrsView {
 			return createView("/index.html", new ThymeleafModel());
 		}
 
+	}
+
+	private boolean isFromServiceWorker(Map<String, String[]> params) {
+		for (String key : params.keySet()) {
+			if (key.equalsIgnoreCase("serviceWorker")) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private boolean isUnneededLogin(String filePathFromViewRoot) {

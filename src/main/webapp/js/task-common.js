@@ -79,7 +79,6 @@ function setTaskTitle() {
 }
 
 function addActivity(task, input, isCorrect) {
-
   var checkpointId = getParam("checkpoint_id");
   var arg = {
     checkpointId: checkpointId,
@@ -95,50 +94,38 @@ function addActivity(task, input, isCorrect) {
     }
   };
 
-  showLoading();
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [arg], function(data) {
-    hideLoading();
-    setCheckpointProgress(checkpointId, getTaskIndex()); // 完了済みtask
-    // indexを保存
-    if (isLastTask()) {
-      addVisitedCheckPointIds(checkpointId); // 訪問済みチェックポイントに追加
-    }
-    var title = "";
-    if (isCheckin()) {
-      title = "チェックイン完了";
+  addItems(KEY_ACTIVITIES, [arg]);
+
+  setCheckpointProgress(checkpointId, getTaskIndex()); // 完了済みtask
+  // indexを保存
+  if (isLastTask()) {
+    addVisitedCheckPointIds(checkpointId); // 訪問済みチェックポイントに追加
+  }
+  var title = "";
+  if (isCheckin()) {
+    title = "チェックイン完了";
+    title += "<br>" + arg.score + "pt獲得しました！";
+  } else {
+    if (isCorrect) {
+      title += "<br>正解！"
       title += "<br>" + arg.score + "pt獲得しました！";
     } else {
-      if (isCorrect) {
-        title += "<br>正解！"
-        title += "<br>" + arg.score + "pt獲得しました！";
-      } else {
-        title += "<br>不正解！";
-        if (task.taskType === "DescriptionTask") {
-          title += "<br>正解は「" + task.answerTexts.join('」，「') + "」でした．";
-        } else if (task.taskType === "SelectionTask") {
-          var answerTexts = [];
-          for (var i = 0; i < task.selections.length; i++) {
-            if (task.answerIndexes.indexOf(i) >= 0) {
-              answerTexts.push(task.selections[i]);
-            }
+      title += "<br>不正解！";
+      if (task.taskType === "DescriptionTask") {
+        title += "<br>正解は「" + task.answerTexts.join('」，「') + "」でした．";
+      } else if (task.taskType === "SelectionTask") {
+        var answerTexts = [];
+        for (var i = 0; i < task.selections.length; i++) {
+          if (task.answerIndexes.indexOf(i) >= 0) {
+            answerTexts.push(task.selections[i]);
           }
-          title += "<br>正解は「" + answerTexts.join('」，「') + "」でした．";
         }
+        title += "<br>正解は「" + answerTexts.join('」，「') + "」でした．";
       }
     }
-
-    if (data.result && data.result.badges.length > 0) {
-      title = "バッジを獲得しました！";
-      $('#modalDesc').html(data.result.badges.toString().replace(",", "</br>"));
-    }
-    $('#modalTitle').html(title);
-    $('[data-remodal-id=modal]').remodal().open();
-  }, function() {
-    hideLoading();
-    setTimeout(function() {
-      swalAlert("送信失敗", "電波の良いところで，もう一度送信して下さい", "error")
-    }, 500);
-  })).rpc();
+  }
+  $('#modalTitle').html(title);
+  $('[data-remodal-id=modal]').remodal().open();
 }
 
 $(document).on('confirmation', '.remodal', function() {

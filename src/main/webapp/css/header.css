@@ -1,28 +1,29 @@
 #mag-nav {
   height: 60px;
   background: #0074BF;
-  padding: 10px 0px; }
+  padding: 6px 0px; }
 
 #back {
-  margin-top: 4px;
   height: 40px;
   cursor: pointer;
-  padding-left: 6px; }
+  margin-left: 6px;
+  margin-bottom: 6px; }
   #back.disabled {
     opacity: 0.15; }
 
 #forward {
-  margin-top: 4px;
   height: 40px;
   cursor: pointer;
-  padding-left: 10px; }
+  margin-bottom: 6px; }
   #forward.disabled {
     opacity: 0.15; }
 
 #nav-title {
-  font-size: 110%;
   color: white;
   text-align: center; }
+
+#nav-title-wrapper {
+  padding-right: 10px; }
 
 #nav-menu {
   margin: 4px 10px; }
