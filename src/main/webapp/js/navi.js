@@ -1,8 +1,8 @@
 var checkpoint = getCheckpoint();
-document.title = checkpoint.name; // ƒ^ƒCƒgƒ‹‚Ì•ÏX
-var cPos; // Œ»İ’n
-var ePos; // ƒ`ƒFƒbƒNƒ|ƒCƒ“ƒg
-var cHeading; // â‘ÎŠp
+document.title = checkpoint.name; // ã‚¿ã‚¤ãƒˆãƒ«ã®å¤‰æ›´
+var cPos; // ç¾åœ¨åœ°
+var ePos; // ãƒã‚§ãƒƒã‚¯ãƒã‚¤ãƒ³ãƒˆ
+var cHeading; // çµ¶å¯¾è§’
 var map;
 var watchID;
 var compassElem;
@@ -16,11 +16,11 @@ window.onload = function() {
   setTimeout(initMap, 300);
 }
 
-// ƒuƒ‰ƒEƒU‚ªƒoƒbƒNƒOƒ‰ƒEƒ“ƒh‚Éˆê“x‘JˆÚ‚·‚é‚ÆCwatchPositionƒLƒƒƒ“ƒZƒ‹‚³‚ê‚éB
-// ‚»‚±‚ÅCƒtƒHƒAƒOƒ‰ƒEƒ“ƒh‚É–ß‚Á‚Ä‚«‚½Û‚ÉCƒŠƒ[ƒh‚·‚éBinitMap()‚¾‚¯‚Å‚à—Ç‚¢‚ª”O‚Ì‚½‚ßB
-// ex.)ƒz[ƒ€ƒ{ƒ^ƒ“‚ğ‰Ÿ‚·B
-// ex.)“dŒ¹ƒ{ƒ^ƒ“‚ğ‰Ÿ‚·B
-// ex.)’Ê’m‚æ‚èC•Ê‚ÌƒAƒvƒŠ‚ğ‹N“®‚·‚éB
+// ãƒ–ãƒ©ã‚¦ã‚¶ãŒãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã«ä¸€åº¦é·ç§»ã™ã‚‹ã¨ï¼ŒwatchPositionã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã‚‹ã€‚
+// ãã“ã§ï¼Œãƒ•ã‚©ã‚¢ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã«æˆ»ã£ã¦ããŸéš›ã«ï¼Œãƒªãƒ­ãƒ¼ãƒ‰ã™ã‚‹ã€‚initMap()ã ã‘ã§ã‚‚è‰¯ã„ãŒå¿µã®ãŸã‚ã€‚
+// ex.)ãƒ›ãƒ¼ãƒ ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã€‚
+// ex.)é›»æºãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã€‚
+// ex.)é€šçŸ¥ã‚ˆã‚Šï¼Œåˆ¥ã®ã‚¢ãƒ—ãƒªã‚’èµ·å‹•ã™ã‚‹ã€‚
 var lastChecked = Date.now();
 setInterval(function() {
   var now = Date.now();
@@ -64,19 +64,19 @@ $(function() {
   setInterval(updateMapHeight, 500);
 
   $("#btn-next").on('click', function() {
-    // Šù‚É“r’†‚Ü‚Åƒ^ƒXƒN‚ªi‚ñ‚Å‚¢‚éê‡‚É‚ÍCŠ®—¹Ï‚İ‚ÌŸ‚Ìƒ^ƒXƒN‚©‚ç‚Í‚¶‚ß‚é
+    // æ—¢ã«é€”ä¸­ã¾ã§ã‚¿ã‚¹ã‚¯ãŒé€²ã‚“ã§ã„ã‚‹å ´åˆã«ã¯ï¼Œå®Œäº†æ¸ˆã¿ã®æ¬¡ã®ã‚¿ã‚¹ã‚¯ã‹ã‚‰ã¯ã˜ã‚ã‚‹
     var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
     location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
   });
 
-  // ƒRƒ“ƒpƒX‰æ‘œ‚Ì—v‘f
+  // ã‚³ãƒ³ãƒ‘ã‚¹ç”»åƒã®è¦ç´ 
   compassElem = $("#compass");
-  // ’[––‚ÌŒü‚«‚ğæ“¾
+  // ç«¯æœ«ã®å‘ãã‚’å–å¾—
   defaultOrientation = (screen.width > screen.height) ? "landscape" : "portrait";
-  // “dqƒRƒ“ƒpƒXƒCƒxƒ“ƒg‚Ìæ“¾
+  // é›»å­ã‚³ãƒ³ãƒ‘ã‚¹ã‚¤ãƒ™ãƒ³ãƒˆã®å–å¾—
   window.addEventListener("deviceorientation", onHeadingChange);
   getEventsByWebsocket();
-  // ˆÚ“®ƒƒO‚Ì‘—M
+  // ç§»å‹•ãƒ­ã‚°ã®é€ä¿¡
   setInterval(postMovementsFunc, POST_MOVEMENT_INTERVAL);
 });
 
@@ -89,7 +89,7 @@ function getEventsByWebsocket() {
     for (var i = 0; i < messages.length; i++) {
       var a = messages[i];
       var elem = $('<div class="item">' + '<span class="time">' + toFormattedShortDate(a.createdAt)
-              + '</span>' + '<span class="name">' + a.userId + '</span>' + '‚³‚ñ‚ªƒ`ƒFƒbƒNƒCƒ“' + '</div>');
+              + '</span>' + '<span class="name">' + a.userId + '</span>' + 'ã•ã‚“ãŒãƒã‚§ãƒƒã‚¯ã‚¤ãƒ³' + '</div>');
       $('#notification').prepend(elem);
     }
   };
@@ -102,7 +102,7 @@ function getEventsByWebsocket() {
 
 function initMap() {
 
-  // –Ú“I’n‚Ìİ’è&ˆÊ’uî•ñ‚Ì˜A‘±æ“¾
+  // ç›®çš„åœ°ã®è¨­å®š&ä½ç½®æƒ…å ±ã®é€£ç¶šå–å¾—
   ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
 
   var center = {
@@ -123,7 +123,7 @@ function initMap() {
 
   initMakers();
 
-  // ƒ}[ƒJ[‚Ì’Ç‰Á
+  // ãƒãƒ¼ã‚«ãƒ¼ã®è¿½åŠ 
   var marker = new google.maps.Marker({
     position: center,
     map: map,
@@ -142,7 +142,7 @@ function initMap() {
     });
   });
 
-  createMapControlUI(map, "–Ú“I’n", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
+  createMapControlUI(map, "ç›®çš„åœ°", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
           'click', function() {
             fitBoundsAndZoom(map, [{
               lat: ePos.lat(),
@@ -185,13 +185,13 @@ function initMakers() {
 
       infoWindow = new google.maps.InfoWindow({
         content: "<span class='green'>" + checkpoint.name + "</span> (" + checkpoint.place + ")"
-                + "<br><span class='balloon-description'>ƒJƒeƒSƒŠF </span>" + '<a href="'
+                + "<br><span class='balloon-description'>ã‚«ãƒ†ã‚´ãƒªï¼š </span>" + '<a href="'
                 + "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category)
                 + "&selected-id=" + encodeURIComponent(checkpoint.id) + '&no-refresh=true">'
                 + checkpoint.category + "</a>" + '<img src="' + imgSrc
                 + '" class="pull-right checkpoint-img" style="max-width: 70px;margin-left: 2em;">'
                 + "<div class='balloon-description'>" + checkpoint.label + "<br>"
-                + '<a id="nav-start-in-list" class="btn btn-success btn-sm">‚±‚±‚És‚­</a>' + "</div>",
+                + '<a id="nav-start-in-list" class="btn btn-success btn-sm">ã“ã“ã«è¡Œã</a>' + "</div>",
         maxWidth: 200,
         disableAutoPan: true,
       });
@@ -205,7 +205,7 @@ function initMakers() {
   });
 }
 
-/* ˆÊ’uî•ñ‚ğ˜A‘±æ“¾‚·‚é */
+/* ä½ç½®æƒ…å ±ã‚’é€£ç¶šå–å¾—ã™ã‚‹ */
 function watchCurrentPosition() {
   if (!navigator || !navigator.geolocation) {
     if ($('#error-msg-area').is(':hidden')) {
@@ -226,7 +226,7 @@ function watchCurrentPosition() {
     $('#initial-msg').hide();
     $('#distance-wrapper').show();
     if (!cPos) {
-      createMapControlUI(map, "–Ú“I’n`Œ»İ’n", "12px", google.maps.ControlPosition.TOP_RIGHT)
+      createMapControlUI(map, "ç›®çš„åœ°ï½ç¾åœ¨åœ°", "12px", google.maps.ControlPosition.TOP_RIGHT)
               .addEventListener('click', function() {
                 fitBoundsAndZoom(map, [{
                   lat: ePos.lat(),
@@ -237,7 +237,7 @@ function watchCurrentPosition() {
                 }], cPos, DEFAULT_FOCUS_ZOOM);
               });
 
-      createMapControlUI(map, "Œ»İ’n", "12px", google.maps.ControlPosition.RIGHT_TOP)
+      createMapControlUI(map, "ç¾åœ¨åœ°", "12px", google.maps.ControlPosition.RIGHT_TOP)
               .addEventListener('click', function() {
                 fitBoundsAndZoom(map, [{
                   lat: cPos.lat(),
@@ -275,7 +275,7 @@ function watchCurrentPosition() {
   });
 }
 
-/* c‚è‹——£‚ğ•\¦ */
+/* æ®‹ã‚Šè·é›¢ã‚’è¡¨ç¤º */
 function showDistance() {
   if (cPos == null || ePos == null) { return; }
   var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
@@ -283,7 +283,7 @@ function showDistance() {
 }
 
 function getFormattedDistance(distance) {
-  if (distance >= 1000 * 5) { // 5kmˆÈã
+  if (distance >= 1000 * 5) { // 5kmä»¥ä¸Š
     return String(floatFormat(distance / 1000, 1)) + "km";
   } else {
     var distanceStr = String(Math.round(distance));
@@ -383,7 +383,7 @@ function onHeadingChange(event) {
   showCompass(cHeading);
 }
 
-/* ƒRƒ“ƒpƒX‚ğ‰ñ“] */
+/* ã‚³ãƒ³ãƒ‘ã‚¹ã‚’å›è»¢ */
 function showCompass(heading) {
   if (cPos == null || ePos == null) { return; }
   $('#compass-wrapper').show();
