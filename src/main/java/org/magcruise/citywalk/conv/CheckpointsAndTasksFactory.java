@@ -1,5 +1,6 @@
 package org.magcruise.citywalk.conv;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -26,7 +27,8 @@ public class CheckpointsAndTasksFactory {
 
 	public static void main(String[] args) {
 		CheckpointsAndTasksJson json = JsonUtils.decode(
-				"src/main/webapp/projects/wasenavi/json/checkpoints-and-tasks/wasedasai2016.json",
+				new File(
+						"src/main/webapp/projects/wasenavi/json/checkpoints-and-tasks/wasedasai2016.json"),
 				CheckpointsAndTasksJson.class);
 
 		json.getTasks().forEach(t -> {
