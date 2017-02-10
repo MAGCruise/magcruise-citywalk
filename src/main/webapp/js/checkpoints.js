@@ -243,6 +243,8 @@ function showCheckpoints() {
 
 function makeListElemWithoutDistance(name, imgSrc) {
   var imgSrc = getCategoryImgSrc(name) == null ? "../img/placeholder.svg" : getCategoryImgSrc(name);
+  imgSrc = imgSrc.indexOf("http") == -1 ? "../" + imgSrc : imgSrc;
+
   return $('<div class="row">' + '<div class="col-sm-12">' + '<div class="checkpoint">'
           + '<img src="' + imgSrc + '" class="pull-left checkpoint-img">' + '<div class="text">'
           + '<div class="name">' + name + '</div></div></div></div></div>');
