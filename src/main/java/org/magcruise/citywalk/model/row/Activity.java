@@ -23,7 +23,7 @@ public class Activity {
 	private long id;
 	private String userId;
 
-	private String checkpointGroupId;
+	private String courseId;
 	private String checkpointId;
 	private double lat;
 	private double lon;
@@ -36,9 +36,9 @@ public class Activity {
 	public Activity() {
 	}
 
-	public Activity(String checkpointGroupId, String userId, String checkpointId, double lat,
+	public Activity(String courseId, String userId, String checkpointId, double lat,
 			double lon, String taskId, double score, Input input) {
-		this.checkpointGroupId = checkpointGroupId;
+		this.courseId = courseId;
 		this.userId = userId;
 		this.checkpointId = checkpointId;
 		this.lat = lat;
@@ -49,7 +49,7 @@ public class Activity {
 	}
 
 	public Activity(ActivityJson json) {
-		this(json.getCheckpointGroupId(), json.getUserId(), json.getCheckpointId(), json.getLat(),
+		this(json.getCourseId(), json.getUserId(), json.getCheckpointId(), json.getLat(),
 				json.getLon(), json.getTaskId(), json.getScore(),
 				convertToInput(json.getTaskType(), json.getInputs()));
 	}
@@ -154,12 +154,12 @@ public class Activity {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
-	public String getCheckpointGroupId() {
-		return checkpointGroupId;
+	public String getCourseId() {
+		return courseId;
 	}
 
-	public void setCheckpointGroupId(String checkpointGroupId) {
-		this.checkpointGroupId = checkpointGroupId;
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
 	}
 
 	public Date getCreatedAt() {

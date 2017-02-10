@@ -97,14 +97,14 @@ public class ApplicationContext implements ServletContextListener {
 			new CategoriesTable().dropTableIfExists();
 			new BadgeConditionsTable().dropTableIfExists();
 		}
-		//		{
-		//			new EntriesTable().dropTableIfExists();
-		//			new UserAccountsTable().dropTableIfExists();
-		//			new BadgesTable().dropTableIfExists();
-		//			new VerifiedActivitiesTable().dropTableIfExists();
-		//			new SubmittedActivitiesTable().dropTableIfExists();
-		//			new MovementsTable().dropTableIfExists();
-		//		}
+		{
+			new EntriesTable().dropTableIfExists();
+			new UserAccountsTable().dropTableIfExists();
+			new BadgesTable().dropTableIfExists();
+			new VerifiedActivitiesTable().dropTableIfExists();
+			new SubmittedActivitiesTable().dropTableIfExists();
+			new MovementsTable().dropTableIfExists();
+		}
 
 		new CategoriesTable().createTableIfNotExists();
 		new BadgeConditionsTable().createTableIfNotExists();
@@ -152,7 +152,8 @@ public class ApplicationContext implements ServletContextListener {
 	private void readCategoriesJson(File file) {
 		CategoriesJson jsons = JsonUtils.decode(file, CategoriesJson.class);
 		CategoriesTable table = new CategoriesTable();
-		jsons.getCategories().forEach(j -> table.insert(new Category(j.getName(), j.getImgSrc())));
+		jsons.getCategories().forEach(
+				j -> table.insert(new Category(j.getCourseId(), j.getName(), j.getImgSrc())));
 	}
 
 	private void readBadgeConditionsJson(File file) {
@@ -160,8 +161,8 @@ public class ApplicationContext implements ServletContextListener {
 		BadgeConditionsTable table = new BadgeConditionsTable();
 		jsons.getBadgeConditions()
 				.forEach(j -> table
-						.insert(new BadgeCondition(j.getName(), j.getImgSrc(), j.getType(),
-								j.getValue())));
+						.insert(new BadgeCondition(j.getCourseId(), j.getName(), j.getImgSrc(),
+								j.getType(), j.getValue())));
 	}
 
 	private void readCheckpointsAndTasksJson(File jsonDir) {
@@ -200,7 +201,7 @@ public class ApplicationContext implements ServletContextListener {
 		}
 	}
 
-	private CheckpointsAndTasksJson convert(String checkpointGroupId,
+	private CheckpointsAndTasksJson convert(String courseId,
 			List<GoogleSpreadsheetData> spreadsheetData) {
 		CheckpointsAndTasksJson json = new CheckpointsAndTasksJson();
 
@@ -210,7 +211,7 @@ public class ApplicationContext implements ServletContextListener {
 			}
 
 			json.addCheckpoint(new CheckpointJson(d.getCheckpointid(), d.getName(), d.getLabel(),
-					d.getDescription(), d.getLat(), d.getLon(), Arrays.asList(checkpointGroupId),
+					d.getDescription(), d.getLat(), d.getLon(), Arrays.asList(courseId),
 					d.getMarkerColor(), d.getCategory(), d.getSubcategory(), d.getImgsrc(),
 					d.getPlace()));
 			json.addTask(

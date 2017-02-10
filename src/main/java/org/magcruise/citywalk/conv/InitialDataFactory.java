@@ -32,17 +32,17 @@ public class InitialDataFactory {
 
 	public static final Map<String, InitialDataJson> initialDataJsonCache = new ConcurrentHashMap<>();
 
-	public static InitialDataJson create(String checkpointGroupId) {
-		InitialDataJson json = initialDataJsonCache.get(checkpointGroupId);
+	public static InitialDataJson create(String courseId) {
+		InitialDataJson json = initialDataJsonCache.get(courseId);
 		if (json != null) {
 			return json;
 		}
 		List<Checkpoint> checkpoints = new CheckpointsTable()
-				.findByCheckpointGroupId(checkpointGroupId);
+				.findByCourseId(courseId);
 		List<Category> categories = new CategoriesTable().readAll();
 
 		json = create(checkpoints, categories);
-		initialDataJsonCache.putIfAbsent(checkpointGroupId, json);
+		initialDataJsonCache.putIfAbsent(courseId, json);
 		return json;
 	}
 

@@ -11,6 +11,7 @@ import net.sf.persist.annotations.Table;
 public class BadgeCondition {
 
 	private long id;
+	private String courseId;
 	private String name;
 	private String imgSrc;
 	private String type;
@@ -19,7 +20,8 @@ public class BadgeCondition {
 	public BadgeCondition() {
 	}
 
-	public BadgeCondition(String name, String imgSrc, String type, String value) {
+	public BadgeCondition(String courseId, String name, String imgSrc, String type, String value) {
+		this.courseId = courseId;
 		this.name = name;
 		this.imgSrc = imgSrc;
 		this.type = type;
@@ -70,6 +72,14 @@ public class BadgeCondition {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(String course) {
+		this.courseId = course;
 	}
 
 }

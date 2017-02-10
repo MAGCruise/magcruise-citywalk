@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class BadgeConditionJson {
 
+	private String courseId;
 	private String name;
 	private String imgSrc;
 	private String type;
@@ -45,6 +46,14 @@ public class BadgeConditionJson {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
 	}
 
 }

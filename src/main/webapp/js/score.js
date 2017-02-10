@@ -1,6 +1,6 @@
 $(function() {
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getRanking", [getUserId(),
-      getCheckpointGroupId()], function(data) {
+      getCourseId()], function(data) {
     var myGroupRanking = data.result.groupRank;
     var groupRankings = data.result.groupRanking;
     var myRanking = data.result.rank;

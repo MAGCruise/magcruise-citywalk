@@ -6,13 +6,13 @@ import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.magcruise.citywalk.model.json.db.CategoryJson;
-import org.magcruise.citywalk.model.json.db.SettingsJson;
+import org.magcruise.citywalk.model.json.db.CoursesJson;
 
 public class InitialDataJson {
 
 	private List<CheckpointJson> checkpoints = new ArrayList<>();
 	private List<CategoryJson> categories = new ArrayList<>();
-	private SettingsJson settings = new SettingsJson();
+	private CoursesJson settings = new CoursesJson();
 
 	public InitialDataJson(List<CheckpointJson> checkpointsJson,
 			List<CategoryJson> categoriesJson) {
@@ -41,11 +41,11 @@ public class InitialDataJson {
 		this.categories = categories;
 	}
 
-	public SettingsJson getSettings() {
+	public CoursesJson getSettings() {
 		return settings;
 	}
 
-	public void setSettings(SettingsJson settings) {
+	public void setSettings(CoursesJson settings) {
 		this.settings = settings;
 	}
 

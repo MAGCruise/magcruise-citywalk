@@ -7,16 +7,16 @@ import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
-@ServerEndpoint("/websocket/activity/{checkpointGroupId}/{checkpointId}/{userId}")
+@ServerEndpoint("/websocket/activity/{courseId}/{checkpointId}/{userId}")
 public class EventPublisherEndpoint {
 
 	private static EventPublisher publisher = new EventPublisher();
 
 	@OnOpen
 	public synchronized void onOpen(@PathParam("userId") String userId,
-			@PathParam("checkpointGroupId") String checkpointGroupId,
+			@PathParam("courseId") String courseId,
 			@PathParam("checkpointId") String checkpointId, Session session) {
-		publisher.onOpen(userId, checkpointGroupId, checkpointId, session);
+		publisher.onOpen(userId, courseId, checkpointId, session);
 	}
 
 	@OnClose

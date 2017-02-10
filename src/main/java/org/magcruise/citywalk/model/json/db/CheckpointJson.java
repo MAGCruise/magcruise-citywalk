@@ -16,7 +16,7 @@ public class CheckpointJson {
 
 	private double lat;
 	private double lon;
-	private List<String> checkpointGroupIds = new ArrayList<>();
+	private List<String> courseIds = new ArrayList<>();
 	private String markerColor;
 	private String category;
 	private String subcategory;
@@ -29,7 +29,7 @@ public class CheckpointJson {
 	}
 
 	public CheckpointJson(String id, String name, String label, String description, double lat,
-			double lon, List<String> checkPointGroupIds, String markerColor, String category,
+			double lon, List<String> courseIds, String markerColor, String category,
 			String subcategory, String imgSrc, String place) {
 		this.id = id;
 		this.name = name;
@@ -37,7 +37,7 @@ public class CheckpointJson {
 		this.description = description;
 		this.lat = lat;
 		this.lon = lon;
-		this.checkpointGroupIds.addAll(checkPointGroupIds);
+		this.courseIds.addAll(courseIds);
 		this.markerColor = markerColor;
 		this.category = category;
 		this.subcategory = subcategory;
@@ -85,12 +85,12 @@ public class CheckpointJson {
 		this.lon = lon;
 	}
 
-	public List<String> getCheckpointGroupIds() {
-		return checkpointGroupIds;
+	public List<String> getCourseIds() {
+		return courseIds;
 	}
 
-	public void setCheckpointGroupIds(List<String> checkpointGroupIds) {
-		this.checkpointGroupIds = checkpointGroupIds;
+	public void setCourseIds(List<String> courseIds) {
+		this.courseIds = courseIds;
 	}
 
 	public String getMarkerColor() {

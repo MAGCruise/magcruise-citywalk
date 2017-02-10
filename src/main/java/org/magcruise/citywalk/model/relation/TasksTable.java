@@ -33,7 +33,7 @@ public class TasksTable extends RelationalModel<Task> {
 				.collect(Collectors.toList());
 	}
 
-	public List<Task> getTasksForCheckpointGroup(String checkpointGroupId) {
+	public List<Task> getTasksForCourse(String courseId) {
 		List<Task> tasks = getClient().readList(Task.class,
 				"SELECT " + TABLE_NAME + ".* FROM " + TABLE_NAME + " JOIN "
 						+ CheckpointsTable.TABLE_NAME + " ON " + TABLE_NAME

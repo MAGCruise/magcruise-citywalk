@@ -19,8 +19,8 @@ public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 		super(TABLE_NAME);
 	}
 
-	public RankJson getRankJson(String userId, String checkpointGroupId) {
-		List<Map<String, Object>> scores = sumsOfScoreGroupByUserIdOrderByScore(checkpointGroupId);
+	public RankJson getRankJson(String userId, String courseId) {
+		List<Map<String, Object>> scores = sumsOfScoreGroupByUserIdOrderByScore(courseId);
 		int rank = 0;
 		double lastScore = Integer.MAX_VALUE;
 		for (int i = 0; i < scores.size(); i++) {
@@ -40,16 +40,16 @@ public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 		return new RankJson(userId, -1, 0);
 	}
 
-	public List<RankJson> getRanksJson(String checkpointGroupId) {
-		return getRanksJson(checkpointGroupId, Integer.MAX_VALUE);
+	public List<RankJson> getRanksJson(String courseId) {
+		return getRanksJson(courseId, Integer.MAX_VALUE);
 	}
 
-	public List<RankJson> getRanksJson(String checkpointGroupId, int rankLimit) {
+	public List<RankJson> getRanksJson(String courseId, int rankLimit) {
 		List<RankJson> result = new ArrayList<>();
-		List<Map<String, Object>> scores = sumsOfScoreGroupByUserIdOrderByScore(checkpointGroupId);
+		List<Map<String, Object>> scores = sumsOfScoreGroupByUserIdOrderByScore(courseId);
 		for (int i = 0; i < scores.size(); i++) {
 			try {
-				RankJson j = getRankJson(scores.get(i).get(USER_ID).toString(), checkpointGroupId);
+				RankJson j = getRankJson(scores.get(i).get(USER_ID).toString(), courseId);
 				if (j.getRank() > rankLimit) {
 					return result;
 				}
@@ -61,14 +61,14 @@ public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 		return result;
 	}
 
-	public double getScore(String userId, String checkpointGroupId) {
-		return getRankJson(userId, checkpointGroupId).getScore();
+	public double getScore(String userId, String courseId) {
+		return getRankJson(userId, courseId).getScore();
 	}
 
 	private CheckpointsTable checkpoints = new CheckpointsTable();
 
-	public int getNumberOfCheckInInCategory(String userId, String category) {
-		List<Activity> actsInCate = getActivities(userId).stream()
+	public int getNumberOfCheckInInCategory(String userId, String courseId, String category) {
+		List<Activity> actsInCate = getActivitiesInCourse(userId, courseId).stream()
 				.filter(a -> checkpoints.readByPrimaryKey(a.getCheckpointId())
 						.getCategory().equals(category))
 				.collect(Collectors.toList());

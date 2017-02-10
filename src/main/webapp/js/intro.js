@@ -1,5 +1,5 @@
 $(function() {
-  if (!getUserId() || !getCheckpointGroupId()) {
+  if (!getUserId() || !getCourseId()) {
     $("#mag-nav").remove();
   }
   $("#nav-title").text("はじめに");

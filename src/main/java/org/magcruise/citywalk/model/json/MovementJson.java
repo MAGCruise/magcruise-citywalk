@@ -15,7 +15,7 @@ public class MovementJson {
 	private double altitudeAccuracy;
 	private double speed;
 	private double heading;
-	private String checkpointGroupId;
+	private String courseId;
 	private String checkpointId;
 	private Date recordedAt;
 
@@ -86,12 +86,12 @@ public class MovementJson {
 		this.heading = heading;
 	}
 
-	public String getCheckpointGroupId() {
-		return checkpointGroupId;
+	public String getCourseId() {
+		return courseId;
 	}
 
-	public void setCheckpointGroupId(String checkpointGroupId) {
-		this.checkpointGroupId = checkpointGroupId;
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
 	}
 
 	public String getCheckpointId() {

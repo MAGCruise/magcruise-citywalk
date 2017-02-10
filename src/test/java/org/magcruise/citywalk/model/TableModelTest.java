@@ -83,7 +83,7 @@ public class TableModelTest {
 		users.insert(new UserAccount("nkjm", "toho-u"));
 		log.debug(users.readAll());
 
-		log.debug(JSON.encode(tasks.getTasksForCheckpointGroup("waseda"), true));
+		log.debug(JSON.encode(tasks.getTasksForCourse("waseda"), true));
 
 		CityWalkService service = new CityWalkService();
 		log.debug(JSON.encode(service.getInitialData("waseda"), true));

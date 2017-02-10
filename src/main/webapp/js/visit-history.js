@@ -1,6 +1,6 @@
 $(function() {
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getVisitedCheckpoints", [getUserId(),
-      getCheckpointGroupId()], function(data) {
+      getCourseId()], function(data) {
     showVisitedCheckPoints(data.result);
   })).rpc();
 });

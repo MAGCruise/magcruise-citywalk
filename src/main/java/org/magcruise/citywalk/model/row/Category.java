@@ -11,13 +11,14 @@ import net.sf.persist.annotations.Table;
 public class Category {
 
 	private long id;
+	private String courseId;
 	private String name;
 	private String imgSrc;
 
 	public Category() {
 	}
 
-	public Category(String name, String imgSrc) {
+	public Category(String courseId, String name, String imgSrc) {
 		this.name = name;
 		this.imgSrc = imgSrc;
 	}
@@ -50,6 +51,14 @@ public class Category {
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+	}
+
+	public String getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
 	}
 
 }

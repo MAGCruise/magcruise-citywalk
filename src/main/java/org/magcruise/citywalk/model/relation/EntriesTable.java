@@ -12,7 +12,7 @@ public class EntriesTable extends RelationalModel<Entry> {
 
 	public static final String ID = "id";
 	public static final String USER_ID = "user_id";
-	public static final String CHECKPOINT_GROUP_ID = "checkpoint_group_id";
+	public static final String COURSE_ID = "course_id";
 	public static final String CREATED_AT = "created_at";
 
 	public EntriesTable() {
@@ -20,7 +20,7 @@ public class EntriesTable extends RelationalModel<Entry> {
 		addColumnDefinition(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(USER_ID, Keyword.VARCHAR);
-		addColumnDefinition(CHECKPOINT_GROUP_ID, Keyword.VARCHAR);
+		addColumnDefinition(COURSE_ID, Keyword.VARCHAR);
 	}
 
 	public boolean exists(String userId) {

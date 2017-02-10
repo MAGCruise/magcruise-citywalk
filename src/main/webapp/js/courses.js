@@ -1,10 +1,10 @@
-function selectCheckpointGroup(checkpointGroupId) {
+function selectCourse(courseId) {
   showLoading();
-  var req = new JsonRpcRequest(getBaseUrl(), "getInitialData", [checkpointGroupId], function(data) {
+  var req = new JsonRpcRequest(getBaseUrl(), "getInitialData", [courseId], function(data) {
     saveCityWalkData(data.result);
-    setCheckpointGroupId(checkpointGroupId);
-    new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "join",
-            [getUserId(), getCheckpointGroupId()], function(data) {
+    setCourseId(courseId);
+    new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "join", [getUserId(), getCourseId()],
+            function(data) {
               hideLoading();
               if (data.result) {
                 location.href = "checkpoints.html";
@@ -25,13 +25,13 @@ function selectCheckpointGroup(checkpointGroupId) {
 
 $(function() {
   $("#nav-menu").hide();
-  if (getParam("checkpointGroupId")) {
-    selectCheckpointGroup(getParam("checkpointGroupId"));
+  if (getParam("courseId")) {
+    selectCourse(getParam("courseId"));
     return;
   }
 
   $(".course a").on('click', function() {
-    var checkpointGroupId = $(this).attr("id");
-    selectCheckpointGroup(checkpointGroupId);
+    var courseId = $(this).attr("id");
+    selectCourse(courseId);
   });
 });

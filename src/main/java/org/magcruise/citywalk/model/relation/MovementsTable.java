@@ -12,7 +12,7 @@ public class MovementsTable extends RelationalModel<Movement> {
 	private static final String CREATED_AT = "created_at";
 	private static final String RECORDED_AT = "recorded_at";
 	private static final String USER_ID = "user_id";
-	private static final String CHECKPOINT_GROUP_ID = "checkpoint_group_id";
+	private static final String COURSE_ID = "course_id";
 	private static final String CHECKPOINT_ID = "checkpoint_id";
 	private static final String LAT = "lat";
 	private static final String LON = "lon";
@@ -30,7 +30,7 @@ public class MovementsTable extends RelationalModel<Movement> {
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(RECORDED_AT, Keyword.TIMESTAMP);
 		addColumnDefinition(USER_ID, Keyword.VARCHAR);
-		addColumnDefinition(CHECKPOINT_GROUP_ID, Keyword.VARCHAR);
+		addColumnDefinition(COURSE_ID, Keyword.VARCHAR);
 		addColumnDefinition(CHECKPOINT_ID, Keyword.VARCHAR);
 		addColumnDefinition(LAT, Keyword.DOUBLE);
 		addColumnDefinition(LON, Keyword.DOUBLE);

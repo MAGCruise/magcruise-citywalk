@@ -3,7 +3,7 @@ var KEY_CITY_WALK_DATA = "city_walk_data";
 var KEY_CITY_WALK_DATA_DATE = "city_walk_data_date";
 var KEY_USER_ID = "user_id";
 var KEY_GROUP_ID = "group_id";
-var KEY_CHECKPOINT_GROUP_ID = "checkpoint_group_id";
+var KEY_COURSE_ID = "checkpoint_group_id";
 var KEY_MAX_CATEGORY_DEPTH = "max_category_depth";
 var KEY_VISITED_CHECKPOINTS = "visited_checkpoints";
 var KEY_ANSWER_DIC = "answer_dic";
@@ -292,11 +292,11 @@ function getGroupId() {
   return getItem(KEY_GROUP_ID);
 }
 
-function setCheckpointGroupId(val) {
-  setItem(KEY_CHECKPOINT_GROUP_ID, val);
+function setCourseId(val) {
+  setItem(KEY_COURSE_ID, val);
 }
-function getCheckpointGroupId() {
-  return getItem(KEY_CHECKPOINT_GROUP_ID);
+function getCourseId() {
+  return getItem(KEY_COURSE_ID);
 }
 
 function getMaxCategoryDepth() {
@@ -317,6 +317,14 @@ function addAnswerDic(checkpoint, task, answer) {
   }
   answerDic[checkpoint.id][task.id] = answer;
   setItem(KEY_ANSWER_DIC, JSON.stringify(answerDic));
+}
+
+function getCategoryImgSrc(name) {
+  var cates = loadCityWalkData().categories;
+  for (var i = 0; i < cates.length; i++) {
+    if (cates[i].name === name) { return cates[i].imgSrc; }
+  }
+  return null;
 }
 
 /* Geo */
@@ -396,7 +404,7 @@ function enqueueMovement(pos) {
     altitudeAccuracy: pos.coords.altitudeAccuracy || -1,
     speed: pos.coords.speed || -1,
     heading: cHeading,
-    checkpointGroupId: getCheckpointGroupId(),
+    courseId: getCourseId(),
     checkpointId: checkpoint.id,
     recordedAt: Date.now(),
   };
@@ -416,15 +424,15 @@ var postMovementsFunc = function() {
   })).rpc();
 }
 
-function updateInitialDataIfNeeded(checkpointGroupId) {
+function updateInitialDataIfNeeded(courseId) {
   if (!getCityWalkDataDate()) { return; }
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "exsitsUpdatedInitialData",
           [getCityWalkDataDate()], function(data) {
             if (data.result) {
-              var req = new JsonRpcRequest(getBaseUrl(), "getInitialData", [checkpointGroupId],
-                      function(data) {
-                        saveCityWalkData(data.result);
-                      });
+              var req = new JsonRpcRequest(getBaseUrl(), "getInitialData", [courseId], function(
+                      data) {
+                saveCityWalkData(data.result);
+              });
               req.timeout = 20000;
               new JsonRpcClient(req).rpc();
             }

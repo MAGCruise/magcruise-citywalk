@@ -94,7 +94,7 @@ $(function() {
 });
 
 function getEventsByWebsocket() {
-  var wsUrl = getActivityPublisherUrl() + "/" + getCheckpointGroupId() + "/" + checkpoint.id + "/"
+  var wsUrl = getActivityPublisherUrl() + "/" + getCourseId() + "/" + checkpoint.id + "/"
           + getUserId();
   var connection = new WebSocket(wsUrl);
   connection.onmessage = function(e) {

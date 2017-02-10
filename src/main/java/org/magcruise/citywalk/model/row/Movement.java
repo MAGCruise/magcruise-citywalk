@@ -15,7 +15,7 @@ public class Movement {
 
 	private long id;
 	private String userId;
-	private String checkpointGroupId;
+	private String courseId;
 	private String checkpointId;
 	private double lat;
 	private double lon;
@@ -32,7 +32,7 @@ public class Movement {
 	}
 
 	public Movement(MovementJson json) {
-		this.checkpointGroupId = json.getCheckpointGroupId();
+		this.courseId = json.getCourseId();
 		this.userId = json.getUserId();
 		this.checkpointId = json.getCheckpointId();
 		this.lat = json.getLat();
@@ -115,12 +115,12 @@ public class Movement {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
-	public String getCheckpointGroupId() {
-		return checkpointGroupId;
+	public String getCourseId() {
+		return courseId;
 	}
 
-	public void setCheckpointGroupId(String checkpointGroupId) {
-		this.checkpointGroupId = checkpointGroupId;
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
 	}
 
 	public Date getCreatedAt() {
