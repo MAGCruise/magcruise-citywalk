@@ -7,6 +7,7 @@ import org.magcruise.citywalk.model.json.RankingJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
+import org.magcruise.citywalk.model.json.db.CoursesJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
 
 import jp.go.nict.langrid.commons.rpc.intf.Parameter;
@@ -14,6 +15,8 @@ import jp.go.nict.langrid.commons.rpc.intf.Parameter;
 public interface CityWalkServiceInterface {
 
 	boolean exsitsUpdatedInitialData(long timeOfInitialData);
+
+	CoursesJson getCourses();
 
 	InitialDataJson getInitialData(
 			@Parameter(sample = "waseda") String courseId);

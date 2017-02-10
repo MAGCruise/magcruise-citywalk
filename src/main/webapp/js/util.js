@@ -4,6 +4,7 @@ var KEY_CITY_WALK_DATA_DATE = "city_walk_data_date";
 var KEY_USER_ID = "user_id";
 var KEY_GROUP_ID = "group_id";
 var KEY_COURSE_ID = "checkpoint_group_id";
+var KEY_CATEGORY_DEPTH = "category_depth";
 var KEY_MAX_CATEGORY_DEPTH = "max_category_depth";
 var KEY_VISITED_CHECKPOINTS = "visited_checkpoints";
 var KEY_ANSWER_DIC = "answer_dic";
@@ -299,13 +300,22 @@ function getCourseId() {
   return getItem(KEY_COURSE_ID);
 }
 
+function getCategoryDepth() {
+  return parseInt(getItem(KEY_CATEGORY_DEPTH) ? getItem(KEY_CATEGORY_DEPTH) : 0);
+}
+
+function setCategoryDepth(depth) {
+  setItem(KEY_CATEGORY_DEPTH, depth);
+}
+
 function getMaxCategoryDepth() {
-  return parseInt(getItem(KEY_MAX_CATEGORY_DEPTH) ? getItem(KEY_MAX_CATEGORY_DEPTH) : 0);
+  return parseInt(getItem(KEY_MAX_CATEGORY_DEPTH) ? getItem(KEY_MAX_CATEGORY_DEPTH) : 2);
 }
 
 function setMaxCategoryDepth(depth) {
   setItem(KEY_MAX_CATEGORY_DEPTH, depth);
 }
+
 function getAnswerDic() {
   return JSON.parse(getItem(KEY_ANSWER_DIC)) || {};
 }

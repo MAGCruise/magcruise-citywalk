@@ -17,11 +17,13 @@ import org.magcruise.citywalk.model.json.db.CategoriesJson;
 import org.magcruise.citywalk.model.json.db.CheckpointJson;
 import org.magcruise.citywalk.model.json.db.CheckpointsAndTasksJson;
 import org.magcruise.citywalk.model.json.db.ContentJson;
+import org.magcruise.citywalk.model.json.db.CoursesJson;
 import org.magcruise.citywalk.model.json.db.TaskJson;
 import org.magcruise.citywalk.model.relation.BadgeConditionsTable;
 import org.magcruise.citywalk.model.relation.BadgesTable;
 import org.magcruise.citywalk.model.relation.CategoriesTable;
 import org.magcruise.citywalk.model.relation.CheckpointsTable;
+import org.magcruise.citywalk.model.relation.CoursesTable;
 import org.magcruise.citywalk.model.relation.EntriesTable;
 import org.magcruise.citywalk.model.relation.MovementsTable;
 import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
@@ -30,6 +32,7 @@ import org.magcruise.citywalk.model.relation.UserAccountsTable;
 import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
 import org.magcruise.citywalk.model.row.BadgeCondition;
 import org.magcruise.citywalk.model.row.Category;
+import org.magcruise.citywalk.model.row.Course;
 import org.magcruise.citywalk.model.task.QrCodeTask;
 import org.nkjmlab.gdata.spreadsheet.client.GoogleSpreadsheetService;
 import org.nkjmlab.gdata.spreadsheet.client.GoogleSpreadsheetServiceFactory;
@@ -96,6 +99,7 @@ public class ApplicationContext implements ServletContextListener {
 			new TasksTable().dropTableIfExists();
 			new CategoriesTable().dropTableIfExists();
 			new BadgeConditionsTable().dropTableIfExists();
+			new CoursesTable().dropTableIfExists();
 		}
 		{
 			new EntriesTable().dropTableIfExists();
@@ -108,6 +112,7 @@ public class ApplicationContext implements ServletContextListener {
 
 		new CategoriesTable().createTableIfNotExists();
 		new BadgeConditionsTable().createTableIfNotExists();
+		new CoursesTable().createTableIfNotExists();
 		new EntriesTable().createTableIfNotExists();
 		new CheckpointsTable().createTableIfNotExists();
 		new TasksTable().createTableIfNotExists();
@@ -137,6 +142,14 @@ public class ApplicationContext implements ServletContextListener {
 						readBadgeConditionsJson(json);
 					}
 				});
+		Arrays.stream(projectsDir.listFiles()).filter(f -> f.isDirectory())
+				.forEach(f -> {
+					File json = new File(f.getPath() + File.separator + "json" + File.separator
+							+ "courses.json");
+					if (json.exists()) {
+						readCoursesJson(json);
+					}
+				});
 
 		Arrays.stream(projectsDir.listFiles()).filter(f -> f.isDirectory())
 				.forEach(f -> {
@@ -163,6 +176,15 @@ public class ApplicationContext implements ServletContextListener {
 				.forEach(j -> table
 						.insert(new BadgeCondition(j.getCourseId(), j.getName(), j.getImgSrc(),
 								j.getType(), j.getValue())));
+	}
+
+	private void readCoursesJson(File file) {
+		CoursesJson jsons = JsonUtils.decode(file, CoursesJson.class);
+		CoursesTable table = new CoursesTable();
+		jsons.getCourses()
+				.forEach(j -> table
+						.insert(new Course(j.getId(), j.getName(), j.getMaxCategoryDepth(),
+								j.getDisabled())));
 	}
 
 	private void readCheckpointsAndTasksJson(File jsonDir) {

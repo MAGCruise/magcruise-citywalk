@@ -19,9 +19,12 @@ import org.magcruise.citywalk.model.json.RankingJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
+import org.magcruise.citywalk.model.json.db.CourseJson;
+import org.magcruise.citywalk.model.json.db.CoursesJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
 import org.magcruise.citywalk.model.relation.BadgeConditionsTable;
 import org.magcruise.citywalk.model.relation.BadgesTable;
+import org.magcruise.citywalk.model.relation.CoursesTable;
 import org.magcruise.citywalk.model.relation.EntriesTable;
 import org.magcruise.citywalk.model.relation.MovementsTable;
 import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
@@ -285,6 +288,17 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 			return false;
 		}
 		return true;
+	}
+
+	private CoursesTable coursesTable = new CoursesTable();
+
+	@Override
+	public CoursesJson getCourses() {
+		return new CoursesJson(
+				coursesTable.readAll()
+						.stream().map(c -> new CourseJson(c.getId(), c.getName(),
+								c.getMaxCategoryDepth(), c.getDisabled()))
+						.collect(Collectors.toList()));
 	}
 
 }

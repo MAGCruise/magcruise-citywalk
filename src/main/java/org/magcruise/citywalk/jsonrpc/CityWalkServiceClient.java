@@ -7,9 +7,10 @@ import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
 import org.magcruise.citywalk.model.json.MovementJson;
 import org.magcruise.citywalk.model.json.RankingJson;
-import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
+import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
+import org.magcruise.citywalk.model.json.db.CoursesJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
 
 import jp.go.nict.langrid.client.jsonrpc.JsonRpcClientFactory;
@@ -113,6 +114,12 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	public boolean exsitsUpdatedInitialData(long timeOfInitialData) {
 		// TODO 自動生成されたメソッド・スタブ
 		return false;
+	}
+
+	@Override
+	public CoursesJson getCourses() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
 	}
 
 }

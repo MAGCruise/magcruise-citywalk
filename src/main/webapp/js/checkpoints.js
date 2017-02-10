@@ -63,12 +63,22 @@ $(function() {
   updateInitialDataIfNeeded(getCourseId());
   updateCheckpointListHeight(280);
 
-  $('#max-category-depth').val(getMaxCategoryDepth());
+  switch (getMaxCategoryDepth()) {
+  case 0:
+    $('#category-depth option[value=1]').remove();
+    $('#category-depth option[value=2]').remove();
+    break;
+  case 1:
+    $('#category-depth option[value=2]').remove();
+    break;
+  default:
+  }
 
-  $('#max-category-depth').on('change', function() {
-    setMaxCategoryDepth($(this).val());
+  $('#category-depth').val(getCategoryDepth());
+  $('#category-depth').on('change', function() {
+    setCategoryDepth($(this).val());
 
-    switch (getMaxCategoryDepth()) {
+    switch (getCategoryDepth()) {
     case 0:
       category = null;
       subcategory = null;
@@ -129,6 +139,15 @@ function updateViews() {
 function loadCheckpoints() {
   // 未訪問チェックポイントデータをLocalStorageより取得
   checkpoints = getNonVisitedCheckPoints();
+  if (enableGps) {
+    checkpoints.sort(function(a, b) {
+      var distanceA = google.maps.geometry.spherical.computeDistanceBetween(cPos,
+              new google.maps.LatLng(a.lat, a.lon));
+      var distanceB = google.maps.geometry.spherical.computeDistanceBetween(cPos,
+              new google.maps.LatLng(b.lat, b.lon));
+      return (distanceA < distanceB) ? -1 : 1;
+    });
+  }
   if (category) {
     checkpoints = checkpoints.filter(function(checkpoint) {
       return checkpoint.category == category;
@@ -195,7 +214,7 @@ function updateTitle() {
 
 function showList() {
   $("#checkpoints").empty();
-  switch (getMaxCategoryDepth()) {
+  switch (getCategoryDepth()) {
   case 0:
     showCheckpoints();
     break;
@@ -260,6 +279,7 @@ function showSubcategory() {
   }).filter(function(subcategory, index, self) {
     return self.indexOf(subcategory) === index;
   });
+  names.sort();
   names.forEach(function(name, i) {
     var elem = makeListElemWithoutDistance(name);
     elem.on('click', function() {
@@ -279,6 +299,7 @@ function showCategory() {
   }).filter(function(category, index, self) {
     return self.indexOf(category) === index;
   });
+  names.sort();
   names.forEach(function(name, i) {
     var elem = makeListElemWithoutDistance(name);
     elem.on('click', function() {
@@ -372,7 +393,7 @@ function selectCheckpoint(checkpoint) {
   });
 
   $("#nav-start").show();
-  switch (getMaxCategoryDepth()) {
+  switch (getCategoryDepth()) {
   case 0:
     location.href = "./checkpoints.html#" + "?selected-id=" + encodeURIComponent(checkpoint.id)
             + "&no-refresh=true";

@@ -1,8 +1,28 @@
-function selectCourse(courseId) {
+function showCourses() {
+  var req = new JsonRpcRequest(getBaseUrl(), "getCourses", [], function(data) {
+    data.result.courses.forEach(function(c) {
+      if (!c.disabled) {
+        $('#courses-list').append(
+                $('<div>').addClass('course').append(
+                        $('<a>').attr('id', c.id).attr('data-max-category-depth',
+                                c.maxCategoryDepth).text(c.name)));
+      }
+    })
+    $(".course a").on('click', function() {
+      var courseId = $(this).attr('id');
+      var maxCategoryDepth = $(this).attr('data-max-category-depth');
+      selectCourse(courseId, maxCategoryDepth);
+    });
+  }, function(error) {
+  });
+  new JsonRpcClient(req).rpc();
+}
+function selectCourse(courseId, maxCategoryDepth) {
   showLoading();
   var req = new JsonRpcRequest(getBaseUrl(), "getInitialData", [courseId], function(data) {
     saveCityWalkData(data.result);
     setCourseId(courseId);
+    setMaxCategoryDepth(maxCategoryDepth);
     new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "join", [getUserId(), getCourseId()],
             function(data) {
               hideLoading();
@@ -26,12 +46,10 @@ function selectCourse(courseId) {
 $(function() {
   $("#nav-menu").hide();
   if (getParam("courseId")) {
-    selectCourse(getParam("courseId"));
+    selectCourse(getParam("courseId"), 2);
     return;
   }
 
-  $(".course a").on('click', function() {
-    var courseId = $(this).attr("id");
-    selectCourse(courseId);
-  });
+  showCourses();
+
 });
