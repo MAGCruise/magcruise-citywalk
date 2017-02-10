@@ -97,7 +97,7 @@ public class CheckpointsAndTasksFactory {
 		List<Checkpoint> checkpoints = checkpointsData.stream()
 				.map(checkpoint -> new Checkpoint(checkpoint.getId(), checkpoint.getName(),
 						checkpoint.getLabel(), checkpoint.getDescription(), checkpoint.getLat(),
-						checkpoint.getLon(), checkpoint.getCheckpointGroupIds(),
+						checkpoint.getLon(), checkpoint.getCourseIds(),
 						checkpoint.getMarkerColor(),
 						checkpoint.getCategory(), checkpoint.getSubcategory(),
 						checkpoint.getVisibleTimeFrom(), checkpoint.getVisibleTimeTo(),

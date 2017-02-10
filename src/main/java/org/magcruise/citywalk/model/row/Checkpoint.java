@@ -22,7 +22,7 @@ public class Checkpoint {
 	private String description;
 	private double lat;
 	private double lon;
-	private List<String> checkpointGroupIds = new ArrayList<>();
+	private List<String> courseIds = new ArrayList<>();
 	private String markerColor;
 	private String category;
 	private String subcategory;
@@ -35,7 +35,7 @@ public class Checkpoint {
 	}
 
 	public Checkpoint(String id, String name, String label, String description, double lat,
-			double lon, List<String> checkPointGroupIds, String markerColor, String category,
+			double lon, List<String> courseIds, String markerColor, String category,
 			String subcategory, Date visibleTimeFrom, Date visibleTimeTo, String imgSrc,
 			String place) {
 		this.id = id;
@@ -44,7 +44,7 @@ public class Checkpoint {
 		this.description = description;
 		this.lat = lat;
 		this.lon = lon;
-		this.checkpointGroupIds.addAll(checkPointGroupIds);
+		this.courseIds.addAll(courseIds);
 		this.markerColor = markerColor;
 		this.category = category;
 		this.subcategory = subcategory;
@@ -91,23 +91,23 @@ public class Checkpoint {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
-	@Column(name = CheckpointsTable.CHECKPOINT_GROUP_IDS)
-	public String getCheckpointGroupIdsString() {
-		return JSON.encode(checkpointGroupIds);
+	@Column(name = CheckpointsTable.COURSE_IDS)
+	public String getCourseIdsString() {
+		return JSON.encode(courseIds);
 	}
 
-	public void setCheckpointGroupIdsString(String checkpointGroupIds) {
+	public void setCourseIdsString(String courseIds) {
 		@SuppressWarnings("unchecked")
-		List<String> r = JSON.decode(checkpointGroupIds, List.class);
-		this.checkpointGroupIds.addAll(r);
+		List<String> r = JSON.decode(courseIds, List.class);
+		this.courseIds.addAll(r);
 	}
 
-	public List<String> getCheckpointGroupIds() {
-		return checkpointGroupIds;
+	public List<String> getCourseIds() {
+		return courseIds;
 	}
 
-	public void setCheckpointGroupIds(List<String> checkpointGroupIds) {
-		this.checkpointGroupIds = checkpointGroupIds;
+	public void setCourseIds(List<String> courseIds) {
+		this.courseIds = courseIds;
 	}
 
 	public String getLabel() {

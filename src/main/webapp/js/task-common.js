@@ -85,7 +85,7 @@ function addActivity(task, input, isCorrect) {
     lat: getParam("lat"),
     lon: getParam("lon"),
     userId: getUserId(),
-    checkpointGroupId: getCheckpointGroupId(),
+    courseId: getCourseId(),
     taskId: task.id,
     taskType: task.taskType,
     score: (isCorrect) ? task.point : 0,

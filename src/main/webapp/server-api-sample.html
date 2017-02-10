@@ -45,10 +45,10 @@
 				});
 	});
 	$(function() {
-		var checkpointGroupId = "waseda";
+		var courseId = "waseda";
 		var checkpointId = "cafeteria";
 		var userId = "ayaki";
-		var wsUrl = getActivityPublisherUrl() + "/" + checkpointGroupId + "/"
+		var wsUrl = getActivityPublisherUrl() + "/" + courseId + "/"
 				+ checkpointId + "/" + userId;
 		getEventsByWebsocket(wsUrl);
 	});
@@ -106,7 +106,7 @@
         <h2>JSON-RPCでActivityをInsert</h2>
         <textarea id="insert-activity-input">
 [{
-    "checkpointGroupId": "waseda",
+    "courseId": "waseda",
     "checkpointId": "cafeteria",
     "inputs": {
         "value": "1"

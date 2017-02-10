@@ -16,15 +16,12 @@ public interface CityWalkServiceInterface {
 	boolean exsitsUpdatedInitialData(long timeOfInitialData);
 
 	InitialDataJson getInitialData(
-			@Parameter(sample = "waseda") String checkpointGroupId);
+			@Parameter(sample = "waseda") String courseId);
 
 	InitialDataJson getInitialDataFromFile(
-			@Parameter(sample = "waseda") String checkpointGroupId);
+			@Parameter(sample = "waseda") String courseId);
 
 	boolean login(@Parameter(sample = "ayaki") String userId);
-
-	boolean join(@Parameter(sample = "ayaki") String userId,
-			@Parameter(sample = "waseda") String checkpointGroupId);
 
 	boolean logout();
 
@@ -34,6 +31,9 @@ public interface CityWalkServiceInterface {
 	RegisterResultJson register(@Parameter(sample = "ayaki") String userId,
 			@Parameter(sample = "houchimin") String groupId, int maxLengthOfUserId);
 
+	boolean join(@Parameter(sample = "ayaki") String userId,
+			@Parameter(sample = "waseda") String courseId);
+
 	RewardJson addActivity(
 			@Parameter(sample = "{\"userId\": \"ayaki\", " + "\"checkpointId\": \"1\", "
 					+ "\"taskId\": \"1\", " + "\"score\": 9.0, " + "\"inputs\": "
@@ -42,18 +42,18 @@ public interface CityWalkServiceInterface {
 	void addMovements(MovementJson[] movements);
 
 	BadgeJson[] getBadges(@Parameter(sample = "ayaki") String userId,
-			@Parameter(sample = "waseda") String checkpointGroupId);
+			@Parameter(sample = "waseda") String courseId);
 
 	RankingJson getRanking(@Parameter(sample = "ayaki") String userId,
-			@Parameter(sample = "waseda") String checkpointGroupId);
+			@Parameter(sample = "waseda") String courseId);
 
 	VisitedCheckpointJson[] getVisitedCheckpoints(
 			@Parameter(sample = "sample-at-magcruise.org") String userId,
-			@Parameter(sample = "waseda") String checkpointGroupId);
+			@Parameter(sample = "waseda") String courseId);
 
 	boolean validateCheckpointsAndTasksJson(
 			@Parameter(sample = "{\"checkpoints\":["
-					+ "{\"id\":\"cafeteria\",\"lat\":38.4400,\"lon\":139.11090,\"checkpoint_group_ids\":[\"waseda\"]}],"
+					+ "{\"id\":\"cafeteria\",\"lat\":38.4400,\"lon\":139.11090,\"cource_ids\":[\"waseda\"]}],"
 					+ "\"tasks\":[" + "{\"checkpoint_ids\":[\"cafeteria\"],"
 					+ "\"content\":{\"instanceClass\":\"org.magcruise.citywalk.model.content.PhotoTask\",\"checkin\":true,"
 					+ "\"label\":\"表示されている写真と同じ写真を撮って下さい．\",\"answer\":\"task/ieiri_photo_00.jpg\"}},"

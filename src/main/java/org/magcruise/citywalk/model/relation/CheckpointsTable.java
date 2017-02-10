@@ -12,7 +12,7 @@ public class CheckpointsTable extends RelationalModel<Checkpoint> {
 
 	public static final String TABLE_NAME = "CHECKPOINTS";
 
-	public static final String CHECKPOINT_GROUP_IDS = "checkpoint_group_ids";
+	public static final String COURSE_IDS = "course_ids";
 
 	private static final String LAT = "lat";
 	private static final String LON = "lon";
@@ -38,7 +38,7 @@ public class CheckpointsTable extends RelationalModel<Checkpoint> {
 		addColumnDefinition(DESCRIPTION, Keyword.VARCHAR);
 		addColumnDefinition(LAT, Keyword.DOUBLE);
 		addColumnDefinition(LON, Keyword.DOUBLE);
-		addColumnDefinition(CHECKPOINT_GROUP_IDS, Keyword.VARCHAR);
+		addColumnDefinition(COURSE_IDS, Keyword.VARCHAR);
 		addColumnDefinition(MARKER_COLOR, Keyword.VARCHAR);
 		addColumnDefinition(CATEGORY, Keyword.VARCHAR);
 		addColumnDefinition(SUBCATEGORY, Keyword.VARCHAR);
@@ -48,9 +48,9 @@ public class CheckpointsTable extends RelationalModel<Checkpoint> {
 		addColumnDefinition(PLACE, Keyword.VARCHAR);
 	}
 
-	public List<Checkpoint> findByCheckpointGroupId(String checkpointGroupId) {
+	public List<Checkpoint> findByCourseId(String courseId) {
 		return getClient().readList(Checkpoint.class, "SELECT * FROM " + TABLE_NAME).stream()
-				.filter(c -> c.getCheckpointGroupIds().contains(checkpointGroupId))
+				.filter(c -> c.getCourseIds().contains(courseId))
 				.collect(Collectors.toList());
 	}
 

@@ -6,12 +6,15 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
+import org.magcruise.citywalk.model.json.db.CategoryJson;
 import org.magcruise.citywalk.model.json.init.CheckinJson;
 import org.magcruise.citywalk.model.json.init.CheckpointJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
 import org.magcruise.citywalk.model.json.init.TaskJson;
+import org.magcruise.citywalk.model.relation.CategoriesTable;
 import org.magcruise.citywalk.model.relation.CheckpointsTable;
 import org.magcruise.citywalk.model.relation.TasksTable;
+import org.magcruise.citywalk.model.row.Category;
 import org.magcruise.citywalk.model.row.Checkpoint;
 import org.magcruise.citywalk.model.row.Task;
 import org.nkjmlab.util.json.JsonUtils;
@@ -29,20 +32,22 @@ public class InitialDataFactory {
 
 	public static final Map<String, InitialDataJson> initialDataJsonCache = new ConcurrentHashMap<>();
 
-	public static InitialDataJson create(String checkpointGroupId) {
-		InitialDataJson json = initialDataJsonCache.get(checkpointGroupId);
+	public static InitialDataJson create(String courseId) {
+		InitialDataJson json = initialDataJsonCache.get(courseId);
 		if (json != null) {
 			return json;
 		}
 		List<Checkpoint> checkpoints = new CheckpointsTable()
-				.findByCheckpointGroupId(checkpointGroupId);
-		json = create(checkpoints);
-		initialDataJsonCache.putIfAbsent(checkpointGroupId, json);
+				.findByCourseId(courseId);
+		List<Category> categories = new CategoriesTable().readAll();
+
+		json = create(checkpoints, categories);
+		initialDataJsonCache.putIfAbsent(courseId, json);
 		return json;
 	}
 
-	private static InitialDataJson create(List<Checkpoint> checkpoints) {
-		List<CheckpointJson> result = checkpoints.stream().map(c -> {
+	private static InitialDataJson create(List<Checkpoint> checkpoints, List<Category> categories) {
+		List<CheckpointJson> checkpointsJson = checkpoints.stream().map(c -> {
 			List<Task> tasks = new TasksTable().getTasks(c.getId());
 			List<TaskJson> taskJsons = new ArrayList<>();
 			CheckinJson checkin = new CheckinJson();
@@ -72,7 +77,11 @@ public class InitialDataFactory {
 					c.getSubcategory(), c.getVisibleTimeFrom(), c.getVisibleTimeTo(),
 					c.getImgSrc(), c.getPlace());
 		}).collect(Collectors.toList());
-		return new InitialDataJson(result);
+
+		List<CategoryJson> categoriesJson = categories.stream()
+				.map(c -> new CategoryJson(c.getName(), c.getImgSrc()))
+				.collect(Collectors.toList());
+		return new InitialDataJson(checkpointsJson, categoriesJson);
 
 	}
 

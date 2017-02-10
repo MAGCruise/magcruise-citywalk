@@ -13,7 +13,7 @@ public class ActivityJson {
 	private long id;
 	private String userId;
 
-	private String checkpointGroupId;
+	private String courseId;
 	private String checkpointId;
 	private double lat;
 	private double lon;
@@ -33,7 +33,7 @@ public class ActivityJson {
 
 	public ActivityJson(Activity activity) {
 		this.id = activity.getId();
-		this.checkpointGroupId = activity.getCheckpointGroupId();
+		this.courseId = activity.getCourseId();
 		this.userId = activity.getUserId();
 		this.checkpointId = activity.getCheckpointId();
 		this.lat = activity.getLat();
@@ -127,12 +127,12 @@ public class ActivityJson {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
-	public String getCheckpointGroupId() {
-		return checkpointGroupId;
+	public String getCourseId() {
+		return courseId;
 	}
 
-	public void setCheckpointGroupId(String checkpointGroupId) {
-		this.checkpointGroupId = checkpointGroupId;
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
 	}
 
 }

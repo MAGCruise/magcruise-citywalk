@@ -12,7 +12,7 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 
 	private static final String ID = "id";
 	private static final String CREATED_AT = "created_at";
-	private static final String CHECKPOINT_GROUP_ID = "checkpoint_group_id";
+	private static final String COURSE_ID = "course_id";
 	public static final String USER_ID = "user_id";
 	private static final String CHECKPOINT_ID = "checkpoint_id";
 	private static final String TASK_ID = "task_id";
@@ -28,7 +28,7 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 		addColumnDefinition(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(USER_ID, Keyword.VARCHAR);
-		addColumnDefinition(CHECKPOINT_GROUP_ID, Keyword.VARCHAR);
+		addColumnDefinition(COURSE_ID, Keyword.VARCHAR);
 		addColumnDefinition(CHECKPOINT_ID, Keyword.VARCHAR);
 		addColumnDefinition(TASK_ID, Keyword.VARCHAR);
 		addColumnDefinition(SCORE, Keyword.DOUBLE);
@@ -37,26 +37,24 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 		addColumnDefinition(INPUT, Keyword.VARCHAR);
 	}
 
-	public List<Activity> getActivities(String userId) {
-		return getClient().readList(Activity.class,
-				"SELECT * FROM " + getName() + " WHERE " + USER_ID + "=?", userId);
-
+	public List<T> getActivitiesInCourse(String userId, String courseId) {
+		return readListBy(USER_ID, userId, COURSE_ID, courseId);
 	}
 
-	public List<Activity> getNewActivitiesOrderById(String checkpointGroupId, String checkpointId,
-			long latestActivityId) {
-		return getClient().readList(Activity.class,
-				"SELECT * FROM " + getName() + " WHERE " + CHECKPOINT_GROUP_ID + "=? AND "
-						+ CHECKPOINT_ID
-						+ "=? AND " + ID + ">? ORDER BY " + ID + " DESC LIMIT ?",
-				checkpointGroupId, checkpointId, latestActivityId, 16);
-	}
-
-	public List<Activity> getActivities(String userId, String checkpointId) {
+	public List<Activity> getActivitiesAtCheckpoint(String userId, String checkpointId) {
 		return getClient().readList(Activity.class,
 				"SELECT * FROM " + getName() + " WHERE " + USER_ID + "=? AND " + CHECKPOINT_ID
 						+ "=?",
 				userId, checkpointId);
+	}
+
+	public List<Activity> getNewActivitiesOrderById(String courseId, String checkpointId,
+			long latestActivityId) {
+		return getClient().readList(Activity.class,
+				"SELECT * FROM " + getName() + " WHERE " + COURSE_ID + "=? AND "
+						+ CHECKPOINT_ID
+						+ "=? AND " + ID + ">? ORDER BY " + ID + " DESC LIMIT ?",
+				courseId, checkpointId, latestActivityId, 16);
 	}
 
 	public List<Activity> getActivitiesLike(String userId, String partOfcheckpointId) {
@@ -73,19 +71,19 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 				userId, checkpointId, taskId);
 	}
 
-	public List<Activity> getActivities(String checkpointGroupId, String userId,
+	public List<Activity> getActivities(String courseId, String userId,
 			String checkpointId, String taskId) {
 		return getClient().readList(Activity.class,
-				"SELECT * FROM " + getName() + " WHERE " + CHECKPOINT_GROUP_ID + "=? AND " + USER_ID
+				"SELECT * FROM " + getName() + " WHERE " + COURSE_ID + "=? AND " + USER_ID
 						+ "=? AND " + CHECKPOINT_ID + "=? AND " + TASK_ID + "=?",
-				checkpointGroupId, userId, checkpointId, taskId);
+				courseId, userId, checkpointId, taskId);
 	}
 
 	public List<Map<String, Object>> sumsOfScoreGroupByUserIdOrderByScore(
-			String checkpointGroupId) {
+			String courseId) {
 		return getClient().readMapList("SELECT " + USER_ID + ", SUM(score) AS " + SUM_OF_SCORE
-				+ " FROM " + getName() + " WHERE " + CHECKPOINT_GROUP_ID + "=? GROUP BY " + USER_ID
-				+ " ORDER BY sum_of_score DESC", checkpointGroupId);
+				+ " FROM " + getName() + " WHERE " + COURSE_ID + "=? GROUP BY " + USER_ID
+				+ " ORDER BY sum_of_score DESC", courseId);
 
 	}
 

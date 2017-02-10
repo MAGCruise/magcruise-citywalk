@@ -19,7 +19,7 @@ var registerFunc = function() {
     }
   });
 
-  var checkpointGroupId = parseUri(location).anchor;
+  var courseId = parseUri(location).anchor;
   var userId = $('#user-id').val().trim();
   var groupId = $('#group-id').val().trim();
 

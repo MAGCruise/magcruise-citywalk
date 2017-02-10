@@ -20,6 +20,8 @@ import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
+import org.magcruise.citywalk.model.relation.BadgeConditionsTable;
+import org.magcruise.citywalk.model.relation.BadgesTable;
 import org.magcruise.citywalk.model.relation.EntriesTable;
 import org.magcruise.citywalk.model.relation.MovementsTable;
 import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
@@ -27,6 +29,7 @@ import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.relation.UserAccountsTable;
 import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
 import org.magcruise.citywalk.model.row.Activity;
+import org.magcruise.citywalk.model.row.Badge;
 import org.magcruise.citywalk.model.row.Entry;
 import org.magcruise.citywalk.model.row.Movement;
 import org.magcruise.citywalk.model.row.SubmittedActivity;
@@ -48,7 +51,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	private VerifiedActivitiesTable verifiedActivities = new VerifiedActivitiesTable();
 	private SubmittedActivitiesTable submittedActivities = new SubmittedActivitiesTable();
 	private UserAccountsTable users = new UserAccountsTable();
-	//private BadgesTable badges = new BadgesTable();
+	private BadgesTable badges = new BadgesTable();
 	private TasksTable tasks = new TasksTable();
 	private MovementsTable movements = new MovementsTable();
 	private EntriesTable entries = new EntriesTable();
@@ -125,11 +128,11 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		submittedActivities.insert(a);
 		verifyActivity(a);
 
-		return createRewardJson(a.getUserId(), a.getCheckpointGroupId());
+		return createRewardJson(a.getUserId(), a.getCourseId());
 	}
 
 	private void verifyActivity(Activity a) {
-		if (!verifiedActivities.contains(a.getCheckpointGroupId(), a.getUserId(),
+		if (!verifiedActivities.contains(a.getCourseId(), a.getUserId(),
 				a.getCheckpointId(), a.getTaskId())) {
 			VerifiedActivity va = new VerifiedActivity(a);
 			verifiedActivities.insert(va);
@@ -138,37 +141,38 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	}
 
-	private RewardJson createRewardJson(String userId, String checkpointGroupId) {
-		int rank = verifiedActivities.getRankJson(userId, checkpointGroupId).getRank();
-		List<String> badges = calculateBadges(userId);
+	private RewardJson createRewardJson(String userId, String courseId) {
+		int rank = verifiedActivities.getRankJson(userId, courseId).getRank();
+		List<String> badges = calculateBadges(userId, courseId);
 		return new RewardJson(rank, badges);
 	}
 
-	private List<String> calculateBadges(String userId) {
+	private BadgeConditionsTable conditionsTable = new BadgeConditionsTable();
+
+	private List<String> calculateBadges(String userId, String courseId) {
 		List<String> result = new ArrayList<>();
-		//		if (verifiedActivities.getActivities(userId, "cafeteria").size() > 0) {
-		//			String badge = "食堂マスター";
-		//			if (!badges.contains(userId, badge)) {
-		//				result.add(badge);
-		//				badges.insert(new Badge(userId, badge));
-		//			}
-		//		}
-		//
-		//		if (verifiedActivities.getActivitiesLike(userId, "%aed%").size() > 1) {
-		//			String badge = "AEDマスター";
-		//			if (!badges.contains(userId, badge)) {
-		//				result.add(badge);
-		//				badges.insert(new Badge(userId, badge));
-		//			}
-		//		}
-		//
-		//		if (verifiedActivities.getActivities(userId).size() > 2) {
-		//			String badge = "早稲田マスター";
-		//			if (!badges.contains(userId, badge)) {
-		//				result.add(badge);
-		//				badges.insert(new Badge(userId, badge));
-		//			}
-		//		}
+		List<Badge> alreadyHas = badges.readOf(userId, courseId);
+
+		conditionsTable.readAll().forEach(cond -> {
+			for (Badge b : alreadyHas) {
+				if (cond.getName().equals(b.getName())) {
+					return;
+				}
+			}
+			if (cond.getType().equals("point")) {
+				if (verifiedActivities.getScore(userId, courseId) >= Integer
+						.parseInt(cond.getValue())) {
+					result.add(cond.getName());
+					badges.insert(new Badge(userId, cond.getName()));
+				}
+			} else {
+				if (verifiedActivities.getNumberOfCheckInInCategory(userId, courseId,
+						cond.getType()) >= Integer.parseInt(cond.getValue())) {
+					result.add(cond.getName());
+					badges.insert(new Badge(userId, cond.getName()));
+				}
+			}
+		});
 		return result;
 	}
 
@@ -187,8 +191,8 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public InitialDataJson getInitialData(String checkpointGroupId) {
-		return InitialDataFactory.create(checkpointGroupId);
+	public InitialDataJson getInitialData(String courseId) {
+		return InitialDataFactory.create(courseId);
 	}
 
 	@Override
@@ -198,10 +202,10 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public InitialDataJson getInitialDataFromFile(String checkpointGroupId) {
+	public InitialDataJson getInitialDataFromFile(String courseId) {
 		InitialDataJson data = JsonUtils.decode(
 				new File(getServiceContext()
-						.getRealPath("json/initial-data/" + checkpointGroupId + ".json")),
+						.getRealPath("json/initial-data/" + courseId + ".json")),
 				InitialDataJson.class);
 		return data;
 	}
@@ -224,19 +228,15 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public BadgeJson[] getBadges(String userId, String checkpointGroupId) {
-		List<BadgeJson> badges = new ArrayList<>();
-		//		badges.add(new BadgeJson("AEDマスター", "img/badge-aed-master.jog"));
-		//		badges.add(new BadgeJson("早稲田マスター", "img/badge-waseda-master.jog"));
-
-		return badges.toArray(new BadgeJson[0]);
+	public BadgeJson[] getBadges(String userId, String courseId) {
+		return badges.readOf(userId, courseId).toArray(new BadgeJson[0]);
 	}
 
 	@Override
-	public RankingJson getRanking(String userId, String checkpointGroupId) {
+	public RankingJson getRanking(String userId, String courseId) {
 		RankingJson rankingJson = new RankingJson();
 		try {
-			rankingJson.setRank(verifiedActivities.getRankJson(userId, checkpointGroupId));
+			rankingJson.setRank(verifiedActivities.getRankJson(userId, courseId));
 		} catch (Exception e) {
 			rankingJson.setRank(new RankJson(userId, -1, 0));
 		}
@@ -244,7 +244,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 		try {
 			final int rankLimit = 10;
-			rankingJson.setRanking(verifiedActivities.getRanksJson(checkpointGroupId, rankLimit));
+			rankingJson.setRanking(verifiedActivities.getRanksJson(courseId, rankLimit));
 		} catch (Exception e) {
 			rankingJson.setRanking(new ArrayList<>());
 		}
@@ -254,11 +254,11 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public VisitedCheckpointJson[] getVisitedCheckpoints(String userId, String checkpointGroupId) {
+	public VisitedCheckpointJson[] getVisitedCheckpoints(String userId, String courseId) {
 		Map<String, VisitedCheckpointJson> result = new HashMap<>();
 
-		verifiedActivities.getActivities(userId).stream()
-				.filter(a -> a.getCheckpointGroupId().equals(checkpointGroupId)).forEach(a -> {
+		verifiedActivities.getActivitiesInCourse(userId, courseId).stream()
+				.filter(a -> a.getCourseId().equals(courseId)).forEach(a -> {
 					try {
 						result.putIfAbsent(a.getCheckpointId(),
 								new VisitedCheckpointJson(a.getCheckpointId()));
@@ -278,9 +278,9 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public boolean join(String userId, String checkpointGroupId) {
+	public boolean join(String userId, String courseId) {
 		try {
-			entries.insert(new Entry(userId, checkpointGroupId));
+			entries.insert(new Entry(userId, courseId));
 		} catch (Throwable e) {
 			return false;
 		}

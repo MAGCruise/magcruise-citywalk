@@ -15,13 +15,7 @@
 			<id>nkjmlab-public</id>
 			<url>http://maven.nkjmlab.org/nexus/content/groups/public</url>
 		</repository>
-		<repository>
-			<id>nkjmlab-public-mirror</id>
-			<name>nkjmlab Public Repository Mirror</name>
-			<url>http://mirror.maven.nkjmlab.org/nexus/content/groups/public</url>
-		</repository>
 	</repositories>
-
 	<scm>
 		<connection>scm:git:git@github.com:magcruise/magcruise-citywalk.git</connection>
 		<url>https://github.com/magcruise/magcruise-citywalk</url>

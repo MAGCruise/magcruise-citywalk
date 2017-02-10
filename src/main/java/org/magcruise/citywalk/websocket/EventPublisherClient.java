@@ -39,9 +39,9 @@ public class EventPublisherClient {
 
 	}
 
-	public EventPublisherClient(String websocketEndPointBaseUrl, String checkpointGroupId,
+	public EventPublisherClient(String websocketEndPointBaseUrl, String courseId,
 			String checkpointId, String userId) {
-		this.uri = URI.create(websocketEndPointBaseUrl + "/" + checkpointGroupId + "/"
+		this.uri = URI.create(websocketEndPointBaseUrl + "/" + courseId + "/"
 				+ checkpointId + "/" + userId + "");
 	}
 

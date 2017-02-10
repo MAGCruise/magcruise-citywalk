@@ -1,4 +1,4 @@
-if (!getCheckpointGroupId()) {
+if (!getCourseId()) {
   location.href = "courses.html";
 }
 
@@ -60,7 +60,7 @@ function updateCheckpointListHeight(maxHeight) {
 }
 
 $(function() {
-  updateInitialDataIfNeeded(getCheckpointGroupId());
+  updateInitialDataIfNeeded(getCourseId());
   updateCheckpointListHeight(280);
 
   $('#max-category-depth').val(getMaxCategoryDepth());
@@ -241,9 +241,13 @@ function showCheckpoints() {
   });
 }
 
-function makeListElemWithoutDistanceAndImage(name) {
+function makeListElemWithoutDistance(name, imgSrc) {
+  var imgSrc = getCategoryImgSrc(name) == null ? "../img/placeholder.svg" : getCategoryImgSrc(name);
+  imgSrc = imgSrc.indexOf("http") == -1 ? "../" + imgSrc : imgSrc;
+
   return $('<div class="row">' + '<div class="col-sm-12">' + '<div class="checkpoint">'
-          + '<div class="text">' + '<div class="name">' + name + '</div></div></div></div></div>');
+          + '<img src="' + imgSrc + '" class="pull-left checkpoint-img">' + '<div class="text">'
+          + '<div class="name">' + name + '</div></div></div></div></div>');
 }
 
 /* サブカテゴリの表示 */
@@ -257,7 +261,7 @@ function showSubcategory() {
     return self.indexOf(subcategory) === index;
   });
   names.forEach(function(name, i) {
-    var elem = makeListElemWithoutDistanceAndImage(name);
+    var elem = makeListElemWithoutDistance(name);
     elem.on('click', function() {
       subcategory = name;
       location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(category)
@@ -276,7 +280,7 @@ function showCategory() {
     return self.indexOf(category) === index;
   });
   names.forEach(function(name, i) {
-    var elem = makeListElemWithoutDistanceAndImage(name);
+    var elem = makeListElemWithoutDistance(name);
     elem.on('click', function() {
       category = name;
       location.href = "./checkpoints.html#" + "?category=" + encodeURIComponent(category);

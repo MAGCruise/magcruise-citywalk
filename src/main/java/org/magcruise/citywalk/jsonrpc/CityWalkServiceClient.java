@@ -50,7 +50,7 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	}
 
 	@Override
-	public InitialDataJson getInitialData(String checkpointGroupId) {
+	public InitialDataJson getInitialData(String courseId) {
 		return citywalkService.getInitialData(null);
 	}
 
@@ -60,8 +60,8 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	}
 
 	@Override
-	public InitialDataJson getInitialDataFromFile(String checkpointGroupId) {
-		return citywalkService.getInitialDataFromFile(checkpointGroupId);
+	public InitialDataJson getInitialDataFromFile(String courseId) {
+		return citywalkService.getInitialDataFromFile(courseId);
 	}
 
 	@Override
@@ -70,17 +70,17 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	}
 
 	@Override
-	public BadgeJson[] getBadges(String userId, String checkpointGroupId) {
-		return citywalkService.getBadges(userId, checkpointGroupId);
+	public BadgeJson[] getBadges(String userId, String courseId) {
+		return citywalkService.getBadges(userId, courseId);
 	}
 
 	@Override
-	public RankingJson getRanking(String userId, String checkpointGroupId) {
-		return citywalkService.getRanking(userId, checkpointGroupId);
+	public RankingJson getRanking(String userId, String courseId) {
+		return citywalkService.getRanking(userId, courseId);
 	}
 
 	@Override
-	public VisitedCheckpointJson[] getVisitedCheckpoints(String userId, String checkpointGroupId) {
+	public VisitedCheckpointJson[] getVisitedCheckpoints(String userId, String courseId) {
 		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
@@ -98,7 +98,7 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	}
 
 	@Override
-	public boolean join(String userId, String checkpointGroupId) {
+	public boolean join(String userId, String courseId) {
 		// TODO 自動生成されたメソッド・スタブ
 		return false;
 	}

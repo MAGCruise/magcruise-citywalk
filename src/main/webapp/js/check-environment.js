@@ -1,6 +1,6 @@
 $(function() {
 
-  if (!getUserId() || !getCheckpointGroupId()) {
+  if (!getUserId() || !getCourseId()) {
     $("#nav-menu-wrapper").remove();
   }
 
