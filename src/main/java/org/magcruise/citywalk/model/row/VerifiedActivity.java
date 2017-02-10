@@ -10,6 +10,10 @@ import net.sf.persist.annotations.Table;
 @Table(name = VerifiedActivitiesTable.TABLE_NAME)
 public class VerifiedActivity extends Activity {
 
+	public VerifiedActivity() {
+
+	}
+
 	public VerifiedActivity(Activity activity) {
 		this(activity.getCourseId(), activity.getUserId(), activity.getCheckpointId(),
 				activity.getLat(), activity.getLon(), activity.getTaskId(), activity.getScore(),

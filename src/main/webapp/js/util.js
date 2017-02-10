@@ -301,7 +301,7 @@ function getCourseId() {
 }
 
 function getCategoryDepth() {
-  return parseInt(getItem(KEY_CATEGORY_DEPTH) ? getItem(KEY_CATEGORY_DEPTH) : 0);
+  return parseInt(getItem(KEY_CATEGORY_DEPTH) ? getItem(KEY_CATEGORY_DEPTH) : 1);
 }
 
 function setCategoryDepth(depth) {

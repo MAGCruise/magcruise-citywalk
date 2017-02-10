@@ -1,12 +1,12 @@
 $(function() {
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getBadges", [getUserId(),
-      getCourseId()], function(data) {
-    initBadgesView(data.result);
-  })).rpc();
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getBadges", [getUserId(), getCourseId()],
+          function(data) {
+            initBadgesView(data.result);
+          })).rpc();
 });
 
 function initBadgesView(badges) {
-  if (badges) {
+  if (badges.length != 0) {
     $('#badges').empty();
   }
   badges.forEach(function(badge, i) {

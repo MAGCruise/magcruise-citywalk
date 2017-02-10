@@ -51,7 +51,7 @@ public class TaskJson {
 			answerTexts.addAll(t.getAnswerTexts());
 		} else if (content.getInstanceClass().equals(PhotoTask.class.getName())) {
 			PhotoTask t = (PhotoTask) content;
-			imgSrc = "../img/" + t.getImgSrc();
+			imgSrc = t.getImgSrc();
 		} else if (content.getInstanceClass().equals(QrCodeTask.class.getName())) {
 			QrCodeTask t = (QrCodeTask) content;
 			answerQr = t.getAnswerQr();

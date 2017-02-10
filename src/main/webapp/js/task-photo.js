@@ -14,7 +14,7 @@ $(function() {
   }
 
   $("#loading").hide();
-  $("#task-img").attr('src', task.imgSrc);
+  $("#task-img").attr('src', "../" + task.imgSrc);
 
   $("#btn-file-input, #img-preview").on('click', function() {
     $('#file-input').click();
