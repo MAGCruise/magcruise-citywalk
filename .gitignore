@@ -5,4 +5,3 @@
 *.css.map
 .sass-cache
 /src/main/webapp/scss/css
-/src/main/webapp/projects
