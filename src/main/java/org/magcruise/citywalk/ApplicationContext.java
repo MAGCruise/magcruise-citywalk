@@ -12,11 +12,15 @@ import javax.servlet.annotation.WebListener;
 import org.apache.logging.log4j.Logger;
 import org.magcruise.citywalk.conv.CheckpointsAndTasksFactory;
 import org.magcruise.citywalk.model.gdata.GoogleSpreadsheetData;
+import org.magcruise.citywalk.model.json.db.BadgeConditionsJson;
+import org.magcruise.citywalk.model.json.db.CategoriesJson;
 import org.magcruise.citywalk.model.json.db.CheckpointJson;
 import org.magcruise.citywalk.model.json.db.CheckpointsAndTasksJson;
 import org.magcruise.citywalk.model.json.db.ContentJson;
 import org.magcruise.citywalk.model.json.db.TaskJson;
+import org.magcruise.citywalk.model.relation.BadgeConditionsTable;
 import org.magcruise.citywalk.model.relation.BadgesTable;
+import org.magcruise.citywalk.model.relation.CategoriesTable;
 import org.magcruise.citywalk.model.relation.CheckpointsTable;
 import org.magcruise.citywalk.model.relation.EntriesTable;
 import org.magcruise.citywalk.model.relation.MovementsTable;
@@ -24,6 +28,8 @@ import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
 import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.relation.UserAccountsTable;
 import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
+import org.magcruise.citywalk.model.row.BadgeCondition;
+import org.magcruise.citywalk.model.row.Category;
 import org.magcruise.citywalk.model.task.QrCodeTask;
 import org.nkjmlab.gdata.spreadsheet.client.GoogleSpreadsheetService;
 import org.nkjmlab.gdata.spreadsheet.client.GoogleSpreadsheetServiceFactory;
@@ -34,6 +40,7 @@ import org.nkjmlab.util.db.H2ClientWithConnectionPool;
 import org.nkjmlab.util.db.H2ConfigFactory;
 import org.nkjmlab.util.db.H2Server;
 import org.nkjmlab.util.io.FileUtils;
+import org.nkjmlab.util.json.JsonUtils;
 import org.nkjmlab.util.log4j.LogManager;
 
 @WebListener
@@ -87,6 +94,8 @@ public class ApplicationContext implements ServletContextListener {
 		{
 			new CheckpointsTable().dropTableIfExists();
 			new TasksTable().dropTableIfExists();
+			new CategoriesTable().dropTableIfExists();
+			new BadgeConditionsTable().dropTableIfExists();
 		}
 		//		{
 		//			new EntriesTable().dropTableIfExists();
@@ -96,6 +105,9 @@ public class ApplicationContext implements ServletContextListener {
 		//			new SubmittedActivitiesTable().dropTableIfExists();
 		//			new MovementsTable().dropTableIfExists();
 		//		}
+
+		new CategoriesTable().createTableIfNotExists();
+		new BadgeConditionsTable().createTableIfNotExists();
 		new EntriesTable().createTableIfNotExists();
 		new CheckpointsTable().createTableIfNotExists();
 		new TasksTable().createTableIfNotExists();
@@ -111,15 +123,48 @@ public class ApplicationContext implements ServletContextListener {
 
 		Arrays.stream(projectsDir.listFiles()).filter(f -> f.isDirectory())
 				.forEach(f -> {
+					File json = new File(f.getPath() + File.separator + "json" + File.separator
+							+ "categories.json");
+					if (json.exists()) {
+						readCategoriesJson(json);
+					}
+				});
+		Arrays.stream(projectsDir.listFiles()).filter(f -> f.isDirectory())
+				.forEach(f -> {
+					File json = new File(f.getPath() + File.separator + "json" + File.separator
+							+ "badge-conditions.json");
+					if (json.exists()) {
+						readBadgeConditionsJson(json);
+					}
+				});
+
+		Arrays.stream(projectsDir.listFiles()).filter(f -> f.isDirectory())
+				.forEach(f -> {
 					log.info("{} will be scanned.", f);
-					File j = new File(f.getPath() + "/json/checkpoints-and-tasks/");
-					readJson(j);
+					File j = new File(f.getPath() + File.separator + "json" + File.separator
+							+ "checkpoints-and-tasks/");
+					readCheckpointsAndTasksJson(j);
 				});
 
 		//importFromGoogleSpreadsheets();
 	}
 
-	private void readJson(File jsonDir) {
+	private void readCategoriesJson(File file) {
+		CategoriesJson jsons = JsonUtils.decode(file, CategoriesJson.class);
+		CategoriesTable table = new CategoriesTable();
+		jsons.getCategories().forEach(j -> table.insert(new Category(j.getName(), j.getImgSrc())));
+	}
+
+	private void readBadgeConditionsJson(File file) {
+		BadgeConditionsJson jsons = JsonUtils.decode(file, BadgeConditionsJson.class);
+		BadgeConditionsTable table = new BadgeConditionsTable();
+		jsons.getBadgeConditions()
+				.forEach(j -> table
+						.insert(new BadgeCondition(j.getName(), j.getImgSrc(), j.getType(),
+								j.getValue())));
+	}
+
+	private void readCheckpointsAndTasksJson(File jsonDir) {
 		Arrays.stream(jsonDir
 				.listFiles((FilenameFilter) (dir, name) -> {
 					return name.endsWith(".json");

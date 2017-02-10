@@ -11,6 +11,7 @@ var DEFAULT_FOCUS_ZOOM = 17;
 var infoWindow;
 
 var uaParser = new UAParser();
+var distThreshold = 10000000000000;
 
 window.onload = function() {
   setTimeout(initMap, 300);
@@ -63,11 +64,23 @@ $(function() {
   updateMapHeight();
   setInterval(updateMapHeight, 500);
 
-  $("#btn-next").on('click', function() {
-    // 既に途中までタスクが進んでいる場合には，完了済みの次のタスクからはじめる
-    var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
-    location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
-  });
+  $("#btn-next").on(
+          'click',
+          function() {
+
+            if (getDistance() == null) {
+              swalAlert("位置情報が取得できません", "チェックポイントの側で位置情報の利用ができる場所へ移動して下さい．", "error");
+              return;
+            } else if (getDistance() > distThreshold) {
+              swalAlert("チェックポイントに近づいて下さい", "残り およそ " + getDistanceStr()
+                      + "です．チェックポイントの側で位置情報の利用ができる場所へ移動して下さい．", "error");
+              return;
+            }
+
+            // 既に途中までタスクが進んでいる場合には，完了済みの次のタスクからはじめる
+            var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
+            location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
+          });
 
   // コンパス画像の要素
   compassElem = $("#compass");
@@ -277,9 +290,18 @@ function watchCurrentPosition() {
 
 /* 残り距離を表示 */
 function showDistance() {
-  if (cPos == null || ePos == null) { return; }
-  var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
-  $("#distance").text(getFormattedDistance(distance));
+  $("#distance").text(getDistanceStr());
+}
+
+function getDistanceStr() {
+  var distance = getDistance();
+  if (!distance) { return ""; }
+  return getFormattedDistance(distance);
+}
+
+function getDistance() {
+  if (cPos == null || ePos == null) { return null; }
+  return google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
 }
 
 function getFormattedDistance(distance) {

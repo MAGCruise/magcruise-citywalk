@@ -1,5 +1,7 @@
 package org.magcruise.citywalk.model.relation;
 
+import java.util.List;
+
 import org.magcruise.citywalk.ApplicationContext;
 import org.magcruise.citywalk.model.row.Badge;
 import org.nkjmlab.util.db.Keyword;
@@ -26,6 +28,10 @@ public class BadgesTable extends RelationalModel<Badge> {
 				.readList(Badge.class, "SELECT * FROM " + getName() + " WHERE " + USER_ID
 						+ "=? AND " + BADGE + "=?", userId, badge)
 				.size() > 0;
+	}
+
+	public List<Badge> readOf(String userId) {
+		return readListBy(USER_ID, userId);
 	}
 
 }

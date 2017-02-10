@@ -20,6 +20,8 @@ import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
+import org.magcruise.citywalk.model.relation.BadgeConditionsTable;
+import org.magcruise.citywalk.model.relation.BadgesTable;
 import org.magcruise.citywalk.model.relation.EntriesTable;
 import org.magcruise.citywalk.model.relation.MovementsTable;
 import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
@@ -27,6 +29,7 @@ import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.relation.UserAccountsTable;
 import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
 import org.magcruise.citywalk.model.row.Activity;
+import org.magcruise.citywalk.model.row.Badge;
 import org.magcruise.citywalk.model.row.Entry;
 import org.magcruise.citywalk.model.row.Movement;
 import org.magcruise.citywalk.model.row.SubmittedActivity;
@@ -48,7 +51,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	private VerifiedActivitiesTable verifiedActivities = new VerifiedActivitiesTable();
 	private SubmittedActivitiesTable submittedActivities = new SubmittedActivitiesTable();
 	private UserAccountsTable users = new UserAccountsTable();
-	//private BadgesTable badges = new BadgesTable();
+	private BadgesTable badges = new BadgesTable();
 	private TasksTable tasks = new TasksTable();
 	private MovementsTable movements = new MovementsTable();
 	private EntriesTable entries = new EntriesTable();
@@ -140,35 +143,36 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	private RewardJson createRewardJson(String userId, String checkpointGroupId) {
 		int rank = verifiedActivities.getRankJson(userId, checkpointGroupId).getRank();
-		List<String> badges = calculateBadges(userId);
+		List<String> badges = calculateBadges(userId, checkpointGroupId);
 		return new RewardJson(rank, badges);
 	}
 
-	private List<String> calculateBadges(String userId) {
+	private BadgeConditionsTable conditionsTable = new BadgeConditionsTable();
+
+	private List<String> calculateBadges(String userId, String checkpointGroupId) {
 		List<String> result = new ArrayList<>();
-		//		if (verifiedActivities.getActivities(userId, "cafeteria").size() > 0) {
-		//			String badge = "食堂マスター";
-		//			if (!badges.contains(userId, badge)) {
-		//				result.add(badge);
-		//				badges.insert(new Badge(userId, badge));
-		//			}
-		//		}
-		//
-		//		if (verifiedActivities.getActivitiesLike(userId, "%aed%").size() > 1) {
-		//			String badge = "AEDマスター";
-		//			if (!badges.contains(userId, badge)) {
-		//				result.add(badge);
-		//				badges.insert(new Badge(userId, badge));
-		//			}
-		//		}
-		//
-		//		if (verifiedActivities.getActivities(userId).size() > 2) {
-		//			String badge = "早稲田マスター";
-		//			if (!badges.contains(userId, badge)) {
-		//				result.add(badge);
-		//				badges.insert(new Badge(userId, badge));
-		//			}
-		//		}
+		List<Badge> alreadyHas = badges.readOf(userId);
+
+		conditionsTable.readAll().forEach(cond -> {
+			for (Badge b : alreadyHas) {
+				if (cond.getName().equals(b.getBadge())) {
+					return;
+				}
+			}
+			if (cond.getType().equals("point")) {
+				if (verifiedActivities.getScore(userId, checkpointGroupId) >= Integer
+						.parseInt(cond.getValue())) {
+					result.add(cond.getName());
+					badges.insert(new Badge(userId, cond.getName()));
+				}
+			} else {
+				if (verifiedActivities.getNumberOfCheckInInCategory(userId,
+						cond.getType()) >= Integer.parseInt(cond.getValue())) {
+					result.add(cond.getName());
+					badges.insert(new Badge(userId, cond.getName()));
+				}
+			}
+		});
 		return result;
 	}
 
