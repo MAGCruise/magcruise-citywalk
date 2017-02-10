@@ -154,7 +154,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	private List<String> calculateBadges(String userId, String courseId) {
 		List<String> result = new ArrayList<>();
-		List<Badge> alreadyHas = badges.readOf(userId, courseId);
+		List<Badge> alreadyHas = badges.readOf(courseId, userId);
 
 		conditionsTable.readAll().forEach(cond -> {
 			for (Badge b : alreadyHas) {
@@ -166,13 +166,13 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 				if (verifiedActivities.getScore(userId, courseId) >= Integer
 						.parseInt(cond.getValue())) {
 					result.add(cond.getName());
-					badges.insert(new Badge(userId, cond.getName()));
+					badges.insert(new Badge(courseId, userId, cond.getName()));
 				}
 			} else {
 				if (verifiedActivities.getNumberOfCheckInInCategory(userId, courseId,
 						cond.getType()) >= Integer.parseInt(cond.getValue())) {
 					result.add(cond.getName());
-					badges.insert(new Badge(userId, cond.getName()));
+					badges.insert(new Badge(courseId, userId, cond.getName()));
 				}
 			}
 		});
@@ -230,9 +230,14 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 						.toArray(new Movement[0]));
 	}
 
+	private BadgeConditionsTable badgeConditionsTable = new BadgeConditionsTable();
+
 	@Override
 	public BadgeJson[] getBadges(String userId, String courseId) {
-		return badges.readOf(userId, courseId).toArray(new BadgeJson[0]);
+		return badges.readOf(courseId, userId).stream()
+				.map(b -> badgeConditionsTable.readOf(courseId, b.getName()))
+				.map(b -> new BadgeJson(b.getName(), b.getImgSrc())).collect(Collectors.toList())
+				.toArray(new BadgeJson[0]);
 	}
 
 	@Override

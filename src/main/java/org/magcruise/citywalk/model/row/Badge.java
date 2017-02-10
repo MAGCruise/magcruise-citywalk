@@ -21,7 +21,8 @@ public class Badge {
 	public Badge() {
 	}
 
-	public Badge(String userId, String name) {
+	public Badge(String courseId, String userId, String name) {
+		this.courseId = courseId;
 		this.userId = userId;
 		this.name = name;
 	}

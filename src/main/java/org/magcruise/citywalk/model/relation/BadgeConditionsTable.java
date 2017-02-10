@@ -25,4 +25,8 @@ public class BadgeConditionsTable extends RelationalModel<BadgeCondition> {
 		addColumnDefinition(VALUE, Keyword.VARCHAR);
 	}
 
+	public BadgeCondition readOf(String courseId, String name) {
+		return readListBy(COURSE_ID, courseId, NAME, name).get(0);
+	}
+
 }

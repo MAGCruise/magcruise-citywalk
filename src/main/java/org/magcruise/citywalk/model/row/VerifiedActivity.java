@@ -17,12 +17,12 @@ public class VerifiedActivity extends Activity {
 	public VerifiedActivity(Activity activity) {
 		this(activity.getCourseId(), activity.getUserId(), activity.getCheckpointId(),
 				activity.getLat(), activity.getLon(), activity.getTaskId(), activity.getScore(),
-				activity.getInputObject());
+				activity.getInputObject(), activity.getOptions());
 	}
 
 	public VerifiedActivity(String courseId, String userId, String checkpointId,
-			double lat, double lon, String taskId, double score, Input input) {
-		super(courseId, userId, checkpointId, lat, lon, taskId, score, input);
+			double lat, double lon, String taskId, double score, Input input, String options) {
+		super(courseId, userId, checkpointId, lat, lon, taskId, score, input, options);
 	}
 
 	public VerifiedActivity(ActivityJson json) {

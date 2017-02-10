@@ -25,6 +25,7 @@ public class ActivityJson {
 
 	/** key-value. valueはjson化された文字列を想定． **/
 	private Map<String, String> inputs;
+	private String options;
 
 	private Date saved = new Timestamp(new Date().getTime());
 
@@ -39,7 +40,7 @@ public class ActivityJson {
 		this.lat = activity.getLat();
 		this.lon = activity.getLon();
 		this.taskId = activity.getTaskId();
-
+		this.options = activity.getOptions();
 	}
 
 	public Date getSaved() {
@@ -133,6 +134,14 @@ public class ActivityJson {
 
 	public void setCourseId(String courseId) {
 		this.courseId = courseId;
+	}
+
+	public String getOptions() {
+		return options;
+	}
+
+	public void setOptions(String options) {
+		this.options = options;
 	}
 
 }

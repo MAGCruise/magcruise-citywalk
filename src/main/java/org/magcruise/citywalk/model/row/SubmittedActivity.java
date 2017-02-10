@@ -13,8 +13,8 @@ public class SubmittedActivity extends Activity {
 	}
 
 	public SubmittedActivity(String courseId, String userId, String checkpointId,
-			double lat, double lon, String taskId, double score, Input input) {
-		super(courseId, userId, checkpointId, lat, lon, taskId, score, input);
+			double lat, double lon, String taskId, double score, Input input, String options) {
+		super(courseId, userId, checkpointId, lat, lon, taskId, score, input, options);
 	}
 
 	public SubmittedActivity(ActivityJson json) {

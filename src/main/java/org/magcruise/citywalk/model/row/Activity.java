@@ -32,12 +32,13 @@ public class Activity {
 	private double score;
 	private Input input;
 	private Date createdAt;
+	private String options;
 
 	public Activity() {
 	}
 
 	public Activity(String courseId, String userId, String checkpointId, double lat,
-			double lon, String taskId, double score, Input input) {
+			double lon, String taskId, double score, Input input, String options) {
 		this.courseId = courseId;
 		this.userId = userId;
 		this.checkpointId = checkpointId;
@@ -46,12 +47,13 @@ public class Activity {
 		this.taskId = taskId;
 		this.score = score;
 		this.input = input;
+		this.options = options;
 	}
 
 	public Activity(ActivityJson json) {
 		this(json.getCourseId(), json.getUserId(), json.getCheckpointId(), json.getLat(),
 				json.getLon(), json.getTaskId(), json.getScore(),
-				convertToInput(json.getTaskType(), json.getInputs()));
+				convertToInput(json.getTaskType(), json.getInputs()), json.getOptions());
 	}
 
 	private static Input convertToInput(String taskType, Map<String, String> inputs) {
@@ -168,6 +170,14 @@ public class Activity {
 
 	public void setCreatedAt(Date created) {
 		this.createdAt = created;
+	}
+
+	public String getOptions() {
+		return options;
+	}
+
+	public void setOptions(String options) {
+		this.options = options;
 	}
 
 }

@@ -91,7 +91,8 @@ function addActivity(task, input, isCorrect) {
     score: (isCorrect) ? task.point : 0,
     inputs: {
       value: input
-    }
+    },
+    options: ""
   };
 
   addItems(KEY_ACTIVITIES, [arg]);

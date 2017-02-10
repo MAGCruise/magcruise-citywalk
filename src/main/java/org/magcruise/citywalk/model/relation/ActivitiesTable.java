@@ -20,6 +20,7 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 	private static final String SCORE = "score";
 	private static final String LAT = "lat";
 	private static final String LON = "lon";
+	private static final String OPTIONS = "options";
 
 	public static final String SUM_OF_SCORE = "sum_of_score";
 
@@ -35,6 +36,7 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 		addColumnDefinition(LAT, Keyword.DOUBLE);
 		addColumnDefinition(LON, Keyword.DOUBLE);
 		addColumnDefinition(INPUT, Keyword.VARCHAR);
+		addColumnDefinition(OPTIONS, Keyword.VARCHAR);
 	}
 
 	public List<T> getActivitiesInCourse(String userId, String courseId) {

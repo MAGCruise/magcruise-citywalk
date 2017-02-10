@@ -73,7 +73,7 @@ public class TableModelTest {
 		activities.remakeTable();
 		activities.insert(
 				new VerifiedActivity("waseda", "ayaki", "cafeteria", 38.4400, 134.11090, tid, 1.0,
-						new SelectionInput("豚玉丼")));
+						new SelectionInput("豚玉丼"), ""));
 
 		UserAccountsTable users = new UserAccountsTable();
 		users.remakeTable();

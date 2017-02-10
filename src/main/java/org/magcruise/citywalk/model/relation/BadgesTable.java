@@ -32,7 +32,7 @@ public class BadgesTable extends RelationalModel<Badge> {
 				.size() > 0;
 	}
 
-	public List<Badge> readOf(String userId, String courseId) {
+	public List<Badge> readOf(String courseId, String userId) {
 		return readListBy(USER_ID, userId, COURSE_ID, courseId);
 	}
 
