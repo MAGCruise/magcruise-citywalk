@@ -143,6 +143,10 @@ function getParam(key) {
   return null;
 }
 
+function getNaviFromParam() {
+  return getParam("navi_from");
+}
+
 function getBaseUrl() {
   var u = parseUri(document.URL);
   var urlPrefix = u.protocol + "://" + u.authority + "/" + u.directory.split("/")[1] + "/";

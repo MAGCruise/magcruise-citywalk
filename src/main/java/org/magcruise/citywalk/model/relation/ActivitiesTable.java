@@ -35,8 +35,8 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 		addColumnDefinition(SCORE, Keyword.DOUBLE);
 		addColumnDefinition(LAT, Keyword.DOUBLE);
 		addColumnDefinition(LON, Keyword.DOUBLE);
-		addColumnDefinition(INPUT, Keyword.VARCHAR);
 		addColumnDefinition(OPTIONS, Keyword.VARCHAR);
+		addColumnDefinition(INPUT, Keyword.VARCHAR);
 	}
 
 	public List<T> getActivitiesInCourse(String userId, String courseId) {

@@ -79,7 +79,8 @@ $(function() {
 
             // 既に途中までタスクが進んでいる場合には，完了済みの次のタスクからはじめる
             var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
-            location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos);
+            location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos)
+                    + "&navi_from=" + getNaviFromParam();
           });
 
   // コンパス画像の要素
@@ -211,7 +212,7 @@ function initMakers() {
       infoWindow.open(marker.getMap(), marker);
       map.panTo(marker.getPosition());
       $("#nav-start-in-list").on("click", function() {
-        location.href = "./navi.html?checkpoint_id=" + checkpoint.id;
+        location.href = "./navi.html?checkpoint_id=" + checkpoint.id + "&navi_from=navi";
       });
     });
     markers.push(marker);

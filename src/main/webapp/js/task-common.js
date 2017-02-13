@@ -92,7 +92,9 @@ function addActivity(task, input, isCorrect) {
     inputs: {
       value: input
     },
-    options: ""
+    options: JSON.stringify({
+      "naviFrom": getNaviFromParam()
+    })
   };
 
   addItems(KEY_ACTIVITIES, [arg]);

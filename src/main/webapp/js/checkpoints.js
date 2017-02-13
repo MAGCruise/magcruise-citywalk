@@ -110,13 +110,31 @@ $(function() {
     map.setZoom(DEFAULT_FOCUS_ZOOM);
     map.setCenter(cPos);
   });
-  $("#nav-start").on('click', function() {
-    if (!selectedCheckpoint) {
-      alert("チェックポイントが選択されていません");
-      return;
-    }
-    location.href = "./navi.html?checkpoint_id=" + selectedCheckpoint.id;
-  });
+  $("#nav-start").on(
+          'click',
+          function() {
+            if (!selectedCheckpoint) {
+              alert("チェックポイントが選択されていません");
+              return;
+            }
+            var naviFrom;
+            switch (getCategoryDepth()) {
+            case 0:
+              naviFrom = "distance";
+              break;
+            case 1:
+              naviFrom = "category"
+              break;
+            case 2:
+              naviFrom = "subcategory"
+              break;
+            default:
+              naviFrom = "unknown";
+            }
+            location.href = "./navi.html?checkpoint_id=" + selectedCheckpoint.id + "&navi_from="
+                    + naviFrom;
+            ;
+          });
 });
 
 function updateViews() {
