@@ -265,12 +265,29 @@ function showCheckpoints() {
     imgSrc = checkpoint.imgSrc.indexOf("http") == -1 ? "../" + imgSrc : imgSrc;
 
     var elem = $('<div class="row">' + '<div class="col-sm-12">'
-            + '<div class="checkpoint" id="checkpoint-' + checkpoint.id + '">'
-            + '<div class="pull-left distance ' + distanceStyle + '">'
-            + (enableGps ? getFormattedDistance(distance) : "?m") + '</div>' + '<img src="'
-            + imgSrc + '" class="pull-left checkpoint-img">' + '<div class="text">'
-            + '<div class="name">' + checkpoint.name + '</div>' + '<div class="detail">' + '<div>'
-            + checkpoint.place + '</div>' + checkpoint.label + '</div></div></div></div></div>');
+            + '<div class="checkpoint" id="checkpoint-'
+            + checkpoint.id
+            + '">'
+            + '<div class="pull-left distance '
+            + distanceStyle
+            + '">'
+            + (enableGps ? getFormattedDistance(distance) : "?m")
+            + '</div>'
+            + '<img src="'
+            + imgSrc
+            + '" class="pull-left checkpoint-img">'
+            + '<div class="text">'
+            + '<div class="name">'
+            + checkpoint.name
+            + '</div>'
+            + '<div class="detail">'
+            + '<div>'
+            + checkpoint.category
+            + ' - '
+            + checkpoint.place
+            + '</div>'
+            + checkpoint.label
+            + '</div></div></div></div></div>');
     elem.on('click', function() {
       selectCheckpoint(checkpoint);
     });
