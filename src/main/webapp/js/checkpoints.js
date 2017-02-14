@@ -452,7 +452,7 @@ function getCurrentPositionAndUpdateViews() {
     }
     $('#gps-error-msg').hide();
 
-    createMapControlUI(map, "チェックポイント周辺", "12px", google.maps.ControlPosition.RIGHT_TOP)
+    createMapControlUI(map, "現在地～<br>チェックポイント周辺", "10px", google.maps.ControlPosition.RIGHT_TOP)
             .addEventListener('click', function() {
               fitBoundsAndZoom(map, getNonVisitedCheckPoints(), cPos, DEFAULT_FOCUS_ZOOM);
             });

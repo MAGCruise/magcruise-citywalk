@@ -16,7 +16,6 @@
 }
 
 #compass-notice {
-  font-size: 13px;
   color: #97a6a3;}
 
 #btn-next {
@@ -32,12 +31,6 @@
 }
 
 
-
-#activity-title {
-  margin-left: $standardMargin;
-  font-size: 16px;
-  color: $greenColor;
-}
 
 #notification {
   .item {
@@ -69,7 +62,6 @@
     color: $descriptionColor;
   }
   .place {
-    font-size: 16px;
     color: $greenColor;
   }
 }

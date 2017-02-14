@@ -10,7 +10,6 @@
   letter-spacing: 0.3px; }
 
 #compass-notice {
-  font-size: 13px;
   color: #97a6a3; }
 
 #btn-next {
@@ -21,11 +20,6 @@
 #compass {
   width: 100%;
   max-width: 200px; }
-
-#activity-title {
-  margin-left: 10px;
-  font-size: 16px;
-  color: #38A997; }
 
 #notification .item {
   margin-bottom: 1px;
@@ -50,7 +44,6 @@
   #checkpoint-info .name {
     color: #999; }
   #checkpoint-info .place {
-    font-size: 16px;
     color: #38A997; }
 
 #map-box {
