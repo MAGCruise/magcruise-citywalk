@@ -1,7 +1,6 @@
 package org.magcruise.citywalk.jaxrs;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Map;
 
 import javax.ws.rs.Path;
@@ -14,18 +13,21 @@ import org.nkjmlab.webui.common.user.model.UserSession;
 @Path("/")
 public class CityWalkView extends JaxrsView {
 
+	private static final String[] noAuthPathElements = { "index.html", "clear.html",
+			"dev.html", "login.html", "signup.html", "how-to-use.html", "troubleshooting.html",
+			"intro.html", "help.html", "tutorial.html", "check-environment.html" };
+
 	@Override
 	public Viewable getView(String filePathFromViewRoot, Map<String, String[]> params) {
 		try {
-			if (isRoot(filePathFromViewRoot)) {
-				response.sendRedirect(getServletUrl() + "/index.html");
-				return createView("/index.html", new ThymeleafModel());
+			if (isRootPath(filePathFromViewRoot)) {
+				return redirectTo("/index.html");
 			}
 			if (isFromServiceWorker(params)) {
 				return createView(filePathFromViewRoot, new ThymeleafModel());
 			}
 
-			if (isUnneededLogin(filePathFromViewRoot)) {
+			if (containsNoAuthPathElements(noAuthPathElements, filePathFromViewRoot)) {
 				return createView(filePathFromViewRoot, new ThymeleafModel());
 			}
 
@@ -53,26 +55,6 @@ public class CityWalkView extends JaxrsView {
 			if (key.equalsIgnoreCase("serviceWorker")) {
 				return true;
 			}
-		}
-		return false;
-	}
-
-	private boolean isUnneededLogin(String filePathFromViewRoot) {
-		for (String unneededLoginPage : Arrays.asList("index.html", "clear.html", "dev.html",
-				"login.html", "signup.html", "how-to-use.html", "troubleshooting.html",
-				"intro.html", "help.html",
-				"tutorial.html", "check-environment.html")) {
-			if (filePathFromViewRoot.contains(unneededLoginPage)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	private boolean isRoot(String filePathFromViewRoot) {
-		if (filePathFromViewRoot == null || filePathFromViewRoot.equals("")
-				|| filePathFromViewRoot.equals("/")) {
-			return true;
 		}
 		return false;
 	}
