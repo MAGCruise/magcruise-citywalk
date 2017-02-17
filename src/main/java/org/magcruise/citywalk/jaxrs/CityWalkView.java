@@ -35,7 +35,7 @@ public class CityWalkView extends JaxrsView {
 				return createView(filePathFromViewRoot, new ThymeleafModel());
 			} else {
 				response.sendRedirect(
-						getServletUrl() + "/login.html?msg=nologin&redirect=" + getFullUrl());
+						getServletUrl() + "/login.html?msg=nologin&redirect=" + getFullRequestUrl());
 				return createView("/login.html", new ThymeleafModel());
 			}
 		} catch (Exception e) {
