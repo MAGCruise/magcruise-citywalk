@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.Logger;
+import org.magcruise.citywalk.ApplicationContext;
 import org.magcruise.citywalk.conv.CheckpointsAndTasksFactory;
 import org.magcruise.citywalk.conv.InitialDataFactory;
 import org.magcruise.citywalk.model.json.ActivityJson;
@@ -51,13 +52,15 @@ import jp.go.nict.langrid.servicecontainer.service.AbstractService;
 public class CityWalkService extends AbstractService implements CityWalkServiceInterface {
 	protected static Logger log = LogManager.getLogger();
 
-	private VerifiedActivitiesTable verifiedActivities = new VerifiedActivitiesTable();
-	private SubmittedActivitiesTable submittedActivities = new SubmittedActivitiesTable();
-	private UserAccountsTable users = new UserAccountsTable();
-	private BadgesTable badges = new BadgesTable();
-	private TasksTable tasks = new TasksTable();
-	private MovementsTable movements = new MovementsTable();
-	private EntriesTable entries = new EntriesTable();
+	private VerifiedActivitiesTable verifiedActivities = new VerifiedActivitiesTable(
+			ApplicationContext.getDbClient());
+	private SubmittedActivitiesTable submittedActivities = new SubmittedActivitiesTable(
+			ApplicationContext.getDbClient());
+	private UserAccountsTable users = new UserAccountsTable(ApplicationContext.getDbClient());
+	private BadgesTable badges = new BadgesTable(ApplicationContext.getDbClient());
+	private TasksTable tasks = new TasksTable(ApplicationContext.getDbClient());
+	private MovementsTable movements = new MovementsTable(ApplicationContext.getDbClient());
+	private EntriesTable entries = new EntriesTable(ApplicationContext.getDbClient());
 
 	@Override
 	public boolean login(String userId) {
@@ -126,10 +129,19 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public synchronized RewardJson addActivity(ActivityJson json) {
+	public RewardJson addActivity(ActivityJson json) {
+		if (tasks.getTask(json.getTaskId()).getContentObject().getInstanceClass()
+				.contains("Photo")) {
+			File outputFile = uploadImage(json.getUserId(), json.getInputs().get("value"));
+			json.getInputs().put("value", outputFile.toString());
+		}
+
 		SubmittedActivity a = new SubmittedActivity(json);
-		submittedActivities.insert(a);
-		verifyActivity(a);
+
+		synchronized (this) {
+			submittedActivities.insert(a);
+			verifyActivity(a);
+		}
 
 		return createRewardJson(a.getUserId(), a.getCourseId());
 	}
@@ -150,7 +162,8 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		return new RewardJson(rank, badges);
 	}
 
-	private BadgeConditionsTable conditionsTable = new BadgeConditionsTable();
+	private BadgeConditionsTable conditionsTable = new BadgeConditionsTable(
+			ApplicationContext.getDbClient());
 
 	private List<String> calculateBadges(String userId, String courseId) {
 		List<String> result = new ArrayList<>();
@@ -179,18 +192,20 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		return result;
 	}
 
-	public String uploadImage(String userId, String base64EncodedImage) {
+	public File uploadImage(String userId, String base64EncodedImage) {
 		try {
-			log.debug(base64EncodedImage);
-			String imageId = "citywalk-" + userId + "-" + System.nanoTime();
-			Base64ImageUtils.decodeAndWrite(base64EncodedImage, "jpg",
-					FileUtils.getTempFile(imageId + ".jpg"));
-			return imageId;
+			String imageId = userId + "-" + System.nanoTime();
+			File outputDir = FileUtils
+					.getFileInUserDirectory(new File("magcruise-citywalk", "upload").toString());
+			outputDir.mkdirs();
+			File outputFile = new File(outputDir, imageId + ".jpg");
+			Base64ImageUtils.decodeAndWrite(base64EncodedImage, "jpg", outputFile);
+			log.debug(outputFile);
+			return outputFile;
 		} catch (Exception e) {
 			log.error(e, e);
 			throw new RuntimeException(e);
 		}
-
 	}
 
 	@Override
@@ -230,7 +245,8 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 						.toArray(new Movement[0]));
 	}
 
-	private BadgeConditionsTable badgeConditionsTable = new BadgeConditionsTable();
+	private BadgeConditionsTable badgeConditionsTable = new BadgeConditionsTable(
+			ApplicationContext.getDbClient());
 
 	@Override
 	public BadgeJson[] getBadges(String userId, String courseId) {
@@ -295,7 +311,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		return true;
 	}
 
-	private CoursesTable coursesTable = new CoursesTable();
+	private CoursesTable coursesTable = new CoursesTable(ApplicationContext.getDbClient());
 
 	@Override
 	public CoursesJson getCourses() {

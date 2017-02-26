@@ -477,6 +477,7 @@ function getCurrentPositionAndUpdateViews() {
               fitBoundsAndZoom(map, getNonVisitedCheckPoints(), cPos, DEFAULT_FOCUS_ZOOM);
             });
   }, function(error) {
+    console.error(error);
     enableGps = false;
     cPos = new google.maps.LatLng(35.71079167, 139.7193);
     updateViews();

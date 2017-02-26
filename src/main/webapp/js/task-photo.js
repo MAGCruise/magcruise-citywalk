@@ -34,11 +34,15 @@ function handleFiles(files) {
     return;
   }
   var file = files[0];
-  var fileReader = new FileReader();
-  fileReader.onload = function(event) {
-    $("#img-preview").attr('src', event.target.result);
-  };
-  fileReader.readAsDataURL(file);
+  loadImage.parseMetaData(file, function(data) {
+    loadImage(file, function(canvas) {
+      $("#img-preview").attr('src', canvas.toDataURL("image/jpeg"));
+    }, {
+      orientation: data.exif.get('Orientation'),
+      maxHeight: $("#task-img").height(),
+      canvas: true
+    });
+  });
 
   $("#btn-next").prop("disabled", false);
 }

@@ -272,6 +272,7 @@ function watchCurrentPosition() {
     }
 
   }, function(error) {
+    console.error(error);
     $('#initial-msg').hide();
     if ($('#error-msg-area').is(':hidden')) {
       $('#error-msg-area').show();
