@@ -3,8 +3,8 @@ package org.magcruise.citywalk.model.relation;
 import java.util.List;
 import java.util.Map;
 
-import org.magcruise.citywalk.ApplicationContext;
 import org.magcruise.citywalk.model.row.Activity;
+import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
 import org.nkjmlab.util.db.RelationalModel;
 
@@ -24,8 +24,8 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 
 	public static final String SUM_OF_SCORE = "sum_of_score";
 
-	public ActivitiesTable(String name) {
-		super(name, ApplicationContext.getDbClient());
+	public ActivitiesTable(String name, DbClient client) {
+		super(name, client);
 		addColumnDefinition(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(USER_ID, Keyword.VARCHAR);

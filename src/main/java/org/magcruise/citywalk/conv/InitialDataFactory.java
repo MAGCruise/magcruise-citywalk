@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
+import org.magcruise.citywalk.ApplicationContext;
 import org.magcruise.citywalk.model.json.db.CategoryJson;
 import org.magcruise.citywalk.model.json.init.CheckinJson;
 import org.magcruise.citywalk.model.json.init.CheckpointJson;
@@ -37,9 +38,9 @@ public class InitialDataFactory {
 		if (json != null) {
 			return json;
 		}
-		List<Checkpoint> checkpoints = new CheckpointsTable()
+		List<Checkpoint> checkpoints = new CheckpointsTable(ApplicationContext.getDbClient())
 				.findByCourseId(courseId);
-		List<Category> categories = new CategoriesTable().readAll();
+		List<Category> categories = new CategoriesTable(ApplicationContext.getDbClient()).readAll();
 
 		json = create(checkpoints, categories);
 		initialDataJsonCache.putIfAbsent(courseId, json);
@@ -48,7 +49,7 @@ public class InitialDataFactory {
 
 	private static InitialDataJson create(List<Checkpoint> checkpoints, List<Category> categories) {
 		List<CheckpointJson> checkpointsJson = checkpoints.stream().map(c -> {
-			List<Task> tasks = new TasksTable().getTasks(c.getId());
+			List<Task> tasks = new TasksTable(ApplicationContext.getDbClient()).getTasks(c.getId());
 			List<TaskJson> taskJsons = new ArrayList<>();
 			CheckinJson checkin = new CheckinJson();
 			int checkinIndex = 0;

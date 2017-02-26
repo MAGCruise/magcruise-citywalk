@@ -1,7 +1,7 @@
 package org.magcruise.citywalk.model.relation;
 
-import org.magcruise.citywalk.ApplicationContext;
 import org.magcruise.citywalk.model.row.Movement;
+import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
 import org.nkjmlab.util.db.RelationalModel;
 
@@ -24,8 +24,8 @@ public class MovementsTable extends RelationalModel<Movement> {
 														// North->0, East->90,
 														// South->180, West->270
 
-	public MovementsTable() {
-		super(TABLE_NAME, ApplicationContext.getMovementDbClient());
+	public MovementsTable(DbClient client) {
+		super(TABLE_NAME, client);
 		addColumnDefinition(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(RECORDED_AT, Keyword.TIMESTAMP);

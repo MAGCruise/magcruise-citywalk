@@ -3,8 +3,8 @@ package org.magcruise.citywalk.model.relation;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.magcruise.citywalk.ApplicationContext;
 import org.magcruise.citywalk.model.row.Checkpoint;
+import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
 import org.nkjmlab.util.db.RelationalModel;
 
@@ -29,8 +29,8 @@ public class CheckpointsTable extends RelationalModel<Checkpoint> {
 	private static final String IMG_SRC = "img_src";
 	private static final String PLACE = "place";
 
-	public CheckpointsTable() {
-		super(TABLE_NAME, ApplicationContext.getDbClient());
+	public CheckpointsTable(DbClient client) {
+		super(TABLE_NAME, client);
 		addColumnDefinition(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(NAME, Keyword.VARCHAR);

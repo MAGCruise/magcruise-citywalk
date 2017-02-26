@@ -14,6 +14,7 @@ var category = getParam("category");
 var subcategory = getParam("subcategory");
 var locationsAccuracy = 10;
 var enableGps = false;
+var sorted = false;
 
 window.onload = function() {
   function initMap() {
@@ -157,15 +158,6 @@ function updateViews() {
 function loadCheckpoints() {
   // 未訪問チェックポイントデータをLocalStorageより取得
   checkpoints = getNonVisitedCheckPoints();
-  if (enableGps) {
-    checkpoints.sort(function(a, b) {
-      var distanceA = google.maps.geometry.spherical.computeDistanceBetween(cPos,
-              new google.maps.LatLng(a.lat, a.lon));
-      var distanceB = google.maps.geometry.spherical.computeDistanceBetween(cPos,
-              new google.maps.LatLng(b.lat, b.lon));
-      return (distanceA < distanceB) ? -1 : 1;
-    });
-  }
   if (category) {
     checkpoints = checkpoints.filter(function(checkpoint) {
       return checkpoint.category == category;
@@ -256,12 +248,23 @@ function showList() {
 
 /* チェックポイントリストの表示 */
 function showCheckpoints() {
+  if (enableGps && !sorted) {
+    checkpoints.sort(function(a, b) {
+      var distanceA = google.maps.geometry.spherical.computeDistanceBetween(cPos,
+              new google.maps.LatLng(a.lat, a.lon));
+      var distanceB = google.maps.geometry.spherical.computeDistanceBetween(cPos,
+              new google.maps.LatLng(b.lat, b.lon));
+      return (distanceA < distanceB) ? -1 : 1;
+    });
+    sorted = true;
+  }
+
   checkpoints.forEach(function(checkpoint, i) {
     var ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
     var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
     var distanceStyle = (distance > 1000) ? "far" : "near";
 
-    var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : checkpoint.imgSrc;
+    var imgSrc = checkpoint.imgSrc == null ? "img/placeholder.svg" : checkpoint.imgSrc;
     imgSrc = checkpoint.imgSrc.indexOf("http") == -1 ? "../" + imgSrc : imgSrc;
 
     var elem = $('<div class="row">' + '<div class="col-sm-12">'
@@ -296,7 +299,7 @@ function showCheckpoints() {
 }
 
 function makeListElemWithoutDistance(name, imgSrc) {
-  var imgSrc = getCategoryImgSrc(name) == null ? "../img/placeholder.svg" : getCategoryImgSrc(name);
+  var imgSrc = getCategoryImgSrc(name) == null ? "img/placeholder.svg" : getCategoryImgSrc(name);
   imgSrc = imgSrc.indexOf("http") == -1 ? "../" + imgSrc : imgSrc;
 
   return $('<div class="row">' + '<div class="col-sm-12">' + '<div class="checkpoint">'
@@ -392,7 +395,7 @@ function selectCheckpoint(checkpoint) {
   selectedCheckpoint = checkpoint;
   closeInfoWindow();
 
-  var imgSrc = checkpoint.imgSrc == null ? "../img/placeholder.svg" : checkpoint.imgSrc;
+  var imgSrc = checkpoint.imgSrc == null ? "img/placeholder.svg" : checkpoint.imgSrc;
   imgSrc = checkpoint.imgSrc.indexOf("http") == -1 ? "../" + imgSrc : imgSrc;
 
   // マーカータップ時のバルーンの初期化

@@ -7,16 +7,19 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.magcruise.citywalk.ApplicationContext;
 import org.magcruise.citywalk.model.json.RankJson;
 import org.magcruise.citywalk.model.row.Activity;
 import org.magcruise.citywalk.model.row.VerifiedActivity;
+import org.nkjmlab.util.db.DbClient;
 
 public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 
 	public static final String TABLE_NAME = "VERIFIED_ACTIVITIES";
+	private CheckpointsTable checkpoints = new CheckpointsTable(ApplicationContext.getDbClient());
 
-	public VerifiedActivitiesTable() {
-		super(TABLE_NAME);
+	public VerifiedActivitiesTable(DbClient client) {
+		super(TABLE_NAME, client);
 	}
 
 	public RankJson getRankJson(String userId, String courseId) {
@@ -64,8 +67,6 @@ public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 	public double getScore(String userId, String courseId) {
 		return getRankJson(userId, courseId).getScore();
 	}
-
-	private CheckpointsTable checkpoints = new CheckpointsTable();
 
 	public int getNumberOfCheckInInCategory(String userId, String courseId, String category) {
 		List<Activity> actsInCate = getActivitiesInCourse(userId, courseId).stream()

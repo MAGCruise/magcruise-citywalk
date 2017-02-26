@@ -5,6 +5,7 @@ import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.magcruise.citywalk.ApplicationContext;
 import org.magcruise.citywalk.jsonrpc.CityWalkService;
 import org.magcruise.citywalk.model.input.SelectionInput;
 import org.magcruise.citywalk.model.relation.CheckpointsTable;
@@ -32,7 +33,7 @@ public class TableModelTest {
 
 	@Test
 	public void test() {
-		CheckpointsTable checkpoints = new CheckpointsTable();
+		CheckpointsTable checkpoints = new CheckpointsTable(ApplicationContext.getDbClient());
 		Date from = new Date(0);
 		Date to = DateTimeUtils.fromTimestamp("2099-01-01 00:00:00");
 
@@ -52,7 +53,7 @@ public class TableModelTest {
 						"", "balloon"));
 		log.debug(checkpoints.readAll());
 
-		TasksTable tasks = new TasksTable();
+		TasksTable tasks = new TasksTable(ApplicationContext.getDbClient());
 		tasks.remakeTable();
 		tasks.insert(new Task("cafeteria-selection", Arrays.asList("cafeteria"),
 				new SelectionTask("次のうち、理工の学食が発祥の地であるメニューはどれ？",
@@ -69,13 +70,14 @@ public class TableModelTest {
 				new SelectionTask("次の4つの部屋を、座席の多い順に並び替えて下さい．",
 						Arrays.asList("A", "C", "E", "G"), Arrays.asList(1), 2.0, false)));
 		log.debug(tasks.readAll());
-		VerifiedActivitiesTable activities = new VerifiedActivitiesTable();
+		VerifiedActivitiesTable activities = new VerifiedActivitiesTable(
+				ApplicationContext.getDbClient());
 		activities.remakeTable();
 		activities.insert(
 				new VerifiedActivity("waseda", "ayaki", "cafeteria", 38.4400, 134.11090, tid, 1.0,
 						new SelectionInput("豚玉丼"), ""));
 
-		UserAccountsTable users = new UserAccountsTable();
+		UserAccountsTable users = new UserAccountsTable(ApplicationContext.getDbClient());
 		users.remakeTable();
 		users.insert(new UserAccount("ayaki", "houchimin"));
 		users.insert(new UserAccount("ieiri", "waseda-u"));

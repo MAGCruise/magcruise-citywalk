@@ -3,9 +3,9 @@ package org.magcruise.citywalk.model.relation;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.magcruise.citywalk.ApplicationContext;
 import org.magcruise.citywalk.model.row.Task;
 import org.magcruise.citywalk.model.task.TaskContent;
+import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
 import org.nkjmlab.util.db.RelationalModel;
 
@@ -17,8 +17,8 @@ public class TasksTable extends RelationalModel<Task> {
 	public static final String CHECKPOINT_IDS = "checkpoint_ids";
 	private static final String CONTENT = "content";
 
-	public TasksTable() {
-		super(TABLE_NAME, ApplicationContext.getDbClient());
+	public TasksTable(DbClient client) {
+		super(TABLE_NAME, client);
 		addColumnDefinition(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(CHECKPOINT_IDS, Keyword.VARCHAR);

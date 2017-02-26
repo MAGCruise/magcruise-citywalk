@@ -94,33 +94,34 @@ public class ApplicationContext implements ServletContextListener {
 	 * @param event
 	 */
 	private void initializeDatabase(ServletContextEvent event) {
+		DbClient client = ApplicationContext.getDbClient();
 		{
-			new CheckpointsTable().dropTableIfExists();
-			new TasksTable().dropTableIfExists();
-			new CategoriesTable().dropTableIfExists();
-			new BadgeConditionsTable().dropTableIfExists();
-			new CoursesTable().dropTableIfExists();
+			new CheckpointsTable(client).dropTableIfExists();
+			new TasksTable(client).dropTableIfExists();
+			new CategoriesTable(client).dropTableIfExists();
+			new BadgeConditionsTable(client).dropTableIfExists();
+			new CoursesTable(client).dropTableIfExists();
 		}
 		{
-			new EntriesTable().dropTableIfExists();
-			new UserAccountsTable().dropTableIfExists();
-			new BadgesTable().dropTableIfExists();
-			new VerifiedActivitiesTable().dropTableIfExists();
-			new SubmittedActivitiesTable().dropTableIfExists();
-			new MovementsTable().dropTableIfExists();
+			new EntriesTable(client).dropTableIfExists();
+			new UserAccountsTable(client).dropTableIfExists();
+			new BadgesTable(client).dropTableIfExists();
+			new VerifiedActivitiesTable(client).dropTableIfExists();
+			new SubmittedActivitiesTable(client).dropTableIfExists();
+			new MovementsTable(client).dropTableIfExists();
 		}
 
-		new CategoriesTable().createTableIfNotExists();
-		new BadgeConditionsTable().createTableIfNotExists();
-		new CoursesTable().createTableIfNotExists();
-		new EntriesTable().createTableIfNotExists();
-		new CheckpointsTable().createTableIfNotExists();
-		new TasksTable().createTableIfNotExists();
-		new UserAccountsTable().createTableIfNotExists();
-		new BadgesTable().createTableIfNotExists();
-		new VerifiedActivitiesTable().createTableIfNotExists();
-		new SubmittedActivitiesTable().createTableIfNotExists();
-		new MovementsTable().createTableIfNotExists();
+		new CategoriesTable(client).createTableIfNotExists();
+		new BadgeConditionsTable(client).createTableIfNotExists();
+		new CoursesTable(client).createTableIfNotExists();
+		new EntriesTable(client).createTableIfNotExists();
+		new CheckpointsTable(client).createTableIfNotExists();
+		new TasksTable(client).createTableIfNotExists();
+		new UserAccountsTable(client).createTableIfNotExists();
+		new BadgesTable(client).createTableIfNotExists();
+		new VerifiedActivitiesTable(client).createTableIfNotExists();
+		new SubmittedActivitiesTable(client).createTableIfNotExists();
+		new MovementsTable(client).createTableIfNotExists();
 
 		File projectsDir = new File(
 				event.getServletContext()
@@ -164,14 +165,14 @@ public class ApplicationContext implements ServletContextListener {
 
 	private void readCategoriesJson(File file) {
 		CategoriesJson jsons = JsonUtils.decode(file, CategoriesJson.class);
-		CategoriesTable table = new CategoriesTable();
+		CategoriesTable table = new CategoriesTable(getDbClient());
 		jsons.getCategories().forEach(
 				j -> table.insert(new Category(j.getCourseId(), j.getName(), j.getImgSrc())));
 	}
 
 	private void readBadgeConditionsJson(File file) {
 		BadgeConditionsJson jsons = JsonUtils.decode(file, BadgeConditionsJson.class);
-		BadgeConditionsTable table = new BadgeConditionsTable();
+		BadgeConditionsTable table = new BadgeConditionsTable(getDbClient());
 		jsons.getBadgeConditions()
 				.forEach(j -> table
 						.insert(new BadgeCondition(j.getCourseId(), j.getName(), j.getImgSrc(),
@@ -180,7 +181,7 @@ public class ApplicationContext implements ServletContextListener {
 
 	private void readCoursesJson(File file) {
 		CoursesJson jsons = JsonUtils.decode(file, CoursesJson.class);
-		CoursesTable table = new CoursesTable();
+		CoursesTable table = new CoursesTable(getDbClient());
 		jsons.getCourses()
 				.forEach(j -> table
 						.insert(new Course(j.getId(), j.getName(), j.getMaxCategoryDepth(),

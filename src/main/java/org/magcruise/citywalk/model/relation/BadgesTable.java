@@ -2,8 +2,8 @@ package org.magcruise.citywalk.model.relation;
 
 import java.util.List;
 
-import org.magcruise.citywalk.ApplicationContext;
 import org.magcruise.citywalk.model.row.Badge;
+import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
 import org.nkjmlab.util.db.RelationalModel;
 
@@ -16,8 +16,8 @@ public class BadgesTable extends RelationalModel<Badge> {
 	private static final String USER_ID = "user_id";
 	private static final String NAME = "name";
 
-	public BadgesTable() {
-		super(TABLE_NAME, ApplicationContext.getDbClient());
+	public BadgesTable(DbClient client) {
+		super(TABLE_NAME, client);
 		addColumnDefinition(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(COURSE_ID, Keyword.VARCHAR);

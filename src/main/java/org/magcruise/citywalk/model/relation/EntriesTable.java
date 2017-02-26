@@ -1,8 +1,8 @@
 package org.magcruise.citywalk.model.relation;
 
-import org.magcruise.citywalk.ApplicationContext;
 import org.magcruise.citywalk.model.row.Entry;
 import org.magcruise.citywalk.model.row.UserAccount;
+import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
 import org.nkjmlab.util.db.RelationalModel;
 
@@ -15,8 +15,8 @@ public class EntriesTable extends RelationalModel<Entry> {
 	public static final String COURSE_ID = "course_id";
 	public static final String CREATED_AT = "created_at";
 
-	public EntriesTable() {
-		super(TABLE_NAME, ApplicationContext.getDbClient());
+	public EntriesTable(DbClient client) {
+		super(TABLE_NAME, client);
 		addColumnDefinition(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(USER_ID, Keyword.VARCHAR);

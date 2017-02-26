@@ -1,7 +1,7 @@
 package org.magcruise.citywalk.model.relation;
 
-import org.magcruise.citywalk.ApplicationContext;
 import org.magcruise.citywalk.model.row.UserAccount;
+import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
 import org.nkjmlab.util.db.RelationalModel;
 
@@ -13,8 +13,8 @@ public class UserAccountsTable extends RelationalModel<UserAccount> {
 	public static final String CREATED_AT = "created_at";
 	public static final String GROUP_ID = "group_id";
 
-	public UserAccountsTable() {
-		super(TABLE_NAME, ApplicationContext.getDbClient());
+	public UserAccountsTable(DbClient client) {
+		super(TABLE_NAME, client);
 		addColumnDefinition(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
 		addColumnDefinition(GROUP_ID, Keyword.VARCHAR);
