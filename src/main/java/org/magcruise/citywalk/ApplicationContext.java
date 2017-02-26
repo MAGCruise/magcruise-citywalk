@@ -12,14 +12,14 @@ import javax.servlet.annotation.WebListener;
 import org.apache.logging.log4j.Logger;
 import org.magcruise.citywalk.conv.CheckpointsAndTasksFactory;
 import org.magcruise.citywalk.model.gdata.GoogleSpreadsheetData;
-import org.magcruise.citywalk.model.json.db.BadgeConditionsJson;
-import org.magcruise.citywalk.model.json.db.CategoriesJson;
 import org.magcruise.citywalk.model.json.db.CheckpointJson;
 import org.magcruise.citywalk.model.json.db.CheckpointsAndTasksJson;
 import org.magcruise.citywalk.model.json.db.ContentJson;
-import org.magcruise.citywalk.model.json.db.CoursesJson;
 import org.magcruise.citywalk.model.json.db.TaskJson;
-import org.magcruise.citywalk.model.relation.BadgeConditionsTable;
+import org.magcruise.citywalk.model.json.init.BadgeDefinitionsJson;
+import org.magcruise.citywalk.model.json.init.CategoriesJson;
+import org.magcruise.citywalk.model.json.init.CoursesJson;
+import org.magcruise.citywalk.model.relation.BadgeDefinitionsTable;
 import org.magcruise.citywalk.model.relation.BadgesTable;
 import org.magcruise.citywalk.model.relation.CategoriesTable;
 import org.magcruise.citywalk.model.relation.CheckpointsTable;
@@ -30,7 +30,7 @@ import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
 import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.relation.UserAccountsTable;
 import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
-import org.magcruise.citywalk.model.row.BadgeCondition;
+import org.magcruise.citywalk.model.row.BadgeDefinition;
 import org.magcruise.citywalk.model.row.Category;
 import org.magcruise.citywalk.model.row.Course;
 import org.magcruise.citywalk.model.task.QrCodeTask;
@@ -99,7 +99,7 @@ public class ApplicationContext implements ServletContextListener {
 			new CheckpointsTable(client).dropTableIfExists();
 			new TasksTable(client).dropTableIfExists();
 			new CategoriesTable(client).dropTableIfExists();
-			new BadgeConditionsTable(client).dropTableIfExists();
+			new BadgeDefinitionsTable(client).dropTableIfExists();
 			new CoursesTable(client).dropTableIfExists();
 		}
 		{
@@ -112,7 +112,7 @@ public class ApplicationContext implements ServletContextListener {
 		}
 
 		new CategoriesTable(client).createTableIfNotExists();
-		new BadgeConditionsTable(client).createTableIfNotExists();
+		new BadgeDefinitionsTable(client).createTableIfNotExists();
 		new CoursesTable(client).createTableIfNotExists();
 		new EntriesTable(client).createTableIfNotExists();
 		new CheckpointsTable(client).createTableIfNotExists();
@@ -138,7 +138,7 @@ public class ApplicationContext implements ServletContextListener {
 		Arrays.stream(projectsDir.listFiles()).filter(f -> f.isDirectory())
 				.forEach(f -> {
 					File json = new File(f.getPath() + File.separator + "json" + File.separator
-							+ "badge-conditions.json");
+							+ "badge-definitions.json");
 					if (json.exists()) {
 						readBadgeConditionsJson(json);
 					}
@@ -167,16 +167,19 @@ public class ApplicationContext implements ServletContextListener {
 		CategoriesJson jsons = JsonUtils.decode(file, CategoriesJson.class);
 		CategoriesTable table = new CategoriesTable(getDbClient());
 		jsons.getCategories().forEach(
-				j -> table.insert(new Category(j.getCourseId(), j.getName(), j.getImgSrc())));
+				j -> j.getCourseIds()
+						.forEach(c -> table.insert(new Category(c, j.getName(), j.getImgSrc()))));
 	}
 
 	private void readBadgeConditionsJson(File file) {
-		BadgeConditionsJson jsons = JsonUtils.decode(file, BadgeConditionsJson.class);
-		BadgeConditionsTable table = new BadgeConditionsTable(getDbClient());
-		jsons.getBadgeConditions()
-				.forEach(j -> table
-						.insert(new BadgeCondition(j.getCourseId(), j.getName(), j.getImgSrc(),
-								j.getType(), j.getValue())));
+		BadgeDefinitionsJson jsons = JsonUtils.decode(file, BadgeDefinitionsJson.class);
+		BadgeDefinitionsTable table = new BadgeDefinitionsTable(getDbClient());
+		jsons.getBadgeDefinitions()
+				.forEach(j -> {
+					j.getCourseIds().forEach(courseId -> table
+							.insert(new BadgeDefinition(courseId, j.getName(), j.getImgSrc(),
+									j.getType(), j.getValue())));
+				});
 	}
 
 	private void readCoursesJson(File file) {

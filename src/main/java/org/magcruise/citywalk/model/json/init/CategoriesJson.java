@@ -1,4 +1,4 @@
-package org.magcruise.citywalk.model.json.db;
+package org.magcruise.citywalk.model.json.init;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,13 +8,13 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class CategoriesJson {
 
-	private List<CategoryJson> categories = new ArrayList<>();
+	private List<CategoryDefinitionJson> categories = new ArrayList<>();
 
-	public List<CategoryJson> getCategories() {
+	public List<CategoryDefinitionJson> getCategories() {
 		return categories;
 	}
 
-	public void setCategories(List<CategoryJson> categories) {
+	public void setCategories(List<CategoryDefinitionJson> categories) {
 		this.categories = categories;
 	}
 

@@ -1,4 +1,4 @@
-package org.magcruise.citywalk.model.json.db;
+package org.magcruise.citywalk.model.json.init;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -12,7 +12,8 @@ public class CategoryJson {
 	public CategoryJson() {
 	}
 
-	public CategoryJson(String name, String imgSrc) {
+	public CategoryJson(String courseId, String name, String imgSrc) {
+		this.courseId = courseId;
 		this.name = name;
 		this.imgSrc = imgSrc;
 	}

@@ -5,8 +5,10 @@
   box-shadow: 0px 1px 1px 0px rgba(198, 198, 198, 0.5);
   text-align: center; }
   .badge-item .wrapper img {
-    margin-top: 10px; }
+    margin-top: 10px;
+    max-width: 90%;
+    max-height: 90%;
+    }
   .badge-item .wrapper .name {
     margin-top: 10px;
-    font-size: 20px;
     color: #38A997; }

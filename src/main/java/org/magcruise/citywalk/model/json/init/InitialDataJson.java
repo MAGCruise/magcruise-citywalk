@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.magcruise.citywalk.model.json.db.CategoryJson;
-import org.magcruise.citywalk.model.json.db.CoursesJson;
 
 public class InitialDataJson {
 

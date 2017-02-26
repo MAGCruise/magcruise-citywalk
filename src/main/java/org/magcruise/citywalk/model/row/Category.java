@@ -19,6 +19,7 @@ public class Category {
 	}
 
 	public Category(String courseId, String name, String imgSrc) {
+		this.courseId = courseId;
 		this.name = name;
 		this.imgSrc = imgSrc;
 	}

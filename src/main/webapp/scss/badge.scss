@@ -1,6 +1,6 @@
 @import "settings";
 @import "mixins";
-  
+
 .badge-item {
   .wrapper {
     margin: $smallMargin;
@@ -10,10 +10,11 @@
     text-align: center;
     img {
       margin-top: $standardMargin;
+      max-width: 90%;
+      max-height: 90%;
     }
     .name {
       margin-top: $standardMargin;
-      font-size: 20px;
       color: $greenColor;
     }
   }

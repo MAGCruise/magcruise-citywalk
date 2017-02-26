@@ -1,11 +1,13 @@
-package org.magcruise.citywalk.model.json.db;
+package org.magcruise.citywalk.model.json.init;
+
+import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class BadgeConditionJson {
+public class BadgeDefinitionJson {
 
-	private String courseId;
+	private List<String> courseIds;
 	private String name;
 	private String imgSrc;
 	private String type;
@@ -48,12 +50,12 @@ public class BadgeConditionJson {
 		this.name = name;
 	}
 
-	public String getCourseId() {
-		return courseId;
+	public List<String> getCourseIds() {
+		return courseIds;
 	}
 
-	public void setCourseId(String courseId) {
-		this.courseId = courseId;
+	public void setCourseIds(List<String> courseIds) {
+		this.courseIds = courseIds;
 	}
 
 }

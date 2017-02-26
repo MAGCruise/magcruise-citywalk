@@ -335,8 +335,9 @@ function addAnswerDic(checkpoint, task, answer) {
 
 function getCategoryImgSrc(name) {
   var cates = loadCityWalkData().categories;
+  var courseId = getCourseId();
   for (var i = 0; i < cates.length; i++) {
-    if (cates[i].name === name) { return cates[i].imgSrc; }
+    if (cates[i].name === name && cates[i].courseId === courseId) { return cates[i].imgSrc; }
   }
   return null;
 }

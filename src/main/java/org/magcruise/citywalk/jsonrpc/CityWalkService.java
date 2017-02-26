@@ -20,10 +20,10 @@ import org.magcruise.citywalk.model.json.RankingJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
-import org.magcruise.citywalk.model.json.db.CourseJson;
-import org.magcruise.citywalk.model.json.db.CoursesJson;
+import org.magcruise.citywalk.model.json.init.CourseJson;
+import org.magcruise.citywalk.model.json.init.CoursesJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
-import org.magcruise.citywalk.model.relation.BadgeConditionsTable;
+import org.magcruise.citywalk.model.relation.BadgeDefinitionsTable;
 import org.magcruise.citywalk.model.relation.BadgesTable;
 import org.magcruise.citywalk.model.relation.CoursesTable;
 import org.magcruise.citywalk.model.relation.EntriesTable;
@@ -61,6 +61,8 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	private TasksTable tasks = new TasksTable(ApplicationContext.getDbClient());
 	private MovementsTable movements = new MovementsTable(ApplicationContext.getDbClient());
 	private EntriesTable entries = new EntriesTable(ApplicationContext.getDbClient());
+	private BadgeDefinitionsTable badgeDefinitionsTable = new BadgeDefinitionsTable(
+			ApplicationContext.getDbClient());
 
 	@Override
 	public boolean login(String userId) {
@@ -162,16 +164,16 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		return new RewardJson(rank, badges);
 	}
 
-	private BadgeConditionsTable conditionsTable = new BadgeConditionsTable(
+	private BadgeDefinitionsTable definitionsTable = new BadgeDefinitionsTable(
 			ApplicationContext.getDbClient());
 
 	private List<String> calculateBadges(String userId, String courseId) {
 		List<String> result = new ArrayList<>();
-		List<Badge> alreadyHas = badges.readOf(courseId, userId);
+		List<Badge> alreadyHas = badges.findBy(userId, courseId, definitionsTable);
 
-		conditionsTable.readAll().forEach(cond -> {
+		definitionsTable.findByCourseId(courseId).forEach(cond -> {
 			for (Badge b : alreadyHas) {
-				if (cond.getName().equals(b.getName())) {
+				if (cond.getId() == b.getBadgeDefinitionId()) {
 					return;
 				}
 			}
@@ -179,13 +181,13 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 				if (verifiedActivities.getScore(userId, courseId) >= Integer
 						.parseInt(cond.getValue())) {
 					result.add(cond.getName());
-					badges.insert(new Badge(courseId, userId, cond.getName()));
+					badges.insert(new Badge(userId, cond.getId()));
 				}
 			} else {
 				if (verifiedActivities.getNumberOfCheckInInCategory(userId, courseId,
 						cond.getType()) >= Integer.parseInt(cond.getValue())) {
 					result.add(cond.getName());
-					badges.insert(new Badge(courseId, userId, cond.getName()));
+					badges.insert(new Badge(userId, cond.getId()));
 				}
 			}
 		});
@@ -245,13 +247,10 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 						.toArray(new Movement[0]));
 	}
 
-	private BadgeConditionsTable badgeConditionsTable = new BadgeConditionsTable(
-			ApplicationContext.getDbClient());
-
 	@Override
 	public BadgeJson[] getBadges(String userId, String courseId) {
-		return badges.readOf(courseId, userId).stream()
-				.map(b -> badgeConditionsTable.readOf(courseId, b.getName()))
+		return badges.findBy(userId, courseId, definitionsTable).stream()
+				.map(b -> badgeDefinitionsTable.readByPrimaryKey(b.getBadgeDefinitionId()))
 				.map(b -> new BadgeJson(b.getName(), b.getImgSrc())).collect(Collectors.toList())
 				.toArray(new BadgeJson[0]);
 	}

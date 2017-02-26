@@ -2,13 +2,13 @@ package org.magcruise.citywalk.model.row;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.magcruise.citywalk.model.relation.BadgeConditionsTable;
+import org.magcruise.citywalk.model.relation.BadgeDefinitionsTable;
 
 import net.sf.persist.annotations.Column;
 import net.sf.persist.annotations.Table;
 
-@Table(name = BadgeConditionsTable.TABLE_NAME)
-public class BadgeCondition {
+@Table(name = BadgeDefinitionsTable.TABLE_NAME)
+public class BadgeDefinition {
 
 	private long id;
 	private String courseId;
@@ -17,10 +17,10 @@ public class BadgeCondition {
 	private String type;
 	private String value;
 
-	public BadgeCondition() {
+	public BadgeDefinition() {
 	}
 
-	public BadgeCondition(String courseId, String name, String imgSrc, String type, String value) {
+	public BadgeDefinition(String courseId, String name, String imgSrc, String type, String value) {
 		this.courseId = courseId;
 		this.name = name;
 		this.imgSrc = imgSrc;

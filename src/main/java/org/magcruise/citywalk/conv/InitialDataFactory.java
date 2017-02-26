@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 import org.magcruise.citywalk.ApplicationContext;
-import org.magcruise.citywalk.model.json.db.CategoryJson;
+import org.magcruise.citywalk.model.json.init.CategoryJson;
 import org.magcruise.citywalk.model.json.init.CheckinJson;
 import org.magcruise.citywalk.model.json.init.CheckpointJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
@@ -80,7 +80,7 @@ public class InitialDataFactory {
 		}).collect(Collectors.toList());
 
 		List<CategoryJson> categoriesJson = categories.stream()
-				.map(c -> new CategoryJson(c.getName(), c.getImgSrc()))
+				.map(c -> new CategoryJson(c.getCourseId(), c.getName(), c.getImgSrc()))
 				.collect(Collectors.toList());
 		return new InitialDataJson(checkpointsJson, categoriesJson);
 
