@@ -7,7 +7,7 @@ if (getTaskIndex() <= getLastTaskIndex(getCheckpoint().id)) {
 }
 setTaskTitle();
 var checkpoint = getCheckpoint();
-var task = getTask();
+var task = getCurrentTask();
 
 $(function() {
   if (getTaskIndex() != 0) {

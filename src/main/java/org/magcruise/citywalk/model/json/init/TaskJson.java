@@ -28,6 +28,7 @@ public class TaskJson {
 	private List<String> answerTexts = new ArrayList<>();
 	private String answerQr;
 	private String imgSrc;
+	private int activeArea;
 
 	public TaskJson() {
 	}
@@ -38,6 +39,7 @@ public class TaskJson {
 		this.taskType = content.getClass().getSimpleName();
 		this.label = content.getLabel();
 		this.point = content.getPoint();
+		this.activeArea = content.getActiveArea();
 
 		if (content.getInstanceClass().equals(SelectionTask.class.getName())) {
 			SelectionTask t = (SelectionTask) content;
@@ -135,6 +137,14 @@ public class TaskJson {
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+	}
+
+	public int getActiveArea() {
+		return activeArea;
+	}
+
+	public void setActiveArea(int activeArea) {
+		this.activeArea = activeArea;
 	}
 
 }

@@ -6,7 +6,7 @@ if (getTaskIndex() <= getLastTaskIndex(getCheckpoint().id)) {
 }
 
 setTaskTitle();
-var task = getTask();
+var task = getCurrentTask();
 
 $(function() {
   if (getTaskIndex() != 0) {
@@ -21,10 +21,10 @@ $(function() {
   });
 
   $("#btn-next").on('click', function() {
-    if (confirm("送信しますか？")) {
+    swalConfirm("確認", "この写真を送信しますか？", "info", function(e) {
       var imgData = $("#img-preview").attr('src');
       addActivity(task, imgData, true);
-    }
+    });
   });
 });
 

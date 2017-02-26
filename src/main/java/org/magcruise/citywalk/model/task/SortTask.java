@@ -12,8 +12,8 @@ public class SortTask extends TaskContent {
 	}
 
 	public SortTask(String label, List<String> selections, int answerIndex,
-			double point, boolean checkIn) {
-		super(checkIn, point, label);
+			double point, boolean checkIn, int activeArea) {
+		super(checkIn, point, label, activeArea);
 		this.selections.addAll(selections);
 		setAnswerIndex(answerIndex);
 	}

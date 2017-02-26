@@ -12,9 +12,8 @@ public class SelectionTask extends TaskContent {
 	}
 
 	public SelectionTask(String label, List<String> selections, List<Integer> answerIndexes,
-			double point,
-			boolean checkIn) {
-		super(checkIn, point, label);
+			double point, boolean checkIn, int activeArea) {
+		super(checkIn, point, label, activeArea);
 		this.selections.addAll(selections);
 		setAnswerIndexes(answerIndexes);
 	}

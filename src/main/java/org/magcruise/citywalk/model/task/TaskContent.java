@@ -7,14 +7,17 @@ public class TaskContent extends JsonObject<TaskContent> {
 	protected boolean checkin = false;
 	protected String label;
 	protected double point;
+	// デフォルトのActiveAreaは100m
+	protected int activeArea = 100;
 
 	public TaskContent() {
 	}
 
-	public TaskContent(boolean checkin, double point, String label) {
+	public TaskContent(boolean checkin, double point, String label, int activeArea) {
 		this.label = label;
 		this.point = point;
 		this.checkin = checkin;
+		this.activeArea = activeArea;
 	}
 
 	public boolean isCheckin() {
@@ -39,6 +42,14 @@ public class TaskContent extends JsonObject<TaskContent> {
 
 	public void setPoint(double point) {
 		this.point = point;
+	}
+
+	public int getActiveArea() {
+		return activeArea;
+	}
+
+	public void setActiveArea(int activeArea) {
+		this.activeArea = activeArea;
 	}
 
 }

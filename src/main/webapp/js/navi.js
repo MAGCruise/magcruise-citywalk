@@ -11,7 +11,6 @@ var DEFAULT_FOCUS_ZOOM = 17;
 var infoWindow;
 
 var uaParser = new UAParser();
-var distThreshold = 10000000000000;
 
 window.onload = function() {
   setTimeout(initMap, 300);
@@ -67,18 +66,18 @@ $(function() {
   $("#btn-next").on(
           'click',
           function() {
-
+            // 既に途中までタスクが進んでいる場合には，完了済みの次のタスクからはじめる
+            var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
+            var distThreshold = getTask(checkpoint, taskIndex).activeArea;
             if (getDistance() == null) {
               swalAlert("位置情報が取得できません", "チェックポイントの側で位置情報の利用ができる場所へ移動して下さい．", "error");
               return;
             } else if (getDistance() > distThreshold) {
-              swalAlert("チェックポイントに近づいて下さい", "残り およそ " + getDistanceStr()
-                      + "です．チェックポイントの側で位置情報の利用ができる場所へ移動して下さい．", "error");
+              swalAlert("チェックポイントまで" + distThreshold + "m以内に近づいて下さい", "チェックポイントまで，残りおよそ "
+                      + getDistanceStr() + "です．チェックポイントの近くで位置情報が利用できる場所へ移動して下さい．", "error");
               return;
             }
 
-            // 既に途中までタスクが進んでいる場合には，完了済みの次のタスクからはじめる
-            var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
             location.href = getTaskURLWithCurrentPosition(checkpoint, taskIndex, cPos)
                     + "&navi_from=" + getNaviFromParam();
           });

@@ -1,6 +1,15 @@
-function getTask() {
+function getCurrentTask() {
   var checkpoint = getCheckpoint();
   return checkpoint.tasks[getTaskIndex()];
+}
+
+function getTask(checkpoint, taskIndex) {
+  return checkpoint.tasks[taskIndex];
+}
+
+function getLastTaskIndex(checkpointId) {
+  return (checkpointId in getCheckpointProgressDic()) ? getCheckpointProgressDic()[checkpointId]
+          : -1;
 }
 
 var TaskType = {

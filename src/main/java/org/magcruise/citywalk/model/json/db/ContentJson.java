@@ -17,6 +17,7 @@ public class ContentJson {
 	private List<String> answerTexts = new ArrayList<>();
 	private String answerQr = "";
 	private String imgSrc = "";
+	private int activeArea;
 
 	public ContentJson() {
 	}
@@ -107,6 +108,14 @@ public class ContentJson {
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+	}
+
+	public int getActiveArea() {
+		return activeArea;
+	}
+
+	public void setActiveArea(int activeArea) {
+		this.activeArea = activeArea;
 	}
 
 }
