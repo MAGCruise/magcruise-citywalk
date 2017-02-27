@@ -50,6 +50,13 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 				userId, checkpointId);
 	}
 
+	public List<Activity> getNewActivitiesOrderById(String courseId, long latestActivityId) {
+		return getClient().readList(Activity.class,
+				"SELECT * FROM " + getName() + " WHERE " + COURSE_ID + "=? AND "
+						+ ID + ">? ORDER BY " + ID + " DESC LIMIT ?",
+				courseId, latestActivityId, 16);
+	}
+
 	public List<Activity> getNewActivitiesOrderById(String courseId, String checkpointId,
 			long latestActivityId) {
 		return getClient().readList(Activity.class,

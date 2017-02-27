@@ -35,13 +35,16 @@ function handleFiles(files) {
   }
   var file = files[0];
   loadImage.parseMetaData(file, function(data) {
-    loadImage(file, function(canvas) {
-      $("#img-preview").attr('src', canvas.toDataURL("image/jpeg"));
-    }, {
-      orientation: data.exif.get('Orientation'),
+    var option = {
       maxHeight: $("#task-img").height(),
       canvas: true
-    });
+    };
+    if (data.exif && data.exif.get('Orientation')) {
+      option.orientation = data.exif.get('Orientation');
+    }
+    loadImage(file, function(canvas) {
+      $("#img-preview").attr('src', canvas.toDataURL("image/jpeg"));
+    }, option);
   });
 
   $("#btn-next").prop("disabled", false);

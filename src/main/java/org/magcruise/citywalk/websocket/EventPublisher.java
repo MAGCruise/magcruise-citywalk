@@ -52,8 +52,7 @@ public class EventPublisher {
 				if (Thread.interrupted()) {
 					return;
 				}
-				List<Activity> events = readEvents(session.getId(), courseId,
-						checkpointId);
+				List<Activity> events = readEvents(session.getId(), courseId);
 				if (events.size() == 0) {
 					return;
 				}
@@ -66,11 +65,10 @@ public class EventPublisher {
 		workers.put(session.getId(), f);
 	}
 
-	private synchronized List<Activity> readEvents(String sessionId, String courseId,
-			String checkpointId) {
+	private synchronized List<Activity> readEvents(String sessionId, String courseId) {
 		long readId = getLatestReadId(sessionId);
 		List<Activity> result = verifiedActivitiesTable.getNewActivitiesOrderById(
-				courseId, checkpointId, readId).stream().filter(
+				courseId, readId).stream().filter(
 						a -> {
 							Task t = tasksTable.getTask(a.getTaskId());
 							if (t == null) {

@@ -88,12 +88,52 @@ $(function() {
   defaultOrientation = (screen.width > screen.height) ? "landscape" : "portrait";
   // 電子コンパスイベントの取得
   window.addEventListener("deviceorientation", onHeadingChange);
-  getEventsByWebsocket();
+  setTimeout(getEventsByWebsocket, 3000);
   // 移動ログの送信
   setInterval(postMovementsFunc, POST_MOVEMENT_INTERVAL);
 });
 
+var KEY_NOTIFIED_ACTIVITY_IDS = "key_notified_activity_ids";
+
+function addNotifedActivityId(aid) {
+  addItems(KEY_NOTIFIED_ACTIVITY_IDS, aid);
+}
+
+function getNotifiedActivityIds() {
+  return getItems(KEY_NOTIFIED_ACTIVITY_IDS);
+}
+
+function findCheckpointById(id) {
+  var cs = getCheckpoints();
+  for (var i = 0; i < cs.length; i++) {
+    if (cs[i].id = id) { return cs[i]; }
+  }
+  return null;
+}
+
 function getEventsByWebsocket() {
+
+  function notifyMsg(messages, i) {
+    if (messages.length == i) { return; }
+    var a = messages[i];
+    if (getNotifiedActivityIds().indexOf(a.id) != -1) {
+      notifyMsg(messages, i + 1);
+      return;
+    }
+
+    var info = $('<span>').text(a.userId + "さんが，" + findCheckpointById(a.id).name + "にチェックイン！");
+    $('#notification-msg-area').append(info);
+    $('#notification-msg-area').slideDown(500);
+    setTimeout(function() {
+      $('#notification-msg-area').slideUp(500)
+      setTimeout(function() {
+        info.remove();
+        addNotifedActivityId(a.id);
+        notifyMsg(messages, i + 1);
+      }, 500);
+    }, 60000);
+  }
+
   var wsUrl = getActivityPublisherUrl() + "/" + getCourseId() + "/" + checkpoint.id + "/"
           + getUserId();
   var connection = new WebSocket(wsUrl);
@@ -101,10 +141,15 @@ function getEventsByWebsocket() {
     var messages = JSON.parse(e.data);
     for (var i = 0; i < messages.length; i++) {
       var a = messages[i];
+      if (checkpoint.id != a.checkpointId) {
+        continue;
+      }
+
       var elem = $('<div class="item">' + '<span class="time">' + toFormattedShortDate(a.createdAt)
-              + '</span>' + '<span class="name">' + a.userId + '</span>' + 'さんがチェックイン' + '</div>');
+              + '</span>' + '<span class="name">' + a.userId + '</span>' + 'さんがチェックイン！' + '</div>');
       $('#notification').prepend(elem);
     }
+    notifyMsg(messages, 0);
   };
   return {
     abort: function() {
