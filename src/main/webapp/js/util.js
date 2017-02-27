@@ -388,15 +388,27 @@ function swalAlert(title, text, type, callback) {
   }, callback);
 }
 
+var KEY_REWARD_MESSAGES = "key_reward_messages";
+
+function getRewardMessage() {
+  return getItem(KEY_REWARD_MESSAGES) ? getItem(KEY_REWARD_MESSAGES) : "";
+}
+
+function setRewardMessage(msg) {
+  setItem(KEY_REWARD_MESSAGES, msg);
+}
+
 var postActivitiesFunc = function() {
   var activities = getItems(KEY_ACTIVITIES);
   if (activities.length == 0) { return; }
   removeItem(KEY_ACTIVITIES);
   activities.forEach(function(activity) {
     new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [activity], function(data) {
+      var msg = "現在の順位：" + data.result.rank + "位";
       if (data.result && data.result.badges.length > 0) {
-        swalAlert("バッジを獲得！", data.result.badges.toString().replace(",", "</br>"));
+        msg += "<br>バッジ獲得：" + data.result.badges;
       }
+      setRewardMessage(msg);
     }, function(data, textStatus, errorThrown) {
       addItems(KEY_ACTIVITIES, [activity]);
     })).rpc();

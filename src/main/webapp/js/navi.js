@@ -68,7 +68,7 @@ $(function() {
           function() {
             // 既に途中までタスクが進んでいる場合には，完了済みの次のタスクからはじめる
             var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
-            var distThreshold = getTask(checkpoint, taskIndex).activeArea;
+            var distThreshold = getTask(checkpoint, 0).activeArea;
             if (getDistance() == null) {
               swalAlert("位置情報が取得できません", "チェックポイントの側で位置情報の利用ができる場所へ移動して下さい．", "error");
               return;
@@ -88,10 +88,27 @@ $(function() {
   defaultOrientation = (screen.width > screen.height) ? "landscape" : "portrait";
   // 電子コンパスイベントの取得
   window.addEventListener("deviceorientation", onHeadingChange);
-  setTimeout(getEventsByWebsocket, 3000);
+  showReward();
+
+  setTimeout(getEventsByWebsocket, 11000);
   // 移動ログの送信
   setInterval(postMovementsFunc, POST_MOVEMENT_INTERVAL);
 });
+
+function showReward() {
+  if (!getRewardMessage()) { return; }
+  var info = $('<span>').html(getRewardMessage());
+  $('#notification-msg-area').append(info);
+  $('#notification-msg-area').slideDown(500);
+  setTimeout(function() {
+    $('#notification-msg-area').slideUp(500)
+    setTimeout(function() {
+      info.remove();
+      setRewardMessage("");
+    }, 500);
+  }, 30000);
+
+}
 
 var KEY_NOTIFIED_ACTIVITY_IDS = "key_notified_activity_ids";
 
@@ -131,7 +148,7 @@ function getEventsByWebsocket() {
         addNotifedActivityId(a.id);
         notifyMsg(messages, i + 1);
       }, 500);
-    }, 60000);
+    }, 10000);
   }
 
   var wsUrl = getActivityPublisherUrl() + "/" + getCourseId() + "/" + checkpoint.id + "/"
@@ -139,16 +156,6 @@ function getEventsByWebsocket() {
   var connection = new WebSocket(wsUrl);
   connection.onmessage = function(e) {
     var messages = JSON.parse(e.data);
-    for (var i = 0; i < messages.length; i++) {
-      var a = messages[i];
-      if (checkpoint.id != a.checkpointId) {
-        continue;
-      }
-
-      var elem = $('<div class="item">' + '<span class="time">' + toFormattedShortDate(a.createdAt)
-              + '</span>' + '<span class="name">' + a.userId + '</span>' + 'さんがチェックイン！' + '</div>');
-      $('#notification').prepend(elem);
-    }
     notifyMsg(messages, 0);
   };
   return {
