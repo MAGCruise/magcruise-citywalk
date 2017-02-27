@@ -472,7 +472,20 @@ function getCurrentPositionAndUpdateViews() {
     }
     $('#gps-error-msg').hide();
 
-    createMapControlUI(map, "現在地～<br>チェックポイント周辺", "10px", google.maps.ControlPosition.RIGHT_TOP)
+    addMapControlUI(
+            map,
+            google.maps.ControlPosition.RIGHT_BOTTOM,
+            $('<div>').append(
+                    $('<img>').attr('src', "../img/btn_current_position.png").attr('id',
+                            "current-position").css('right', '10'))[0]).addEventListener('click',
+            function() {
+              fitBoundsAndZoom(map, [{
+                lat: cPos.lat(),
+                lon: cPos.lng()
+              }], cPos, DEFAULT_FOCUS_ZOOM);
+            });
+
+    createMapControlUI(map, "現在地～<br>チェックポイント周辺", "10px", google.maps.ControlPosition.TOP_LEFT)
             .addEventListener('click', function() {
               fitBoundsAndZoom(map, getNonVisitedCheckPoints(), cPos, DEFAULT_FOCUS_ZOOM);
             });

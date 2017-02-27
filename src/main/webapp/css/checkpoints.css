@@ -9,11 +9,9 @@
     top: 0; }
   #map-box #current-position {
     cursor: pointer;
-    position: absolute;
     width: 40px;
-    height: 40px;
-    right: 10px;
-    bottom: 90px; }
+    height: 30px;
+    padding-right: 10px;}
   #map-box #nav-start {
     position: absolute;
     height: 32px;

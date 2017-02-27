@@ -155,7 +155,7 @@ function initMap() {
     });
   });
 
-  createMapControlUI(map, "目的地", "12px", google.maps.ControlPosition.RIGHT_TOP).addEventListener(
+  createMapControlUI(map, "目的地", "10px", google.maps.ControlPosition.LEFT_TOP).addEventListener(
           'click', function() {
             fitBoundsAndZoom(map, [{
               lat: ePos.lat(),
@@ -239,7 +239,7 @@ function watchCurrentPosition() {
     $('#initial-msg').hide();
     $('#distance-wrapper').show();
     if (!cPos) {
-      createMapControlUI(map, "目的地～現在地", "12px", google.maps.ControlPosition.TOP_RIGHT)
+      createMapControlUI(map, "目的地～現在地", "10px", google.maps.ControlPosition.TOP_LEFT)
               .addEventListener('click', function() {
                 fitBoundsAndZoom(map, [{
                   lat: ePos.lat(),
@@ -250,12 +250,18 @@ function watchCurrentPosition() {
                 }], cPos, DEFAULT_FOCUS_ZOOM);
               });
 
-      createMapControlUI(map, "現在地", "12px", google.maps.ControlPosition.RIGHT_TOP)
-              .addEventListener('click', function() {
+      addMapControlUI(
+              map,
+              google.maps.ControlPosition.RIGHT_BOTTOM,
+              $('<div>').append(
+                      $('<img>').attr('src', "../img/btn_current_position.png").attr('id',
+                              "current-position").css('right', '10'))[0]).addEventListener('click',
+              function() {
                 fitBoundsAndZoom(map, [{
                   lat: cPos.lat(),
                   lon: cPos.lng()
                 }], cPos, DEFAULT_FOCUS_ZOOM);
+
               });
       enqueueMovement(pos);
       postMovementsFunc();

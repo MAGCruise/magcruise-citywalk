@@ -1,31 +1,35 @@
+function addMapControlUI(map, controlPosition, controlUI) {
+  map.controls[controlPosition].push(controlUI);
+  return controlUI;
+}
+
 function createMapControlUI(map, label, fontSize, controlPosition) {
-  var centerControlDiv = document.createElement('div');
+  var controlUI = document.createElement('div');
 
   // Set CSS for the control border.
-  var controlUI = document.createElement('div');
-  controlUI.style.backgroundColor = '#fff';
-  controlUI.style.border = '2px solid #fff';
-  controlUI.style.borderRadius = '3px';
-  controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
-  controlUI.style.cursor = 'pointer';
-  controlUI.style.marginBottom = '22px';
-  controlUI.style.textAlign = 'center';
-  controlUI.title = 'Click to recenter the map';
-  centerControlDiv.appendChild(controlUI);
+  var controlUIArea = document.createElement('div');
+  controlUIArea.style.backgroundColor = '#fff';
+  controlUIArea.style.border = '2px solid #fff';
+  controlUIArea.style.borderRadius = '3px';
+  controlUIArea.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+  controlUIArea.style.cursor = 'pointer';
+  controlUIArea.style.marginBottom = '22px';
+  controlUIArea.style.textAlign = 'center';
+  controlUI.appendChild(controlUIArea);
 
   // Set CSS for the control interior.
-  var controlText = document.createElement('div');
-  controlText.style.color = 'rgb(25,25,25)';
-  controlText.style.fontSize = fontSize;
-  controlText.style.paddingTop = '4px';
-  controlText.style.paddingBottom = '4px';
-  controlText.style.paddingLeft = '4px';
-  controlText.style.paddingRight = '4px';
-  controlText.innerHTML = label;
-  controlUI.appendChild(controlText);
+  var controlUIText = document.createElement('div');
+  controlUIText.style.color = 'rgb(25,25,25)';
+  controlUIText.style.fontSize = fontSize;
+  controlUIText.style.paddingTop = '4px';
+  controlUIText.style.paddingBottom = '4px';
+  controlUIText.style.paddingLeft = '4px';
+  controlUIText.style.paddingRight = '4px';
+  controlUIText.innerHTML = label;
+  controlUIArea.appendChild(controlUIText);
 
-  centerControlDiv.index = 1;
-  map.controls[controlPosition].push(centerControlDiv);
+  controlUI.index = 1;
+  map.controls[controlPosition].push(controlUI);
 
   return controlUI;
 }

@@ -57,16 +57,15 @@
     top: 0; }
   #map-box #current-position {
     cursor: pointer;
-    position: absolute;
     width: 40px;
-    height: 40px;
-    right: 10px;
-    bottom: 90px; }
+    height: 30px;
+    padding-right: 10px;}
   #map-box #nav-start {
     position: absolute;
     height: 50px;
     right: 50px;
-    bottom: 10px; }
+    bottom: 10px;
+     }
 
 #error-msg-area {
   margin: 0; }
