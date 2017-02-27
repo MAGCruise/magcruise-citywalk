@@ -12,6 +12,7 @@ import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.init.CoursesJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
+import org.magcruise.citywalk.model.row.Activity;
 
 import jp.go.nict.langrid.client.jsonrpc.JsonRpcClientFactory;
 
@@ -125,6 +126,12 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	@Override
 	public String[] getCheckpointIdsOrderedByDistance(double currentLat, double currentLon,
 			String courseId, String[] checkpointIds) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	@Override
+	public Activity[] getCheckinLogs(String checkpointId) {
 		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}

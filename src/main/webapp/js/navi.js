@@ -90,14 +90,42 @@ $(function() {
   window.addEventListener("deviceorientation", onHeadingChange);
   showReward();
 
+  showCheckinLogs();
+
   setTimeout(getEventsByWebsocket, 11000);
   // 移動ログの送信
   setInterval(postMovementsFunc, POST_MOVEMENT_INTERVAL);
 });
 
+function showCheckinLogs() {
+  if (!navigator.onLine) { return; }
+
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getCheckinLogs", [checkpoint.id], function(
+          data) {
+    if (data.result.length == 0) { return; }
+    console.log(data);
+    $('#btn-checkin-log').text(data.result.length + "人がチェックイン");
+    $('#btn-checkin-log').prop("disabled", false);
+    $('#btn-checkin-log').on(
+            'click',
+            function(e) {
+              var msg = "";
+              data.result.forEach(function(a) {
+                msg += "<span class='green'>" + a.userId + "さん</span> ("
+                        + toFormattedShortDate(a.createdAt) + ")<br>";
+              });
+              swalAlert("チェックインしたユーザ", msg, "", function() {
+              });
+            });
+  }, function(data, textStatus, errorThrown) {
+    console.error(data);
+  })).rpc();
+
+}
+
 function showReward() {
   if (!getRewardMessage()) { return; }
-  var info = $('<span>').html(getRewardMessage());
+  var info = $('<div>').html(getRewardMessage());
   $('#notification-msg-area').append(info);
   $('#notification-msg-area').slideDown(500);
   setTimeout(function() {
@@ -138,7 +166,7 @@ function getEventsByWebsocket() {
       return;
     }
 
-    var info = $('<span>').text(a.userId + "さんが，" + findCheckpointById(a.id).name + "にチェックイン！");
+    var info = $('<div>').text(a.userId + "さんが，" + findCheckpointById(a.id).name + "にチェックイン！");
     $('#notification-msg-area').append(info);
     $('#notification-msg-area').slideDown(500);
     setTimeout(function() {
@@ -375,6 +403,20 @@ function getFormattedDistance(distance) {
   }
 }
 
+/**
+ * 'portait-primary': for (screen width < screen height, e.g. phone, phablet,
+ * small tablet) device is in 'normal' orientation for (screen width > screen
+ * height, e.g. large tablet, laptop) device has been turned 90deg clockwise
+ * from normal 'portait-secondary': for (screen width < screen height) device
+ * has been turned 180deg from normal for (screen width > screen height) device
+ * has been turned 90deg anti-clockwise (or 270deg clockwise) from normal
+ * 'landscape-primary': for (screen width < screen height) device has been
+ * turned 90deg clockwise from normal for (screen width > screen height) device
+ * is in 'normal' orientation 'landscape-secondary': for (screen width < screen
+ * height) device has been turned 90deg anti-clockwise (or 270deg clockwise)
+ * from normal for (screen width > screen height) device has been turned 180deg
+ * from normal
+ */
 function getBrowserOrientation() {
   var orientation;
   if (screen.orientation && screen.orientation.type) {
@@ -382,24 +424,7 @@ function getBrowserOrientation() {
   } else {
     orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
   }
-  /*
-   * 'portait-primary': for (screen width < screen height, e.g. phone, phablet,
-   * small tablet) device is in 'normal' orientation for (screen width > screen
-   * height, e.g. large tablet, laptop) device has been turned 90deg clockwise
-   * from normal
-   * 
-   * 'portait-secondary': for (screen width < screen height) device has been
-   * turned 180deg from normal for (screen width > screen height) device has
-   * been turned 90deg anti-clockwise (or 270deg clockwise) from normal
-   * 
-   * 'landscape-primary': for (screen width < screen height) device has been
-   * turned 90deg clockwise from normal for (screen width > screen height)
-   * device is in 'normal' orientation
-   * 
-   * 'landscape-secondary': for (screen width < screen height) device has been
-   * turned 90deg anti-clockwise (or 270deg clockwise) from normal for (screen
-   * width > screen height) device has been turned 180deg from normal
-   */
+
   return orientation;
 }
 

@@ -13,7 +13,7 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 	private static final String ID = "id";
 	private static final String CREATED_AT = "created_at";
 	private static final String COURSE_ID = "course_id";
-	public static final String USER_ID = "user_id";
+	protected static final String USER_ID = "user_id";
 	private static final String CHECKPOINT_ID = "checkpoint_id";
 	private static final String TASK_ID = "task_id";
 	private static final String INPUT = "input";
@@ -43,11 +43,12 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 		return readListBy(USER_ID, userId, COURSE_ID, courseId);
 	}
 
-	public List<Activity> getActivitiesAtCheckpoint(String userId, String checkpointId) {
-		return getClient().readList(Activity.class,
-				"SELECT * FROM " + getName() + " WHERE " + USER_ID + "=? AND " + CHECKPOINT_ID
-						+ "=?",
-				userId, checkpointId);
+	public List<T> getActivitiesAtCheckpoint(String userId, String checkpointId) {
+		return readListBy(USER_ID, userId, CHECKPOINT_ID, checkpointId);
+	}
+
+	public List<T> getActivitiesAtCheckpoint(String checkpointId) {
+		return readListBy(CHECKPOINT_ID, checkpointId);
 	}
 
 	public List<Activity> getNewActivitiesOrderById(String courseId, long latestActivityId) {
@@ -73,19 +74,15 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 				userId, partOfcheckpointId);
 	}
 
-	public List<Activity> getActivities(String userId, String checkpointId, String taskId) {
-		return getClient().readList(Activity.class,
-				"SELECT * FROM " + getName() + " WHERE " + USER_ID
-						+ "=? AND " + CHECKPOINT_ID + "=? AND " + TASK_ID + "=?",
-				userId, checkpointId, taskId);
+	public List<T> getActivities(String userId, String checkpointId, String taskId) {
+		return readListBy(USER_ID, userId, CHECKPOINT_ID, checkpointId,
+				TASK_ID, taskId);
 	}
 
-	public List<Activity> getActivities(String courseId, String userId,
-			String checkpointId, String taskId) {
-		return getClient().readList(Activity.class,
-				"SELECT * FROM " + getName() + " WHERE " + COURSE_ID + "=? AND " + USER_ID
-						+ "=? AND " + CHECKPOINT_ID + "=? AND " + TASK_ID + "=?",
-				courseId, userId, checkpointId, taskId);
+	public List<T> getActivities(String courseId, String userId, String checkpointId,
+			String taskId) {
+		return readListBy(COURSE_ID, courseId, USER_ID, userId, CHECKPOINT_ID, checkpointId,
+				TASK_ID, taskId);
 	}
 
 	public List<Map<String, Object>> sumsOfScoreGroupByUserIdOrderByScore(

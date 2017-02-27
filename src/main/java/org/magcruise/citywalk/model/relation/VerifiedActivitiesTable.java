@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import org.magcruise.citywalk.ApplicationContext;
 import org.magcruise.citywalk.model.json.RankJson;
 import org.magcruise.citywalk.model.row.Activity;
+import org.magcruise.citywalk.model.row.Task;
 import org.magcruise.citywalk.model.row.VerifiedActivity;
 import org.nkjmlab.util.db.DbClient;
 
@@ -79,6 +80,22 @@ public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 			ids.add(a.getCheckpointId());
 		});
 		return ids.size();
+	}
+
+	public List<Activity> getNewCheckinActivitiesOrderById(TasksTable tasksTable, String courseId,
+			long readId) {
+		List<Activity> result = getNewActivitiesOrderById(
+				courseId, readId).stream().filter(
+						a -> {
+							Task t = tasksTable.getTask(a.getTaskId());
+							if (t == null) {
+								return false;
+							}
+							return t.getContentObject().isCheckin();
+						})
+						.sorted((a1, a2) -> Long.compare(a1.getId(), a2.getId()))
+						.collect(Collectors.toList());
+		return result;
 	}
 
 }

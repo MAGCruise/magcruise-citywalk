@@ -10,5 +10,6 @@
     max-height: 90%;
     }
   .badge-item .wrapper .name {
+    font-size: 12px;
     margin-top: 10px;
     color: #38A997; }

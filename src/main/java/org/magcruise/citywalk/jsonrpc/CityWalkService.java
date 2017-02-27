@@ -348,4 +348,13 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 				.toArray(new String[0]);
 	}
 
+	@Override
+	public Activity[] getCheckinLogs(String checkpointId) {
+		Activity[] result = verifiedActivities.getActivitiesAtCheckpoint(checkpointId).stream()
+				.filter(
+						va -> tasks.readByPrimaryKey(va.getTaskId()).getContentObject().isCheckin())
+				.collect(Collectors.toList()).toArray(new Activity[0]);
+		return result;
+	}
+
 }

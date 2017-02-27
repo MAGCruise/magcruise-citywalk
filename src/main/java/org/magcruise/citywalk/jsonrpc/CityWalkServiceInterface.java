@@ -9,6 +9,7 @@ import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.init.CoursesJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
+import org.magcruise.citywalk.model.row.Activity;
 
 import jp.go.nict.langrid.commons.rpc.intf.Parameter;
 
@@ -56,6 +57,8 @@ public interface CityWalkServiceInterface {
 
 	String[] getCheckpointIdsOrderedByDistance(double currentLat, double currentLon,
 			String courseId, String[] checkpointIds);
+
+	Activity[] getCheckinLogs(String checkpointId);
 
 	boolean validateCheckpointsAndTasksJson(
 			@Parameter(sample = "{\"checkpoints\":["
