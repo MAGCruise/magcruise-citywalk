@@ -5,12 +5,11 @@ var HTMLS = ["clear.html","dev.html","index.html","task-description.html","badge
              "task-qr.html","task-selection.html","visit-history.html","score.html","navi.html","task-pin.html",
              "login.html","how-to-use.html","courses.html","help.html","credits.html","intro.html","tutorial.html",
              "signup.html","troubleshooting.html","check-environment.html","checkpoints.html"];
-var JSS=["lib/parseUri.js","lib/remodal.min.js","lib/ua-parser.min.js","lib/hammer-time.min.js","lib/geolocation-marker.js","lib/jsonrpc.js",
-         "citywalk-dev.js","score.js","task-qr.js","task-photo.js","visit-history.js","clear.js","task-common.js",
+var JSS=["lib/parseUri.js","lib/ua-parser.min.js","lib/hammer-time.min.js","lib/geolocation-marker.js","lib/jsonrpc.js",
+         "score.js","task-qr.js","task-photo.js","visit-history.js","clear.js","task-common.js",
          "task-description.js","checkpoint-util.js","map-util.js","courses.js","login.js","util.js","troubleshooting.js",
          "tutorial.js","intro.js","signup.js","task-selection.js","task-pin.js","badge.js","check-environment.js","checkpoints.js","navi.js"];
-var CSSS=["remodal.css","remodal-default-theme.css","task-selection.css","badge.css","carousel.css",
-          "credits.css","doc-page.css","score.css","task-photo.css","task-qr.css","tutorial.css",
+var CSSS=["task-selection.css","badge.css","carousel.css", "credits.css","doc-page.css","score.css","task-photo.css","task-qr.css","tutorial.css",
           "visit-history.css","top.css","courses.css","common.css","checkpoints.css","header.css","navi.css"];
 var IMGS=["arrow.png","btn_current_position.png","next_button.svg","nopicture.svg",
           "placeholder.svg","loading.gif","rank_first.png","rank_second.png",

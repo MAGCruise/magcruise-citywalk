@@ -248,7 +248,7 @@ function showList() {
 
 /* チェックポイントリストの表示 */
 function showCheckpoints() {
-  if (enableGps && !sorted) {
+  if (enableGps && navigator.onLine) {
     checkpoints.sort(function(a, b) {
       var distanceA = google.maps.geometry.spherical.computeDistanceBetween(cPos,
               new google.maps.LatLng(a.lat, a.lon));
@@ -256,7 +256,6 @@ function showCheckpoints() {
               new google.maps.LatLng(b.lat, b.lon));
       return (distanceA < distanceB) ? -1 : 1;
     });
-    sorted = true;
   }
 
   checkpoints.forEach(function(checkpoint, i) {

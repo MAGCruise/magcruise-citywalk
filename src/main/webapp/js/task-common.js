@@ -136,11 +136,9 @@ function addActivity(task, input, isCorrect) {
       }
     }
   }
-  $('#modalTitle').html(title);
-  $('[data-remodal-id=modal]').remodal().open();
+  setTimeout(function() {
+    swalAlert("", title, "info", function() {
+      location.reload();
+    })
+  }, 500);
 }
-
-$(document).on('confirmation', '.remodal', function() {
-  history.replaceState('', '', location.href.replace("#modal", ""));
-  moveToNextPage();
-});
