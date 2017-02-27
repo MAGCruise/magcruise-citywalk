@@ -54,6 +54,9 @@ public interface CityWalkServiceInterface {
 			@Parameter(sample = "sample-at-magcruise.org") String userId,
 			@Parameter(sample = "waseda") String courseId);
 
+	String[] getCheckpointIdsOrderedByDistance(double currentLat, double currentLon,
+			String courseId, String[] checkpointIds);
+
 	boolean validateCheckpointsAndTasksJson(
 			@Parameter(sample = "{\"checkpoints\":["
 					+ "{\"id\":\"cafeteria\",\"lat\":38.4400,\"lon\":139.11090,\"cource_ids\":[\"waseda\"]}],"

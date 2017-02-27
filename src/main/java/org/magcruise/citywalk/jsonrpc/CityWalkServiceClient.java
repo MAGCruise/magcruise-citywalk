@@ -122,4 +122,11 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 		return null;
 	}
 
+	@Override
+	public String[] getCheckpointIdsOrderedByDistance(double currentLat, double currentLon,
+			String courseId, String[] checkpointIds) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
 }

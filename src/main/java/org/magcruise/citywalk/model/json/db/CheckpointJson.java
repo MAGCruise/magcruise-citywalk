@@ -153,7 +153,7 @@ public class CheckpointJson {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	public String getPlace() {
 		return place;
 	}

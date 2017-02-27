@@ -150,7 +150,7 @@ function getNaviFromParam() {
 function getBaseUrl() {
   var u = parseUri(document.URL);
   var urlPrefix = u.protocol + "://" + u.authority + "/" + u.directory.split("/")[1] + "/";
-  return urlPrefix + "CityWalkService";
+  return urlPrefix + "json/CityWalkService";
 }
 
 function getActivityPublisherUrl() {

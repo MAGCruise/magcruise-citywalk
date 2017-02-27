@@ -248,16 +248,33 @@ function showList() {
 
 /* チェックポイントリストの表示 */
 function showCheckpoints() {
-  if (enableGps && navigator.onLine) {
-    checkpoints.sort(function(a, b) {
-      var distanceA = google.maps.geometry.spherical.computeDistanceBetween(cPos,
-              new google.maps.LatLng(a.lat, a.lon));
-      var distanceB = google.maps.geometry.spherical.computeDistanceBetween(cPos,
-              new google.maps.LatLng(b.lat, b.lon));
-      return (distanceA < distanceB) ? -1 : 1;
+  if (enableGps && navigator.onLine && cPos) {
+    var checkpointIds = [];
+    checkpoints.forEach(function(e) {
+      checkpointIds.push(e.id);
     });
+    new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getCheckpointIdsOrderedByDistance", [
+        cPos.lat(), cPos.lng(), getCourseId(), checkpointIds], function(data) {
+      if (data.result && data.result.length == checkpoints.length) {
+        var tmp = [];
+        data.result.forEach(function(e) {
+          checkpoints.forEach(function(c) {
+            if (c.id === e) {
+              tmp.push(c);
+              return;
+            }
+          });
+        });
+        checkpoints = tmp;
+      }
+      drawCheckpoints();
+    })).rpc();
+  } else {
+    drawCheckpoints();
   }
+}
 
+function drawCheckpoints() {
   checkpoints.forEach(function(checkpoint, i) {
     var ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
     var distance = google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);

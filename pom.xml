@@ -37,6 +37,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.nkjmlab</groupId>
+			<artifactId>nkjmlab-utils-jpdatum</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.nkjmlab</groupId>
 			<artifactId>nkjmlab-webui-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

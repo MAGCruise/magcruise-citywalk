@@ -3,6 +3,7 @@ package org.magcruise.citywalk.jsonrpc;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,7 @@ import org.magcruise.citywalk.model.json.RankingJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
+import org.magcruise.citywalk.model.json.init.CheckpointJson;
 import org.magcruise.citywalk.model.json.init.CourseJson;
 import org.magcruise.citywalk.model.json.init.CoursesJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
@@ -40,6 +42,12 @@ import org.magcruise.citywalk.model.row.SubmittedActivity;
 import org.magcruise.citywalk.model.row.Task;
 import org.magcruise.citywalk.model.row.UserAccount;
 import org.magcruise.citywalk.model.row.VerifiedActivity;
+import org.nkjmlab.gis.datum.Basis;
+import org.nkjmlab.gis.datum.DistanceUnit;
+import org.nkjmlab.gis.datum.LatLon;
+import org.nkjmlab.gis.datum.jprect.JapanPlaneRectangular;
+import org.nkjmlab.gis.datum.jprect.JapanPlaneRectangular.ZoneId;
+import org.nkjmlab.gis.datum.jprect.LatLonWithZone;
 import org.nkjmlab.util.base64.Base64ImageUtils;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
@@ -63,6 +71,11 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	private EntriesTable entries = new EntriesTable(ApplicationContext.getDbClient());
 	private BadgeDefinitionsTable badgeDefinitionsTable = new BadgeDefinitionsTable(
 			ApplicationContext.getDbClient());
+
+	private BadgeDefinitionsTable definitionsTable = new BadgeDefinitionsTable(
+			ApplicationContext.getDbClient());
+
+	private CoursesTable coursesTable = new CoursesTable(ApplicationContext.getDbClient());
 
 	@Override
 	public boolean login(String userId) {
@@ -163,9 +176,6 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		List<String> badges = calculateBadges(userId, courseId);
 		return new RewardJson(rank, badges);
 	}
-
-	private BadgeDefinitionsTable definitionsTable = new BadgeDefinitionsTable(
-			ApplicationContext.getDbClient());
 
 	private List<String> calculateBadges(String userId, String courseId) {
 		List<String> result = new ArrayList<>();
@@ -310,8 +320,6 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		return true;
 	}
 
-	private CoursesTable coursesTable = new CoursesTable(ApplicationContext.getDbClient());
-
 	@Override
 	public CoursesJson getCourses() {
 		return new CoursesJson(
@@ -319,6 +327,25 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 						.stream().map(c -> new CourseJson(c.getId(), c.getName(),
 								c.getMaxCategoryDepth(), c.getDisabled()))
 						.collect(Collectors.toList()));
+	}
+
+	@Override
+	public String[] getCheckpointIdsOrderedByDistance(double currentLat, double currentLon,
+			String courseId, String[] checkpointIds) {
+		List<String> ids = Arrays.asList(checkpointIds);
+
+		LatLon latLon = new LatLon(currentLat, currentLon, Basis.DEGREE_WGS);
+		ZoneId zoneId = JapanPlaneRectangular.estimate(latLon);
+		LatLonWithZone latLonWithZone = new LatLonWithZone(latLon, zoneId);
+
+		return getInitialData(courseId).getCheckpoints().stream()
+				.filter(cj -> ids.contains(cj.getId()))
+				.sorted(Comparator.comparingDouble((CheckpointJson cj) -> {
+					LatLonWithZone toLatLon = new LatLonWithZone(
+							new LatLon(cj.getLat(), cj.getLon(), Basis.DEGREE_WGS), zoneId);
+					return latLonWithZone.distance(toLatLon, DistanceUnit.M);
+				})).map(cj -> cj.getId()).collect(Collectors.toList())
+				.toArray(new String[0]);
 	}
 
 }
