@@ -88,7 +88,7 @@ public class TableModelTest {
 		log.debug(JSON.encode(tasks.getTasksForCourse("waseda"), true));
 
 		CityWalkService service = new CityWalkService();
-		log.debug(JSON.encode(service.getInitialData("waseda"), true));
+		log.debug(JSON.encode(service.getInitialData("waseda", "ja"), true));
 
 	}
 

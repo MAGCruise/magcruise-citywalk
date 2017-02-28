@@ -216,8 +216,8 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public InitialDataJson getInitialData(String courseId) {
-		return InitialDataFactory.create(courseId);
+	public InitialDataJson getInitialData(String courseId, String language) {
+		return InitialDataFactory.create(courseId, language);
 	}
 
 	@Override
@@ -326,14 +326,14 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	@Override
 	public String[] getCheckpointIdsOrderedByDistance(double currentLat, double currentLon,
-			String courseId, String[] checkpointIds) {
+			String courseId, String language, String[] checkpointIds) {
 		List<String> ids = Arrays.asList(checkpointIds);
 
 		LatLon latLon = new LatLon(currentLat, currentLon, Basis.DEGREE_WGS);
 		ZoneId zoneId = JapanPlaneRectangular.estimate(latLon);
 		LatLonWithZone latLonWithZone = new LatLonWithZone(latLon, zoneId);
 
-		return getInitialData(courseId).getCheckpoints().stream()
+		return getInitialData(courseId, language).getCheckpoints().stream()
 				.filter(cj -> ids.contains(cj.getId()))
 				.sorted(Comparator.comparingDouble((CheckpointJson cj) -> {
 					LatLonWithZone toLatLon = new LatLonWithZone(

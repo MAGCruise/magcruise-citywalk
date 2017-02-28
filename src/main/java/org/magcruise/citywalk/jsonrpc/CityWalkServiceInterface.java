@@ -20,7 +20,7 @@ public interface CityWalkServiceInterface {
 	CoursesJson getCourses();
 
 	InitialDataJson getInitialData(
-			@Parameter(sample = "waseda") String courseId);
+			@Parameter(sample = "waseda") String courseId, String language);
 
 	InitialDataJson getInitialDataFromFile(
 			@Parameter(sample = "waseda") String courseId);
@@ -53,7 +53,7 @@ public interface CityWalkServiceInterface {
 			@Parameter(sample = "waseda") String courseId);
 
 	String[] getCheckpointIdsOrderedByDistance(double currentLat, double currentLon,
-			String courseId, String[] checkpointIds);
+			String courseId, String language, String[] checkpointIds);
 
 	Activity[] getCheckinLogs(String checkpointId);
 

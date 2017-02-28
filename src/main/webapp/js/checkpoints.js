@@ -254,7 +254,7 @@ function showCheckpoints() {
       checkpointIds.push(e.id);
     });
     new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getCheckpointIdsOrderedByDistance", [
-        cPos.lat(), cPos.lng(), getCourseId(), checkpointIds], function(data) {
+        cPos.lat(), cPos.lng(), getCourseId(), getLanguage(), checkpointIds], function(data) {
       if (data.result && data.result.length == checkpoints.length) {
         var tmp = [];
         data.result.forEach(function(e) {

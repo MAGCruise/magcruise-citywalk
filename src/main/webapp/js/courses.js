@@ -19,7 +19,8 @@ function showCourses() {
 }
 function selectCourse(courseId, maxCategoryDepth) {
   showLoading();
-  var req = new JsonRpcRequest(getBaseUrl(), "getInitialData", [courseId], function(data) {
+  var req = new JsonRpcRequest(getBaseUrl(), "getInitialData", [courseId, getLanguage()], function(
+          data) {
     saveCityWalkData(data.result);
     setCourseId(courseId);
     setMaxCategoryDepth(maxCategoryDepth);

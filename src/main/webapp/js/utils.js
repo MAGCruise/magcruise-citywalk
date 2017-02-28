@@ -459,10 +459,10 @@ function updateInitialDataIfNeeded(courseId) {
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "exsitsUpdatedInitialData",
           [getCityWalkDataDate()], function(data) {
             if (data.result) {
-              var req = new JsonRpcRequest(getBaseUrl(), "getInitialData", [courseId], function(
-                      data) {
-                saveCityWalkData(data.result);
-              });
+              var req = new JsonRpcRequest(getBaseUrl(), "getInitialData",
+                      [courseId, gatLanguage()], function(data) {
+                        saveCityWalkData(data.result);
+                      });
               req.timeout = 20000;
               new JsonRpcClient(req).rpc();
             }

@@ -52,8 +52,8 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	}
 
 	@Override
-	public InitialDataJson getInitialData(String courseId) {
-		return citywalkService.getInitialData(null);
+	public InitialDataJson getInitialData(String courseId, String language) {
+		return citywalkService.getInitialData(null, language);
 	}
 
 	@Override
@@ -119,7 +119,7 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 
 	@Override
 	public String[] getCheckpointIdsOrderedByDistance(double currentLat, double currentLon,
-			String courseId, String[] checkpointIds) {
+			String courseId, String language, String[] checkpointIds) {
 		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
