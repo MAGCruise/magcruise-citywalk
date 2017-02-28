@@ -3,94 +3,87 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="js/citywalk-dev.js"></script>
+<link rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="css/common.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/jsonrpc.js"></script>
+<script src="js/parseUri.js"></script>
+<script src="js/util.js"></script>
 <script>
-	function getEventsByWebsocket(wsUrl) {
-		var connection = new WebSocket(wsUrl);
-		connection.onmessage = function(e) {
-			var messages = JSON.parse(e.data);
-			for (var i = 0; i < messages.length; i++) {
-				$('#notification').append(JSON.stringify(messages[i]));
-			}
-		};
-		return {
-			abort : function() {
-				connection.close();
-			}
-		};
-	}
+  function getEventsByWebsocket(wsUrl) {
+    var connection = new WebSocket(wsUrl);
+    connection.onmessage = function(e) {
+      var messages = JSON.parse(e.data);
+      for (var i = 0; i < messages.length; i++) {
+        $('#notification').append(JSON.stringify(messages[i]));
+      }
+    };
+    return {
+      abort: function() {
+        connection.close();
+      }
+    };
+  }
 
-	$(function() {
-		$('#insert-activity').on(
-				'click',
-				function() {
-					new JsonRpcClient(new JsonRpcRequest(getBaseUrl(),
-							"addActivity", JSON.parse($(
-									'#insert-activity-input').val()),
-							function(data) {
-								$('#insert-activity-result').append(
-										JSON.stringify(data.result) + " ");
-							})).rpc();
-				});
-	});
-	$(function() {
-		$('#login').on(
-				'click',
-				function() {
-					new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "login",
-							JSON.parse($('#login-input').val()),
-							function(data) {
-								$('#login-result').append(JSON.stringify(data.result) + " ");
-							})).rpc();
-				});
-	});
-	$(function() {
-		var courseId = "waseda";
-		var checkpointId = "cafeteria";
-		var userId = "ayaki";
-		var wsUrl = getActivityPublisherUrl() + "/" + courseId + "/"
-				+ checkpointId + "/" + userId;
-		getEventsByWebsocket(wsUrl);
-	});
+  $(function() {
+    $('#insert-activity').on(
+            'click',
+            function() {
+              new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", JSON.parse($(
+                      '#insert-activity-input').val()), function(data) {
+                $('#insert-activity-result').append(JSON.stringify(data.result) + " ");
+              })).rpc();
+            });
+  });
+  $(function() {
+    $('#login').on(
+            'click',
+            function() {
+              new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "login", JSON.parse($(
+                      '#login-input').val()), function(data) {
+                $('#login-result').append(JSON.stringify(data.result) + " ");
+              })).rpc();
+            });
+  });
+  $(function() {
+    var courseId = "waseda";
+    var checkpointId = "cafeteria";
+    var userId = "ayaki";
+    var wsUrl = getActivityPublisherUrl() + "/" + courseId + "/" + checkpointId + "/" + userId;
+    getEventsByWebsocket(wsUrl);
+  });
 
-	$(function() {
-		$('#files')
-				.on(
-						'change',
-						function handleFileSelect(evt) {
-							var files = evt.target.files;
-							for (var i = 0; i < files.length; i++) {
-								if (!files[i].type.match('image.*')) {
-									continue;
-								}
-								var reader = new FileReader();
+  $(function() {
+    $('#files').on(
+            'change',
+            function handleFileSelect(evt) {
+              var files = evt.target.files;
+              for (var i = 0; i < files.length; i++) {
+                if (!files[i].type.match('image.*')) {
+                  continue;
+                }
+                var reader = new FileReader();
 
-								reader.onload = (function(theFile) {
-									return function(fileContent) {
-										$('#image_outputs')
-												.append(
-														$('<span>')
-																.append(
-																		$(
-																				'<img>')
-																				.attr(
-																						'title',
-																						escape(theFile.name))
-																				.attr(
-																						'src',
-																						fileContent.target.result)));
-										new JsonRpcClient(new JsonRpcRequest(
-												getBaseUrl(), "uploadImage",
-												["ayaki", fileContent.target.result ],function(data){
-													$('#image-upload-result').append(JSON.stringify(data.result) + " ");
-												}))
-												.rpc();
-									};
-								})(files[i]);
-								reader.readAsDataURL(files[i]);
-							}
-						});
-	});
+                reader.onload = (function(theFile) {
+                  return function(fileContent) {
+                    $('#image_outputs').append(
+                            $('<span>').append(
+                                    $('<img>').attr('title', escape(theFile.name)).attr('src',
+                                            fileContent.target.result)));
+                    new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "uploadImage", ["ayaki",
+                        fileContent.target.result], function(data) {
+                      $('#image-upload-result').append(JSON.stringify(data.result) + " ");
+                    })).rpc();
+                  };
+                })(files[i]);
+                reader.readAsDataURL(files[i]);
+              }
+            });
+  });
 </script>
 </head>
 <body>
