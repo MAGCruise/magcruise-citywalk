@@ -107,14 +107,9 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public RegisterResultJson register(String userId, String groupId) {
-		return register(userId, groupId, Integer.MAX_VALUE);
-	}
-
-	@Override
-	public RegisterResultJson register(String userId, String groupId, int maxLengthOfUserId) {
+	public RegisterResultJson register(String userId, String language, int maxLengthOfUserId) {
 		if (!users.exists(userId)) {
-			users.insert(new UserAccount(userId, groupId));
+			users.insert(new UserAccount(userId, language));
 			login(userId);
 			return new RegisterResultJson(true, userId);
 		}

@@ -30,10 +30,7 @@ public interface CityWalkServiceInterface {
 	boolean logout();
 
 	RegisterResultJson register(@Parameter(sample = "ayaki") String userId,
-			@Parameter(sample = "houchimin") String groupId);
-
-	RegisterResultJson register(@Parameter(sample = "ayaki") String userId,
-			@Parameter(sample = "houchimin") String groupId, int maxLengthOfUserId);
+			String language, int maxLengthOfUserId);
 
 	boolean join(@Parameter(sample = "ayaki") String userId,
 			@Parameter(sample = "waseda") String courseId);

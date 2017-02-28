@@ -1,4 +1,8 @@
 var MAX_LENGTH_OF_USER_ID = 8;
+var uiMessages = {
+  failToSignup: "サインアップ失敗",
+  faitToSignupNotice: "1文字以上8文字以下で入力して下さい",
+}
 
 var registerFunc = function() {
   if (getUserId()) {
@@ -19,23 +23,20 @@ var registerFunc = function() {
     }
   });
 
-  var courseId = parseUri(location).anchor;
   var userId = $('#user-id').val().trim();
-  var groupId = $('#group-id').val().trim();
+  var language = parseUri(location).queryKey.lang;
 
-  for (var i = 0; i < $('input').size(); i++) {
-    if (!$('input')[i].checkValidity()) {
-      swalAlert('サインアップ失敗', "1文字以上8文字以下で入力して下さい");
-      return;
-    }
+  if (userId < 1 || 8 < userId) {
+    swalAlert(uiMessages.failToSignup, uiMessages.failToSignupNotice);
+    return;
   }
 
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "register", [userId, groupId,
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "register", [userId, language,
       MAX_LENGTH_OF_USER_ID], function(data) {
     if (data.result) {
       if (data.result.success) {
         setUserId(userId);
-        setGroupId(groupId);
+        setLanguage(language);
         location.href = "courses.html";
       } else {
         var recommendedUserId = data.result.recommendedUserId;
@@ -55,6 +56,12 @@ $(function() {
     location.href = 'login.html';
     return;
   }
+  if (!parseUri(location).queryKey || !parseUri(location).queryKey.lang) {
+    var lang = getLanguage() ? getLanguage() : "en";
+    location.href = 'signup.html?lang=' + lang;
+    return;
+  }
+
   $("#nav-menu").hide();
   $('#register-btn').on('click', registerFunc);
 

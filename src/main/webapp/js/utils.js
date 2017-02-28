@@ -3,6 +3,7 @@ var KEY_CITY_WALK_DATA = "city_walk_data";
 var KEY_CITY_WALK_DATA_DATE = "city_walk_data_date";
 var KEY_USER_ID = "user_id";
 var KEY_GROUP_ID = "group_id";
+var KEY_LANGUAGE = "language";
 var KEY_COURSE_ID = "checkpoint_group_id";
 var KEY_CATEGORY_DEPTH = "category_depth";
 var KEY_MAX_CATEGORY_DEPTH = "max_category_depth";
@@ -283,6 +284,13 @@ function setUserId(val) {
 }
 function getUserId() {
   return getItem(KEY_USER_ID);
+}
+
+function setLanguage(val) {
+  setItem(KEY_LANGUAGE, val);
+}
+function getLanguage() {
+  return getItem(KEY_LANGUAGE);
 }
 
 function setGroupId(val) {

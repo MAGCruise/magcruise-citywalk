@@ -1,6 +1,7 @@
 package org.magcruise.citywalk.jaxrs;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.ws.rs.Path;
@@ -28,6 +29,14 @@ public class CityWalkView extends JaxrsView {
 			}
 
 			if (containsNoAuthPathElements(noAuthPathElements, filePathFromViewRoot)) {
+				if (filePathFromViewRoot.equals("/signup.html")) {
+					ThymeleafModel model = new ThymeleafModel();
+					Locale lang = params.get("lang") != null
+							? Locale.forLanguageTag(params.get("lang")[0]) : Locale.US;
+					model.setLocale(lang);
+					return createView(filePathFromViewRoot, model);
+				}
+
 				return createView(filePathFromViewRoot, new ThymeleafModel());
 			}
 
@@ -35,7 +44,8 @@ public class CityWalkView extends JaxrsView {
 				return createView(filePathFromViewRoot, new ThymeleafModel());
 			} else {
 				response.sendRedirect(
-						getServletUrl() + "/login.html?msg=nologin&redirect=" + getFullRequestUrl());
+						getServletUrl() + "/login.html?msg=nologin&redirect="
+								+ getFullRequestUrl());
 				return createView("/login.html", new ThymeleafModel());
 			}
 		} catch (Exception e) {

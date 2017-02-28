@@ -1,10 +1,10 @@
 package org.magcruise.citywalk.model.relation;
 
 import org.magcruise.citywalk.model.row.Entry;
-import org.magcruise.citywalk.model.row.UserAccount;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
 import org.nkjmlab.util.db.RelationalModel;
+import org.nkjmlab.webui.common.user.model.UserAccount;
 
 public class EntriesTable extends RelationalModel<Entry> {
 
@@ -25,7 +25,7 @@ public class EntriesTable extends RelationalModel<Entry> {
 
 	public boolean exists(String userId) {
 		UserAccount user = new UserAccount();
-		user.setId(userId);
+		user.setUserId(userId);
 		return getClient().exists(user);
 	}
 

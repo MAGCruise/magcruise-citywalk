@@ -88,12 +88,6 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	}
 
 	@Override
-	public RegisterResultJson register(String userId, String groupId) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-
-	@Override
 	public boolean logout() {
 		// TODO 自動生成されたメソッド・スタブ
 		return false;
@@ -106,7 +100,7 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 	}
 
 	@Override
-	public RegisterResultJson register(String userId, String groupId, int maxLengthOfUserId) {
+	public RegisterResultJson register(String userId, String language, int maxLengthOfUserId) {
 		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
