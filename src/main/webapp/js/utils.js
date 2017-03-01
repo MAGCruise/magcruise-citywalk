@@ -396,14 +396,20 @@ function swalAlert(title, text, type, callback) {
   }, callback);
 }
 
-var KEY_REWARD_MESSAGES = "key_reward_messages";
+var KEY_RANKING = "ranking";
+var KEY_NOTIFIED_BADGES = "notified_badges";
 
 function getRewardMessage() {
   return getItem(KEY_REWARD_MESSAGES) ? getItem(KEY_REWARD_MESSAGES) : "";
 }
 
-function setRewardMessage(msg) {
-  setItem(KEY_REWARD_MESSAGES, msg);
+function popRewardMessage() {
+  var msg = '<s class="glyphicon glyphicon-info-sign" /> ' + "Score ranking : No. "
+          + data.result.rank;
+  if (data.result && data.result.badges.length > 0) {
+    addItems(KEY_NOTIFIED_BADGES, data.result.badges);
+  }
+
 }
 
 var postActivitiesFunc = function() {
@@ -412,11 +418,10 @@ var postActivitiesFunc = function() {
   removeItem(KEY_ACTIVITIES);
   activities.forEach(function(activity) {
     new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [activity], function(data) {
-      var msg = '<s class="glyphicon glyphicon-info-sign" /> ' + "現在の順位：" + data.result.rank + "位";
+      setItem(KEY_RANKING, data.result.rank);
       if (data.result && data.result.badges.length > 0) {
-        msg += "<br>バッジ獲得：" + data.result.badges;
+        addItems(KEY_NOTIFIED_BADGES, data.result.badges);
       }
-      setRewardMessage(msg);
     }, function(data, textStatus, errorThrown) {
       addItems(KEY_ACTIVITIES, [activity]);
     })).rpc();
@@ -460,7 +465,7 @@ function updateInitialDataIfNeeded(courseId) {
           [getCityWalkDataDate()], function(data) {
             if (data.result) {
               var req = new JsonRpcRequest(getBaseUrl(), "getInitialData",
-                      [courseId, gatLanguage()], function(data) {
+                      [courseId, getLanguage()], function(data) {
                         saveCityWalkData(data.result);
                       });
               req.timeout = 20000;
