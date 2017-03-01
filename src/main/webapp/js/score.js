@@ -6,10 +6,10 @@ $(function() {
 
             initNames();
             initRankingsView(rankings, false); // isGroup:false->個人
+            initMyRankingView(myRanking);
 
             // var myGroupRanking = data.result.groupRank;
             // var groupRankings = data.result.groupRanking;
-            // initMyRankingView(myRanking);
             // initMyGroupRankingView(myGroupRanking);
             // initRankingsView(groupRankings, true);
 
@@ -66,7 +66,7 @@ function initRankingsView(rankings, isGroup) {
               + ptMarginTop + 'px">' + ranking.score + 'pt</div>');
       $('#group-rankings').append(listItem);
     } else {
-      listItem.html(html + ranking.name + ' さん' + '<div class="pull-right" style="margin-top: '
+      listItem.html(html + ranking.name + '<div class="pull-right" style="margin-top: '
               + ptMarginTop + 'px">' + ranking.score + 'pt</div>');
       $('#rankings').append(listItem);
     }

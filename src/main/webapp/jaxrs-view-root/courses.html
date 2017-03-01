@@ -6,6 +6,9 @@
 <title>Course</title>
 <script src="../js/courses.js"></script>
 </head>
+<script th:inline="javascript">
+var currentUser = [[${currentUser}]];
+</script>
 <body>
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>

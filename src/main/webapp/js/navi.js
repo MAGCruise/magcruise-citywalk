@@ -104,17 +104,17 @@ function showCheckinLogs() {
           data) {
     if (data.result.length == 0) { return; }
     console.log(data);
-    $('#btn-checkin-log').text(data.result.length + "人がチェックイン");
+    $('#btn-checkin-log').text(data.result.length + " user checked in");
     $('#btn-checkin-log').prop("disabled", false);
     $('#btn-checkin-log').on(
             'click',
             function(e) {
               var msg = "";
               data.result.forEach(function(a) {
-                msg += "<span class='green'>" + a.userId + "さん</span> ("
+                msg += "<span class='green'>" + a.userId + "</span> ("
                         + toFormattedShortDate(a.createdAt) + ")<br>";
               });
-              swalAlert("チェックインしたユーザ", msg, "", function() {
+              swalAlert("", msg, "", function() {
               });
             });
   }, function(data, textStatus, errorThrown) {
@@ -238,8 +238,8 @@ function initMap() {
     });
   });
 
-  createMapControlUI(map, "目的地", "10px", google.maps.ControlPosition.LEFT_TOP).addEventListener(
-          'click', function() {
+  createMapControlUI(map, "Checkpoint", "10px", google.maps.ControlPosition.LEFT_TOP)
+          .addEventListener('click', function() {
             fitBoundsAndZoom(map, [{
               lat: ePos.lat(),
               lon: ePos.lng()
@@ -281,13 +281,13 @@ function initMakers() {
 
       infoWindow = new google.maps.InfoWindow({
         content: "<span class='green'>" + checkpoint.name + "</span> (" + checkpoint.place + ")"
-                + "<br><span class='balloon-description'>カテゴリ： </span>" + '<a href="'
+                + "<br><span class='balloon-description'>Category： </span>" + '<a href="'
                 + "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category)
                 + "&selected-id=" + encodeURIComponent(checkpoint.id) + '&no-refresh=true">'
                 + checkpoint.category + "</a>" + '<img src="' + imgSrc
                 + '" class="pull-right checkpoint-img" style="max-width: 70px;margin-left: 2em;">'
                 + "<div class='balloon-description'>" + checkpoint.label + "<br>"
-                + '<a id="nav-start-in-list" class="btn btn-success btn-sm">ここに行く</a>' + "</div>",
+                + '<a id="nav-start-in-list" class="btn btn-success btn-sm">Go!</a>' + "</div>",
         maxWidth: 200,
         disableAutoPan: true,
       });
@@ -322,16 +322,16 @@ function watchCurrentPosition() {
     $('#initial-msg').hide();
     $('#distance-wrapper').show();
     if (!cPos) {
-      createMapControlUI(map, "目的地～現在地", "10px", google.maps.ControlPosition.TOP_LEFT)
-              .addEventListener('click', function() {
-                fitBoundsAndZoom(map, [{
-                  lat: ePos.lat(),
-                  lon: ePos.lng()
-                }, {
-                  lat: cPos.lat(),
-                  lon: cPos.lng()
-                }], cPos, DEFAULT_FOCUS_ZOOM);
-              });
+      createMapControlUI(map, "From here to checkpoint", "10px",
+              google.maps.ControlPosition.TOP_LEFT).addEventListener('click', function() {
+        fitBoundsAndZoom(map, [{
+          lat: ePos.lat(),
+          lon: ePos.lng()
+        }, {
+          lat: cPos.lat(),
+          lon: cPos.lng()
+        }], cPos, DEFAULT_FOCUS_ZOOM);
+      });
 
       addMapControlUI(
               map,
