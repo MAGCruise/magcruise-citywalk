@@ -76,9 +76,9 @@ public class InitialDataFactory {
 			c.setCategory(ec.getCategory());
 			c.setDescription(ec.getDescription());
 			c.getTasks().forEach(t -> {
-				Task et = tasksTable.readByPrimaryKey("en-" + c.getId());
+				Task et = tasksTable.readByPrimaryKey("en-" + t.getId());
 				if (et == null) {
-					log.error(c.getId());
+					log.error(t.getId());
 					return;
 				}
 				t.setLabel(et.getContentObject().getLabel());
