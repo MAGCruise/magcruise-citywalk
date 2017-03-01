@@ -11,6 +11,7 @@ var DEFAULT_FOCUS_ZOOM = 17;
 var infoWindow;
 
 var uaParser = new UAParser();
+var POST_MOVEMENT_INTERVAL = 1000 * 10; // msec
 
 window.onload = function() {
   setTimeout(initMap, 300);
@@ -307,7 +308,7 @@ function watchCurrentPosition() {
     $('#initial-msg').hide();
     $('#distance-wrapper').show();
     if (!cPos) {
-      createMapControlUI(map, "From here to checkpoint", "10px",
+      createMapControlUI(map, "From Here to Checkpoint", "10px",
               google.maps.ControlPosition.TOP_LEFT).addEventListener('click', function() {
         fitBoundsAndZoom(map, [{
           lat: ePos.lat(),

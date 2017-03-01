@@ -13,8 +13,6 @@ var KEY_CHECKPOINT_PROGRESS_DIC = "checkpoint_progress_dic";
 var KEY_ACTIVITIES = "activities";
 var KEY_MOVEMENT_LIST = "movement_list";
 
-var POST_ACTIVITY_INTERVAL = 1000 * 8; // msec
-var POST_MOVEMENT_INTERVAL = 1000 * 10; // msec
 /** *********** */
 
 window.addEventListener("load", function() {
@@ -38,10 +36,6 @@ $(function() {
   setUserNameInMenu();
   setBack();
   setForward();
-  postActivitiesFunc();
-  postMovementsFunc();
-  setInterval(postActivitiesFunc, POST_ACTIVITY_INTERVAL);
-  setInterval(postMovementsFunc, POST_MOVEMENT_INTERVAL);
 });
 
 function isEnableLocalStorage() {
@@ -410,13 +404,11 @@ function getRanking() {
 function getRewardMessage() {
   var msg = [];
   if (getRanking() && JSON.parse(getRanking())) {
-    msg
-            .push('<i class="glyphicon glyphicon-info-sign" /> ' + "Score ranking : No. "
-                    + getRanking());
+    msg.push("Score ranking : No. " + getRanking());
   }
   if (getNotifiedBadges() && JSON.parse(getNotifiedBadges())) {
     if (JSON.parse(getNotifiedBadges()).length != 0) {
-      msg.push('<i class="glyphicon glyphicon-certificate" /> ' + JSON.parse(getNotifiedBadges()));
+      msg.push('<i class="glyphicon glyphicon-gift" /> ' + JSON.parse(getNotifiedBadges()));
     }
   }
   return msg.join("<br>");
@@ -433,11 +425,18 @@ var postActivitiesFunc = function() {
   removeItem(KEY_ACTIVITIES);
   activities.forEach(function(activity) {
     new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [activity], function(data) {
+      console.log(data.result);
+      console.log("ranking => " + data.result.rank);
       setItem(KEY_RANKING, data.result.rank);
       if (data.result.badges.length > 0) {
+        if (!getNotifiedBadges()) {
+          setItems(KEY_NOTIFIED_BADGES, []);
+        }
+        console.log("badges => " + data.result.badges);
         addItems(KEY_NOTIFIED_BADGES, data.result.badges);
       }
     }, function(data, textStatus, errorThrown) {
+      log.error("fail to add activity: " + textStatus + errorThrown + data);
       addItems(KEY_ACTIVITIES, [activity]);
     })).rpc();
   });

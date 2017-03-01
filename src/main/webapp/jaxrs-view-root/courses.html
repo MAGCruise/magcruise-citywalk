@@ -3,7 +3,7 @@
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <link rel="stylesheet" href="../css/courses.css" />
-<title>Course</title>
+<title th:text="#{title}">コース</title>
 <script src="../js/courses.js"></script>
 </head>
 <script th:inline="javascript">

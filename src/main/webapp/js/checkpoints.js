@@ -517,7 +517,7 @@ function getCurrentPositionAndUpdateViews() {
               }], cPos, DEFAULT_FOCUS_ZOOM);
             });
 
-    createMapControlUI(map, "From here to checkpoints", "10px",
+    createMapControlUI(map, "From Here to Checkpoints", "10px",
             google.maps.ControlPosition.TOP_LEFT).addEventListener('click', function() {
       fitBoundsAndZoom(map, getNonVisitedCheckPoints(), cPos, DEFAULT_FOCUS_ZOOM);
     });

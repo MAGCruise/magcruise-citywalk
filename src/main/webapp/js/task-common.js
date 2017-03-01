@@ -88,9 +88,8 @@ function setTaskTitle() {
 }
 
 function addActivity(task, input, isCorrect) {
-  var checkpointId = getParam("checkpoint_id");
-  var arg = {
-    checkpointId: checkpointId,
+  var activity = {
+    checkpointId: getParam("checkpoint_id"),
     lat: getParam("lat"),
     lon: getParam("lon"),
     userId: getUserId(),
@@ -106,39 +105,63 @@ function addActivity(task, input, isCorrect) {
     })
   };
 
-  addItems(KEY_ACTIVITIES, [arg]);
+  // addItems(KEY_ACTIVITIES, [activity]);
+  sendAddActivity(activity);
+}
 
-  setCheckpointProgress(checkpointId, getTaskIndex()); // 完了済みtask
-  // indexを保存
-  if (isLastTask()) {
-    addVisitedCheckPointIds(checkpointId); // 訪問済みチェックポイントに追加
-  }
-  var title = "";
-  if (isCheckin()) {
-    title = "チェックイン完了";
-    title += "<br>" + arg.score + "pt獲得しました！";
-  } else {
-    if (isCorrect) {
-      title += "<br>正解！"
-      title += "<br>" + arg.score + "pt獲得しました！";
+function sendAddActivity(activity, isCorrect) {
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [activity], function(data) {
+    var checkpointId = activity.checkpointId;
+    console.log(data.result);
+    console.log("ranking => " + data.result.rank);
+    setItem(KEY_RANKING, data.result.rank);
+    if (data.result.badges.length > 0) {
+      if (!getNotifiedBadges()) {
+        setItems(KEY_NOTIFIED_BADGES, []);
+      }
+      console.log("badges => " + data.result.badges);
+      addItems(KEY_NOTIFIED_BADGES, data.result.badges);
+    }
+
+    setCheckpointProgress(checkpointId, getTaskIndex()); // 完了済みtask
+    // indexを保存
+    if (isLastTask()) {
+      addVisitedCheckPointIds(checkpointId); // 訪問済みチェックポイントに追加
+    }
+
+    var msg = "";
+    if (isCheckin()) {
+      msg = "チェックイン完了";
+      msg += "<br>" + activity.score + "pt獲得しました！";
     } else {
-      title += "<br>不正解！";
-      if (task.taskType === "DescriptionTask") {
-        title += "<br>正解は「" + task.answerTexts.join('」，「') + "」でした．";
-      } else if (task.taskType === "SelectionTask") {
-        var answerTexts = [];
-        for (var i = 0; i < task.selections.length; i++) {
-          if (task.answerIndexes.indexOf(i) >= 0) {
-            answerTexts.push(task.selections[i]);
+      if (isCorrect) {
+        msg += "<br>正解！"
+        msg += "<br>" + activity.score + "pt獲得しました！";
+      } else {
+        msg += "<br>不正解！";
+        if (task.taskType === "DescriptionTask") {
+          msg += "<br>正解は「" + task.answerTexts.join('」，「') + "」でした．";
+        } else if (task.taskType === "SelectionTask") {
+          var answerTexts = [];
+          for (var i = 0; i < task.selections.length; i++) {
+            if (task.answerIndexes.indexOf(i) >= 0) {
+              answerTexts.push(task.selections[i]);
+            }
           }
+          msg += "<br>正解は「" + answerTexts.join('」，「') + "」でした．";
         }
-        title += "<br>正解は「" + answerTexts.join('」，「') + "」でした．";
       }
     }
-  }
-  setTimeout(function() {
-    swalAlert("", title, "info", function() {
-      location.reload();
-    })
-  }, 500);
+    setTimeout(function() {
+      swalAlert("", msg, "info", function() {
+        location.reload();
+      })
+    }, 500);
+  }, function(data, textStatus, errorThrown) {
+    log.error("fail to add activity: " + textStatus + errorThrown + data);
+    setTimeout(function() {
+      swalAlert("", "Fail to send", "error", function() {
+      })
+    }, 500);
+  })).rpc();
 }

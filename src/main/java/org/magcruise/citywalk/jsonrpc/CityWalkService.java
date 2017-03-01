@@ -72,9 +72,6 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	private BadgeDefinitionsTable badgeDefinitionsTable = new BadgeDefinitionsTable(
 			ApplicationContext.getDbClient());
 
-	private BadgeDefinitionsTable definitionsTable = new BadgeDefinitionsTable(
-			ApplicationContext.getDbClient());
-
 	private CoursesTable coursesTable = new CoursesTable(ApplicationContext.getDbClient());
 
 	@Override
@@ -174,9 +171,9 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	private List<String> calculateBadges(String userId, String courseId) {
 		List<String> result = new ArrayList<>();
-		List<Badge> alreadyHas = badges.findBy(userId, courseId, definitionsTable);
+		List<Badge> alreadyHas = badges.findBy(userId, courseId, badgeDefinitionsTable);
 
-		definitionsTable.findByCourseId(courseId).forEach(definition -> {
+		badgeDefinitionsTable.findByCourseId(courseId).forEach(definition -> {
 			for (Badge b : alreadyHas) {
 				if (definition.getId() == b.getBadgeDefinitionId()) {
 					return;
@@ -254,7 +251,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	@Override
 	public BadgeJson[] getBadges(String userId, String courseId) {
-		return badges.findBy(userId, courseId, definitionsTable).stream()
+		return badges.findBy(userId, courseId, badgeDefinitionsTable).stream()
 				.map(b -> badgeDefinitionsTable.readByPrimaryKey(b.getBadgeDefinitionId()))
 				.distinct()
 				.map(b -> new BadgeJson(b.getName(), b.getImgSrc())).collect(Collectors.toList())
