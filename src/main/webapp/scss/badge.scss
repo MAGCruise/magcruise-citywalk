@@ -8,15 +8,17 @@
     border: 1px solid #DDDDDD;
     box-shadow: 0px 1px 1px 0px rgba(198,198,198,0.50);
     text-align: center;
+    padding: 0.5em;
     img {
       margin-top: $standardMargin;
-      max-width: 90%;
-      max-height: 90%;
+      width: 90%;
+      height: 90%;
     }
     .name {
       font-size: 12px;
       margin-top: $standardMargin;
       color: $greenColor;
+      height: 4em;
     }
   }
 }
