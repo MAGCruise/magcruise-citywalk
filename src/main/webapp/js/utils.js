@@ -415,9 +415,11 @@ function popRewardMessage() {
                     + getRanking());
     setItem(KEY_RANKING, null);
   }
-  if (getItems(getNotifiedBadges()) && JSON.parse(getNotifiedBadges())) {
-    msg.push('<s class="glyphicon glyphicon-certificate" /> ' + JSON.parse(getNotifiedBadges()));
-    setItems(KEY_NOTIFIED_BADGES, null);
+  if (getNotifiedBadges() && JSON.parse(getNotifiedBadges())) {
+    if (JSON.parse(getNotifiedBadges()).length != 0) {
+      msg.push('<s class="glyphicon glyphicon-certificate" /> ' + JSON.parse(getNotifiedBadges()));
+      setItems(KEY_NOTIFIED_BADGES, []);
+    }
   }
   return msg.join("<br>");
 }

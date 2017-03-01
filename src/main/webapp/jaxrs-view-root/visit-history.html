@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
-<title>活動記録</title>
+<title th:text="#{title}">活動記録</title>
 <link rel="stylesheet" href="../css/visit-history.css" />
 <script src="../js/checkpoint-utils.js"></script>
 <script src="../js/visit-history.js"></script>
@@ -17,7 +17,7 @@
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row top-margin">
       <div id="checkpoints" class="col-xs-12">
-        <p id="initial-msg" style="display: none">チェックインとタスクを完了したチェックポイントはありません</p>
+        <p id="initial-msg" style="display: none"></p>
       </div>
     </div>
   </div>

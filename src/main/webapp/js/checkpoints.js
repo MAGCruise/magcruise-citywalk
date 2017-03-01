@@ -417,7 +417,7 @@ function selectCheckpoint(checkpoint) {
   // マーカータップ時のバルーンの初期化
   infoWindow = new google.maps.InfoWindow({
     content: "<span class='green'>" + checkpoint.name + "</span> (" + checkpoint.place + ")"
-            + "<br><span class='balloon-description'>カテゴリ： </span>" + '<a href="'
+            + "<br><span class='balloon-description'>Category： </span>" + '<a href="'
             + "./checkpoints.html#" + "?category=" + encodeURIComponent(checkpoint.category)
             + "&selected-id=" + encodeURIComponent(checkpoint.id) + '">' + checkpoint.category
             + "</a>" + '<img src="' + imgSrc
@@ -501,10 +501,10 @@ function getCurrentPositionAndUpdateViews() {
               }], cPos, DEFAULT_FOCUS_ZOOM);
             });
 
-    createMapControlUI(map, "現在地～<br>チェックポイント周辺", "10px", google.maps.ControlPosition.TOP_LEFT)
-            .addEventListener('click', function() {
-              fitBoundsAndZoom(map, getNonVisitedCheckPoints(), cPos, DEFAULT_FOCUS_ZOOM);
-            });
+    createMapControlUI(map, "From here to checkpoints", "10px",
+            google.maps.ControlPosition.TOP_LEFT).addEventListener('click', function() {
+      fitBoundsAndZoom(map, getNonVisitedCheckPoints(), cPos, DEFAULT_FOCUS_ZOOM);
+    });
   }, function(error) {
     console.error(error);
     enableGps = false;

@@ -12,7 +12,7 @@
 <script src="../js/map-utils.js"></script>
 <script src="../js/task-common.js"></script>
 <script src="../js/navi.js"></script>
-<title>ナビ</title>
+<title></title>
 </head>
 <body>
   <div class="container">
@@ -60,7 +60,7 @@
         <div id="error-msg-area" class="alert alert-warning" style="display: none; padding: 0 1em;">
           Current <span class="gps-error-msg">location</span><span class="error-msg-splitter"
             style="display: none;">/</span><span class="compass-error-msg">direction</span> is
-          unavalable<span class="gps-error-msg"><a class="alert-link"
+          unavailable<span class="gps-error-msg"><a class="alert-link"
             href="troubleshooting.html#gps-settings"> <!-- <i class="glyphicon glyphicon-hand-right"></i>
               位置情報サービスの設定-->
           </a></span><span class="error-msg-splitter" style="display: none;">/</span><span
@@ -98,7 +98,7 @@
     </div>
     <div class="row bottom-sm">
       <div class="col-xs-12">
-        <p id="compass-notice" th:text=#{notice-compass}>コンパスは目的地の大まかな方向を指します．電波が届きにくい場所では正常に動作しません．</p>
+        <p id="compass-notice" th:text=#{noticeCompass}>コンパスは目的地の大まかな方向を指します．電波が届きにくい場所では正常に動作しません．</p>
       </div>
     </div>
     <div class="row">

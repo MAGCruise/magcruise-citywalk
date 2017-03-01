@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
-<title>スコア / 順位</title>
+<title th:text="#{title}"></title>
 <script src="../js/score.js"></script>
 <link rel="stylesheet" href="../css/score.css" />
 </head>
