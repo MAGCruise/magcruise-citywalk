@@ -3,7 +3,7 @@
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <link rel="stylesheet" href="../css/courses.css" />
-<title>動作環境チェック</title>
+<title th:text=#{title}>動作環境チェック</title>
 <script src="../js/lib/ua-parser.min.js"></script>
 <script src="../js/check-environment.js"></script>
 </head>
@@ -12,25 +12,25 @@
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
       <div class="col-xs-12">
-        <h4>動作環境チェック</h4>
-        <p>
+        <h4 th:text=#{title}>動作環境チェック</h4>
+        <p th:utext=#{description}>
           動作環境のチェックをします．<span class="label label-danger">ERROR</span>が表示される場合，このアプリケーションを利用できません．<span
             class="label label-warning">WARN</span>が表示される場合，一部の機能が利用できない可能性があります．
         </p>
-        <h4>ブラウザ/OSのチェック</h4>
-        <p id="os-browser">チェック中．．．</p>
-        <h4>ブラウザ設定のチェック</h4>
-        <p id="localStorage">チェック中．．．</p>
-        <h4>位置情報サービスのチェック</h4>
-        <p id="gps">チェック中．．．</p>
-        <h4>電子コンパスのチェック</h4>
-        <p id="compass">チェック中．．．</p>
-        <h4>位置情報の精度向上のヒント</h4>
+        <h4>Browser/OS</h4>
+        <p id="os-browser">wait．．．</p>
+        <h4>Settings of browser</h4>
+        <p id="localStorage">wait．．．</p>
+        <h4>Location information service</h4>
+        <p id="gps">wait．．．</p>
+        <h4>Electronic compass</h4>
+        <p id="compass">wait．．．</p>
+        <h4>Hint</h4>
         <div class="alert alert-info">
-          <span class="label label-info">HINT</span> WiFiをオンにするだけで位置情報サービスの精度が上がることがあります．
+          <span class="label label-info">HINT</span> <span th:text=#{wifiNotice}>WiFiをオンにすると位置情報サービスの精度が上がります．</span>
         </div>
         <button type="button" id="btn-join"
-          class="btn btn-primary-magc btn-lg btn-block bottom-margin">チュートリアルへ</button>
+          class="btn btn-primary-magc btn-lg btn-block bottom-margin">次へ</button>
       </div>
     </div>
   </div>

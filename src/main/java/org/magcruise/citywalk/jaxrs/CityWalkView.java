@@ -29,7 +29,8 @@ public class CityWalkView extends JaxrsView {
 			}
 
 			if (containsNoAuthPathElements(noAuthPathElements, filePathFromViewRoot)) {
-				if (filePathFromViewRoot.equals("/signup.html")) {
+				if (filePathFromViewRoot.equals("/signup.html")
+						|| filePathFromViewRoot.equals("/check-environment.html")) {
 					ThymeleafModel model = new ThymeleafModel();
 					Locale lang = params.get("lang") != null
 							? Locale.forLanguageTag(params.get("lang")[0]) : Locale.US;

@@ -6,14 +6,14 @@ $(function() {
 
   $("#btn-join").on('click', function() {
     if (!isEnableLocalStorage()) { return; }
-    location.href = "tutorial.html"
+    location.href = "signup.html"
   });
 
   checkDevice();
   if (isEnableLocalStorage()) {
     $("#localStorage").html(
             $('<div class="alert alert-success">').html(
-                    '<span class="label label-success">OK</span> ' + "ブラウザ設定は正常です．"));
+                    '<span class="label label-success">OK</span> '));
   } else {
     $("#localStorage")
             .html(
@@ -49,11 +49,11 @@ function onHeadingChange(event) {
     $("#compass").html(
             $('<div class="alert alert-warning">').html(
                     '<span class="label label-warning">WARN</span> '
-                            + "電子コンパスを利用できないため，コンパスによるナビゲーションはできません．"));
+                            + "Fail to use electronic compass."));
   } else {
     $("#compass").html(
             $('<div class="alert alert-success">').html(
-                    '<span class="label label-success">OK</span> ' + "電子コンパスを利用できます．"));
+                    '<span class="label label-success">OK</span> '));
   }
 
 }
@@ -64,8 +64,7 @@ function checkGPS() {
                   function(pos) {
                     $("#gps").html(
                             $('<div class="alert alert-success">').html(
-                                    '<span class="label label-success">OK</span> '
-                                            + "位置情報サービスを利用できます．"));
+                                    '<span class="label label-success">OK</span> '));
                   },
                   function(error) {
                     $("#gps")
@@ -133,12 +132,12 @@ function checkDevice() {
                             .html(
                                     '<span class="label label-warning">WARN</span> '
                                             + osAndBrowser
-                                            + "は推奨ブラウザ/OSではないため，正しく動作しない可能性があります．"
+                                            + " is not recommended."
                                             + '<i class="glyphicon glyphicon-hand-right"></i> '
-                                            + '<a class="alert-link" href="troubleshooting.html#recommended-environment">推奨ブラウザ/OS</a> を見る．'));
+                                            + '<a class="alert-link" href="troubleshooting.html#recommended-environment">Show recomendded enviroment</a>．'));
   } else {
     $("#os-browser").html(
             $('<div class="alert alert-success">').html(
-                    '<span class="label label-success">OK</span> ' + osAndBrowser + "は推奨環境です．"));
+                    '<span class="label label-success">OK</span> ' + osAndBrowser));
   }
 }
