@@ -176,23 +176,23 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		List<String> result = new ArrayList<>();
 		List<Badge> alreadyHas = badges.findBy(userId, courseId, definitionsTable);
 
-		definitionsTable.findByCourseId(courseId).forEach(cond -> {
+		definitionsTable.findByCourseId(courseId).forEach(definition -> {
 			for (Badge b : alreadyHas) {
-				if (cond.getId() == b.getBadgeDefinitionId()) {
+				if (definition.getId() == b.getBadgeDefinitionId()) {
 					return;
 				}
 			}
-			if (cond.getType().equals("point")) {
+			if (definition.getType().equals("point")) {
 				if (verifiedActivities.getScore(userId, courseId) >= Integer
-						.parseInt(cond.getValue())) {
-					result.add(cond.getName());
-					badges.insert(new Badge(userId, cond.getId()));
+						.parseInt(definition.getValue())) {
+					result.add(definition.getName());
+					badges.insert(new Badge(userId, definition.getId()));
 				}
 			} else {
 				if (verifiedActivities.getNumberOfCheckInInCategory(userId, courseId,
-						cond.getType()) >= Integer.parseInt(cond.getValue())) {
-					result.add(cond.getName());
-					badges.insert(new Badge(userId, cond.getId()));
+						definition.getType()) >= Integer.parseInt(definition.getValue())) {
+					result.add(definition.getName());
+					badges.insert(new Badge(userId, definition.getId()));
 				}
 			}
 		});
@@ -256,6 +256,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	public BadgeJson[] getBadges(String userId, String courseId) {
 		return badges.findBy(userId, courseId, definitionsTable).stream()
 				.map(b -> badgeDefinitionsTable.readByPrimaryKey(b.getBadgeDefinitionId()))
+				.distinct()
 				.map(b -> new BadgeJson(b.getName(), b.getImgSrc())).collect(Collectors.toList())
 				.toArray(new BadgeJson[0]);
 	}
