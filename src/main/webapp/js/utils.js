@@ -399,17 +399,18 @@ function swalAlert(title, text, type, callback) {
 var KEY_RANKING = "ranking";
 var KEY_NOTIFIED_BADGES = "notified_badges";
 
-function getRewardMessage() {
-  return getItem(KEY_REWARD_MESSAGES) ? getItem(KEY_REWARD_MESSAGES) : "";
-}
-
 function popRewardMessage() {
-  var msg = '<s class="glyphicon glyphicon-info-sign" /> ' + "Score ranking : No. "
-          + data.result.rank;
-  if (data.result && data.result.badges.length > 0) {
-    addItems(KEY_NOTIFIED_BADGES, data.result.badges);
+  var msg = "";
+  if (getItem(KEY_RANKING) && JSON.parse(getItem(KEY_RANKING))) {
+    msg += '<s class="glyphicon glyphicon-info-sign" /> ' + "Score ranking : No. "
+            + getItem(KEY_RANKING);
+    setItem(KEY_RANKING, null);
   }
-
+  if (getItems(KEY_NOTIFIED_BADGES) && JSON.parse(getItem(KEY_RANKING))) {
+    msg += '<br><s class="glyphicon glyphicon-certificate" /> ' + getItems(KEY_RANKING);
+    setItems(KEY_NOTIFIED_BADGES, null);
+  }
+  return msg;
 }
 
 var postActivitiesFunc = function() {

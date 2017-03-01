@@ -124,8 +124,9 @@ function showCheckinLogs() {
 }
 
 function showReward() {
-  if (!getRewardMessage()) { return; }
-  var info = $('<div>').html(getRewardMessage());
+  var msg = popRewardMessage();
+  if (msg.length == 0) { return; }
+  var info = $('<div>').html(msg);
   $('#notification-msg-area').append(info);
   $('#notification-msg-area').slideDown(500);
   setTimeout(function() {

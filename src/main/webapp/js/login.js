@@ -3,6 +3,7 @@ function isNoLogin() {
 }
 var loginFunc = function() {
   var userId = $('#user-id').val();
+  setUserId(userId);
   var client = new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "login", [userId],
           function(data) {
             if (data.result) {

@@ -76,19 +76,6 @@
     top: 0;
   }
 
-  #current-position {
-    cursor: pointer;
-    width: 40px;
-    height: 30px;
-    padding-right: 10px;
-  }
-
-  #nav-start {
-    position: absolute;
-    height: 50px;
-    right: 50px;
-    bottom: 10px;
-  }
 }
 
 #error-msg-area {
@@ -98,7 +85,7 @@
 #notification-msg-area {
   margin: 0;
   position: fixed;
-  bottom: 1em;
+  top: 0;
   left: 10%;
   z-index: 100;
   width: 80%;
