@@ -2,109 +2,88 @@
   margin: 10px;
   color: #38A997;
   letter-spacing: 0.3px;
-  font-size: 36px;
-}
+  font-size: 36px; }
 
 #distance-prefix {
   margin: 10px 5px 10px 10px;
   color: #97a6a3;
-  letter-spacing: 0.3px;
-}
+  letter-spacing: 0.3px; }
 
 #compass-notice {
-  color: #97a6a3;
-}
+  color: #97a6a3; }
 
 #btn-next {
   margin: 10px;
   padding-left: 10px;
-  padding-right: 10px;
-}
+  padding-right: 10px; }
 
 #compass {
   width: 100%;
-  max-width: 200px;
-}
+  max-width: 200px; }
 
 #notification .item {
   margin-bottom: 1px;
   background: #FFFFFF;
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.17);
   font-size: 12px;
-  color: #999;
-}
-
-#notification .item .name {
-  color: #38A997;
-  margin-left: 10px;
-  margin-right: 5px;
-}
+  color: #999; }
+  #notification .item .name {
+    color: #38A997;
+    margin-left: 10px;
+    margin-right: 5px; }
 
 #checkpoint-info {
   border-bottom: 1px solid #DDD;
   background: white;
   box-shadow: 0px 1px 1px 0px rgba(198, 198, 198, 0.5);
   max-height: 160px;
-  overflow-y: scroll;
-}
-
-#checkpoint-info img {
-  max-height: 160px;
-}
-
-#checkpoint-info .name {
-  color: #999;
-}
-
-#checkpoint-info .place {
-  color: #38A997;
-}
+  overflow-y: scroll; }
+  #checkpoint-info img {
+    max-height: 160px; }
+  #checkpoint-info .name {
+    color: #999; }
+  #checkpoint-info .place {
+    color: #38A997; }
 
 #map-box {
-  height: 280px;
-}
-
-#map-box #map {
-  height: auto;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-}
+  height: 280px; }
+  #map-box #map {
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0; }
+  #map-box #current-position {
+    cursor: pointer;
+    width: 40px;
+    height: 30px;
+    padding-right: 10px; }
 
 #error-msg-area {
-  margin: 0;
-}
+  margin: 0; }
 
 #notification-msg-area {
   margin: 0;
   position: fixed;
   top: 0;
-  left: 10%;
+  left: 15%;
   z-index: 100;
-  width: 80%;
-  text-align: center;
-}
+  width: 70%;
+  text-align: center; }
 
 #nav-start-in-list {
   background: #31aa97;
   color: white;
-  border: none;
-}
-
-#nav-start-in-list:hover, #nav-start-in-list:focus {
-  background: #31aa97;
-  color: white;
-  border: none;
-}
-
-#nav-start-in-list:active {
-  background: #31aa97;
-  color: white;
-  border: none;
-}
+  border: none; }
+  #nav-start-in-list:hover, #nav-start-in-list:focus {
+    background: #31aa97;
+    color: white;
+    border: none; }
+  #nav-start-in-list:active {
+    background: #31aa97;
+    color: white;
+    border: none; }
 
 .balloon-description {
-  color: #999;
-}
+  color: #999; }

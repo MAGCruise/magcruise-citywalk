@@ -75,7 +75,12 @@
     right: 0;
     top: 0;
   }
-
+  #current-position {
+    cursor: pointer;
+    width: 40px;
+    height: 30px;
+    padding-right: 10px;
+  }
 }
 
 #error-msg-area {
@@ -86,9 +91,9 @@
   margin: 0;
   position: fixed;
   top: 0;
-  left: 10%;
+  left: 15%;
   z-index: 100;
-  width: 80%;
+  width: 70%;
   text-align: center;
 }
 

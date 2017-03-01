@@ -399,18 +399,27 @@ function swalAlert(title, text, type, callback) {
 var KEY_RANKING = "ranking";
 var KEY_NOTIFIED_BADGES = "notified_badges";
 
+function getNotifiedBadges() {
+  return getItem(KEY_NOTIFIED_BADGES);
+}
+
+function getRanking() {
+  return getItem(KEY_RANKING);
+}
+
 function popRewardMessage() {
-  var msg = "";
-  if (getItem(KEY_RANKING) && JSON.parse(getItem(KEY_RANKING))) {
-    msg += '<s class="glyphicon glyphicon-info-sign" /> ' + "Score ranking : No. "
-            + getItem(KEY_RANKING);
+  var msg = [];
+  if (getRanking() && JSON.parse(getRanking())) {
+    msg
+            .push('<s class="glyphicon glyphicon-info-sign" /> ' + "Score ranking : No. "
+                    + getRanking());
     setItem(KEY_RANKING, null);
   }
-  if (getItems(KEY_NOTIFIED_BADGES) && JSON.parse(getItem(KEY_RANKING))) {
-    msg += '<br><s class="glyphicon glyphicon-certificate" /> ' + getItems(KEY_RANKING);
+  if (getItems(getNotifiedBadges()) && JSON.parse(getNotifiedBadges())) {
+    msg.push('<s class="glyphicon glyphicon-certificate" /> ' + JSON.parse(getNotifiedBadges()));
     setItems(KEY_NOTIFIED_BADGES, null);
   }
-  return msg;
+  return msg.join("<br>");
 }
 
 var postActivitiesFunc = function() {
