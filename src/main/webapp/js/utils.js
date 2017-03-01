@@ -366,7 +366,7 @@ function toFormattedShortDate(milliseconds) {
 
 /** SweetAlert * */
 function confirmSubmission(callback) {
-  swalConfirm("送信しますか？", "", null, callback);
+  swalConfirm("", "Submit?", null, callback);
 }
 
 function swalConfirm(title, text, type, callback) {

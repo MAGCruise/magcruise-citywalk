@@ -20,8 +20,9 @@ $(function() {
     $('#file-input').click();
   });
 
+  // この写真を送信しますか？
   $("#btn-next").on('click', function() {
-    swalConfirm("確認", "この写真を送信しますか？", "info", function(e) {
+    swalConfirm("", "Submit this picture?", "info", function(e) {
       var imgData = $("#img-preview").attr('src');
       addActivity(task, imgData, true);
     });
@@ -30,7 +31,7 @@ $(function() {
 
 function handleFiles(files) {
   if (files == null || files.length == 0 || files[0] == null) {
-    alert("画像を取得できませんでした");
+    alert("Fail to get image."); // 画像を取得できませんでした
     return;
   }
   var file = files[0];

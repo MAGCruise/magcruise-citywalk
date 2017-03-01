@@ -84,7 +84,7 @@ function moveToNextPage() {
 }
 
 function setTaskTitle() {
-  document.title = isCheckin() ? "チェックイン" : "タスク";
+  document.title = isCheckin() ? "Check-in" : "Task";
 }
 
 function addActivity(task, input, isCorrect) {
@@ -106,7 +106,7 @@ function addActivity(task, input, isCorrect) {
   };
 
   // addItems(KEY_ACTIVITIES, [activity]);
-  sendAddActivity(activity);
+  sendAddActivity(activity, isCorrect);
 }
 
 function sendAddActivity(activity, isCorrect) {
@@ -130,17 +130,18 @@ function sendAddActivity(activity, isCorrect) {
     }
 
     var msg = "";
+    var title = "";
     if (isCheckin()) {
-      msg = "チェックイン完了";
-      msg += "<br>" + activity.score + "pt獲得しました！";
+      title = "<i class='glyphicon glyphicon-thumbs-up'/> Check-in!";
+      msg = +activity.score + "pt";
     } else {
       if (isCorrect) {
-        msg += "<br>正解！"
-        msg += "<br>" + activity.score + "pt獲得しました！";
+        title = "<br><i class='glyphicon glyphicon-thumbs-up'/> Good answer!"
+        msg = activity.score + "pt";
       } else {
-        msg += "<br>不正解！";
+        title = "Bad answer...";
         if (task.taskType === "DescriptionTask") {
-          msg += "<br>正解は「" + task.answerTexts.join('」，「') + "」でした．";
+          msg = 'Correct answer: "' + task.answerTexts.join('"，"') + '"．';
         } else if (task.taskType === "SelectionTask") {
           var answerTexts = [];
           for (var i = 0; i < task.selections.length; i++) {
@@ -148,12 +149,12 @@ function sendAddActivity(activity, isCorrect) {
               answerTexts.push(task.selections[i]);
             }
           }
-          msg += "<br>正解は「" + answerTexts.join('」，「') + "」でした．";
+          msg = 'Correct answer: "' + answerTexts.join('"，"') + '"．';
         }
       }
     }
     setTimeout(function() {
-      swalAlert("", msg, "info", function() {
+      swalAlert(title, msg, "info", function() {
         location.reload();
       })
     }, 500);
