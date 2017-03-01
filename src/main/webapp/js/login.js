@@ -1,5 +1,5 @@
 function isNoLogin() {
-  return parseUri(location).queryKey.msg == "nologin";
+  return parseUri(location).queryKey.msg === "nologin";
 }
 var loginFunc = function() {
   var userId = $('#user-id').val();
@@ -21,7 +21,7 @@ var loginFunc = function() {
 };
 
 $(function() {
-  if (!getUserId()) {
+  if (!getUserId() && !parseUri(location).queryKey.msg === "admin") {
     location.href = 'signup.html';
     return;
   }
@@ -32,6 +32,7 @@ $(function() {
 
   $("#nav-menu").hide();
   $('#user-id').val(getUserId());
+  $('#user-id').prop("disabled", false);
   $('#login-btn').on('click', loginFunc);
   $(".form input").on('keypress', function(ev) {
     if ((ev.which && ev.which === 13) || (ev.keyCode && ev.keyCode === 13)) {

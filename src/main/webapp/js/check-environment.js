@@ -7,7 +7,7 @@ $(function() {
   $("#btn-join").on('click', function() {
     if (!isEnableLocalStorage()) { return; }
     var lang = "en";
-    if (!parseUri(location).queryKey || !parseUri(location).queryKey.lang) {
+    if (!parseUri(location).queryKey.lang) {
       lang = getLanguage() ? getLanguage() : "en";
     } else {
       lang = parseUri(location).queryKey.lang;

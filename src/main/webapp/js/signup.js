@@ -56,7 +56,7 @@ $(function() {
     location.href = 'login.html';
     return;
   }
-  if (!parseUri(location).queryKey || !parseUri(location).queryKey.lang) {
+  if (!parseUri(location).queryKey.lang) {
     var lang = getLanguage() ? getLanguage() : "en";
     location.href = 'signup.html?lang=' + lang;
     return;
