@@ -49,8 +49,24 @@ window.onload = function() {
     currentPositionMarker.setMap(map);
     getCurrentPositionAndUpdateViews();
   }
+  showReward();
 
   setTimeout(initMap, 300);
+}
+
+function showReward() {
+  var msg = getRewardMessage();
+  if (msg.length == 0) { return; }
+  var info = $('<div>').html(msg);
+  $('#notification-msg-area').append(info);
+  $('#notification-msg-area').slideDown(500);
+  setTimeout(function() {
+    $('#notification-msg-area').slideUp(500)
+    setTimeout(function() {
+      info.remove();
+      clearRewardMessage();
+    }, 500);
+  }, 10000);
 }
 
 function updateCheckpointListHeight(maxHeight) {

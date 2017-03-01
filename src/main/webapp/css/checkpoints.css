@@ -97,3 +97,12 @@
 
 .balloon-description {
   color: #999; }
+
+#notification-msg-area {
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 15%;
+  z-index: 100;
+  width: 70%;
+  text-align: center; }

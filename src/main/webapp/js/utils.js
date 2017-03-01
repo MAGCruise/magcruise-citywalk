@@ -366,7 +366,7 @@ function toFormattedDate(milliseconds) {
 
 function toFormattedShortDate(milliseconds) {
   var date = new Date(milliseconds);
-  return padding(date.getMonth() + 1) + '月' + padding(date.getDate()) + '日' + ' '
+  return padding(date.getMonth() + 1) + '/' + padding(date.getDate()) + ' '
           + [padding(date.getHours()), padding(date.getMinutes())].join(':');
 }
 
@@ -407,21 +407,24 @@ function getRanking() {
   return getItem(KEY_RANKING);
 }
 
-function popRewardMessage() {
+function getRewardMessage() {
   var msg = [];
   if (getRanking() && JSON.parse(getRanking())) {
     msg
-            .push('<s class="glyphicon glyphicon-info-sign" /> ' + "Score ranking : No. "
+            .push('<i class="glyphicon glyphicon-info-sign" /> ' + "Score ranking : No. "
                     + getRanking());
-    setItem(KEY_RANKING, null);
   }
   if (getNotifiedBadges() && JSON.parse(getNotifiedBadges())) {
     if (JSON.parse(getNotifiedBadges()).length != 0) {
-      msg.push('<s class="glyphicon glyphicon-certificate" /> ' + JSON.parse(getNotifiedBadges()));
-      setItems(KEY_NOTIFIED_BADGES, []);
+      msg.push('<i class="glyphicon glyphicon-certificate" /> ' + JSON.parse(getNotifiedBadges()));
     }
   }
   return msg.join("<br>");
+}
+
+function clearRewardMessage() {
+  setItem(KEY_RANKING, null);
+  setItems(KEY_NOTIFIED_BADGES, []);
 }
 
 var postActivitiesFunc = function() {
@@ -431,7 +434,7 @@ var postActivitiesFunc = function() {
   activities.forEach(function(activity) {
     new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [activity], function(data) {
       setItem(KEY_RANKING, data.result.rank);
-      if (data.result && data.result.badges.length > 0) {
+      if (data.result.badges.length > 0) {
         addItems(KEY_NOTIFIED_BADGES, data.result.badges);
       }
     }, function(data, textStatus, errorThrown) {

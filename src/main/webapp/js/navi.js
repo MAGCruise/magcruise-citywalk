@@ -88,11 +88,10 @@ $(function() {
   defaultOrientation = (screen.width > screen.height) ? "landscape" : "portrait";
   // 電子コンパスイベントの取得
   window.addEventListener("deviceorientation", onHeadingChange);
-  showReward();
 
   showCheckinLogs();
 
-  setTimeout(getEventsByWebsocket, 5000);
+  getEventsByWebsocket();
   // 移動ログの送信
   setInterval(postMovementsFunc, POST_MOVEMENT_INTERVAL);
 });
@@ -120,22 +119,6 @@ function showCheckinLogs() {
   }, function(data, textStatus, errorThrown) {
     console.error(data);
   })).rpc();
-
-}
-
-function showReward() {
-  var msg = popRewardMessage();
-  if (msg.length == 0) { return; }
-  var info = $('<div>').html(msg);
-  $('#notification-msg-area').append(info);
-  $('#notification-msg-area').slideDown(500);
-  setTimeout(function() {
-    $('#notification-msg-area').slideUp(500)
-    setTimeout(function() {
-      info.remove();
-      setRewardMessage("");
-    }, 500);
-  }, 10000);
 
 }
 
@@ -168,8 +151,10 @@ function getEventsByWebsocket() {
     }
 
     var info = $('<div>').html(
-            '<s class="glyphicon glyphicon-info-sign" /> ' + a.userId + "が，"
-                    + findCheckpointById(a.checkpointId).name + "にチェックイン！");
+            '<i class="glyphicon glyphicon-time" /> ' + toFormattedShortDate(a.createdAt)
+                    + ' <i class="glyphicon glyphicon-user" /> ' + a.userId
+                    + ' <i class="glyphicon glyphicon-camera" /> '
+                    + findCheckpointById(a.checkpointId).name);
     $('#notification-msg-area').append(info);
     $('#notification-msg-area').slideDown(500);
     setTimeout(function() {
