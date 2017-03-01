@@ -1,11 +1,13 @@
 package org.magcruise.citywalk.model.row;
 
 import java.util.Date;
+import java.util.Locale;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.magcruise.citywalk.model.relation.UserAccountsTable;
 
+import net.sf.persist.annotations.NoColumn;
 import net.sf.persist.annotations.Table;
 
 @Table(name = UserAccountsTable.TABLE_NAME)
@@ -50,6 +52,15 @@ public class UserAccount {
 
 	public void setCreatedAt(Date created) {
 		this.createdAt = created;
+	}
+
+	@NoColumn
+	public Locale getLocale() {
+		try {
+			return Locale.forLanguageTag(language);
+		} catch (Throwable t) {
+			return Locale.US;
+		}
 	}
 
 }

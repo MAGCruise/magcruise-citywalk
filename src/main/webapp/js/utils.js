@@ -106,7 +106,7 @@ function setForwardDisabled() {
 
 function setUserNameInMenu() {
   if (getUserId()) {
-    $("#user-name").text(getUserId() + " さん");
+    $("#user-name").text(getUserId());
   }
 }
 

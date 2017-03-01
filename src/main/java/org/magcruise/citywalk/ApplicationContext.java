@@ -103,12 +103,12 @@ public class ApplicationContext implements ServletContextListener {
 			new CoursesTable(client).dropTableIfExists();
 		}
 		{
-			new EntriesTable(client).dropTableIfExists();
-			new UserAccountsTable(client).dropTableIfExists();
-			new BadgesTable(client).dropTableIfExists();
-			new VerifiedActivitiesTable(client).dropTableIfExists();
-			new SubmittedActivitiesTable(client).dropTableIfExists();
-			new MovementsTable(client).dropTableIfExists();
+			//new EntriesTable(client).dropTableIfExists();
+			//new UserAccountsTable(client).dropTableIfExists();
+			//new BadgesTable(client).dropTableIfExists();
+			//new VerifiedActivitiesTable(client).dropTableIfExists();
+			//new SubmittedActivitiesTable(client).dropTableIfExists();
+			//new MovementsTable(client).dropTableIfExists();
 		}
 
 		new CategoriesTable(client).createTableIfNotExists();

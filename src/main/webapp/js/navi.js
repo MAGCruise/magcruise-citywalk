@@ -151,7 +151,7 @@ function getNotifiedActivityIds() {
 function findCheckpointById(id) {
   var cs = getCheckpoints();
   for (var i = 0; i < cs.length; i++) {
-    if (cs[i].id = id) { return cs[i]; }
+    if (cs[i].id === id) { return cs[i]; }
   }
   return null;
 }

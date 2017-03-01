@@ -217,7 +217,7 @@ function updateTitle() {
   } else if (category) {
     document.title = category;
   } else {
-    document.title = "チェックポイント一覧";
+    document.title = "Checkpoints";
   }
   setNavTitle();
 }
@@ -440,7 +440,7 @@ function selectCheckpoint(checkpoint) {
   $("#nav-start-in-list").remove();
   $(".checkpoint.selected .detail").append(
           $("<p>").attr("id", "selected-checkpoint-description").html(checkpoint.description))
-          .append('<a id="nav-start-in-list" class="btn btn-success btn-sm">ここに行く</a>');
+          .append('<a id="nav-start-in-list" class="btn btn-success btn-sm">Go!</a>');
 
   $(document).on('click', "#nav-start-in-list", function() {
     $("#nav-start").trigger('click');

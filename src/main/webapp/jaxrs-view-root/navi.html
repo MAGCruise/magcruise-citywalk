@@ -79,11 +79,11 @@
     <div class="row bottom-margin">
       <div class="col-xs-6">
         <div>
-          <a class="btn btn-primary-magc btn-lg" id="btn-next" role="button">チェックイン</a>
+          <a class="btn btn-primary-magc btn-lg" id="btn-next" role="button" th:text="#{btnCheckin}">チェックイン</a>
         </div>
         <div>
-          <span id="distance-wrapper" style="display: none;"><span id="distance-prefix">残り
-              およそ</span><br> <span id="distance"></span></span>
+          <span id="distance-wrapper" style="display: none;"><span id="distance-prefix"
+            th:text="#{spanRestDistance}">残り およそ</span><br> <span id="distance"></span></span>
         </div>
       </div>
       <div id="compass-wrapper" style="display: none;">

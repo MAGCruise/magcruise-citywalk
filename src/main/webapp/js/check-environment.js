@@ -6,7 +6,14 @@ $(function() {
 
   $("#btn-join").on('click', function() {
     if (!isEnableLocalStorage()) { return; }
-    location.href = "signup.html"
+    var lang = "en";
+    if (!parseUri(location).queryKey || !parseUri(location).queryKey.lang) {
+      lang = getLanguage() ? getLanguage() : "en";
+    } else {
+      lang = parseUri(location).queryKey.lang;
+    }
+    location.href = 'signup.html?lang=' + lang;
+    return;
   });
 
   checkDevice();
