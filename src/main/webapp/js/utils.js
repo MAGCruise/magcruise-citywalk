@@ -412,7 +412,7 @@ var postActivitiesFunc = function() {
   removeItem(KEY_ACTIVITIES);
   activities.forEach(function(activity) {
     new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [activity], function(data) {
-      var msg = "現在の順位：" + data.result.rank + "位";
+      var msg = '<s class="glyphicon glyphicon-info-sign" /> ' + "現在の順位：" + data.result.rank + "位";
       if (data.result && data.result.badges.length > 0) {
         msg += "<br>バッジ獲得：" + data.result.badges;
       }

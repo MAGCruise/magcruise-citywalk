@@ -92,7 +92,7 @@ $(function() {
 
   showCheckinLogs();
 
-  setTimeout(getEventsByWebsocket, 11000);
+  setTimeout(getEventsByWebsocket, 5000);
   // 移動ログの送信
   setInterval(postMovementsFunc, POST_MOVEMENT_INTERVAL);
 });
@@ -134,7 +134,7 @@ function showReward() {
       info.remove();
       setRewardMessage("");
     }, 500);
-  }, 30000);
+  }, 10000);
 
 }
 
@@ -166,7 +166,9 @@ function getEventsByWebsocket() {
       return;
     }
 
-    var info = $('<div>').text(a.userId + "さんが，" + findCheckpointById(a.id).name + "にチェックイン！");
+    var info = $('<div>').html(
+            '<s class="glyphicon glyphicon-info-sign" /> ' + a.userId + "が，"
+                    + findCheckpointById(a.checkpointId).name + "にチェックイン！");
     $('#notification-msg-area').append(info);
     $('#notification-msg-area').slideDown(500);
     setTimeout(function() {
