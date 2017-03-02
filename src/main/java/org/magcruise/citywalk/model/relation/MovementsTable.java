@@ -1,5 +1,8 @@
 package org.magcruise.citywalk.model.relation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.magcruise.citywalk.model.row.Movement;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
@@ -39,6 +42,15 @@ public class MovementsTable extends RelationalModel<Movement> {
 		addColumnDefinition(ALTITUDE_ACCURACY, Keyword.DOUBLE);
 		addColumnDefinition(SPEED, Keyword.DOUBLE);
 		addColumnDefinition(HEADING, Keyword.DOUBLE);
+	}
+
+	public List<Movement> findByUserIdAndCourseId(String userId, String courseId, int incrementSize) {
+		List<Movement> tmp = readListBy(USER_ID, userId, COURSE_ID, courseId);
+		List<Movement> result = new ArrayList<>();
+		for (int i = 0; i < tmp.size(); i += (incrementSize + 1)) {
+			result.add(tmp.get(i));
+		}
+		return result;
 	}
 
 }

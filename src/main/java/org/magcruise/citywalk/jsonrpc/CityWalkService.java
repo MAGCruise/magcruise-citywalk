@@ -370,4 +370,22 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		return result;
 	}
 
+	private MovementsTable movementsTable = new MovementsTable(ApplicationContext.getDbClient());
+
+	@Override
+	public MovementJson[] getMovements(String userId, String courseId, int incrementSize) {
+		return movementsTable.findByUserIdAndCourseId(userId, courseId, incrementSize).stream()
+				.map(m -> m.toMovmentJson()).collect(Collectors.toList())
+				.toArray(new MovementJson[0]);
+	}
+
+	@Override
+	public UserAccount[] getUsers() {
+		return users.readAll().toArray(new UserAccount[0]);
+	}
+
+	@Override
+	public Entry[] getEntries() {
+		return entries.readAll().toArray(new Entry[0]);
+	}
 }

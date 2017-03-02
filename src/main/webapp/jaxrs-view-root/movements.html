@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+<object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
+<script
+  src="//maps.googleapis.com/maps/api/js?key=AIzaSyBW27BCI0qusrxF_36_g3N5A86ddZbwjvI&libraries=geometry"></script>
+<script src="../js/lib/ua-parser.min.js"></script>
+<link rel="stylesheet" href="../css/movements.css" />
+<script src="../js/map-utils.js"></script>
+<script src="../js/movements.js"></script>
+<script th:inline="javascript">
+var currentUser = [[${currentUser}]];
+</script>
+<title>Movements</title>
+</head>
+<body>
+  <div class="container">
+    <div th:replace="/fragment/header.html :: top-menu"></div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="map-box">
+          <div id="map">ここに地図が表示されます．</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form">
+          <div class="form-group">
+            <label>userId</label> <input class="form-control" type="text" id="user-id" value="なびぽん"
+              required />
+          </div>
+          <div class="form-group">
+            <label>courseId</label> <input class="form-control" type="text" id="course-id"
+              value="kyoto-2017-03-02" required />
+          </div>
+          <div class="form-group">
+            <label>incrementSize</label> <input class="form-control" type="number"
+              id="increment-size" value="1" required />
+          </div>
+          <button type="button" class="btn btn-primary-magc btn-lg btn-block" role="button"
+            id="btn-submit">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

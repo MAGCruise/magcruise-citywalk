@@ -175,7 +175,7 @@ function getEventsByWebsocket() {
         addNotifedActivityId(a.id);
         notifyMsg(messages, i + 1);
       }, 500);
-    }, 10000);
+    }, 12000);
   }
 
   var wsUrl = getActivityPublisherUrl() + "/" + getCourseId() + "/" + checkpoint.id + "/"

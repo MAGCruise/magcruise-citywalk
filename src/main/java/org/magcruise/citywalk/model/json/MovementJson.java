@@ -22,6 +22,22 @@ public class MovementJson {
 	public MovementJson() {
 	}
 
+	public MovementJson(String userId, double lat, double lon, double accuracy, double altitude,
+			double altitudeAccuracy, double speed, double heading, String courseId,
+			String checkpointId, Date recordedAt) {
+		this.userId = userId;
+		this.lat = lat;
+		this.lon = lon;
+		this.accuracy = accuracy;
+		this.altitude = altitude;
+		this.altitudeAccuracy = altitudeAccuracy;
+		this.speed = speed;
+		this.heading = heading;
+		this.courseId = courseId;
+		this.checkpointId = checkpointId;
+		this.recordedAt = recordedAt;
+	}
+
 	public String getUserId() {
 		return userId;
 	}

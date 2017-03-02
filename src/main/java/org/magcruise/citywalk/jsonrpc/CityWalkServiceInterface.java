@@ -10,6 +10,8 @@ import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.init.CoursesJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
 import org.magcruise.citywalk.model.row.Activity;
+import org.magcruise.citywalk.model.row.Entry;
+import org.magcruise.citywalk.model.row.UserAccount;
 
 import jp.go.nict.langrid.commons.rpc.intf.Parameter;
 
@@ -69,5 +71,11 @@ public interface CityWalkServiceInterface {
 					+ "{\"checkpoint_ids\":[\"cafeteria\"],\"content\":{\"instanceClass\":\"org.magcruise.citywalk.model.content.SelectionTask\","
 					+ "\"label\":\"次のうち、理工の学食が発祥の地であるメニューはどれ？\","
 					+ "\"selections\":[\"豚玉丼\",\"チキンおろしだれ\",\"カツカレー\",\"ポーク焼肉\"],\"answerIndex\":3}}]}") String json);
+
+	MovementJson[] getMovements(String userId, String courseId, int incrementSize);
+
+	UserAccount[] getUsers();
+
+	Entry[] getEntries();
 
 }

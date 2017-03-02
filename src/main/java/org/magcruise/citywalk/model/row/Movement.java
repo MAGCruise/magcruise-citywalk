@@ -155,4 +155,9 @@ public class Movement {
 		this.recordedAt = recordedAt;
 	}
 
+	public MovementJson toMovmentJson() {
+		return new MovementJson(userId, lat, lon, accuracy, altitude, altitudeAccuracy, speed,
+				heading, courseId, checkpointId, recordedAt);
+	}
+
 }

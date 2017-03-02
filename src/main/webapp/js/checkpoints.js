@@ -66,7 +66,7 @@ function showReward() {
       info.remove();
       clearRewardMessage();
     }, 500);
-  }, 10000);
+  }, 12000);
 }
 
 function updateCheckpointListHeight(maxHeight) {

@@ -13,6 +13,8 @@ import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.init.CoursesJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
 import org.magcruise.citywalk.model.row.Activity;
+import org.magcruise.citywalk.model.row.Entry;
+import org.magcruise.citywalk.model.row.UserAccount;
 
 import jp.go.nict.langrid.client.jsonrpc.JsonRpcClientFactory;
 
@@ -126,6 +128,24 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 
 	@Override
 	public Activity[] getCheckinLogs(String checkpointId) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	@Override
+	public MovementJson[] getMovements(String userId, String courseId, int incrementSize) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	@Override
+	public UserAccount[] getUsers() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	@Override
+	public Entry[] getEntries() {
 		// TODO 自動生成されたメソッド・スタブ
 		return null;
 	}
