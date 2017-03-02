@@ -7,6 +7,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.Logger;
@@ -42,6 +44,7 @@ import org.magcruise.citywalk.model.row.SubmittedActivity;
 import org.magcruise.citywalk.model.row.Task;
 import org.magcruise.citywalk.model.row.UserAccount;
 import org.magcruise.citywalk.model.row.VerifiedActivity;
+import org.magcruise.citywalk.utils.SlackMessenger;
 import org.nkjmlab.gis.datum.Basis;
 import org.nkjmlab.gis.datum.DistanceUnit;
 import org.nkjmlab.gis.datum.LatLon;
@@ -51,6 +54,7 @@ import org.nkjmlab.gis.datum.jprect.LatLonWithZone;
 import org.nkjmlab.util.base64.Base64ImageUtils;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
+import org.nkjmlab.util.lang.MessageUtils;
 import org.nkjmlab.util.log4j.LogManager;
 import org.nkjmlab.webui.common.user.model.UserSession;
 
@@ -153,12 +157,26 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		return createRewardJson(a.getUserId(), a.getCourseId());
 	}
 
+	private SlackMessenger slack = new SlackMessenger(
+			"https://hooks.slack.com/services/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",
+			"citywalk", "citywalk-server");
+
+	public static ExecutorService slackExecutor = Executors.newSingleThreadExecutor();
+
+	private void asyncPostMessageToSlack(String text) {
+		slackExecutor.execute(() -> slack.postMessage(text));
+	}
+
 	private void verifyActivity(Activity a) {
 		if (!verifiedActivities.contains(a.getCourseId(), a.getUserId(),
 				a.getCheckpointId(), a.getTaskId())) {
 			VerifiedActivity va = new VerifiedActivity(a);
 			verifiedActivities.insert(va);
 			log.info("add verified activity={}", va);
+			asyncPostMessageToSlack(MessageUtils.format(
+					"createdAt={}, userId={}, checkpointId={}, taskId={}",
+					va.getCreatedAt(), va.getUserId(), va.getCheckpointId(),
+					va.getTaskId()));
 		}
 
 	}
@@ -184,12 +202,14 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 						.parseInt(definition.getValue())) {
 					result.add(definition.getName());
 					badges.insert(new Badge(userId, definition.getId()));
+					asyncPostMessageToSlack(userId + " get " + definition.getName());
 				}
 			} else {
 				if (verifiedActivities.getNumberOfCheckInInCategory(userId, courseId,
 						definition.getType()) >= Integer.parseInt(definition.getValue())) {
 					result.add(definition.getName());
 					badges.insert(new Badge(userId, definition.getId()));
+					asyncPostMessageToSlack(userId + " get " + definition.getName());
 				}
 			}
 		});
