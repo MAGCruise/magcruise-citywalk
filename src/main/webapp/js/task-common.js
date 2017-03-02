@@ -90,6 +90,7 @@ function setTaskTitle() {
 function addActivity(task, input, isCorrect) {
   var activity = {
     checkpointId: getParam("checkpoint_id"),
+    createdAt: Date.now(),
     lat: getParam("lat"),
     lon: getParam("lon"),
     userId: getUserId(),

@@ -37,8 +37,9 @@ public class Activity {
 	public Activity() {
 	}
 
-	public Activity(String courseId, String userId, String checkpointId, double lat,
+	public Activity(Date createdAt, String courseId, String userId, String checkpointId, double lat,
 			double lon, String taskId, double score, Input input, String options) {
+		this.createdAt = createdAt;
 		this.courseId = courseId;
 		this.userId = userId;
 		this.checkpointId = checkpointId;
@@ -51,8 +52,8 @@ public class Activity {
 	}
 
 	public Activity(ActivityJson json) {
-		this(json.getCourseId(), json.getUserId(), json.getCheckpointId(), json.getLat(),
-				json.getLon(), json.getTaskId(), json.getScore(),
+		this(json.getCreatedAt(), json.getCourseId(), json.getUserId(), json.getCheckpointId(),
+				json.getLat(), json.getLon(), json.getTaskId(), json.getScore(),
 				convertToInput(json.getTaskType(), json.getInputs()), json.getOptions());
 	}
 

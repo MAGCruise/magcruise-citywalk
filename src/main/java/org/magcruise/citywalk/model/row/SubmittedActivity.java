@@ -1,5 +1,7 @@
 package org.magcruise.citywalk.model.row;
 
+import java.util.Date;
+
 import org.magcruise.citywalk.model.input.Input;
 import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.relation.SubmittedActivitiesTable;
@@ -12,9 +14,9 @@ public class SubmittedActivity extends Activity {
 	public SubmittedActivity() {
 	}
 
-	public SubmittedActivity(String courseId, String userId, String checkpointId,
+	public SubmittedActivity(Date createdAt, String courseId, String userId, String checkpointId,
 			double lat, double lon, String taskId, double score, Input input, String options) {
-		super(courseId, userId, checkpointId, lat, lon, taskId, score, input, options);
+		super(createdAt, courseId, userId, checkpointId, lat, lon, taskId, score, input, options);
 	}
 
 	public SubmittedActivity(ActivityJson json) {

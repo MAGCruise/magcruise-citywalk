@@ -11,7 +11,7 @@ var DEFAULT_FOCUS_ZOOM = 17;
 var infoWindow;
 
 var uaParser = new UAParser();
-var POST_MOVEMENT_INTERVAL = 1000 * 10; // msec
+var POST_MOVEMENT_INTERVAL = 1000 * 30; // msec
 
 window.onload = function() {
   setTimeout(initMap, 300);
@@ -501,4 +501,17 @@ function showCompass(heading) {
   } else if (compassElem.css("webkitTransform")) {
     compassElem.css("webkitTransform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
   }
+}
+
+/* 一定周期で呼び出され，ムーブメントを送信する */
+var postMovementsFunc = function() {
+  var movements = getItems(KEY_MOVEMENT_LIST);
+  if (movements.length == 0) { return; }
+  removeItem(KEY_MOVEMENT_LIST); // クリア
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addMovements", [movements], function(data) {
+    // console.log(data);
+  }, function(data, textStatus, errorThrown) {
+    // リストア
+    setItems(KEY_MOVEMENT_LIST, movements.concat(getItems(KEY_MOVEMENT_LIST)));
+  })).rpc();
 }

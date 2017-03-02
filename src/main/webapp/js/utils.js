@@ -460,19 +460,6 @@ function enqueueMovement(pos) {
   addItems(KEY_MOVEMENT_LIST, [movement]);
 }
 
-/* 一定周期で呼び出され，ムーブメントを送信する */
-var postMovementsFunc = function() {
-  var movements = getItems(KEY_MOVEMENT_LIST);
-  if (movements.length == 0) { return; }
-  removeItem(KEY_MOVEMENT_LIST); // クリア
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addMovements", [movements], function(data) {
-    // console.log(data);
-  }, function(data, textStatus, errorThrown) {
-    // リストア
-    setItems(KEY_MOVEMENT_LIST, movements.concat(getItems(KEY_MOVEMENT_LIST)));
-  })).rpc();
-}
-
 function updateInitialDataIfNeeded(courseId) {
   if (!getCityWalkDataDate()) { return; }
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "exsitsUpdatedInitialData",
