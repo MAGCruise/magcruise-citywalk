@@ -150,4 +150,10 @@ public class CityWalkServiceClient implements CityWalkServiceInterface {
 		return null;
 	}
 
+	@Override
+	public Activity[] getCheckinLogs(String userId, String courseId) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
 }

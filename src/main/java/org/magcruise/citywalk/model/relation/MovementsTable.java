@@ -13,7 +13,6 @@ public class MovementsTable extends RelationalModel<Movement> {
 	public static final String TABLE_NAME = "MOVEMENTS";
 	private static final String ID = "id";
 	private static final String CREATED_AT = "created_at";
-	private static final String RECORDED_AT = "recorded_at";
 	private static final String USER_ID = "user_id";
 	private static final String COURSE_ID = "course_id";
 	private static final String CHECKPOINT_ID = "checkpoint_id";
@@ -31,7 +30,6 @@ public class MovementsTable extends RelationalModel<Movement> {
 		super(TABLE_NAME, client);
 		addColumnDefinition(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
-		addColumnDefinition(RECORDED_AT, Keyword.TIMESTAMP);
 		addColumnDefinition(USER_ID, Keyword.VARCHAR);
 		addColumnDefinition(COURSE_ID, Keyword.VARCHAR);
 		addColumnDefinition(CHECKPOINT_ID, Keyword.VARCHAR);
@@ -44,7 +42,8 @@ public class MovementsTable extends RelationalModel<Movement> {
 		addColumnDefinition(HEADING, Keyword.DOUBLE);
 	}
 
-	public List<Movement> findByUserIdAndCourseId(String userId, String courseId, int incrementSize) {
+	public List<Movement> findByUserIdAndCourseId(String userId, String courseId,
+			int incrementSize) {
 		List<Movement> tmp = readListBy(USER_ID, userId, COURSE_ID, courseId);
 		List<Movement> result = new ArrayList<>();
 		for (int i = 0; i < tmp.size(); i += (incrementSize + 1)) {

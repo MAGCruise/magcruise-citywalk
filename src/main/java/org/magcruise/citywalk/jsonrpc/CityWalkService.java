@@ -78,6 +78,10 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	private CoursesTable coursesTable = new CoursesTable(ApplicationContext.getDbClient());
 
+	private SlackMessenger slack = new SlackMessenger(
+			"https://hooks.slack.com/services/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",
+			"magcruise-server", "citywalk-server");
+
 	@Override
 	public boolean login(String userId) {
 		if (!users.exists(userId)) {
@@ -150,18 +154,11 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		}
 
 		SubmittedActivity a = new SubmittedActivity(json);
-
-		synchronized (this) {
-			submittedActivities.insert(a);
-			verifyActivity(a);
-		}
+		submittedActivities.insert(a);
+		verifyActivity(a);
 
 		return createRewardJson(a.getUserId(), a.getCourseId());
 	}
-
-	private SlackMessenger slack = new SlackMessenger(
-			"https://hooks.slack.com/services/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",
-			"citywalk", "citywalk-server");
 
 	public static ExecutorService slackExecutor = Executors.newSingleThreadExecutor();
 
@@ -170,8 +167,11 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	private void verifyActivity(Activity a) {
-		if (!verifiedActivities.contains(a.getCourseId(), a.getUserId(),
-				a.getCheckpointId(), a.getTaskId())) {
+		synchronized (verifiedActivities) {
+			if (verifiedActivities.contains(a.getCourseId(), a.getUserId(), a.getCheckpointId(),
+					a.getTaskId())) {
+				return;
+			}
 			VerifiedActivity va = new VerifiedActivity(a);
 			verifiedActivities.insert(va);
 			log.info("add verified activity={}", va);
@@ -374,6 +374,15 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		return result;
 	}
 
+	@Override
+	public Activity[] getCheckinLogs(String userId, String courseId) {
+		Activity[] result = verifiedActivities.getActivitiesInCourse(userId, courseId).stream()
+				.filter(
+						va -> tasks.readByPrimaryKey(va.getTaskId()).getContentObject().isCheckin())
+				.collect(Collectors.toList()).toArray(new Activity[0]);
+		return result;
+	}
+
 	private MovementsTable movementsTable = new MovementsTable(ApplicationContext.getDbClient());
 
 	@Override
@@ -392,4 +401,5 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	public Entry[] getEntries() {
 		return entries.readAll().toArray(new Entry[0]);
 	}
+
 }

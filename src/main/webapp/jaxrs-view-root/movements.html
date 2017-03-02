@@ -4,6 +4,10 @@
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <script
   src="//maps.googleapis.com/maps/api/js?key=AIzaSyBW27BCI0qusrxF_36_g3N5A86ddZbwjvI&libraries=geometry"></script>
+<link rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/2.0.0-beta1/css/bootstrap-select.min.css">
+<script
+  src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/2.0.0-beta1/js/bootstrap-select.min.js"></script>
 <script src="../js/lib/ua-parser.min.js"></script>
 <link rel="stylesheet" href="../css/movements.css" />
 <script src="../js/map-utils.js"></script>
@@ -17,29 +21,35 @@ var currentUser = [[${currentUser}]];
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-8">
         <div id="map-box">
           <div id="map">ここに地図が表示されます．</div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-4">
+        <label>時刻: </label> <span id="recordedAt"></span>
         <div class="form">
           <div class="form-group">
-            <label>userId</label> <input class="form-control" type="text" id="user-id" value="なびぽん"
-              required />
+            <label>startFrom (yyyy-MM-dd hh:mm:ss")</label> <input class="form-control" 
+              id="start-from" value="2017-03-02 11:00:00" />
+          </div>
+          <div class="form-group">
+            <label>userId: </label><select id="user-id" class="selectpicker show-tick" data-width="fit"></select>
           </div>
           <div class="form-group">
             <label>courseId</label> <input class="form-control" type="text" id="course-id"
               value="kyoto-2017-03-02" required />
           </div>
           <div class="form-group">
-            <label>incrementSize</label> <input class="form-control" type="number"
-              id="increment-size" value="1" required />
+            <label>incrementSize (GPSログを何個おきに表示するか)</label> <input class="form-control" type="number"
+              id="increment-size" value="5" required />
+          </div>
+          <div class="form-group">
+            <label>refreshRate (msec)</label> <input class="form-control" type="number"
+              id="refresh-rate" value="10" required />
           </div>
           <button type="button" class="btn btn-primary-magc btn-lg btn-block" role="button"
-            id="btn-submit">Submit</button>
+            id="btn-submit">Start</button>
         </div>
       </div>
     </div>

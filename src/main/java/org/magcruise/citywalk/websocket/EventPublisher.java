@@ -38,8 +38,7 @@ public class EventPublisher {
 			ApplicationContext.getDbClient());
 	private static TasksTable tasksTable = new TasksTable(ApplicationContext.getDbClient());
 
-	public synchronized void onOpen(String userId, String courseId, String checkpointId,
-			Session session) {
+	public void onOpen(String userId, String courseId, String checkpointId, Session session) {
 
 		if (workers.get(session.getId()) != null) {
 			log.warn("session {} has been already registered.", session.getId());
@@ -60,7 +59,7 @@ public class EventPublisher {
 			} catch (Exception e) {
 				log.error(e, e);
 			}
-		}, 0, 1, TimeUnit.SECONDS);
+		}, 0, 3, TimeUnit.SECONDS);
 
 		workers.put(session.getId(), f);
 	}
@@ -91,7 +90,7 @@ public class EventPublisher {
 		return latestReadActivityIds.get(userId);
 	}
 
-	public synchronized void onClose(@PathParam("userId") String userId,
+	public void onClose(@PathParam("userId") String userId,
 			Session session) {
 		finalizeSession(session);
 	}

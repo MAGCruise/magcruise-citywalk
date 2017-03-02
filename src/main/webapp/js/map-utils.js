@@ -34,13 +34,13 @@ function createMapControlUI(map, label, fontSize, controlPosition) {
   return controlUI;
 }
 
-function fitBoundsAndZoom(map, checkpoints, cPos, maxZoom) {
+function fitBoundsAndZoom(map, latLons, cPos, maxZoom) {
   var latlngBounds = new google.maps.LatLngBounds();
-  if (!checkpoints || checkpoints.length == 0) {
+  if (!latLons || latLons.length == 0) {
     latlngBounds.extend(new google.maps.LatLng(cPos.lat(), cPos.lng()));
   } else {
-    checkpoints.forEach(function(checkpoint, i) {
-      latlngBounds.extend(new google.maps.LatLng(checkpoint.lat, checkpoint.lon));
+    latLons.forEach(function(latLon, i) {
+      latlngBounds.extend(new google.maps.LatLng(latLon.lat, latLon.lon));
     });
   }
   map.fitBounds(latlngBounds);

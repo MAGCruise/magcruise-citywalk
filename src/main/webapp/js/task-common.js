@@ -160,7 +160,7 @@ function sendAddActivity(activity, isCorrect) {
       })
     }, 500);
   }, function(data, textStatus, errorThrown) {
-    log.error("fail to add activity: " + textStatus + errorThrown + data);
+    console.error("fail to add activity: " + textStatus + errorThrown + data);
     setTimeout(function() {
       swalAlert("", "Fail to send", "error", function() {
       })

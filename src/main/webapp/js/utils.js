@@ -455,7 +455,7 @@ function enqueueMovement(pos) {
     heading: cHeading,
     courseId: getCourseId(),
     checkpointId: checkpoint.id,
-    recordedAt: Date.now(),
+    createdAt: Date.now(),
   };
   addItems(KEY_MOVEMENT_LIST, [movement]);
 }

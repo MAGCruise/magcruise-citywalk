@@ -13,14 +13,14 @@ public class EventPublisherEndpoint {
 	private static EventPublisher publisher = new EventPublisher();
 
 	@OnOpen
-	public synchronized void onOpen(@PathParam("userId") String userId,
+	public void onOpen(@PathParam("userId") String userId,
 			@PathParam("courseId") String courseId,
 			@PathParam("checkpointId") String checkpointId, Session session) {
 		publisher.onOpen(userId, courseId, checkpointId, session);
 	}
 
 	@OnClose
-	public synchronized void onClose(@PathParam("userId") String userId,
+	public void onClose(@PathParam("userId") String userId,
 			Session session) {
 		publisher.onClose(userId, session);
 	}

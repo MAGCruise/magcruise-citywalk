@@ -24,8 +24,6 @@ public class Movement {
 	private double altitudeAccuracy;
 	private double speed;
 	private double heading;
-	private Date recordedAt;
-
 	private Date createdAt;
 
 	public Movement() {
@@ -41,7 +39,7 @@ public class Movement {
 		this.altitude = json.getAltitude();
 		this.altitudeAccuracy = json.getAltitudeAccuracy();
 		this.speed = json.getSpeed();
-		this.recordedAt = json.getRecordedAt();
+		this.createdAt = json.getCreatedAt();
 		this.heading = json.getHeading();
 	}
 
@@ -147,17 +145,9 @@ public class Movement {
 		this.heading = heading;
 	}
 
-	public Date getRecordedAt() {
-		return recordedAt;
-	}
-
-	public void setRecordedAt(Date recordedAt) {
-		this.recordedAt = recordedAt;
-	}
-
 	public MovementJson toMovmentJson() {
 		return new MovementJson(userId, lat, lon, accuracy, altitude, altitudeAccuracy, speed,
-				heading, courseId, checkpointId, recordedAt);
+				heading, courseId, checkpointId, createdAt);
 	}
 
 }

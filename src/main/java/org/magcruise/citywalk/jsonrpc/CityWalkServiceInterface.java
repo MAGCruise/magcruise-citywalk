@@ -59,6 +59,8 @@ public interface CityWalkServiceInterface {
 
 	Activity[] getCheckinLogs(String checkpointId);
 
+	Activity[] getCheckinLogs(String userId, String courseId);
+
 	boolean validateCheckpointsAndTasksJson(
 			@Parameter(sample = "{\"checkpoints\":["
 					+ "{\"id\":\"cafeteria\",\"lat\":38.4400,\"lon\":139.11090,\"cource_ids\":[\"waseda\"]}],"

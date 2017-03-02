@@ -17,14 +17,14 @@ public class MovementJson {
 	private double heading;
 	private String courseId;
 	private String checkpointId;
-	private Date recordedAt;
+	private Date createdAt;
 
 	public MovementJson() {
 	}
 
 	public MovementJson(String userId, double lat, double lon, double accuracy, double altitude,
 			double altitudeAccuracy, double speed, double heading, String courseId,
-			String checkpointId, Date recordedAt) {
+			String checkpointId, Date createdAt) {
 		this.userId = userId;
 		this.lat = lat;
 		this.lon = lon;
@@ -35,7 +35,7 @@ public class MovementJson {
 		this.heading = heading;
 		this.courseId = courseId;
 		this.checkpointId = checkpointId;
-		this.recordedAt = recordedAt;
+		this.createdAt = createdAt;
 	}
 
 	public String getUserId() {
@@ -118,12 +118,12 @@ public class MovementJson {
 		this.checkpointId = checkpointId;
 	}
 
-	public Date getRecordedAt() {
-		return recordedAt;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setRecordedAt(Date date) {
-		this.recordedAt = date;
+	public void setCreatedAt(Date date) {
+		this.createdAt = date;
 	}
 
 	@Override
