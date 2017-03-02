@@ -110,8 +110,10 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	@Override
 	public RegisterResultJson register(String userId, String language, int maxLengthOfUserId) {
 		if (!users.exists(userId)) {
-			users.insert(new UserAccount(userId, language));
+			UserAccount ua = new UserAccount(userId, language);
+			users.insert(ua);
 			login(userId);
+			asyncPostMessageToSlack("Register: " + ua);
 			return new RegisterResultJson(true, userId);
 		}
 		String recommended = createUnregisterdUserId(userId, maxLengthOfUserId);
@@ -326,7 +328,9 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	@Override
 	public boolean join(String userId, String courseId) {
 		try {
-			entries.insert(new Entry(userId, courseId));
+			Entry en = new Entry(userId, courseId);
+			entries.insert(en);
+			asyncPostMessageToSlack("Entry: " + en);
 		} catch (Throwable e) {
 			return false;
 		}
