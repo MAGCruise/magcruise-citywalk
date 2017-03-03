@@ -266,73 +266,29 @@ function initMakers() {
 
 /* 位置情報を連続取得する */
 function watchCurrentPosition() {
-
   if (!navigator || !navigator.geolocation) {
-    if ($('#error-msg-area').is(':hidden')) {
-      $('#error-msg-area').show();
-    }
-    $('.gps-error-msg').show();
-    if ($('.compass-error-msg').is(':visible')) {
-      $('.error-msg-splitter').show();
-    }
+    showGpsErrorMsg();
     return;
   }
   watchID = window.navigator.geolocation.watchPosition(function(pos) {
+    console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     if (!localStorage.hideGpsSettingsAlert) {
       localStorage.hideGpsSettingsAlert = "true";
     }
 
+    cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+    enqueueMovement(pos);
+
     updateGpsEnableMessage();
+    setMapControlUI();
     $('#initial-msg').hide();
     $('#distance-wrapper').show();
-    if (!cPos) {
-      createMapControlUI(map, "From Here to Checkpoint", "10px",
-              google.maps.ControlPosition.TOP_LEFT).addEventListener('click', function() {
-        fitBoundsAndZoom(map, [{
-          lat: ePos.lat(),
-          lon: ePos.lng()
-        }, {
-          lat: cPos.lat(),
-          lon: cPos.lng()
-        }], cPos, DEFAULT_FOCUS_ZOOM);
-      });
-
-      addMapControlUI(
-              map,
-              google.maps.ControlPosition.RIGHT_BOTTOM,
-              $('<div>').append(
-                      $('<img>').attr('src', "../img/btn_current_position.png").attr('id',
-                              "current-position").css('right', '10'))[0]).addEventListener('click',
-              function() {
-                fitBoundsAndZoom(map, [{
-                  lat: cPos.lat(),
-                  lon: cPos.lng()
-                }], cPos, DEFAULT_FOCUS_ZOOM);
-
-              });
-      enqueueMovement(pos);
-      postMovementsFunc();
-    }
-    cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-    console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
     $("#distance").text(getDistanceStr(cPos, ePos));
-    enqueueMovement(pos);
-    $('.gps-error-msg').hide();
-    $('.error-msg-splitter').hide();
-    if ($('.compass-error-msg').is(':hidden')) {
-      $('#error-msg-area').hide();
-    }
-
+    hideGpsErrorMsg();
   }, function(error) {
     console.error(error);
     $('#initial-msg').hide();
-    if ($('#error-msg-area').is(':hidden')) {
-      $('#error-msg-area').show();
-    }
-    $('.gps-error-msg').show();
-    if ($('.compass-error-msg').is(':visible')) {
-      $('.error-msg-splitter').show();
-    }
+    showGpsErrorMsg();
     navigator.geolocation.clearWatch(watchID);
     setTimeout(watchCurrentPosition, 5000);
   }, {
@@ -340,6 +296,50 @@ function watchCurrentPosition() {
     timeout: 1000 * 60 * 60 * 2,
     maximumAge: 0,
   });
+}
+
+function showGpsErrorMsg() {
+  if ($('#error-msg-area').is(':hidden')) {
+    $('#error-msg-area').show();
+  }
+  $('.gps-error-msg').show();
+  if ($('.compass-error-msg').is(':visible')) {
+    $('.error-msg-splitter').show();
+  }
+}
+
+function hideGpsErrorMsg() {
+  $('.gps-error-msg').hide();
+  $('.error-msg-splitter').hide();
+  if ($('.compass-error-msg').is(':hidden')) {
+    $('#error-msg-area').hide();
+  }
+}
+
+function setMapControlUI() {
+  createMapControlUI(map, "From Here to Checkpoint", "10px", google.maps.ControlPosition.TOP_LEFT)
+          .addEventListener('click', function() {
+            fitBoundsAndZoom(map, [{
+              lat: ePos.lat(),
+              lon: ePos.lng()
+            }, {
+              lat: cPos.lat(),
+              lon: cPos.lng()
+            }], cPos, DEFAULT_FOCUS_ZOOM);
+          });
+  addMapControlUI(
+          map,
+          google.maps.ControlPosition.RIGHT_BOTTOM,
+          $('<div>').append(
+                  $('<img>').attr('src', "../img/btn_current_position.png").attr('id',
+                          "current-position").css('right', '10'))[0]).addEventListener('click',
+          function() {
+            fitBoundsAndZoom(map, [{
+              lat: cPos.lat(),
+              lon: cPos.lng()
+            }], cPos, DEFAULT_FOCUS_ZOOM);
+
+          });
 }
 
 /* 一定周期で呼び出され，ムーブメントを送信する */
