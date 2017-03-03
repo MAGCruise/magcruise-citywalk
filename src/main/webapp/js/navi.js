@@ -1,47 +1,38 @@
 var checkpoint = getCheckpoint();
-document.title = checkpoint.name; // タイトルの変更
 var cPos; // 現在地
-var ePos; // チェックポイント
-var cHeading; // 絶対角
+var ePos;
 var map;
 var watchID;
-var compassElem;
-var defaultOrientation;
 var DEFAULT_FOCUS_ZOOM = 17;
 var infoWindow;
 
-var uaParser = new UAParser();
 var POST_MOVEMENT_INTERVAL = 1000 * 30; // msec
+var osName = new UAParser().getOS().name;
 
 window.onload = function() {
   setTimeout(initMap, 300);
 }
-
-// ブラウザがバックグラウンドに一度遷移すると，watchPositionキャンセルされる。
-// そこで，フォアグラウンドに戻ってきた際に，リロードする。initMap()だけでも良いが念のため。
-// ex.)ホームボタンを押す。
-// ex.)電源ボタンを押す。
-// ex.)通知より，別のアプリを起動する。
-var lastChecked = Date.now();
-setInterval(function() {
-  var now = Date.now();
-  if (now - lastChecked > 1000 * 10) {
-    location.reload();
-  }
-  lastChecked = now;
-}, 1000 * 5);
-
 $(function() {
+  document.title = checkpoint.name; // タイトルの変更
+  ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
+
+  // ブラウザがバックグラウンドに一度遷移すると，watchPositionがキャンセルされる。
+  // そこで，フォアグラウンドに戻ってきた際に，リロードする。initMap()だけでも良いが念のため。
+  // ex.)ホームボタンを押す。
+  // ex.)電源ボタンを押す。
+  // ex.)通知より，別のアプリを起動する。
+  checkReturnFromBackground();
+
   $("#hide-gps-settings-alert").on('click', function() {
     localStorage.hideGpsSettingsAlert = "true";
-    updateGpsEnableMessage();
+    updateGpsEnableMessage(osName);
   });
-  updateGpsEnableMessage();
+  updateGpsEnableMessage(osName);
   $('#checkpoint-info').append(makeCheckpointInfoHtml(checkpoint));
   $('#checkpoint-info .checkpoint-info-description').append($("<div>").attr("id", "notification"));
 });
 
-function updateGpsEnableMessage() {
+function updateGpsEnableMessage(osName) {
   if (localStorage.hideGpsSettingsAlert && JSON.parse(localStorage.hideGpsSettingsAlert)) {
     $("#initial-warning-msg-area").remove();
   } else {
@@ -53,14 +44,14 @@ function updateGpsEnableMessage() {
   }
 }
 
-function updateMapHeight() {
-  var height = window.innerHeight - $("#map-box").offset().top;
-  if (height > 280) {
-    $("#map-box").css("height", height + "px");
-  }
-}
-
 $(function() {
+  function updateMapHeight() {
+    var height = window.innerHeight - $("#map-box").offset().top;
+    if (height > 280) {
+      $("#map-box").css("height", height + "px");
+    }
+  }
+
   updateMapHeight();
   setInterval(updateMapHeight, 500);
 
@@ -93,17 +84,8 @@ $(function() {
                     + "&navi_from=" + getNaviFromParam();
           });
 
-  // コンパス画像の要素
-  compassElem = $("#compass");
-  // 端末の向きを取得
-  defaultOrientation = (screen.width > screen.height) ? "landscape" : "portrait";
-  // 電子コンパスイベントの取得
-  window.addEventListener("deviceorientation", onHeadingChange);
-
   showCheckinLogs();
-
-  getEventsByWebsocket();
-  // 移動ログの送信
+  showEventsViaWebsocket();
   setInterval(postMovementsFunc, POST_MOVEMENT_INTERVAL);
 });
 
@@ -132,26 +114,16 @@ function showCheckinLogs() {
   })).rpc();
 
 }
+function showEventsViaWebsocket() {
+  var KEY_NOTIFIED_ACTIVITY_IDS = "key_notified_activity_ids";
 
-var KEY_NOTIFIED_ACTIVITY_IDS = "key_notified_activity_ids";
-
-function addNotifedActivityId(aid) {
-  addItems(KEY_NOTIFIED_ACTIVITY_IDS, aid);
-}
-
-function getNotifiedActivityIds() {
-  return getItems(KEY_NOTIFIED_ACTIVITY_IDS);
-}
-
-function findCheckpointById(id) {
-  var cs = getCheckpoints();
-  for (var i = 0; i < cs.length; i++) {
-    if (cs[i].id === id) { return cs[i]; }
+  function addNotifedActivityId(aid) {
+    addItems(KEY_NOTIFIED_ACTIVITY_IDS, aid);
   }
-  return null;
-}
 
-function getEventsByWebsocket() {
+  function getNotifiedActivityIds() {
+    return getItems(KEY_NOTIFIED_ACTIVITY_IDS);
+  }
 
   function notifyMsg(messages, i) {
     if (messages.length == i) { return; }
@@ -165,7 +137,7 @@ function getEventsByWebsocket() {
             '<i class="glyphicon glyphicon-time" /> ' + toFormattedShortDate(a.createdAt)
                     + ' <i class="glyphicon glyphicon-user" /> ' + a.userId
                     + ' <i class="glyphicon glyphicon-camera" /> '
-                    + findCheckpointById(a.checkpointId).name);
+                    + getCheckpoint(a.checkpointId).name);
     $('#notification-msg-area').append(info);
     $('#notification-msg-area').slideDown(500);
     setTimeout(function() {
@@ -193,10 +165,6 @@ function getEventsByWebsocket() {
 }
 
 function initMap() {
-
-  // 目的地の設定&位置情報の連続取得
-  ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
-
   var center = {
     lat: checkpoint.lat,
     lng: checkpoint.lon
@@ -250,7 +218,6 @@ function initMap() {
   currentPositionMarker.setMap(map);
 
   if (!navigator.onLine) { return; }
-
   watchCurrentPosition();
 }
 
@@ -299,6 +266,18 @@ function initMakers() {
 
 /* 位置情報を連続取得する */
 function watchCurrentPosition() {
+  /* 残り距離を表示 */
+  function getDistanceStr(cPos, ePos) {
+    var distance = getDistance(cPos, ePos);
+    if (!distance) { return ""; }
+    return getFormattedDistance(distance);
+  }
+
+  function getDistance(cPos, ePos) {
+    if (cPos == null || ePos == null) { return null; }
+    return google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
+  }
+
   if (!navigator || !navigator.geolocation) {
     if ($('#error-msg-area').is(':hidden')) {
       $('#error-msg-area').show();
@@ -347,7 +326,7 @@ function watchCurrentPosition() {
     }
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     console.log("currentPosition: " + pos.coords.latitude + ", " + pos.coords.longitude);
-    showDistance();
+    $("#distance").text(getDistanceStr(cPos, ePos));
     enqueueMovement(pos);
     $('.gps-error-msg').hide();
     $('.error-msg-splitter').hide();
@@ -374,137 +353,8 @@ function watchCurrentPosition() {
   });
 }
 
-/* 残り距離を表示 */
-function showDistance() {
-  $("#distance").text(getDistanceStr());
-}
-
-function getDistanceStr() {
-  var distance = getDistance();
-  if (!distance) { return ""; }
-  return getFormattedDistance(distance);
-}
-
-function getDistance() {
-  if (cPos == null || ePos == null) { return null; }
-  return google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
-}
-
-function getFormattedDistance(distance) {
-  if (distance >= 1000 * 5) { // 5km以上
-    return String(floatFormat(distance / 1000, 1)) + "km";
-  } else {
-    var distanceStr = String(Math.round(distance));
-    if (distanceStr.length >= 4) {
-      distanceStr = distanceStr.slice(0, 1) + "," + distanceStr.slice(1, distanceStr.length);
-    }
-    return distanceStr + "m";
-  }
-}
-
-/**
- * 'portait-primary': for (screen width < screen height, e.g. phone, phablet,
- * small tablet) device is in 'normal' orientation for (screen width > screen
- * height, e.g. large tablet, laptop) device has been turned 90deg clockwise
- * from normal 'portait-secondary': for (screen width < screen height) device
- * has been turned 180deg from normal for (screen width > screen height) device
- * has been turned 90deg anti-clockwise (or 270deg clockwise) from normal
- * 'landscape-primary': for (screen width < screen height) device has been
- * turned 90deg clockwise from normal for (screen width > screen height) device
- * is in 'normal' orientation 'landscape-secondary': for (screen width < screen
- * height) device has been turned 90deg anti-clockwise (or 270deg clockwise)
- * from normal for (screen width > screen height) device has been turned 180deg
- * from normal
- */
-function getBrowserOrientation() {
-  var orientation;
-  if (screen.orientation && screen.orientation.type) {
-    orientation = screen.orientation.type;
-  } else {
-    orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
-  }
-
-  return orientation;
-}
-
-function onHeadingChange(event) {
-  cHeading = event.alpha;
-  if (typeof event.webkitCompassHeading !== "undefined") {
-    cHeading = event.webkitCompassHeading; // iOS non-standard
-  }
-  var orientation = getBrowserOrientation();
-  if (typeof cHeading == "undefined" || cHeading == null) { // && typeof
-    // orientation !=="undefined") {
-    if ($('#error-msg-area').is(':hidden')) {
-      $('#error-msg-area').show();
-    }
-    $('.compass-error-msg').show();
-    $('#compass-wrapper').hide();
-    $('#compass-notice').hide();
-
-    if ($('.gps-error-msg').is(':visible')) {
-      $('.error-msg-splitter').show();
-    }
-
-  } else {
-    $('.compass-error-msg').hide();
-    $('.error-msg-splitter').hide();
-    if ($('.gps-error-msg').is(':hidden')) {
-      $('#error-msg-area').hide();
-    }
-  }
-
-  // we have a browser that reports device cHeading and orientation
-  // what adjustment we have to add to rotation to allow for current device
-  // orientation
-  var adjustment = 0;
-  if (defaultOrientation === "landscape") {
-    adjustment -= 90;
-  }
-  if (typeof orientation !== "undefined") {
-    var currentOrientation = orientation.split("-");
-    if (defaultOrientation !== currentOrientation[0]) {
-      if (defaultOrientation === "landscape") {
-        adjustment -= 270;
-      } else {
-        adjustment -= 90;
-      }
-    }
-    if (currentOrientation[1] === "secondary") {
-      adjustment -= 180;
-    }
-  }
-
-  cHeading += adjustment;
-  var userAgent = window.navigator.userAgent.toLowerCase();
-  if (userAgent.indexOf('android') >= 0) {
-    cHeading = 360 - cHeading;
-  }
-  while (cHeading < 0)
-    cHeading += 360;
-  while (cHeading > 360)
-    cHeading -= 360;
-
-  showCompass(cHeading);
-}
-
-/* コンパスを回転 */
-function showCompass(heading) {
-  if (cPos == null || ePos == null) { return; }
-  $('#compass-wrapper').show();
-  $('#compass-notice').show();
-
-  var absoluteAngle = google.maps.geometry.spherical.computeHeading(cPos, ePos);
-  // apply rotation to compass
-  if (compassElem.css("transform")) {
-    compassElem.css("transform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
-  } else if (compassElem.css("webkitTransform")) {
-    compassElem.css("webkitTransform", 'rotate(' + (absoluteAngle - heading) + 'deg)');
-  }
-}
-
 /* 一定周期で呼び出され，ムーブメントを送信する */
-var postMovementsFunc = function() {
+function postMovementsFunc() {
   var movements = getItems(KEY_MOVEMENT_LIST);
   if (movements.length == 0) { return; }
   removeItem(KEY_MOVEMENT_LIST); // クリア

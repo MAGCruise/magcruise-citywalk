@@ -6,7 +6,7 @@ var HTMLS = ["clear.html","dev.html","index.html","task-description.html","badge
              "login.html","how-to-use.html","courses.html","help.html","credits.html","intro.html","tutorial.html",
              "signup.html","troubleshooting.html","check-environment.html","checkpoints.html"];
 var JSS=["lib/parseUri.js","lib/ua-parser.min.js","lib/hammer-time.min.js","lib/geolocation-marker.js","lib/jsonrpc.js",
-         "score.js","task-qr.js","task-photo.js","visit-history.js","clear.js","task-common.js",
+         "score.js","task-qr.js","task-photo.js","visit-history.js","clear.js","compass.js","task-common.js",
          "task-description.js","checkpoint-utils.js","map-utils.js","courses.js","login.js","utils.js","troubleshooting.js",
          "tutorial.js","intro.js","signup.js","task-selection.js","task-pin.js","badge.js","check-environment.js","checkpoints.js","navi.js"];
 var CSSS=["task-selection.css","badge.css","carousel.css", "credits.css","doc-page.css","score.css","task-photo.css","task-qr.css","tutorial.css",

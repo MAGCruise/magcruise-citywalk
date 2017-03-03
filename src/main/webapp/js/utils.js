@@ -373,6 +373,18 @@ function toFormattedShortDate(milliseconds) {
           + [padding(date.getHours()), padding(date.getMinutes())].join(':');
 }
 
+function getFormattedDistance(distance) {
+  if (distance >= 1000 * 5) { // 5km以上
+    return String(floatFormat(distance / 1000, 1)) + "km";
+  } else {
+    var distanceStr = String(Math.round(distance));
+    if (distanceStr.length >= 4) {
+      distanceStr = distanceStr.slice(0, 1) + "," + distanceStr.slice(1, distanceStr.length);
+    }
+    return distanceStr + "m";
+  }
+}
+
 /** SweetAlert * */
 function confirmSubmission(callback) {
   swalConfirm("", "Submit?", null, callback);
@@ -482,4 +494,15 @@ function updateInitialDataIfNeeded(courseId) {
               new JsonRpcClient(req).rpc();
             }
           })).rpc();
+}
+
+function checkReturnFromBackground() {
+  var lastChecked = Date.now();
+  setInterval(function() {
+    var now = Date.now();
+    if (now - lastChecked > 1000 * 10) {
+      location.reload();
+    }
+    lastChecked = now;
+  }, 1000 * 5);
 }
