@@ -4,7 +4,7 @@ function isNoLogin() {
 
 var loginFunc = function() {
   var userId = $('#user-id').val();
-  var pin = Number.parseInt($('#pin').val());
+  var pin = parseInt($('#pin').val());
   if (new String(pin).length != 4) {
     swalAlert("PINは4桁の数字です");
     return;

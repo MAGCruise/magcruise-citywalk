@@ -15,7 +15,7 @@ function registerFunc() {
   });
 
   var userId = $('#user-id').val().trim();
-  var pin = $('#pin').val();
+  var pin = parseInt($('#pin').val());
   var language = parseUri(location).queryKey.lang;
 
   if (userId.length < 1 || 8 < userId.length) {
