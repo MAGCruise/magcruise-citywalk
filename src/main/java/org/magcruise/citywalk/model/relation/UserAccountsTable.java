@@ -18,7 +18,7 @@ public class UserAccountsTable extends RelationalModel<UserAccount> {
 	public UserAccountsTable(DbClient client) {
 		super(TABLE_NAME, client);
 		addColumnDefinition(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
-		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
+		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP);
 		addColumnDefinition(PIN, Keyword.INTEGER);
 		addColumnDefinition(LANGUAGE, Keyword.VARCHAR);
 		addColumnDefinition(ENVIRONMENT, Keyword.VARCHAR);

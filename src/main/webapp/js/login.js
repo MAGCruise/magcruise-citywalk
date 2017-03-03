@@ -5,24 +5,25 @@ function isNoLogin() {
 var loginFunc = function() {
   var userId = $('#user-id').val();
   var pin = Number.parseInt($('#pin').val());
-  var client = new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "login", [userId, pin], function(
-          data) {
-    if (data.result) {
-      if (isNoLogin()) {
-        location.href = parseUri(location).query.replace("msg=nologin&redirect=", "");
-      } else {
-        setUserId(data.result.id);
-        setPin(data.result.pin);
-        setLanguage(data.result.language);
-        location.href = "courses.html";
-      }
-    } else {
-      swalAlert('ログイン失敗', 'アカウントが無効です．', 'error');
-    }
-  }, function(error) {
-    swalAlert('ログイン失敗', '後でもう一度試して下さい．', 'warning');
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "logout", [], function(data) {
+    var client = new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "login", [userId, pin],
+            function(data) {
+              if (data.result) {
+                if (isNoLogin()) {
+                  location.href = parseUri(location).query.replace("msg=nologin&redirect=", "");
+                } else {
+                  setUserId(data.result.id);
+                  setPin(data.result.pin);
+                  setLanguage(data.result.language);
+                  location.href = "courses.html";
+                }
+              } else {
+                swalAlert('ログイン失敗', 'アカウントが無効です．', 'error');
+              }
+            }, function(error) {
+              swalAlert('ログイン失敗', '後でもう一度試して下さい．', 'warning');
+            })).rpc();
   })).rpc();
-
 };
 
 $(function() {

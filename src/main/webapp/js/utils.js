@@ -463,24 +463,6 @@ var postActivitiesFunc = function() {
   });
 }
 
-/* ローカルストレージにムーブメントを追加する */
-function enqueueMovement(pos) {
-  var movement = {
-    userId: getUserId(),
-    lat: pos.coords.latitude,
-    lon: pos.coords.longitude,
-    accuracy: pos.coords.accuracy,
-    altitude: pos.coords.altitude || -1,
-    altitudeAccuracy: pos.coords.altitudeAccuracy || -1,
-    speed: pos.coords.speed || -1,
-    heading: cHeading,
-    courseId: getCourseId(),
-    checkpointId: checkpoint.id,
-    createdAt: Date.now(),
-  };
-  addItems(KEY_MOVEMENT_LIST, [movement]);
-}
-
 function updateInitialDataIfNeeded(courseId) {
   if (!getCityWalkDataDate()) { return; }
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "exsitsUpdatedInitialData",

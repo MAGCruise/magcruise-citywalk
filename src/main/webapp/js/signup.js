@@ -23,7 +23,7 @@ var registerFunc = function() {
   var pin = $('#pin').val();
   var language = parseUri(location).queryKey.lang;
 
-  if (userId < 1 || 8 < userId) {
+  if (userId.length < 1 || 8 < userId.length) {
     swalAlert(MSG_FAIL_TO_SIGNUP, MSG_INVALID_USER_ID);
     return;
   }
@@ -40,25 +40,28 @@ var registerFunc = function() {
     environment: JSON.stringify(new UAParser().getResult())
   }
 
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "register", [userAccount,
-      MAX_LENGTH_OF_USER_ID], function(data) {
-    if (data.result) {
-      if (data.result.success) {
-        setUserId(userId);
-        setLanguage(language);
-        setPin(pin);
-        location.href = "courses.html";
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "logout", [], function(data) {
+    new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "register", [userAccount,
+        MAX_LENGTH_OF_USER_ID], function(data) {
+      if (data.result) {
+        if (data.result.success) {
+          setUserId(userId);
+          setLanguage(language);
+          setPin(pin);
+          location.href = "courses.html";
+        } else {
+          var recommendedUserId = data.result.recommendedUserId;
+          $('#user-id').val(recommendedUserId);
+          swalAlert("既に登録されているニックネームです", "「" + recommendedUserId + "」はいかがでしょうか？", "info");
+        }
       } else {
-        var recommendedUserId = data.result.recommendedUserId;
-        $('#user-id').val(recommendedUserId);
-        swalAlert("既に登録されているニックネームです", "「" + recommendedUserId + "」はいかがでしょうか？", "info");
+        swalAlert('サインアップ失敗', 'もう一度試して下さい．', 'warning');
       }
-    } else {
-      swalAlert('サインアップ失敗', 'もう一度試して下さい．', 'warning');
-    }
-  }, function(data, textStatus, errorThrown) {
-    swalAlert('サインアップ失敗', '後でもう一度試して下さい．', 'warning');
+    }, function(data, textStatus, errorThrown) {
+      swalAlert('サインアップ失敗', '後でもう一度試して下さい．', 'warning');
+    })).rpc();
   })).rpc();
+
 };
 
 $(function() {

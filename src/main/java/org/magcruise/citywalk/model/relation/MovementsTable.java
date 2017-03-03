@@ -29,7 +29,7 @@ public class MovementsTable extends RelationalModel<Movement> {
 	public MovementsTable(DbClient client) {
 		super(TABLE_NAME, client);
 		addColumnDefinition(ID, Keyword.BIGINT, Keyword.PRIMARY_KEY_AUTO_INCREMENT);
-		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP_AS_CURRENT_TIMESTAMP);
+		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP);
 		addColumnDefinition(USER_ID, Keyword.VARCHAR);
 		addColumnDefinition(COURSE_ID, Keyword.VARCHAR);
 		addColumnDefinition(CHECKPOINT_ID, Keyword.VARCHAR);
