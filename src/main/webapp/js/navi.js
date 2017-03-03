@@ -69,10 +69,11 @@ $(function() {
                         "Let's move to place where location service is available．", "error");
               }
               return;
-            } else if (getDistance() > distThreshold) {
+            } else if (getDistance(cPos, ePos) == null || getDistance(cPos, ePos) > distThreshold) {
               if (currentUser.language == "ja") {
                 swalAlert("チェックポイントまで" + distThreshold + "m以内に近づいて下さい", "チェックポイントまで，残りおよそ "
-                        + getDistanceStr() + "です．チェックポイントの近くで位置情報が利用できる場所へ移動して下さい．", "error");
+                        + getDistanceStr(cPos, ePos) + "です．チェックポイントの近くで位置情報が利用できる場所へ移動して下さい．",
+                        "error");
               } else {
                 swalAlert("To far from the checkpoint", "You should come within " + distThreshold
                         + "m of the checkpoint", "error");

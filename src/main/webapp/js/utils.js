@@ -489,6 +489,14 @@ function checkReturnFromBackground() {
   }, 1000 * 5);
 }
 
+function confirmLogout() {
+  swalConfirm("", "Logout？", "warning", function(input) {
+    if (input) {
+      logout();
+    }
+  });
+}
+
 function logout() {
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "logout", [], function(data) {
     location.href = "login.html";
