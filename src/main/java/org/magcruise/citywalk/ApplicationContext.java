@@ -53,7 +53,6 @@ public class ApplicationContext implements ServletContextListener {
 	protected static Logger log = LogManager.getLogger();
 
 	protected static H2ClientWithConnectionPool dbClient;
-	protected static H2ClientWithConnectionPool movementDbClient;
 
 	static {
 		H2Server.start();
@@ -62,10 +61,6 @@ public class ApplicationContext implements ServletContextListener {
 
 	public static DbClient getDbClient() {
 		return dbClient;
-	}
-
-	public static DbClient getMovementDbClient() {
-		return movementDbClient;
 	}
 
 	@Override
@@ -77,13 +72,6 @@ public class ApplicationContext implements ServletContextListener {
 			log.info(conf);
 			if (dbClient == null) {
 				dbClient = DbClientFactory.createH2ClientWithConnectionPool(conf);
-			}
-		}
-		{
-			DbConfig conf = H2ConfigFactory.create(new File(jdbcUrl.getPath() + "-movement"));
-			log.info(conf);
-			if (movementDbClient == null) {
-				movementDbClient = DbClientFactory.createH2ClientWithConnectionPool(conf);
 			}
 		}
 		initializeDatabase(event);

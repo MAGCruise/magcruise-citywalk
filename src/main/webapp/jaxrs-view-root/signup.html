@@ -2,9 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
+<script src="../js/lib/ua-parser.min.js"></script>
 <script src="../js/signup.js"></script>
 <title th:text="#{title}">サインアップ</title>
 </head>
+<script th:inline="javascript">
+var MSG_FAIL_TO_SIGNUP = [[#{MSG_FAIL_TO_SIGNUP}]];
+var MSG_INVALID_USER_ID = [[#{MSG_INVALID_USER_ID}]];
+var MSG_INVALID_PIN = [[#{MSG_INVALID_PIN}]];
+</script>
 <body>
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
@@ -14,8 +20,12 @@
         <div class="form">
           <div class="form-group">
             <label th:text="#{labelNickname}">ニックネーム(1文字以上8文字以下) </label> <input
-              class="form-control" type="text" id="user-id" name="user-id" placeholder="nickname"
-              pattern=".{1,8}" required />
+              class="form-control" type="text" id="user-id" placeholder="nickname" pattern=".{1,8}"
+              required />
+          </div>
+          <div class="form-group">
+            <label th:text="#{pin}">PIN(半角数字4桁) </label> <input class="form-control" type="number"
+              id="pin" placeholder="PIN" required />
           </div>
           <button type="button" class="btn btn-primary-magc btn-lg btn-block" role="button"
             id="register-btn" th:text="#{btnRegister}">登録</button>

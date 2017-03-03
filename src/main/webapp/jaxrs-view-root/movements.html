@@ -27,22 +27,23 @@ var currentUser = [[${currentUser}]];
         </div>
       </div>
       <div class="col-xs-4">
-        <label>時刻: </label> <span id="recordedAt"></span>
+        <label>時刻: </label> <span id="createdAt"></span>
         <div class="form">
           <div class="form-group">
-            <label>startFrom (yyyy-MM-dd hh:mm:ss")</label> <input class="form-control" 
+            <label>startFrom (yyyy-MM-dd hh:mm:ss")</label> <input class="form-control"
               id="start-from" value="2017-03-02 11:00:00" />
           </div>
           <div class="form-group">
-            <label>userId: </label><select id="user-id" class="selectpicker show-tick" data-width="fit"></select>
+            <label>userId: </label><select id="user-id" class="selectpicker show-tick"
+              data-width="fit"></select>
           </div>
           <div class="form-group">
             <label>courseId</label> <input class="form-control" type="text" id="course-id"
               value="kyoto-2017-03-02" required />
           </div>
           <div class="form-group">
-            <label>incrementSize (GPSログを何個おきに表示するか)</label> <input class="form-control" type="number"
-              id="increment-size" value="5" required />
+            <label>incrementSize (GPSログを何個おきに表示するか)</label> <input class="form-control"
+              type="number" id="increment-size" value="5" required />
           </div>
           <div class="form-group">
             <label>refreshRate (msec)</label> <input class="form-control" type="number"

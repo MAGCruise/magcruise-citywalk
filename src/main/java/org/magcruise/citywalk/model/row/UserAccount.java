@@ -14,15 +14,12 @@ import net.sf.persist.annotations.Table;
 public class UserAccount {
 
 	private String id;
+	private int pin;
 	private String language;
+	private String environment;
 	private Date createdAt;
 
 	public UserAccount() {
-	}
-
-	public UserAccount(String userId, String language) {
-		this.id = userId;
-		this.language = language;
 	}
 
 	public String getId() {
@@ -61,6 +58,26 @@ public class UserAccount {
 		} catch (Throwable t) {
 			return Locale.US;
 		}
+	}
+
+	public int getPin() {
+		return pin;
+	}
+
+	public void setPin(int pin) {
+		this.pin = pin;
+	}
+
+	public String getEnvironment() {
+		return environment;
+	}
+
+	public void setEnvironment(String userAgent) {
+		this.environment = userAgent;
+	}
+
+	public boolean validate(int pin) {
+		return this.pin == pin;
 	}
 
 }

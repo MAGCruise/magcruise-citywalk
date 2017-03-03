@@ -1,8 +1,4 @@
 var MAX_LENGTH_OF_USER_ID = 8;
-var uiMessages = {
-  failToSignup: "サインアップ失敗",
-  faitToSignupNotice: "1文字以上8文字以下で入力して下さい",
-}
 
 var registerFunc = function() {
   if (getUserId()) {
@@ -24,19 +20,33 @@ var registerFunc = function() {
   });
 
   var userId = $('#user-id').val().trim();
+  var pin = $('#pin').val();
   var language = parseUri(location).queryKey.lang;
 
   if (userId < 1 || 8 < userId) {
-    swalAlert(uiMessages.failToSignup, uiMessages.failToSignupNotice);
+    swalAlert(MSG_FAIL_TO_SIGNUP, MSG_INVALID_USER_ID);
+    return;
+  }
+  if (new String(pin).length != 4) {
+    swalAlert(MSG_FAIL_TO_SIGNUP, MSG_INVALID_PIN);
     return;
   }
 
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "register", [userId, language,
+  var userAccount = {
+    id: userId,
+    createdAt: Date.now(),
+    pin: pin,
+    language: language,
+    environment: JSON.stringify(new UAParser().getResult())
+  }
+
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "register", [userAccount,
       MAX_LENGTH_OF_USER_ID], function(data) {
     if (data.result) {
       if (data.result.success) {
         setUserId(userId);
         setLanguage(language);
+        setPin(pin);
         location.href = "courses.html";
       } else {
         var recommendedUserId = data.result.recommendedUserId;

@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -83,26 +84,36 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 			"magcruise-server", "citywalk-server");
 
 	@Override
-	public boolean login(String userId) {
-		if (!users.exists(userId)) {
-			log.error("{} is not registered yet.", userId);
-			return false;
-		}
-
-		UserSession session = getSession();
-		if (session.isLogined()) {
-			log.debug("already logined as {}", session.getUserId());
-
-			if (!session.getUserId().equals(userId)) {
-				log.debug("userId is changed from {} to {}", session.getUserId(), userId);
-				session.setUserId(userId);
+	public UserAccount login(String userId, int pin) {
+		try {
+			if (!users.exists(userId)) {
+				log.error("{} is not registered yet.", userId);
+				return null;
 			}
-			return true;
-		} else {
-			log.debug("create new session for {}", userId);
-			session.setMaxInactiveInterval(10 * 60 * 60);
-			session.setUserId(userId);
-			return true;
+
+			UserSession session = getSession();
+			if (session.isLogined()) {
+				log.debug("already logined as {}", session.getUserId());
+				if (session.getUserId().equals(userId)) {
+					return users.readByPrimaryKey(userId);
+				}
+				if (users.readByPrimaryKey(userId).validate(pin)) {
+					log.debug("userId is changed from {} to {}", session.getUserId(), userId);
+					session.setUserId(userId);
+					return users.readByPrimaryKey(userId);
+				}
+				return null;
+			} else {
+				if (users.readByPrimaryKey(userId).validate(pin)) {
+					log.debug("create new session for {}", userId);
+					session.setMaxInactiveInterval(10 * 60 * 60);
+					session.setUserId(userId);
+					return users.readByPrimaryKey(userId);
+				}
+				return null;
+			}
+		} catch (Exception e) {
+			return null;
 		}
 	}
 
@@ -112,15 +123,14 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public RegisterResultJson register(String userId, String language, int maxLengthOfUserId) {
-		if (!users.exists(userId)) {
-			UserAccount ua = new UserAccount(userId, language);
-			users.insert(ua);
-			login(userId);
-			asyncPostMessageToSlack("Register: " + ua);
-			return new RegisterResultJson(true, userId);
+	public RegisterResultJson register(UserAccount account, int maxLengthOfUserId) {
+		if (!users.exists(account.getId())) {
+			users.insert(account);
+			login(account.getId(), account.getPin());
+			asyncPostMessageToSlack("Register: " + account);
+			return new RegisterResultJson(true, account.getId());
 		}
-		String recommended = createUnregisterdUserId(userId, maxLengthOfUserId);
+		String recommended = createUnregisterdUserId(account.getId(), maxLengthOfUserId);
 		return new RegisterResultJson(false, recommended);
 	}
 
@@ -328,7 +338,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	@Override
 	public boolean join(String userId, String courseId) {
 		try {
-			Entry en = new Entry(userId, courseId);
+			Entry en = new Entry(userId, courseId, new Date());
 			entries.insert(en);
 			asyncPostMessageToSlack("Entry: " + en);
 		} catch (Throwable e) {

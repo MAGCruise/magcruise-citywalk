@@ -2,6 +2,7 @@
 var KEY_CITY_WALK_DATA = "city_walk_data";
 var KEY_CITY_WALK_DATA_DATE = "city_walk_data_date";
 var KEY_USER_ID = "user_id";
+var KEY_PIN = "pin";
 var KEY_GROUP_ID = "group_id";
 var KEY_LANGUAGE = "language";
 var KEY_COURSE_ID = "checkpoint_group_id";
@@ -172,6 +173,14 @@ function getActivityPublisherWssUrl() {
 function saveCityWalkData(data) {
   setItem(KEY_CITY_WALK_DATA, JSON.stringify(data));
   setCityWalkDataDate(Date.now());
+}
+
+function setPin(pin) {
+  setItem(KEY_PIN, pin);
+}
+
+function getPin(pin) {
+  getItem(KEY_PIN);
 }
 
 function setCityWalkDataDate(date) {

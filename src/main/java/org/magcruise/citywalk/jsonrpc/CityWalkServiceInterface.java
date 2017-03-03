@@ -27,12 +27,11 @@ public interface CityWalkServiceInterface {
 	InitialDataJson getInitialDataFromFile(
 			@Parameter(sample = "waseda") String courseId);
 
-	boolean login(@Parameter(sample = "ayaki") String userId);
+	UserAccount login(@Parameter(sample = "ayaki") String userId, int pin);
 
 	boolean logout();
 
-	RegisterResultJson register(@Parameter(sample = "ayaki") String userId,
-			String language, int maxLengthOfUserId);
+	RegisterResultJson register(UserAccount account, int maxLengthOfUserId);
 
 	boolean join(@Parameter(sample = "ayaki") String userId,
 			@Parameter(sample = "waseda") String courseId);
