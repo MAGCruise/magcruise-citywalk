@@ -1,9 +1,10 @@
 var compassElem;
 var defaultOrientation; // 端末の向き(landscape,portrait)を取得
 var cHeading; // 絶対角
+var compassElem;
 
 $(function() {
-  var compassElem = $("#compass");
+  compassElem = $("#compass");
   defaultOrientation = (screen.width > screen.height) ? "landscape" : "portrait";
 
   // 電子コンパスイベントの取得
