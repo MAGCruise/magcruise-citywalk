@@ -175,7 +175,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	public static ExecutorService slackExecutor = Executors.newSingleThreadExecutor();
 
 	private void asyncPostMessageToSlack(String text) {
-		slackExecutor.execute(() -> slack.postMessage(text));
+		slackExecutor.execute(() -> slack.postMessage("```" + text + "```"));
 	}
 
 	private void verifyActivity(Activity a) {

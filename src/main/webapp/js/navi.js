@@ -166,13 +166,9 @@ function showEventsViaWebsocket() {
 }
 
 function initMap() {
-  var center = {
-    lat: checkpoint.lat,
-    lng: checkpoint.lon
-  };
 
   map = new google.maps.Map(document.getElementById('map'), {
-    center: center,
+    center: new google.maps.LatLng(checkpoint.lat, checkpoint.lon),
     mapTypeControl: false,
     streetViewControl: false,
     scaleControl: true,
@@ -186,7 +182,10 @@ function initMap() {
 
   // マーカーの追加
   var marker = new google.maps.Marker({
-    position: center,
+    position: {
+      lat: checkpoint.lat,
+      lng: checkpoint.lon
+    },
     map: map,
   });
 
@@ -277,11 +276,15 @@ function watchCurrentPosition() {
       localStorage.hideGpsSettingsAlert = "true";
     }
 
+    if (cPos == null) {
+      cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+      setMapControlUI();
+    }
+
     cPos = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     enqueueMovement(pos);
 
     updateGpsEnableMessage();
-    setMapControlUI();
     $('#initial-msg').hide();
     $('#distance-wrapper').show();
     $("#distance").text(getDistanceStr(cPos, ePos));
@@ -339,7 +342,6 @@ function setMapControlUI() {
               lat: cPos.lat(),
               lon: cPos.lng()
             }], cPos, DEFAULT_FOCUS_ZOOM);
-
           });
 }
 

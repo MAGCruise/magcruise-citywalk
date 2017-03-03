@@ -19,6 +19,7 @@ var sorted = false;
 window.onload = function() {
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
+      center: new google.maps.LatLng(34.995782, 135.766918),
       mapTypeControl: false,
       streetViewControl: false,
       scaleControl: true,
@@ -27,7 +28,7 @@ window.onload = function() {
       }
     });
 
-    fitBoundsAndZoom(map, getCheckpoints(), cPos, DEFAULT_FOCUS_ZOOM);
+    fitBoundsAndZoom(map, getCheckpoints(), null, DEFAULT_FOCUS_ZOOM);
 
     google.maps.event.addListener(map, "click", function() {
       $("#map-box").css("height", (window.innerHeight - $("#map-box").offset().top - 160) + "px");
