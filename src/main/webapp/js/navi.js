@@ -36,7 +36,7 @@ function updateGpsEnableMessage(osName) {
   if (localStorage.hideGpsSettingsAlert && JSON.parse(localStorage.hideGpsSettingsAlert)) {
     $("#initial-warning-msg-area").remove();
   } else {
-    if (uaParser.getOS().name === "iOS") {
+    if (osName === "iOS") {
       $("#initial-warning-msg-ios").show();
     } else {
       $("#initial-warning-msg-android").show();
@@ -61,7 +61,7 @@ $(function() {
             // 既に途中までタスクが進んでいる場合には，完了済みの次のタスクからはじめる
             var taskIndex = getLastTaskIndex(checkpoint.id) + 1;
             var distThreshold = getTask(checkpoint, 0).activeArea;
-            if (getDistance() == null) {
+            if (getDistance(cPos, ePos) == null) {
               if (currentUser.language == "ja") {
                 swalAlert("位置情報が取得できません", "チェックポイントの側で位置情報の利用ができる場所へ移動して下さい．", "error");
               } else {
@@ -266,17 +266,6 @@ function initMakers() {
 
 /* 位置情報を連続取得する */
 function watchCurrentPosition() {
-  /* 残り距離を表示 */
-  function getDistanceStr(cPos, ePos) {
-    var distance = getDistance(cPos, ePos);
-    if (!distance) { return ""; }
-    return getFormattedDistance(distance);
-  }
-
-  function getDistance(cPos, ePos) {
-    if (cPos == null || ePos == null) { return null; }
-    return google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
-  }
 
   if (!navigator || !navigator.geolocation) {
     if ($('#error-msg-area').is(':hidden')) {
@@ -364,4 +353,16 @@ function postMovementsFunc() {
     // リストア
     setItems(KEY_MOVEMENT_LIST, movements.concat(getItems(KEY_MOVEMENT_LIST)));
   })).rpc();
+}
+
+/* 残り距離を表示 */
+function getDistanceStr(cPos, ePos) {
+  var distance = getDistance(cPos, ePos);
+  if (!distance) { return ""; }
+  return getFormattedDistance(distance);
+}
+
+function getDistance(cPos, ePos) {
+  if (cPos == null || ePos == null) { return null; }
+  return google.maps.geometry.spherical.computeDistanceBetween(cPos, ePos);
 }
