@@ -52,7 +52,8 @@ public class Activity {
 	}
 
 	public Activity(ActivityJson json) {
-		this(json.getCreatedAt(), json.getCourseId(), json.getUserId(), json.getCheckpointId(),
+		this(new Date(json.getCreatedAt()), json.getCourseId(), json.getUserId(),
+				json.getCheckpointId(),
 				json.getLat(), json.getLon(), json.getTaskId(), json.getScore(),
 				convertToInput(json.getTaskType(), json.getInputs()), json.getOptions());
 	}

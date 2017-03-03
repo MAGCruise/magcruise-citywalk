@@ -12,7 +12,11 @@ $(function() {
     } else {
       lang = parseUri(location).queryKey.lang;
     }
-    location.href = 'signup.html?lang=' + lang;
+    if (getUserId()) {
+      location.href = 'login.html?lang=' + lang;
+    } else {
+      location.href = 'signup.html?lang=' + lang;
+    }
     return;
   });
 

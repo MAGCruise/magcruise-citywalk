@@ -1,10 +1,11 @@
 package org.magcruise.citywalk.model.json;
 
-import java.util.Date;
 import java.util.Map;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.magcruise.citywalk.model.row.Activity;
+import org.magcruise.citywalk.model.row.Task;
 
 public class ActivityJson {
 
@@ -25,9 +26,24 @@ public class ActivityJson {
 	private Map<String, String> inputs;
 	private String options;
 
-	private Date createdAt;
+	private long createdAt;
 
 	public ActivityJson() {
+	}
+
+	public ActivityJson(Activity a, Task t) {
+		this.id = a.getId();
+		this.userId = a.getUserId();
+		this.courseId = a.getCourseId();
+		this.checkpointId = a.getCheckpointId();
+		this.lat = a.getLat();
+		this.lon = a.getLon();
+		this.taskId = a.getTaskId();
+		this.taskType = t.getContentObject().getClass().getSimpleName();
+		this.score = a.getScore();
+		this.inputs = a.getInputObject().toMap();
+		this.options = a.getOptions();
+		this.createdAt = a.getCreatedAt().getTime();
 	}
 
 	public String getUserId() {
@@ -123,11 +139,11 @@ public class ActivityJson {
 		this.options = options;
 	}
 
-	public Date getCreatedAt() {
+	public long getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(long createdAt) {
 		this.createdAt = createdAt;
 	}
 

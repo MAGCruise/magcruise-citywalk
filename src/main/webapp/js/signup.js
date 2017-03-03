@@ -1,11 +1,6 @@
 var MAX_LENGTH_OF_USER_ID = 8;
 
-var registerFunc = function() {
-  if (getUserId()) {
-    location.href = "courses.html";
-    return;
-  }
-
+function registerFunc() {
   $('#register-btn').prop("disabled", true);
   setTimeout(function() {
     $('#register-btn').prop("disabled", false);
@@ -32,6 +27,24 @@ var registerFunc = function() {
     return;
   }
 
+  if (!getUserId()) {
+    procSignup(userId, pin, language);
+    return;
+  }
+  swalConfirm("本当に新たにサインアップしますか？", "すでにサインアップは済んでいます．新たにサインアップすると既存のデータは削除されます", "warning",
+          function(input) {
+            if (input) {
+              clearLocalStorage();
+              setTimeout(function() {
+                procSignup(userId, pin, language)
+              }, 300);
+            } else {
+              location.href = "login.html";
+            }
+          });
+};
+
+function procSignup(userId, pin, language) {
   var userAccount = {
     id: userId,
     createdAt: Date.now(),
@@ -61,20 +74,14 @@ var registerFunc = function() {
       swalAlert('サインアップ失敗', '後でもう一度試して下さい．', 'warning');
     })).rpc();
   })).rpc();
-
-};
+}
 
 $(function() {
-  if (getUserId()) {
-    location.href = 'login.html';
-    return;
-  }
   if (!parseUri(location).queryKey.lang) {
     var lang = getLanguage() ? getLanguage() : "en";
     location.href = 'signup.html?lang=' + lang;
     return;
   }
-
   $("#nav-menu").hide();
   $('#register-btn').on('click', registerFunc);
 

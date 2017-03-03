@@ -18,11 +18,13 @@ import org.magcruise.citywalk.conv.CheckpointsAndTasksFactory;
 import org.magcruise.citywalk.conv.InitialDataFactory;
 import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
+import org.magcruise.citywalk.model.json.EntryJson;
 import org.magcruise.citywalk.model.json.MovementJson;
 import org.magcruise.citywalk.model.json.RankJson;
 import org.magcruise.citywalk.model.json.RankingJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
+import org.magcruise.citywalk.model.json.UserAccountJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.init.CheckpointJson;
 import org.magcruise.citywalk.model.json.init.CourseJson;
@@ -123,9 +125,9 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public RegisterResultJson register(UserAccount account, int maxLengthOfUserId) {
+	public RegisterResultJson register(UserAccountJson account, int maxLengthOfUserId) {
 		if (!users.exists(account.getId())) {
-			users.insert(account);
+			users.insert(new UserAccount(account));
 			login(account.getId(), account.getPin());
 			asyncPostMessageToSlack("Register: " + account);
 			return new RegisterResultJson(true, account.getId());
@@ -376,20 +378,22 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public Activity[] getCheckinLogs(String checkpointId) {
-		Activity[] result = verifiedActivities.getActivitiesAtCheckpoint(checkpointId).stream()
+	public ActivityJson[] getCheckinLogs(String checkpointId) {
+		ActivityJson[] result = verifiedActivities.getActivitiesAtCheckpoint(checkpointId).stream()
 				.filter(
 						va -> tasks.readByPrimaryKey(va.getTaskId()).getContentObject().isCheckin())
-				.collect(Collectors.toList()).toArray(new Activity[0]);
+				.map(va -> new ActivityJson(va, tasks.readByPrimaryKey(va.getTaskId())))
+				.collect(Collectors.toList()).toArray(new ActivityJson[0]);
 		return result;
 	}
 
 	@Override
-	public Activity[] getCheckinLogs(String userId, String courseId) {
-		Activity[] result = verifiedActivities.getActivitiesInCourse(userId, courseId).stream()
+	public ActivityJson[] getCheckinLogs(String userId, String courseId) {
+		ActivityJson[] result = verifiedActivities.getActivitiesInCourse(userId, courseId).stream()
 				.filter(
 						va -> tasks.readByPrimaryKey(va.getTaskId()).getContentObject().isCheckin())
-				.collect(Collectors.toList()).toArray(new Activity[0]);
+				.map(va -> new ActivityJson(va, tasks.readByPrimaryKey(va.getTaskId())))
+				.collect(Collectors.toList()).toArray(new ActivityJson[0]);
 		return result;
 	}
 
@@ -403,13 +407,16 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public UserAccount[] getUsers() {
-		return users.readAll().toArray(new UserAccount[0]);
+	public UserAccountJson[] getUsers() {
+		return users.readAll().stream().map(u -> new UserAccountJson(u))
+				.collect(Collectors.toList())
+				.toArray(new UserAccountJson[0]);
 	}
 
 	@Override
-	public Entry[] getEntries() {
-		return entries.readAll().toArray(new Entry[0]);
+	public EntryJson[] getEntries() {
+		return entries.readAll().stream().map(e -> new EntryJson(e)).collect(Collectors.toList())
+				.toArray(new EntryJson[0]);
 	}
 
 }

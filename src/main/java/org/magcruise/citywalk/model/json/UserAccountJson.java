@@ -1,34 +1,26 @@
-package org.magcruise.citywalk.model.row;
-
-import java.util.Date;
-import java.util.Locale;
+package org.magcruise.citywalk.model.json;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.magcruise.citywalk.model.json.UserAccountJson;
-import org.magcruise.citywalk.model.relation.UserAccountsTable;
+import org.magcruise.citywalk.model.row.UserAccount;
 
-import net.sf.persist.annotations.NoColumn;
-import net.sf.persist.annotations.Table;
-
-@Table(name = UserAccountsTable.TABLE_NAME)
-public class UserAccount {
+public class UserAccountJson {
 
 	private String id;
 	private int pin;
 	private String language;
 	private String environment;
-	private Date createdAt;
+	private long createdAt;
 
-	public UserAccount() {
+	public UserAccountJson() {
 	}
 
-	public UserAccount(UserAccountJson ua) {
+	public UserAccountJson(UserAccount ua) {
 		this.id = ua.getId();
 		this.pin = ua.getPin();
 		this.language = ua.getLanguage();
 		this.environment = ua.getEnvironment();
-		this.createdAt = new Date(ua.getCreatedAt());
+		this.createdAt = ua.getCreatedAt().getTime();
 	}
 
 	public String getId() {
@@ -52,21 +44,12 @@ public class UserAccount {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
-	public Date getCreatedAt() {
+	public long getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Date createdAt) {
+	public void setCreatedAt(long createdAt) {
 		this.createdAt = createdAt;
-	}
-
-	@NoColumn
-	public Locale getLocale() {
-		try {
-			return Locale.forLanguageTag(language);
-		} catch (Throwable t) {
-			return Locale.US;
-		}
 	}
 
 	public int getPin() {

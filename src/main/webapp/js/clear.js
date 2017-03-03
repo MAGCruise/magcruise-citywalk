@@ -1,7 +1,7 @@
 $(function() {
   swalConfirm('LocalStorageを初期化します', "", "warning", function(isOk) {
     if (isOk) {
-      clear();
+      clearLocalStorage();
       swal.close();
       setTimeout(function() {
         swalAlert('LocalStorageを初期化しました');

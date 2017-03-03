@@ -179,8 +179,8 @@ function setPin(pin) {
   setItem(KEY_PIN, pin);
 }
 
-function getPin(pin) {
-  getItem(KEY_PIN);
+function getPin() {
+  return getItem(KEY_PIN);
 }
 
 function setCityWalkDataDate(date) {
@@ -278,7 +278,7 @@ function removeItem(key) {
   window.localStorage.removeItem(key);
 }
 // localStorageに保存されているすべての値を削除する
-function clear() {
+function clearLocalStorage() {
   window.localStorage.clear();
 }
 
@@ -487,4 +487,10 @@ function checkReturnFromBackground() {
     }
     lastChecked = now;
   }, 1000 * 5);
+}
+
+function logout() {
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "logout", [], function(data) {
+    location.href = "login.html";
+  })).rpc();
 }

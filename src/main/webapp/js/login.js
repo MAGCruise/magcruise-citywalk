@@ -5,6 +5,10 @@ function isNoLogin() {
 var loginFunc = function() {
   var userId = $('#user-id').val();
   var pin = Number.parseInt($('#pin').val());
+  if (new String(pin).length != 4) {
+    swalAlert("PINは4桁の数字です");
+    return;
+  }
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "logout", [], function(data) {
     var client = new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "login", [userId, pin],
             function(data) {
@@ -18,7 +22,7 @@ var loginFunc = function() {
                   location.href = "courses.html";
                 }
               } else {
-                swalAlert('ログイン失敗', 'アカウントが無効です．', 'error');
+                swalAlert('ログイン失敗', 'ログイン情報が誤っています．', 'error');
               }
             }, function(error) {
               swalAlert('ログイン失敗', '後でもう一度試して下さい．', 'warning');
@@ -27,15 +31,10 @@ var loginFunc = function() {
 };
 
 $(function() {
-  if (!getUserId() && !parseUri(location).queryKey.msg === "admin") {
+  if (!getUserId()) {
     location.href = 'signup.html';
     return;
   }
-  if (isNoLogin()) {
-    loginFunc();
-    // alert("ログアウトされています．もう一度ログインして下さい．");
-  }
-
   $("#nav-menu").hide();
   $('#user-id').val(getUserId());
   $('#pin').val(getPin());

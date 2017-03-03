@@ -1,7 +1,5 @@
 package org.magcruise.citywalk.model.json;
 
-import java.util.Date;
-
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -17,14 +15,14 @@ public class MovementJson {
 	private double heading;
 	private String courseId;
 	private String checkpointId;
-	private Date createdAt;
+	private long createdAt;
 
 	public MovementJson() {
 	}
 
 	public MovementJson(String userId, double lat, double lon, double accuracy, double altitude,
 			double altitudeAccuracy, double speed, double heading, String courseId,
-			String checkpointId, Date createdAt) {
+			String checkpointId, long createdAt) {
 		this.userId = userId;
 		this.lat = lat;
 		this.lon = lon;
@@ -118,12 +116,12 @@ public class MovementJson {
 		this.checkpointId = checkpointId;
 	}
 
-	public Date getCreatedAt() {
+	public long getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Date date) {
-		this.createdAt = date;
+	public void setCreatedAt(long createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	@Override

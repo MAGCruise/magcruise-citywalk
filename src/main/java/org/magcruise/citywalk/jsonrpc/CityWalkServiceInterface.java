@@ -2,15 +2,15 @@ package org.magcruise.citywalk.jsonrpc;
 
 import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
+import org.magcruise.citywalk.model.json.EntryJson;
 import org.magcruise.citywalk.model.json.MovementJson;
 import org.magcruise.citywalk.model.json.RankingJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
+import org.magcruise.citywalk.model.json.UserAccountJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.init.CoursesJson;
 import org.magcruise.citywalk.model.json.init.InitialDataJson;
-import org.magcruise.citywalk.model.row.Activity;
-import org.magcruise.citywalk.model.row.Entry;
 import org.magcruise.citywalk.model.row.UserAccount;
 
 import jp.go.nict.langrid.commons.rpc.intf.Parameter;
@@ -31,7 +31,7 @@ public interface CityWalkServiceInterface {
 
 	boolean logout();
 
-	RegisterResultJson register(UserAccount account, int maxLengthOfUserId);
+	RegisterResultJson register(UserAccountJson account, int maxLengthOfUserId);
 
 	boolean join(@Parameter(sample = "ayaki") String userId,
 			@Parameter(sample = "waseda") String courseId);
@@ -56,9 +56,9 @@ public interface CityWalkServiceInterface {
 	String[] getCheckpointIdsOrderedByDistance(double currentLat, double currentLon,
 			String courseId, String language, String[] checkpointIds);
 
-	Activity[] getCheckinLogs(String checkpointId);
+	ActivityJson[] getCheckinLogs(String checkpointId);
 
-	Activity[] getCheckinLogs(String userId, String courseId);
+	ActivityJson[] getCheckinLogs(String userId, String courseId);
 
 	boolean validateCheckpointsAndTasksJson(
 			@Parameter(sample = "{\"checkpoints\":["
@@ -75,8 +75,8 @@ public interface CityWalkServiceInterface {
 
 	MovementJson[] getMovements(String userId, String courseId, int incrementSize);
 
-	UserAccount[] getUsers();
+	UserAccountJson[] getUsers();
 
-	Entry[] getEntries();
+	EntryJson[] getEntries();
 
 }

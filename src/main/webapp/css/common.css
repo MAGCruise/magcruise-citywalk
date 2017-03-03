@@ -12,6 +12,9 @@ a, button, input .btn {
 .green {
   color: #38A997; }
 
+.gray {
+  color: #AAA; }
+
 /** util **/
 .h-center {
   text-align: center;
