@@ -115,6 +115,7 @@ function sendAddActivity(activity, isCorrect) {
     var checkpointId = activity.checkpointId;
     console.log(data.result);
     console.log("ranking => " + data.result.rank);
+    setItem(KEY_RANKING_TIME, Date.now());
     setItem(KEY_RANKING, data.result.rank);
     if (data.result.badges.length > 0) {
       if (!getNotifiedBadges()) {

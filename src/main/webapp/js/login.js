@@ -4,9 +4,9 @@ function isNoLogin() {
 
 var loginFunc = function() {
   var userId = $('#user-id').val();
-  var pin = parseInt($('#pin').val());
-  if (new String(pin).length != 4) {
-    swalAlert("PINは4桁の数字です");
+  var pin = $('#pin').val();
+  if (pin.length < 4) {
+    swalAlert("PINは4桁以上の数字です");
     return;
   }
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "logout", [], function(data) {

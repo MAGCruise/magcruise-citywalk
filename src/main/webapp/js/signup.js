@@ -15,15 +15,17 @@ function registerFunc() {
   });
 
   var userId = $('#user-id').val().trim();
-  var pin = parseInt($('#pin').val());
+  var pin = $('#pin').val();
   var language = parseUri(location).queryKey.lang;
 
   if (userId.length < 1 || 8 < userId.length) {
     swalAlert(MSG_FAIL_TO_SIGNUP, MSG_INVALID_USER_ID);
+    sendDebug(["PIN:", pin, "userId:", userId, "language:", language]);
     return;
   }
-  if (new String(pin).length != 4) {
+  if (pin.length < 4) {
     swalAlert(MSG_FAIL_TO_SIGNUP, MSG_INVALID_PIN);
+    sendDebug(["PIN:", pin, "userId:", userId, "language:", language]);
     return;
   }
 

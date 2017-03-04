@@ -28,7 +28,74 @@ function memorizeHistory() {
       href: location.href
     }, document.title, location.href);
   }
+}
 
+window.onerror = function(msg, file, line, col, error) {
+  StackTrace.fromError(error)
+    .then(function(stackFrames){
+        var errorMsg = msg+'\n';
+        errorMsg += stackFrames.map(function(sf) {
+          return sf.toString();
+        }).join('\n');
+        console.error(errorMsg);
+        sendLogAux(msg,"ERROR", stackFrames[0]);
+     })
+    .catch(function(stackFrames){
+      var errorMsg = msg+"\n"+stackFrames.toString();
+      console.log(errorMsg);
+     });
+};
+
+function getDeviceInfo(){
+  var ua = new UAParser().getResult();
+  return {browser:ua.browser, os:ua.os, device:ua.device};
+}
+
+function getUserInfo(){
+  if(!isEnableLocalStorage()){
+    return null;
+  }
+  return {userId: getUserId(), language:getLanguage(), pin:getPin()};
+}
+
+function getCourseInfo(){
+  if(!isEnableLocalStorage()){
+    return null;
+  }
+  return {courseId: getCourseId(),
+    checkpoint: (typeof checkpoint != "undefined")?checkpoint:null,
+    task:(typeof task != "undefined")?task: null
+   };
+}
+
+function sendError(msg){
+  sendLog(msg,"ERROR", 4);
+}
+
+function sendWarn(msg){
+  sendLog(msg,"WARN", 4);
+}
+
+function sendInfo(msg){
+  sendLog(msg,"INFO", 4);
+}
+
+function sendDebug(msg){
+  sendLog(msg,"DEBUG", 4);
+}
+
+function sendLog(msg, logLevel, stackNum) {
+  var st = StackTrace.getSync();
+  sendLogAux(msg, logLevel, st[4]);
+}
+
+function sendLogAux(msg, logLevel, stackTrace){
+  setTimeout(function(){
+    new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "sendLog",
+            [logLevel, stackTrace,
+             {message: msg, course: getCourseInfo(), user: getUserInfo(),device: getDeviceInfo()}], function(data) {
+    })).rpc();
+  },10);
 }
 
 $(function() {
@@ -422,10 +489,17 @@ function getRanking() {
   return getItem(KEY_RANKING);
 }
 
+function getRankingTime(){
+  return JSON.parse(getItem(KEY_RANKING_TIME));
+}
+
 function getRewardMessage() {
   var msg = [];
   if (getRanking() && JSON.parse(getRanking())) {
-    msg.push("Score ranking : No. " + getRanking());
+    msg.push('<i class="glyphicon glyphicon-time" /> '
+            + toFormattedShortDate(getRankingTime())
+            +' <i class="glyphicon glyphicon-signal" />'
+            +" Ranking No. " + getRanking());
   }
   if (getNotifiedBadges() && JSON.parse(getNotifiedBadges())) {
     if (JSON.parse(getNotifiedBadges()).length != 0) {
@@ -440,28 +514,31 @@ function clearRewardMessage() {
   setItems(KEY_NOTIFIED_BADGES, []);
 }
 
-var postActivitiesFunc = function() {
-  var activities = getItems(KEY_ACTIVITIES);
-  if (activities.length == 0) { return; }
-  removeItem(KEY_ACTIVITIES);
-  activities.forEach(function(activity) {
-    new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [activity], function(data) {
-      console.log(data.result);
-      console.log("ranking => " + data.result.rank);
-      setItem(KEY_RANKING, data.result.rank);
-      if (data.result.badges.length > 0) {
-        if (!getNotifiedBadges()) {
-          setItems(KEY_NOTIFIED_BADGES, []);
-        }
-        console.log("badges => " + data.result.badges);
-        addItems(KEY_NOTIFIED_BADGES, data.result.badges);
-      }
-    }, function(data, textStatus, errorThrown) {
-      log.error("fail to add activity: " + textStatus + errorThrown + data);
-      addItems(KEY_ACTIVITIES, [activity]);
-    })).rpc();
-  });
-}
+var KEY_RANKING_TIME = "ranking_time";
+
+// var postActivitiesFunc = function() {
+// var activities = getItems(KEY_ACTIVITIES);
+// if (activities.length == 0) { return; }
+// removeItem(KEY_ACTIVITIES);
+// activities.forEach(function(activity) {
+// new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "addActivity", [activity],
+// function(data) {
+// console.log(data.result);
+// console.log("ranking => " + data.result.rank);
+// setItem(KEY_RANKING, data.result.rank);
+// if (data.result.badges.length > 0) {
+// if (!getNotifiedBadges()) {
+// setItems(KEY_NOTIFIED_BADGES, []);
+// }
+// console.log("badges => " + data.result.badges);
+// addItems(KEY_NOTIFIED_BADGES, data.result.badges);
+// }
+// }, function(data, textStatus, errorThrown) {
+// log.error("fail to add activity: " + textStatus + errorThrown + data);
+// addItems(KEY_ACTIVITIES, [activity]);
+// })).rpc();
+// });
+// }
 
 function updateInitialDataIfNeeded(courseId) {
   if (!getCityWalkDataDate()) { return; }

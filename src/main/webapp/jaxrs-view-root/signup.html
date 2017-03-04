@@ -26,7 +26,7 @@ var MSG_INVALID_PIN = [[#{MSG_INVALID_PIN}]];
           <div class="form-group">
             <label th:text="#{pin}">PIN(半角数字4桁) </label>
             <div class="narrow-description" th:utext="#{pinNotice}"></div>
-            <input class="form-control" type="number" id="pin" placeholder="4326" required />
+            <input class="form-control" type="tel" id="pin" placeholder="4326" required />
           </div>
           <button type="button" class="btn btn-primary-magc btn-lg btn-block" role="button"
             id="register-btn" th:text="#{btnRegister}">登録</button>

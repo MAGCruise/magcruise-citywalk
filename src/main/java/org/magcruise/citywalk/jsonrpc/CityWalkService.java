@@ -1,6 +1,7 @@
 package org.magcruise.citywalk.jsonrpc;
 
 import java.io.File;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -48,6 +49,7 @@ import org.magcruise.citywalk.model.row.Task;
 import org.magcruise.citywalk.model.row.UserAccount;
 import org.magcruise.citywalk.model.row.VerifiedActivity;
 import org.magcruise.citywalk.utils.SlackMessenger;
+import org.magcruise.citywalk.utils.SlackPayload;
 import org.nkjmlab.gis.datum.Basis;
 import org.nkjmlab.gis.datum.DistanceUnit;
 import org.nkjmlab.gis.datum.LatLon;
@@ -59,6 +61,7 @@ import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
 import org.nkjmlab.util.lang.MessageUtils;
 import org.nkjmlab.util.log4j.LogManager;
+import org.nkjmlab.util.time.DateTimeUtils;
 import org.nkjmlab.webui.common.user.model.UserSession;
 
 import jp.go.nict.langrid.commons.ws.ServletServiceContext;
@@ -74,16 +77,23 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	private UserAccountsTable users = new UserAccountsTable(ApplicationContext.getDbClient());
 	private BadgesTable badges = new BadgesTable(ApplicationContext.getDbClient());
 	private TasksTable tasks = new TasksTable(ApplicationContext.getDbClient());
-	private MovementsTable movements = new MovementsTable(ApplicationContext.getDbClient());
+	private MovementsTable movementsTable = new MovementsTable(ApplicationContext.getDbClient());
+
 	private EntriesTable entries = new EntriesTable(ApplicationContext.getDbClient());
 	private BadgeDefinitionsTable badgeDefinitionsTable = new BadgeDefinitionsTable(
 			ApplicationContext.getDbClient());
 
 	private CoursesTable coursesTable = new CoursesTable(ApplicationContext.getDbClient());
 
-	private SlackMessenger slack = new SlackMessenger(
+	public static ExecutorService slackExecutor = Executors.newSingleThreadExecutor();
+
+	private SlackMessenger slackServerLog = new SlackMessenger(
 			"https://hooks.slack.com/services/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",
 			"magcruise-server", "citywalk-server");
+
+	private SlackMessenger slackClientLog = new SlackMessenger(
+			"https://hooks.slack.com/services/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",
+			"magcruise-client", "citywalk-client");
 
 	@Override
 	public UserAccount login(String userId, int pin) {
@@ -129,7 +139,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		if (!users.exists(account.getId())) {
 			users.insert(new UserAccount(account));
 			login(account.getId(), account.getPin());
-			asyncPostMessageToSlack("Register: " + account);
+			asyncPostMessageToSlack(SlackPayload.wrapPre("Register: " + account));
 			return new RegisterResultJson(true, account.getId());
 		}
 		String recommended = createUnregisterdUserId(account.getId(), maxLengthOfUserId);
@@ -172,10 +182,12 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		return createRewardJson(a.getUserId(), a.getCourseId());
 	}
 
-	public static ExecutorService slackExecutor = Executors.newSingleThreadExecutor();
-
 	private void asyncPostMessageToSlack(String text) {
-		slackExecutor.execute(() -> slack.postMessage("```" + text + "```"));
+		slackExecutor.execute(() -> slackServerLog.postMessage(text));
+	}
+
+	private void asyncClientLogToSlack(String text) {
+		slackExecutor.execute(() -> slackClientLog.postMessage(text));
 	}
 
 	private void verifyActivity(Activity a) {
@@ -187,10 +199,9 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 			VerifiedActivity va = new VerifiedActivity(a);
 			verifiedActivities.insert(va);
 			log.info("add verified activity={}", va);
-			asyncPostMessageToSlack(MessageUtils.format(
-					"createdAt={}, userId={}, checkpointId={}, taskId={}",
-					va.getCreatedAt(), va.getUserId(), va.getCheckpointId(),
-					va.getTaskId()));
+			asyncPostMessageToSlack(SlackPayload.wrapPre(MessageUtils.format(
+					"createdAt={}, userId={}, checkpointId={}, taskId={}", va.getCreatedAt(),
+					va.getUserId(), va.getCheckpointId(), va.getTaskId())));
 		}
 
 	}
@@ -216,21 +227,23 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 						.parseInt(definition.getValue())) {
 					result.add(definition.getName());
 					badges.insert(new Badge(userId, definition.getId()));
-					asyncPostMessageToSlack(userId + " get " + definition.getName());
+					asyncPostMessageToSlack(
+							SlackPayload.wrapPre(userId + " get " + definition.getName()));
 				}
 			} else {
 				if (verifiedActivities.getNumberOfCheckInInCategory(userId, courseId,
 						definition.getType()) >= Integer.parseInt(definition.getValue())) {
 					result.add(definition.getName());
 					badges.insert(new Badge(userId, definition.getId()));
-					asyncPostMessageToSlack(userId + " get " + definition.getName());
+					asyncPostMessageToSlack(
+							SlackPayload.wrapPre(userId + " get " + definition.getName()));
 				}
 			}
 		});
 		return result;
 	}
 
-	public File uploadImage(String userId, String base64EncodedImage) {
+	private File uploadImage(String userId, String base64EncodedImage) {
 		try {
 			String imageId = userId + "-" + System.nanoTime();
 			File outputDir = FileUtils
@@ -260,8 +273,8 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	@Override
 	public InitialDataJson getInitialDataFromFile(String courseId) {
 		InitialDataJson data = JsonUtils.decode(
-				new File(getServiceContext()
-						.getRealPath("json/initial-data/" + courseId + ".json")),
+				new File(
+						getServiceContext().getRealPath("json/initial-data/" + courseId + ".json")),
 				InitialDataJson.class);
 		return data;
 	}
@@ -278,9 +291,12 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	@Override
 	public void addMovements(MovementJson[] movements) {
-		this.movements.insertBatch(
-				Arrays.stream(movements).map(m -> new Movement(m)).collect(Collectors.toList())
-						.toArray(new Movement[0]));
+		Movement[] mvs = Arrays.stream(movements).map(m -> new Movement(m))
+				.collect(Collectors.toList())
+				.toArray(new Movement[0]);
+		log.info(Arrays.asList(mvs));
+		this.movementsTable.insertBatch(mvs);
+
 	}
 
 	@Override
@@ -342,7 +358,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		try {
 			Entry en = new Entry(userId, courseId, new Date());
 			entries.insert(en);
-			asyncPostMessageToSlack("Entry: " + en);
+			asyncPostMessageToSlack(SlackPayload.wrapPre("Entry: " + en));
 		} catch (Throwable e) {
 			return false;
 		}
@@ -397,8 +413,6 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		return result;
 	}
 
-	private MovementsTable movementsTable = new MovementsTable(ApplicationContext.getDbClient());
-
 	@Override
 	public MovementJson[] getMovements(String userId, String courseId, int incrementSize) {
 		return movementsTable.findByUserIdAndCourseId(userId, courseId, incrementSize).stream()
@@ -417,6 +431,43 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	public EntryJson[] getEntries() {
 		return entries.readAll().stream().map(e -> new EntryJson(e)).collect(Collectors.toList())
 				.toArray(new EntryJson[0]);
+	}
+
+	@Override
+	public boolean sendLog(String logLevel, String location, String msg) {
+		String mark = "";
+		switch (logLevel) {
+		case "ERROR":
+		case "SEVERE": {
+			mark = " :x: ";
+			break;
+		}
+		case "WARN":
+		case "WARNING": {
+			mark = " :warning: ";
+			break;
+		}
+		case "INFO": {
+			mark = " :information_source: ";
+			break;
+		}
+		case "DEBUG": {
+			mark = " DEBUG ";
+			break;
+		}
+		}
+		asyncClientLogToSlack(
+				":iphone:  ["
+						+ DateTimeUtils.toTimestamp(LocalDateTime.now()) + " " + mark + " \n"
+						+ createLocationMsg(location) + " "
+						+ SlackPayload.wrapPre(JsonUtils.encode(JsonUtils.decode(msg), true)));
+		return false;
+	}
+
+	private String createLocationMsg(String location) {
+		JsStackTrace st = JsonUtils.decode(location, JsStackTrace.class);
+		return st.getFunctionName() + " (" + st.getFileName() + " :" + st.getLineNumber() + ":"
+				+ st.getColumnNumber() + ")";
 	}
 
 }

@@ -53,4 +53,8 @@ public class SlackPayload {
 	public String toJson() {
 		return JsonUtils.encode(this);
 	}
+
+	public static String wrapPre(String msg) {
+		return "```" + msg + "```";
+	}
 }

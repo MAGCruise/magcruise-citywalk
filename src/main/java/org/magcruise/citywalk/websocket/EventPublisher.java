@@ -90,8 +90,7 @@ public class EventPublisher {
 		return latestReadActivityIds.get(userId);
 	}
 
-	public void onClose(@PathParam("userId") String userId,
-			Session session) {
+	public void onClose(@PathParam("userId") String userId, Session session) {
 		finalizeSession(session);
 	}
 
@@ -111,7 +110,11 @@ public class EventPublisher {
 
 	public void onError(Session session, Throwable cause) {
 		finalizeSession(session);
-		log.warn(cause.getMessage());
+		if (cause.getMessage().contains("writing data to the APR")) {
+			log.debug(cause.getMessage());
+		} else {
+			log.warn(cause.getMessage());
+		}
 	}
 
 }

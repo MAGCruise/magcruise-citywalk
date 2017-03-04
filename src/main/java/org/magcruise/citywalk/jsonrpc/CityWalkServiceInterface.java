@@ -79,4 +79,6 @@ public interface CityWalkServiceInterface {
 
 	EntryJson[] getEntries();
 
+	boolean sendLog(String errorLevel, String location, String msg);
+
 }
