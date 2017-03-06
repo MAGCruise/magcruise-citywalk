@@ -9,8 +9,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.Logger;
@@ -20,6 +18,7 @@ import org.magcruise.citywalk.conv.InitialDataFactory;
 import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
 import org.magcruise.citywalk.model.json.EntryJson;
+import org.magcruise.citywalk.model.json.JsStackTrace;
 import org.magcruise.citywalk.model.json.MovementJson;
 import org.magcruise.citywalk.model.json.RankJson;
 import org.magcruise.citywalk.model.json.RankingJson;
@@ -48,19 +47,17 @@ import org.magcruise.citywalk.model.row.SubmittedActivity;
 import org.magcruise.citywalk.model.row.Task;
 import org.magcruise.citywalk.model.row.UserAccount;
 import org.magcruise.citywalk.model.row.VerifiedActivity;
-import org.magcruise.citywalk.utils.SlackMessenger;
-import org.magcruise.citywalk.utils.SlackPayload;
 import org.nkjmlab.gis.datum.Basis;
 import org.nkjmlab.gis.datum.DistanceUnit;
 import org.nkjmlab.gis.datum.LatLon;
-import org.nkjmlab.gis.datum.jprect.JapanPlaneRectangular;
-import org.nkjmlab.gis.datum.jprect.JapanPlaneRectangular.ZoneId;
 import org.nkjmlab.gis.datum.jprect.LatLonWithZone;
 import org.nkjmlab.util.base64.Base64ImageUtils;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
 import org.nkjmlab.util.lang.MessageUtils;
 import org.nkjmlab.util.log4j.LogManager;
+import org.nkjmlab.util.slack.SlackMessage;
+import org.nkjmlab.util.slack.SlackMessageBuilder;
 import org.nkjmlab.util.time.DateTimeUtils;
 import org.nkjmlab.webui.common.user.model.UserSession;
 
@@ -84,16 +81,6 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 			ApplicationContext.getDbClient());
 
 	private CoursesTable coursesTable = new CoursesTable(ApplicationContext.getDbClient());
-
-	public static ExecutorService slackExecutor = Executors.newSingleThreadExecutor();
-
-	private SlackMessenger slackServerLog = new SlackMessenger(
-			"https://hooks.slack.com/services/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",
-			"magcruise-server", "citywalk-server");
-
-	private SlackMessenger slackClientLog = new SlackMessenger(
-			"https://hooks.slack.com/services/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",
-			"magcruise-client", "citywalk-client");
 
 	@Override
 	public UserAccount login(String userId, int pin) {
@@ -139,7 +126,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		if (!users.exists(account.getId())) {
 			users.insert(new UserAccount(account));
 			login(account.getId(), account.getPin());
-			asyncPostMessageToSlack(SlackPayload.wrapPre("Register: " + account));
+			asyncPostMessageToLogSrvChannel("Register", SlackMessage.wrapPre(account.toString()));
 			return new RegisterResultJson(true, account.getId());
 		}
 		String recommended = createUnregisterdUserId(account.getId(), maxLengthOfUserId);
@@ -182,14 +169,6 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		return createRewardJson(a.getUserId(), a.getCourseId());
 	}
 
-	private void asyncPostMessageToSlack(String text) {
-		slackExecutor.execute(() -> slackServerLog.postMessage(text));
-	}
-
-	private void asyncClientLogToSlack(String text) {
-		slackExecutor.execute(() -> slackClientLog.postMessage(text));
-	}
-
 	private void verifyActivity(Activity a) {
 		synchronized (verifiedActivities) {
 			if (verifiedActivities.contains(a.getCourseId(), a.getUserId(), a.getCheckpointId(),
@@ -199,7 +178,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 			VerifiedActivity va = new VerifiedActivity(a);
 			verifiedActivities.insert(va);
 			log.info("add verified activity={}", va);
-			asyncPostMessageToSlack(SlackPayload.wrapPre(MessageUtils.format(
+			asyncPostMessageToLogSrvChannel("addActivity", SlackMessage.wrapPre(MessageUtils.format(
 					"createdAt={}, userId={}, checkpointId={}, taskId={}", va.getCreatedAt(),
 					va.getUserId(), va.getCheckpointId(), va.getTaskId())));
 		}
@@ -227,16 +206,16 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 						.parseInt(definition.getValue())) {
 					result.add(definition.getName());
 					badges.insert(new Badge(userId, definition.getId()));
-					asyncPostMessageToSlack(
-							SlackPayload.wrapPre(userId + " get " + definition.getName()));
+					asyncPostMessageToLogSrvChannel("Badge",
+							SlackMessage.wrapPre(userId + " get " + definition.getName()));
 				}
 			} else {
 				if (verifiedActivities.getNumberOfCheckInInCategory(userId, courseId,
 						definition.getType()) >= Integer.parseInt(definition.getValue())) {
 					result.add(definition.getName());
 					badges.insert(new Badge(userId, definition.getId()));
-					asyncPostMessageToSlack(
-							SlackPayload.wrapPre(userId + " get " + definition.getName()));
+					asyncPostMessageToLogSrvChannel("Badge",
+							SlackMessage.wrapPre(userId + " get " + definition.getName()));
 				}
 			}
 		});
@@ -287,6 +266,10 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	protected UserSession getSession() {
 		return UserSession.of(
 				((ServletServiceContext) getServiceContext()).getRequest());
+	}
+
+	protected UserRequest getRequest() {
+		return UserRequest.of(((ServletServiceContext) getServiceContext()).getRequest());
 	}
 
 	@Override
@@ -358,7 +341,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		try {
 			Entry en = new Entry(userId, courseId, new Date());
 			entries.insert(en);
-			asyncPostMessageToSlack(SlackPayload.wrapPre("Entry: " + en));
+			asyncPostMessageToLogSrvChannel("Entry", SlackMessage.wrapPre(en.toString()));
 		} catch (Throwable e) {
 			return false;
 		}
@@ -380,14 +363,14 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		List<String> ids = Arrays.asList(checkpointIds);
 
 		LatLon latLon = new LatLon(currentLat, currentLon, Basis.DEGREE_WGS);
-		ZoneId zoneId = JapanPlaneRectangular.estimate(latLon);
-		LatLonWithZone latLonWithZone = new LatLonWithZone(latLon, zoneId);
+		LatLonWithZone latLonWithZone = LatLonWithZone.createWithNearestOrigin(latLon);
 
 		return getInitialData(courseId, language).getCheckpoints().stream()
 				.filter(cj -> ids.contains(cj.getId()))
 				.sorted(Comparator.comparingDouble((CheckpointJson cj) -> {
 					LatLonWithZone toLatLon = new LatLonWithZone(
-							new LatLon(cj.getLat(), cj.getLon(), Basis.DEGREE_WGS), zoneId);
+							new LatLon(cj.getLat(), cj.getLon(), Basis.DEGREE_WGS),
+							latLonWithZone.getZoneId());
 					return latLonWithZone.distance(toLatLon, DistanceUnit.M);
 				})).map(cj -> cj.getId()).collect(Collectors.toList())
 				.toArray(new String[0]);
@@ -456,11 +439,12 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 			break;
 		}
 		}
-		asyncClientLogToSlack(
-				":iphone:  ["
-						+ DateTimeUtils.toTimestamp(LocalDateTime.now()) + " " + mark + " \n"
-						+ createLocationMsg(location) + " "
-						+ SlackPayload.wrapPre(JsonUtils.encode(JsonUtils.decode(msg), true)));
+		Map<String, Object> msgObj = JsonUtils.decode(msg);
+
+		asyncPostMessageToClienWatchtChannel("JS log", ":iphone:  ["
+				+ DateTimeUtils.toTimestamp(LocalDateTime.now()) + " " + mark + " \n"
+				+ createLocationMsg(location) + " "
+				+ SlackMessage.wrapPre(JsonUtils.encode(msgObj, true)));
 		return false;
 	}
 
@@ -470,4 +454,15 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 				+ st.getColumnNumber() + ")";
 	}
 
+	private void asyncPostMessageToLogSrvChannel(String category, String text) {
+		SlackMessage message = new SlackMessageBuilder().setChannel("log-srv")
+				.setUsername(category).setText(text).build();
+		ApplicationContext.asyncPostMessageToSlack(message);
+	}
+
+	private void asyncPostMessageToClienWatchtChannel(String category, String text) {
+		SlackMessage message = new SlackMessageBuilder().setChannel("log-client")
+				.setUsername(category).setText(text).build();
+		ApplicationContext.asyncPostMessageToSlack(message);
+	}
 }

@@ -1,4 +1,4 @@
-package org.magcruise.citywalk.jsonrpc;
+package org.magcruise.citywalk.model.json;
 
 public class JsStackTrace {
 
