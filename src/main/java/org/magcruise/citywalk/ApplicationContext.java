@@ -7,11 +7,9 @@ import java.util.List;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
 
 import org.apache.logging.log4j.Logger;
 import org.magcruise.citywalk.conv.CheckpointsAndTasksFactory;
-import org.magcruise.citywalk.jsonrpc.CityWalkService;
 import org.magcruise.citywalk.model.gdata.GoogleSpreadsheetData;
 import org.magcruise.citywalk.model.json.db.CheckpointJson;
 import org.magcruise.citywalk.model.json.db.CheckpointsAndTasksJson;
@@ -46,13 +44,17 @@ import org.nkjmlab.util.db.H2Server;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
 import org.nkjmlab.util.log4j.LogManager;
+import org.nkjmlab.util.slack.SlackMessage;
+import org.nkjmlab.util.slack.SlackMessengerService;
 
-@WebListener
 public class ApplicationContext implements ServletContextListener {
 
 	protected static Logger log = LogManager.getLogger();
 
 	protected static H2ClientWithConnectionPool dbClient;
+
+	private static SlackMessengerService slackMessengerService = new SlackMessengerService(
+			"https://hooks.slack.com/services/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");
 
 	static {
 		H2Server.start();
@@ -239,9 +241,13 @@ public class ApplicationContext implements ServletContextListener {
 
 	@Override
 	public void contextDestroyed(ServletContextEvent event) {
-		CityWalkService.slackExecutor.shutdown();
+		slackMessengerService.shutdown();
 		dbClient.dispose();
 		log.info("destroyed");
+	}
+
+	public static void asyncPostMessageToSlack(SlackMessage message) {
+		slackMessengerService.asyncPostMessage(message);
 	}
 
 }
