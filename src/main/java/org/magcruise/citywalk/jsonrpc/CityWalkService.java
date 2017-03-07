@@ -50,7 +50,7 @@ import org.magcruise.citywalk.model.row.VerifiedActivity;
 import org.nkjmlab.gis.datum.Basis;
 import org.nkjmlab.gis.datum.DistanceUnit;
 import org.nkjmlab.gis.datum.LatLon;
-import org.nkjmlab.gis.datum.jprect.LatLonWithZone;
+import org.nkjmlab.gis.datum.jprect.util.LatLonUtils;
 import org.nkjmlab.util.base64.Base64ImageUtils;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
@@ -59,7 +59,8 @@ import org.nkjmlab.util.log4j.LogManager;
 import org.nkjmlab.util.slack.SlackMessage;
 import org.nkjmlab.util.slack.SlackMessageBuilder;
 import org.nkjmlab.util.time.DateTimeUtils;
-import org.nkjmlab.webui.common.user.model.UserSession;
+import org.nkjmlab.webui.util.servlet.UserRequest;
+import org.nkjmlab.webui.util.servlet.UserSession;
 
 import jp.go.nict.langrid.commons.ws.ServletServiceContext;
 import jp.go.nict.langrid.servicecontainer.service.AbstractService;
@@ -362,16 +363,12 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 			String courseId, String language, String[] checkpointIds) {
 		List<String> ids = Arrays.asList(checkpointIds);
 
-		LatLon latLon = new LatLon(currentLat, currentLon, Basis.DEGREE_WGS);
-		LatLonWithZone latLonWithZone = LatLonWithZone.createWithNearestOrigin(latLon);
-
+		LatLon fromLatLon = new LatLon(currentLat, currentLon, Basis.DEGREE_WGS);
 		return getInitialData(courseId, language).getCheckpoints().stream()
 				.filter(cj -> ids.contains(cj.getId()))
 				.sorted(Comparator.comparingDouble((CheckpointJson cj) -> {
-					LatLonWithZone toLatLon = new LatLonWithZone(
-							new LatLon(cj.getLat(), cj.getLon(), Basis.DEGREE_WGS),
-							latLonWithZone.getZoneId());
-					return latLonWithZone.distance(toLatLon, DistanceUnit.M);
+					LatLon toLatLon = new LatLon(cj.getLat(), cj.getLon(), Basis.DEGREE_WGS);
+					return LatLonUtils.toDistance(fromLatLon, toLatLon, DistanceUnit.M);
 				})).map(cj -> cj.getId()).collect(Collectors.toList())
 				.toArray(new String[0]);
 	}

@@ -4,7 +4,6 @@ import org.magcruise.citywalk.model.row.Entry;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
 import org.nkjmlab.util.db.RelationalModel;
-import org.nkjmlab.webui.common.user.model.UserAccount;
 
 public class EntriesTable extends RelationalModel<Entry> {
 
@@ -21,12 +20,6 @@ public class EntriesTable extends RelationalModel<Entry> {
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP);
 		addColumnDefinition(USER_ID, Keyword.VARCHAR);
 		addColumnDefinition(COURSE_ID, Keyword.VARCHAR);
-	}
-
-	public boolean exists(String userId) {
-		UserAccount user = new UserAccount();
-		user.setUserId(userId);
-		return getClient().exists(user);
 	}
 
 }
