@@ -45,7 +45,6 @@ import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
 import org.nkjmlab.util.log4j.LogManager;
 import org.nkjmlab.util.slack.SlackMessage;
-import org.nkjmlab.util.slack.SlackMessageBuilder;
 import org.nkjmlab.util.slack.SlackMessengerService;
 
 public class ApplicationContext implements ServletContextListener {
@@ -54,8 +53,10 @@ public class ApplicationContext implements ServletContextListener {
 
 	protected static H2ClientWithConnectionPool dbClient;
 
+	public static final String SLACK_URL = "https://hooks.slack.com/services/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";
+
 	private static SlackMessengerService slackMessengerService = new SlackMessengerService(
-			"https://hooks.slack.com/services/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");
+			SLACK_URL);
 
 	static {
 		H2Server.start();
@@ -247,20 +248,16 @@ public class ApplicationContext implements ServletContextListener {
 		log.info("destroyed");
 	}
 
-	public static void asyncPostMessageToSlack(SlackMessage message) {
-		slackMessengerService.asyncPostMessage(message);
+	public static void asyncPostMessageToSlack(String channel, String username, String text) {
+		slackMessengerService.asyncPostMessage(new SlackMessage(channel, username, text));
 	}
 
 	public static void asyncPostMessageToLogSrvChannel(String category, String text) {
-		SlackMessage message = new SlackMessageBuilder().setChannel("log-srv")
-				.setUsername(category).setText(text).build();
-		asyncPostMessageToSlack(message);
+		asyncPostMessageToSlack("log-srv", category, text);
 	}
 
 	public static void asyncPostMessageToLogClientChannel(String category, String text) {
-		SlackMessage message = new SlackMessageBuilder().setChannel("log-client")
-				.setUsername(category).setText(text).build();
-		asyncPostMessageToSlack(message);
+		asyncPostMessageToSlack("log-client", category, text);
 	}
 
 }

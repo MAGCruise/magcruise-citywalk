@@ -7,8 +7,6 @@ import org.magcruise.citywalk.model.json.UserAccountJson;
 
 public interface CityWalkAdminServiceInterface {
 
-	ActivityJson[] getCheckinLogs(String checkpointId);
-
 	ActivityJson[] getCheckinLogs(String userId, String courseId);
 
 	MovementJson[] getMovements(String userId, String courseId, int incrementSize);

@@ -70,4 +70,6 @@ public interface CityWalkServiceInterface {
 					+ "\"label\":\"次のうち、理工の学食が発祥の地であるメニューはどれ？\","
 					+ "\"selections\":[\"豚玉丼\",\"チキンおろしだれ\",\"カツカレー\",\"ポーク焼肉\"],\"answerIndex\":3}}]}") String json);
 
+	ActivityJson[] getCheckinLogs(String checkpointId);
+
 }

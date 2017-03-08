@@ -32,16 +32,6 @@ public class CityWalkAdminService extends AbstractService implements CityWalkAdm
 	}
 
 	@Override
-	public ActivityJson[] getCheckinLogs(String checkpointId) {
-		ActivityJson[] result = verifiedActivities.getActivitiesAtCheckpoint(checkpointId).stream()
-				.filter(
-						va -> tasks.readByPrimaryKey(va.getTaskId()).getContentObject().isCheckin())
-				.map(va -> new ActivityJson(va, tasks.readByPrimaryKey(va.getTaskId())))
-				.collect(Collectors.toList()).toArray(new ActivityJson[0]);
-		return result;
-	}
-
-	@Override
 	public ActivityJson[] getCheckinLogs(String userId, String courseId) {
 		ActivityJson[] result = verifiedActivities.getActivitiesInCourse(userId, courseId).stream()
 				.filter(
