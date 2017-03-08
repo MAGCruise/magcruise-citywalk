@@ -8,10 +8,10 @@ import org.magcruise.citywalk.jsonrpc.langrid.CityWalkJsonRpcServlet;
 import jp.go.nict.langrid.servicecontainer.handler.annotation.Service;
 import jp.go.nict.langrid.servicecontainer.handler.annotation.Services;
 
-@WebServlet(urlPatterns = "/json/*", initParams = {
+@WebServlet(urlPatterns = "/json-admin/*", initParams = {
 		@WebInitParam(name = "dumpRequests", value = "false"),
 		@WebInitParam(name = "additionalResponseHeaders", value = "Access-Control-Allow-Origin: *") })
-@Services({ @Service(name = "CityWalkService", impl = CityWalkService.class) })
-public class CityWalkServiceEndpoint extends CityWalkJsonRpcServlet {
+@Services({ @Service(name = "CityWalkAdminService", impl = CityWalkAdminService.class) })
+public class CityWalkAdminServiceEndpoint extends CityWalkJsonRpcServlet {
 
 }

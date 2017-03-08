@@ -215,6 +215,11 @@ function getBaseUrl() {
   var urlPrefix = u.protocol + "://" + u.authority + "/" + u.directory.split("/")[1] + "/";
   return urlPrefix + "json/CityWalkService";
 }
+function getAdminBaseUrl() {
+  var u = parseUri(document.URL);
+  var urlPrefix = u.protocol + "://" + u.authority + "/" + u.directory.split("/")[1] + "/";
+  return urlPrefix + "json-admin/CityWalkAdminService";
+}
 
 function getActivityPublisherUrl() {
   if (parseUri(location).protocol === "https") {

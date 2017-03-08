@@ -1,5 +1,7 @@
 package org.magcruise.citywalk.model.relation;
 
+import java.util.List;
+
 import org.magcruise.citywalk.model.row.Entry;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
@@ -20,6 +22,10 @@ public class EntriesTable extends RelationalModel<Entry> {
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP);
 		addColumnDefinition(USER_ID, Keyword.VARCHAR);
 		addColumnDefinition(COURSE_ID, Keyword.VARCHAR);
+	}
+
+	public List<Entry> findUserId(String userId) {
+		return readListBy(USER_ID, userId);
 	}
 
 }

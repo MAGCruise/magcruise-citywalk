@@ -17,7 +17,6 @@ import org.magcruise.citywalk.conv.CheckpointsAndTasksFactory;
 import org.magcruise.citywalk.conv.InitialDataFactory;
 import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
-import org.magcruise.citywalk.model.json.EntryJson;
 import org.magcruise.citywalk.model.json.JsStackTrace;
 import org.magcruise.citywalk.model.json.MovementJson;
 import org.magcruise.citywalk.model.json.RankJson;
@@ -52,11 +51,11 @@ import org.nkjmlab.gis.datum.DistanceUnit;
 import org.nkjmlab.gis.datum.LatLon;
 import org.nkjmlab.gis.datum.jprect.util.LatLonUtils;
 import org.nkjmlab.util.base64.Base64ImageUtils;
+import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
 import org.nkjmlab.util.lang.MessageUtils;
 import org.nkjmlab.util.log4j.LogManager;
-import org.nkjmlab.util.slack.SlackMessage;
 import org.nkjmlab.util.slack.SlackMessageBuilder;
 import org.nkjmlab.util.time.DateTimeUtils;
 import org.nkjmlab.webui.util.servlet.UserRequest;
@@ -68,20 +67,22 @@ import jp.go.nict.langrid.servicecontainer.service.AbstractService;
 public class CityWalkService extends AbstractService implements CityWalkServiceInterface {
 	protected static Logger log = LogManager.getLogger();
 
-	private VerifiedActivitiesTable verifiedActivities = new VerifiedActivitiesTable(
-			ApplicationContext.getDbClient());
+	private VerifiedActivitiesTable verifiedActivities = new VerifiedActivitiesTable(getDbClient());
 	private SubmittedActivitiesTable submittedActivities = new SubmittedActivitiesTable(
-			ApplicationContext.getDbClient());
-	private UserAccountsTable users = new UserAccountsTable(ApplicationContext.getDbClient());
-	private BadgesTable badges = new BadgesTable(ApplicationContext.getDbClient());
-	private TasksTable tasks = new TasksTable(ApplicationContext.getDbClient());
-	private MovementsTable movementsTable = new MovementsTable(ApplicationContext.getDbClient());
+			getDbClient());
+	private UserAccountsTable users = new UserAccountsTable(getDbClient());
+	private BadgesTable badges = new BadgesTable(getDbClient());
+	private TasksTable tasks = new TasksTable(getDbClient());
+	private MovementsTable movementsTable = new MovementsTable(getDbClient());
 
-	private EntriesTable entries = new EntriesTable(ApplicationContext.getDbClient());
-	private BadgeDefinitionsTable badgeDefinitionsTable = new BadgeDefinitionsTable(
-			ApplicationContext.getDbClient());
+	private EntriesTable entries = new EntriesTable(getDbClient());
+	private BadgeDefinitionsTable badgeDefinitionsTable = new BadgeDefinitionsTable(getDbClient());
 
-	private CoursesTable coursesTable = new CoursesTable(ApplicationContext.getDbClient());
+	private CoursesTable coursesTable = new CoursesTable(getDbClient());
+
+	private DbClient getDbClient() {
+		return ApplicationContext.getDbClient();
+	}
 
 	@Override
 	public UserAccount login(String userId, int pin) {
@@ -127,7 +128,8 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		if (!users.exists(account.getId())) {
 			users.insert(new UserAccount(account));
 			login(account.getId(), account.getPin());
-			asyncPostMessageToLogSrvChannel("Register", SlackMessage.wrapPre(account.toString()));
+			ApplicationContext.asyncPostMessageToLogSrvChannel("Register",
+					SlackMessageBuilder.wrapPre(account.toString()));
 			return new RegisterResultJson(true, account.getId());
 		}
 		String recommended = createUnregisterdUserId(account.getId(), maxLengthOfUserId);
@@ -179,9 +181,11 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 			VerifiedActivity va = new VerifiedActivity(a);
 			verifiedActivities.insert(va);
 			log.info("add verified activity={}", va);
-			asyncPostMessageToLogSrvChannel("addActivity", SlackMessage.wrapPre(MessageUtils.format(
-					"createdAt={}, userId={}, checkpointId={}, taskId={}", va.getCreatedAt(),
-					va.getUserId(), va.getCheckpointId(), va.getTaskId())));
+			ApplicationContext.asyncPostMessageToLogSrvChannel("addActivity",
+					SlackMessageBuilder.wrapPre(MessageUtils.format(
+							"createdAt={}, userId={}, checkpointId={}, taskId={}",
+							va.getCreatedAt(),
+							va.getUserId(), va.getCheckpointId(), va.getTaskId())));
 		}
 
 	}
@@ -207,16 +211,16 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 						.parseInt(definition.getValue())) {
 					result.add(definition.getName());
 					badges.insert(new Badge(userId, definition.getId()));
-					asyncPostMessageToLogSrvChannel("Badge",
-							SlackMessage.wrapPre(userId + " get " + definition.getName()));
+					ApplicationContext.asyncPostMessageToLogSrvChannel("Badge",
+							SlackMessageBuilder.wrapPre(userId + " get " + definition.getName()));
 				}
 			} else {
 				if (verifiedActivities.getNumberOfCheckInInCategory(userId, courseId,
 						definition.getType()) >= Integer.parseInt(definition.getValue())) {
 					result.add(definition.getName());
 					badges.insert(new Badge(userId, definition.getId()));
-					asyncPostMessageToLogSrvChannel("Badge",
-							SlackMessage.wrapPre(userId + " get " + definition.getName()));
+					ApplicationContext.asyncPostMessageToLogSrvChannel("Badge",
+							SlackMessageBuilder.wrapPre(userId + " get " + definition.getName()));
 				}
 			}
 		});
@@ -342,7 +346,8 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		try {
 			Entry en = new Entry(userId, courseId, new Date());
 			entries.insert(en);
-			asyncPostMessageToLogSrvChannel("Entry", SlackMessage.wrapPre(en.toString()));
+			ApplicationContext.asyncPostMessageToLogSrvChannel("Entry",
+					SlackMessageBuilder.wrapPre(en.toString()));
 		} catch (Throwable e) {
 			return false;
 		}
@@ -374,92 +379,18 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	}
 
 	@Override
-	public ActivityJson[] getCheckinLogs(String checkpointId) {
-		ActivityJson[] result = verifiedActivities.getActivitiesAtCheckpoint(checkpointId).stream()
-				.filter(
-						va -> tasks.readByPrimaryKey(va.getTaskId()).getContentObject().isCheckin())
-				.map(va -> new ActivityJson(va, tasks.readByPrimaryKey(va.getTaskId())))
-				.collect(Collectors.toList()).toArray(new ActivityJson[0]);
-		return result;
-	}
-
-	@Override
-	public ActivityJson[] getCheckinLogs(String userId, String courseId) {
-		ActivityJson[] result = verifiedActivities.getActivitiesInCourse(userId, courseId).stream()
-				.filter(
-						va -> tasks.readByPrimaryKey(va.getTaskId()).getContentObject().isCheckin())
-				.map(va -> new ActivityJson(va, tasks.readByPrimaryKey(va.getTaskId())))
-				.collect(Collectors.toList()).toArray(new ActivityJson[0]);
-		return result;
-	}
-
-	@Override
-	public MovementJson[] getMovements(String userId, String courseId, int incrementSize) {
-		return movementsTable.findByUserIdAndCourseId(userId, courseId, incrementSize).stream()
-				.map(m -> m.toMovmentJson()).collect(Collectors.toList())
-				.toArray(new MovementJson[0]);
-	}
-
-	@Override
-	public UserAccountJson[] getUsers() {
-		return users.readAll().stream().map(u -> new UserAccountJson(u))
-				.collect(Collectors.toList())
-				.toArray(new UserAccountJson[0]);
-	}
-
-	@Override
-	public EntryJson[] getEntries() {
-		return entries.readAll().stream().map(e -> new EntryJson(e)).collect(Collectors.toList())
-				.toArray(new EntryJson[0]);
-	}
-
-	@Override
 	public boolean sendLog(String logLevel, String location, String msg) {
-		String mark = "";
-		switch (logLevel) {
-		case "ERROR":
-		case "SEVERE": {
-			mark = " :x: ";
-			break;
-		}
-		case "WARN":
-		case "WARNING": {
-			mark = " :warning: ";
-			break;
-		}
-		case "INFO": {
-			mark = " :information_source: ";
-			break;
-		}
-		case "DEBUG": {
-			mark = " DEBUG ";
-			break;
-		}
-		}
+		String mark = SlackMessageBuilder.getMark(logLevel);
 		Map<String, Object> msgObj = JsonUtils.decode(msg);
+		JsStackTrace st = JsonUtils.decode(location, JsStackTrace.class);
+		String loc = st.getFunctionName() + " (" + st.getFileName() + " :" + st.getLineNumber()
+				+ ":"
+				+ st.getColumnNumber() + ")";
 
-		asyncPostMessageToClienWatchtChannel("JS log", ":iphone:  ["
+		ApplicationContext.asyncPostMessageToLogClientChannel("JS log", ":iphone:  ["
 				+ DateTimeUtils.toTimestamp(LocalDateTime.now()) + " " + mark + " \n"
-				+ createLocationMsg(location) + " "
-				+ SlackMessage.wrapPre(JsonUtils.encode(msgObj, true)));
+				+ loc + " " + SlackMessageBuilder.wrapPre(JsonUtils.encode(msgObj, true)));
 		return false;
 	}
 
-	private String createLocationMsg(String location) {
-		JsStackTrace st = JsonUtils.decode(location, JsStackTrace.class);
-		return st.getFunctionName() + " (" + st.getFileName() + " :" + st.getLineNumber() + ":"
-				+ st.getColumnNumber() + ")";
-	}
-
-	private void asyncPostMessageToLogSrvChannel(String category, String text) {
-		SlackMessage message = new SlackMessageBuilder().setChannel("log-srv")
-				.setUsername(category).setText(text).build();
-		ApplicationContext.asyncPostMessageToSlack(message);
-	}
-
-	private void asyncPostMessageToClienWatchtChannel(String category, String text) {
-		SlackMessage message = new SlackMessageBuilder().setChannel("log-client")
-				.setUsername(category).setText(text).build();
-		ApplicationContext.asyncPostMessageToSlack(message);
-	}
 }

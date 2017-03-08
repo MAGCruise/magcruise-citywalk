@@ -52,4 +52,13 @@ public class MovementsTable extends RelationalModel<Movement> {
 		return result;
 	}
 
+	public List<Movement> findByCourseId(String courseId, int incrementSize) {
+		List<Movement> tmp = readListBy(COURSE_ID, courseId);
+		List<Movement> result = new ArrayList<>();
+		for (int i = 0; i < tmp.size(); i += (incrementSize + 1)) {
+			result.add(tmp.get(i));
+		}
+		return result;
+	}
+
 }

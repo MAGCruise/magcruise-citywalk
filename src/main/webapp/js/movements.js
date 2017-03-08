@@ -16,15 +16,26 @@ function initMap(latLons) {
 
 $(function() {
 
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getUsers", [], function(data) {
+  new JsonRpcClient(new JsonRpcRequest(getAdminBaseUrl(), "getUsers", [], function(data) {
     data.result.forEach(function(e) {
-      $('#user-id').append($('<option>').attr('value', e.id).text(e.id));
+      $('#user-id').append(
+              $('<option>').attr('value', e.id).text(
+                      toFormattedShortDate(e.createdAt) + " - " + e.id));
     });
     if (getItem("selectedUserId")) {
       $("#user-id [value=" + getItem("selectedUserId") + "]").prop("selected", true);
     }
     $('#user-id').selectpicker('refresh');
   })).rpc();
+
+  $('#user-id').on('change', function() {
+    var userId = $('#user-id').val();
+    new JsonRpcClient(new JsonRpcRequest(getAdminBaseUrl(), "getEntries", [userId], function(data) {
+      data.result.forEach(function(e) {
+        $('#entry-logs').append($('<li>').text(JSON.stringify(e)));
+      });
+    })).rpc();
+  });
 
   $('#btn-submit').on(
           'click',
@@ -33,8 +44,8 @@ $(function() {
             setItem("selectedUserId", userId);
             var courseId = $('#course-id').val();
             var incrementSize = $('#increment-size').val();
-            new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getMovements", [userId, courseId,
-                incrementSize], function(data) {
+            new JsonRpcClient(new JsonRpcRequest(getAdminBaseUrl(), "getMovements", [userId,
+                courseId, incrementSize], function(data) {
               var movements = data.result;
               if (movements.length == 0) {
                 swalAlert("", "移動ログがありません", "error");
@@ -42,7 +53,7 @@ $(function() {
               }
               initMap(movements);
               putMarkers(movements, "//maps.google.com/mapfiles/ms/icons/blue-dot.png");
-              // new JsonRpcClient(new JsonRpcRequest(getBaseUrl(),
+              // new JsonRpcClient(new JsonRpcRequest(getAdminBaseUrl(),
               // "getCheckinLogs", [userId, courseId], function(data) {
               // var checkinLogs = data.result;
               // putMarkers(checkinLogs);

@@ -31,10 +31,6 @@ var loginFunc = function() {
 };
 
 $(function() {
-  if (!getUserId()) {
-    location.href = 'signup.html';
-    return;
-  }
   $("#nav-menu").hide();
   $('#user-id').val(getUserId());
   $('#pin').val(getPin());

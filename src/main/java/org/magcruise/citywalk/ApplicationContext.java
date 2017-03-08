@@ -45,6 +45,7 @@ import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
 import org.nkjmlab.util.log4j.LogManager;
 import org.nkjmlab.util.slack.SlackMessage;
+import org.nkjmlab.util.slack.SlackMessageBuilder;
 import org.nkjmlab.util.slack.SlackMessengerService;
 
 public class ApplicationContext implements ServletContextListener {
@@ -248,6 +249,18 @@ public class ApplicationContext implements ServletContextListener {
 
 	public static void asyncPostMessageToSlack(SlackMessage message) {
 		slackMessengerService.asyncPostMessage(message);
+	}
+
+	public static void asyncPostMessageToLogSrvChannel(String category, String text) {
+		SlackMessage message = new SlackMessageBuilder().setChannel("log-srv")
+				.setUsername(category).setText(text).build();
+		asyncPostMessageToSlack(message);
+	}
+
+	public static void asyncPostMessageToLogClientChannel(String category, String text) {
+		SlackMessage message = new SlackMessageBuilder().setChannel("log-client")
+				.setUsername(category).setText(text).build();
+		asyncPostMessageToSlack(message);
 	}
 
 }

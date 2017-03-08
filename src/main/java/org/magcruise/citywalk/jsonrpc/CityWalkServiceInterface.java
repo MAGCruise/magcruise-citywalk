@@ -2,7 +2,6 @@ package org.magcruise.citywalk.jsonrpc;
 
 import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
-import org.magcruise.citywalk.model.json.EntryJson;
 import org.magcruise.citywalk.model.json.MovementJson;
 import org.magcruise.citywalk.model.json.RankingJson;
 import org.magcruise.citywalk.model.json.RegisterResultJson;
@@ -56,9 +55,7 @@ public interface CityWalkServiceInterface {
 	String[] getCheckpointIdsOrderedByDistance(double currentLat, double currentLon,
 			String courseId, String language, String[] checkpointIds);
 
-	ActivityJson[] getCheckinLogs(String checkpointId);
-
-	ActivityJson[] getCheckinLogs(String userId, String courseId);
+	boolean sendLog(String errorLevel, String location, String msg);
 
 	boolean validateCheckpointsAndTasksJson(
 			@Parameter(sample = "{\"checkpoints\":["
@@ -72,13 +69,5 @@ public interface CityWalkServiceInterface {
 					+ "{\"checkpoint_ids\":[\"cafeteria\"],\"content\":{\"instanceClass\":\"org.magcruise.citywalk.model.content.SelectionTask\","
 					+ "\"label\":\"次のうち、理工の学食が発祥の地であるメニューはどれ？\","
 					+ "\"selections\":[\"豚玉丼\",\"チキンおろしだれ\",\"カツカレー\",\"ポーク焼肉\"],\"answerIndex\":3}}]}") String json);
-
-	MovementJson[] getMovements(String userId, String courseId, int incrementSize);
-
-	UserAccountJson[] getUsers();
-
-	EntryJson[] getEntries();
-
-	boolean sendLog(String errorLevel, String location, String msg);
 
 }
