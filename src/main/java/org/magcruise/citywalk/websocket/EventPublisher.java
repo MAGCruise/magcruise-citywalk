@@ -15,7 +15,7 @@ import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 
 import org.apache.logging.log4j.Logger;
-import org.magcruise.citywalk.ApplicationContext;
+import org.magcruise.citywalk.CityWalkApplicationContext;
 import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
 import org.magcruise.citywalk.model.row.Activity;
@@ -35,8 +35,8 @@ public class EventPublisher {
 	private static Map<String, Long> latestReadActivityIds = new ConcurrentHashMap<>();
 
 	private static VerifiedActivitiesTable verifiedActivitiesTable = new VerifiedActivitiesTable(
-			ApplicationContext.getDbClient());
-	private static TasksTable tasksTable = new TasksTable(ApplicationContext.getDbClient());
+			CityWalkApplicationContext.getDbClient());
+	private static TasksTable tasksTable = new TasksTable(CityWalkApplicationContext.getDbClient());
 
 	public void onOpen(String userId, String courseId, String checkpointId, Session session) {
 

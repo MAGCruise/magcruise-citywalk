@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.ws.rs.Path;
 
 import org.glassfish.jersey.server.mvc.Viewable;
-import org.magcruise.citywalk.ApplicationContext;
+import org.magcruise.citywalk.CityWalkApplicationContext;
 import org.magcruise.citywalk.model.relation.UserAccountsTable;
 import org.magcruise.citywalk.model.row.UserAccount;
 import org.nkjmlab.util.lang.ExceptionUtils;
@@ -18,7 +18,7 @@ import org.nkjmlab.webui.util.servlet.UserSession;
 @Path("/")
 public class CityWalkView extends JaxrsView {
 
-	private UserAccountsTable users = new UserAccountsTable(ApplicationContext.getDbClient());
+	private UserAccountsTable users = new UserAccountsTable(CityWalkApplicationContext.getDbClient());
 
 	private static final String[] noAuthPathElements = { "index.html", "clear.html",
 			"dev.html", "login.html", "signup.html", "how-to-use.html", "troubleshooting.html",
@@ -58,7 +58,7 @@ public class CityWalkView extends JaxrsView {
 			}
 		} catch (Exception e) {
 			log.error(e, e);
-			ApplicationContext.asyncPostMessageToLogSrvChannel(getClass().getSimpleName(),
+			CityWalkApplicationContext.asyncPostMessageToLogSrvChannel(getClass().getSimpleName(),
 					":x: ```" + ExceptionUtils.getMessageWithStackTrace(e) + "```");
 			try {
 				response.sendRedirect(getServletUrl() + "/index.html");
@@ -73,7 +73,7 @@ public class CityWalkView extends JaxrsView {
 	private ThymeleafModel createModel() {
 		ThymeleafModel model = new ThymeleafModel();
 		model.setErrorHandler((t) -> {
-			ApplicationContext.asyncPostMessageToLogSrvChannel(getClass().getSimpleName(),
+			CityWalkApplicationContext.asyncPostMessageToLogSrvChannel(getClass().getSimpleName(),
 					":x: ```" + ExceptionUtils.getMessageWithStackTrace(t) + "```");
 		});
 		return model;

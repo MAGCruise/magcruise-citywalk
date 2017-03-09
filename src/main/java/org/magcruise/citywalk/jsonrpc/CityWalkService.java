@@ -11,8 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.apache.logging.log4j.Logger;
-import org.magcruise.citywalk.ApplicationContext;
+import org.magcruise.citywalk.CityWalkApplicationContext;
 import org.magcruise.citywalk.conv.CheckpointsAndTasksFactory;
 import org.magcruise.citywalk.conv.InitialDataFactory;
 import org.magcruise.citywalk.model.json.ActivityJson;
@@ -55,17 +54,12 @@ import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
 import org.nkjmlab.util.lang.MessageUtils;
-import org.nkjmlab.util.log4j.LogManager;
 import org.nkjmlab.util.slack.SlackMessageBuilder;
 import org.nkjmlab.util.time.DateTimeUtils;
-import org.nkjmlab.webui.util.servlet.UserRequest;
+import org.nkjmlab.webui.jsonrpc.JsonRpcService;
 import org.nkjmlab.webui.util.servlet.UserSession;
 
-import jp.go.nict.langrid.commons.ws.ServletServiceContext;
-import jp.go.nict.langrid.servicecontainer.service.AbstractService;
-
-public class CityWalkService extends AbstractService implements CityWalkServiceInterface {
-	protected static Logger log = LogManager.getLogger();
+public class CityWalkService extends JsonRpcService implements CityWalkServiceInterface {
 
 	private VerifiedActivitiesTable verifiedActivities = new VerifiedActivitiesTable(getDbClient());
 	private SubmittedActivitiesTable submittedActivities = new SubmittedActivitiesTable(
@@ -81,7 +75,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	private CoursesTable coursesTable = new CoursesTable(getDbClient());
 
 	private DbClient getDbClient() {
-		return ApplicationContext.getDbClient();
+		return CityWalkApplicationContext.getDbClient();
 	}
 
 	@Override
@@ -92,7 +86,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 				return null;
 			}
 
-			UserSession session = getSession();
+			UserSession session = getUserSession();
 			if (session.isLogined()) {
 				log.debug("already logined as {}", session.getUserId());
 				if (session.getUserId().equals(userId)) {
@@ -120,7 +114,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 
 	@Override
 	public boolean logout() {
-		return getSession().logout();
+		return getUserSession().logout();
 	}
 
 	@Override
@@ -128,7 +122,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		if (!users.exists(account.getId())) {
 			users.insert(new UserAccount(account));
 			login(account.getId(), account.getPin());
-			ApplicationContext.asyncPostMessageToLogSrvChannel("Register",
+			CityWalkApplicationContext.asyncPostMessageToLogSrvChannel("Register",
 					SlackMessageBuilder.wrapPre(account.toString()));
 			return new RegisterResultJson(true, account.getId());
 		}
@@ -181,7 +175,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 			VerifiedActivity va = new VerifiedActivity(a);
 			verifiedActivities.insert(va);
 			log.info("add verified activity={}", va);
-			ApplicationContext.asyncPostMessageToLogSrvChannel("addActivity",
+			CityWalkApplicationContext.asyncPostMessageToLogSrvChannel("addActivity",
 					SlackMessageBuilder.wrapPre(MessageUtils.format(
 							"createdAt={}, userId={}, checkpointId={}, taskId={}",
 							va.getCreatedAt(),
@@ -211,7 +205,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 						.parseInt(definition.getValue())) {
 					result.add(definition.getName());
 					badges.insert(new Badge(userId, definition.getId()));
-					ApplicationContext.asyncPostMessageToLogSrvChannel("Badge",
+					CityWalkApplicationContext.asyncPostMessageToLogSrvChannel("Badge",
 							SlackMessageBuilder.wrapPre(userId + " get " + definition.getName()));
 				}
 			} else {
@@ -219,7 +213,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 						definition.getType()) >= Integer.parseInt(definition.getValue())) {
 					result.add(definition.getName());
 					badges.insert(new Badge(userId, definition.getId()));
-					ApplicationContext.asyncPostMessageToLogSrvChannel("Badge",
+					CityWalkApplicationContext.asyncPostMessageToLogSrvChannel("Badge",
 							SlackMessageBuilder.wrapPre(userId + " get " + definition.getName()));
 				}
 			}
@@ -266,15 +260,6 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 	@Override
 	public boolean validateCheckpointsAndTasksJson(String json) {
 		return CheckpointsAndTasksFactory.validate(json);
-	}
-
-	protected UserSession getSession() {
-		return UserSession.of(
-				((ServletServiceContext) getServiceContext()).getRequest());
-	}
-
-	protected UserRequest getRequest() {
-		return UserRequest.of(((ServletServiceContext) getServiceContext()).getRequest());
 	}
 
 	@Override
@@ -346,7 +331,7 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 		try {
 			Entry en = new Entry(userId, courseId, new Date());
 			entries.insert(en);
-			ApplicationContext.asyncPostMessageToLogSrvChannel("Entry",
+			CityWalkApplicationContext.asyncPostMessageToLogSrvChannel("Entry",
 					SlackMessageBuilder.wrapPre(en.toString()));
 		} catch (Throwable e) {
 			return false;
@@ -387,9 +372,10 @@ public class CityWalkService extends AbstractService implements CityWalkServiceI
 				+ ":"
 				+ st.getColumnNumber() + ")";
 
-		ApplicationContext.asyncPostMessageToLogClientChannel("JS log", ":iphone:  ["
-				+ DateTimeUtils.toTimestamp(LocalDateTime.now()) + " " + mark + " \n"
-				+ loc + " " + SlackMessageBuilder.wrapPre(JsonUtils.encode(msgObj, true)));
+		CityWalkApplicationContext.asyncPostMessageToLogClientChannel("JS log",
+				":iphone:  ["
+						+ DateTimeUtils.toTimestamp(LocalDateTime.now()) + " " + mark + " \n"
+						+ loc + " " + SlackMessageBuilder.wrapPre(JsonUtils.encode(msgObj, true)));
 		return false;
 	}
 

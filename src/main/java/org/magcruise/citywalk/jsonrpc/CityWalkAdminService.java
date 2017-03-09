@@ -2,8 +2,7 @@ package org.magcruise.citywalk.jsonrpc;
 
 import java.util.stream.Collectors;
 
-import org.apache.logging.log4j.Logger;
-import org.magcruise.citywalk.ApplicationContext;
+import org.magcruise.citywalk.CityWalkApplicationContext;
 import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.EntryJson;
 import org.magcruise.citywalk.model.json.MovementJson;
@@ -14,12 +13,9 @@ import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.relation.UserAccountsTable;
 import org.magcruise.citywalk.model.relation.VerifiedActivitiesTable;
 import org.nkjmlab.util.db.DbClient;
-import org.nkjmlab.util.log4j.LogManager;
+import org.nkjmlab.webui.jsonrpc.JsonRpcService;
 
-import jp.go.nict.langrid.servicecontainer.service.AbstractService;
-
-public class CityWalkAdminService extends AbstractService implements CityWalkAdminServiceInterface {
-	protected static Logger log = LogManager.getLogger();
+public class CityWalkAdminService extends JsonRpcService implements CityWalkAdminServiceInterface {
 
 	private VerifiedActivitiesTable verifiedActivities = new VerifiedActivitiesTable(getDbClient());
 	private UserAccountsTable users = new UserAccountsTable(getDbClient());
@@ -28,7 +24,7 @@ public class CityWalkAdminService extends AbstractService implements CityWalkAdm
 	private EntriesTable entries = new EntriesTable(getDbClient());
 
 	private DbClient getDbClient() {
-		return ApplicationContext.getDbClient();
+		return CityWalkApplicationContext.getDbClient();
 	}
 
 	@Override

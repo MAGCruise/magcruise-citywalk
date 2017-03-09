@@ -8,10 +8,14 @@ import jp.go.nict.langrid.servicecontainer.handler.annotation.Services;
 import jp.go.nict.langrid.servicecontainer.handler.jsonrpc.servlet.JsonRpcServlet;
 
 @WebServlet(urlPatterns = "/json/*", initParams = {
-		@WebInitParam(name = "mapping", value = "CityWalkService:org.magcruise.citywalk.jsonrpc.CityWalkJsonRpcHandler"),
+		@WebInitParam(name = "mapping", value = "CityWalkService:"
+				+ "org.nkjmlab.webui.jsonrpc.JsonRpcDynamicHandlerWithErrorNotifierToSlack" + ","
+				+ "CityWalkAdminService:"
+				+ "org.nkjmlab.webui.jsonrpc.JsonRpcDynamicHandlerWithErrorNotifierToSlack"),
 		@WebInitParam(name = "dumpRequests", value = "false"),
 		@WebInitParam(name = "additionalResponseHeaders", value = "Access-Control-Allow-Origin: *") })
-@Services({ @Service(name = "CityWalkService", impl = CityWalkService.class) })
-public class CityWalkServiceEndpoint extends JsonRpcServlet {
+@Services({ @Service(name = "CityWalkService", impl = CityWalkService.class),
+		@Service(name = "CityWalkAdminService", impl = CityWalkAdminService.class) })
+public class CityWalkJsonRpcServiceEndpoint extends JsonRpcServlet {
 
 }

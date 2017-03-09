@@ -2,7 +2,7 @@ package org.magcruise.citywalk;
 
 import java.io.File;
 
-import org.magcruise.citywalk.jsonrpc.CityWalkServiceEndpoint;
+import org.magcruise.citywalk.jsonrpc.CityWalkJsonRpcServiceEndpoint;
 import org.nkjmlab.webui.util.tomcat.TomcatServer;
 
 public class CityWalkServer {
@@ -14,7 +14,7 @@ public class CityWalkServer {
 		TomcatServer server = new TomcatServer(8080);
 		server.addWebapp(rootContextPath, docBase);
 		server.addServletAndMappping(rootContextPath + "/json", docBase, "CityWalkService",
-				new CityWalkServiceEndpoint(), "/");
+				new CityWalkJsonRpcServiceEndpoint(), "/");
 		server.startAndAwait();
 	}
 

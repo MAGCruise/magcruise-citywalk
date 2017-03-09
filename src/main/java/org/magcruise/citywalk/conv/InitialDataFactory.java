@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.Logger;
-import org.magcruise.citywalk.ApplicationContext;
+import org.magcruise.citywalk.CityWalkApplicationContext;
 import org.magcruise.citywalk.model.json.init.CategoryJson;
 import org.magcruise.citywalk.model.json.init.CheckinJson;
 import org.magcruise.citywalk.model.json.init.CheckpointJson;
@@ -42,11 +42,11 @@ public class InitialDataFactory {
 			return json;
 		}
 
-		List<Checkpoint> jaCheckpoints = new CheckpointsTable(ApplicationContext.getDbClient())
+		List<Checkpoint> jaCheckpoints = new CheckpointsTable(CityWalkApplicationContext.getDbClient())
 				.findByCourseId(courseId).stream().filter(c -> !c.getId().startsWith("en-"))
 				.collect(Collectors.toList());
 
-		List<Category> categories = new CategoriesTable(ApplicationContext.getDbClient()).readAll();
+		List<Category> categories = new CategoriesTable(CityWalkApplicationContext.getDbClient()).readAll();
 
 		json = create(jaCheckpoints, categories);
 		if (language.equals("en")) {
@@ -58,10 +58,10 @@ public class InitialDataFactory {
 	}
 
 	private static void replaceMsg(InitialDataJson json, String courseId) {
-		TasksTable tasksTable = new TasksTable(ApplicationContext.getDbClient());
+		TasksTable tasksTable = new TasksTable(CityWalkApplicationContext.getDbClient());
 
 		Map<String, Checkpoint> enCheckpoints = new CheckpointsTable(
-				ApplicationContext.getDbClient()).findByCourseId(courseId).stream()
+				CityWalkApplicationContext.getDbClient()).findByCourseId(courseId).stream()
 						.filter(c -> c.getId().startsWith("en-"))
 						.collect(Collectors.toMap(c -> c.getId().replaceFirst("en-", ""), c -> c));
 
@@ -92,7 +92,7 @@ public class InitialDataFactory {
 
 	private static InitialDataJson create(List<Checkpoint> checkpoints, List<Category> categories) {
 		List<CheckpointJson> checkpointsJson = checkpoints.stream().map(c -> {
-			List<Task> tasks = new TasksTable(ApplicationContext.getDbClient()).getTasks(c.getId());
+			List<Task> tasks = new TasksTable(CityWalkApplicationContext.getDbClient()).getTasks(c.getId());
 			List<TaskJson> taskJsons = new ArrayList<>();
 			CheckinJson checkin = new CheckinJson();
 			int checkinIndex = 0;

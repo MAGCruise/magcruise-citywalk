@@ -6,9 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
-import org.apache.logging.log4j.Logger;
 import org.magcruise.citywalk.conv.CheckpointsAndTasksFactory;
 import org.magcruise.citywalk.model.gdata.GoogleSpreadsheetData;
 import org.magcruise.citywalk.model.json.db.CheckpointJson;
@@ -36,50 +35,28 @@ import org.magcruise.citywalk.model.task.QrCodeTask;
 import org.nkjmlab.gdata.spreadsheet.client.GoogleSpreadsheetService;
 import org.nkjmlab.gdata.spreadsheet.client.GoogleSpreadsheetServiceFactory;
 import org.nkjmlab.util.db.DbClient;
-import org.nkjmlab.util.db.DbClientFactory;
-import org.nkjmlab.util.db.DbConfig;
-import org.nkjmlab.util.db.H2ClientWithConnectionPool;
-import org.nkjmlab.util.db.H2ConfigFactory;
-import org.nkjmlab.util.db.H2Server;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
-import org.nkjmlab.util.log4j.LogManager;
 import org.nkjmlab.util.slack.SlackMessage;
 import org.nkjmlab.util.slack.SlackMessengerService;
+import org.nkjmlab.webui.ApplicationContext;
 
-public class ApplicationContext implements ServletContextListener {
+@WebListener
+public class CityWalkApplicationContext extends ApplicationContext {
 
-	protected static Logger log = LogManager.getLogger();
-
-	protected static H2ClientWithConnectionPool dbClient;
-
-	public static final String SLACK_URL = "https://hooks.slack.com/services/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";
-
-	private static SlackMessengerService slackMessengerService = new SlackMessengerService(
-			SLACK_URL);
+	private static SlackMessengerService slackMessengerService;
+	private String SLACK_URL = "https://hooks.slack.com/services/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";
 
 	static {
-		H2Server.start();
 		//ThymeleafTemplateProcessor.setcacheTTLMs(60 * 1000L);
-	}
-
-	public static DbClient getDbClient() {
-		return dbClient;
 	}
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		File jdbcUrl = FileUtils.getFileInUserDirectory("magcruise-h2/"
-				+ event.getServletContext().getContextPath() + "/citywalk");
-		{
-			DbConfig conf = H2ConfigFactory.create(jdbcUrl);
-			log.info(conf);
-			if (dbClient == null) {
-				dbClient = DbClientFactory.createH2ClientWithConnectionPool(conf);
-			}
-		}
+		super.contextInitialized(event, "citywalk", SLACK_URL);
+		slackMessengerService = new SlackMessengerService(getSlackWebhookUrl());
 		initializeDatabase(event);
-		log.info("initialized");
+		log.info(getClass().getSimpleName() + " initialized");
 	}
 
 	/**
@@ -87,7 +64,7 @@ public class ApplicationContext implements ServletContextListener {
 	 * @param event
 	 */
 	private void initializeDatabase(ServletContextEvent event) {
-		DbClient client = ApplicationContext.getDbClient();
+		DbClient client = CityWalkApplicationContext.getDbClient();
 		{
 			new CheckpointsTable(client).dropTableIfExists();
 			new TasksTable(client).dropTableIfExists();
@@ -116,9 +93,7 @@ public class ApplicationContext implements ServletContextListener {
 		new SubmittedActivitiesTable(client).createTableIfNotExists();
 		new MovementsTable(client).createTableIfNotExists();
 
-		File projectsDir = new File(
-				event.getServletContext()
-						.getRealPath("projects"));
+		File projectsDir = new File(event.getServletContext().getRealPath("projects"));
 
 		Arrays.stream(projectsDir.listFiles()).filter(f -> f.isDirectory())
 				.forEach(f -> {
@@ -243,21 +218,19 @@ public class ApplicationContext implements ServletContextListener {
 
 	@Override
 	public void contextDestroyed(ServletContextEvent event) {
+		super.contextDestroyed(event);
 		slackMessengerService.shutdown();
-		dbClient.dispose();
 		log.info("destroyed");
 	}
 
-	public static void asyncPostMessageToSlack(String channel, String username, String text) {
-		slackMessengerService.asyncPostMessage(new SlackMessage(channel, username, text));
-	}
-
 	public static void asyncPostMessageToLogSrvChannel(String category, String text) {
-		asyncPostMessageToSlack("log-srv", category, text);
+		SlackMessengerService.asyncPostMessage(getSlackWebhookUrl(),
+				new SlackMessage("log-srv", category, "<!channel> " + text));
 	}
 
 	public static void asyncPostMessageToLogClientChannel(String category, String text) {
-		asyncPostMessageToSlack("log-client", category, text);
+		SlackMessengerService.asyncPostMessage(getSlackWebhookUrl(),
+				new SlackMessage("log-client", category, "<!channel> " + text));
 	}
 
 }

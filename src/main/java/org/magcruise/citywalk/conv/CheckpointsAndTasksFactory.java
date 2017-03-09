@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.magcruise.citywalk.ApplicationContext;
+import org.magcruise.citywalk.CityWalkApplicationContext;
 import org.magcruise.citywalk.model.json.db.CheckpointJson;
 import org.magcruise.citywalk.model.json.db.CheckpointsAndTasksJson;
 import org.magcruise.citywalk.model.json.db.TaskJson;
@@ -75,18 +75,18 @@ public class CheckpointsAndTasksFactory {
 	}
 
 	public static void insertToDb(CheckpointsAndTasksJson json) {
-		new CheckpointsTable(ApplicationContext.getDbClient())
+		new CheckpointsTable(CityWalkApplicationContext.getDbClient())
 				.insertBatch(createCheckpoints(json.getCheckpoints()).toArray(new Checkpoint[0]));
-		new TasksTable(ApplicationContext.getDbClient())
+		new TasksTable(CityWalkApplicationContext.getDbClient())
 				.insertBatch(createTasks(json.getTasks()).toArray(new Task[0]));
 
 	}
 
 	public static void refreshCheckpointAtdTaskTable() {
-		new TasksTable(ApplicationContext.getDbClient()).dropTableIfExists();
-		new CheckpointsTable(ApplicationContext.getDbClient()).dropTableIfExists();
-		new TasksTable(ApplicationContext.getDbClient()).createTableIfNotExists();
-		new CheckpointsTable(ApplicationContext.getDbClient()).createTableIfNotExists();
+		new TasksTable(CityWalkApplicationContext.getDbClient()).dropTableIfExists();
+		new CheckpointsTable(CityWalkApplicationContext.getDbClient()).dropTableIfExists();
+		new TasksTable(CityWalkApplicationContext.getDbClient()).createTableIfNotExists();
+		new CheckpointsTable(CityWalkApplicationContext.getDbClient()).createTableIfNotExists();
 	}
 
 	public static boolean validate(String json) {

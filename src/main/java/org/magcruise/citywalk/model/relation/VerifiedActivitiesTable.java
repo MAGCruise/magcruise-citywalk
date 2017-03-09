@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.magcruise.citywalk.ApplicationContext;
+import org.magcruise.citywalk.CityWalkApplicationContext;
 import org.magcruise.citywalk.model.json.RankJson;
 import org.magcruise.citywalk.model.row.Activity;
 import org.magcruise.citywalk.model.row.Task;
@@ -17,7 +17,7 @@ import org.nkjmlab.util.db.DbClient;
 public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 
 	public static final String TABLE_NAME = "VERIFIED_ACTIVITIES";
-	private CheckpointsTable checkpoints = new CheckpointsTable(ApplicationContext.getDbClient());
+	private CheckpointsTable checkpoints = new CheckpointsTable(CityWalkApplicationContext.getDbClient());
 
 	public VerifiedActivitiesTable(DbClient client) {
 		super(TABLE_NAME, client);
