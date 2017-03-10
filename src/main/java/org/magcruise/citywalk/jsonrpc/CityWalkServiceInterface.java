@@ -55,7 +55,7 @@ public interface CityWalkServiceInterface {
 	String[] getCheckpointIdsOrderedByDistance(double currentLat, double currentLon,
 			String courseId, String language, String[] checkpointIds);
 
-	boolean sendLog(String errorLevel, String location, String msg);
+	boolean sendLog(String errorLevel, String location, String msg, String options);
 
 	boolean validateCheckpointsAndTasksJson(
 			@Parameter(sample = "{\"checkpoints\":["

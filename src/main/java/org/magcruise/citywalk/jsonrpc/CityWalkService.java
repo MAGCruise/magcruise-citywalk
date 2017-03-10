@@ -1,7 +1,6 @@
 package org.magcruise.citywalk.jsonrpc;
 
 import java.io.File;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -16,7 +15,6 @@ import org.magcruise.citywalk.conv.CheckpointsAndTasksFactory;
 import org.magcruise.citywalk.conv.InitialDataFactory;
 import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
-import org.magcruise.citywalk.model.json.JsStackTrace;
 import org.magcruise.citywalk.model.json.MovementJson;
 import org.magcruise.citywalk.model.json.RankJson;
 import org.magcruise.citywalk.model.json.RankingJson;
@@ -55,7 +53,6 @@ import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
 import org.nkjmlab.util.lang.MessageUtils;
 import org.nkjmlab.util.slack.SlackMessageBuilder;
-import org.nkjmlab.util.time.DateTimeUtils;
 import org.nkjmlab.webui.jsonrpc.JsonRpcService;
 import org.nkjmlab.webui.util.servlet.UserSession;
 
@@ -361,22 +358,6 @@ public class CityWalkService extends JsonRpcService implements CityWalkServiceIn
 					return LatLonUtils.toDistance(fromLatLon, toLatLon, DistanceUnit.M);
 				})).map(cj -> cj.getId()).collect(Collectors.toList())
 				.toArray(new String[0]);
-	}
-
-	@Override
-	public boolean sendLog(String logLevel, String location, String msg) {
-		String mark = SlackMessageBuilder.getMark(logLevel);
-		Map<String, Object> msgObj = JsonUtils.decode(msg);
-		JsStackTrace st = JsonUtils.decode(location, JsStackTrace.class);
-		String loc = st.getFunctionName() + " (" + st.getFileName() + " :" + st.getLineNumber()
-				+ ":"
-				+ st.getColumnNumber() + ")";
-
-		CityWalkApplicationContext.asyncPostMessageToLogClientChannel("JS log",
-				":iphone:  ["
-						+ DateTimeUtils.toTimestamp(LocalDateTime.now()) + " " + mark + " \n"
-						+ loc + " " + SlackMessageBuilder.wrapPre(JsonUtils.encode(msgObj, true)));
-		return false;
 	}
 
 	@Override

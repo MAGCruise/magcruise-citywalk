@@ -93,7 +93,7 @@ function sendLogAux(msg, logLevel, stackTrace){
   setTimeout(function(){
     new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "sendLog",
             [logLevel, stackTrace,
-             {message: msg, course: getCourseInfo(), user: getUserInfo(),device: getDeviceInfo()}], function(data) {
+             {message: msg, course: getCourseInfo(), user: getUserInfo(),device: getDeviceInfo()},""], function(data) {
     })).rpc();
   },10);
 }

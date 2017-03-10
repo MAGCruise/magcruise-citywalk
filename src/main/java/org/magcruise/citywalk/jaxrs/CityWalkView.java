@@ -18,7 +18,8 @@ import org.nkjmlab.webui.util.servlet.UserSession;
 @Path("/")
 public class CityWalkView extends JaxrsView {
 
-	private UserAccountsTable users = new UserAccountsTable(CityWalkApplicationContext.getDbClient());
+	private UserAccountsTable users = new UserAccountsTable(
+			CityWalkApplicationContext.getDbClient());
 
 	private static final String[] noAuthPathElements = { "index.html", "clear.html",
 			"dev.html", "login.html", "signup.html", "how-to-use.html", "troubleshooting.html",

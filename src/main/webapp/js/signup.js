@@ -20,12 +20,14 @@ function registerFunc() {
 
   if (userId.length < 1 || 8 < userId.length) {
     swalAlert(MSG_FAIL_TO_SIGNUP, MSG_INVALID_USER_ID);
-    sendDebug(["PIN:", pin, "userId:", userId, "language:", language]);
+    sendDebug(["Length of user id is invalid.", "PIN:", pin, "userId:", userId, "language:",
+        language]);
     return;
   }
   if (pin.length < 4) {
     swalAlert(MSG_FAIL_TO_SIGNUP, MSG_INVALID_PIN);
-    sendDebug(["PIN:", pin, "userId:", userId, "language:", language]);
+    sendDebug(["Length of user pin is invalid.", "PIN:", pin, "userId:", userId, "language:",
+        language]);
     return;
   }
 
