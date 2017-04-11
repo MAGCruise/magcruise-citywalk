@@ -44,7 +44,6 @@ import org.nkjmlab.webui.ApplicationContext;
 @WebListener
 public class CityWalkApplicationContext extends ApplicationContext {
 
-	private static SlackMessengerService slackMessengerService;
 	private String SLACK_URL = "https://hooks.slack.com/services/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";
 
 	static {
@@ -54,7 +53,6 @@ public class CityWalkApplicationContext extends ApplicationContext {
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
 		super.contextInitialized(event, "citywalk", SLACK_URL);
-		slackMessengerService = new SlackMessengerService(getSlackWebhookUrl());
 		initializeDatabase(event);
 		log.info(getClass().getSimpleName() + " initialized");
 	}
@@ -214,13 +212,6 @@ public class CityWalkApplicationContext extends ApplicationContext {
 									d.getDescription(), d.getAnswerqr(), d.getImgsrc())));
 		});
 		return json;
-	}
-
-	@Override
-	public void contextDestroyed(ServletContextEvent event) {
-		super.contextDestroyed(event);
-		slackMessengerService.shutdown();
-		log.info("destroyed");
 	}
 
 	public static void asyncPostMessageToLogSrvChannel(String category, String text) {

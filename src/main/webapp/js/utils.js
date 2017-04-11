@@ -430,6 +430,15 @@ function padding(str) {
   return ('0' + str).slice(-2);
 }
 
+function toTimestamp(milliseconds) {
+  var date = new Date(milliseconds);
+  var str = [date.getFullYear(), padding(date.getMonth() + 1), padding(date.getDate())].join('-');
+  str += ' ';
+  str += [padding(date.getHours()), padding(date.getMinutes()), padding(date.getSeconds())]
+          .join(':');
+  return str;
+}
+
 function toFormattedDate(milliseconds) {
   var date = new Date(milliseconds);
   var str = [date.getFullYear(), padding(date.getMonth() + 1), padding(date.getDate())].join('-');
