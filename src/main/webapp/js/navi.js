@@ -8,10 +8,20 @@ var infoWindow;
 
 var POST_MOVEMENT_INTERVAL = 1000 * 30; // msec
 var osName = new UAParser().getOS().name;
+var connection;
 
 window.onload = function() {
   setTimeout(initMap, 300);
 }
+
+$(window).on('unload', function() {
+  if (connection) {
+    connection.onclose = function() {
+    };
+    connection.close();
+  }
+});
+
 $(function() {
   document.title = checkpoint.name; // タイトルの変更
   ePos = new google.maps.LatLng(checkpoint.lat, checkpoint.lon);
@@ -153,7 +163,7 @@ function showEventsViaWebsocket() {
 
   var wsUrl = getActivityPublisherUrl() + "/" + getCourseId() + "/" + checkpoint.id + "/"
           + getUserId();
-  var connection = new WebSocket(wsUrl);
+  connection = new WebSocket(wsUrl);
   connection.onmessage = function(e) {
     var messages = JSON.parse(e.data);
     notifyMsg(messages, 0);
