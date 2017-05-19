@@ -7,9 +7,8 @@ var JsonRpcRequest = (function() {
     this.fail = getDefaultFailIfAbsent(fail);
     this.delay = 1000;
     this.initialDelay = 0;
-    this.timeout = 10000;
+    this.timeout = 10 * 1000;
   };
-
   return JsonRpcRequest;
 })();
 
@@ -33,19 +32,10 @@ var JsonRpcClient = (function() {
   p.rpc = function() {
     var req = JSON.stringify(this.request);
     var client = this;
-    this.jqXHR = $.ajax({
-      type: "POST",
-      dataType: "json",
-      url: this.request.url,
-      data: JSON.stringify({
-        method: this.request.method,
-        params: this.request.params
-      }),
-      timeout: this.request.timeout,
-    }).done(function(data, status, jqxhr) {
+    this.jqXHR = client.createAjaxObj().done(function(data, status, jqxhr) {
       client.request.done(data, status, jqxhr);
       client.isSuccess = true
-    }).fail(this.request.fail)
+    }).fail(this.request.fail);
     return this;
   }
 
@@ -57,50 +47,30 @@ var JsonRpcClient = (function() {
     client.printedError = false;
 
     function refresh() {
-      client.jqXHR = $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: client.request.url,
-        data: JSON.stringify({
-          method: client.request.method,
-          params: client.request.params
-        }),
-        timeout: client.request.timeout,
-      }).done(function(data, status, jqxhr) {
+      client.jqXHR = client.createAjaxObj().done(function(data, status, jqxhr) {
         client.request.done(data, status, jqxhr);
         client.isSuccess = true;
-      }).fail(
-              function(data, textStatus, errorThrown) {
-                if (!client.printedError) {
-                  console.error(data + ':' + textStatus + ':' + errorThrown + ':'
-                          + JSON.stringify(client.request));
-                  client.printedError = true;
-                }
-              }).always(function(data) {
+      }).fail(function(data, textStatus, errorThrown) {
+        if (client.printedError) { return; }
+        printError(data, textStatus, errorThrown, client.request);
+        client.printedError = true;
+      }).always(function(data) {
         if (client.isFinish) {
           if (client.isSuccess) {
             success();
           } else {
             unsuccess();
           }
-
           if (client.jqXHR != null) {
             client.jqXHR.abort();
           }
-        } else {
-          client.jqXHR = null;
-          setTimeout(function() {
-            refresh();
-          }, client.request.delay);
+          return;
         }
+        client.jqXHR = null;
+        setTimeout(refresh, client.request.delay);
       });
     }
-    if (client.request.initialDelay == null) {
-      client.request.initialDelay = 0;
-    }
-    setTimeout(function() {
-      refresh();
-    }, client.request.initialDelay);
+    setTimeout(refresh, client.request.initialDelay);
     return client;
   }
 
@@ -139,6 +109,20 @@ var JsonRpcClient = (function() {
     this.isFinish = true;
   }
 
+  p.createAjaxObj = function() {
+    var client = this;
+    return $.ajax({
+      type: "POST",
+      dataType: "json",
+      url: client.request.url,
+      data: JSON.stringify({
+        method: client.request.method,
+        params: client.request.params
+      }),
+      timeout: client.request.timeout,
+    })
+  }
+
   return JsonRpcClient;
 })();
 
@@ -150,7 +134,11 @@ function getDefaultDoneIfAbsent(done) {
 
 function getDefaultFailIfAbsent(fail) {
   return (fail != null) ? fail : function(data, textStatus, errorThrown) {
-    console.error(textStatus + ', ' + errorThrown + '. response: ' + JSON.stringify(data));
-    console.error('request: ' + JSON.stringify(JSON.stringify(this)));
-  };
+    printError(data, textStatus, errorThrown, this.request);
+  }
+}
+
+function printError(data, textStatus, errorThrown, request) {
+  console.error(textStatus + ', ' + errorThrown + '. response: ' + JSON.stringify(data));
+  console.error('request: ' + JSON.stringify(request));
 }
