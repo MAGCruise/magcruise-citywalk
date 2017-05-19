@@ -21,4 +21,8 @@ public class CategoriesTable extends RelationalModel<Category> {
 		addColumnDefinition(IMG_SRC, Keyword.VARCHAR);
 	}
 
+	@Override
+	public void createIndexes() {
+	}
+
 }

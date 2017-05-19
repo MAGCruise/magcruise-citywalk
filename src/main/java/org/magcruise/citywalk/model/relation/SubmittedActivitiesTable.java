@@ -11,4 +11,8 @@ public class SubmittedActivitiesTable extends ActivitiesTable<SubmittedActivity>
 		super(TABLE_NAME, client);
 	}
 
+	@Override
+	public void createIndexes() {
+	}
+
 }

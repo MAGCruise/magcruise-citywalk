@@ -21,4 +21,8 @@ public class CoursesTable extends RelationalModel<Course> {
 		addColumnDefinition(DISABLED, Keyword.BOOLEAN);
 	}
 
+	@Override
+	public void createIndexes() {
+	}
+
 }

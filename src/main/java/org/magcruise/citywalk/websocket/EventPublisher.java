@@ -44,7 +44,6 @@ public class EventPublisher {
 			log.warn("session {} has been already registered.", session.getId());
 			return;
 		}
-		Basic b = session.getBasicRemote();
 
 		ScheduledFuture<?> f = pool.scheduleWithFixedDelay(() -> {
 			try {
@@ -55,7 +54,10 @@ public class EventPublisher {
 				if (events.size() == 0) {
 					return;
 				}
-				b.sendText(JSON.encode(events));
+				synchronized (session) {
+					Basic b = session.getBasicRemote();
+					b.sendText(JSON.encode(events));
+				}
 			} catch (Exception e) {
 				log.error(e, e);
 			}

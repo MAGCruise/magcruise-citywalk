@@ -27,6 +27,10 @@ public class BadgeDefinitionsTable extends RelationalModel<BadgeDefinition> {
 		addColumnDefinition(VALUE, Keyword.VARCHAR);
 	}
 
+	@Override
+	public void createIndexes() {
+	}
+
 	public List<BadgeDefinition> findByCourseId(String courseId) {
 		return readListBy(COURSE_ID, courseId);
 	}

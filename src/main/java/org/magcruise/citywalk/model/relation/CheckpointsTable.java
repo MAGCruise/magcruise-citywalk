@@ -48,6 +48,10 @@ public class CheckpointsTable extends RelationalModel<Checkpoint> {
 		addColumnDefinition(PLACE, Keyword.VARCHAR);
 	}
 
+	@Override
+	public void createIndexes() {
+	}
+
 	public List<Checkpoint> findByCourseId(String courseId) {
 		return getClient().readList(Checkpoint.class, "SELECT * FROM " + TABLE_NAME).stream()
 				.filter(c -> c.getCourseIds().contains(courseId))

@@ -24,6 +24,10 @@ public class BadgesTable extends RelationalModel<Badge> {
 		addColumnDefinition(BADGE_DEFINITION_ID, Keyword.VARCHAR);
 	}
 
+	@Override
+	public void createIndexes() {
+	}
+
 	public boolean contains(long badgeDefinitionId) {
 		return readListBy(BADGE_DEFINITION_ID, badgeDefinitionId).size() > 0;
 	}
@@ -31,7 +35,8 @@ public class BadgesTable extends RelationalModel<Badge> {
 	public List<Badge> findBy(String userId, String courseId,
 			BadgeDefinitionsTable definitionsTable) {
 		return readListBy(USER_ID, userId).stream()
-				.filter(b -> definitionsTable.readByPrimaryKey(b.getBadgeDefinitionId()).getCourseId()
+				.filter(b -> definitionsTable.readByPrimaryKey(b.getBadgeDefinitionId())
+						.getCourseId()
 						.equals(courseId))
 				.collect(Collectors.toList());
 

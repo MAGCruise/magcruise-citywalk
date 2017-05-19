@@ -24,6 +24,10 @@ public class EntriesTable extends RelationalModel<Entry> {
 		addColumnDefinition(COURSE_ID, Keyword.VARCHAR);
 	}
 
+	@Override
+	public void createIndexes() {
+	}
+
 	public List<Entry> findUserId(String userId) {
 		return readListBy(USER_ID, userId);
 	}

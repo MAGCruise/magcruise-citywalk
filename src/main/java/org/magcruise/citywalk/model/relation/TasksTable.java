@@ -25,6 +25,10 @@ public class TasksTable extends RelationalModel<Task> {
 		addColumnDefinition(CONTENT, Keyword.VARCHAR);
 	}
 
+	@Override
+	public void createIndexes() {
+	}
+
 	public List<Task> getTasks(String checkpointId) {
 		return getClient()
 				.readList(Task.class,

@@ -17,10 +17,15 @@ import org.nkjmlab.util.db.DbClient;
 public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 
 	public static final String TABLE_NAME = "VERIFIED_ACTIVITIES";
-	private CheckpointsTable checkpoints = new CheckpointsTable(CityWalkApplicationContext.getDbClient());
+	private CheckpointsTable checkpoints = new CheckpointsTable(
+			CityWalkApplicationContext.getDbClient());
 
 	public VerifiedActivitiesTable(DbClient client) {
 		super(TABLE_NAME, client);
+	}
+
+	@Override
+	public void createIndexes() {
 	}
 
 	public RankJson getRankJson(String userId, String courseId) {

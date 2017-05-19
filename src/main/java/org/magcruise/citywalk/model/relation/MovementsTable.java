@@ -42,6 +42,10 @@ public class MovementsTable extends RelationalModel<Movement> {
 		addColumnDefinition(HEADING, Keyword.DOUBLE);
 	}
 
+	@Override
+	public void createIndexes() {
+	}
+
 	public List<Movement> findByUserIdAndCourseId(String userId, String courseId,
 			int incrementSize) {
 		List<Movement> tmp = readListBy(USER_ID, userId, COURSE_ID, courseId);

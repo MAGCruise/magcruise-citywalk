@@ -24,6 +24,10 @@ public class UserAccountsTable extends RelationalModel<UserAccount> {
 		addColumnDefinition(ENVIRONMENT, Keyword.VARCHAR);
 	}
 
+	@Override
+	public void createIndexes() {
+	}
+
 	public boolean exists(String userId) {
 		UserAccount user = new UserAccount();
 		user.setId(userId);

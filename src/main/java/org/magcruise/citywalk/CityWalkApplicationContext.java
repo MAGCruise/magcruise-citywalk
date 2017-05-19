@@ -54,6 +54,7 @@ public class CityWalkApplicationContext extends ApplicationContext {
 	public void contextInitialized(ServletContextEvent event) {
 		super.contextInitialized(event, "citywalk", SLACK_URL);
 		initializeDatabase(event);
+		addLoggingMemoryUsageTask(10);
 		log.info(getClass().getSimpleName() + " initialized");
 	}
 
