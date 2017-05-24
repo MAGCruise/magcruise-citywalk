@@ -37,6 +37,8 @@ import org.nkjmlab.gdata.spreadsheet.client.GoogleSpreadsheetServiceFactory;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
+import org.nkjmlab.util.slack.SlackConfig;
+import org.nkjmlab.util.slack.SlackConfigFactory;
 import org.nkjmlab.util.slack.SlackMessage;
 import org.nkjmlab.util.slack.SlackMessengerService;
 import org.nkjmlab.webui.ApplicationContext;
@@ -44,15 +46,15 @@ import org.nkjmlab.webui.ApplicationContext;
 @WebListener
 public class CityWalkApplicationContext extends ApplicationContext {
 
-	private String SLACK_URL = "https://hooks.slack.com/services/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";
-
 	static {
 		//ThymeleafTemplateProcessor.setcacheTTLMs(60 * 1000L);
 	}
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		super.contextInitialized(event, "citywalk", SLACK_URL);
+		SlackConfig slackConf = SlackConfigFactory
+				.createFromResource(CityWalkApplicationContext.class, "/slack-conf.json");
+		super.contextInitialized(event, "citywalk", slackConf.getWebhookUrl());
 		initializeDatabase(event);
 		addLoggingMemoryUsageTask(10);
 		log.info(getClass().getSimpleName() + " initialized");
