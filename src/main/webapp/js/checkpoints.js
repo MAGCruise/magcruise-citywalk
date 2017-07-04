@@ -81,6 +81,9 @@ $(function() {
   updateInitialDataIfNeeded(getCourseId());
   updateCheckpointListHeight(280);
 
+  setCategoryDepth(getCategoryDepth() <= getMaxCategoryDepth() ? getCategoryDepth()
+          : getMaxCategoryDepth());
+
   switch (getMaxCategoryDepth()) {
   case 0:
     $('#category-depth option[value=1]').remove();
@@ -93,21 +96,24 @@ $(function() {
   }
 
   $('#category-depth').val(getCategoryDepth());
-  $('#category-depth').on('change', function() {
-    setCategoryDepth($(this).val());
+  $('#category-depth').on(
+          'change',
+          function() {
+            setCategoryDepth($(this).val() <= getMaxCategoryDepth() ? $(this).val()
+                    : getMaxCategoryDepth());
 
-    switch (getCategoryDepth()) {
-    case 0:
-      category = null;
-      subcategory = null;
-      break;
-    case 1:
-      subcategory = null;
-      break;
-    default:
-    }
-    updateViews();
-  });
+            switch (getCategoryDepth()) {
+            case 0:
+              category = null;
+              subcategory = null;
+              break;
+            case 1:
+              subcategory = null;
+              break;
+            default:
+            }
+            updateViews();
+          });
 
   $(window).on('hashchange', function() {
     if (getParam("no-refresh")) {

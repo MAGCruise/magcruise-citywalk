@@ -37,8 +37,8 @@ import org.nkjmlab.gdata.spreadsheet.client.GoogleSpreadsheetServiceFactory;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonUtils;
-import org.nkjmlab.util.slack.SlackConfig;
-import org.nkjmlab.util.slack.SlackConfigFactory;
+import org.nkjmlab.util.slack.SlackConfigs;
+import org.nkjmlab.util.slack.SlackConfigsFactory;
 import org.nkjmlab.util.slack.SlackMessage;
 import org.nkjmlab.util.slack.SlackMessengerService;
 import org.nkjmlab.webui.ApplicationContext;
@@ -52,7 +52,7 @@ public class CityWalkApplicationContext extends ApplicationContext {
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		SlackConfig slackConf = SlackConfigFactory
+		SlackConfigs slackConf = SlackConfigsFactory
 				.createFromResource(CityWalkApplicationContext.class, "/slack-conf.json");
 		super.contextInitialized(event, "citywalk", slackConf.getWebhookUrl());
 		initializeDatabase(event);
