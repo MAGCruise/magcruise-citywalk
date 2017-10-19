@@ -103,4 +103,10 @@ public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
 		return result;
 	}
 
+	public boolean isRecorded(String checkpointId, String taskId, String val) {
+		return readListBy(CHECKPOINT_ID, checkpointId, TASK_ID, taskId).stream()
+				.map(a -> a.getInputObject().getValue()).collect(Collectors.toList()).contains(val);
+
+	}
+
 }

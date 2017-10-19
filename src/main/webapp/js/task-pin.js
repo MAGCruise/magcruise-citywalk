@@ -33,8 +33,8 @@ function procTask() {
   var text = $("#answer-text").val().replace(/\s+/g, "").replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
     return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
   });
-  if (!/^[0-9]{4}$/g.test(text)) {
-    swalAlert("照合失敗", "半角数字4桁が入力されていません", "warning");
+  if (!/^[0-9]*$/g.test(text)) {
+    swalAlert("照合失敗", "半角数字が入力されていません", "warning");
     return;
   }
   var isCorrect = false;

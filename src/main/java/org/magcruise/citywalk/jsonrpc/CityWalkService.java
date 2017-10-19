@@ -163,12 +163,19 @@ public class CityWalkService extends JsonRpcService implements CityWalkServiceIn
 		return createRewardJson(a.getUserId(), a.getCourseId());
 	}
 
-	private void verifyActivity(Activity a) {
+	private boolean verifyActivity(Activity a) {
 		synchronized (verifiedActivities) {
 			if (verifiedActivities.contains(a.getCourseId(), a.getUserId(), a.getCheckpointId(),
 					a.getTaskId())) {
-				return;
+				return false;
 			}
+
+			if (tasks.isPinTask(a.getTaskId())
+					&& verifiedActivities.isRecorded(a.getCheckpointId(), a.getTaskId(),
+							a.getInputObject().getValue())) {
+				throw new RuntimeException("The PIN is already used");
+			}
+
 			VerifiedActivity va = new VerifiedActivity(a);
 			verifiedActivities.insert(va);
 			log.info("add verified activity={}", va);
@@ -177,6 +184,7 @@ public class CityWalkService extends JsonRpcService implements CityWalkServiceIn
 							"createdAt={}, userId={}, checkpointId={}, taskId={}",
 							va.getCreatedAt(),
 							va.getUserId(), va.getCheckpointId(), va.getTaskId())));
+			return true;
 		}
 
 	}

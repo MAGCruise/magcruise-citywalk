@@ -110,16 +110,17 @@ public class CheckpointsAndTasksFactory {
 
 	public static List<Task> createTasks(List<TaskJson> json) {
 		List<Task> tasks = json.stream().map(task -> {
+			Class<? extends TaskContent> clazz;
 			try {
-				@SuppressWarnings("unchecked")
-				TaskContent content = JsonObject.decodeFromJson(
-						(Class<? extends TaskContent>) Class
-								.forName(task.getContent().getInstanceClass()),
-						JSON.encode(task.getContent()));
-				return new Task(task.getId(), task.getCheckpointIds(), content);
+				clazz = (Class<? extends TaskContent>) Class
+						.forName(task.getContent().getInstanceClass());
 			} catch (ClassNotFoundException e) {
 				throw new RuntimeException(e);
 			}
+
+			TaskContent content = JsonObject.decodeFromJson(clazz,
+					JSON.encode(task.getContent()));
+			return new Task(task.getId(), task.getCheckpointIds(), content);
 		}).collect(Collectors.toList());
 		return tasks;
 

@@ -7,8 +7,8 @@ public class TaskContent extends JsonObject<TaskContent> {
 	protected boolean checkin = false;
 	protected String label;
 	protected double point;
-	// デフォルトのActiveAreaは100m
-	protected int activeArea = 100;
+	// デフォルトのActiveAreaはInteger.MAX_VALUE[m]
+	protected int activeArea = Integer.MAX_VALUE;
 
 	public TaskContent() {
 	}
@@ -49,6 +49,9 @@ public class TaskContent extends JsonObject<TaskContent> {
 	}
 
 	public void setActiveArea(int activeArea) {
+		if (activeArea == -1) {
+			return;
+		}
 		this.activeArea = activeArea;
 	}
 

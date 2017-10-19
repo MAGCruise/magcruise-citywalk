@@ -70,6 +70,8 @@ public class Activity {
 			return new DescriptionInput(inputs.get("value"));
 		case "PinTask":
 			return new PinInput(inputs.get("value"));
+		case "SimpleTask":
+			return new PinInput(inputs.get("value"));
 		}
 		throw new IllegalArgumentException(taskType);
 	}

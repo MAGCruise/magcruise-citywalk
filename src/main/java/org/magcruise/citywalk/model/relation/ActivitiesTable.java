@@ -14,8 +14,8 @@ public abstract class ActivitiesTable<T extends Activity> extends RelationalMode
 	private static final String CREATED_AT = "created_at";
 	private static final String COURSE_ID = "course_id";
 	protected static final String USER_ID = "user_id";
-	private static final String CHECKPOINT_ID = "checkpoint_id";
-	private static final String TASK_ID = "task_id";
+	protected static final String CHECKPOINT_ID = "checkpoint_id";
+	protected static final String TASK_ID = "task_id";
 	private static final String INPUT = "input";
 	private static final String SCORE = "score";
 	private static final String LAT = "lat";

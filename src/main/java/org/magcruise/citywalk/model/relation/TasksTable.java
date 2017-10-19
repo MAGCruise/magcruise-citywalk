@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.magcruise.citywalk.model.row.Task;
+import org.magcruise.citywalk.model.task.PinTask;
 import org.magcruise.citywalk.model.task.TaskContent;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
@@ -63,6 +64,11 @@ public class TasksTable extends RelationalModel<Task> {
 
 	public Task getTask(String taskId) {
 		return getClient().readByPrimaryKey(Task.class, taskId);
+	}
+
+	public boolean isPinTask(String taskId) {
+		return getTask(taskId).getContentObject().getInstanceClass()
+				.contains(PinTask.class.getSimpleName());
 	}
 
 }

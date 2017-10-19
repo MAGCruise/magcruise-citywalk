@@ -19,6 +19,7 @@ var TaskType = {
   Sort: "SortTask",
   Description: "DescriptionTask",
   Pin: "PinTask",
+  Simple: "SimpleTask",
 };
 
 function getTaskIndex() {
@@ -46,6 +47,9 @@ function getTaskURL(checkpoint, taskIndex) {
     break;
   case TaskType.Pin:
     suffix = "pin";
+    break;
+  case TaskType.Simple:
+    suffix = "simple";
     break;
   default:
     break;
@@ -163,7 +167,9 @@ function sendAddActivity(activity, isCorrect) {
   }, function(data, textStatus, errorThrown) {
     console.error("fail to add activity: " + textStatus + errorThrown + data);
     setTimeout(function() {
-      swalAlert("", "Fail to send", "error", function() {
+      swalAlert("", "Fail to add activity<br>"
+              + data.responseJSON.error.detail.split("\n")[0].replace(/java\.lang\..*?: /g, "")
+                      .replace('stack trace', "").replace('"""', ""), "error", function() {
       })
     }, 500);
   })).rpc();

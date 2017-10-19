@@ -17,7 +17,7 @@ public class ContentJson {
 	private List<String> answerTexts = new ArrayList<>();
 	private String answerQr = "";
 	private String imgSrc = "";
-	private int activeArea;
+	private int activeArea = -1;
 
 	public ContentJson() {
 	}

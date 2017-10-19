@@ -42,11 +42,13 @@ public class InitialDataFactory {
 			return json;
 		}
 
-		List<Checkpoint> jaCheckpoints = new CheckpointsTable(CityWalkApplicationContext.getDbClient())
-				.findByCourseId(courseId).stream().filter(c -> !c.getId().startsWith("en-"))
-				.collect(Collectors.toList());
+		List<Checkpoint> jaCheckpoints = new CheckpointsTable(
+				CityWalkApplicationContext.getDbClient())
+						.findByCourseId(courseId).stream().filter(c -> !c.getId().startsWith("en-"))
+						.collect(Collectors.toList());
 
-		List<Category> categories = new CategoriesTable(CityWalkApplicationContext.getDbClient()).readAll();
+		List<Category> categories = new CategoriesTable(CityWalkApplicationContext.getDbClient())
+				.readAll();
 
 		json = create(jaCheckpoints, categories);
 		if (language.equals("en")) {
@@ -92,7 +94,8 @@ public class InitialDataFactory {
 
 	private static InitialDataJson create(List<Checkpoint> checkpoints, List<Category> categories) {
 		List<CheckpointJson> checkpointsJson = checkpoints.stream().map(c -> {
-			List<Task> tasks = new TasksTable(CityWalkApplicationContext.getDbClient()).getTasks(c.getId());
+			List<Task> tasks = new TasksTable(CityWalkApplicationContext.getDbClient())
+					.getTasks(c.getId());
 			List<TaskJson> taskJsons = new ArrayList<>();
 			CheckinJson checkin = new CheckinJson();
 			int checkinIndex = 0;

@@ -7,6 +7,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.apache.logging.log4j.Logger;
 import org.magcruise.citywalk.model.row.Task;
+import org.magcruise.citywalk.model.task.SimpleTask;
 import org.magcruise.citywalk.model.task.DescriptionTask;
 import org.magcruise.citywalk.model.task.PhotoTask;
 import org.magcruise.citywalk.model.task.PinTask;
@@ -28,7 +29,7 @@ public class TaskJson {
 	private List<String> answerTexts = new ArrayList<>();
 	private String answerQr;
 	private String imgSrc;
-	private int activeArea;
+	private double activeArea;
 
 	public TaskJson() {
 	}
@@ -57,6 +58,8 @@ public class TaskJson {
 		} else if (content.getInstanceClass().equals(QrCodeTask.class.getName())) {
 			QrCodeTask t = (QrCodeTask) content;
 			answerQr = t.getAnswerQr();
+		} else if (content.getInstanceClass().equals(SimpleTask.class.getName())) {
+			SimpleTask t = (SimpleTask) content;
 		} else {
 			log.warn("{}  passed through", content.getInstanceClass());
 		}
@@ -139,11 +142,11 @@ public class TaskJson {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
-	public int getActiveArea() {
+	public double getActiveArea() {
 		return activeArea;
 	}
 
-	public void setActiveArea(int activeArea) {
+	public void setActiveArea(double activeArea) {
 		this.activeArea = activeArea;
 	}
 
