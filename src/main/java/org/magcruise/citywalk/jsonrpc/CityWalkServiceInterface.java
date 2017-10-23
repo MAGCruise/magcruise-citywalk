@@ -72,4 +72,7 @@ public interface CityWalkServiceInterface {
 
 	ActivityJson[] getCheckinLogs(String checkpointId);
 
+	String getCheckpointsAndTasksJson(String projectId);
+
+	boolean saveCheckpointsAndTasksJson(String projectId, String json);
 }

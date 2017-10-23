@@ -1,6 +1,8 @@
 package org.magcruise.citywalk.jsonrpc;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -376,6 +378,48 @@ public class CityWalkService extends JsonRpcService implements CityWalkServiceIn
 				.map(va -> new ActivityJson(va, tasks.readByPrimaryKey(va.getTaskId())))
 				.collect(Collectors.toList()).toArray(new ActivityJson[0]);
 		return result;
+	}
+
+	@Override
+	public String getCheckpointsAndTasksJson(String projectId) {
+		File jsonFile = getCheckpointsAndTasksJsonPath(projectId);
+		try {
+			String result = String.join(System.lineSeparator(),
+					Files.readAllLines(jsonFile.toPath()));
+			return result;
+		} catch (Exception e) {
+			log.error(jsonFile);
+			throw new RuntimeException(jsonFile.toString(), e);
+		}
+	}
+
+	private File getCheckpointsAndTasksJsonPath(String projectId) {
+		log.info(projectId);
+		log.info("projects/" + projectId + "/json/checkpoints-and-tasks/" + projectId
+				+ ".json");
+		log.info(getServiceContext().getRealPath("projects/"));
+		log.info(getServiceContext().getRealPath("projects/" + projectId + "/"));
+		log.info(getServiceContext()
+				.getRealPath("projects/" + projectId + "/json/checkpoints-and-tasks/"));
+		log.info(getServiceContext().getRealPath(
+				"projects/" + projectId + "/json/checkpoints-and-tasks/" + projectId
+						+ ".json"));
+		return new File(getServiceContext().getRealPath(
+				"projects/" + projectId + "/json/checkpoints-and-tasks/" + projectId
+						+ ".json"));
+	}
+
+	@Override
+	public boolean saveCheckpointsAndTasksJson(String projectId, String json) {
+		File jsonFile = getCheckpointsAndTasksJsonPath(projectId);
+		jsonFile.delete();
+		try (FileWriter writer = FileUtils.getFileWriter(jsonFile)) {
+			writer.write(json);
+		} catch (Exception e) {
+			log.error(jsonFile);
+			throw new RuntimeException(jsonFile.toString(), e);
+		}
+		return true;
 	}
 
 }
