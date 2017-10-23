@@ -7,12 +7,13 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.apache.logging.log4j.Logger;
 import org.magcruise.citywalk.model.row.Task;
-import org.magcruise.citywalk.model.task.SimpleTask;
 import org.magcruise.citywalk.model.task.DescriptionTask;
+import org.magcruise.citywalk.model.task.OneTimePinTask;
 import org.magcruise.citywalk.model.task.PhotoTask;
 import org.magcruise.citywalk.model.task.PinTask;
 import org.magcruise.citywalk.model.task.QrCodeTask;
 import org.magcruise.citywalk.model.task.SelectionTask;
+import org.magcruise.citywalk.model.task.SimpleTask;
 import org.magcruise.citywalk.model.task.TaskContent;
 import org.nkjmlab.util.log4j.LogManager;
 
@@ -51,6 +52,9 @@ public class TaskJson {
 			answerTexts.addAll(t.getAnswerTexts());
 		} else if (content.getInstanceClass().equals(PinTask.class.getName())) {
 			PinTask t = (PinTask) content;
+			answerTexts.addAll(t.getAnswerTexts());
+		} else if (content.getInstanceClass().equals(OneTimePinTask.class.getName())) {
+			OneTimePinTask t = (OneTimePinTask) content;
 			answerTexts.addAll(t.getAnswerTexts());
 		} else if (content.getInstanceClass().equals(PhotoTask.class.getName())) {
 			PhotoTask t = (PhotoTask) content;

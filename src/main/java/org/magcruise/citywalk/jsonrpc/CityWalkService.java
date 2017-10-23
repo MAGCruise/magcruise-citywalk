@@ -172,7 +172,7 @@ public class CityWalkService extends JsonRpcService implements CityWalkServiceIn
 				return false;
 			}
 
-			if (tasks.isPinTask(a.getTaskId())
+			if (tasks.isOneTimePinTask(a.getTaskId())
 					&& verifiedActivities.isRecorded(a.getCheckpointId(), a.getTaskId(),
 							a.getInputObject().getValue())) {
 				throw new RuntimeException("The PIN is already used");

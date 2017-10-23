@@ -19,6 +19,7 @@ var TaskType = {
   Sort: "SortTask",
   Description: "DescriptionTask",
   Pin: "PinTask",
+  OneTimePin: "OneTimePinTask",
   Simple: "SimpleTask",
 };
 
@@ -46,6 +47,7 @@ function getTaskURL(checkpoint, taskIndex) {
     suffix = "description";
     break;
   case TaskType.Pin:
+  case TaskType.OneTimePin:
     suffix = "pin";
     break;
   case TaskType.Simple:

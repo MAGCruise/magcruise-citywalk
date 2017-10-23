@@ -69,6 +69,7 @@ public class Activity {
 		case "DescriptionTask":
 			return new DescriptionInput(inputs.get("value"));
 		case "PinTask":
+		case "OneTimePinTask":
 			return new PinInput(inputs.get("value"));
 		case "SimpleTask":
 			return new PinInput(inputs.get("value"));
