@@ -8,8 +8,8 @@ import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.UserAccountJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
-import org.magcruise.citywalk.model.json.init.CoursesJson;
-import org.magcruise.citywalk.model.json.init.InitialDataJson;
+import org.magcruise.citywalk.model.json.app.CoursesJson;
+import org.magcruise.citywalk.model.json.app.InitialDataJson;
 import org.magcruise.citywalk.model.row.UserAccount;
 
 import jp.go.nict.langrid.commons.rpc.intf.Parameter;

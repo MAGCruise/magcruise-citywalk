@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.magcruise.citywalk.CityWalkApplicationContext;
+import org.magcruise.citywalk.model.json.app.task.TaskContent;
 import org.magcruise.citywalk.model.json.db.CheckpointJson;
 import org.magcruise.citywalk.model.json.db.CheckpointsAndTasksJson;
 import org.magcruise.citywalk.model.json.db.TaskJson;
@@ -14,7 +15,6 @@ import org.magcruise.citywalk.model.relation.CheckpointsTable;
 import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.row.Checkpoint;
 import org.magcruise.citywalk.model.row.Task;
-import org.magcruise.citywalk.model.task.TaskContent;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonObject;
 import org.nkjmlab.util.json.JsonUtils;

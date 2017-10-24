@@ -3,9 +3,9 @@ package org.magcruise.citywalk.model.relation;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.magcruise.citywalk.model.json.app.task.OneTimePinTask;
+import org.magcruise.citywalk.model.json.app.task.TaskContent;
 import org.magcruise.citywalk.model.row.Task;
-import org.magcruise.citywalk.model.task.OneTimePinTask;
-import org.magcruise.citywalk.model.task.TaskContent;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
 import org.nkjmlab.util.db.RelationalModel;

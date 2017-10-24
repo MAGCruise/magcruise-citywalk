@@ -1,4 +1,4 @@
-package org.magcruise.citywalk.model.json.init;
+package org.magcruise.citywalk.model.json.app;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,15 +6,6 @@ import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.apache.logging.log4j.Logger;
-import org.magcruise.citywalk.model.row.Task;
-import org.magcruise.citywalk.model.task.DescriptionTask;
-import org.magcruise.citywalk.model.task.OneTimePinTask;
-import org.magcruise.citywalk.model.task.PhotoTask;
-import org.magcruise.citywalk.model.task.PinTask;
-import org.magcruise.citywalk.model.task.QrCodeTask;
-import org.magcruise.citywalk.model.task.SelectionTask;
-import org.magcruise.citywalk.model.task.SimpleTask;
-import org.magcruise.citywalk.model.task.TaskContent;
 import org.nkjmlab.util.log4j.LogManager;
 
 public class TaskJson {
@@ -33,40 +24,6 @@ public class TaskJson {
 	private double activeArea;
 
 	public TaskJson() {
-	}
-
-	public TaskJson(Task task) {
-		this.id = task.getId();
-		TaskContent content = task.getContentObject();
-		this.taskType = content.getClass().getSimpleName();
-		this.label = content.getLabel();
-		this.point = content.getPoint();
-		this.activeArea = content.getActiveArea();
-
-		if (content.getInstanceClass().equals(SelectionTask.class.getName())) {
-			SelectionTask t = (SelectionTask) content;
-			selections.addAll(t.getSelections());
-			answerIndexes.addAll(t.getAnswerIndexes());
-		} else if (content.getInstanceClass().equals(DescriptionTask.class.getName())) {
-			DescriptionTask t = (DescriptionTask) content;
-			answerTexts.addAll(t.getAnswerTexts());
-		} else if (content.getInstanceClass().equals(PinTask.class.getName())) {
-			PinTask t = (PinTask) content;
-			answerTexts.addAll(t.getAnswerTexts());
-		} else if (content.getInstanceClass().equals(OneTimePinTask.class.getName())) {
-			OneTimePinTask t = (OneTimePinTask) content;
-			answerTexts.addAll(t.getAnswerTexts());
-		} else if (content.getInstanceClass().equals(PhotoTask.class.getName())) {
-			PhotoTask t = (PhotoTask) content;
-			imgSrc = t.getImgSrc();
-		} else if (content.getInstanceClass().equals(QrCodeTask.class.getName())) {
-			QrCodeTask t = (QrCodeTask) content;
-			answerQr = t.getAnswerQr();
-		} else if (content.getInstanceClass().equals(SimpleTask.class.getName())) {
-			SimpleTask t = (SimpleTask) content;
-		} else {
-			log.warn("{}  passed through", content.getInstanceClass());
-		}
 	}
 
 	public String getId() {

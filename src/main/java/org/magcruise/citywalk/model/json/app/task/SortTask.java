@@ -1,7 +1,9 @@
-package org.magcruise.citywalk.model.task;
+package org.magcruise.citywalk.model.json.app.task;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.magcruise.citywalk.model.json.app.TaskJson;
 
 public class SortTask extends TaskContent {
 
@@ -9,6 +11,13 @@ public class SortTask extends TaskContent {
 	private int answerIndex = -1;
 
 	public SortTask() {
+	}
+
+	@Override
+	public TaskJson toTaskJson(String id) {
+		TaskJson j = super.toTaskJson(id);
+		//TODO
+		return j;
 	}
 
 	public SortTask(String label, List<String> selections, int answerIndex,

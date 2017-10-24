@@ -1,4 +1,4 @@
-package org.magcruise.citywalk.model.json.init;
+package org.magcruise.citywalk.model.json.app;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

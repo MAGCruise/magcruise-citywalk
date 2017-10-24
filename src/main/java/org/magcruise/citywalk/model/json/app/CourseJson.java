@@ -1,4 +1,4 @@
-package org.magcruise.citywalk.model.json.init;
+package org.magcruise.citywalk.model.json.app;
 
 public class CourseJson {
 

@@ -8,18 +8,17 @@ import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.Logger;
 import org.magcruise.citywalk.CityWalkApplicationContext;
-import org.magcruise.citywalk.model.json.init.CategoryJson;
-import org.magcruise.citywalk.model.json.init.CheckinJson;
-import org.magcruise.citywalk.model.json.init.CheckpointJson;
-import org.magcruise.citywalk.model.json.init.InitialDataJson;
-import org.magcruise.citywalk.model.json.init.TaskJson;
+import org.magcruise.citywalk.model.json.app.CategoryJson;
+import org.magcruise.citywalk.model.json.app.CheckpointJson;
+import org.magcruise.citywalk.model.json.app.InitialDataJson;
+import org.magcruise.citywalk.model.json.app.TaskJson;
+import org.magcruise.citywalk.model.json.app.task.SelectionTask;
 import org.magcruise.citywalk.model.relation.CategoriesTable;
 import org.magcruise.citywalk.model.relation.CheckpointsTable;
 import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.row.Category;
 import org.magcruise.citywalk.model.row.Checkpoint;
 import org.magcruise.citywalk.model.row.Task;
-import org.magcruise.citywalk.model.task.SelectionTask;
 import org.nkjmlab.util.json.JsonUtils;
 import org.nkjmlab.util.log4j.LogManager;
 
@@ -97,16 +96,16 @@ public class InitialDataFactory {
 			List<Task> tasks = new TasksTable(CityWalkApplicationContext.getDbClient())
 					.getTasks(c.getId());
 			List<TaskJson> taskJsons = new ArrayList<>();
-			CheckinJson checkin = new CheckinJson();
+			TaskJson checkin = new TaskJson();
 			int checkinIndex = 0;
 			for (int i = 0; i < tasks.size(); i++) {
 				Task t = tasks.get(i);
 				// チェックインタスクはチェックポイントに必ず一つだけ存在
 				if (t.getContentObject().isCheckin()) {
 					checkinIndex = i;
-					checkin = new CheckinJson(t);
+					checkin = t.toTaskJson();
 				}
-				taskJsons.add(new TaskJson(t));
+				taskJsons.add(t.toTaskJson());
 			}
 
 			if (taskJsons.size() == 0) {

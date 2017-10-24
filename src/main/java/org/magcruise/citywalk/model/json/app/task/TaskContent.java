@@ -1,5 +1,6 @@
-package org.magcruise.citywalk.model.task;
+package org.magcruise.citywalk.model.json.app.task;
 
+import org.magcruise.citywalk.model.json.app.TaskJson;
 import org.nkjmlab.util.json.JsonObject;
 
 public class TaskContent extends JsonObject<TaskContent> {
@@ -18,6 +19,16 @@ public class TaskContent extends JsonObject<TaskContent> {
 		this.point = point;
 		this.checkin = checkin;
 		this.activeArea = activeArea;
+	}
+
+	public TaskJson toTaskJson(String id) {
+		TaskJson j = new TaskJson();
+		j.setId(id);
+		j.setTaskType(getClass().getSimpleName());
+		j.setLabel(getLabel());
+		j.setPoint(getPoint());
+		j.setActiveArea(getActiveArea());
+		return j;
 	}
 
 	public boolean isCheckin() {

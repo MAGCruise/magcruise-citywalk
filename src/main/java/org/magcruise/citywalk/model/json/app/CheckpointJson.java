@@ -1,4 +1,4 @@
-package org.magcruise.citywalk.model.json.init;
+package org.magcruise.citywalk.model.json.app;
 
 import java.util.Date;
 import java.util.List;
@@ -16,7 +16,7 @@ public class CheckpointJson {
 	private double lat;
 	private double lon;
 
-	private CheckinJson checkin;
+	private TaskJson checkin;
 	private List<TaskJson> tasks;
 	private String markerColor;
 	private String category;
@@ -30,7 +30,7 @@ public class CheckpointJson {
 	}
 
 	public CheckpointJson(String id, String name, String label, String description, double lat,
-			double lon, CheckinJson checkin, List<TaskJson> tasks, String markerColor,
+			double lon, TaskJson checkin, List<TaskJson> tasks, String markerColor,
 			String category, String subcategory, Date visibleTimeFrom, Date visibleTimeTo,
 			String imgSrc, String place) {
 		this.id = id;
@@ -95,11 +95,11 @@ public class CheckpointJson {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
-	public CheckinJson getCheckin() {
+	public TaskJson getCheckin() {
 		return checkin;
 	}
 
-	public void setCheckin(CheckinJson checkin) {
+	public void setCheckin(TaskJson checkin) {
 		this.checkin = checkin;
 	}
 

@@ -1,7 +1,9 @@
-package org.magcruise.citywalk.model.task;
+package org.magcruise.citywalk.model.json.app.task;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.magcruise.citywalk.model.json.app.TaskJson;
 
 public class SelectionTask extends TaskContent {
 
@@ -9,6 +11,14 @@ public class SelectionTask extends TaskContent {
 	private List<Integer> answerIndexes = new ArrayList<>();
 
 	public SelectionTask() {
+	}
+
+	@Override
+	public TaskJson toTaskJson(String id) {
+		TaskJson j = super.toTaskJson(id);
+		j.setSelections(selections);
+		j.setAnswerIndexes(answerIndexes);
+		return j;
 	}
 
 	public SelectionTask(String label, List<String> selections, List<Integer> answerIndexes,

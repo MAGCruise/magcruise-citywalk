@@ -6,8 +6,9 @@ import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.magcruise.citywalk.model.json.app.TaskJson;
+import org.magcruise.citywalk.model.json.app.task.TaskContent;
 import org.magcruise.citywalk.model.relation.TasksTable;
-import org.magcruise.citywalk.model.task.TaskContent;
 import org.nkjmlab.util.json.JsonObject;
 
 import jp.go.nict.langrid.repackaged.net.arnx.jsonic.JSON;
@@ -25,6 +26,10 @@ public class Task {
 	private Date createdAt;
 
 	public Task() {
+	}
+
+	public TaskJson toTaskJson() {
+		return content.toTaskJson(id);
 	}
 
 	public Task(String id, List<String> checkpointIds, TaskContent content) {
