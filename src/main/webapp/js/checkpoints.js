@@ -17,6 +17,9 @@ var enableGps = false;
 var sorted = false;
 
 window.onload = function() {
+  $('#btn-add-checkpoint').click(function() {
+    location.href = "add-checkpoint.html" + "?lat=" + cPos.lat() + "&lon=" + cPos.lng();
+  });
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: new google.maps.LatLng(34.995782, 135.766918),

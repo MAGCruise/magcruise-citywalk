@@ -1,4 +1,4 @@
-package org.magcruise.citywalk.model.json.db;
+package org.magcruise.citywalk.model.json.file;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.magcruise.citywalk.model.row.Checkpoint;
 import org.nkjmlab.util.time.DateTimeUtils;
 
 public class CheckpointJson {
@@ -160,5 +161,16 @@ public class CheckpointJson {
 
 	public void setPlace(String place) {
 		this.place = place;
+	}
+
+	public Checkpoint toCheckpoint() {
+		CheckpointJson checkpointJson = this;
+		return new Checkpoint(checkpointJson.getId(), checkpointJson.getName(),
+				checkpointJson.getLabel(), checkpointJson.getDescription(), checkpointJson.getLat(),
+				checkpointJson.getLon(), checkpointJson.getCourseIds(),
+				checkpointJson.getMarkerColor(),
+				checkpointJson.getCategory(), checkpointJson.getSubcategory(),
+				checkpointJson.getVisibleTimeFrom(), checkpointJson.getVisibleTimeTo(),
+				checkpointJson.getImgSrc(), checkpointJson.getPlace());
 	}
 }

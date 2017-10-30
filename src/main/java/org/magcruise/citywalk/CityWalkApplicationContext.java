@@ -8,16 +8,16 @@ import java.util.List;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.annotation.WebListener;
 
-import org.magcruise.citywalk.conv.CheckpointsAndTasksFactory;
+import org.magcruise.citywalk.model.CheckpointsAndTasksManager;
 import org.magcruise.citywalk.model.gdata.GoogleSpreadsheetData;
 import org.magcruise.citywalk.model.json.app.BadgeDefinitionsJson;
 import org.magcruise.citywalk.model.json.app.CategoriesJson;
 import org.magcruise.citywalk.model.json.app.CoursesJson;
 import org.magcruise.citywalk.model.json.app.task.QrCodeTask;
-import org.magcruise.citywalk.model.json.db.CheckpointJson;
-import org.magcruise.citywalk.model.json.db.CheckpointsAndTasksJson;
-import org.magcruise.citywalk.model.json.db.ContentJson;
-import org.magcruise.citywalk.model.json.db.TaskJson;
+import org.magcruise.citywalk.model.json.file.CheckpointJson;
+import org.magcruise.citywalk.model.json.file.CheckpointsAndTasksJson;
+import org.magcruise.citywalk.model.json.file.ContentJson;
+import org.magcruise.citywalk.model.json.file.TaskJson;
 import org.magcruise.citywalk.model.relation.BadgeDefinitionsTable;
 import org.magcruise.citywalk.model.relation.BadgesTable;
 import org.magcruise.citywalk.model.relation.CategoriesTable;
@@ -128,8 +128,6 @@ public class CityWalkApplicationContext extends ApplicationContext {
 							+ "checkpoints-and-tasks/");
 					readCheckpointsAndTasksJson(j);
 				});
-
-		//importFromGoogleSpreadsheets();
 	}
 
 	private void readCategoriesJson(File file) {
@@ -166,7 +164,7 @@ public class CityWalkApplicationContext extends ApplicationContext {
 					return name.endsWith(".json");
 				})).forEach(f -> {
 					log.info("{} is loaded.", f);
-					CheckpointsAndTasksFactory.insertToDb(f.getPath());
+					CheckpointsAndTasksManager.insertToDb(f.getPath());
 				});
 
 	}
@@ -189,7 +187,7 @@ public class CityWalkApplicationContext extends ApplicationContext {
 								.createWorksheetServiceClient(spradsheetName, name)
 								.rows(GoogleSpreadsheetData.class);
 						CheckpointsAndTasksJson json = convert(name, result);
-						CheckpointsAndTasksFactory.insertToDb(json);
+						CheckpointsAndTasksManager.insertToDb(json);
 					});
 		} catch (Exception e) {
 			log.warn(e.getMessage());

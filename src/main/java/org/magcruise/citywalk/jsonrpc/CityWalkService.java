@@ -13,8 +13,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.magcruise.citywalk.CityWalkApplicationContext;
-import org.magcruise.citywalk.conv.CheckpointsAndTasksFactory;
-import org.magcruise.citywalk.conv.InitialDataFactory;
+import org.magcruise.citywalk.model.CheckpointsAndTasksManager;
 import org.magcruise.citywalk.model.json.ActivityJson;
 import org.magcruise.citywalk.model.json.BadgeJson;
 import org.magcruise.citywalk.model.json.MovementJson;
@@ -25,9 +24,9 @@ import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.UserAccountJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
 import org.magcruise.citywalk.model.json.app.CheckpointJson;
+import org.magcruise.citywalk.model.json.app.CityWalkDataJson;
 import org.magcruise.citywalk.model.json.app.CourseJson;
 import org.magcruise.citywalk.model.json.app.CoursesJson;
-import org.magcruise.citywalk.model.json.app.InitialDataJson;
 import org.magcruise.citywalk.model.relation.BadgeDefinitionsTable;
 import org.magcruise.citywalk.model.relation.BadgesTable;
 import org.magcruise.citywalk.model.relation.CoursesTable;
@@ -154,7 +153,8 @@ public class CityWalkService extends JsonRpcService implements CityWalkServiceIn
 	public RewardJson addActivity(ActivityJson json) {
 		if (tasks.getTask(json.getTaskId()).getContentObject().getInstanceClass()
 				.contains("Photo")) {
-			File outputFile = uploadImage(json.getUserId(), json.getInputs().get("value"));
+			File outputFile = uploadImage(json.getUserId(), json.getCourseId(),
+					json.getInputs().get("value"));
 			json.getInputs().put("value", outputFile.toString());
 		}
 
@@ -228,11 +228,10 @@ public class CityWalkService extends JsonRpcService implements CityWalkServiceIn
 		return result;
 	}
 
-	private File uploadImage(String userId, String base64EncodedImage) {
+	private File uploadImage(String userId, String courseId, String base64EncodedImage) {
 		try {
 			String imageId = userId + "-" + System.nanoTime();
-			File outputDir = FileUtils
-					.getFileInUserDirectory(new File("magcruise-citywalk", "upload").toString());
+			File outputDir = new File(getProjectPathFromCourseId(courseId), "img/upload");
 			outputDir.mkdirs();
 			File outputFile = new File(outputDir, imageId + ".jpg");
 			Base64ImageUtils.decodeAndWrite(base64EncodedImage, "jpg", outputFile);
@@ -244,29 +243,33 @@ public class CityWalkService extends JsonRpcService implements CityWalkServiceIn
 		}
 	}
 
+	private String toProjectId(String courseId) {
+		return courseId.replace("-course", "");
+	}
+
 	@Override
-	public InitialDataJson getInitialData(String courseId, String language) {
-		return InitialDataFactory.create(courseId, language);
+	public CityWalkDataJson getInitialData(String courseId, String language) {
+		return CityWalkDataFactory.create(courseId, language);
 	}
 
 	@Override
 	public boolean exsitsUpdatedInitialData(long timeOfInitialData) {
-		boolean b = timeOfInitialData < CheckpointsAndTasksFactory.lastUpdateTimes.getTime();
+		boolean b = CheckpointsAndTasksManager.exsitsUpdatedData(timeOfInitialData);
 		return b;
 	}
 
 	@Override
-	public InitialDataJson getInitialDataFromFile(String courseId) {
-		InitialDataJson data = JsonUtils.decode(
+	public CityWalkDataJson getInitialDataFromFile(String courseId) {
+		CityWalkDataJson data = JsonUtils.decode(
 				new File(
 						getServiceContext().getRealPath("json/initial-data/" + courseId + ".json")),
-				InitialDataJson.class);
+				CityWalkDataJson.class);
 		return data;
 	}
 
 	@Override
 	public boolean validateCheckpointsAndTasksJson(String json) {
-		return CheckpointsAndTasksFactory.validate(json);
+		return CheckpointsAndTasksManager.validate(json);
 	}
 
 	@Override
@@ -382,44 +385,73 @@ public class CityWalkService extends JsonRpcService implements CityWalkServiceIn
 
 	@Override
 	public String getCheckpointsAndTasksJson(String projectId) {
-		File jsonFile = getCheckpointsAndTasksJsonPath(projectId);
-		try {
-			String result = String.join(System.lineSeparator(),
-					Files.readAllLines(jsonFile.toPath()));
-			return result;
-		} catch (Exception e) {
-			log.error(jsonFile);
-			throw new RuntimeException(jsonFile.toString(), e);
-		}
+		return readJsonFile(getCheckpointsAndTasksJsonPath(projectId));
+	}
+
+	private File getProjectPathFromCourseId(String courseId) {
+		return new File(getServiceContext().getRealPath("projects/" + toProjectId(courseId)));
+	}
+
+	private File getProjectPath(String projectId) {
+		return new File(getServiceContext().getRealPath("projects/" + projectId));
 	}
 
 	private File getCheckpointsAndTasksJsonPath(String projectId) {
-		log.info(projectId);
-		log.info("projects/" + projectId + "/json/checkpoints-and-tasks/" + projectId
+		return new File(getProjectPath(projectId), "/json/checkpoints-and-tasks/" + projectId
 				+ ".json");
-		log.info(getServiceContext().getRealPath("projects/"));
-		log.info(getServiceContext().getRealPath("projects/" + projectId + "/"));
-		log.info(getServiceContext()
-				.getRealPath("projects/" + projectId + "/json/checkpoints-and-tasks/"));
-		log.info(getServiceContext().getRealPath(
-				"projects/" + projectId + "/json/checkpoints-and-tasks/" + projectId
-						+ ".json"));
-		return new File(getServiceContext().getRealPath(
-				"projects/" + projectId + "/json/checkpoints-and-tasks/" + projectId
-						+ ".json"));
 	}
 
 	@Override
 	public boolean saveCheckpointsAndTasksJson(String projectId, String json) {
-		File jsonFile = getCheckpointsAndTasksJsonPath(projectId);
-		jsonFile.delete();
-		try (FileWriter writer = FileUtils.getFileWriter(jsonFile)) {
+		return saveJsonFile(getCheckpointsAndTasksJsonPath(projectId), json);
+	}
+
+	private boolean saveJsonFile(File destFile, String json) {
+		destFile.delete();
+		try (FileWriter writer = FileUtils.getFileWriter(destFile)) {
 			writer.write(json);
 		} catch (Exception e) {
-			log.error(jsonFile);
-			throw new RuntimeException(jsonFile.toString(), e);
+			log.error(destFile);
+			throw new RuntimeException(destFile.toString(), e);
 		}
 		return true;
+	}
+
+	@Override
+	public boolean addCheckpoint(String userId, String courseId, CheckpointJson json,
+			String imgData) {
+		File f = uploadImage(userId, courseId, imgData);
+		List<String> l = new ArrayList<>();
+		json.setImgSrc(f.getPath().replace(getServiceContext().getRealPath("/"), "")
+				.replaceAll("\\\\", "/"));
+		l.add(courseId);
+		CheckpointsAndTasksManager.insertToDb(json.toCheckpoint(l));
+		return true;
+	}
+
+	@Override
+	public String getCoursesJson(String projectId) {
+		return readJsonFile(getCoursesJsonPath(projectId));
+	}
+
+	private String readJsonFile(File srcFile) {
+		try {
+			String result = String.join(System.lineSeparator(),
+					Files.readAllLines(srcFile.toPath()));
+			return result;
+		} catch (Exception e) {
+			log.error(srcFile);
+			throw new RuntimeException(srcFile.toString(), e);
+		}
+	}
+
+	private File getCoursesJsonPath(String projectId) {
+		return new File(getProjectPath(projectId), "/json/courses.json");
+	}
+
+	@Override
+	public boolean saveCoursesJson(String projectId, String json) {
+		return saveJsonFile(getCoursesJsonPath(projectId), json);
 	}
 
 }

@@ -6,13 +6,13 @@ import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class InitialDataJson {
+public class CityWalkDataJson {
 
 	private List<CheckpointJson> checkpoints = new ArrayList<>();
 	private List<CategoryJson> categories = new ArrayList<>();
 	private CoursesJson settings = new CoursesJson();
 
-	public InitialDataJson(List<CheckpointJson> checkpointsJson,
+	public CityWalkDataJson(List<CheckpointJson> checkpointsJson,
 			List<CategoryJson> categoriesJson) {
 		this.checkpoints.addAll(checkpointsJson);
 		this.categories.addAll(categoriesJson);

@@ -1,4 +1,4 @@
-package org.magcruise.citywalk.conv;
+package org.magcruise.citywalk.model;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,10 +7,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.magcruise.citywalk.CityWalkApplicationContext;
+import org.magcruise.citywalk.jsonrpc.CityWalkDataFactory;
 import org.magcruise.citywalk.model.json.app.task.TaskContent;
-import org.magcruise.citywalk.model.json.db.CheckpointJson;
-import org.magcruise.citywalk.model.json.db.CheckpointsAndTasksJson;
-import org.magcruise.citywalk.model.json.db.TaskJson;
+import org.magcruise.citywalk.model.json.file.CheckpointJson;
+import org.magcruise.citywalk.model.json.file.CheckpointsAndTasksJson;
+import org.magcruise.citywalk.model.json.file.TaskJson;
 import org.magcruise.citywalk.model.relation.CheckpointsTable;
 import org.magcruise.citywalk.model.relation.TasksTable;
 import org.magcruise.citywalk.model.row.Checkpoint;
@@ -18,46 +19,43 @@ import org.magcruise.citywalk.model.row.Task;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.json.JsonObject;
 import org.nkjmlab.util.json.JsonUtils;
+import org.nkjmlab.util.log4j.LogManager;
 
 import net.arnx.jsonic.JSON;
 import net.arnx.jsonic.JSONException;
 
-public class CheckpointsAndTasksFactory {
-	protected static org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager
-			.getLogger();
+public class CheckpointsAndTasksManager {
+	protected static org.apache.logging.log4j.Logger log = LogManager.getLogger();
 
 	public static void main(String[] args) {
-		CheckpointsAndTasksJson json = JsonUtils.decode(
-				new File(
-						"src/main/webapp/projects/wasenavi/json/checkpoints-and-tasks/wasedasai2016.json"),
-				CheckpointsAndTasksJson.class);
+		File f = new File(
+				"src/main/webapp/projects/waseda-univ-kyoto-exp-2017/json/checkpoints-and-tasks/waseda-univ-kyoto-exp-2017.json");
+		CheckpointsAndTasksJson json = JsonUtils.decode(f, CheckpointsAndTasksJson.class);
 
-		json.getTasks().forEach(t -> {
-			if (t.getContent().getInstanceClass().contains("Pin")) {
-				System.out.println(json.getCheckpoints().stream()
-						.filter(c -> c.getId().equals(t.getCheckpointIds().get(0))).findFirst()
-						.get().getName() + "\t"
-						+ t.getContent().getAnswerTexts().get(0));
-			}
+		json.getCheckpoints().forEach(c -> {
+			c.setId("waseda-univ-kyoto-exp-2017-cp-" + c.getId());
 		});
 
-		//		json.getTasks().forEach(t -> {
-		//			if (t.getContent().getInstanceClass().contains("Pin")) {
-		//				List<String> l = new ArrayList<>();
-		//				l.add(String.valueOf(new Random().nextInt(9000) + 1000));
-		//				t.getContent().setAnswerTexts(l);
-		//			}
-		//		});
-		//		JsonUtils.encode(json, "src/main/webapp/json/checkpoints-and-tasks/wasedasai2016-nkjm.json",
-		//				true);
+		json.getTasks().forEach(t -> {
+			t.setId("waseda-univ-kyoto-exp-2017-cp-" + t.getId());
+			t.setCheckpointIds(t.getCheckpointIds().stream()
+					.map(s -> "waseda-univ-kyoto-exp-2017-cp-" + s).collect(Collectors.toList()));
+		});
 
-		//refreshCheckpointAtdTaskTable();
-		//log.info(createCheckpoints(json.getCheckpoints()));
-		//log.info(createTasks(json.getTasks()));
-		//log.info(insertToDb("src/main/webapp/json/checkpoints-and-tasks/wasedasai2016.json"));
+		log.info(createCheckpoints(json.getCheckpoints()));
+		log.info(createTasks(json.getTasks()));
+		JsonUtils.encode(json, f, true);
+
 	}
 
-	public static volatile Date lastUpdateTimes;
+	private static volatile Date lastUpdateTime;
+	private static CheckpointsTable checkpointsTable = new CheckpointsTable(
+			CityWalkApplicationContext.getDbClient());
+
+	private synchronized static void updateLastUpdateTime() {
+		lastUpdateTime = new Date();
+		CityWalkDataFactory.clearCache();
+	}
 
 	public static CheckpointsAndTasksJson insertToDb(String file) {
 		try {
@@ -65,13 +63,15 @@ public class CheckpointsAndTasksFactory {
 					CheckpointsAndTasksJson.class);
 			log.info("insertToDb:{}", json);
 			insertToDb(json);
-			lastUpdateTimes = new Date();
-			InitialDataFactory.initialDataJsonCache.clear();
 			return json;
 		} catch (JSONException | IOException e) {
 			throw new RuntimeException(e);
 		}
+	}
 
+	public static void insertToDb(Checkpoint checkpoint) {
+		checkpointsTable.insert(checkpoint);
+		updateLastUpdateTime();
 	}
 
 	public static void insertToDb(CheckpointsAndTasksJson json) {
@@ -79,7 +79,7 @@ public class CheckpointsAndTasksFactory {
 				.insertBatch(createCheckpoints(json.getCheckpoints()).toArray(new Checkpoint[0]));
 		new TasksTable(CityWalkApplicationContext.getDbClient())
 				.insertBatch(createTasks(json.getTasks()).toArray(new Task[0]));
-
+		updateLastUpdateTime();
 	}
 
 	public static void refreshCheckpointAtdTaskTable() {
@@ -97,13 +97,7 @@ public class CheckpointsAndTasksFactory {
 
 	public static List<Checkpoint> createCheckpoints(List<CheckpointJson> checkpointsData) {
 		List<Checkpoint> checkpoints = checkpointsData.stream()
-				.map(checkpoint -> new Checkpoint(checkpoint.getId(), checkpoint.getName(),
-						checkpoint.getLabel(), checkpoint.getDescription(), checkpoint.getLat(),
-						checkpoint.getLon(), checkpoint.getCourseIds(),
-						checkpoint.getMarkerColor(),
-						checkpoint.getCategory(), checkpoint.getSubcategory(),
-						checkpoint.getVisibleTimeFrom(), checkpoint.getVisibleTimeTo(),
-						checkpoint.getImgSrc(), checkpoint.getPlace()))
+				.map(checkpointJson -> checkpointJson.toCheckpoint())
 				.collect(Collectors.toList());
 		return checkpoints;
 	}
@@ -124,6 +118,10 @@ public class CheckpointsAndTasksFactory {
 		}).collect(Collectors.toList());
 		return tasks;
 
+	}
+
+	public static boolean exsitsUpdatedData(long timestamp) {
+		return timestamp < lastUpdateTime.getTime();
 	}
 
 }

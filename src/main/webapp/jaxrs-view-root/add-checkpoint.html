@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+<object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
+<script src="//cdnjs.cloudflare.com/ajax/libs/blueimp-load-image/2.12.2/load-image.all.min.js"></script>
+<script src="../js/task-common.js"></script>
+<script src="../js/add-checkpoint.js"></script>
+<link rel="stylesheet" href="../css/task-photo.css" />
+<title></title>
+</head>
+<body>
+  <input id="file-input" name="file-input" type="file" accept="image/*"
+    onchange="handleFiles(this.files)" />
+  <div class="container">
+    <div th:replace="/fragment/header.html :: top-menu"></div>
+    <div class="row top-margin">
+      <div class="col-xs-12">
+        <div class="narrow-description">写真を撮って下さい．</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="img-wrapper">
+          <img class="img-rounded" src="../img/nopicture.svg" id="img-preview">
+        </div>
+        <div id="btn-file-input" class="btn btn-primary-magc btn-lg">写真を登録</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <button id="btn-next" class="btn btn-primary-magc btn-lg btn-fill" disabled>Submit</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

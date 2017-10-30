@@ -554,7 +554,9 @@ var KEY_RANKING_TIME = "ranking_time";
 // });
 // }
 
-function updateInitialDataIfNeeded(courseId) {
+function updateInitialDataIfNeeded(courseId, callback) {
+  callback = callback || function() {
+  };
   if (!getCityWalkDataDate()) { return; }
   new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "exsitsUpdatedInitialData",
           [getCityWalkDataDate()], function(data) {
@@ -562,6 +564,7 @@ function updateInitialDataIfNeeded(courseId) {
               var req = new JsonRpcRequest(getBaseUrl(), "getInitialData",
                       [courseId, getLanguage()], function(data) {
                         saveCityWalkData(data.result);
+                        callback();
                       });
               req.timeout = 20000;
               new JsonRpcClient(req).rpc();

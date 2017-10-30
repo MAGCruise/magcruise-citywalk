@@ -8,8 +8,9 @@ import org.magcruise.citywalk.model.json.RegisterResultJson;
 import org.magcruise.citywalk.model.json.RewardJson;
 import org.magcruise.citywalk.model.json.UserAccountJson;
 import org.magcruise.citywalk.model.json.VisitedCheckpointJson;
+import org.magcruise.citywalk.model.json.app.CheckpointJson;
+import org.magcruise.citywalk.model.json.app.CityWalkDataJson;
 import org.magcruise.citywalk.model.json.app.CoursesJson;
-import org.magcruise.citywalk.model.json.app.InitialDataJson;
 import org.magcruise.citywalk.model.row.UserAccount;
 
 import jp.go.nict.langrid.commons.rpc.intf.Parameter;
@@ -20,10 +21,10 @@ public interface CityWalkServiceInterface {
 
 	CoursesJson getCourses();
 
-	InitialDataJson getInitialData(
+	CityWalkDataJson getInitialData(
 			@Parameter(sample = "waseda") String courseId, String language);
 
-	InitialDataJson getInitialDataFromFile(
+	CityWalkDataJson getInitialDataFromFile(
 			@Parameter(sample = "waseda") String courseId);
 
 	UserAccount login(@Parameter(sample = "ayaki") String userId, int pin);
@@ -35,10 +36,9 @@ public interface CityWalkServiceInterface {
 	boolean join(@Parameter(sample = "ayaki") String userId,
 			@Parameter(sample = "waseda") String courseId);
 
-	RewardJson addActivity(
-			@Parameter(sample = "{\"userId\": \"ayaki\", " + "\"checkpointId\": \"1\", "
-					+ "\"taskId\": \"1\", " + "\"score\": 9.0, " + "\"inputs\": "
-					+ "{\"value\":\"1\"}}") ActivityJson json);
+	RewardJson addActivity(ActivityJson json);
+
+	boolean addCheckpoint(String userId, String courseId, CheckpointJson json, String imgData);
 
 	void addMovements(MovementJson[] movements);
 
@@ -57,22 +57,16 @@ public interface CityWalkServiceInterface {
 
 	boolean sendLog(String errorLevel, String location, String msg, String options);
 
-	boolean validateCheckpointsAndTasksJson(
-			@Parameter(sample = "{\"checkpoints\":["
-					+ "{\"id\":\"cafeteria\",\"lat\":38.4400,\"lon\":139.11090,\"cource_ids\":[\"waseda\"]}],"
-					+ "\"tasks\":[" + "{\"checkpoint_ids\":[\"cafeteria\"],"
-					+ "\"content\":{\"instanceClass\":\"org.magcruise.citywalk.model.content.PhotoTask\",\"checkin\":true,"
-					+ "\"label\":\"表示されている写真と同じ写真を撮って下さい．\",\"answer\":\"task/ieiri_photo_00.jpg\"}},"
-					+ "{\"checkpoint_ids\":[\"aed-1\",\"aed-2\",\"aed-3\",\"aed-4\"],"
-					+ "\"content\":{\"instanceClass\":\"org.magcruise.citywalk.model.content.QrCodeTask\",\"checkin\":true,"
-					+ "\"label\":\"QRコードを撮って下さい．\",\"answer\":\"task/ieiri_qr_code_02.jpg\"}},"
-					+ "{\"checkpoint_ids\":[\"cafeteria\"],\"content\":{\"instanceClass\":\"org.magcruise.citywalk.model.content.SelectionTask\","
-					+ "\"label\":\"次のうち、理工の学食が発祥の地であるメニューはどれ？\","
-					+ "\"selections\":[\"豚玉丼\",\"チキンおろしだれ\",\"カツカレー\",\"ポーク焼肉\"],\"answerIndex\":3}}]}") String json);
+	boolean validateCheckpointsAndTasksJson(String json);
 
 	ActivityJson[] getCheckinLogs(String checkpointId);
 
 	String getCheckpointsAndTasksJson(String projectId);
 
 	boolean saveCheckpointsAndTasksJson(String projectId, String json);
+
+	String getCoursesJson(String projectId);
+
+	boolean saveCoursesJson(String projectId, String json);
+
 }

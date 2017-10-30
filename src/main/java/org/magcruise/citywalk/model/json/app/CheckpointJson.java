@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.magcruise.citywalk.model.row.Checkpoint;
 import org.nkjmlab.util.time.DateTimeUtils;
 
 public class CheckpointJson {
@@ -48,6 +49,17 @@ public class CheckpointJson {
 		this.visibleTimeTo = visibleTimeTo;
 		this.imgSrc = imgSrc;
 		this.place = place;
+	}
+
+	public Checkpoint toCheckpoint(List<String> courseIds) {
+		CheckpointJson checkpointJson = this;
+		return new Checkpoint(checkpointJson.getId(), checkpointJson.getName(),
+				checkpointJson.getLabel(), checkpointJson.getDescription(), checkpointJson.getLat(),
+				checkpointJson.getLon(), courseIds,
+				checkpointJson.getMarkerColor(),
+				checkpointJson.getCategory(), checkpointJson.getSubcategory(),
+				checkpointJson.getVisibleTimeFrom(), checkpointJson.getVisibleTimeTo(),
+				checkpointJson.getImgSrc(), checkpointJson.getPlace());
 	}
 
 	public String getId() {
