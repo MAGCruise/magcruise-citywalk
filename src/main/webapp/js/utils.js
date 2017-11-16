@@ -218,7 +218,7 @@ function getBaseUrl() {
 function getAdminBaseUrl() {
   var u = parseUri(document.URL);
   var urlPrefix = u.protocol + "://" + u.authority + "/" + u.directory.split("/")[1] + "/";
-  return urlPrefix + "json-admin/CityWalkAdminService";
+  return urlPrefix + "json/CityWalkAdminService";
 }
 
 function getActivityPublisherUrl() {

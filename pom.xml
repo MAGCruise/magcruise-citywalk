@@ -13,7 +13,15 @@
 	<repositories>
 		<repository>
 			<id>nkjmlab-public</id>
-			<url>http://maven.nkjmlab.org/nexus/content/groups/public</url>
+			<url>https://maven.nkjmlab.org/nexus/content/groups/public</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</releases>
 		</repository>
 	</repositories>
 	<scm>

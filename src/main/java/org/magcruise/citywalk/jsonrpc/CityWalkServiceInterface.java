@@ -27,7 +27,7 @@ public interface CityWalkServiceInterface {
 	CityWalkDataJson getInitialDataFromFile(
 			@Parameter(sample = "waseda") String courseId);
 
-	UserAccount login(@Parameter(sample = "ayaki") String userId, int pin);
+	UserAccount login(String userId, String pin);
 
 	boolean logout();
 

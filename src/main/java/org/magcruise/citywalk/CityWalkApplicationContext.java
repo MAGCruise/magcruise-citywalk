@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.annotation.WebListener;
@@ -52,12 +54,21 @@ public class CityWalkApplicationContext extends ApplicationContext {
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		SlackConfigs slackConf = SlackConfigsFactory
-				.createFromResource(CityWalkApplicationContext.class, "/slack-conf.json");
-		super.contextInitialized(event, "citywalk", slackConf.getWebhookUrl());
-		initializeDatabase(event);
-		addLoggingMemoryUsageTask(10);
-		log.info(getClass().getSimpleName() + " initialized");
+		ExecutorService exec = Executors.newSingleThreadExecutor();
+		exec.submit(() -> {
+			try {
+				SlackConfigs slackConf = SlackConfigsFactory
+						.createFromResource(CityWalkApplicationContext.class, "/slack-conf.json");
+				super.contextInitialized(event, "citywalk", slackConf.getWebhookUrl());
+				initializeDatabase(event);
+				addLoggingMemoryUsageTask(10);
+				log.info("{} is initialized", getClass().getSimpleName());
+			} catch (Exception e) {
+				log.error("Error is occred when initializing. " + e, e);
+				throw e;
+			}
+		});
+		exec.shutdown();
 	}
 
 	/**
@@ -159,13 +170,20 @@ public class CityWalkApplicationContext extends ApplicationContext {
 	}
 
 	private void readCheckpointsAndTasksJson(File jsonDir) {
-		Arrays.stream(jsonDir
-				.listFiles((FilenameFilter) (dir, name) -> {
-					return name.endsWith(".json");
-				})).forEach(f -> {
-					log.info("{} is loaded.", f);
-					CheckpointsAndTasksManager.insertToDb(f.getPath());
-				});
+		if (jsonDir == null) {
+			return;
+		}
+		File[] files = jsonDir.listFiles((FilenameFilter) (dir, name) -> {
+			return name.endsWith(".json");
+		});
+		if (files == null) {
+			return;
+		}
+
+		Arrays.stream(files).forEach(f -> {
+			log.info("{} is loaded.", f);
+			CheckpointsAndTasksManager.insertToDb(f.getPath());
+		});
 
 	}
 

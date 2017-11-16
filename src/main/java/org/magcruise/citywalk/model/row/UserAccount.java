@@ -15,7 +15,7 @@ import net.sf.persist.annotations.Table;
 public class UserAccount {
 
 	private String id;
-	private int pin;
+	private String pin;
 	private String language;
 	private String environment;
 	private Date createdAt;
@@ -69,11 +69,11 @@ public class UserAccount {
 		}
 	}
 
-	public int getPin() {
+	public String getPin() {
 		return pin;
 	}
 
-	public void setPin(int pin) {
+	public void setPin(String pin) {
 		this.pin = pin;
 	}
 
@@ -85,8 +85,8 @@ public class UserAccount {
 		this.environment = userAgent;
 	}
 
-	public boolean validate(int pin) {
-		return this.pin == pin;
+	public boolean validate(String pin) {
+		return this.pin.equals(pin);
 	}
 
 }

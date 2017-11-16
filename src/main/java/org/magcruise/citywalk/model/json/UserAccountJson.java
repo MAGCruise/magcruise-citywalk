@@ -7,7 +7,7 @@ import org.magcruise.citywalk.model.row.UserAccount;
 public class UserAccountJson {
 
 	private String id;
-	private int pin;
+	private String pin;
 	private String language;
 	private String environment;
 	private long createdAt;
@@ -52,11 +52,11 @@ public class UserAccountJson {
 		this.createdAt = createdAt;
 	}
 
-	public int getPin() {
+	public String getPin() {
 		return pin;
 	}
 
-	public void setPin(int pin) {
+	public void setPin(String pin) {
 		this.pin = pin;
 	}
 
@@ -68,8 +68,8 @@ public class UserAccountJson {
 		this.environment = userAgent;
 	}
 
-	public boolean validate(int pin) {
-		return this.pin == pin;
+	public boolean validate(String pin) {
+		return this.pin.equals(pin);
 	}
 
 }

@@ -19,7 +19,7 @@ public class UserAccountsTable extends RelationalModel<UserAccount> {
 		super(TABLE_NAME, client);
 		addColumnDefinition(ID, Keyword.VARCHAR, Keyword.PRIMARY_KEY);
 		addColumnDefinition(CREATED_AT, Keyword.TIMESTAMP);
-		addColumnDefinition(PIN, Keyword.INTEGER);
+		addColumnDefinition(PIN, Keyword.VARCHAR);
 		addColumnDefinition(LANGUAGE, Keyword.VARCHAR);
 		addColumnDefinition(ENVIRONMENT, Keyword.VARCHAR);
 	}
