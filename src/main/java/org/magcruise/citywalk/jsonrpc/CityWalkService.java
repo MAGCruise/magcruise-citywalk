@@ -409,7 +409,11 @@ public class CityWalkService extends JsonRpcService implements CityWalkServiceIn
 
 	@Override
 	public boolean saveCheckpointsAndTasksJson(String projectId, String json) {
-		return saveJsonFile(getCheckpointsAndTasksJsonPath(projectId), json);
+		File path = getCheckpointsAndTasksJsonPath(projectId);
+		if (!path.exists()) {
+			return false;
+		}
+		return saveJsonFile(path, json);
 	}
 
 	private boolean saveJsonFile(File destFile, String json) {

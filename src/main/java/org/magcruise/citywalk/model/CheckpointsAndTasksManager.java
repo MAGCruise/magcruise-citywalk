@@ -59,9 +59,10 @@ public class CheckpointsAndTasksManager {
 
 	public static CheckpointsAndTasksJson insertToDb(String file) {
 		try {
-			CheckpointsAndTasksJson json = JSON.decode(FileUtils.getFileReader(file),
+			log.info("Try to parse and insert to db={}", file);
+			CheckpointsAndTasksJson json = JSON.decode(
+					FileUtils.newBufferedReader(new File(file).toPath()),
 					CheckpointsAndTasksJson.class);
-			log.info("insertToDb:{}", json);
 			insertToDb(json);
 			return json;
 		} catch (JSONException | IOException e) {
