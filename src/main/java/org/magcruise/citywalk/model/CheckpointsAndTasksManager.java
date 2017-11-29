@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.apache.logging.log4j.Logger;
 import org.magcruise.citywalk.CityWalkApplicationContext;
 import org.magcruise.citywalk.jsonrpc.CityWalkDataFactory;
 import org.magcruise.citywalk.model.json.app.task.TaskContent;
@@ -25,7 +26,7 @@ import net.arnx.jsonic.JSON;
 import net.arnx.jsonic.JSONException;
 
 public class CheckpointsAndTasksManager {
-	protected static org.apache.logging.log4j.Logger log = LogManager.getLogger();
+	protected static Logger log = LogManager.getLogger();
 
 	public static void main(String[] args) {
 		File f = new File(
@@ -53,7 +54,9 @@ public class CheckpointsAndTasksManager {
 			CityWalkApplicationContext.getDbClient());
 
 	private synchronized static void updateLastUpdateTime() {
+		log.info("Previous lastUpdateTime is={}", lastUpdateTime);
 		lastUpdateTime = new Date();
+		log.info("Current lastUpdateTime is={}", lastUpdateTime);
 		CityWalkDataFactory.clearCache();
 	}
 

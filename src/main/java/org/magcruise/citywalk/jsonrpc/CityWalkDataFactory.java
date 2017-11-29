@@ -24,7 +24,7 @@ import org.nkjmlab.util.log4j.LogManager;
 public class CityWalkDataFactory {
 	protected static Logger log = LogManager.getLogger();
 
-	private static final Map<String, CityWalkDataJson> citywalkDataJsonCache = new ConcurrentHashMap<>();
+	private static Map<String, CityWalkDataJson> citywalkDataJsonCache = new ConcurrentHashMap<>();
 
 	public static void clearCache() {
 		citywalkDataJsonCache.clear();

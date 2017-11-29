@@ -61,7 +61,7 @@ public class CityWalkApplicationContext extends ApplicationContext {
 						.createFromResource(CityWalkApplicationContext.class, "/slack-conf.json");
 				super.contextInitialized(event, "citywalk", slackConf.getWebhookUrl());
 				initializeDatabase(event);
-				addLoggingMemoryUsageTask(10);
+				addLoggingMemoryUsageTask(180);
 				log.info("{} is initialized", getClass().getSimpleName());
 			} catch (Exception e) {
 				log.error("Error is occred when initializing. " + e, e);
@@ -242,5 +242,4 @@ public class CityWalkApplicationContext extends ApplicationContext {
 		SlackMessengerService.asyncPostMessage(getSlackWebhookUrl(),
 				new SlackMessage("log-client", category, "<!channel> " + text));
 	}
-
 }
