@@ -2,20 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head th:fragment="meta-fragment">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <link rel="stylesheet"
-  href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
 <link rel="stylesheet"
-  href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css" />
 <link rel="stylesheet"
-  href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 <link rel="stylesheet" href="../css/header.css" />
 <link rel="stylesheet" href="../css/common.css" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/stacktrace.js/1.3.1/stacktrace.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stacktrace.js/1.3.1/stacktrace.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="../js/lib/hammer-time.min.js"></script>
 <script src="../js/lib/jsonrpc.js"></script>
 <script src="../js/lib/parseUri.js"></script>
@@ -54,9 +58,12 @@
           <li><a href="check-environment.html" class="item">動作環境チェック</a></li> -->
           <!--  <li><a href="help.html" class="item">ヘルプ</a></li> -->
           <li role="separator" class="divider"></li>
-          <li><a class="item" onclick="confirmLogout()"><span th:text="#{logout}"></span></a></li>
+          <li><a href="https://toyama.wasenavi.jp/how-to-use.html" class="item">参加方法・遊び方</a></li>
+          <li><a href="https://toyama.wasenavi.jp/terms-of-use.html" class="item">利用規約</a></li>
+          <li><a href="/" class="item">イベント情報</a></li>
+          <li role="separator" class="divider"></li>
           <li><a href="courses.html" class="item">コース一覧</a></li>
-          <li><a href="/" class="item">Top | Machinavi</a></li>
+          <li><a class="item" onclick="confirmLogout()"><span th:text="#{logout}"></span></a></li>
           <!-- <li><a href="credits.html" class="item">クレジット</a></li> -->
         </ul>
       </div>

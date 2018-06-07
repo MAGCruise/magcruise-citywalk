@@ -21,6 +21,7 @@ window.onload = function() {
     location.href = "add-checkpoint.html" + "?lat=" + cPos.lat() + "&lon=" + cPos.lng();
   });
   function initMap() {
+    $("#map-box").css("height", (window.innerHeight - $("#map-box").offset().top - 160) + "px");
     map = new google.maps.Map(document.getElementById('map'), {
       center: new google.maps.LatLng(34.995782, 135.766918),
       mapTypeControl: false,
@@ -40,10 +41,10 @@ window.onload = function() {
 
     $("#checkpoints").on("click", function() {
       var height = $("#map-box").css("height", (window.innerHeight / 4) + "px");
-      height = height > 200 ? height : 200;
+      height = height > 280 ? height : 280;
       $("#map-box").css("height", height + "px");
       google.maps.event.trigger(map, "resize");
-      updateCheckpointListHeight(200);
+      updateCheckpointListHeight(280);
     });
 
     var currentPositionMarker = new GeolocationMarker();
@@ -76,7 +77,7 @@ function showReward() {
 function updateCheckpointListHeight(maxHeight) {
   var height = window.innerHeight - $("#checkpoints").offset().top + 15;
   if (height > maxHeight) {
-    $("#checkpoints").css("max-height", height + "px");
+    $("#checkpoints").css("max-height", maxHeight + "px");
   }
 }
 
@@ -450,14 +451,16 @@ function selectCheckpoint(checkpoint) {
             + '" class="pull-right checkpoint-img" style="max-width: 70px;margin-left: 2em;">'
             + "<div class='balloon-description'>" + checkpoint.label + "</div>",
     maxWidth: 200,
-    disableAutoPan: true,
+  // disableAutoPan: true,
   });
 
   var marker = markers.filter(function(marker) {
     return marker.checkpointId === checkpoint.id;
   })[0];
-  infoWindow.open(marker.getMap(), marker);
-  map.panTo(marker.getPosition());
+  if (marker) {
+    infoWindow.open(marker.getMap(), marker);
+    // map.panTo(marker.getPosition());
+  }
 
   $(".checkpoint").removeClass("selected");
   $("#checkpoint-" + checkpoint.id).addClass("selected");

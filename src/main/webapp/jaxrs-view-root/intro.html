@@ -4,7 +4,7 @@
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <link rel="stylesheet" href="../css/doc-page.css" />
 <script src="../js/intro.js"></script>
-<title>MAGCruise Citywalkへようこそ: Navi+Checkin+Quiz</title>
+<title>Citywalkへようこそ</title>
 </head>
 <body>
   <div class="container ">
@@ -13,7 +13,9 @@
       <div class="col-sm-12">
         <div class="well well-sm">
           <h1 class="text-center doc-header-bg">Citywalk</h1>
+          <!--
           <h1 class="text-center doc-header-bg">Navi + Checkin + Quiz</h1>
+           -->
           <p class="text-center lead">街をめぐり, ランドマークやイベントにチェックイン, タスクに挑戦して文化を体感しよう．</p>
         </div>
       </div>
@@ -21,25 +23,20 @@
     <div class="row">
       <div class="col-sm-12">
         <div>
-          <h4 class="green">注意事項</h4>
-          <ul>
-            <li>本アプリに端末の緯度経度情報の利用を許可する場合，表示されるアラートで許可を選択して下さい．
-              <div class="media">
-                <img class="media-object img-thumbnail center-block" src="../img/web/gps-alert.png"
-                  style="max-width: 240px;">
-              </div>
-            </li>
-            <li>位置情報の利用許可を与えた場合，端末の緯度経度情報がサーバに送信され記録されることに同意下さい．この情報はニックネームとともに保存されますが，論文発表などの学術目的以外には利用されません．</li>
-          </ul>
-        </div>
-        <div class="btn-group btn-group-justified bottom-margin">
-          <a id="btn-join-ja" class="btn btn-primary-magc btn-lg">はじめる (日本語)</a>
-        </div>
-        <div class="btn-group btn-group-justified bottom-margin">
-          <a id="btn-join-en" class="btn btn-primary-magc btn-lg">Start (English)</a>
+          <h4 class="green">注意</h4>
+          <p>本アプリに端末の緯度経度情報の利用を許可する場合，表示されるアラートで許可を選択して下さい．</p>
+          <div class="media">
+            <img class="media-object img-thumbnail center-block" src="../img/web/gps-alert.png"
+              style="max-width: 240px;">
+          </div>
+          <div class="btn-group btn-group-justified bottom-margin">
+            <a id="btn-join-ja" class="btn btn-primary-magc btn-lg">はじめる (日本語)</a>
+          </div>
+          <div class="btn-group btn-group-justified bottom-margin">
+            <a id="btn-join-en" class="btn btn-primary-magc btn-lg">Start (English)</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </body>
 </html>

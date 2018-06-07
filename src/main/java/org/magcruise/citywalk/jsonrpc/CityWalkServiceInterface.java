@@ -45,8 +45,7 @@ public interface CityWalkServiceInterface {
 	BadgeJson[] getBadges(@Parameter(sample = "ayaki") String userId,
 			@Parameter(sample = "waseda") String courseId);
 
-	RankingJson getRanking(@Parameter(sample = "ayaki") String userId,
-			@Parameter(sample = "waseda") String courseId);
+	RankingJson getRanking(String userId, String courseId, int max);
 
 	VisitedCheckpointJson[] getVisitedCheckpoints(
 			@Parameter(sample = "sample-at-magcruise.org") String userId,

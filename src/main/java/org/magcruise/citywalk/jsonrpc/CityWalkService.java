@@ -297,7 +297,7 @@ public class CityWalkService extends JsonRpcService implements CityWalkServiceIn
 	}
 
 	@Override
-	public RankingJson getRanking(String userId, String courseId) {
+	public RankingJson getRanking(String userId, String courseId, int max) {
 		RankingJson rankingJson = new RankingJson();
 		try {
 			rankingJson.setRank(verifiedActivities.getRankJson(userId, courseId));
@@ -307,8 +307,7 @@ public class CityWalkService extends JsonRpcService implements CityWalkServiceIn
 		rankingJson.setGroupRank(new RankJson("g1", -1, 0));
 
 		try {
-			final int rankLimit = 10;
-			rankingJson.setRanking(verifiedActivities.getRanksJson(courseId, rankLimit));
+			rankingJson.setRanking(verifiedActivities.getRanksJson(courseId, max));
 		} catch (Exception e) {
 			rankingJson.setRanking(new ArrayList<>());
 		}

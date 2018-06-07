@@ -202,13 +202,13 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow({
     content: checkpoint.name + "<br>(" + checkpoint.place + ")",
     maxWidth: 200,
-    disableAutoPan: true,
+    //disableAutoPan: true,
   });
 
   google.maps.event.addListener(infoWindow, "closeclick", function() {
     google.maps.event.addListenerOnce(marker, "click", function(event) {
       infoWindow.open(map, marker);
-      map.panTo(marker.getPosition());
+      //map.panTo(marker.getPosition());
     });
   });
 
@@ -262,10 +262,10 @@ function initMakers() {
                 + "<div class='balloon-description'>" + checkpoint.label + "<br>"
                 + '<a id="nav-start-in-list" class="btn btn-success btn-sm">Go!</a>' + "</div>",
         maxWidth: 200,
-        disableAutoPan: true,
+        //disableAutoPan: true,
       });
       infoWindow.open(marker.getMap(), marker);
-      map.panTo(marker.getPosition());
+      //map.panTo(marker.getPosition());
       $("#nav-start-in-list").on("click", function() {
         location.href = "./navi.html?checkpoint_id=" + checkpoint.id + "&navi_from=navi";
       });
@@ -370,10 +370,14 @@ function postMovementsFunc() {
 
 /* ローカルストレージにムーブメントを追加する */
 function enqueueMovement(pos) {
+  var lat = pos.coords.latitude;
+  var lon = pos.coords.longitude;
+//  if (lat < 35.6977908373084 || 35.70778096734629 < lat) { return; }
+//  if (lon < 139.70682237440087 || 139.71025560193993 < lon) { return; }
   var movement = {
     userId: getUserId(),
-    lat: pos.coords.latitude,
-    lon: pos.coords.longitude,
+    lat: lat,
+    lon: lon,
     accuracy: pos.coords.accuracy,
     altitude: pos.coords.altitude || -1,
     altitudeAccuracy: pos.coords.altitudeAccuracy || -1,

@@ -1,5 +1,6 @@
 package org.magcruise.citywalk.jaxrs;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.Map;
@@ -13,6 +14,7 @@ import org.magcruise.citywalk.model.row.UserAccount;
 import org.nkjmlab.util.lang.ExceptionUtils;
 import org.nkjmlab.webui.jaxrs.JaxrsView;
 import org.nkjmlab.webui.jaxrs.thymeleaf.ThymeleafModel;
+import org.nkjmlab.webui.jaxrs.thymeleaf.ThymeleafModelBuilder;
 import org.nkjmlab.webui.util.servlet.UserSession;
 
 @Path("/")
@@ -40,7 +42,8 @@ public class CityWalkView extends JaxrsView {
 						|| filePathFromViewRoot.equals("/check-environment.html")) {
 					ThymeleafModel model = createModel();
 					Locale lang = params.get("lang") != null
-							? Locale.forLanguageTag(params.get("lang")[0]) : Locale.US;
+							? Locale.forLanguageTag(params.get("lang")[0])
+							: Locale.US;
 					model.setLocale(lang);
 					return createView(filePathFromViewRoot, model);
 				}
@@ -72,7 +75,10 @@ public class CityWalkView extends JaxrsView {
 	}
 
 	private ThymeleafModel createModel() {
-		ThymeleafModel model = new ThymeleafModel();
+		ThymeleafModel model = new ThymeleafModelBuilder()
+				.setFileUpdateDates(new File(servletContext.getRealPath("/")),
+						new String[] { "js", "css" }, true)
+				.build();
 		model.setErrorHandler((t) -> {
 			CityWalkApplicationContext.asyncPostMessageToLogSrvChannel(getClass().getSimpleName(),
 					":x: ```" + ExceptionUtils.getMessageWithStackTrace(t) + "```");

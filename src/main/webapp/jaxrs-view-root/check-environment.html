@@ -2,35 +2,50 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
-<link rel="stylesheet" href="../css/courses.css" />
+<link rel="stylesheet" th:href="|../css/courses.css?${css_courses_css}|" />
 <title th:text=#{title}>動作環境チェック</title>
 <script src="../js/lib/ua-parser.min.js"></script>
-<script src="../js/check-environment.js"></script>
+<script th:src="|../js/check-environment.js?${js_check_environment_js}|"></script>
 </head>
 <body>
   <div class="container">
     <div th:replace="/fragment/header.html :: top-menu"></div>
-    <div class="row">
+    <div class="row top-margin">
       <div class="col-xs-12">
-        <h4 th:text=#{title}>動作環境チェック</h4>
         <p th:utext=#{description}>
           動作環境のチェックをします．<span class="label label-danger">ERROR</span>が表示される場合，このアプリケーションを利用できません．<span
             class="label label-warning">WARN</span>が表示される場合，一部の機能が利用できない可能性があります．
         </p>
-        <h4>Browser/OS</h4>
-        <p id="os-browser">wait．．．</p>
-        <h4>Settings of browser</h4>
-        <p id="localStorage">wait．．．</p>
-        <h4>Location information service</h4>
-        <p id="gps">wait．．．</p>
-        <h4>Electronic compass</h4>
-        <p id="compass">wait．．．</p>
-        <h4>Hint</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <h6>Browser/OS</h6>
+        <p id="os-browser">Wait ...</p>
+      </div>
+      <div class="col-xs-6">
+        <h6>Settings of browser</h6>
+        <p id="localStorage">Wait ．．．</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <h6>Location information service</h6>
+        <p id="gps">Wait to a response from GPS．．．</p>
+      </div>
+      <div class="col-xs-6">
+        <h6>Electronic compass</h6>
+        <p id="compass">Wait ．．．</p>
+      </div>
+      <!--
+        <h6>Hint</h6>
         <div class="alert alert-info">
           <span class="label label-info">HINT</span> <span th:text=#{wifiNotice}>WiFiをオンにすると位置情報サービスの精度が上がります．</span>
         </div>
+         -->
+      <div class="col-xs-12">
         <button type="button" id="btn-join"
-          class="btn btn-primary-magc btn-lg btn-block bottom-margin">Next</button>
+          class="btn btn-primary-magc btn-lg btn-block bottom-margin" disabled>Next</button>
       </div>
     </div>
   </div>

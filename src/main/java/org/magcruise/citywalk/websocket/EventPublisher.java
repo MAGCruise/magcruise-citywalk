@@ -69,7 +69,10 @@ public class EventPublisher {
 	private synchronized List<Activity> readEvents(String sessionId, String courseId) {
 		long readId = getLatestReadId(sessionId);
 		List<Activity> result = verifiedActivitiesTable.getNewActivitiesOrderById(
-				courseId, readId).stream().filter(
+				courseId, readId).stream().filter(a -> {
+					return (System.currentTimeMillis() < a.getCreatedAt().getTime()
+							+ 30 * 60 * 1000);
+				}).filter(
 						a -> {
 							Task t = tasksTable.getTask(a.getTaskId());
 							if (t == null) {

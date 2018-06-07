@@ -5,10 +5,11 @@
 <object th:include="/fragment/header.html :: meta-fragment" th:remove="tag"></object>
 <script
   src="//maps.googleapis.com/maps/api/js?key=AIzaSyBFMkC80_LinDnNkfzY56heGJZAq24bfsA&libraries=geometry"></script>
-<link rel="stylesheet" href="../css/checkpoints.css" />
+<link rel="stylesheet" th:href="|../css/checkpoints.css?${css_checkpoints_css}|" />
 <script src="../js/lib/geolocation-marker.js"></script>
-<script src="../js/map-utils.js"></script>
-<script src="../js/checkpoints.js"></script>
+<script th:src="|../js/map-utils.js?${js_map-utils_js}|"></script>
+<script th:src="|../js/checkpoints.js?${js_checkpoints_js}|"></script>
+
 <link rel="stylesheet"
   href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/2.0.0-beta1/css/bootstrap-select.min.css">
 <script

@@ -1,19 +1,21 @@
+var MAX_RANKING_INFO = 100;
+
 $(function() {
-  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getRanking", [getUserId(), getCourseId()],
-          function(data) {
-            var myRanking = data.result.rank;
-            var rankings = data.result.ranking;
+  new JsonRpcClient(new JsonRpcRequest(getBaseUrl(), "getRanking", [getUserId(), getCourseId(),
+      MAX_RANKING_INFO], function(data) {
+    var myRanking = data.result.rank;
+    var rankings = data.result.ranking;
 
-            initNames();
-            initRankingsView(rankings, false); // isGroup:false->個人
-            initMyRankingView(myRanking);
+    initNames();
+    initRankingsView(rankings, false); // isGroup:false->個人
+    initMyRankingView(myRanking);
 
-            // var myGroupRanking = data.result.groupRank;
-            // var groupRankings = data.result.groupRanking;
-            // initMyGroupRankingView(myGroupRanking);
-            // initRankingsView(groupRankings, true);
+    // var myGroupRanking = data.result.groupRank;
+    // var groupRankings = data.result.groupRanking;
+    // initMyGroupRankingView(myGroupRanking);
+    // initRankingsView(groupRankings, true);
 
-          })).rpc();
+  })).rpc();
 });
 
 function initNames() {
@@ -42,15 +44,19 @@ function initMyGroupRankingView(myGroupRanking) {
 }
 
 function initRankingsView(rankings, isGroup) {
-  var MAX_ROW = 100;
+  var MAX_ROW = 10;
 
   for (var i = 0; i < rankings.length; i++) {
-    if (i >= MAX_ROW) {
-      break;
-    }
     var ranking = rankings[i];
 
+    if (i >= MAX_ROW && getUserId() != ranking.name) {
+      continue;
+    }
+
     var listItem = $('<li></li>').addClass('list-group-item');
+    if (getUserId() == ranking.name) {
+      listItem.addClass('alert alert-info');
+    }
     var html = "";
     if (ranking.rank <= 3) {
       listItem.addClass('rank-text');

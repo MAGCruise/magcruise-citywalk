@@ -1,5 +1,11 @@
+var numOfOk = 0;
+function ok() {
+  numOfOk++;
+  if (numOfOk >= 3) {
+    $("#btn-join").prop("disabled", false);
+  }
+}
 $(function() {
-
   if (!getUserId() || !getCourseId()) {
     $("#nav-menu-wrapper").remove();
   }
@@ -25,6 +31,7 @@ $(function() {
     $("#localStorage").html(
             $('<div class="alert alert-success">').html(
                     '<span class="label label-success">OK</span> '));
+    ok();
   } else {
     $("#localStorage")
             .html(
@@ -33,9 +40,13 @@ $(function() {
                                     '<span class="label label-danger">ERROR</span> '
                                             + 'ローカルストレージを利用できません．ブラウザがプライベートモードになっているならば，オフにして下さい．'
                                             + '<a class="alert-link" href="https://support.apple.com/ja-jp/HT203036">プライベートブラウズをオフにする  - Apple サポート<i class="fa fa-external-link"></i></a> を見る'));
-    $("#btn-join").prop("disabled", true);
   }
   checkGPS();
+
+  $("#compass").html(
+          $('<div class="alert alert-warning">').html(
+                  '<span class="label label-warning">WARN</span> '
+                          + "Fail to use electronic compass."));
   window.addEventListener("deviceorientation", onHeadingChange);
 
 });
@@ -57,10 +68,6 @@ function onHeadingChange(event) {
   }
   var orientation = getBrowserOrientation();
   if (typeof cHeading == "undefined" || cHeading == null) {
-    $("#compass").html(
-            $('<div class="alert alert-warning">').html(
-                    '<span class="label label-warning">WARN</span> '
-                            + "Fail to use electronic compass."));
   } else {
     $("#compass").html(
             $('<div class="alert alert-success">').html(
@@ -76,15 +83,16 @@ function checkGPS() {
                     $("#gps").html(
                             $('<div class="alert alert-success">').html(
                                     '<span class="label label-success">OK</span> '));
+                    ok();
                   },
                   function(error) {
                     $("#gps")
                             .html(
-                                    $('<div class="alert alert-warning">')
+                                    $('<div class="alert alert-danger">')
                                             .html(
-                                                    '<span class="label label-warning">WARN</span> '
+                                                    '<span class="label label-danger">ERROR</span> '
                                                             + "位置情報サービスが利用できないため，残り距離，コンパスによるナビゲーションができません．"
-                                                            + '<i class="glyphicon glyphicon-hand-right"></i> '
+                                                            + '<br><i class="glyphicon glyphicon-hand-right"></i> '
                                                             + '<a class="alert-link" href="troubleshooting.html#gps-settings">位置情報サービスの設定</a> を見る．'));
                   }, {
                     enableHighAccuracy: true,
@@ -150,5 +158,6 @@ function checkDevice() {
     $("#os-browser").html(
             $('<div class="alert alert-success">').html(
                     '<span class="label label-success">OK</span> ' + osAndBrowser));
+    ok();
   }
 }
