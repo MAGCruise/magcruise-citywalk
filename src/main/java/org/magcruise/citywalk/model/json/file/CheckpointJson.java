@@ -22,7 +22,8 @@ public class CheckpointJson {
 	private String category;
 	private String subcategory;
 	private Date visibleTimeFrom = new Date(0);
-	private Date visibleTimeTo = DateTimeUtils.fromTimestamp("2099-01-01 00:00:00");
+	private Date visibleTimeTo = DateTimeUtils
+			.toDate(DateTimeUtils.parseH2TimestampString("2099-01-01 00:00:00"));
 	private String imgSrc;
 	private String place;
 

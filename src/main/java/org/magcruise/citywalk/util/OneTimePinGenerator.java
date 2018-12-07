@@ -11,7 +11,7 @@ import org.nkjmlab.util.csv.CsvUtils;
 import org.nkjmlab.util.io.FileUtils;
 import org.nkjmlab.util.security.Hash;
 
-public class PinGenerator {
+public class OneTimePinGenerator {
 
 	public static void main(String[] args) {
 		String salt = "ieiri";
@@ -40,7 +40,6 @@ public class PinGenerator {
 
 	private static String toNumberString(String hash, int length) {
 		return hash.replaceAll("[a-z]", "").substring(0, length);
-
 	}
 
 }
