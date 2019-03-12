@@ -6,9 +6,9 @@ import java.util.List;
 import org.magcruise.citywalk.model.row.Movement;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
-import org.nkjmlab.util.db.RelationalModel;
+import org.nkjmlab.util.db.Table;
 
-public class MovementsTable extends RelationalModel<Movement> {
+public class MovementsTable extends Table<Movement> {
 
 	public static final String TABLE_NAME = "MOVEMENTS";
 	private static final String ID = "id";

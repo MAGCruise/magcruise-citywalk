@@ -6,9 +6,9 @@ import java.util.Map;
 import org.magcruise.citywalk.model.row.Activity;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
-import org.nkjmlab.util.db.RelationalModel;
+import org.nkjmlab.util.db.Table;
 
-public abstract class ActivitiesTable<T extends Activity> extends RelationalModel<T> {
+public abstract class ActivitiesTable<T extends Activity> extends Table<T> {
 
 	private static final String ID = "id";
 	private static final String CREATED_AT = "created_at";

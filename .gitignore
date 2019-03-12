@@ -8,3 +8,4 @@
 /src/main/webapp/projects
 /tomcat.
 /src/main/java/slack-conf.json
+/src/main/resources/slack-conf.json

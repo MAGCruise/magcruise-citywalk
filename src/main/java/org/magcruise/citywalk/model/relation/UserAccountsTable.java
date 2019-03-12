@@ -3,9 +3,9 @@ package org.magcruise.citywalk.model.relation;
 import org.magcruise.citywalk.model.row.UserAccount;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
-import org.nkjmlab.util.db.RelationalModel;
+import org.nkjmlab.util.db.Table;
 
-public class UserAccountsTable extends RelationalModel<UserAccount> {
+public class UserAccountsTable extends Table<UserAccount> {
 
 	public static final String TABLE_NAME = "USER_ACCOUNTS";
 

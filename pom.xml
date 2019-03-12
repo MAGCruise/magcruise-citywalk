@@ -32,6 +32,13 @@
 	</scm>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>${log4j-version}</version>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/javax/javaee-web-api -->
 		<dependency>
 			<groupId>javax</groupId>
@@ -51,6 +58,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.nkjmlab</groupId>
+			<artifactId>nkjmlab-utils-csv</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.nkjmlab</groupId>
 			<artifactId>nkjmlab-utils-gdata</artifactId>
 			<version>0.0.3-SNAPSHOT</version>
 		</dependency>
@@ -64,7 +76,6 @@
 			<artifactId>nkjmlab-websrv-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
 	</dependencies>
 
 </project>

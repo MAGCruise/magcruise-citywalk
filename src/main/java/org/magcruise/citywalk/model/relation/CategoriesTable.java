@@ -3,9 +3,9 @@ package org.magcruise.citywalk.model.relation;
 import org.magcruise.citywalk.model.row.Category;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
-import org.nkjmlab.util.db.RelationalModel;
+import org.nkjmlab.util.db.Table;
 
-public class CategoriesTable extends RelationalModel<Category> {
+public class CategoriesTable extends Table<Category> {
 
 	public static final String TABLE_NAME = "CATEGORIES";
 	private static final String ID = "id";

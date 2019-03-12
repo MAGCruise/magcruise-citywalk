@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 import org.magcruise.citywalk.model.row.Checkpoint;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
-import org.nkjmlab.util.db.RelationalModel;
+import org.nkjmlab.util.db.Table;
 
-public class CheckpointsTable extends RelationalModel<Checkpoint> {
+public class CheckpointsTable extends Table<Checkpoint> {
 
 	public static final String TABLE_NAME = "CHECKPOINTS";
 

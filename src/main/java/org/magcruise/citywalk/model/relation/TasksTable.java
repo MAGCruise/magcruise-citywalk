@@ -8,9 +8,11 @@ import org.magcruise.citywalk.model.json.app.task.TaskContent;
 import org.magcruise.citywalk.model.row.Task;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
-import org.nkjmlab.util.db.RelationalModel;
+import org.nkjmlab.util.db.Table;
 
-public class TasksTable extends RelationalModel<Task> {
+public class TasksTable extends Table<Task> {
+	private static org.apache.logging.log4j.Logger log = org.nkjmlab.util.log4j.LogManager
+			.getLogger();
 
 	public static final String TABLE_NAME = "TASKS";
 	private static final String ID = "id";

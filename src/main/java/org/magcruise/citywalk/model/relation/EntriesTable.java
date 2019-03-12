@@ -5,9 +5,9 @@ import java.util.List;
 import org.magcruise.citywalk.model.row.Entry;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
-import org.nkjmlab.util.db.RelationalModel;
+import org.nkjmlab.util.db.Table;
 
-public class EntriesTable extends RelationalModel<Entry> {
+public class EntriesTable extends Table<Entry> {
 
 	public static final String TABLE_NAME = "ENTRIES";
 

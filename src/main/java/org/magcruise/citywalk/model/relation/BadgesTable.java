@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 import org.magcruise.citywalk.model.row.Badge;
 import org.nkjmlab.util.db.DbClient;
 import org.nkjmlab.util.db.Keyword;
-import org.nkjmlab.util.db.RelationalModel;
+import org.nkjmlab.util.db.Table;
 
-public class BadgesTable extends RelationalModel<Badge> {
+public class BadgesTable extends Table<Badge> {
 
 	public static final String TABLE_NAME = "BADGES";
 	private static final String ID = "id";

@@ -15,6 +15,8 @@ import org.magcruise.citywalk.model.row.VerifiedActivity;
 import org.nkjmlab.util.db.DbClient;
 
 public class VerifiedActivitiesTable extends ActivitiesTable<VerifiedActivity> {
+	private static org.apache.logging.log4j.Logger log = org.nkjmlab.util.log4j.LogManager
+			.getLogger();
 
 	public static final String TABLE_NAME = "VERIFIED_ACTIVITIES";
 	private CheckpointsTable checkpoints = new CheckpointsTable(
